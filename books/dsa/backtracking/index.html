@@ -1,0 +1,679 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>回溯算法 (Backtracking) | 明无梦的数据结构与算法学习之路</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.1.0">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../backtracking/eight-queens-puzzle.html" />
+    
+    
+    <link rel="prev" href="../greedy/optimal-decomposition.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book" data-level="5" data-basepath=".." data-revision="Mon Feb 29 2016 11:43:37 GMT+0800 (CST)">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+        
+            
+            <li>
+                <a href="http://www.dreamxu.com/" target="blank" class="custom-link">明无梦的博客</a>
+            </li>
+        
+        
+
+        
+        <li class="divider"></li>
+        
+
+        
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                        <i class="fa fa-check"></i>
+                        
+                        简介
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="data-structure/index.html">
+            
+                
+                    <a href="../data-structure/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        基本数据结构 (Elementary Data Structures
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="data-structure/slist/index.html">
+            
+                
+                    <a href="../data-structure/slist/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        单链表 (Linked list)
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="data-structure/slist/src.html">
+            
+                
+                    <a href="../data-structure/slist/src.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.1.</b>
+                        
+                        实现
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2" data-path="data-structure/slist/doc.html">
+            
+                
+                    <a href="../data-structure/slist/doc.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.2.</b>
+                        
+                        文档
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="data-structure/queue/queue.html">
+            
+                
+                    <a href="../data-structure/queue/queue.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        队列 (Queue)
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="data-structure/binary-tree.html">
+            
+                
+                    <a href="../data-structure/binary-tree.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                        二叉树 (Binary Tree)
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="data-structure/binary-heap.html">
+            
+                
+                    <a href="../data-structure/binary-heap.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.4.</b>
+                        
+                        二叉堆 (Binary heap)
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="dc/index.html">
+            
+                
+                    <a href="../dc/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        分治算法 (Divide and conquer algorithms)
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="dc/rmq.html">
+            
+                
+                    <a href="../dc/rmq.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        范围最值查询 (Range Minimum Query)
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="dc/change-coin.html">
+            
+                
+                    <a href="../dc/change-coin.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        换硬币问题
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="dc/subset.html">
+            
+                
+                    <a href="../dc/subset.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        子集问题
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="dc/hanio.html">
+            
+                
+                    <a href="../dc/hanio.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        汉诺塔 (Tower of Hanoi)
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="dc/binary-search.html">
+            
+                
+                    <a href="../dc/binary-search.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                        二分搜索 (Binary search)
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="dc/quicksort.html">
+            
+                
+                    <a href="../dc/quicksort.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.6.</b>
+                        
+                        快速排序 (Quicksort)
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="dc/gray-code.html">
+            
+                
+                    <a href="../dc/gray-code.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.7.</b>
+                        
+                        格雷码 (Gray code)
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="dp/index.html">
+            
+                
+                    <a href="../dp/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        动态规划 (Dynamic programming)
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="dp/edit-distance.html">
+            
+                
+                    <a href="../dp/edit-distance.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        编辑距离 (Edit distance)
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="dp/digital-triangle.html">
+            
+                
+                    <a href="../dp/digital-triangle.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        数字三角形
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="dp/max-k-product.html">
+            
+                
+                    <a href="../dp/max-k-product.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        最大 K 乘积
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="dp/01-knapsack.html">
+            
+                
+                    <a href="../dp/01-knapsack.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                        0/1 背包问题 (0/1 knapsack problem)
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="greedy/index.html">
+            
+                
+                    <a href="../greedy/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        贪心算法 (Greedy algorithm)
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="greedy/activity-selection.html">
+            
+                
+                    <a href="../greedy/activity-selection.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        活动选择问题 (Activity-selection problem
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="greedy/optimal-decomposition.html">
+            
+                
+                    <a href="../greedy/optimal-decomposition.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                        最优分解问题
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="5" data-path="backtracking/index.html">
+            
+                
+                    <a href="../backtracking/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        回溯算法 (Backtracking)
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="backtracking/eight-queens-puzzle.html">
+            
+                
+                    <a href="../backtracking/eight-queens-puzzle.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                        八皇后问题 (Eight queens puzzle)
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="backtracking/minimum-weight-of-the-machine.html">
+            
+                
+                    <a href="../backtracking/minimum-weight-of-the-machine.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                        最小重量机器设计问题
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                Published with GitBook
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Table of Contents"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Font Settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Share"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">
+                    Share on Twitter
+                </button>
+                <button type="button" data-sharing="google-plus" class="button">
+                    Share on Google
+                </button>
+                <button type="button" data-sharing="facebook" class="button">
+                    Share on Facebook
+                </button>
+                <button type="button" data-sharing="weibo" class="button">
+                    Share on Weibo
+                </button>
+                <button type="button" data-sharing="instapaper" class="button">
+                    Share on Instapaper
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    
+    
+    
+    
+
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >明无梦的数据结构与算法学习之路</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="%E5%9B%9E%E6%BA%AF%E6%B3%95-backtracking">&#x56DE;&#x6EAF;&#x6CD5; (Backtracking)</h1>
+<p>&#x56DE;&#x6EAF;&#x6CD5;&#x662F;&#x4E00;&#x4E2A;&#x901A;&#x7528;&#x7684;&#x7B97;&#x6CD5;&#xFF0C;&#x80FD;&#x591F;&#x627E;&#x5230;&#x4E00;&#x4E9B;&#x8BA1;&#x7B97;&#x95EE;&#x9898;&#x7684;&#x6240;&#x6709;&#x89E3;&#xFF0C;
+&#x901A;&#x5E38;&#x662F;&#x4E00;&#x4E9B;&#x6EE1;&#x8DB3;&#x7EA6;&#x675F;&#x95EE;&#x9898;&#x3002;
+&#x901A;&#x8FC7;&#x904D;&#x5386;&#x7684;&#x65B9;&#x6CD5;&#x5BFB;&#x627E;&#x89E3;&#xFF0C;&#x4E0D;&#x65AD;&#x6DF1;&#x5165;&#x641C;&#x7D22;&#xFF0C;&#x5982;&#x679C;&#x786E;&#x5B9A;&#x8FD9;&#x90E8;&#x5206;&#x4E0D;&#x53EF;&#x80FD;&#x6709;&#x89E3;&#xFF0C;&#x5219;&#x653E;&#x5F03;&#x8FD9;&#x90E8;&#x4EFD;&#x7684;&#x641C;&#x7D22;&#xFF0C;
+&#x7EE7;&#x7EED;&#x4E0B;&#x4E00;&#x90E8;&#x5206;&#x7684;&#x641C;&#x7D22;</p>
+<p>&#x56DE;&#x6EAF;&#x6CD5;&#x7684;&#x7B97;&#x6CD5;&#x672C;&#x8D28;&#x662F;&#xFF1A;n &#x53C9;&#x6811;&#x7684;&#x904D;&#x5386;</p>
+<h2 id="%E9%80%92%E5%BD%92%E7%89%88%E6%9C%AC">&#x9012;&#x5F52;&#x7248;&#x672C;</h2>
+<p>&#x7C7B;&#x4F3C;&#x5BF9; n &#x53C9;&#x6811;&#x8FDB;&#x884C;&#x904D;&#x5386;&#xFF0C;&#x4E14;&#x904D;&#x5386;&#x8D77;&#x59CB;&#x7F16;&#x53F7;&#x4E3A; 0. 
+&#x5728;&#x904D;&#x5386;&#x4E2D;&#x52A0;&#x5165;&#x7EA6;&#x675F;&#x4E0E;&#x9650;&#x754C;&#xFF0C;&#x4EE5;&#x6B64;&#x786E;&#x5B9A;&#x4E00;&#x4E9B;&#x5B50;&#x6811;&#x4E0D;&#x9700;&#x8981;&#x904D;&#x5386;</p>
+<p>&#x5927;&#x81F4;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF0C;&#x4EE5;&#x53CA;&#x4E00;&#x4E9B;&#x89E3;&#x91CA;&#xFF1A;</p>
+<ul>
+<li><code>data</code> &#x9700;&#x8981;&#x7528;&#x5230;&#x7684;&#x6570;&#x636E;</li>
+<li><code>data-&gt;depth</code> &#x9700;&#x8981;&#x904D;&#x5386;&#x7684;&#x6DF1;&#x5EA6;</li>
+<li><code>depth</code> &#x904D;&#x5386;&#x7684;&#x5F53;&#x524D;&#x6DF1;&#x5EA6;</li>
+<li><code>solution(data)</code> &#x5904;&#x7406;&#x5F97;&#x5230;&#x7684;&#x89E3;</li>
+<li><code>path[depth]</code> &#x8BB0;&#x5F55;&#x4E86;&#x6839;&#x5230;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x7684;&#x8DEF;&#x5F84;&#xFF0C;&#x53EF;&#x66FF;&#x6362;&#x4E3A;&#x5176;&#x5B83;&#x9700;&#x8981;&#x5728;&#x5404;&#x4E2A;&#x904D;&#x5386;&#x8282;&#x70B9;&#x5904;&#x7406;&#x7684;&#x4EE3;&#x7801;</li>
+<li><code>constraint(data, depth)</code> &#x7EA6;&#x675F;&#x51FD;&#x6570;&#xFF0C;&#x6EE1;&#x8DB3;&#x7EA6;&#x675F;&#x8FD4;&#x56DE; TRUE, &#x5426;&#x5219;&#x8FD4;&#x56DE; FALSE</li>
+<li><code>bound(data, depth)</code> &#x9650;&#x754C;&#x51FD;&#x6570;&#xFF0C;&#x6EE1;&#x8DB3;&#x51CF;&#x679D;&#x6761;&#x4EF6;&#x8FD4;&#x56DE; TRUE, &#x5426;&#x5219;&#x8FD4;&#x56DE; FALSE</li>
+</ul>
+<pre><code class="lang-c"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">backtracking_iter</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> data *data, <span class="hljs-keyword">int</span> depth)</span>
+</span>{
+    <span class="hljs-keyword">if</span> (data-&gt;depth == depth) {
+        solution(data);
+        <span class="hljs-keyword">return</span>;
+    }
+
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; data-&gt;depth; i++) {
+        data-&gt;path[depth] = i;
+        <span class="hljs-keyword">if</span> (constraint(data, depth) == TRUE &amp;&amp; bound(data, depth) == FALSE) {
+            backtracking(data, depth + <span class="hljs-number">1</span>);
+        }
+    }
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">backtracking</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> data *data)</span>
+</span>{
+    backtracking_iter(data, <span class="hljs-number">0</span>);
+}
+</code></pre>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../greedy/optimal-decomposition.html" class="navigation navigation-prev " aria-label="Previous page: 最优分解问题"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../backtracking/eight-queens-puzzle.html" class="navigation navigation-next " aria-label="Next page: 八皇后问题 (Eight queens puzzle)"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-disqus/plugin.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-ga/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2},"disqus":{"shortName":"mwum"},"ga":{"token":"UA-39279084-1","configuration":"auto"}};
+    gitbook.start(config);
+});
+</script>
+
+        <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-39279084-1', 'auto');ga('send', 'pageview');</script>
+    </body>
+    
+</html>

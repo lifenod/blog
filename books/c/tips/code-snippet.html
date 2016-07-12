@@ -1,0 +1,1109 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>代码片段 | 明无梦的 C 语言记录与心得</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.1.0">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../tips/macro-definition.html" />
+    
+    
+    <link rel="prev" href="../tips/index.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book" data-level="3.1" data-basepath=".." data-revision="Mon Feb 29 2016 11:43:18 GMT+0800 (CST)">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+        
+            
+            <li>
+                <a href="http://www.dreamxu.com/" target="blank" class="custom-link">明无梦的博客</a>
+            </li>
+        
+        
+
+        
+        <li class="divider"></li>
+        
+
+        
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                        <i class="fa fa-check"></i>
+                        
+                        简介
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="language/index.html">
+            
+                
+                    <a href="../language/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        语言
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="language/others.html">
+            
+                
+                    <a href="../language/others.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        其它
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="language/extern.html">
+            
+                
+                    <a href="../language/extern.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        extern
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="language/static.html">
+            
+                
+                    <a href="../language/static.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                        static
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="language/header-file.html">
+            
+                
+                    <a href="../language/header-file.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.4.</b>
+                        
+                        头文件 (header file)
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="language/basic-types.html">
+            
+                
+                    <a href="../language/basic-types.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.5.</b>
+                        
+                        基本类型
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="lib/index.html">
+            
+                
+                    <a href="../lib/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        库 (Library)
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="lib/general.html">
+            
+                
+                    <a href="../lib/general.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        General
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="lib/c-standard-library.html">
+            
+                
+                    <a href="../lib/c-standard-library.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        C 标准库 (C standard library)
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="lib/static-library.html">
+            
+                
+                    <a href="../lib/static-library.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        静态库 (Static library)
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="tips/index.html">
+            
+                
+                    <a href="../tips/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        Tips
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="3.1" data-path="tips/code-snippet.html">
+            
+                
+                    <a href="../tips/code-snippet.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        代码片段
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="tips/macro-definition.html">
+            
+                
+                    <a href="../tips/macro-definition.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        宏定义
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="file/index.html">
+            
+                
+                    <a href="../file/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        文件 I/O
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="file/reading-and-writing.html">
+            
+                
+                    <a href="../file/reading-and-writing.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        读写方式
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="file/read-numerical-data.html">
+            
+                
+                    <a href="../file/read-numerical-data.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                        读取数值型数据
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="process/index.html">
+            
+                
+                    <a href="../process/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        进程
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="process/command-line-arguments.html">
+            
+                
+                    <a href="../process/command-line-arguments.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                        命令行参数
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="process/process-termination.html">
+            
+                
+                    <a href="../process/process-termination.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                        进程终止
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="process/process-control.html">
+            
+                
+                    <a href="../process/process-control.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.3.</b>
+                        
+                        进程控制
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="socket/index.html">
+            
+                
+                    <a href="../socket/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        套接字
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1" data-path="socket/osi.html">
+            
+                
+                    <a href="../socket/osi.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.1.</b>
+                        
+                        OSI 模型
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="socket/tcp-connection-establishment-and-termination.html">
+            
+                
+                    <a href="../socket/tcp-connection-establishment-and-termination.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.2.</b>
+                        
+                        TCP 连接的建立和终止
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="socket/structures-and-functions.html">
+            
+                
+                    <a href="../socket/structures-and-functions.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.3.</b>
+                        
+                        相关结构与函数
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="manage/index.html">
+            
+                
+                    <a href="../manage/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        管理
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1" data-path="manage/make.html">
+            
+                
+                    <a href="../manage/make.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.1.</b>
+                        
+                        Make
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="manage/cmake.html">
+            
+                
+                    <a href="../manage/cmake.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.2.</b>
+                        
+                        CMake
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="test/index.html">
+            
+                
+                    <a href="../test/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        测试
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1" data-path="test/minunit.html">
+            
+                
+                    <a href="../test/minunit.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.1.</b>
+                        
+                        MinUnit
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2" data-path="test/cmockery.html">
+            
+                
+                    <a href="../test/cmockery.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.2.</b>
+                        
+                        Cmockery
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="compile/index.html">
+            
+                
+                    <a href="../compile/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.</b>
+                        
+                        编译
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="9.1" data-path="compile/clang.html">
+            
+                
+                    <a href="../compile/clang.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.1.</b>
+                        
+                        clang
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="10" data-path="library/index.html">
+            
+                
+                    <a href="../library/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.</b>
+                        
+                        库
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="10.1" data-path="library/gmp.html">
+            
+                
+                    <a href="../library/gmp.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.1.</b>
+                        
+                        GMP
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="11" data-path="linux/index.html">
+            
+                
+                    <a href="../linux/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.</b>
+                        
+                        Linux
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="11.1" data-path="linux/kernel-modules.html">
+            
+                
+                    <a href="../linux/kernel-modules.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.1.</b>
+                        
+                        简单内核模块编写
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                Published with GitBook
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Table of Contents"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Font Settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Share"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">
+                    Share on Twitter
+                </button>
+                <button type="button" data-sharing="google-plus" class="button">
+                    Share on Google
+                </button>
+                <button type="button" data-sharing="facebook" class="button">
+                    Share on Facebook
+                </button>
+                <button type="button" data-sharing="weibo" class="button">
+                    Share on Weibo
+                </button>
+                <button type="button" data-sharing="instapaper" class="button">
+                    Share on Instapaper
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    
+    
+    
+    
+
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >明无梦的 C 语言记录与心得</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5">&#x4EE3;&#x7801;&#x7247;&#x6BB5;</h1>
+<h2 id="%E8%BE%93%E5%87%BA%E9%94%99%E8%AF%AF%E4%BF%A1%E6%81%AF%E5%B9%B6%E9%80%80%E5%87%BA">&#x8F93;&#x51FA;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#x5E76;&#x9000;&#x51FA;</h2>
+<pre><code class="lang-c"><span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> err_exit(x) do { printf(&quot;%s\n&quot;, x); exit(1); } while (0)</span>
+</code></pre>
+<h2 id="%E8%BE%93%E5%87%BA%E7%B3%BB%E7%BB%9F%E9%94%99%E8%AF%AF%E4%BF%A1%E6%81%AF%E5%B9%B6%E9%80%80%E5%87%BA">&#x8F93;&#x51FA;&#x7CFB;&#x7EDF;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#x5E76;&#x9000;&#x51FA;</h2>
+<pre><code class="lang-c"><span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> err_sys(x) do { perror(x); exit(1); } while (0)</span>
+</code></pre>
+<h2 id="%E6%B8%85%E7%A9%BA%E8%BE%93%E5%85%A5%E7%BC%93%E5%AD%98">&#x6E05;&#x7A7A;&#x8F93;&#x5165;&#x7F13;&#x5B58;</h2>
+<pre><code class="lang-c"><span class="hljs-keyword">while</span> ((c = getchar()) != <span class="hljs-string">&apos;\n&apos;</span> &amp;&amp; c != EOF)
+    ;
+</code></pre>
+<pre><code class="lang-c"><span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%*[^\n]&quot;</span>);
+</code></pre>
+<pre><code class="lang-c">setbuf(stdin, NULL);
+</code></pre>
+<h2 id="%E7%BB%88%E7%AB%AF%E5%B1%8F%E8%94%BD%E6%98%BE%E7%A4%BA">&#x7EC8;&#x7AEF;&#x5C4F;&#x853D;&#x663E;&#x793A;</h2>
+<pre><code class="lang-c">system(<span class="hljs-string">&quot;stty -echo&quot;</span>);
+system(<span class="hljs-string">&quot;stty echo&quot;</span>);
+</code></pre>
+<h2 id="%E6%8C%89%E4%BB%BB%E6%84%8F%E9%94%AE%E7%BB%A7%E7%BB%AD">&#x6309;&#x4EFB;&#x610F;&#x952E;&#x7EE7;&#x7EED;</h2>
+<pre><code class="lang-c">system(<span class="hljs-string">&quot;stty raw -echo&quot;</span>);
+<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Press any key to continue ...&quot;</span>);
+getchar();
+system(<span class="hljs-string">&quot;stty -raw echo&quot;</span>);
+</code></pre>
+<h2 id="%E8%8E%B7%E5%8F%96%E6%96%87%E4%BB%B6%E5%A4%A7%E5%B0%8F">&#x83B7;&#x53D6;&#x6587;&#x4EF6;&#x5927;&#x5C0F;</h2>
+<pre><code class="lang-c"><span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> &lt;sys/stat.h&gt;</span>
+
+<span class="hljs-function">off_t <span class="hljs-title">get_file_size</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *path)</span>
+</span>{
+    <span class="hljs-keyword">struct</span> stat sb;
+
+    <span class="hljs-keyword">if</span> (stat(path, &amp;sb) &lt; <span class="hljs-number">0</span>)
+        <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;
+    <span class="hljs-keyword">return</span> sb.st_size;
+}
+</code></pre>
+<h2 id="%E6%8C%87%E5%AE%9A%E6%95%B0%E7%BB%84%E7%9A%84%E5%85%83%E7%B4%A0%E4%BE%86%E8%BF%9B%E8%A1%8C%E5%88%9D%E5%A7%8B%E5%8C%96">&#x6307;&#x5B9A;&#x6570;&#x7EC4;&#x7684;&#x5143;&#x7D20;&#x4F86;&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;</h2>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x6570;&#x7EC4;&#x7684;&#x5143;&#x7D20;&#x4F86;&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;&#x3002;
+&#x8FD9;&#x975E;&#x5E38;&#x6709;&#x7528;&#xFF0C;&#x7279;&#x522B;&#x662F;&#x5F53;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x6839;&#x636E;&#x4E00;&#x7EC4; #define &#x4F86;&#x4FDD;&#x6301;&#x67D0;&#x79CD;&#x6620;&#x5C04;&#x5173;&#x7CFB;&#x7684;&#x540C;&#x6B65;&#x66F4;&#x65B0;&#x65F6;</p>
+<p>&#x5982;&#x4E0B;&#xFF0C;&#x5047;&#x8BBE;&#x6211;&#x4EEC;&#x60F3;&#x4E3A;&#x6BCF;&#x4E2A;&#x9519;&#x8BEF;&#x7801;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x9519;&#x8BEF;&#x63CF;&#x8FF0;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x3002;
+&#x4E3A;&#x4E86;&#x786E;&#x4FDD;&#x6570;&#x7EC4;&#x4FDD;&#x6301;&#x4E86;&#x6700;&#x65B0;&#x7684;&#x5B9A;&#x4E49;&#xFF0C;&#x65E0;&#x8BBA;&#x5934;&#x6587;&#x4EF6;&#x505A;&#x4E86;&#x4EFB;&#x4F55;&#x4FEE;&#x6539;&#x6216;&#x589E;&#x8865;&#xFF0C;&#x6211;&#x4EEC;&#x90FD;&#x53EF;&#x4EE5;&#x7528;&#x8FD9;&#x4E2A;&#x6570;&#x7EC4;&#x6307;&#x5B9A;&#x7684;&#x8BED;&#x6CD5;</p>
+<p>&#x8FD9;&#x6837;&#x5C31;&#x53EF;&#x4EE5;&#x9759;&#x6001;&#x5206;&#x914D;&#x8DB3;&#x591F;&#x7684;&#x7A7A;&#x95F4;&#xFF0C;&#x4E14;&#x4FDD;&#x8BC1;&#x6700;&#x5927;&#x7684;&#x7D22;&#x5F15;&#x662F;&#x5408;&#x6CD5;&#x7684;&#xFF0C;
+&#x540C;&#x65F6;&#x5C06;&#x7279;&#x6B8A;&#x7684;&#x7D22;&#x5F15;&#x521D;&#x59CB;&#x5316;&#x4E3A;&#x6307;&#x5B9A;&#x7684;&#x503C;&#xFF0C;&#x5E76;&#x5C06;&#x5269;&#x4E0B;&#x7684;&#x7D22;&#x5F15;&#x521D;&#x59CB;&#x5316;&#x4E3A; 0</p>
+<pre><code class="lang-c"><span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> &lt;stdio.h&gt;</span>
+
+<span class="hljs-comment">/* Entries may not correspond to actual numbers. Some entries omitted. */</span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> EINVAL 1</span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> ENOMEM 2</span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> EFAULT 3</span>
+<span class="hljs-comment">/* ... */</span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> E2BIG  7</span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> EBUSY  8</span>
+<span class="hljs-comment">/* ... */</span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> ECHILD 12</span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-keyword">char</span> *err_strings[] = {
+        [<span class="hljs-number">0</span>     ] = <span class="hljs-string">&quot;Success&quot;</span>,
+        [EINVAL] = <span class="hljs-string">&quot;Invalid argument&quot;</span>,
+        [ENOMEM] = <span class="hljs-string">&quot;Not enough memory&quot;</span>,
+        <span class="hljs-comment">/* ... */</span>
+        [E2BIG ] = <span class="hljs-string">&quot;Argument list to long&quot;</span>,
+        [EBUSY ] = <span class="hljs-string">&quot;Device or resource busy&quot;</span>,
+        <span class="hljs-comment">/* ... */</span>
+        [ECHILD] = <span class="hljs-string">&quot;No child processe&quot;</span>,
+    };
+
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%s\n&quot;</span>, err_strings[<span class="hljs-number">0</span>]);
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h2 id="%E7%94%A8%E7%BB%93%E6%9E%84%E4%BD%93%E4%B8%8E%E8%81%94%E5%90%88%E4%BD%93%E7%9A%84%E5%AD%97%E6%AE%B5%E5%90%8D%E7%A7%B0%E4%BE%86%E5%88%9D%E5%A7%8B%E5%8C%96%E6%95%B0%E6%8D%AE">&#x7528;&#x7ED3;&#x6784;&#x4F53;&#x4E0E;&#x8054;&#x5408;&#x4F53;&#x7684;&#x5B57;&#x6BB5;&#x540D;&#x79F0;&#x4F86;&#x521D;&#x59CB;&#x5316;&#x6570;&#x636E;</h2>
+<p>&#x5F53;&#x6211;&#x4EEC;&#x4E0D;&#x60F3;&#x5C06;&#x6240;&#x6709;&#x5B57;&#x6BB5;&#x521D;&#x59CB;&#x5316;&#x4E3A; 0 &#x65F6;&#x5019;&#xFF0C;&#x8FD9;&#x79CD;&#x505A;&#x6CD5;&#x53EF;&#x4EE5;&#x5F88;&#x5BB9;&#x6613;&#x7684;&#x5728;&#x7F16;&#x8BD1;&#x65F6;&#x5C31;&#x751F;&#x6210;&#x7ED3;&#x6784;&#x4F53;&#xFF0C;
+&#x800C;&#x4E0D;&#x9700;&#x8981;&#x4E13;&#x95E8;&#x8C03;&#x7528;&#x4E00;&#x4E2A;&#x521D;&#x59CB;&#x5316;&#x51FD;&#x6570;</p>
+<pre><code class="lang-c"><span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> &lt;stdio.h&gt;</span>
+
+<span class="hljs-keyword">struct</span> point {
+    <span class="hljs-keyword">int</span> x;
+    <span class="hljs-keyword">int</span> y;
+    <span class="hljs-keyword">int</span> z;
+};
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-keyword">struct</span> point p = {.x = <span class="hljs-number">3</span>, .y = <span class="hljs-number">4</span>, .z = <span class="hljs-number">5</span>};
+
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n%d\n%d\n&quot;</span>, p.x, p.y, p.z);
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h2 id="md5-%E5%8A%A0%E5%AF%86">md5 &#x52A0;&#x5BC6;</h2>
+<p>&#x7F16;&#x8BD1;&#x65F6;&#x52A0;&#x4E0A; -lcrypt</p>
+<pre><code class="lang-c"><span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> &lt;stdio.h&gt;</span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> &lt;string.h&gt;</span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> &lt;crypt.h&gt;</span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> salt[] = <span class="hljs-string">&quot;$1$mwumsmsp$&quot;</span>;
+    <span class="hljs-keyword">char</span> *cp;
+    <span class="hljs-keyword">char</span> s[<span class="hljs-number">69</span>];
+
+    <span class="hljs-keyword">while</span> (<span class="hljs-number">1</span>) {
+        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%69s&quot;</span>, s);
+
+        cp = crypt(s, salt);
+        cp += <span class="hljs-built_in">strlen</span>(salt);
+
+        <span class="hljs-built_in">puts</span>(cp);
+    }
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h2 id="%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%BD%8D%E6%93%8D%E4%BD%9C">&#x5B57;&#x7B26;&#x4E32;&#x4F4D;&#x64CD;&#x4F5C;</h2>
+<pre><code class="lang-c"><span class="hljs-comment">/* &#x5C06;&#x6307;&#x5B9A;&#x4F4D;&#x7684;&#x6BD4;&#x7279;&#x4F4D;&#x8BBE;&#x4E3A;set */</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">set_num_bit</span><span class="hljs-params">(<span class="hljs-keyword">char</span> *s, <span class="hljs-keyword">int</span> n, <span class="hljs-keyword">int</span> <span class="hljs-built_in">set</span>)</span>
+</span>{
+    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">set</span>) {
+        *(s + n/<span class="hljs-number">8</span>) |= (<span class="hljs-number">0x80</span> &gt;&gt; n%<span class="hljs-number">8</span>);
+    } <span class="hljs-keyword">else</span> {
+        *(s + n/<span class="hljs-number">8</span>) &amp;= ~(<span class="hljs-number">0x80</span> &gt;&gt; n%<span class="hljs-number">8</span>);
+    }
+}
+</code></pre>
+<pre><code class="lang-c"><span class="hljs-comment">/* &#x53D6;&#x5F97;&#x6307;&#x5B9A;&#x4F4D;&#x7684;&#x6BD4;&#x7279;&#x4F4D; */</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">get_num_bit</span><span class="hljs-params">(<span class="hljs-keyword">char</span> *s, <span class="hljs-keyword">int</span> n)</span>
+</span>{
+    <span class="hljs-keyword">return</span> ((*(s + n/<span class="hljs-number">8</span>) &lt;&lt; n%<span class="hljs-number">8</span>) &amp; <span class="hljs-number">0x80</span>) == <span class="hljs-number">0x80</span> ? <span class="hljs-number">1</span> : <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h2 id="%E5%AD%97%E7%AC%A6%E4%B8%B2-%E6%95%B0%E5%AD%97">&#x5B57;&#x7B26;&#x4E32; + &#x6570;&#x5B57;</h2>
+<pre><code class="lang-c"><span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> &lt;string.h&gt;</span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> &lt;stdio.h&gt;</span>
+
+<span class="hljs-comment">/* max 999 */</span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> TIMES   6</span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])</span>
+</span>{
+    <span class="hljs-comment">/* strlen(&quot;input-999&quot;) = 9 */</span>
+    <span class="hljs-keyword">char</span> path[<span class="hljs-number">10</span>] = <span class="hljs-string">&quot;input-&quot;</span>;
+    <span class="hljs-comment">/* strlen(&quot;999&quot;) = 3 */</span>
+    <span class="hljs-keyword">char</span> number[<span class="hljs-number">4</span>];
+
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= TIMES; i++) {
+        path[<span class="hljs-number">6</span>] = <span class="hljs-string">&apos;\0&apos;</span>;
+        <span class="hljs-built_in">sprintf</span>(number, <span class="hljs-string">&quot;%d&quot;</span>, i);
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%s\n&quot;</span>, <span class="hljs-built_in">strncat</span>(path, number, <span class="hljs-number">3</span>));
+    }
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h2 id="%E8%AF%84%E6%96%AD%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%98%AF%E5%90%A6%E4%B8%BA%E6%95%B0%E5%AD%97">&#x8BC4;&#x65AD;&#x5B57;&#x7B26;&#x4E32;&#x662F;&#x5426;&#x4E3A;&#x6570;&#x5B57;</h2>
+<pre><code class="lang-c"><span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> &lt;string.h&gt;</span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">is_digit</span><span class="hljs-params">(<span class="hljs-keyword">char</span> *s)</span>
+</span>{
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-built_in">strlen</span>(s); i++) {
+        <span class="hljs-keyword">if</span> (s[i] &lt; <span class="hljs-string">&apos;0&apos;</span> || s[i] &gt; <span class="hljs-string">&apos;9&apos;</span>)
+            <span class="hljs-keyword">return</span> FALSE;
+    }
+    <span class="hljs-keyword">return</span> TRUE;
+}
+</code></pre>
+<h2 id="%E4%BD%BF%E7%94%A8%E4%BA%8C%E7%BA%A7%E6%8C%87%E9%92%88%E4%BD%9C%E4%B8%BA%E7%9F%A9%E9%98%B5">&#x4F7F;&#x7528;&#x4E8C;&#x7EA7;&#x6307;&#x9488;&#x4F5C;&#x4E3A;&#x77E9;&#x9635;</h2>
+<pre><code class="lang-c"><span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> &lt;stdlib.h&gt;</span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> &lt;stdio.h&gt;</span>
+
+<span class="hljs-keyword">struct</span> matrix {
+    <span class="hljs-keyword">int</span> row;
+    <span class="hljs-keyword">int</span> col;
+    <span class="hljs-keyword">int</span> **matrix;
+};
+
+<span class="hljs-comment">/*
+ * &#x521D;&#x59CB;&#x5316;
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">init_matrix</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> matrix *matrix, <span class="hljs-keyword">int</span> row, <span class="hljs-keyword">int</span> col)</span>
+</span>{
+    matrix-&gt;row = row;
+    matrix-&gt;col = col;
+
+    matrix-&gt;matrix = (<span class="hljs-keyword">int</span> **)<span class="hljs-built_in">malloc</span>(<span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">int</span> *) * row);
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; row; i++) {
+        matrix-&gt;matrix[i] = (<span class="hljs-keyword">int</span> *)<span class="hljs-built_in">malloc</span>(<span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">int</span>) * col);
+    }
+}
+<span class="hljs-comment">/*
+ * void init_matrix(int ***p, int row, int col)
+ * {
+ *     *p = (int **)malloc(sizeof(int *) * row);
+ *     for (int i = 0; i &lt; row; i++) {
+ *         (*p)[i] = (int *)malloc(sizeof(int) * col);
+ *     }
+ * }
+ *
+ * use:
+ *     init_matrix(&amp;matrix-&gt;matrix, matrix-&gt;row, matrix-&gt;col);
+ */</span>
+
+<span class="hljs-comment">/*
+ * &#x6E05;&#x7406;&#x5DE5;&#x4F5C;
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">clear_matrix</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> matrix *matrix)</span>
+</span>{
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; matrix-&gt;row; i++) {
+        <span class="hljs-built_in">free</span>(matrix-&gt;matrix[i]);
+    }
+    <span class="hljs-built_in">free</span>(matrix-&gt;matrix);
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">init_matrix_data</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> matrix *matrix)</span>
+</span>{
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; matrix-&gt;row; i++) {
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; matrix-&gt;col; j++) {
+            matrix-&gt;matrix[i][j] = i*j;
+        }
+    }
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">print_matrix</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> matrix *matrix)</span>
+</span>{
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;row = %d, col = %d\n&quot;</span>, matrix-&gt;row, matrix-&gt;col);
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; matrix-&gt;row; i++) {
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; matrix-&gt;col; j++) {
+            <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d &quot;</span>, matrix-&gt;matrix[i][j]);
+        }
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n&quot;</span>);
+    }
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])</span>
+</span>{
+    <span class="hljs-keyword">struct</span> matrix *matrix = (<span class="hljs-keyword">struct</span> matrix *)<span class="hljs-built_in">malloc</span>(<span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">struct</span> matrix));
+
+    init_matrix(matrix, <span class="hljs-number">5</span>, <span class="hljs-number">2</span>);
+
+    init_matrix_data(matrix);
+
+    print_matrix(matrix);
+
+    clear_matrix(matrix);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h2 id="%E6%9C%80%E5%A4%A7%E6%9C%80%E5%B0%8F">&#x6700;&#x5927;&#x6700;&#x5C0F;</h2>
+<p><code>linux-3.17.3/include/linux/kernel.h:</code></p>
+<pre><code class="lang-c"><span class="hljs-comment">/*
+ * min()/max()/clamp() macros that also do
+ * strict type-checking.. See the
+ * &quot;unnecessary&quot; pointer comparison.
+ */</span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> min(x, y) ({                \</span>
+    typeof(x) _min1 = (x);          \
+    typeof(y) _min2 = (y);          \
+    (<span class="hljs-keyword">void</span>) (&amp;_min1 == &amp;_min2);      \
+    _min1 &lt; _min2 ? _min1 : _min2; })
+
+<span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> max(x, y) ({                \</span>
+    typeof(x) _max1 = (x);          \
+    typeof(y) _max2 = (y);          \
+    (<span class="hljs-keyword">void</span>) (&amp;_max1 == &amp;_max2);      \
+    _max1 &gt; _max2 ? _max1 : _max2; })
+
+<span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> min3(x, y, z) ({            \</span>
+    typeof(x) _min1 = (x);          \
+    typeof(y) _min2 = (y);          \
+    typeof(z) _min3 = (z);          \
+    (<span class="hljs-keyword">void</span>) (&amp;_min1 == &amp;_min2);      \
+    (<span class="hljs-keyword">void</span>) (&amp;_min1 == &amp;_min3);      \
+    _min1 &lt; _min2 ? (_min1 &lt; _min3 ? _min1 : _min3) : \
+        (_min2 &lt; _min3 ? _min2 : _min3); })
+
+<span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> max3(x, y, z) ({            \</span>
+    typeof(x) _max1 = (x);          \
+    typeof(y) _max2 = (y);          \
+    typeof(z) _max3 = (z);          \
+    (<span class="hljs-keyword">void</span>) (&amp;_max1 == &amp;_max2);      \
+    (<span class="hljs-keyword">void</span>) (&amp;_max1 == &amp;_max3);      \
+    _max1 &gt; _max2 ? (_max1 &gt; _max3 ? _max1 : _max3) : \
+        (_max2 &gt; _max3 ? _max2 : _max3); })
+</code></pre>
+<p>&#x82E5; <code>typeof</code> &#x5173;&#x952E;&#x8BCD;&#x4E0D;&#x53EF;&#x7528;&#xFF0C;&#x53EF;&#x8BD5;&#x8BD5; <code>__typeof__</code></p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../tips/index.html" class="navigation navigation-prev " aria-label="Previous page: Tips"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../tips/macro-definition.html" class="navigation navigation-next " aria-label="Next page: 宏定义"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-disqus/plugin.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-ga/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2},"disqus":{"shortName":"mwum"},"ga":{"token":"UA-39279084-1","configuration":"auto"}};
+    gitbook.start(config);
+});
+</script>
+
+        <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-39279084-1', 'auto');ga('send', 'pageview');</script>
+    </body>
+    
+</html>

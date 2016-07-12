@@ -1,0 +1,1241 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>open - 模拟鼠标双击操作 | 明无梦的操作系统使用记录</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.1.0">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../os-x/nl.html" />
+    
+    
+    <link rel="prev" href="../os-x/sass.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book" data-level="1.5" data-basepath=".." data-revision="Thu Apr 14 2016 12:44:27 GMT+0800 (CST)">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+        
+            
+            <li>
+                <a href="http://www.dreamxu.com/" target="blank" class="custom-link">明无梦的博客</a>
+            </li>
+        
+        
+
+        
+        <li class="divider"></li>
+        
+
+        
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                        <i class="fa fa-check"></i>
+                        
+                        介绍
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="os-x/index.html">
+            
+                
+                    <a href="../os-x/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        OS X
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="os-x/system-settings.html">
+            
+                
+                    <a href="../os-x/system-settings.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        系统设置
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="os-x/terminal-env.html">
+            
+                
+                    <a href="../os-x/terminal-env.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        iTerm2, Zsh, tmux - 终端环境
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="os-x/ngnix.html">
+            
+                
+                    <a href="../os-x/ngnix.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                        Ngnix - Web 服务器
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="os-x/sass.html">
+            
+                
+                    <a href="../os-x/sass.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.4.</b>
+                        
+                        Sass - CSS 预处理工具
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5" data-path="os-x/open.html">
+            
+                
+                    <a href="../os-x/open.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.5.</b>
+                        
+                        open - 模拟鼠标双击操作
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="os-x/nl.html">
+            
+                
+                    <a href="../os-x/nl.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.6.</b>
+                        
+                        nl - 显示行号
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="os-x/mtr.html">
+            
+                
+                    <a href="../os-x/mtr.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.7.</b>
+                        
+                        mtr - 网络诊断工具
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="os-x/sips.html">
+            
+                
+                    <a href="../os-x/sips.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.8.</b>
+                        
+                        sips - 批量处理图片
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="os-x/search.html">
+            
+                
+                    <a href="../os-x/search.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.9.</b>
+                        
+                        搜索
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="os-x/mdfind.html">
+            
+                
+                    <a href="../os-x/mdfind.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.9.1.</b>
+                        
+                        mdfind - 搜索工具
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="os-x/ack.html">
+            
+                
+                    <a href="../os-x/ack.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.9.2.</b>
+                        
+                        ack - 文本搜索
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="os-x/find.html">
+            
+                
+                    <a href="../os-x/find.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.9.3.</b>
+                        
+                        find - 文件搜索
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="os-x/mdls.html">
+            
+                
+                    <a href="../os-x/mdls.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.10.</b>
+                        
+                        mdls - 查看文件的 metadata 信息
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="os-x/file.html">
+            
+                
+                    <a href="../os-x/file.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.11.</b>
+                        
+                        file - 查看文件的类型
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="os-x/lsof.html">
+            
+                
+                    <a href="../os-x/lsof.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.12.</b>
+                        
+                        lsof - 查看打开某个文件的程序
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="os-x/do-not-sleep-so-mac-using-battery-case.html">
+            
+                
+                    <a href="../os-x/do-not-sleep-so-mac-using-battery-case.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.13.</b>
+                        
+                        使用电池情况下使 Mac 不睡眠
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="os-x/change-hostname-and-computername.html">
+            
+                
+                    <a href="../os-x/change-hostname-and-computername.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.14.</b>
+                        
+                        更改主机名和计算机名
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="os-x/sha.html">
+            
+                
+                    <a href="../os-x/sha.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.15.</b>
+                        
+                        SHA 校验
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="os-x/tar.html">
+            
+                
+                    <a href="../os-x/tar.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.16.</b>
+                        
+                        tar - 打包命令
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="os-x/system-default-screenshot-without-a-window-shadow.html">
+            
+                
+                    <a href="../os-x/system-default-screenshot-without-a-window-shadow.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.17.</b>
+                        
+                        系统默认截图不带窗口阴影
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="os-x/about-ds-store.html">
+            
+                
+                    <a href="../os-x/about-ds-store.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.18.</b>
+                        
+                        关于 .DS_store
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="os-x/iconv.html">
+            
+                
+                    <a href="../os-x/iconv.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.19.</b>
+                        
+                        iconv - 字符编码转换
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20" data-path="os-x/reset-the-dns-cache.html">
+            
+                
+                    <a href="../os-x/reset-the-dns-cache.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.20.</b>
+                        
+                        重置 DNS 缓存
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.21" data-path="os-x/cheat.html">
+            
+                
+                    <a href="../os-x/cheat.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.21.</b>
+                        
+                        cheat - 各种命令的例子
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.22" data-path="os-x/tmutil.html">
+            
+                
+                    <a href="../os-x/tmutil.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.22.</b>
+                        
+                        tmutil - Time Machine 实用工具
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="linux/index.html">
+            
+                
+                    <a href="../linux/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        Linux
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="linux/ubuntu-system-install.html">
+            
+                
+                    <a href="../linux/ubuntu-system-install.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        安装 Ubuntu 系统
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="linux/man-page.html">
+            
+                
+                    <a href="../linux/man-page.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        man page
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="linux/ln.html">
+            
+                
+                    <a href="../linux/ln.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        ln - make links between files
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="linux/wget.html">
+            
+                
+                    <a href="../linux/wget.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        wget - 下载工具
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="linux/curl.html">
+            
+                
+                    <a href="../linux/curl.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                        cURL - 下载工具
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="linux/batch-modify-file-permissions.html">
+            
+                
+                    <a href="../linux/batch-modify-file-permissions.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.6.</b>
+                        
+                        批量修改文件权限
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="linux/set-time-zone.html">
+            
+                
+                    <a href="../linux/set-time-zone.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.7.</b>
+                        
+                        设定时区
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="linux/supports-simplified-and-traditional-chinese.html">
+            
+                
+                    <a href="../linux/supports-simplified-and-traditional-chinese.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.8.</b>
+                        
+                        系统支持中文简繁
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9" data-path="linux/view-the-total-size-of-all-files-in-a-directory.html">
+            
+                
+                    <a href="../linux/view-the-total-size-of-all-files-in-a-directory.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.9.</b>
+                        
+                        查看目录内所有文件的总大小
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.10" data-path="linux/boot-run-commands.html">
+            
+                
+                    <a href="../linux/boot-run-commands.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.10.</b>
+                        
+                        开机执行命令
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.11" data-path="linux/specify-a-user-run-command.html">
+            
+                
+                    <a href="../linux/specify-a-user-run-command.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.11.</b>
+                        
+                        指定某个用户执行命令
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.12" data-path="linux/openvpn.html">
+            
+                
+                    <a href="../linux/openvpn.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.12.</b>
+                        
+                        OpenVPN
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.13" data-path="linux/scheduled-task.html">
+            
+                
+                    <a href="../linux/scheduled-task.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.13.</b>
+                        
+                        定时执行任务
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.14" data-path="linux/ubuntu-terminal-change-color.html">
+            
+                
+                    <a href="../linux/ubuntu-terminal-change-color.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.14.</b>
+                        
+                        改变 Ubuntu 终端颜色
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.15" data-path="linux/nginx.html">
+            
+                
+                    <a href="../linux/nginx.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.15.</b>
+                        
+                        Nginx - Web 服务器
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="windows/index.html">
+            
+                
+                    <a href="../windows/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        Windows
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="windows/windows-system-install.html">
+            
+                
+                    <a href="../windows/windows-system-install.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        安装 Windows 系统
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="windows/win7-updated-failed-solutions.html">
+            
+                
+                    <a href="../windows/win7-updated-failed-solutions.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        Win7 更新失败后的解决办法
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="windows/use-ps4-gamepad.html">
+            
+                
+                    <a href="../windows/use-ps4-gamepad.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        使用 PS4 手柄 (DualShock 4)
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="windows/fix-application-cannot-run-under-a-virtual-machine.html">
+            
+                
+                    <a href="../windows/fix-application-cannot-run-under-a-virtual-machine.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                        Fix &quot;Sorry, this application cannot run under a virtual machine&quot;
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="ios/index.html">
+            
+                
+                    <a href="../ios/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        iOS
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="ios/new-system-settings.html">
+            
+                
+                    <a href="../ios/new-system-settings.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        新系统设置
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="ios/jailbreak.html">
+            
+                
+                    <a href="../ios/jailbreak.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                        越狱
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="ios/remove-system-update.html">
+            
+                
+                    <a href="../ios/remove-system-update.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.3.</b>
+                        
+                        删除自动下载的系统更新
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="ios/small-skills.html">
+            
+                
+                    <a href="../ios/small-skills.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.4.</b>
+                        
+                        小技巧
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="ios/game-emulators.html">
+            
+                
+                    <a href="../ios/game-emulators.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.5.</b>
+                        
+                        Game Emulators（游戏模拟器）
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="ios/darker-than-the-lowest-brightness.html">
+            
+                
+                    <a href="../ios/darker-than-the-lowest-brightness.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.6.</b>
+                        
+                        如何调节比最低亮度还暗
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7" data-path="ios/make-ringtones.html">
+            
+                
+                    <a href="../ios/make-ringtones.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.7.</b>
+                        
+                        制作铃声
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="psv/index.html">
+            
+                
+                    <a href="../psv/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        PSV
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="psv/qcma.html">
+            
+                
+                    <a href="../psv/qcma.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                        Qcma
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="3ds/index.html">
+            
+                
+                    <a href="../3ds/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        3DS
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1" data-path="3ds/free-card-crack.html">
+            
+                
+                    <a href="../3ds/free-card-crack.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.1.</b>
+                        
+                        N3DS 免卡破解
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="3ds/play-spanned-game.html">
+            
+                
+                    <a href="../3ds/play-spanned-game.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.2.</b>
+                        
+                        玩跨区游戏
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="3ds/cia-game-resources.html">
+            
+                
+                    <a href="../3ds/cia-game-resources.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.3.</b>
+                        
+                        CIA 游戏资源
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.4" data-path="3ds/save-manager.html">
+            
+                
+                    <a href="../3ds/save-manager.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.4.</b>
+                        
+                        存档管理
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="openwrt/index.html">
+            
+                
+                    <a href="../openwrt/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        OpenWrt
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1" data-path="openwrt/compile-your-own-openwrt-firmware.html">
+            
+                
+                    <a href="../openwrt/compile-your-own-openwrt-firmware.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.1.</b>
+                        
+                        编译自己的 OpenWrt 固件
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="openwrt/opkg.html">
+            
+                
+                    <a href="../openwrt/opkg.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.2.</b>
+                        
+                        opkg
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                Published with GitBook
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Table of Contents"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Font Settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Share"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">
+                    Share on Twitter
+                </button>
+                <button type="button" data-sharing="google-plus" class="button">
+                    Share on Google
+                </button>
+                <button type="button" data-sharing="facebook" class="button">
+                    Share on Facebook
+                </button>
+                <button type="button" data-sharing="weibo" class="button">
+                    Share on Weibo
+                </button>
+                <button type="button" data-sharing="instapaper" class="button">
+                    Share on Instapaper
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    
+    
+    
+    
+
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >明无梦的操作系统使用记录</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="open">open</h1>
+<p>2015-09-03</p>
+<hr>
+<p>&#x4F7F;&#x7528; open &#x547D;&#x4EE4;&#xFF0C;&#x5B83;&#x4F1A;&#x542F;&#x52A8;&#x76F8;&#x5173;&#x7684; GUI &#x5E94;&#x7528;&#x52A0;&#x8F7D;&#x8BE5;&#x6587;&#x4EF6;&#x548C;&#x6587;&#x4EF6;&#x5939;</p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../os-x/sass.html" class="navigation navigation-prev " aria-label="Previous page: Sass - CSS 预处理工具"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../os-x/nl.html" class="navigation navigation-next " aria-label="Next page: nl - 显示行号"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-disqus/plugin.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-ga/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2},"disqus":{"shortName":"mwum"},"ga":{"token":"UA-39279084-1","configuration":"auto"}};
+    gitbook.start(config);
+});
+</script>
+
+        <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-39279084-1', 'auto');ga('send', 'pageview');</script>
+    </body>
+    
+</html>

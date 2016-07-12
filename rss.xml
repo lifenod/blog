@@ -1,0 +1,1743 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>明无梦</title>
+    <description></description>
+    <link>http://www.dreamxu.com/</link>
+    <atom:link href="http://www.dreamxu.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Wed, 13 Jul 2016 04:16:42 +0800</pubDate>
+    <lastBuildDate>Wed, 13 Jul 2016 04:16:42 +0800</lastBuildDate>
+    <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>对 Markdown 渲染引擎 kramdown 的几点 hack</title>
+        <description>&lt;p&gt;kramdown version: 1.11.1&lt;/p&gt;
+
+&lt;h2 id=&quot;使生成-head-id-功能支持中文&quot;&gt;使生成 head ID 功能支持中文&lt;/h2&gt;
+
+&lt;p&gt;我查看了 kramdown 选项部分的所有文档，发现它只支持 transliterated_header_ids. 
+但是我不喜欢将中文音译为拼音，所以干脆直接修改代码好了，还比较简单。&lt;/p&gt;
+
+&lt;p&gt;首先找到相关的代码，如下所示：&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;c1&quot;&gt;## /lib/kramdown/converter/base.rb&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;generate_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;str&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Kramdown&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Utils&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Unidecoder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;decode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:transliterated_header_ids&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;gen_id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;gsub&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/^[^a-zA-Z]+/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;gen_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;tr!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;^a-zA-Z0-9 -&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;gen_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;tr!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39; &#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;-&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;gen_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;downcase!&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;gen_id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;section&#39;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gen_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;length&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+  &lt;span class=&quot;vi&quot;&gt;@used_ids&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@used_ids&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;has_key?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gen_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;gen_id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;-&#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@used_ids&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gen_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to_s&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@used_ids&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gen_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;vi&quot;&gt;@options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:auto_id_prefix&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gen_id&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;我们看上面代码中的 5-8 行，就是对 ID 的转换, str 表示 head 的 raw text.&lt;br /&gt;
+原代码的意思是：取以字母开始的子串，去掉除了字母，数字，空格，连字符的字符，将空格替换为连字符，将字母变为小写&lt;/p&gt;
+
+&lt;p&gt;我们将代码改为如下：&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;generate_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;str&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Kramdown&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Utils&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Unidecoder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;decode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:transliterated_header_ids&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# gen_id = str.gsub(/^[^a-zA-Z]+/, &#39;&#39;)&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# gen_id.tr!(&#39;^a-zA-Z0-9 -&#39;, &#39;&#39;)&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# gen_id.tr!(&#39; &#39;, &#39;-&#39;)&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# gen_id.downcase!&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# gen_id = &#39;section&#39; if gen_id.length == 0&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;gen_id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;scan&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/([a-zA-Z0-9 \-]|[^\x00-\x7F])/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;join&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;gen_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;gsub!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/[ \-]+/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;-&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;gen_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;downcase!&lt;/span&gt;
+  &lt;span class=&quot;vi&quot;&gt;@used_ids&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@used_ids&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;has_key?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gen_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;gen_id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;-&#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@used_ids&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gen_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to_s&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@used_ids&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gen_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;vi&quot;&gt;@options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:auto_id_prefix&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gen_id&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;代码的意思是：移除 ASCII 字符中除了字母，数字，空格，连字符的字符，但是不移除所有非 ASCII 字符，
+然后将其中空格和连字符（包括重复的）转换为一个连字符，再将其转换为小写。&lt;/p&gt;
+
+&lt;p&gt;我个人比较喜欢这种表达 ID 的方式，所以就那么改了，你可以随便改成什么样子。&lt;/p&gt;
+
+&lt;h2 id=&quot;绕过-alt-text-中出现-产生的-bug&quot;&gt;绕过 alt text 中出现 “|” 产生的 bug&lt;/h2&gt;
+
+&lt;p&gt;先看几个例子体会一下这个 bug 是什么，以下都是链接的例子，当然在图片中也会有问题&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;出错，会转换为表格。&lt;/p&gt;
+
+    &lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;明无梦的博客 | 明无梦&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;](&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;http://www.dreamxu.com/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;p&gt;转换为：&lt;/p&gt;
+
+    &lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;table&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;tbody&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;tr&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;td&amp;gt;&lt;/span&gt;[明无梦的博客&lt;span class=&quot;nt&quot;&gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;td&amp;gt;&lt;/span&gt;明无梦](http://www.dreamxu.com/)&lt;span class=&quot;nt&quot;&gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/tr&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/tbody&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/table&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;正常，但是需要将 &lt;code class=&quot;highlighter-rouge&quot;&gt;|&lt;/code&gt; 转义，显然我不会这样做，我的 Markdown 代码写的没问题，
+没必要修改，而且 ‘|’ 看起来不直观。&lt;/p&gt;
+
+    &lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;明无梦的博客 \| 明无梦&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;](&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;http://www.dreamxu.com/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;p&gt;转换为：&lt;/p&gt;
+
+    &lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.dreamxu.com/&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;明无梦的博客 | 明无梦&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;正常，但是链接前后必须有其它文字。为什么我单独写个链接就不行！显然也不是我能接受的解决方案。&lt;/p&gt;
+
+    &lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;这是一个博客：
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;明无梦的博客 | 明无梦&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;](&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;http://www.dreamxu.com/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;p&gt;转换为：&lt;/p&gt;
+
+    &lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;这是一个博客：
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.dreamxu.com/&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;明无梦的博客 | 明无梦&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;产生这个 bug 的原因很简单，就是 kramdown 支持 PHP Markdown 式的表格，其中有用 &lt;code class=&quot;highlighter-rouge&quot;&gt;|&lt;/code&gt; 关键词，
+所以会将其转换为表格。&lt;/p&gt;
+
+&lt;p&gt;我看 Github 上也有人提出了这个 bug: &lt;a href=&quot;https://github.com/gettalong/kramdown/issues/135&quot;&gt;https://github.com/gettalong/kramdown/issues/135&lt;/a&gt;, 
+看样子是已经修好了。
+但是从上面的例子中也可以看出来并没有修好，所以我打算绕过这个 bug, 这是最简单的处理方式了。&lt;/p&gt;
+
+&lt;p&gt;我们只要将其 table parse 功能取消掉就好了，反正我也不使用这种表格写法。
+&lt;strong&gt;注意&lt;/strong&gt;，如果你用到了这个功能，那么就不要这么做了。&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;c1&quot;&gt;# /lib/kramdown/parser/kramdown.rb&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;super&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;reset_env&lt;/span&gt;
+
+  &lt;span class=&quot;vi&quot;&gt;@alds&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
+  &lt;span class=&quot;vi&quot;&gt;@footnotes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
+  &lt;span class=&quot;vi&quot;&gt;@link_defs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;update_link_definitions&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:link_defs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+
+
+  &lt;span class=&quot;c1&quot;&gt;# 原来的代码是这个样子的，将 :table 去掉即可&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;#&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# @block_parsers = [:blank_line, :codeblock, :codeblock_fenced, :blockquote, :atx_header,&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;#                   :horizontal_rule, :list, :definition_list, :block_html, :setext_header,&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;#                   :block_math, :table, :footnote_definition, :link_definition, :abbrev_definition,&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;#                   :block_extensions, :eob_marker, :paragraph]&lt;/span&gt;
+  &lt;span class=&quot;vi&quot;&gt;@block_parsers&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:blank_line&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:codeblock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:codeblock_fenced&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:blockquote&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:atx_header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                    &lt;span class=&quot;ss&quot;&gt;:horizontal_rule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:definition_list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:block_html&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:setext_header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                    &lt;span class=&quot;ss&quot;&gt;:block_math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:footnote_definition&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:link_definition&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:abbrev_definition&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                    &lt;span class=&quot;ss&quot;&gt;:block_extensions&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:eob_marker&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:paragraph&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;vi&quot;&gt;@span_parsers&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:emphasis&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:codespan&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:autolink&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:span_html&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:footnote_marker&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:link&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:smart_quotes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:inline_math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                   &lt;span class=&quot;ss&quot;&gt;:span_extensions&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:html_entity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:typographic_syms&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:line_break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:escaped_chars&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Mon, 11 Jul 2016 00:00:00 +0800</pubDate>
+        <link>http://www.dreamxu.com/hack-markdown-converter-kramdown/</link>
+        <guid isPermaLink="true">http://www.dreamxu.com/hack-markdown-converter-kramdown/</guid>
+        
+        <category>技术</category>
+        
+        <category>Markdown</category>
+        
+        <category>kramdown</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>监测 Markdown 文件改动并将其转化为 HTML 文件</title>
+        <description>&lt;p&gt;大脑应该记住哪些有意义的事情，也不是说我们要将很多事情遗忘&lt;br /&gt;
+我们将那些随处可见以及不是很重要的事情的细节记下来，大脑只需留下些许印象即可，
+当我们需要这些资料的时候，我们随时能将这些细节找出来&lt;/p&gt;
+
+&lt;p&gt;比如专题性的东西我会用&lt;a href=&quot;http://www.dreamxu.com/books.html&quot;&gt;书籍&lt;/a&gt;的形式来记录，单篇性的东西我会用&lt;a href=&quot;http://www.dreamxu.com/&quot;&gt;博客&lt;/a&gt;的形式来记录，
+短小琐碎的东西我会用 &lt;a href=&quot;http://www.dreamxu.com/bits/2016/&quot;&gt;Bits&lt;/a&gt; 的形式来记录，
+以上这些都能够利用合适的工具将其转换为 HTML, 并通过 nginx 展现出来&lt;br /&gt;
+还有很多分散在各个目录中的笔记，比如这个项目有一份笔记，那个项目有一份笔记等等，
+我们也需要将其很好地展现出来&lt;/p&gt;
+
+&lt;p&gt;我希望的效果是，实时监测目录或者文件，并实时将其转换为 HTML, 
+有了 HTML 我们能够找到一万种方式将其完美地展示出来，
+也有一万种方式让我们方便地去查找&lt;/p&gt;
+
+&lt;p&gt;代码及使用方法：&lt;a href=&quot;https://github.com/mwum/monitor-md-files&quot;&gt;https://github.com/mwum/monitor-md-files&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;浏览器自动刷新&quot;&gt;浏览器自动刷新&lt;/h2&gt;
+
+&lt;p&gt;如果想修改 MD 文件之后，浏览器能够自动刷新 HTML 页面，可使用这个 Chrome 插件：&lt;a href=&quot;https://chrome.google.com/webstore/detail/livepage/pilnojpmdoofaelbinaeodfpjheijkbh&quot;&gt;https://chrome.google.com/webstore/detail/livepage/pilnojpmdoofaelbinaeodfpjheijkbh&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Fri, 25 Mar 2016 00:00:00 +0800</pubDate>
+        <link>http://www.dreamxu.com/monitor-markdown-file-changes-and-convert-it-to-html-file/</link>
+        <guid isPermaLink="true">http://www.dreamxu.com/monitor-markdown-file-changes-and-convert-it-to-html-file/</guid>
+        
+        <category>技术</category>
+        
+        <category>Markdown</category>
+        
+        <category>HTML</category>
+        
+        <category>Pandoc</category>
+        
+        <category>Ruby</category>
+        
+        <category>Filewatcher</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>在不同目录下执行不同的命令</title>
+        <description>&lt;p&gt;我经常遇到这种情况：&lt;br /&gt;
+GitBook 有 “server” 命令，例如 &lt;code class=&quot;highlighter-rouge&quot;&gt;gitbook serve&lt;/code&gt;&lt;br /&gt;
+Jekyll 有 “server” 命令，例如 &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;&lt;br /&gt;
+Rails 有 “server” 命令，例如 &lt;code class=&quot;highlighter-rouge&quot;&gt;rails server&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;以上命令都不尽相同，每次打 “server” 命令之前都得想一会儿到底该使用哪个命令，好烦&lt;br /&gt;
+假如有一个 &lt;code class=&quot;highlighter-rouge&quot;&gt;server&lt;/code&gt; 命令，可以自动选择合适的命令去执行就好了&lt;/p&gt;
+
+&lt;p&gt;心动不如行动，下面是我用 Ruby 写的解决方案&lt;br /&gt;
+若不喜欢用 Ruby, 可用 Python, shell script 等改写一下即可&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;c1&quot;&gt;#!/usr/bin/env ruby&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;dir_commands&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&quot;/Users/mwum/Gitbook/Ruby&quot;&lt;/span&gt;            &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;gitbook serve --port 4006&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&quot;/Users/mwum/dx&quot;&lt;/span&gt;                      &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;jekyll serve -w&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&quot;/Users/mwum/Code/Rails/chat-system&quot;&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;bundle exec rails server&quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;dir_commands&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;command&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;pwd&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dir&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;exec&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;command&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Command not found: &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;File&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;basename&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;__FILE__&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;In this directory: &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;pwd&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;将以上文件命名为 server, 并放到 bin 目录下，在给它加上可执行权限 &lt;code class=&quot;highlighter-rouge&quot;&gt;chmod +x ./server&lt;/code&gt;, 即可愉快使用了&lt;/p&gt;
+
+&lt;p&gt;有一点需要注意的：&lt;br /&gt;
+使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;exec&lt;/code&gt; 比较合适，不要使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;system&lt;/code&gt; 等&lt;br /&gt;
+如果使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;system&lt;/code&gt;, Ruby 进程并不会退出而是会等待 &lt;code class=&quot;highlighter-rouge&quot;&gt;system&lt;/code&gt; 返回，
+而 server 命令不是立即返回的，所以用 &lt;code class=&quot;highlighter-rouge&quot;&gt;system&lt;/code&gt; 不合适，Ruby 进程会一直等待。
+但是 &lt;code class=&quot;highlighter-rouge&quot;&gt;exec&lt;/code&gt; 是完全替换进程的，所以不存在这个问题&lt;/p&gt;
+
+&lt;p&gt;以上程序还是不够智能，如果我想使某个目录下的所有子目录都执行相同的命令，
+岂不是要一个个子目录去设置，这显然是不合适的&lt;br /&gt;
+所以继续给上面的程序加入正则匹配功能&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;c1&quot;&gt;#!/usr/bin/env ruby&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;dir_commands&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;sr&quot;&gt;/\/Users\/mwum\/Gitbook\/*/&lt;/span&gt;       &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;gitbook serve --port 4006&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&quot;/Users/mwum/dx&quot;&lt;/span&gt;                  &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;jekyll serve -w&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;sr&quot;&gt;/\/Users\/mwum\/Code\/Rails\/*/&lt;/span&gt;   &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;bundle exec rails server&quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;dir_commands&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;command&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Regexp&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;pwd&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=~&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dir&lt;/span&gt;
+      &lt;span class=&quot;nb&quot;&gt;exec&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;command&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;elsif&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;String&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;pwd&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dir&lt;/span&gt;
+      &lt;span class=&quot;nb&quot;&gt;exec&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;command&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;This class is not supported: &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;exit&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Command not found: &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;File&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;basename&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;__FILE__&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;In this directory: &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;pwd&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Sun, 31 Jan 2016 00:00:00 +0800</pubDate>
+        <link>http://www.dreamxu.com/execute-different-commands-in-different-directories/</link>
+        <guid isPermaLink="true">http://www.dreamxu.com/execute-different-commands-in-different-directories/</guid>
+        
+        <category>技术</category>
+        
+        <category>Ruby</category>
+        
+        <category>Shell</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>编译自己的 OpenWrt 固件</title>
+        <description>&lt;p&gt;编译环境：Ubuntu 14.04.2 64-Bit&lt;br /&gt;
+路由器型号：TP-LINK TL-WR703N v1, 改过硬件：16M Flash / 64M Memory&lt;/p&gt;
+
+&lt;p&gt;固件也可以去官方下载：&lt;a href=&quot;https://downloads.openwrt.org/&quot;&gt;https://downloads.openwrt.org/&lt;/a&gt;&lt;br /&gt;
+例如 TP-LINK TL-WR703N v1 的最新固件下载地址为：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;factory: &lt;a href=&quot;https://downloads.openwrt.org/chaos_calmer/15.05/ar71xx/generic/openwrt-15.05-ar71xx-generic-tl-wr703n-v1-squashfs-factory.bin&quot;&gt;https://downloads.openwrt.org/chaos_calmer/15.05/ar71xx/generic/openwrt-15.05-ar71xx-generic-tl-wr703n-v1-squashfs-factory.bin&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;sysupgrade: &lt;a href=&quot;https://downloads.openwrt.org/chaos_calmer/15.05/ar71xx/generic/openwrt-15.05-ar71xx-generic-tl-wr703n-v1-squashfs-sysupgrade.bin&quot;&gt;https://downloads.openwrt.org/chaos_calmer/15.05/ar71xx/generic/openwrt-15.05-ar71xx-generic-tl-wr703n-v1-squashfs-sysupgrade.bin&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;优点是方便，缺点是不能自己定制，如果你是改过 Flash 大小的，那么也必须自己编译&lt;br /&gt;
+可参考官方文档关于编译的章节：&lt;a href=&quot;http://wiki.openwrt.org/doc/start#building_openwrt&quot;&gt;http://wiki.openwrt.org/doc/start#building_openwrt&lt;/a&gt;&lt;br /&gt;
+以下是我对改过硬件的 TL-WR703N 编译适合的固件的步骤：&lt;/p&gt;
+
+&lt;p&gt;按以下步骤编译好的固件下载地址（如果你不想自己编译的话）：&lt;br /&gt;
+factory: &lt;a href=&quot;https://www.dropbox.com/s/aqe1957l4swpw9w/openwrt-15.05-ar71xx-generic-tl-wr703n-v1-squashfs-factory.bin?dl=0&quot;&gt;https://www.dropbox.com/s/aqe1957l4swpw9w/openwrt-15.05-ar71xx-generic-tl-wr703n-v1-squashfs-factory.bin?dl=0&lt;/a&gt;&lt;br /&gt;
+sysupgrade: &lt;a href=&quot;https://www.dropbox.com/s/os5sz47ljfgt4i6/openwrt-15.05-ar71xx-generic-tl-wr703n-v1-squashfs-sysupgrade.bin?dl=0&quot;&gt;https://www.dropbox.com/s/os5sz47ljfgt4i6/openwrt-15.05-ar71xx-generic-tl-wr703n-v1-squashfs-sysupgrade.bin?dl=0&lt;/a&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;获取最新源码，如何获取源码可查看：&lt;a href=&quot;https://dev.openwrt.org/wiki/GetSource&quot;&gt;https://dev.openwrt.org/wiki/GetSource&lt;/a&gt;&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;git clone git://git.openwrt.org/openwrt.git
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;p&gt;也可以获取特定分支的源码，例如我们获取 15.05 branch (Chaos Calmer) 这个分支&lt;br /&gt;
+以下步骤都使用的这份源码&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;git clone git://git.openwrt.org/15.05/openwrt.git
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;修改源码，使其适用于 16M Flash&lt;br /&gt;
+参考的这篇文章：&lt;a href=&quot;http://wiki.openwrt.org/toh/tp-link/tl-wr703n#mb_flash_mod&quot;&gt;http://wiki.openwrt.org/toh/tp-link/tl-wr703n#mb_flash_mod&lt;/a&gt;&lt;/p&gt;
+
+    &lt;p&gt;进入源码目录 &lt;code class=&quot;highlighter-rouge&quot;&gt;cd openwrt&lt;/code&gt;&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;打开 target/linux/ar71xx/image/Makefile 这个文件&lt;br /&gt;
+将如下内容&lt;/p&gt;
+
+        &lt;div class=&quot;language-make highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;err&quot;&gt;define&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;Device/tl-wr703n-v1&lt;/span&gt;
+    &lt;span class=&quot;err&quot;&gt;$(Device/tplink-4mlzma)&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;BOARDNAME&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; TL-WR703N
+    &lt;span class=&quot;nv&quot;&gt;DEVICE_PROFILE&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; TLWR703
+    &lt;span class=&quot;nv&quot;&gt;TPLINK_HWID&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; 0x07030101
+    &lt;span class=&quot;nv&quot;&gt;CONSOLE&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; ttyATH0,115200
+&lt;span class=&quot;err&quot;&gt;endef&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;p&gt;改为：&lt;/p&gt;
+
+        &lt;div class=&quot;language-make highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;err&quot;&gt;define&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;Device/tl-wr703n-v1&lt;/span&gt;
+    &lt;span class=&quot;err&quot;&gt;$(Device/tplink-16mlzma)&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;BOARDNAME&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; TL-WR703N
+    &lt;span class=&quot;nv&quot;&gt;DEVICE_PROFILE&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; TLWR703
+    &lt;span class=&quot;nv&quot;&gt;TPLINK_HWID&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; 0x07030101
+    &lt;span class=&quot;nv&quot;&gt;CONSOLE&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; ttyATH0,115200
+&lt;span class=&quot;err&quot;&gt;endef&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;打开 tools/firmware-utils/src/mktplinkfw.c 这个文件&lt;br /&gt;
+将如下内容：&lt;/p&gt;
+
+        &lt;div class=&quot;language-make highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nv&quot;&gt;.id&lt;/span&gt;             &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;TL-WR703Nv1&quot;&lt;/span&gt;,
+&lt;span class=&quot;nv&quot;&gt;.hw_id&lt;/span&gt;          &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; HWID_TL_WR703N_V1,
+&lt;span class=&quot;nv&quot;&gt;.hw_rev&lt;/span&gt;         &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 1,
+&lt;span class=&quot;nv&quot;&gt;.layout_id&lt;/span&gt;      &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;4Mlzma&quot;&lt;/span&gt;,
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;p&gt;改为：&lt;/p&gt;
+
+        &lt;div class=&quot;language-make highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nv&quot;&gt;.id&lt;/span&gt;             &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;TL-WR703Nv1&quot;&lt;/span&gt;,
+&lt;span class=&quot;nv&quot;&gt;.hw_id&lt;/span&gt;          &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; HWID_TL_WR703N_V1,
+&lt;span class=&quot;nv&quot;&gt;.hw_rev&lt;/span&gt;         &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 1,
+&lt;span class=&quot;nv&quot;&gt;.layout_id&lt;/span&gt;      &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;16Mlzma&quot;&lt;/span&gt;,
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;（可选）下载和安装所有可用的 Feeds, 如果不清楚 Feeds 是什么，可查看：&lt;a href=&quot;http://wiki.openwrt.org/doc/devel/feeds&quot;&gt;http://wiki.openwrt.org/doc/devel/feeds&lt;/a&gt;&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;./scripts/feeds update -a
+./scripts/feeds install -a
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;输入以下命令，检查哪些需要的包还没有安装：&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;make defconfig
+make prereq
+make menuconfig
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;p&gt;例如在我这提示：&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;Build dependency: Please install ncurses. (Missing libncurses.so or ncurses.h)
+Build dependency: Please install zlib. (Missing libz.so or zlib.h)
+Build dependency: Please install the openssl library (with development headers)
+Build dependency: Please install GNU &#39;awk&#39;
+Build dependency: Please install the Subversion client
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;p&gt;安装缺少的包：&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;sudo apt-get install subversion libncurses5-dev zlib1g-dev libssl-dev gawk subversion
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;p&gt;你或许还需要安装 build-essential 这个包，我是以前就安好了&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;配置编译详情&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;make menuconfig
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;p&gt;输入以上命令之后，会进入一个命令行图形界面，界面最上面是用法&lt;br /&gt;
+以下是我的一些配置，你可以选择性的参考&lt;br /&gt;
+我的配置非常简单，如果需要额外的功能可以通过 opkg 来安装，所以固件简单点就好，反正之后还可以安装&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;选择 CPU 型号&lt;br /&gt;
+Target System 选为 Atheros ARM7xxx/ARM9xxx&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;选择你的路由器型号&lt;br /&gt;
+Target Profile 选为 TP-LINK TP-WR703N&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;启用 Web 管理界面 LuCI&lt;br /&gt;
+LuCI → Collections → 选中 luci&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;添加 LuCI 中文支持&lt;br /&gt;
+LuCI → Modules → Translations → 选中 Chinese (zh-cn)&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;生成构建的配置文件，检查依赖等&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;make defconfig
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;编译，可加上 &lt;code class=&quot;highlighter-rouge&quot;&gt;V=99&lt;/code&gt; 参数输出所有调试信息&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;make
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;p&gt;在虚拟机中大概编译了一个半到二个小时，大多数时间都在下载，所以要保持网络通畅&lt;/p&gt;
+
+    &lt;p&gt;编译好了之后可在 bin/ar71xx 目录找到生成的固件&lt;br /&gt;
+openwrt-ar71xx-generic-tl-wr703n-v1-squashfs-factory.bin 和 openwrt-ar71xx-generic-tl-wr703n-v1-squashfs-sysupgrade.bin&lt;br /&gt;
+已经安装了 OpenWrt 那么可用 sysupgrade 固件进行升级，会保留用户数据（也可选不保留）&lt;br /&gt;
+factory 固件在第一次刷机的时候使用&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;刷机&lt;br /&gt;
+我所使用的 U-Boot 是这个：&lt;a href=&quot;https://github.com/pepe2k/u-boot_mod&quot;&gt;https://github.com/pepe2k/u-boot_mod&lt;/a&gt;&lt;br /&gt;
+步骤如下：&lt;/p&gt;
+
+    &lt;ol&gt;
+      &lt;li&gt;
+        &lt;p&gt;将电脑 IP 设置为 192.168.1.2, 子网掩码设置为 255.255.255.0&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;断开路由器的电源，用网线连接好电脑和路由器&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;按住路由器的 Reset 按钮，插上电源，
+待路由器灯闪四次后放开，放开后，路由器灯会快闪一次，代表进入了恢复模式&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;用电脑浏览器打开 http://192.168.1.1/index.html, 打开后，上传固件。如打不开可重复以上几步&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;上传完固件后，等一段时间，待机器自动重启&lt;br /&gt;
+此时可将电脑 IP 设置为正常&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;配置系统&lt;/p&gt;
+
+    &lt;p&gt;配置成网口 PPPoE 上网，电脑连接无线上网&lt;/p&gt;
+
+    &lt;p&gt;因为系统初始是不开启无线连接的，所以你需要用网线将电脑和路由器连起来&lt;/p&gt;
+
+    &lt;ol&gt;
+      &lt;li&gt;
+        &lt;p&gt;电脑浏览器打开 192.168.1.1 进入 Web 管理界面&lt;br /&gt;
+不用输入密码直接登录，登录之后去设置一个新密码&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;更改系统语言&lt;br /&gt;
+Syatem → Language 修改为 Chinese, 点击 Save &amp;amp; Apply&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;点击，网络 → 无线，设置好 SSID, 密码点击「保存&amp;amp;应用」，最后点击「启用」&lt;br /&gt;
+现在可以通过无线连接到路由器进行配置了&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;配置网络还是修改配置文件比较方便，也比较好讲解&lt;br /&gt;
+修改之前先备份配置文件 &lt;code class=&quot;highlighter-rouge&quot;&gt;cp /etc/config/network /etc/config/network.old&lt;/code&gt;&lt;br /&gt;
+然后编辑配置文件 &lt;code class=&quot;highlighter-rouge&quot;&gt;vim /etc/config/network&lt;/code&gt;&lt;/p&gt;
+
+        &lt;ul&gt;
+          &lt;li&gt;
+            &lt;p&gt;修改 lan 配置，修改成如下样子&lt;/p&gt;
+
+            &lt;div class=&quot;language-conf highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;lan&#39;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# 去掉这个，表示只有无线应用到 lan
+&lt;/span&gt;    &lt;span class=&quot;c&quot;&gt;# option ifname &#39;eth0&#39;
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;option&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;force_link&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;1&#39;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# 去掉这个，因为只有无线应用到 lan, 所以不需要桥接
+&lt;/span&gt;    &lt;span class=&quot;c&quot;&gt;# option type &#39;bridge&#39;
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;option&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;proto&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;static&#39;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;option&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ipaddr&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;192.168.1.1&#39;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;option&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;netmask&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;255.255.255.0&#39;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;option&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ip6assign&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;60&#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;p&gt;增加 wan 配置，PPPoE 方式上网&lt;/p&gt;
+
+            &lt;div class=&quot;language-conf highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;wan&#39;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;option&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ifname&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;eth0&#39;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;option&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;proto&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;pppoe&#39;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;option&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;username&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;USERNAME&#39;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;option&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;password&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;PASSWORD&#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+
+        &lt;p&gt;最后使用如下命令重启网络服务：&lt;/p&gt;
+
+        &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;/etc/init.d/network restart
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
+
+    &lt;p&gt;以后配置路由器请使用无线连接方式，有线连接用于 PPPoE 上网&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Tue, 13 Oct 2015 00:00:00 +0800</pubDate>
+        <link>http://www.dreamxu.com/compile-your-own-openwrt/</link>
+        <guid isPermaLink="true">http://www.dreamxu.com/compile-your-own-openwrt/</guid>
+        
+        <category>记录</category>
+        
+        <category>OpenWrt</category>
+        
+        <category>TL-WR703N</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>闭包 (Closure) 是什么</title>
+        <description>&lt;p&gt;本文所讲闭包是计算机中的闭包&lt;/p&gt;
+
+&lt;p&gt;如果一上来就一大段理论，估计连我自己也看不懂&lt;br /&gt;
+以具体例子入手来理解，因为在函数式语言中闭包是一个非常常见的概念，
+所以我们以一种函数式语言 Scheme 为例来讲解&lt;/p&gt;
+
+&lt;div class=&quot;language-scheme highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;c1&quot;&gt;; 以斜截式的方式定义一条直线 y = ax + b&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;define&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;straight-line&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))))&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;; 定义一条斜率为 1, 截距为 1 的直线&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;define&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;straight-line-1-1&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;straight-line&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;; 定义一条斜率为 2, 截距为 2 的直线&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;define&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;straight-line-2-2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;straight-line&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;; 求当 x 等于 1 时，这条直线的 y 值&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;straight-line-1-1&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;; =&amp;gt; 2&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;straight-line-1-1&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;; =&amp;gt; 1&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;straight-line-2-2&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;; =&amp;gt; 4&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;straight-line-2-2&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;; =&amp;gt; 2&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;最近正好看了会 Go 语言，下面是 Go 代码，功能和写法都和上面的 Scheme 代码一样。
+也是我对 Go 语言中闭包的一种练习。
+如果你习惯于看 C 类的代码，那么 Scheme 代码可能不好理解，相反下面的代码就好理解一点&lt;/p&gt;
+
+&lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;fmt&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+
+&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;// 以斜截式的方式定义一条直线 y = ax + b&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;straight_line&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;float64&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;float64&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;float64&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;float64&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;float64&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;// 定义一条斜率为 1, 截距为 1 的直线&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;straight_line_1_1&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;straight_line&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+
+    &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;// 定义一条斜率为 2, 截距为 2 的直线&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;straight_line_2_2&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;straight_line&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+
+    &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;// 求当 x 等于 1 时，这条直线的 y 值&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;straight_line_1_1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;straight_line_1_1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+
+    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;straight_line_2_2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;straight_line_2_2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+
+&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;// 输出：&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;// 2&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;// 1&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;// 4&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;// 2&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;以上面中的 &lt;code class=&quot;highlighter-rouge&quot;&gt;straight-line-1-1&lt;/code&gt; 为例，它是什么呢？或者换种问法，我们希望它是什么呢？&lt;/p&gt;
+
+&lt;p&gt;至少我希望它是这个东西&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;(lambda (x)
+  (+ (* a x) b))))
+
+且 a 为 1, b 为 1
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;这样我们可以很方便地表示直线，而且将 a 和 b 自由变量绑定到某个值，不至于混乱&lt;/p&gt;
+
+&lt;p&gt;东西的样子出来了，我们得给这个东西取个名字吧，就叫「闭包」吧&lt;br /&gt;
+将其表示地形式一点，如下；&lt;/p&gt;
+
+&lt;div class=&quot;language-scheme highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Closure&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;我们也可以这样说，闭包就是函数和创建这个函数时的环境总和（你也可以理解为相关数据）&lt;br /&gt;
+而这个环境指的是自由变量，如果一个函数并没有引用自由变量，那么它只是一个函数而已&lt;br /&gt;
+在这个例子中，函数就是 &lt;code class=&quot;highlighter-rouge&quot;&gt;(lambda (x) (+ (* a x) b))&lt;/code&gt;, 环境就是 &lt;code class=&quot;highlighter-rouge&quot;&gt;((a . 1) (b . 1))&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;闭包就是这么个东西，是不是感觉很简单？&lt;br /&gt;
+都是我们能够很容易理解的概念，没有网上一大段一大段那么复杂，有些东西细细品味确实就简单了&lt;/p&gt;
+
+&lt;p&gt;在多说一点，闭包和函数的区别就是：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;闭包包含了函数和环境&lt;/li&gt;
+  &lt;li&gt;函数只是一个过程，并不包括创建这个函数的环境，或者说它也有环境，但是这个环境为空&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;其实理解了闭包是什么，你也就知道闭包有哪些特性了，在以后的使用过程中不至于出错&lt;/p&gt;
+
+&lt;p&gt;你可能又会想到对象这个概念，是的，用闭包可以实现对象的封装，继承等，具体可见：&lt;a href=&quot;http://okmij.org/ftp/Scheme/oop-in-fp.txt&quot;&gt;http://okmij.org/ftp/Scheme/oop-in-fp.txt&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;参考：&lt;a href=&quot;http://www.yinwang.org/blog-cn/2013/03/26/lisp-dead-alive/&quot;&gt;http://www.yinwang.org/blog-cn/2013/03/26/lisp-dead-alive/&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sun, 11 Oct 2015 00:00:00 +0800</pubDate>
+        <link>http://www.dreamxu.com/What-is-a-closure/</link>
+        <guid isPermaLink="true">http://www.dreamxu.com/What-is-a-closure/</guid>
+        
+        <category>记录</category>
+        
+        <category>Closure</category>
+        
+        <category>Scheme</category>
+        
+        <category>Golang</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Minecraft 僵尸刷怪箱陷阱 (Monster Spawner Trap)</title>
+        <description>&lt;p&gt;从原理上讲解刷怪箱陷阱，以及建造方法，包括如何分离僵尸村民&lt;/p&gt;
+
+&lt;p&gt;经验塔那一部分是用的水电梯，当然也可以使用活塞窒息法等&lt;br /&gt;
+选择水电梯的主要原因是无脑操作，你只需等待怪物落下来，然后杀死即可，顺便也容易理解制作起来也简单&lt;/p&gt;
+
+&lt;p&gt;整体外观如下图&lt;br /&gt;
+&lt;img src=&quot;/assets/images/posts/2015-09-27_165813.png&quot; alt=&quot;僵尸刷怪箱陷阱整体外观&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;合着下面的讲解看地图更容易理解&lt;br /&gt;
+地图下载：&lt;a href=&quot;https://www.dropbox.com/s/z4u0q7c8h1vexcx/2015-09-26-MonsterSpawnerTrap-www.dreamxu.com%20.zip?dl=0&quot;&gt;https://www.dropbox.com/s/z4u0q7c8h1vexcx/2015-09-26-MonsterSpawnerTrap-www.dreamxu.com%20.zip?dl=0&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;获取刷怪箱&quot;&gt;获取刷怪箱&lt;/h2&gt;
+
+&lt;p&gt;如果你想在创造模式下试验，获取刷怪箱是第一步&lt;/p&gt;
+
+&lt;p&gt;我们使用如下命令&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;/give [用户名] mob_spawner &amp;lt;数量&amp;gt; 0 {BlockEntityTag:{EntityId:&quot;&amp;lt;实体字母ID&amp;gt;&quot;}}
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;举个具体的例子，例如获取一个僵尸刷怪箱&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;/give HS66BI mob_spawner 1 0 {BlockEntityTag:{EntityId:&quot;Zombie&quot;}}
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;刷怪范围&quot;&gt;刷怪范围&lt;/h2&gt;
+
+&lt;p&gt;根据 Wiki 上所讲述的：&lt;a href=&quot;http://minecraft-zh.gamepedia.com/刷怪箱&quot;&gt;http://minecraft-zh.gamepedia.com/刷怪箱&lt;/a&gt;&lt;br /&gt;
+刷怪箱可在空气中生成怪物，且刷怪范围为 &lt;code class=&quot;highlighter-rouge&quot;&gt;8 * 8 * 3&lt;/code&gt;, 代码如下&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;// 这份伪代码基于 Minecraft 1.7.10 反编译出的源文件
+
+spawnRange = 4
+
+X = Spawner.x + random(spawnRange*2)-spawnRange;
+Y = Spawner.y + random(3)-1;
+Z = Spawner.z + random(spawnRange*2)-spawnRange;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;我画了个图，描述了代码中的刷怪范围&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;垂直方向上的范围，因为僵尸高 2 格，所以实际垂直范围为 4, &lt;br /&gt;
+&lt;img src=&quot;/assets/images/posts/2015-09-25_140435.svg&quot; alt=&quot;僵尸刷怪箱范围横向&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;水平方向上的范围，红色为刷怪箱&lt;br /&gt;
+你可能会疑惑刷怪箱为何是在中心右上方？&lt;br /&gt;
+因为在 Minecraft 中，方块的坐标是方块八个顶点中 x, y, z 坐标最小的点，即图中绿色的点&lt;br /&gt;
+&lt;img src=&quot;/assets/images/posts/2015-09-25_211728.svg&quot; alt=&quot;僵尸刷怪箱范围纵向&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;刷怪条件&quot;&gt;刷怪条件&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;上述刷怪范围&lt;/li&gt;
+  &lt;li&gt;亮度 7 或以下&lt;/li&gt;
+  &lt;li&gt;玩家距离刷怪箱 16 个方块内&lt;/li&gt;
+  &lt;li&gt;刷怪箱周围 &lt;code class=&quot;highlighter-rouge&quot;&gt;17 * 9 * 17&lt;/code&gt; 的空间存在的僵尸少于 6 个，如果大于等于 6 个则不会刷怪&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;满足了以上四个条件，刷怪箱可无限刷怪（如果挂机一天肯定会被「噁」心死😜）&lt;/p&gt;
+
+&lt;h2 id=&quot;建造&quot;&gt;建造&lt;/h2&gt;
+
+&lt;h3 id=&quot;内部的封闭空间&quot;&gt;内部的封闭空间&lt;/h3&gt;
+
+&lt;p&gt;满足&lt;strong&gt;条件一&lt;/strong&gt;和&lt;strong&gt;条件二&lt;/strong&gt;&lt;br /&gt;
+虽说僵尸刷怪范围是 &lt;code class=&quot;highlighter-rouge&quot;&gt;8 * 8 * 4&lt;/code&gt;, 但是还要考虑到最下面一层放水，旁白一排也要放水，
+所以干脆挖 &lt;code class=&quot;highlighter-rouge&quot;&gt;9 * 9 * 5&lt;/code&gt; 空间好了，正中间是刷怪箱&lt;br /&gt;
+并且将这个空间封闭，满足条件二（亮度要求）&lt;/p&gt;
+
+&lt;p&gt;具体如下图所示：&lt;br /&gt;
+&lt;img src=&quot;/assets/images/posts/2015-09-26_232820.png&quot; alt=&quot;密闭空间&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/posts/2015-09-26_233020.png&quot; alt=&quot;密闭空间&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;水电梯部分&quot;&gt;水电梯部分&lt;/h3&gt;
+
+&lt;p&gt;满足&lt;strong&gt;条件四&lt;/strong&gt;&lt;br /&gt;
+我们将水电梯建在刷怪箱周围 &lt;code class=&quot;highlighter-rouge&quot;&gt;17 * 9 * 17&lt;/code&gt; 的空间范围之外，为了最大化刷怪。
+而且也要点亮 &lt;code class=&quot;highlighter-rouge&quot;&gt;9 * 9 * 5&lt;/code&gt; 到 &lt;code class=&quot;highlighter-rouge&quot;&gt;17 * 9 * 17&lt;/code&gt; 的空间，防止刷怪&lt;br /&gt;
+如下图，稍微远离刷怪箱（其实还另有目的，下面我们会讲到，分离僵尸村民）&lt;br /&gt;
+&lt;img src=&quot;/assets/images/posts/2015-09-27_001850.png&quot; alt=&quot;水电梯与刷怪箱相对位置&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;水电梯的起点处可这样设计，不会卡住僵尸，也尝试过其它方式，还是这个最顺畅&lt;br /&gt;
+放岩浆的目的是用来杀死小僵尸，因为小僵尸高度是 1, 如果不将其分离的话会卡住水电梯&lt;br /&gt;
+当然你也可以制作岩浆陷阱获取掉落物品，甚至可以收集小僵尸&lt;br /&gt;
+&lt;strong&gt;注意&lt;/strong&gt;：使用的过程中发现如果小僵尸骑着鸡经过这里，小僵尸会瞬移出来，应该是个 Bug, 
+如果你在这里挂机的时候小僵尸跑出来了，你会被打死的，所以建议挂机的时候把自己围住&lt;br /&gt;
+&lt;img src=&quot;/assets/images/posts/2015-09-27_001546.png&quot; alt=&quot;水电梯起点处&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;水电梯的摔落系统&lt;br /&gt;
+我们先看伤害公式&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;跌落伤害值 = 跌落的方块数 - 3
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;僵尸血量为 20, 所以我们让僵尸摔落 22 格（即摔落坐标相差 22），使其为最少血量&lt;/p&gt;
+
+&lt;p&gt;水电梯摔落处的设计如下图&lt;br /&gt;
+&lt;img src=&quot;/assets/images/posts/2015-09-27_004500.png&quot; alt=&quot;水电梯摔落处&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;僵尸与僵尸村民的分离&quot;&gt;僵尸与僵尸村民的分离&lt;/h3&gt;
+
+&lt;p&gt;原理：利用活塞和粘性活塞将水流分流&lt;/p&gt;
+
+&lt;p&gt;具体如下图所示&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;这是拉上拉杆时的状态，普通的经验塔模式&lt;br /&gt;
+&lt;strong&gt;注意：如果使用普通活塞会卡住僵尸，请都使用粘性活塞&lt;/strong&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/posts/2015-09-27_161914.png&quot; alt=&quot;拉上拉杆&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;这是不拉拉杆时的状态，用于捕捉僵尸&lt;br /&gt;
+&lt;img src=&quot;/assets/images/posts/2015-09-27_162513.png&quot; alt=&quot;不拉拉杆&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;僵尸村民的捕获&quot;&gt;僵尸村民的捕获&lt;/h3&gt;
+
+&lt;p&gt;捕获装置，活板门陷阱&lt;br /&gt;
+&lt;img src=&quot;/assets/images/posts/2015-09-27_163738.png&quot; alt=&quot;活板门陷阱&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;利用一系列的活板门陷阱，有多少陷阱，就能一次捕获多少僵尸&lt;br /&gt;
+为了展示将顶部去掉了，陷阱组是需要封顶的，防止僵尸乱跳&lt;br /&gt;
+&lt;img src=&quot;/assets/images/posts/2015-09-27_165329.png&quot; alt=&quot;活板门陷阱总体&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;本教程到此结束了&lt;br /&gt;
+写教程真的挺费时间的，相对来说建造地图所花的时间要少。
+不过也没啥关系，写也是一件很享受的事情&lt;/p&gt;
+</description>
+        <pubDate>Sat, 26 Sep 2015 00:00:00 +0800</pubDate>
+        <link>http://www.dreamxu.com/zombie-monster-spawner-trap/</link>
+        <guid isPermaLink="true">http://www.dreamxu.com/zombie-monster-spawner-trap/</guid>
+        
+        <category>技术</category>
+        
+        <category>Minecraft</category>
+        
+        <category>Game</category>
+        
+        <category>Monster Spawner Trap</category>
+        
+        <category>Zombie</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Minecraft 服务器插件分享</title>
+        <description>&lt;h2 id=&quot;插件安装及使用方法&quot;&gt;插件安装及使用方法&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;关闭服务器&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;将插件放到 plugins 目录&lt;br /&gt;
+再启动服务器，插件就正常运行了，也会在 plugins 目录生成相应的配置文件&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;如果需要修改插件的配置，那么再次将服务器关闭，修改完之后再次启动&lt;/p&gt;
+
+    &lt;p&gt;也可以不用重启服务器，将配置修改好之后，使用插件的 “Reload” 命令&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;authme-reloaded&quot;&gt;AuthMe Reloaded&lt;/h2&gt;
+
+&lt;p&gt;项目主页：&lt;a href=&quot;https://github.com/Xephi/AuthMeReloaded&quot;&gt;https://github.com/Xephi/AuthMeReloaded&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;登录/注册插件，非常好用&lt;/p&gt;
+
+&lt;h2 id=&quot;skinsrestorer&quot;&gt;SkinsRestorer&lt;/h2&gt;
+
+&lt;p&gt;主页：&lt;a href=&quot;https://www.spigotmc.org/resources/skinsrestorer.2124/&quot;&gt;https://www.spigotmc.org/resources/skinsrestorer.2124/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;如果服务器为 Offline 模式，那么正版用户也无法显示皮肤，这款插件就是为了修复这一问题&lt;/p&gt;
+
+&lt;p&gt;依赖这款插件 ProtocolLib: &lt;a href=&quot;https://www.spigotmc.org/resources/protocollib.1997/&quot;&gt;https://www.spigotmc.org/resources/protocollib.1997/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;所以要将以上两者都放入 plugins 目录&lt;/p&gt;
+
+&lt;h2 id=&quot;simple-backup&quot;&gt;Simple Backup&lt;/h2&gt;
+
+&lt;p&gt;项目主页：&lt;a href=&quot;https://github.com/Exolius/SimpleBackup&quot;&gt;https://github.com/Exolius/SimpleBackup&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;一款非常简单好用的备份插件，用来备份世界地图&lt;/p&gt;
+</description>
+        <pubDate>Tue, 22 Sep 2015 00:00:00 +0800</pubDate>
+        <link>http://www.dreamxu.com/minecraft-server-plugin-share/</link>
+        <guid isPermaLink="true">http://www.dreamxu.com/minecraft-server-plugin-share/</guid>
+        
+        <category>分享</category>
+        
+        <category>Minecraft</category>
+        
+        <category>Plugin</category>
+        
+        <category>Game</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Minecraft 服务器 PaperSpigot 的使用</title>
+        <description>&lt;h2 id=&quot;编译&quot;&gt;编译&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;去 &lt;a href=&quot;https://ci.destroystokyo.com/job/PaperSpigot-BuildTools/&quot;&gt;https://ci.destroystokyo.com/job/PaperSpigot-BuildTools/&lt;/a&gt; 下载构建工具，
+下载到文件为 PaperTools.jar&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;新建一个目录，并将 PaperTools.jar 放到里面&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;自动编译&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;java -jar PaperTools.jar
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;p&gt;等好一会之后，例如会在当前目录下生成 paperspigot-1.8.8.jar 文件，
+这就是我们要的最终文件了&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;运行&quot;&gt;运行&lt;/h2&gt;
+
+&lt;p&gt;和 Minecraft 官方服务器用法差不多，paperspigot-1.8.8.jar 就相当于官方服务器的 minecraft_server.1.8.8.jar&lt;/p&gt;
+
+&lt;p&gt;Minecraft 官方服务器用法可查看我的一篇文章&lt;a href=&quot;/build-official-minecraft-server/&quot;&gt;《架设 Minecraft 官方服务器》&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;比官方服务器多的那一部分&quot;&gt;比官方服务器多的那一部分&lt;/h2&gt;
+
+&lt;p&gt;官方服务器主要配置文件就一个 server.properties&lt;br /&gt;
+PaperSpigot 中的配置文件为 server.properties, bukkit.yml, spigot.yml, paper.yml, 
+可配置部分也多多了&lt;/p&gt;
+
+&lt;p&gt;以下只列举出了配置的很少一部分&lt;/p&gt;
+
+&lt;h3 id=&quot;bukkityml&quot;&gt;bukkit.yml&lt;/h3&gt;
+
+&lt;p&gt;详情见：&lt;a href=&quot;http://wiki.bukkit.org/Bukkit.yml&quot;&gt;http://wiki.bukkit.org/Bukkit.yml&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;c1&quot;&gt;# 一个区块中允许的生成生物数&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# 刷怪箱不受其影响，是另一套机制&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;spawn-limits&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;monsters&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;70&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;animals&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;15&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;water-animals&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;5&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;ambient&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;15&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Sat, 19 Sep 2015 00:00:00 +0800</pubDate>
+        <link>http://www.dreamxu.com/minecraft-server-paperspigot-use/</link>
+        <guid isPermaLink="true">http://www.dreamxu.com/minecraft-server-paperspigot-use/</guid>
+        
+        <category>记录</category>
+        
+        <category>Minecraft</category>
+        
+        <category>PaperSpigot</category>
+        
+        <category>Game</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>架设 Minecraft 官方服务器</title>
+        <description>&lt;p&gt;OS X 10.10.5 环境下&lt;/p&gt;
+
+&lt;p&gt;除了官方的服务器，还有很多第三方的服务器可选择，
+如何选择看你的情况了，简略说一下服务器的选择&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;官方服务器，不支持 Plugin, 不支持 Mod, 稳定&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;CraftBukkit, 已经停止更新了&lt;br /&gt;
+后继者 Spigot, 对前者进行了一些优化，支持 Plugin, 不支持 Mod, 次稳定&lt;br /&gt;
+PaperSpigot 对 Spigot 进行了一些优化，支持 Plugin, 不支持 Mod, 次稳定&lt;br /&gt;
+正因为一脉相承，所以以上服务器都兼容 Bukkit 插件&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Cauldron (MCPC+), 支持 Plugin, 支持 Mod, 次次稳定&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;安装步骤&quot;&gt;安装步骤&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;安装好 Java 环境&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;去官方下载页面：&lt;a href=&quot;https://minecraft.net/download&quot;&gt;https://minecraft.net/download&lt;/a&gt;&lt;br /&gt;
+中的 Multiplayer Server 处下载，例如我下载的是：minecraft_server.1.8.8.jar&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;将下载的服务器文件放到文件夹中，例如 minecraft_server.1.8.8&lt;br /&gt;
+在文件中新建文件 start.command, 输入如下内容：&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# 进入脚本所在的目录&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;dirname &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$0&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# 根据情况修改内存大小，服务器的名字&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;java -Xmx2G -Xms2G -jar minecraft_server.1.8.8.jar
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;p&gt;增加可执行权限&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;chmod +x ./start.command
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;p&gt;运行服务器&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;./start.command
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;第一次运行服务器的时候，会提示如下面之类的信息&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;You need to agree to the EULA in order to run the server. Go to eula.txt for more info.
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;p&gt;而且会自动生成一些目录和文件，不用管它&lt;br /&gt;
+我们只需要打开新生成的 eula.txt 文件，将 &lt;code class=&quot;highlighter-rouge&quot;&gt;eula=false&lt;/code&gt; 改为 &lt;code class=&quot;highlighter-rouge&quot;&gt;eula=true&lt;/code&gt;&lt;/p&gt;
+
+    &lt;p&gt;再次运行服务器&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;./start.command
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;p&gt;服务器正常启动，现在其他玩家就可以加入进行游戏了&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;配置服务器&quot;&gt;配置服务器&lt;/h2&gt;
+
+&lt;p&gt;修改配置文件&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;mvim server.properties
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;详细说明请看：&lt;a href=&quot;http://minecraft-zh.gamepedia.com/Server.properties&quot;&gt;http://minecraft-zh.gamepedia.com/Server.properties&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;可能需要改的一些配置&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-jproperties&quot;&gt;# 服务器名字
+server-name=DreamXU
+
+# 服务器端口
+server-port=25565
+
+# 定义服务器的游戏难度（例如生物对玩家造成的伤害，饥饿与中毒对玩家的影响方式等）
+#   0 - 和平
+#   1 - 简单
+#   2 - 普通
+#   3 - 困难
+difficulty=2
+
+# 若为 true 则只有正版玩家才能进入服务器
+online-mode=false
+
+# true 玩家可以互相残杀
+# false 玩家无法互相造成伤害
+pvp=false
+
+# false - 禁用数据采集
+# true - 启用数据采集
+snooper-enabled=false
+
+# 服务器同时最大在线人数
+max-players=20
+
+# 玩家进入服务器时显示的信息
+motd=A Minecraft Server
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;使用&quot;&gt;使用&lt;/h2&gt;
+
+&lt;p&gt;关闭服务器&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;stop
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;op-命令&quot;&gt;OP 命令&lt;/h2&gt;
+
+&lt;p&gt;OP 命令可参考：&lt;a href=&quot;http://minecraft-zh.gamepedia.com/%E5%91%BD%E4%BB%A4&quot;&gt;http://minecraft-zh.gamepedia.com/%E5%91%BD%E4%BB%A4&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Fri, 18 Sep 2015 00:00:00 +0800</pubDate>
+        <link>http://www.dreamxu.com/build-official-minecraft-server/</link>
+        <guid isPermaLink="true">http://www.dreamxu.com/build-official-minecraft-server/</guid>
+        
+        <category>记录</category>
+        
+        <category>Minecraft</category>
+        
+        <category>Game</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>MFC 模态与非模态对话框的创建与销毁</title>
+        <description>&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;：开发全新的 PC 桌面客户端请不要使用 MFC, 已经是过时的技术了。
+有了坑爹的学校，才有了我去用 MFC&lt;br /&gt;
+请使用 Qt, C# WPF, Node-Webkit 等&lt;/p&gt;
+
+&lt;h2 id=&quot;使用-afxmessagebox-或者-messagebox-创建模态对话框&quot;&gt;使用 AfxMessageBox 或者 MessageBox 创建模态对话框&lt;/h2&gt;
+
+&lt;p&gt;使用 AfxMessageBox 函数可创建一个模态对话框&lt;/p&gt;
+
+&lt;p&gt;官方文档：&lt;a href=&quot;https://msdn.microsoft.com/en-us/library/as6se7cb.aspx&quot;&gt;https://msdn.microsoft.com/en-us/library/as6se7cb.aspx&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;简单例子：&lt;/p&gt;
+
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nRet&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;nRet&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;AfxMessageBox&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;你看见我了吗？&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MB_YESNO&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MB_ICONQUESTION&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;switch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nRet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;AfxMessageBox&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;对话框创建失败！&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IDYES&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;AfxMessageBox&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;看见了屏幕上的自己吧&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IDNO&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;AfxMessageBox&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;真的就只有你自己 ╮(╯_╰)╭&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;使用-cdialogdomodal-创建模态对话框&quot;&gt;使用 CDialog::DoModal 创建模态对话框&lt;/h2&gt;
+
+&lt;p&gt;官方文档：&lt;a href=&quot;https://msdn.microsoft.com/en-us/library/619z63f5.aspx&quot;&gt;https://msdn.microsoft.com/en-us/library/619z63f5.aspx&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;文档上的例子很详细了，就不多说了&lt;/p&gt;
+
+&lt;h2 id=&quot;使用-cdialogcreate-创建非模态对话框&quot;&gt;使用 CDialog::Create 创建非模态对话框&lt;/h2&gt;
+
+&lt;p&gt;官方文档：&lt;a href=&quot;https://msdn.microsoft.com/en-us/library/yhth57kd.aspx&quot;&gt;https://msdn.microsoft.com/en-us/library/yhth57kd.aspx&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;首先得有个认识：在 MFC 程序中，窗口对象的生存期应长于对应的窗口，
+也就是说，不能在未关闭屏幕上窗口的情况下先把对应的窗口对象删除掉&lt;/p&gt;
+
+&lt;p&gt;对于模态对话框来说，对话框被关闭之前 DoModal 函数并不会返回，
+一旦对话框被关闭 DoModal 函数立即返回，并不会出现窗口对象先于窗口删除的情况&lt;br /&gt;
+我们使用局部变量来创建模态对话框，因为局部变量的生命周期有限，所以我们不必担心何时来删除窗口对象&lt;/p&gt;
+
+&lt;p&gt;但是对于非模态对话框来说情况就不一样了，Create 函数在显示了对话框后就立即返回，
+所以当调用 Create 函数的那一部分代码返回之后，窗口对象就被删除了，
+如果这时对应窗口没有被关闭，就出现了窗口对象先于窗口删除的情况，这在 MFC 程序中是不允许的&lt;br /&gt;
+为了解决这一问题，我们需要 new 操作符来创建非模态对话框对象。
+但是（TM 问题又来了）在 C++ 中使用了 new 必定还需要将其创建的对象使用 delete 删除，
+不然就出现内存泄漏了&lt;/p&gt;
+
+&lt;p&gt;那么何时来删除呢？&lt;br /&gt;
+官方文档中有说：&lt;a href=&quot;https://msdn.microsoft.com/en-us/library/vstudio/s97b2305(v=vs.140).aspx&quot;&gt;https://msdn.microsoft.com/en-us/library/vstudio/s97b2305(v=vs.140).aspx&lt;/a&gt;&lt;br /&gt;
+摘录如下：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;When you implement a modeless dialog box, 
+  always override the &lt;strong&gt;OnCancel&lt;/strong&gt; member function and call &lt;strong&gt;DestroyWindow&lt;/strong&gt; from within it. 
+  Don’t call the base class &lt;strong&gt;CDialog::OnCancel&lt;/strong&gt;, 
+  because it calls &lt;strong&gt;EndDialog&lt;/strong&gt;, which will make the dialog box invisible but will not destroy it. 
+  You should also override &lt;strong&gt;PostNcDestroy&lt;/strong&gt; for modeless dialog boxes in order to delete &lt;strong&gt;this&lt;/strong&gt;, 
+  since modeless dialog boxes are usually allocated with &lt;strong&gt;new&lt;/strong&gt;. 
+  Modal dialog boxes are usually constructed on the frame and do not need &lt;strong&gt;PostNcDestroy&lt;/strong&gt; cleanup.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;然后我们就知道了我们该做的，需要修改两个地方：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;重写 OnCancel 成员函数，将 DestroyWindow 函数加入其中&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;重写 PostNcDestroy 成员函数，将 delete this 代码加入其中&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;原成员函数说明请看文档：&lt;br /&gt;
+CDialog::OnCancel: &lt;a href=&quot;https://msdn.microsoft.com/en-us/library/kw3wtttf.aspx&quot;&gt;https://msdn.microsoft.com/en-us/library/kw3wtttf.aspx&lt;/a&gt;&lt;br /&gt;
+CWnd::PostNcDestroy: &lt;a href=&quot;https://msdn.microsoft.com/en-us/library/sk933a19.aspx&quot;&gt;https://msdn.microsoft.com/en-us/library/sk933a19.aspx&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;参考：
+&lt;a href=&quot;http://www.xxsof.com/?p=998&quot;&gt;http://www.xxsof.com/?p=998&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;具体的例子&quot;&gt;具体的例子&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;新建一个对话框 ID 为 &lt;code class=&quot;highlighter-rouge&quot;&gt;IDD_POP_DIALOG&lt;/code&gt;, 添加类，名为 &lt;code class=&quot;highlighter-rouge&quot;&gt;CPopDlg&lt;/code&gt;&lt;br /&gt;
+自动生成 &lt;code class=&quot;highlighter-rouge&quot;&gt;PopDlg.h&lt;/code&gt; 和 &lt;code class=&quot;highlighter-rouge&quot;&gt;PopDlg.cpp&lt;/code&gt; 文件&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;在创建 &lt;code class=&quot;highlighter-rouge&quot;&gt;IDD_POP_DIALOG&lt;/code&gt; 对话框的文件中，比如为 &lt;code class=&quot;highlighter-rouge&quot;&gt;ModelessDialogBoxDlg.cpp&lt;/code&gt;, 
+在其中加入头文件 &lt;code class=&quot;highlighter-rouge&quot;&gt;PopDlg.h&lt;/code&gt;&lt;/p&gt;
+
+    &lt;p&gt;创建 &lt;code class=&quot;highlighter-rouge&quot;&gt;IDD_POP_DIALOG&lt;/code&gt; 对话框的代码如下（我是在一个 Button 中创建的）：&lt;/p&gt;
+
+    &lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CModelessDialogBoxDlg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;OnBnClickedPopButton&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;CPopDlg&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;popDlg&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CPopDlg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;BOOL&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ret&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;popDlg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IDD_POP_DIALOG&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ret&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FALSE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;AfxMessageBox&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;对话框创建失败！&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;popDlg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ShowWindow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SW_SHOW&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;重写 &lt;code class=&quot;highlighter-rouge&quot;&gt;IDD_POP_DIALOG&lt;/code&gt; 对话框的 &lt;code class=&quot;highlighter-rouge&quot;&gt;OnCancel&lt;/code&gt; 和 &lt;code class=&quot;highlighter-rouge&quot;&gt;PostNcDestroy&lt;/code&gt; 函数&lt;/p&gt;
+
+    &lt;p&gt;在「类向导」中将虚函数 &lt;code class=&quot;highlighter-rouge&quot;&gt;OnCancel&lt;/code&gt; 和 &lt;code class=&quot;highlighter-rouge&quot;&gt;PostNcDestroy&lt;/code&gt; 设置为重写&lt;/p&gt;
+
+    &lt;p&gt;然后回到实现文件 &lt;code class=&quot;highlighter-rouge&quot;&gt;PopDlg.cpp&lt;/code&gt; 中，将以上两个函数重写为如下内容：&lt;/p&gt;
+
+    &lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CPopDlg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;OnCancel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;DestroyWindow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CPopDlg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PostNcDestroy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;CDialogEx&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PostNcDestroy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;delete&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;还需要注意的一点，在 &lt;code class=&quot;highlighter-rouge&quot;&gt;IDD_POP_DIALOG&lt;/code&gt; 对话框中有默认的确定和取消按钮，
+一般将确定按钮去掉，然后留下取消按钮做关闭窗口之用&lt;/p&gt;
+
+&lt;p&gt;取消按钮自动生成的代码如下：&lt;/p&gt;
+
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CPopDlg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;OnBnClickedCancel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;CDialogEx&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;OnCancel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;如果放任不管，又出问题了（MFC 好麻烦 (〒︿〒) 各位还是不要用了）&lt;br /&gt;
+这家伙调用基类的 &lt;code class=&quot;highlighter-rouge&quot;&gt;OnCancel()&lt;/code&gt; 函数，但是前面我们说过，销毁非模态窗口，我们并不能使用这个函数，
+所以改为如下：&lt;/p&gt;
+
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CPopDlg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;OnBnClickedCancel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;OnCancel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;上面代码是正确的，因为我们已经重写过 &lt;code class=&quot;highlighter-rouge&quot;&gt;OnCancel()&lt;/code&gt; 函数了&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;但是（WC 又来？），以上实现允许你无限创建 &lt;code class=&quot;highlighter-rouge&quot;&gt;IDD_POP_DIALOG&lt;/code&gt; 对话框&lt;br /&gt;
+我们一般需要的功能是，只创建一个窗口，如果再次创建，将只把原来的窗口激活&lt;/p&gt;
+
+&lt;p&gt;任重道远啊，继续…&lt;/p&gt;
+
+&lt;p&gt;我们只在以上基础上修改，不重写了&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;在 &lt;code class=&quot;highlighter-rouge&quot;&gt;ModelessDialogBoxDlg.h&lt;/code&gt; 头文件头部加入 &lt;code class=&quot;highlighter-rouge&quot;&gt;class CPopDlg&lt;/code&gt;, 
+并不使用到 &lt;code class=&quot;highlighter-rouge&quot;&gt;CPopDlg&lt;/code&gt; 类，所以可以不用引入 &lt;code class=&quot;highlighter-rouge&quot;&gt;CPopDlg&lt;/code&gt; 类的头文件&lt;br /&gt;
+并在类 &lt;code class=&quot;highlighter-rouge&quot;&gt;CModelessDialogBoxDlg&lt;/code&gt; 声明处，加入如下成员变量：&lt;/p&gt;
+
+    &lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nl&quot;&gt;public:&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;CPopDlg&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m_pPopDlg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;在 &lt;code class=&quot;highlighter-rouge&quot;&gt;ModelessDialogBoxDlg.cpp&lt;/code&gt; 文件中的 &lt;code class=&quot;highlighter-rouge&quot;&gt;BOOL CModelessDialogBoxDlg::OnInitDialog()&lt;/code&gt; 函数内部加入如下初始化代码：&lt;/p&gt;
+
+    &lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;n&quot;&gt;m_pPopDlg&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;将创建 &lt;code class=&quot;highlighter-rouge&quot;&gt;IDD_POP_DIALOG&lt;/code&gt; 对话框的代码从&lt;/p&gt;
+
+    &lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CModelessDialogBoxDlg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;OnBnClickedPopButton&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;CPopDlg&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;popDlg&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CPopDlg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;BOOL&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ret&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;popDlg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IDD_POP_DIALOG&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ret&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FALSE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;AfxMessageBox&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;对话框创建失败！&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;popDlg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ShowWindow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SW_SHOW&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;p&gt;修改为&lt;/p&gt;
+
+    &lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CModelessDialogBoxDlg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;OnBnClickedPopButton&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m_pPopDlg&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;m_pPopDlg&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CPopDlg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+        &lt;span class=&quot;n&quot;&gt;BOOL&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ret&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m_pPopDlg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IDD_POP_DIALOG&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ret&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FALSE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;AfxMessageBox&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;对话框创建失败！&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+        &lt;span class=&quot;n&quot;&gt;m_pPopDlg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ShowWindow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SW_SHOW&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;m_pPopDlg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SetActiveWindow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;当 &lt;code class=&quot;highlighter-rouge&quot;&gt;IDD_POP_DIALOG&lt;/code&gt; 窗口关闭之后，还需要将 &lt;code class=&quot;highlighter-rouge&quot;&gt;m_pPopDlg&lt;/code&gt; 设置为 &lt;code class=&quot;highlighter-rouge&quot;&gt;NULL&lt;/code&gt;&lt;br /&gt;
+将重写的 &lt;code class=&quot;highlighter-rouge&quot;&gt;OnCancel&lt;/code&gt; 函数修改为：&lt;/p&gt;
+
+    &lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CPopDlg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;OnCancel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;CModelessDialogBoxDlg&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pFather&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CModelessDialogBoxDlg&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetParent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;pFather&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m_pPopDlg&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;DestroyWindow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;写了半天，真是好麻烦，C++ 麻烦，MFC 也麻烦，所以好麻烦&lt;/p&gt;
+</description>
+        <pubDate>Mon, 07 Sep 2015 00:00:00 +0800</pubDate>
+        <link>http://www.dreamxu.com/mfc-create-and-destroy-modal-and-modeless-dialog-box/</link>
+        <guid isPermaLink="true">http://www.dreamxu.com/mfc-create-and-destroy-modal-and-modeless-dialog-box/</guid>
+        
+        <category>记录</category>
+        
+        <category>MFC</category>
+        
+        <category>Modal Dialog Box</category>
+        
+        <category>Modeless Dialog Box</category>
+        
+        
+      </item>
+    
+  </channel>
+</rss>

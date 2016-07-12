@@ -1,0 +1,371 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>枚举类型 (enum) | 明无梦的 CPP 语言记录与心得</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.1.0">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+    
+
+        
+    
+    
+    
+    <link rel="prev" href="../different-from-the-C-language/index.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book" data-level="6" data-basepath=".." data-revision="Mon Feb 29 2016 11:43:27 GMT+0800 (CST)">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+        
+            
+            <li>
+                <a href="http://www.dreamxu.com/" target="blank" class="custom-link">明无梦的博客</a>
+            </li>
+        
+        
+
+        
+        <li class="divider"></li>
+        
+
+        
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                        <i class="fa fa-check"></i>
+                        
+                        简介
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="clion/index.html">
+            
+                
+                    <a href="../clion/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        CLion
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="traversal/index.html">
+            
+                
+                    <a href="../traversal/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        遍历
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="basic-type-range/index.html">
+            
+                
+                    <a href="../basic-type-range/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        基本类型取值范围
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="overflow-problem/index.html">
+            
+                
+                    <a href="../overflow-problem/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        溢出问题
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="different-from-the-C-language/index.html">
+            
+                
+                    <a href="../different-from-the-C-language/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        与 C 语言的不同
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="6" data-path="enum/index.html">
+            
+                
+                    <a href="../enum/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        枚举类型 (enum)
+                    </a>
+                
+            
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                Published with GitBook
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Table of Contents"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Font Settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Share"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">
+                    Share on Twitter
+                </button>
+                <button type="button" data-sharing="google-plus" class="button">
+                    Share on Google
+                </button>
+                <button type="button" data-sharing="facebook" class="button">
+                    Share on Facebook
+                </button>
+                <button type="button" data-sharing="weibo" class="button">
+                    Share on Weibo
+                </button>
+                <button type="button" data-sharing="instapaper" class="button">
+                    Share on Instapaper
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    
+    
+    
+    
+
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >明无梦的 CPP 语言记录与心得</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="%E6%9E%9A%E4%B8%BE%E7%B1%BB%E5%9E%8B-enum">&#x679A;&#x4E3E;&#x7C7B;&#x578B; (enum)</h1>
+<p>&#x5982;&#x679C;&#x67D0;&#x4E9B;&#x53D8;&#x91CF;&#x6709;&#x6709;&#x9650;&#x7684;&#x503C;<br>&#x90A3;&#x4E48;&#x6211;&#x53EF;&#x4EE5;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x679A;&#x4E3E;&#x7C7B;&#x578B;&#xFF0C;&#x518D;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x679A;&#x4E3E;&#x53D8;&#x91CF;<br>&#x679A;&#x4E3E;&#x53D8;&#x91CF;&#x7684;&#x53D6;&#x503C;&#x5C31;&#x662F;&#x6709;&#x9650;&#x7684;&#xFF0C;&#x53EF;&#x4EE5;&#x9632;&#x6B62;&#x53D6;&#x9519;&#x503C;&#xFF0C;&#x4E5F;&#x53EF;&#x63D0;&#x9AD8;&#x7A0B;&#x5E8F;&#x7684;&#x53EF;&#x8BFB;&#x6027;</p>
+<p>&#x770B;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre><code class="lang-cpp"><span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> &lt;iostream&gt;</span>
+
+
+<span class="hljs-keyword">enum</span> Weekday { kMon, kTue, kWed, kThu, kFri, kSat, kSun};
+
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])</span>
+</span>{
+    std::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;kMon: &quot;</span> &lt;&lt; kMon &lt;&lt; std::endl;
+    std::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;kTue: &quot;</span> &lt;&lt; kTue &lt;&lt; std::endl;
+    std::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;kWed: &quot;</span> &lt;&lt; kWed &lt;&lt; std::endl;
+    std::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;kThu: &quot;</span> &lt;&lt; kThu &lt;&lt; std::endl;
+    std::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;kFri: &quot;</span> &lt;&lt; kFri &lt;&lt; std::endl;
+    std::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;kSat: &quot;</span> &lt;&lt; kSat &lt;&lt; std::endl;
+    std::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;kSun: &quot;</span> &lt;&lt; kSun &lt;&lt; std::endl;
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<p>&#x5982;&#x679C; <code>enum</code> &#x5B9A;&#x4E49;&#x5728;&#x5168;&#x5C40;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x90A3;&#x4E48;&#x5176;&#x4E2D;&#x7684;&#x679A;&#x4E3E;&#x503C;&#x53EF;&#x5728;&#x5168;&#x5C40;&#x4F5C;&#x7528;&#x57DF;&#x4E2D;&#x4F7F;&#x7528;&#xFF0C;
+&#x8FD9;&#x6837;&#x4F1A;&#x6C61;&#x67D3;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#xFF0C;&#x6211;&#x4EEC;&#x4E00;&#x822C;&#x4E0D;&#x4F1A;&#x8FD9;&#x6837;&#x7528;</p>
+<p>&#x4F8B;&#x5982;&#xFF0C;&#x53EF;&#x4EE5;&#x52A0;&#x4E0A;&#x547D;&#x540D;&#x7A7A;&#x95F4;</p>
+<pre><code class="lang-cpp"><span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> &lt;iostream&gt;</span>
+
+
+<span class="hljs-keyword">namespace</span> Day {
+
+<span class="hljs-keyword">enum</span> Weekday { kMon, kTue, kWed, kThu, kFri, kSat, kSun};
+
+}  <span class="hljs-comment">// namespace Day</span>
+
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])</span>
+</span>{
+    std::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;kMon: &quot;</span> &lt;&lt; Day::kMon &lt;&lt; std::endl;
+    std::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;kTue: &quot;</span> &lt;&lt; Day::kTue &lt;&lt; std::endl;
+    std::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;kWed: &quot;</span> &lt;&lt; Day::kWed &lt;&lt; std::endl;
+    std::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;kThu: &quot;</span> &lt;&lt; Day::kThu &lt;&lt; std::endl;
+    std::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;kFri: &quot;</span> &lt;&lt; Day::kFri &lt;&lt; std::endl;
+    std::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;kSat: &quot;</span> &lt;&lt; Day::kSat &lt;&lt; std::endl;
+    std::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;kSun: &quot;</span> &lt;&lt; Day::kSun &lt;&lt; std::endl;
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<p>&#x6216;&#x8005;&#x5B9A;&#x4E49;&#x5728;&#x4E00;&#x4E2A;&#x7C7B;&#x4E2D;</p>
+<pre><code class="lang-cpp"><span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> &lt;iostream&gt;</span>
+
+
+<span class="hljs-keyword">class</span> Day {
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-keyword">enum</span> Weekday { kMon, kTue, kWed, kThu, kFri, kSat, kSun};
+};  <span class="hljs-comment">// class Day</span>
+
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])</span>
+</span>{
+    std::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;kMon: &quot;</span> &lt;&lt; Day::kMon &lt;&lt; std::endl;
+    std::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;kTue: &quot;</span> &lt;&lt; Day::kTue &lt;&lt; std::endl;
+    std::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;kWed: &quot;</span> &lt;&lt; Day::kWed &lt;&lt; std::endl;
+    std::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;kThu: &quot;</span> &lt;&lt; Day::kThu &lt;&lt; std::endl;
+    std::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;kFri: &quot;</span> &lt;&lt; Day::kFri &lt;&lt; std::endl;
+    std::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;kSat: &quot;</span> &lt;&lt; Day::kSat &lt;&lt; std::endl;
+    std::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;kSun: &quot;</span> &lt;&lt; Day::kSun &lt;&lt; std::endl;
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../different-from-the-C-language/index.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 与 C 语言的不同"><i class="fa fa-angle-left"></i></a>
+        
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-disqus/plugin.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-ga/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2},"disqus":{"shortName":"mwum"},"ga":{"token":"UA-39279084-1","configuration":"auto"}};
+    gitbook.start(config);
+});
+</script>
+
+        <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-39279084-1', 'auto');ga('send', 'pageview');</script>
+    </body>
+    
+</html>

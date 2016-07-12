@@ -1,0 +1,325 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>CLion | 明无梦的 CPP 语言记录与心得</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.1.0">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../traversal/index.html" />
+    
+    
+    <link rel="prev" href="../index.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book" data-level="1" data-basepath=".." data-revision="Mon Feb 29 2016 11:43:27 GMT+0800 (CST)">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+        
+            
+            <li>
+                <a href="http://www.dreamxu.com/" target="blank" class="custom-link">明无梦的博客</a>
+            </li>
+        
+        
+
+        
+        <li class="divider"></li>
+        
+
+        
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                        <i class="fa fa-check"></i>
+                        
+                        简介
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="1" data-path="clion/index.html">
+            
+                
+                    <a href="../clion/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        CLion
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="traversal/index.html">
+            
+                
+                    <a href="../traversal/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        遍历
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="basic-type-range/index.html">
+            
+                
+                    <a href="../basic-type-range/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        基本类型取值范围
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="overflow-problem/index.html">
+            
+                
+                    <a href="../overflow-problem/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        溢出问题
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="different-from-the-C-language/index.html">
+            
+                
+                    <a href="../different-from-the-C-language/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        与 C 语言的不同
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="enum/index.html">
+            
+                
+                    <a href="../enum/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        枚举类型 (enum)
+                    </a>
+                
+            
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                Published with GitBook
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Table of Contents"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Font Settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Share"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">
+                    Share on Twitter
+                </button>
+                <button type="button" data-sharing="google-plus" class="button">
+                    Share on Google
+                </button>
+                <button type="button" data-sharing="facebook" class="button">
+                    Share on Facebook
+                </button>
+                <button type="button" data-sharing="weibo" class="button">
+                    Share on Weibo
+                </button>
+                <button type="button" data-sharing="instapaper" class="button">
+                    Share on Instapaper
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    
+    
+    
+    
+
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >明无梦的 CPP 语言记录与心得</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="clion">CLion</h1>
+<p>C/C++ IDE</p>
+<p>&#x5B98;&#x7F51;&#xFF1A;<a href="https://www.jetbrains.com/clion/" target="_blank">https://www.jetbrains.com/clion/</a></p>
+<h2 id="%E5%BF%AB%E6%8D%B7%E9%94%AE">&#x5FEB;&#x6377;&#x952E;</h2>
+<ul>
+<li><code>&#x2303; + r</code> &#x8FD0;&#x884C;</li>
+</ul>
+<h2 id="%E6%89%8B%E5%8A%A8%E5%BC%80%E5%90%AF-vim-%E6%A8%A1%E5%BC%8F">&#x624B;&#x52A8;&#x5F00;&#x542F; Vim &#x6A21;&#x5F0F;</h2>
+<pre><code>defaults write -g ApplePressAndHoldEnabled 0
+</code></pre><h2 id="vim-%E6%A8%A1%E5%BC%8F%E5%BF%AB%E6%8D%B7%E9%94%AE%E4%B8%8E-clion-%E5%86%B2%E7%AA%81">Vim &#x6A21;&#x5F0F;&#x5FEB;&#x6377;&#x952E;&#x4E0E; CLion &#x51B2;&#x7A81;</h2>
+<p>Preferences &#x2192; Other Settings &#x2192; Vim Emulation</p>
+<h2 id="%E8%AE%BE%E7%BD%AE%E5%8F%B3%E8%BE%B9%E7%95%8C-80-%E8%A1%8C">&#x8BBE;&#x7F6E;&#x53F3;&#x8FB9;&#x754C; 80 &#x884C;</h2>
+<p>Editor &#x2192; Code Style - Right margin (columns): 80</p>
+<h2 id="%E4%BF%AE%E6%94%B9%E5%AD%97%E4%BD%93">&#x4FEE;&#x6539;&#x5B57;&#x4F53;</h2>
+<p>&#x9996;&#x5148;&#x9700;&#x8981;&#x590D;&#x5236;&#x914D;&#x8272;&#x65B9;&#x6848;</p>
+<p>Editor &#x2192; Colors &amp; Fonts - Scheme &#x9009;&#x62E9; Save As</p>
+<p>&#x7136;&#x540E;&#x5C31;&#x4FEE;&#x6539;&#x5B57;&#x4F53;&#x4E86;</p>
+<h2 id="%E6%98%BE%E7%A4%BA%E7%A9%BA%E6%A0%BC">&#x663E;&#x793A;&#x7A7A;&#x683C;</h2>
+<p>Editor &#x2192; General &#x2192; Appearance - Show whitespaces</p>
+<h2 id="%E6%98%BE%E7%A4%BA%E8%A1%8C%E5%8F%B7">&#x663E;&#x793A;&#x884C;&#x53F7;</h2>
+<p>Editor &#x2192; General &#x2192; Appearance - Show line numbers</p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../index.html" class="navigation navigation-prev " aria-label="Previous page: 简介"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../traversal/index.html" class="navigation navigation-next " aria-label="Next page: 遍历"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-disqus/plugin.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-ga/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2},"disqus":{"shortName":"mwum"},"ga":{"token":"UA-39279084-1","configuration":"auto"}};
+    gitbook.start(config);
+});
+</script>
+
+        <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-39279084-1', 'auto');ga('send', 'pageview');</script>
+    </body>
+    
+</html>

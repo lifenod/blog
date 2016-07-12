@@ -1,0 +1,779 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>编辑距离 (Edit distance) | 明无梦的数据结构与算法学习之路</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.1.0">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../dp/digital-triangle.html" />
+    
+    
+    <link rel="prev" href="../dp/index.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book" data-level="3.1" data-basepath=".." data-revision="Mon Feb 29 2016 11:43:37 GMT+0800 (CST)">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+        
+            
+            <li>
+                <a href="http://www.dreamxu.com/" target="blank" class="custom-link">明无梦的博客</a>
+            </li>
+        
+        
+
+        
+        <li class="divider"></li>
+        
+
+        
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                        <i class="fa fa-check"></i>
+                        
+                        简介
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="data-structure/index.html">
+            
+                
+                    <a href="../data-structure/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        基本数据结构 (Elementary Data Structures
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="data-structure/slist/index.html">
+            
+                
+                    <a href="../data-structure/slist/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        单链表 (Linked list)
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="data-structure/slist/src.html">
+            
+                
+                    <a href="../data-structure/slist/src.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.1.</b>
+                        
+                        实现
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2" data-path="data-structure/slist/doc.html">
+            
+                
+                    <a href="../data-structure/slist/doc.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.2.</b>
+                        
+                        文档
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="data-structure/queue/queue.html">
+            
+                
+                    <a href="../data-structure/queue/queue.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        队列 (Queue)
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="data-structure/binary-tree.html">
+            
+                
+                    <a href="../data-structure/binary-tree.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                        二叉树 (Binary Tree)
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="data-structure/binary-heap.html">
+            
+                
+                    <a href="../data-structure/binary-heap.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.4.</b>
+                        
+                        二叉堆 (Binary heap)
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="dc/index.html">
+            
+                
+                    <a href="../dc/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        分治算法 (Divide and conquer algorithms)
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="dc/rmq.html">
+            
+                
+                    <a href="../dc/rmq.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        范围最值查询 (Range Minimum Query)
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="dc/change-coin.html">
+            
+                
+                    <a href="../dc/change-coin.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        换硬币问题
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="dc/subset.html">
+            
+                
+                    <a href="../dc/subset.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        子集问题
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="dc/hanio.html">
+            
+                
+                    <a href="../dc/hanio.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        汉诺塔 (Tower of Hanoi)
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="dc/binary-search.html">
+            
+                
+                    <a href="../dc/binary-search.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                        二分搜索 (Binary search)
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="dc/quicksort.html">
+            
+                
+                    <a href="../dc/quicksort.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.6.</b>
+                        
+                        快速排序 (Quicksort)
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="dc/gray-code.html">
+            
+                
+                    <a href="../dc/gray-code.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.7.</b>
+                        
+                        格雷码 (Gray code)
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="dp/index.html">
+            
+                
+                    <a href="../dp/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        动态规划 (Dynamic programming)
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="3.1" data-path="dp/edit-distance.html">
+            
+                
+                    <a href="../dp/edit-distance.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        编辑距离 (Edit distance)
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="dp/digital-triangle.html">
+            
+                
+                    <a href="../dp/digital-triangle.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        数字三角形
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="dp/max-k-product.html">
+            
+                
+                    <a href="../dp/max-k-product.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        最大 K 乘积
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="dp/01-knapsack.html">
+            
+                
+                    <a href="../dp/01-knapsack.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                        0/1 背包问题 (0/1 knapsack problem)
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="greedy/index.html">
+            
+                
+                    <a href="../greedy/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        贪心算法 (Greedy algorithm)
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="greedy/activity-selection.html">
+            
+                
+                    <a href="../greedy/activity-selection.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        活动选择问题 (Activity-selection problem
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="greedy/optimal-decomposition.html">
+            
+                
+                    <a href="../greedy/optimal-decomposition.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                        最优分解问题
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="backtracking/index.html">
+            
+                
+                    <a href="../backtracking/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        回溯算法 (Backtracking)
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="backtracking/eight-queens-puzzle.html">
+            
+                
+                    <a href="../backtracking/eight-queens-puzzle.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                        八皇后问题 (Eight queens puzzle)
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="backtracking/minimum-weight-of-the-machine.html">
+            
+                
+                    <a href="../backtracking/minimum-weight-of-the-machine.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                        最小重量机器设计问题
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                Published with GitBook
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Table of Contents"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Font Settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Share"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">
+                    Share on Twitter
+                </button>
+                <button type="button" data-sharing="google-plus" class="button">
+                    Share on Google
+                </button>
+                <button type="button" data-sharing="facebook" class="button">
+                    Share on Facebook
+                </button>
+                <button type="button" data-sharing="weibo" class="button">
+                    Share on Weibo
+                </button>
+                <button type="button" data-sharing="instapaper" class="button">
+                    Share on Instapaper
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    
+    
+    
+    
+
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >明无梦的数据结构与算法学习之路</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="%E7%BC%96%E8%BE%91%E8%B7%9D%E7%A6%BB-edit-distance">&#x7F16;&#x8F91;&#x8DDD;&#x79BB; (Edit distance)</h1>
+<h2 id="%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0">&#x95EE;&#x9898;&#x63CF;&#x8FF0;</h2>
+<p>&#x7ED9;&#x5B9A; 2 &#x4E2A;&#x5B57;&#x7B26;&#x4E32; a, b. 
+&#x7F16;&#x8F91;&#x8DDD;&#x79BB;&#x662F;&#x5C06; a &#x8F6C;&#x6362;&#x4E3A; b &#x7684;&#x6700;&#x5C11;&#x64CD;&#x4F5C;&#x6B21;&#x6570;&#xFF0C;&#x64CD;&#x4F5C;&#x53EA;&#x5141;&#x8BB8;&#x5982;&#x4E0B; 3 &#x79CD;&#xFF1A;</p>
+<ol>
+<li>&#x63D2;&#x5165;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;fj -&gt; fxj</li>
+<li>&#x5220;&#x9664;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;fxj -&gt; fj</li>
+<li>&#x66FF;&#x6362;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;jxj -&gt; fyj</li>
+</ol>
+<h2 id="%E6%80%9D%E8%B7%AF">&#x601D;&#x8DEF;</h2>
+<p>&#x7528;&#x5206;&#x6CBB;&#x7684;&#x601D;&#x60F3;&#x89E3;&#x51B3;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#xFF0C;&#x5C06;&#x590D;&#x6742;&#x7684;&#x95EE;&#x9898;&#x5206;&#x89E3;&#x6210;&#x76F8;&#x4F3C;&#x7684;&#x5B50;&#x95EE;&#x9898;</p>
+<p>&#x5047;&#x8BBE;&#x5B57;&#x7B26;&#x4E32; a, &#x5171; m &#x4F4D;&#xFF0C;&#x4ECE; <code>a[1]</code> &#x5230; <code>a[m]</code><br>&#x5B57;&#x7B26;&#x4E32; b, &#x5171; m &#x4F4D;&#xFF0C;&#x4ECE; <code>b[1]</code> &#x5230; <code>b[n]</code><br><code>d[i][j]</code> &#x8868;&#x793A;&#x5B57;&#x7B26;&#x4E32; <code>a[1]-a[i]</code> &#x8F6C;&#x6362;&#x4E3A; <code>b[1]-b[i]</code> &#x7684;&#x7F16;&#x8F91;&#x8DDD;&#x79BB;</p>
+<p>&#x90A3;&#x4E48;&#x6709;&#x5982;&#x4E0B;&#x9012;&#x5F52;&#x89C4;&#x5F8B;&#xFF08;<code>a[i]</code> &#x548C; <code>b[j]</code> &#x5206;&#x522B;&#x662F;&#x5B57;&#x7B26;&#x4E32; a &#x548C; b &#x7684;&#x6700;&#x540E;&#x4E00;&#x4F4D;&#xFF09;&#xFF1A;  </p>
+<ol>
+<li>&#x5F53; <code>a[i]</code> &#x7B49;&#x4E8E; <code>b[j]</code> &#x65F6;&#xFF0C;<code>d[i][j] = d[i-1][j-1]</code>, 
+&#x6BD4;&#x5982; fxy -&gt; fay &#x7684;&#x7F16;&#x8F91;&#x8DDD;&#x79BB;&#x7B49;&#x4E8E; fx -&gt; fa &#x7684;&#x7F16;&#x8F91;&#x8DDD;&#x79BB;</li>
+<li>&#x5F53; <code>a[i]</code> &#x4E0D;&#x7B49;&#x4E8E; <code>b[j]</code> &#x65F6;&#xFF0C;<code>d[i][j]</code> &#x7B49;&#x4E8E;&#x5982;&#x4E0B; 3 &#x9879;&#x7684;&#x6700;&#x5C0F;&#x503C;&#xFF1A;<ul>
+<li><code>d[i-1][j]</code> + 1&#xFF08;&#x5220;&#x9664; <code>a[i]</code>&#xFF09;&#xFF0C;
+&#x6BD4;&#x5982; fxy -&gt; fab &#x7684;&#x7F16;&#x8F91;&#x8DDD;&#x79BB; =  fx -&gt; fab &#x7684;&#x7F16;&#x8F91;&#x8DDD;&#x79BB; + 1</li>
+<li><code>d[i][j-1]</code> + 1&#xFF08;&#x63D2;&#x5165; <code>b[j]</code>)&#xFF0C;
+&#x6BD4;&#x5982; fxy -&gt; fab &#x7684;&#x7F16;&#x8F91;&#x8DDD;&#x79BB; = fxyb -&gt; fab &#x7684;&#x7F16;&#x8F91;&#x8DDD;&#x79BB; + 1 = fxy -&gt; fa &#x7684;&#x7F16;&#x8F91;&#x8DDD;&#x79BB; + 1</li>
+<li><code>d[i-1][j-1]</code> + 1&#xFF08;&#x5C06; <code>a[i]</code> &#x66FF;&#x6362;&#x4E3A; <code>b[j]</code>&#xFF09;&#xFF0C;
+&#x6BD4;&#x5982; fxy -&gt; fab &#x7684;&#x7F16;&#x8F91;&#x8DDD;&#x79BB; = fxb -&gt; fab &#x7684;&#x7F16;&#x8F91;&#x8DDD;&#x79BB; + 1 = fx -&gt; fa &#x7684;&#x7F16;&#x8F91;&#x8DDD;&#x79BB; + 1</li>
+</ul>
+</li>
+</ol>
+<p>&#x9012;&#x5F52;&#x8FB9;&#x754C;&#xFF1A;</p>
+<ol>
+<li><code>a[i][0] = i</code>, b &#x5B57;&#x7B26;&#x4E32;&#x4E3A;&#x7A7A;&#xFF0C;&#x8868;&#x793A;&#x5C06; <code>a[1]-a[i]</code> &#x5168;&#x90E8;&#x5220;&#x9664;&#xFF0C;&#x6240;&#x4EE5;&#x7F16;&#x8F91;&#x8DDD;&#x79BB;&#x4E3A; i</li>
+<li><code>a[0][j] = j</code>, a &#x5B57;&#x7B26;&#x4E32;&#x4E3A;&#x7A7A;&#xFF0C;&#x8868;&#x793A; a &#x63D2;&#x5165; <code>b[1]-b[j]</code>&#xFF0C;&#x6240;&#x4EE5;&#x7F16;&#x8F91;&#x8DDD;&#x79BB;&#x4E3A; j</li>
+</ol>
+<h2 id="%E4%BB%A3%E7%A0%81">&#x4EE3;&#x7801;</h2>
+<p>&#x6309;&#x7167;&#x4E0A;&#x9762;&#x7684;&#x601D;&#x8DEF;&#x5C06;&#x4EE3;&#x7801;&#x5199;&#x4E0B;&#x6765;</p>
+<pre><code class="lang-c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">edit_distance</span><span class="hljs-params">(<span class="hljs-keyword">char</span> *a, <span class="hljs-keyword">char</span> *b, <span class="hljs-keyword">int</span> i, <span class="hljs-keyword">int</span> j)</span>
+</span>{
+    <span class="hljs-keyword">if</span> (j == <span class="hljs-number">0</span>) {
+        <span class="hljs-keyword">return</span> i;
+    } <span class="hljs-function"><span class="hljs-keyword">else</span> <span class="hljs-title">if</span> <span class="hljs-params">(i == 0)</span> </span>{
+        <span class="hljs-keyword">return</span> j;
+    <span class="hljs-comment">// &#x7B97;&#x6CD5;&#x4E2D; a, b &#x5B57;&#x7B26;&#x4E32;&#x4E0B;&#x6807;&#x4ECE; 1 &#x5F00;&#x59CB;&#xFF0C;c &#x8BED;&#x8A00;&#x4ECE; 0 &#x5F00;&#x59CB;&#xFF0C;&#x6240;&#x4EE5; -1</span>
+    } <span class="hljs-function"><span class="hljs-keyword">else</span> <span class="hljs-title">if</span> <span class="hljs-params">(a[i-1] == b[j-1])</span> </span>{
+        <span class="hljs-keyword">return</span> edit_distance(a, b, i - <span class="hljs-number">1</span>, j - <span class="hljs-number">1</span>);
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">return</span> min_of_three(edit_distance(a, b, i - <span class="hljs-number">1</span>, j) + <span class="hljs-number">1</span>,
+                            edit_distance(a, b, i, j - <span class="hljs-number">1</span>) + <span class="hljs-number">1</span>,
+                            edit_distance(a, b, i - <span class="hljs-number">1</span>, j - <span class="hljs-number">1</span>) + <span class="hljs-number">1</span>);
+    }
+}
+
+edit_distance(stra, strb, <span class="hljs-built_in">strlen</span>(stra), <span class="hljs-built_in">strlen</span>(strb));
+</code></pre>
+<p>&#x4F46;&#x662F;&#x6709;&#x4E2A;&#x4E25;&#x91CD;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x5C31;&#x662F;&#x4EE3;&#x7801;&#x7684;&#x6027;&#x80FD;&#x5F88;&#x4F4E;&#x4E0B;&#xFF0C;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x662F;&#x6307;&#x6570;&#x589E;&#x957F;&#x7684;<br>&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x5F88;&#x591A;&#x76F8;&#x540C;&#x7684;&#x5B50;&#x95EE;&#x9898;&#x5176;&#x5B9E;&#x662F;&#x7ECF;&#x8FC7;&#x4E86;&#x591A;&#x6B21;&#x6C42;&#x89E3;&#xFF0C;&#x89E3;&#x51B3;&#x8FD9;&#x7C7B;&#x95EE;&#x9898;&#x7684;&#x529E;&#x6CD5;&#x662F;&#x7528;&#x52A8;&#x6001;&#x89C4;&#x5212;</p>
+<h3 id="%E7%94%A8%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E6%80%9D%E6%83%B3%E4%BC%98%E5%8C%96%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6">&#x7528;&#x52A8;&#x6001;&#x89C4;&#x5212;&#x601D;&#x60F3;&#x4F18;&#x5316;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;</h3>
+<p>&#x50CF;&#x4EE5;&#x4E0A;&#x89E3;&#x51B3;&#x601D;&#x8DEF;&#xFF0C;&#x662F;&#x4ECE;&#x540E;&#x5F80;&#x524D;&#x7B97;&#x7684;&#xFF0C;&#x6BD4;&#x5982;&#x6211;&#x60F3;&#x77E5;&#x9053; <code>edit_distance(a, b, i, j)</code> 
+&#x6211;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x77E5;&#x9053; <code>edit_distance(a, b, i-1, j-1)</code><br>&#x6709;&#x4E00;&#x79CD;&#x60F3;&#x6CD5;&#x4E0D;&#x9519;&#xFF0C;&#x5C31;&#x662F;&#x4ECE;&#x524D;&#x5F80;&#x540E;&#x7B97;&#xFF0C;&#x5148;&#x7B97;&#x51FA;&#x5404;&#x4E2A;&#x5B50;&#x95EE;&#x9898;&#xFF0C;&#x7136;&#x540E;&#x6839;&#x636E;&#x5B50;&#x95EE;&#x9898;&#xFF0C;&#x8BA1;&#x7B97;&#x51FA;&#x539F;&#x95EE;&#x9898;&#xFF0C;
+&#x5BF9;&#x4E8E;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x6027;&#x80FD;&#x4E0D;&#x9519;&#xFF0C;&#x800C;&#x4E14;&#x4E5F;&#x633A;&#x5BB9;&#x6613;&#x7406;&#x89E3;&#xFF0C;&#x4E0B;&#x9762;&#x5C31;&#x6765;&#x8BF4;&#x4E00;&#x8BF4;</p>
+<p>&#x4F8B;&#x5982;&#x4EE5;&#x5B57;&#x7B26;&#x4E32; a = &quot;fxy&quot;, b = &quot;fab&quot; &#x4E3A;&#x4F8B;  </p>
+<ol>
+<li><p>&#x9996;&#x5148;&#x5EFA;&#x7ACB;&#x4E00;&#x4E2A;&#x77E9;&#x9635;&#xFF0C;&#x7528;&#x6765;&#x5B58;&#x653E;&#x5B50;&#x95EE;&#x9898;&#x53CA;&#x539F;&#x95EE;&#x9898;&#x7684;&#x7F16;&#x8F91;&#x8DDD;&#x79BB;&#xFF0C;&#x5E76;&#x5C06;&#x9012;&#x5F52;&#x8FB9;&#x754C;&#x5728;&#x77E9;&#x9635;&#x4E2D;&#x586B;&#x597D;&#xFF0C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><img src="images/2014-11-05_123018.svg" alt="&#x7F16;&#x8F91;&#x8DDD;&#x79BB;&#x77E9;&#x9635;"></p>
+</li>
+<li><p>&#x7136;&#x540E;&#x8BA1;&#x7B97; i = 1, j = 1 &#x6240;&#x5BF9;&#x5E94;&#x7684;&#x7F16;&#x8F91;&#x8DDD;&#x79BB;&#xFF1A;&#x6BD4;&#x8F83; <code>a[i]</code> &#x548C; <code>b[j]</code> &#x662F;&#x5426;&#x76F8;&#x7B49;&#x7136;&#x540E;&#x6839;&#x636E;&#x9012;&#x5F52;&#x89C4;&#x5F8B;&#x7B97;&#x51FA;&#x8FD9;&#x4E2A;&#x503C;<br>&#x6BD4;&#x5982;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B; <code>a[i] = f</code> &#x548C; <code>b[j] = f</code>, &#x90A3;&#x4E48; <code>d[i][j]</code> &#x5C31;&#x7B49;&#x4E8E; <code>d[i-1][j-1]</code> &#x7B49;&#x4E8E; 0<br>&#x7136;&#x540E;&#x8BA1;&#x7B97; i = 1, j = 2 &#x76F4;&#x5230;&#x7B97;&#x51FA; i = 3, j = 3, &#x539F;&#x95EE;&#x9898;&#x7684;&#x7F16;&#x8F91;&#x8DDD;&#x79BB;&#x5C31;&#x7B49;&#x4E8E; <code>d[3][3]</code><br>&#x6700;&#x7EC8;&#x77E9;&#x9635;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><img src="images/2014-11-05_133201.svg" alt="&#x7F16;&#x8F91;&#x8DDD;&#x79BB;&#x77E9;&#x9635;"></p>
+</li>
+</ol>
+<p>&#x73B0;&#x5728;&#x7684;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x5DF2;&#x5230;&#x4E86;&#x53EF;&#x63A5;&#x53D7;&#x8303;&#x56F4;&#xFF0C;&#x4E3A; O(mn)  </p>
+<p>&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">edit_distance</span><span class="hljs-params">(<span class="hljs-keyword">char</span> *a, <span class="hljs-keyword">char</span> *b)</span>
+</span>{
+    <span class="hljs-keyword">int</span> lena = <span class="hljs-built_in">strlen</span>(a);
+    <span class="hljs-keyword">int</span> lenb = <span class="hljs-built_in">strlen</span>(b);
+    <span class="hljs-keyword">int</span> d[lena+<span class="hljs-number">1</span>][lenb+<span class="hljs-number">1</span>];
+    <span class="hljs-keyword">int</span> i, j;
+
+    <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt;= lena; i++) {
+        d[i][<span class="hljs-number">0</span>] = i;
+    }
+    <span class="hljs-keyword">for</span> (j = <span class="hljs-number">0</span>; j &lt;= lenb; j++) {
+        d[<span class="hljs-number">0</span>][j] = j;
+    }
+
+    <span class="hljs-keyword">for</span> (i = <span class="hljs-number">1</span>; i &lt;= lena; i++) {
+        <span class="hljs-keyword">for</span> (j = <span class="hljs-number">1</span>; j &lt;= lenb; j++) {
+            <span class="hljs-comment">// &#x7B97;&#x6CD5;&#x4E2D; a, b &#x5B57;&#x7B26;&#x4E32;&#x4E0B;&#x6807;&#x4ECE; 1 &#x5F00;&#x59CB;&#xFF0C;c &#x8BED;&#x8A00;&#x4ECE; 0 &#x5F00;&#x59CB;&#xFF0C;&#x6240;&#x4EE5; -1</span>
+            <span class="hljs-keyword">if</span> (a[i-<span class="hljs-number">1</span>] == b[j-<span class="hljs-number">1</span>]) {
+                d[i][j] = d[i-<span class="hljs-number">1</span>][j-<span class="hljs-number">1</span>];
+            } <span class="hljs-keyword">else</span> {
+                d[i][j] = min_of_three(d[i-<span class="hljs-number">1</span>][j]+<span class="hljs-number">1</span>, d[i][j-<span class="hljs-number">1</span>]+<span class="hljs-number">1</span>, d[i-<span class="hljs-number">1</span>][j-<span class="hljs-number">1</span>]+<span class="hljs-number">1</span>);
+            }
+        }
+    }
+
+    <span class="hljs-keyword">return</span> d[lena][lenb];
+}
+</code></pre>
+<p>&#x8FD9;&#x4E2A;&#x7B97;&#x6CD5;&#x7684;&#x7A7A;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x4E3A; O(mn), &#x5F53;&#x4E00;&#x6B65;&#x6B65;&#x586B;&#x5199;&#x77E9;&#x9635;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x5E94;&#x8BE5;&#x80FD;&#x591F;&#x611F;&#x53D7;&#x5230;&#xFF0C;
+&#x7A7A;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x53EF;&#x4EE5;&#x7EE7;&#x7EED;&#x4F18;&#x5316;&#xFF0C;&#x56E0;&#x4E3A;&#x8BA1;&#x7B97;&#x77E9;&#x9635;&#x7684;&#x65F6;&#x5019;&#x603B;&#x662F;&#x9700;&#x8981;&#x6709;&#x9650;&#x7684;&#x91CF;&#xFF0C;&#x540C;&#x4E00;&#x65F6;&#x95F4;&#x5E76;&#x4E0D;&#x9700;&#x8981;&#x6240;&#x6709;&#x77E9;&#x9635;&#x7684;&#x503C;</p>
+<h3 id="%E6%A0%B9%E6%8D%AE%E5%85%B7%E4%BD%93%E9%97%AE%E9%A2%98%E4%BC%98%E5%8C%96%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6">&#x6839;&#x636E;&#x5177;&#x4F53;&#x95EE;&#x9898;&#x4F18;&#x5316;&#x7A7A;&#x95F4;&#x590D;&#x6742;&#x5EA6;</h3>
+<p>&#x8FD8;&#x662F;&#x4EE5; a = &quot;fxy&quot;, b = &quot;fab&quot; &#x4E3A;&#x4F8B;&#xFF0C;&#x4F8B;&#x5982;&#x8BA1;&#x7B97; <code>d[1][3]</code>, &#x4E5F;&#x5C31;&#x662F;&#x4E0B;&#x56FE;&#x4E2D;&#x7684;&#x7EFF;&#x8272;&#x65B9;&#x5757;&#xFF0C;
+&#x6211;&#x4EEC;&#x9700;&#x8981;&#x77E5;&#x9053;&#x7684;&#x503C;&#x53EA;&#x9700; 3 &#x4E2A;&#xFF0C;&#x4E0B;&#x56FE;&#x4E2D;&#x84DD;&#x8272;&#x65B9;&#x5757;&#x7684;&#x503C;</p>
+<p><img src="images/2014-11-05_134029.svg" alt="&#x7F16;&#x8F91;&#x8DDD;&#x79BB;&#x77E9;&#x9635;"></p>
+<p>&#x8FDB;&#x4E00;&#x6B65;&#x5206;&#x6790;&#xFF0C;&#x6211;&#x4EEC;&#x77E5;&#x9053;&#xFF0C;&#x5F53;&#x8BA1;&#x7B97; <code>d[1]</code> &#x8FD9;&#x884C;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6211;&#x4EEC;&#x53EA;&#x9700;&#x77E5;&#x9053; <code>d[0]</code> &#x8FD9;&#x884C;&#x7684;&#x503C;&#xFF0C;
+&#x540C;&#x7406;&#x6211;&#x4EEC;&#x8BA1;&#x7B97;&#x5F53;&#x524D;&#x884C;&#x7684;&#x65F6;&#x5019;&#x53EA;&#x9700;&#x77E5;&#x9053;&#x4E0A;&#x4E00;&#x884C;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;<br>&#x518D;&#x8FDB;&#x4E00;&#x6B65;&#x5206;&#x6790;&#xFF0C;&#x5176;&#x5B9E;&#x6211;&#x4EEC;&#x53EA;&#x9700;&#x8981;&#x4E00;&#x884C;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#xFF0C;&#x6BCF;&#x6B21;&#x8BA1;&#x7B97;&#x7684;&#x65F6;&#x5019;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x7684; 3 &#x4E2A;&#x503C;&#xFF0C;
+&#x5176;&#x4E2D;&#x4E0A;&#x8FB9;&#x548C;&#x5DE6;&#x8FB9;&#x7684;&#x503C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5F97;&#x5230;&#xFF0C;&#x5750;&#x4E0A;&#x89D2;&#x7684;&#x503C;&#x9700;&#x8981;&#x4E34;&#x65F6;&#x53D8;&#x91CF;&#xFF08;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#x4F7F;&#x7528; old&#xFF09;&#x6765;&#x8BB0;&#x5F55;</p>
+<p>&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">edit_distance</span><span class="hljs-params">(<span class="hljs-keyword">char</span> *a, <span class="hljs-keyword">char</span> *b)</span>
+</span>{
+    <span class="hljs-keyword">int</span> lena = <span class="hljs-built_in">strlen</span>(a);
+    <span class="hljs-keyword">int</span> lenb = <span class="hljs-built_in">strlen</span>(b);
+    <span class="hljs-keyword">int</span> d[lenb+<span class="hljs-number">1</span>];
+    <span class="hljs-keyword">int</span> i, j, old, tnmp;
+
+    <span class="hljs-keyword">for</span> (j = <span class="hljs-number">0</span>; j &lt;= lenb; j++) {
+        d[j] = j;
+    }
+
+    <span class="hljs-keyword">for</span> (i = <span class="hljs-number">1</span>; i &lt;= lena; i++) {
+        old = i - <span class="hljs-number">1</span>;
+        d[<span class="hljs-number">0</span>] = i;
+        <span class="hljs-keyword">for</span> (j = <span class="hljs-number">1</span>; j &lt;= lenb; j++) {
+            temp = d[j];
+            <span class="hljs-comment">// &#x7B97;&#x6CD5;&#x4E2D; a, b &#x5B57;&#x7B26;&#x4E32;&#x4E0B;&#x6807;&#x4ECE; 1 &#x5F00;&#x59CB;&#xFF0C;c &#x8BED;&#x8A00;&#x4ECE; 0 &#x5F00;&#x59CB;&#xFF0C;&#x6240;&#x4EE5; -1</span>
+            <span class="hljs-keyword">if</span> (a[i-<span class="hljs-number">1</span>] == b[j-<span class="hljs-number">1</span>]) {
+                d[j] = old;
+            } <span class="hljs-keyword">else</span> {
+                d[j] = min_of_three(d[j] + <span class="hljs-number">1</span>, d[j-<span class="hljs-number">1</span>] + <span class="hljs-number">1</span>, old + <span class="hljs-number">1</span>);
+            }
+            old = temp;
+        }
+    }
+
+    <span class="hljs-keyword">return</span> d[lenb];
+}
+</code></pre>
+<p>&#x5199;&#x4EE3;&#x7801;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x4E00;&#x70B9;&#x5C31;&#x662F;&#xFF0C;&#x5F53;&#x4E00;&#x884C;&#x8BA1;&#x7B97;&#x597D;&#x4E4B;&#x540E;&#x5F00;&#x59CB;&#x4E0B;&#x4E00;&#x884C;&#x7684;&#x65F6;&#x5019;&#xFF0C;
+&#x8981;&#x521D;&#x59CB;&#x5316; <code>old</code> &#x548C; <code>d[0]</code> &#x7684;&#x503C;</p>
+<p>&#x4F18;&#x5316;&#x8FC7;&#x540E;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x8FD8;&#x662F; O(mn), 
+&#x7A7A;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x964D;&#x4F4E;&#x4E86;&#xFF0C;&#x4EE5;&#x4E0A;&#x4EE3;&#x7801;&#x662F; O(n), &#x5176;&#x5B9E;&#x5F88;&#x7B80;&#x5355;&#x53EF;&#x4EE5;&#x5199;&#x6210; O(min(m,n)), 
+&#x4E3A;&#x4E86;&#x4FBF;&#x4E8E;&#x7406;&#x89E3;&#xFF0C;&#x5C31;&#x4E0D;&#x5177;&#x4F53;&#x5199;&#x4E86;</p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../dp/index.html" class="navigation navigation-prev " aria-label="Previous page: 动态规划 (Dynamic programming)"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../dp/digital-triangle.html" class="navigation navigation-next " aria-label="Next page: 数字三角形"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-disqus/plugin.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-ga/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2},"disqus":{"shortName":"mwum"},"ga":{"token":"UA-39279084-1","configuration":"auto"}};
+    gitbook.start(config);
+});
+</script>
+
+        <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-39279084-1', 'auto');ga('send', 'pageview');</script>
+    </body>
+    
+</html>

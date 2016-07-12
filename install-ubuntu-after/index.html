@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>安装 Ubuntu 后要做的一些事</title>
+  <meta name="description" content="  安装编译环境">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://www.dreamxu.com/install-ubuntu-after/">
+  <link rel="alternate" type="application/rss+xml" title="明无梦" href="http://www.dreamxu.com/feed.xml">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">明无梦</a>
+
+    <nav class="site-nav">
+      <a class="menu-icon" id="js-nav-menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <a class="menu-icon-activate" id="js-nav-menu-icon-activate">
+        <svg viewBox="0 0 36 15">
+          <path fill="#424242" d="m36,1.484c0,0.82 -0.665,1.484 -1.484,1.484l-33.032,0c-0.819,0.001 -1.484,-0.664 -1.484,-1.484l0,0c0,-0.819 0.665,-1.484 1.484,-1.484l33.032,0c0.82,0 1.484,0.665 1.484,1.484l0,0z"/>
+          <path fill="#424242" d="m36,7.516c0,0.819 -0.665,1.484 -1.484,1.484l-33.032,0c-0.819,0 -1.484,-0.665 -1.484,-1.484l0,0c0,-0.82 0.665,-1.484 1.484,-1.484l33.032,0c0.82,-0.001 1.484,0.664 1.484,1.484l0,0z"/>
+          <path fill="#424242" d="m36,13.516c0,0.819 -0.665,1.484 -1.484,1.484l-33.032,0c-0.819,0 -1.484,-0.665 -1.484,-1.484l0,0c0,-0.82 0.665,-1.484 1.484,-1.484l33.032,0c0.82,-0.001 1.484,0.664 1.484,1.484l0,0z"/>
+        </svg>
+      </a>
+
+      <div class="trigger" id="js-nav-menu-trigger">
+        <a class="page-link" href="/archive">归档</a>
+        <a class="page-link" href="/tags">标签</a>
+        <a class="page-link" href="/books">书籍</a>
+        <a class="page-link" href="/tweet/2016">微语</a>
+        <a class="page-link" href="/games">游戏</a>
+        <a class="page-link" href="/about">关于</a>
+        <a class="page-link" href="/feed.xml">订阅</a>
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title"><a href="/install-ubuntu-after/">安装 Ubuntu 后要做的一些事</a></h1>
+    <ul class="post-meta">
+      <li class="published-date">2013-07-14</li>
+      
+        <li class="updated-date"> | 更新: 2013-08-03</li>
+      
+
+      
+        <li> | 标签: </li>
+        
+          <li class="post-tag"><a href="/tags/?names=记录#tag-list-display">记录</a></li>
+        
+          <li class="post-tag"><a href="/tags/?names=Ubuntu#tag-list-display">Ubuntu</a></li>
+        
+          <li class="post-tag"><a href="/tags/?names=Install#tag-list-display">Install</a></li>
+        
+      
+    </ul>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <ul>
+  <li>
+    <p>安装编译环境</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo apt-get install build-essential
+</pre></td></tr></tbody></table>
+</div>
+    </div>
+  </li>
+  <li>
+    <p>安装 vim</p>
+  </li>
+  <li>
+    <p>开机自动挂载分区<br />
+修改 /etc/fstab 文件，例如添加<br />
+UUID=588650B08650907C /media/DATA ntfs defaults,dmask=002,fmask=113,uid=1000,gid=1000 0 0</p>
+  </li>
+  <li>
+    <p>安装 Ubuntu Tweak</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3</pre></td><td class="code"><pre>sudo add-apt-repository ppa:tualatrix/ppa
+sudo apt-get update
+sudo apt-get install ubuntu-tweak
+</pre></td></tr></tbody></table>
+</div>
+    </div>
+  </li>
+  <li>
+    <p>修改默认中文字体<br />
+字体可以在 windows 系统下找到一些，C:/Windows/Fonts 目录下<br />
+可在 /etc/fonts/conf.d/69-language-selector-zh-cn.conf 文件中修改默认字体<br />
+用命令 <code class="highlighter-rouge">fc-list :lang=zh</code> 查看系统当前可用的中文字体，用 Ubuntu Tweak 修改字体平滑度</p>
+  </li>
+  <li>
+    <p>修改桌面背景图片，grub 选项、顺序、背景等，等一系列系统设置<br />
+使用 Ubuntu Tweak 和 Grub Customizer<br />
+Grub Customizer 安装方法如下</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3</pre></td><td class="code"><pre>sudo add-apt-repository ppa:danielrichter2007/grub-customizer
+sudo apt-get update
+sudo apt-get install grub-customizer
+</pre></td></tr></tbody></table>
+</div>
+    </div>
+
+    <p>或者直接修改配置文件 <a href="https://help.ubuntu.com/community/Grub2#Configuring_GRUB_2">https://help.ubuntu.com/community/Grub2#Configuring_GRUB_2</a></p>
+  </li>
+  <li>
+    <p>安装 truecrypt 加密软件
+<a href="http://www.truecrypt.org">http://www.truecrypt.org</a></p>
+  </li>
+  <li>
+    <p>安装 VirtualBox 虚拟机
+<a href="https://www.virtualbox.org">https://www.virtualbox.org</a><br />
+Oracle VM VirtualBox Extension Pack 装上才能使用 USB 等<br />
+将用户添加到 vboxusers 组，才能访问 USB 设备 <code class="highlighter-rouge">sudo adduser username vboxusers</code><br />
+最后需要注销一下</p>
+  </li>
+  <li>
+    <p>安装搜狗输入法</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3</pre></td><td class="code"><pre>sudo add-apt-repository ppa:fcitx-team/nightly
+sudo apt-get update
+sudo apt-get install fcitx fcitx-sogoupinyin
+</pre></td></tr></tbody></table>
+</div>
+    </div>
+  </li>
+  <li>
+    <p>安装思维导图软件 XMind
+<a href="http://www.xmind.net">http://www.xmind.net</a></p>
+  </li>
+  <li>
+    <p>安装下载工具 uget + aria2</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4</pre></td><td class="code"><pre>sudo add-apt-repository ppa:plushuang-tw/uget-stable
+sudo add-apt-repository ppa:t-tujikawa/ppa
+sudo apt-get update
+sudo apt-get install uget aria2
+</pre></td></tr></tbody></table>
+</div>
+    </div>
+
+    <p>配置 uget
+-   编辑-&gt;设置-&gt;插件-&gt;勾选’启用 aria2 插件’，确保 Arguments 中有 –enable-rpc=true 参数
+-   打开 uget 在左下的分类中的 Home 右键点击属性，将每台服务器连接数改为16最优（网友如是说）
+-   chrome 可安装 download assistant 插件，现在停止开发了，不过网上资源还是很多的</p>
+  </li>
+  <li>
+    <p>安装视频播放器 VLC</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo apt-get install vlc
+</pre></td></tr></tbody></table>
+</div>
+    </div>
+  </li>
+  <li>
+    <p>安装截图软件 Shutter</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo apt-get install shutter
+</pre></td></tr></tbody></table>
+</div>
+    </div>
+  </li>
+  <li>
+    <p>修改程序关联列表</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo vim /usr/share/applications/defaults.list
+</pre></td></tr></tbody></table>
+</div>
+    </div>
+  </li>
+  <li>
+    <p>代理软件 proxychains</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo apt-get install proxychains
+</pre></td></tr></tbody></table>
+</div>
+    </div>
+  </li>
+  <li>
+    <p>IRC 客户端 pidgin，不光支持 IRC，还支持很多协议</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo apt-get install pidgin
+</pre></td></tr></tbody></table>
+</div>
+    </div>
+  </li>
+</ul>
+
+  </div>
+
+  <div class="quiet-link">
+    
+    <span>上一篇：</span><a href="/ubuntu-install-sublime-text/">Ubuntu 安装 Sublime Text</a><br />
+    
+    
+    <span>下一篇：</span><a href="/make-progit/">制作 Pro Git 电子书</a>
+    
+  </div>
+
+</article>
+
+
+
+<hr>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'mwum'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+    <div class="footer-content">
+      <p>
+        <span class="no-palm">本站采用 <a rel="license" href="//creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可<br></span>
+        <span>&copy;2013-2016 <a href="http://www.dreamxu.com">明无梦</a></span>
+        <span class="no-palm">| </span>
+        <span>Powered by <a href="//jekyllrb.com/">jekyll</a></span>
+        <span class="no-palm">| </span>
+        <span>Hosted by <a href="//github.com/">github</a></span>
+        <span class="no-palm">| </span>
+        <span>Designed by <a href="http://www.dreamxu.com">明无梦</a></span>
+        <span class="no-laptop"><a rel="license" href="//creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a></span>
+      </p>
+    </div>
+
+  </div>
+
+</footer>
+
+
+    <script type="text/javascript" src="/js/main.js"></script>
+
+
+
+
+
+    
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-39279084-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+
+  </body>
+
+</html>

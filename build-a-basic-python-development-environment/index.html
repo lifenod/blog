@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>搭建基本的 Python 开发环境</title>
+  <meta name="description" content="使用 pyenv 来安装 Python">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://www.dreamxu.com/build-a-basic-python-development-environment/">
+  <link rel="alternate" type="application/rss+xml" title="明无梦" href="http://www.dreamxu.com/feed.xml">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">明无梦</a>
+
+    <nav class="site-nav">
+      <a class="menu-icon" id="js-nav-menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <a class="menu-icon-activate" id="js-nav-menu-icon-activate">
+        <svg viewBox="0 0 36 15">
+          <path fill="#424242" d="m36,1.484c0,0.82 -0.665,1.484 -1.484,1.484l-33.032,0c-0.819,0.001 -1.484,-0.664 -1.484,-1.484l0,0c0,-0.819 0.665,-1.484 1.484,-1.484l33.032,0c0.82,0 1.484,0.665 1.484,1.484l0,0z"/>
+          <path fill="#424242" d="m36,7.516c0,0.819 -0.665,1.484 -1.484,1.484l-33.032,0c-0.819,0 -1.484,-0.665 -1.484,-1.484l0,0c0,-0.82 0.665,-1.484 1.484,-1.484l33.032,0c0.82,-0.001 1.484,0.664 1.484,1.484l0,0z"/>
+          <path fill="#424242" d="m36,13.516c0,0.819 -0.665,1.484 -1.484,1.484l-33.032,0c-0.819,0 -1.484,-0.665 -1.484,-1.484l0,0c0,-0.82 0.665,-1.484 1.484,-1.484l33.032,0c0.82,-0.001 1.484,0.664 1.484,1.484l0,0z"/>
+        </svg>
+      </a>
+
+      <div class="trigger" id="js-nav-menu-trigger">
+        <a class="page-link" href="/archive">归档</a>
+        <a class="page-link" href="/tags">标签</a>
+        <a class="page-link" href="/books">书籍</a>
+        <a class="page-link" href="/tweet/2016">微语</a>
+        <a class="page-link" href="/games">游戏</a>
+        <a class="page-link" href="/about">关于</a>
+        <a class="page-link" href="/feed.xml">订阅</a>
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title"><a href="/build-a-basic-python-development-environment/">搭建基本的 Python 开发环境</a></h1>
+    <ul class="post-meta">
+      <li class="published-date">2015-08-20</li>
+      
+        <li class="updated-date"> | 更新: 2015-08-22</li>
+      
+
+      
+        <li> | 标签: </li>
+        
+          <li class="post-tag"><a href="/tags/?names=记录#tag-list-display">记录</a></li>
+        
+          <li class="post-tag"><a href="/tags/?names=Python#tag-list-display">Python</a></li>
+        
+          <li class="post-tag"><a href="/tags/?names=pyenv#tag-list-display">pyenv</a></li>
+        
+          <li class="post-tag"><a href="/tags/?names=Virtualenv#tag-list-display">Virtualenv</a></li>
+        
+      
+    </ul>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <h2 id="使用-pyenv-来安装-python">使用 pyenv 来安装 Python</h2>
+
+<h3 id="先安装-pyenv">先安装 pyenv</h3>
+
+<p>官网：<a href="https://github.com/yyuu/pyenv">https://github.com/yyuu/pyenv</a></p>
+
+<ol>
+  <li>
+    <p>通过 Homebrew 安装</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2</pre></td><td class="code"><pre>brew update
+brew install pyenv
+</pre></td></tr></tbody></table>
+</div>
+    </div>
+
+    <p>使用 Homebew 安装的话一些基本的 pyenv 插件都安装了，就不必再次安装，例如 pyenv-pip-rehash 插件</p>
+  </li>
+  <li>
+    <p>将 <code class="highlighter-rouge">eval "$(pyenv init -)"</code> 添加到 profile, 例如 .zshrc</p>
+  </li>
+  <li>
+    <p>一般不用进行如下操作</p>
+
+    <p>默认使用的是 ~/.pyenv 目录，如果你需要使用 Homebrew 目录请将如下内容添加到 profile</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>export PYENV_ROOT=/usr/local/var/pyenv
+</pre></td></tr></tbody></table>
+</div>
+    </div>
+  </li>
+  <li>
+    <p>重新运行 shell</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>exec $SHELL
+</pre></td></tr></tbody></table>
+</div>
+    </div>
+  </li>
+</ol>
+
+<p>具体 pyenv 用法可参考：<a href="https://github.com/yyuu/pyenv/blob/master/COMMANDS.md">https://github.com/yyuu/pyenv/blob/master/COMMANDS.md</a><br />
+既然这个项目是从 <a href="https://github.com/sstephenson/rbenv">rbenv</a> fork 而来的，想必用法也差不多了，事实也确实如此，
+亦可参考我以前写的文章<a href="/install-ruby-on-mac-with-rbenv/#安装-ruby">《在 Mac 上用 rbenv 安装 ruby - 安装 Ruby | 明无梦的博客》</a>和
+<a href="/install-ruby-on-mac-with-rbenv/#管理-ruby">《在 Mac 上用 rbenv 安装 ruby - 管理 Ruby | 明无梦的博客》</a></p>
+
+<h3 id="安装-python3">安装 Python3</h3>
+
+<ol>
+  <li>
+    <p>查看可安装的 Python 版本</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>pyenv install -l
+</pre></td></tr></tbody></table>
+</div>
+    </div>
+  </li>
+  <li>
+    <p>安装具体的 Python 版本</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>pyenv install 3.4.3
+</pre></td></tr></tbody></table>
+</div>
+    </div>
+  </li>
+  <li>
+    <p>查看已经安装的 Python 版本</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>pyenv versions
+</pre></td></tr></tbody></table>
+</div>
+    </div>
+  </li>
+  <li>
+    <p>切换到需要的 Python 版本（全局生效）</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>pyenv global 3.4.3
+</pre></td></tr></tbody></table>
+</div>
+    </div>
+  </li>
+  <li>
+    <p>升级 pip</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>pip install --upgrade pip
+</pre></td></tr></tbody></table>
+</div>
+    </div>
+  </li>
+</ol>
+
+<p>如果这时你执行 <code class="highlighter-rouge">brew doctor</code> 会出现类似如下的问题</p>
+
+<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></td><td class="code"><pre>$ brew doctor
+Please note that these warnings are just used to help the Homebrew maintainers
+with debugging if you file an issue. If everything you use Homebrew for is
+working fine: please don't worry and just ignore them. Thanks!
+
+Warning: python is symlinked to python3
+This will confuse build scripts and in general lead to subtle breakage.
+
+Warning: "config" scripts exist outside your system or Homebrew directories.
+`./configure` scripts often look for *-config scripts to determine if
+software packages are installed, and what additional flags to use when
+compiling and linking.
+
+Having additional scripts in your path can confuse software installed via
+Homebrew if the config script overrides a system or Homebrew provided
+script of the same name. We found the following "config" scripts:
+
+  /Users/mwum/.pyenv/shims/python-config
+  /Users/mwum/.pyenv/shims/python3-config
+  /Users/mwum/.pyenv/shims/python3.4-config
+  /Users/mwum/.pyenv/shims/python3.4m-config
+</pre></td></tr></tbody></table>
+</div>
+</div>
+
+<p>解决办法参考：<br />
+<a href="http://www.task-notes.com/entry/20141223/1419324649">【Homebrew】brew doctorのWarning対処方法 (その3) + envコマンドについて</a><br />
+<a href="https://github.com/yyuu/pyenv/issues/106">pyenv not playing nice with brew “config”. [$5] #106</a></p>
+
+<p>方法为：<br />
+将 <code class="highlighter-rouge">alias brew='"env" PATH=${PATH//$(pyenv root)\/shims:/} brew'</code> 添加到 profile</p>
+
+<p>外什么要将其中的 <code class="highlighter-rouge">env</code> 加上 <code class="highlighter-rouge">""</code> ?<br />
+执行 <code class="highlighter-rouge">env</code> 之后，如其中的结果出现了空格，会出现 <code class="highlighter-rouge">No such file or directory</code> 的问题，为了避免此问题，所以加上 <code class="highlighter-rouge">""</code></p>
+
+<h2 id="安装-virtual-environments-及使用">安装 Virtual Environments 及使用</h2>
+
+<p>官网：<a href="https://virtualenv.pypa.io">https://virtualenv.pypa.io</a></p>
+
+<p>这个工具可使不同的项目保持不同的依赖，（很闲的话还可以使同一个项目保持不同的依赖）<br />
+例如，Project X 依赖版本 1.x, 但是 Project Y  依赖版本 4.x<br />
+也可使用 <a href="https://github.com/yyuu/pyenv-virtualenv">pyenv-virtualenv</a> 这个工具，功能是一样的</p>
+
+<p>通过 pip 来安装</p>
+
+<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>pip install virtualenv
+</pre></td></tr></tbody></table>
+</div>
+</div>
+
+<h3 id="基本使用">基本使用</h3>
+
+<p>参考：<a href="http://docs.python-guide.org/en/latest/dev/virtualenvs/">Virtual Environments | Python Guide</a></p>
+
+<ol>
+  <li>
+    <p>为一个项目创建一个虚拟环境，名字为 venv, 可以改成你喜欢的名字</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2</pre></td><td class="code"><pre>cd my_project_folder
+virtualenv venv
+</pre></td></tr></tbody></table>
+</div>
+    </div>
+  </li>
+  <li>
+    <p>也可以指定 Python 版本</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>virtualenv -p /usr/local/bin/python3 venv
+</pre></td></tr></tbody></table>
+</div>
+    </div>
+  </li>
+  <li>
+    <p>激活虚拟环境</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>source ./venv/bin/activate
+</pre></td></tr></tbody></table>
+</div>
+    </div>
+
+    <p>如果不加参数那么全局安装的包也包括在内，如果不想加载全局的包可使用参数 <code class="highlighter-rouge">--no-site-packages</code></p>
+
+    <p>在虚拟环境激活的情况下，如果使用 <code class="highlighter-rouge">pip</code> 来安装各种包，包会被安装在当前虚拟环境下，即 <code class="highlighter-rouge">./venv</code> 文件夹下，
+并不会对全局环境产生影响</p>
+  </li>
+  <li>
+    <p>关闭虚拟环境</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>deactivate
+</pre></td></tr></tbody></table>
+</div>
+    </div>
+  </li>
+  <li>
+    <p>删除虚拟环境，只需删除 <code class="highlighter-rouge">./venv</code> 文件夹即可</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>rm -rf ./venv
+</pre></td></tr></tbody></table>
+</div>
+    </div>
+  </li>
+</ol>
+
+  </div>
+
+  <div class="quiet-link">
+    
+    <span>上一篇：</span><a href="/software-book-update/">《明无梦的软件使用记录》书籍更新中</a><br />
+    
+    
+    <span>下一篇：</span><a href="/protection-of-privacy-the-image-exif-information/">保护隐私：图片的 Exif 信息</a>
+    
+  </div>
+
+</article>
+
+
+
+<hr>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'mwum'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+    <div class="footer-content">
+      <p>
+        <span class="no-palm">本站采用 <a rel="license" href="//creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可<br></span>
+        <span>&copy;2013-2016 <a href="http://www.dreamxu.com">明无梦</a></span>
+        <span class="no-palm">| </span>
+        <span>Powered by <a href="//jekyllrb.com/">jekyll</a></span>
+        <span class="no-palm">| </span>
+        <span>Hosted by <a href="//github.com/">github</a></span>
+        <span class="no-palm">| </span>
+        <span>Designed by <a href="http://www.dreamxu.com">明无梦</a></span>
+        <span class="no-laptop"><a rel="license" href="//creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a></span>
+      </p>
+    </div>
+
+  </div>
+
+</footer>
+
+
+    <script type="text/javascript" src="/js/main.js"></script>
+
+
+
+
+
+    
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-39279084-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+
+  </body>
+
+</html>

@@ -1,0 +1,668 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>批量注释 (NERD Commenter) | 明无梦的 Vim 使用记录</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.1.0">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../plugin/vim-easymotion.html" />
+    
+    
+    <link rel="prev" href="../plugin/syntastic.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book" data-level="6.8" data-basepath=".." data-revision="Mon Feb 29 2016 11:43:57 GMT+0800 (CST)">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+        
+            
+            <li>
+                <a href="http://www.dreamxu.com/" target="blank" class="custom-link">明无梦的博客</a>
+            </li>
+        
+        
+
+        
+        <li class="divider"></li>
+        
+
+        
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                        <i class="fa fa-check"></i>
+                        
+                        简介
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="study/index.html">
+            
+                
+                    <a href="../study/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        学习
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="resources/index.html">
+            
+                
+                    <a href="../resources/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        资源
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="install/index.html">
+            
+                
+                    <a href="../install/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        安装
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="configure/index.html">
+            
+                
+                    <a href="../configure/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        配置
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="configure/map.html">
+            
+                
+                    <a href="../configure/map.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        键盘映射
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="shortcuts/index.html">
+            
+                
+                    <a href="../shortcuts/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        快捷键
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="shortcuts/custom.html">
+            
+                
+                    <a href="../shortcuts/custom.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                        自定义
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="shortcuts/find.html">
+            
+                
+                    <a href="../shortcuts/find.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                        查找
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="shortcuts/edit.html">
+            
+                
+                    <a href="../shortcuts/edit.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.3.</b>
+                        
+                        编辑
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="shortcuts/fold.html">
+            
+                
+                    <a href="../shortcuts/fold.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.4.</b>
+                        
+                        折叠
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5" data-path="shortcuts/jump.html">
+            
+                
+                    <a href="../shortcuts/jump.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.5.</b>
+                        
+                        跳转
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6" data-path="shortcuts/window.html">
+            
+                
+                    <a href="../shortcuts/window.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.6.</b>
+                        
+                        窗口
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="plugin/index.html">
+            
+                
+                    <a href="../plugin/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        插件
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1" data-path="plugin/shortcuts.html">
+            
+                
+                    <a href="../plugin/shortcuts.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.1.</b>
+                        
+                        插件快捷键汇总
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="plugin/vundle.html">
+            
+                
+                    <a href="../plugin/vundle.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.2.</b>
+                        
+                        插件管理 (Vundle)
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="plugin/youcompleteme.html">
+            
+                
+                    <a href="../plugin/youcompleteme.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.3.</b>
+                        
+                        自动补全 (YouCompleteMe
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.4" data-path="plugin/ultisnips.html">
+            
+                
+                    <a href="../plugin/ultisnips.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.4.</b>
+                        
+                        代码片段 (UltiSnips)
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.5" data-path="plugin/ctrlp.html">
+            
+                
+                    <a href="../plugin/ctrlp.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.5.</b>
+                        
+                        文件查找 (CtrlP)
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.6" data-path="plugin/vim-airline.html">
+            
+                
+                    <a href="../plugin/vim-airline.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.6.</b>
+                        
+                        状态栏 (vim-airline)
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.7" data-path="plugin/syntastic.html">
+            
+                
+                    <a href="../plugin/syntastic.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.7.</b>
+                        
+                        代码检查 (Syntastic)
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="6.8" data-path="plugin/nerdcommenter.html">
+            
+                
+                    <a href="../plugin/nerdcommenter.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.8.</b>
+                        
+                        批量注释 (NERD Commenter)
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.9" data-path="plugin/vim-easymotion.html">
+            
+                
+                    <a href="../plugin/vim-easymotion.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.9.</b>
+                        
+                        快速移动 (vim-easymotion)
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.10" data-path="plugin/nerdtree.html">
+            
+                
+                    <a href="../plugin/nerdtree.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.10.</b>
+                        
+                        显示目录 (The NERD Tree)
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.10.1" data-path="plugin/nerdtree-git-plugin.html">
+            
+                
+                    <a href="../plugin/nerdtree-git-plugin.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.10.1.</b>
+                        
+                        nerdtree-git-plugin
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6.11" >
+            
+            <span><b>6.11.</b> Golang</span>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.11.1" data-path="plugin/golang/gocode.html">
+            
+                
+                    <a href="../plugin/golang/gocode.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.11.1.</b>
+                        
+                        gocode
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.11.2" data-path="plugin/golang/vim-go.html">
+            
+                
+                    <a href="../plugin/golang/vim-go.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.11.2.</b>
+                        
+                        vim-go
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6.12" data-path="plugin/to-be-used.html">
+            
+                
+                    <a href="../plugin/to-be-used.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.12.</b>
+                        
+                        待使用
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                Published with GitBook
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Table of Contents"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Font Settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Share"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">
+                    Share on Twitter
+                </button>
+                <button type="button" data-sharing="google-plus" class="button">
+                    Share on Google
+                </button>
+                <button type="button" data-sharing="facebook" class="button">
+                    Share on Facebook
+                </button>
+                <button type="button" data-sharing="weibo" class="button">
+                    Share on Weibo
+                </button>
+                <button type="button" data-sharing="instapaper" class="button">
+                    Share on Instapaper
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    
+    
+    
+    
+
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >明无梦的 Vim 使用记录</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="nerd-commenter">NERD Commenter</h1>
+<p>2014-00-00</p>
+<hr>
+<p>&#x4E3B;&#x9875;&#xFF1A;<a href="https://github.com/scrooloose/nerdcommenter" target="_blank">https://github.com/scrooloose/nerdcommenter</a></p>
+<h2 id="%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE">&#x5E38;&#x7528;&#x5FEB;&#x6377;&#x952E;</h2>
+<ul>
+<li><code>&lt;leader&gt;cc</code> &#x6CE8;&#x91CA;&#x5F53;&#x524D;&#x884C;</li>
+<li><code>&lt;leader&gt;cm</code> &#x53EA;&#x7528;&#x4E00;&#x7EC4;&#x7B26;&#x53F7;&#x6765;&#x6CE8;&#x91CA;</li>
+<li><code>&lt;leader&gt;cy</code> &#x6CE8;&#x91CA;&#x5E76;&#x590D;&#x5236;</li>
+<li><code>&lt;leader&gt;cs</code> &#x4F18;&#x7F8E;&#x7684;&#x6CE8;&#x91CA;</li>
+<li><code>&lt;leader&gt;cu</code> &#x53D6;&#x6D88;&#x6CE8;&#x91CA;</li>
+</ul>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../plugin/syntastic.html" class="navigation navigation-prev " aria-label="Previous page: 代码检查 (Syntastic)"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../plugin/vim-easymotion.html" class="navigation navigation-next " aria-label="Next page: 快速移动 (vim-easymotion)"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-disqus/plugin.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-ga/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2},"disqus":{"shortName":"mwum"},"ga":{"token":"UA-39279084-1","configuration":"auto"}};
+    gitbook.start(config);
+});
+</script>
+
+        <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-39279084-1', 'auto');ga('send', 'pageview');</script>
+    </body>
+    
+</html>

@@ -1,0 +1,1457 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Privoxy - HTTP 代理 | 明无梦的软件使用记录</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.1.0">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../tor/index.html" />
+    
+    
+    <link rel="prev" href="../rinetd/index.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book" data-level="18" data-basepath=".." data-revision="Wed May 18 2016 10:38:59 GMT+0800 (CST)">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+        
+            
+            <li>
+                <a href="http://www.dreamxu.com/" target="blank" class="custom-link">明无梦的博客</a>
+            </li>
+        
+        
+
+        
+        <li class="divider"></li>
+        
+
+        
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                        <i class="fa fa-check"></i>
+                        
+                        介绍
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="cnnic/index.html">
+            
+                
+                    <a href="../cnnic/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        移除 CNNIC 证书
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="gitbook/index.html">
+            
+                
+                    <a href="../gitbook/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        GitBook - 写书工具
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="gitbook/disqus.html">
+            
+                
+                    <a href="../gitbook/disqus.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        Disqus integration - 评论
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="gitbook/google-analystics.html">
+            
+                
+                    <a href="../gitbook/google-analystics.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        Google Analytics
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="dropbox/index.html">
+            
+                
+                    <a href="../dropbox/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        Dropbox - 网盘
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="evernote/index.html">
+            
+                
+                    <a href="../evernote/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        Evernote - 网络笔记
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="rime/index.html">
+            
+                
+                    <a href="../rime/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        Rime 输入法
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="spi/index.html">
+            
+                
+                    <a href="../spi/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        SPi 双拼输入法
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="1password/index.html">
+            
+                
+                    <a href="../1password/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        1Password - 密码管理
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="parallels/index.html">
+            
+                
+                    <a href="../parallels/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        Parallels Desktop - 虚拟机
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="keka/index.html">
+            
+                
+                    <a href="../keka/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.</b>
+                        
+                        Keka &amp; 7-Zip - 解压缩
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10" data-path="xcode/index.html">
+            
+                
+                    <a href="../xcode/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.</b>
+                        
+                        Xcode - 苹果官方开发工具
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="11" data-path="homebrew/index.html">
+            
+                
+                    <a href="../homebrew/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.</b>
+                        
+                        Homebrew - 包管理器
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="11.1" data-path="homebrew/homebrew-cask.html">
+            
+                
+                    <a href="../homebrew/homebrew-cask.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.1.</b>
+                        
+                        Homebrew Cask
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="12" data-path="nodejs/index.html">
+            
+                
+                    <a href="../nodejs/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.</b>
+                        
+                        Node.js
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="12.1" data-path="nodejs/npm.html">
+            
+                
+                    <a href="../nodejs/npm.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.1.</b>
+                        
+                        NPM - 包管理器
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="13" data-path="rufus/index.html">
+            
+                
+                    <a href="../rufus/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>13.</b>
+                        
+                        Rufus - 制作 USB 启动盘
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="14" data-path="jenv/index.html">
+            
+                
+                    <a href="../jenv/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>14.</b>
+                        
+                        jEnv - 管理 Java 环境变量
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="15" data-path="chrome/index.html">
+            
+                
+                    <a href="../chrome/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.</b>
+                        
+                        Chrome - 浏览器
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="15.1" data-path="chrome/proxmate.html">
+            
+                
+                    <a href="../chrome/proxmate.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.1.</b>
+                        
+                        ProxMate - 突破区域限制
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="15.2" data-path="chrome/enable-copy.html">
+            
+                
+                    <a href="../chrome/enable-copy.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.2.</b>
+                        
+                        Enable Copy - 开启复制和右键
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="15.3" data-path="chrome/extensions-manager.html">
+            
+                
+                    <a href="../chrome/extensions-manager.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.3.</b>
+                        
+                        Extensity - 快速启用和禁用插件
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="15.4" data-path="chrome/open-seo-stats.html">
+            
+                
+                    <a href="../chrome/open-seo-stats.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.4.</b>
+                        
+                        Open SEO Stats - 显示 SEO
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="15.5" data-path="chrome/adblock-plus.html">
+            
+                
+                    <a href="../chrome/adblock-plus.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.5.</b>
+                        
+                        Adblock Plus - 广告拦截
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="15.6" data-path="chrome/dream-afar-new-tab.html">
+            
+                
+                    <a href="../chrome/dream-afar-new-tab.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.6.</b>
+                        
+                        Dream Afar New Tab - 在 New Tab 显示美丽
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="16" data-path="sublime-text/index.html">
+            
+                
+                    <a href="../sublime-text/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.</b>
+                        
+                        Sublime Text - 文本编辑器
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="17" data-path="rinetd/index.html">
+            
+                
+                    <a href="../rinetd/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>17.</b>
+                        
+                        rinetd - TCP 端口转发
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="18" data-path="privoxy/index.html">
+            
+                
+                    <a href="../privoxy/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>18.</b>
+                        
+                        Privoxy - HTTP 代理
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="19" data-path="tor/index.html">
+            
+                
+                    <a href="../tor/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>19.</b>
+                        
+                        Tor - 隐匿上网身份
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="20" data-path="autohotkey/index.html">
+            
+                
+                    <a href="../autohotkey/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>20.</b>
+                        
+                        AutoHotkey - 自动化脚本
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="21" data-path="pandoc/index.html">
+            
+                
+                    <a href="../pandoc/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>21.</b>
+                        
+                        Pandoc - 标记语言格式转换
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="22" data-path="truecrypt/index.html">
+            
+                
+                    <a href="../truecrypt/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>22.</b>
+                        
+                        TrueCrypt - 加密
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="23" data-path="retinizer/index.html">
+            
+                
+                    <a href="../retinizer/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>23.</b>
+                        
+                        Retinizer - 使 Retina 显示
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="24" data-path="gfw/index.html">
+            
+                
+                    <a href="../gfw/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>24.</b>
+                        
+                        GFW
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="25" data-path="alfred/index.html">
+            
+                
+                    <a href="../alfred/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>25.</b>
+                        
+                        Alfred - 必备效率工具
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="25.1" data-path="alfred/alfred-emoji-workflow.html">
+            
+                
+                    <a href="../alfred/alfred-emoji-workflow.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>25.1.</b>
+                        
+                        alfred-emoji-workflow
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="25.2" data-path="alfred/new-file.html">
+            
+                
+                    <a href="../alfred/new-file.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>25.2.</b>
+                        
+                        NewFile
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="26" data-path="omnifocus/index.html">
+            
+                
+                    <a href="../omnifocus/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>26.</b>
+                        
+                        OmniFocus - GTD 时间管理
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="27" data-path="omnigraffle/index.html">
+            
+                
+                    <a href="../omnigraffle/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>27.</b>
+                        
+                        OmniGraffle - 绘图
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="28" data-path="reeder/index.html">
+            
+                
+                    <a href="../reeder/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>28.</b>
+                        
+                        Reeder - RSS 阅读器
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="29" data-path="appcleaner/index.html">
+            
+                
+                    <a href="../appcleaner/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>29.</b>
+                        
+                        AppCleaner - 程序卸载
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="30" data-path="keyboard-cleaner/index.html">
+            
+                
+                    <a href="../keyboard-cleaner/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>30.</b>
+                        
+                        Keyboard Cleaner - 屏幕键盘清理
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="31" data-path="vlc/index.html">
+            
+                
+                    <a href="../vlc/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>31.</b>
+                        
+                        VLC - 多媒体播放器
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="32" data-path="cheatsheet/index.html">
+            
+                
+                    <a href="../cheatsheet/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>32.</b>
+                        
+                        CheatSheet - 快捷键清单
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="33" data-path="asepsis/index.html">
+            
+                
+                    <a href="../asepsis/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>33.</b>
+                        
+                        Asepsis - 重定向 .DS_Store 文件
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="34" data-path="teamviewer/index.html">
+            
+                
+                    <a href="../teamviewer/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>34.</b>
+                        
+                        TeamViewer - 远程访问与控制
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="35" data-path="vox/index.html">
+            
+                
+                    <a href="../vox/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>35.</b>
+                        
+                        VOX - 音乐播放器
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="36" data-path="xld/index.html">
+            
+                
+                    <a href="../xld/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>36.</b>
+                        
+                        X Lossless Decoder - 音频格式转换
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="37" data-path="gifbrewery/index.html">
+            
+                
+                    <a href="../gifbrewery/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>37.</b>
+                        
+                        GIF Brewery - GIF 图片制作
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="38" data-path="licecap/index.html">
+            
+                
+                    <a href="../licecap/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>38.</b>
+                        
+                        LICEcap - 屏幕录制
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="39" data-path="eudic/index.html">
+            
+                
+                    <a href="../eudic/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>39.</b>
+                        
+                        欧陆词典
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="40" data-path="vim/index.html">
+            
+                
+                    <a href="../vim/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>40.</b>
+                        
+                        Vim - 文本编辑器
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="41" data-path="coconut-battery/index.html">
+            
+                
+                    <a href="../coconut-battery/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>41.</b>
+                        
+                        coconutBattery - 电池查看
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="42" data-path="ios-jailbreak/index.html">
+            
+                
+                    <a href="../ios-jailbreak/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>42.</b>
+                        
+                        iOS Jailbreak（越狱）
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="42.1" data-path="ios-jailbreak/game-emulators.html">
+            
+                
+                    <a href="../ios-jailbreak/game-emulators.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>42.1.</b>
+                        
+                        Game Emulators（游戏模拟器）
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="42.2" data-path="ios-jailbreak/afc.html">
+            
+                
+                    <a href="../ios-jailbreak/afc.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>42.2.</b>
+                        
+                        Apple File Conduit &quot;2&quot; - USB 访问
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="42.3" data-path="ios-jailbreak/cfa.html">
+            
+                
+                    <a href="../ios-jailbreak/cfa.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>42.3.</b>
+                        
+                        Controllers For All - 手柄手柄
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="42.4" data-path="ios-jailbreak/ccsettings.html">
+            
+                
+                    <a href="../ios-jailbreak/ccsettings.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>42.4.</b>
+                        
+                        CCSettings - 自定义控制中心
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="42.5" data-path="ios-jailbreak/zeppelin.html">
+            
+                
+                    <a href="../ios-jailbreak/zeppelin.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>42.5.</b>
+                        
+                        Zeppelin - 改变运营商图标
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="42.6" data-path="ios-jailbreak/activator.html">
+            
+                
+                    <a href="../ios-jailbreak/activator.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>42.6.</b>
+                        
+                        Activator - 手势
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="43" data-path="calibre/index.html">
+            
+                
+                    <a href="../calibre/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>43.</b>
+                        
+                        calibre - 电子书管理
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="44" data-path="dedrm/index.html">
+            
+                
+                    <a href="../dedrm/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>44.</b>
+                        
+                        DeDRM - 移除电子书 DRM
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="45" data-path="telegram/index.html">
+            
+                
+                    <a href="../telegram/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>45.</b>
+                        
+                        Telegram - 即时通讯
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="46" data-path="timing/index.html">
+            
+                
+                    <a href="../timing/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>46.</b>
+                        
+                        Timing for Mac - 时间记录
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="47" data-path="habitica/index.html">
+            
+                
+                    <a href="../habitica/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>47.</b>
+                        
+                        Habitica - 将生活变成游戏
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="48" data-path="macdown/index.html">
+            
+                
+                    <a href="../macdown/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>48.</b>
+                        
+                        MacDown - Markdown 编辑器
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="49" data-path="bartender/index.html">
+            
+                
+                    <a href="../bartender/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>49.</b>
+                        
+                        Bartender - 折叠菜单栏图标
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="50" data-path="istat-menus/index.html">
+            
+                
+                    <a href="../istat-menus/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>50.</b>
+                        
+                        iStat Menus - 系统监测
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="51" data-path="1writer/index.html">
+            
+                
+                    <a href="../1writer/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>51.</b>
+                        
+                        1Writer - iOS 文本编辑
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="52" data-path="ncdu/index.html">
+            
+                
+                    <a href="../ncdu/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>52.</b>
+                        
+                        ncdu - 磁盘空间分析
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="53" data-path="graphviz/index.html">
+            
+                
+                    <a href="../graphviz/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>53.</b>
+                        
+                        Graphviz - DOT 语言绘图
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="54" data-path="other/index.html">
+            
+                
+                    <a href="../other/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>54.</b>
+                        
+                        Other
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="55" data-path="to-be-used/index.html">
+            
+                
+                    <a href="../to-be-used/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>55.</b>
+                        
+                        待使用
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="56" >
+            
+            <span><b>56.</b> 软件开发</span>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="56.1" data-path="iterm2/index.html">
+            
+                
+                    <a href="../iterm2/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>56.1.</b>
+                        
+                        iTerm2 &amp; Zsh - 终端模拟器
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="56.2" data-path="charles/index.html">
+            
+                
+                    <a href="../charles/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>56.2.</b>
+                        
+                        Charles - HTTP 抓包
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="56.3" data-path="sequelpro/index.html">
+            
+                
+                    <a href="../sequelpro/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>56.3.</b>
+                        
+                        Sequel Pro - MySQL 数据库管理
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="56.4" data-path="redis-commander/index.html">
+            
+                
+                    <a href="../redis-commander/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>56.4.</b>
+                        
+                        Redis Commander - Redis 管理
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="56.5" data-path="rubymine/index.html">
+            
+                
+                    <a href="../rubymine/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>56.5.</b>
+                        
+                        RubyMine - Ruby &amp; Rails IED
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                Published with GitBook
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Table of Contents"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Font Settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Share"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">
+                    Share on Twitter
+                </button>
+                <button type="button" data-sharing="google-plus" class="button">
+                    Share on Google
+                </button>
+                <button type="button" data-sharing="facebook" class="button">
+                    Share on Facebook
+                </button>
+                <button type="button" data-sharing="weibo" class="button">
+                    Share on Weibo
+                </button>
+                <button type="button" data-sharing="instapaper" class="button">
+                    Share on Instapaper
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    
+    
+    
+    
+
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >明无梦的软件使用记录</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="privoxy">Privoxy</h1>
+<p>2014-06-09</p>
+<hr>
+<p>&#x5B98;&#x7F51;&#xFF1A;<a href="http://www.privoxy.org/" target="_blank">http://www.privoxy.org/</a></p>
+<p>&#x8DE8;&#x5E73;&#x53F0;&#x7684;&#x5F00;&#x6E90;&#x7684;&#x529F;&#x80FD;&#x5F3A;&#x5927;&#x7684; HTTP &#x4EE3;&#x7406;&#x5DE5;&#x5177;<br>&#x6B64;&#x5916;&#x901A;&#x8FC7; Privoxy &#x7684;&#x8FC7;&#x6EE4;&#x529F;&#x80FD;&#xFF0C;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x5BF9;&#x7F51;&#x9875;&#x5185;&#x5BB9;&#x8FDB;&#x884C;&#x8FC7;&#x6EE4;&#x3001;&#x7BA1;&#x7406; cookies, &#x4EE5;&#x53CA;&#x62E6;&#x963B;&#x5404;&#x79CD;&#x5E7F;&#x544A;&#x7B49;</p>
+<h2 id="%E5%9C%A8-mac-%E4%B8%8B%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95">&#x5728; Mac &#x4E0B;&#x5B89;&#x88C5;&#x65B9;&#x6CD5;</h2>
+<ol>
+<li><p>&#x5B89;&#x88C5;</p>
+<pre><code>brew install privoxy
+</code></pre></li>
+<li><p>&#x7F16;&#x8F91;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</p>
+<pre><code>mvim /usr/local/etc/privoxy/config
+</code></pre><p>&#x4E3B;&#x8981;&#x4FEE;&#x6539;&#x5982;&#x4E0B;&#x5185;&#x5BB9;&#xFF1A;</p>
+<pre><code class="lang-conf"># &#x4FEE;&#x6539;&#x4E3A; 0.0.0.0:8118 &#x4F7F;&#x5C40;&#x57DF;&#x7F51;&#x5185;&#x7684;&#x5176;&#x5B83;&#x673A;&#x5B50;&#x4E5F;&#x80FD;&#x8BBF;&#x95EE;
+listen-address  0.0.0.0:8118
+</code></pre>
+</li>
+<li><p>&#x914D;&#x7F6E;&#x5F00;&#x673A;&#x542F;&#x52A8;</p>
+<pre><code>ln -sfv /usr/local/opt/privoxy/*.plist ~/Library/LaunchAgents
+</code></pre></li>
+<li><p>&#x542F;&#x52A8;</p>
+<pre><code>launchctl load ~/Library/LaunchAgents/homebrew.mxcl.privoxy.plist
+</code></pre></li>
+</ol>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../rinetd/index.html" class="navigation navigation-prev " aria-label="Previous page: rinetd - TCP 端口转发"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../tor/index.html" class="navigation navigation-next " aria-label="Next page: Tor - 隐匿上网身份"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-disqus/plugin.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-ga/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2},"disqus":{"shortName":"mwum"},"ga":{"token":"UA-39279084-1","configuration":"auto"}};
+    gitbook.start(config);
+});
+</script>
+
+        <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-39279084-1', 'auto');ga('send', 'pageview');</script>
+    </body>
+    
+</html>
