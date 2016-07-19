@@ -6,8 +6,8 @@
     <link>http://www.dreamxu.com/</link>
     <atom:link href="http://www.dreamxu.com/rss.xml" rel="self" type="application/rss+xml"/>
     <language>zh-CN</language>
-    <pubDate>Wed, 20 Jul 2016 01:39:11 +0800</pubDate>
-    <lastBuildDate>Wed, 20 Jul 2016 01:39:11 +0800</lastBuildDate>
+    <pubDate>Wed, 20 Jul 2016 02:01:20 +0800</pubDate>
+    <lastBuildDate>Wed, 20 Jul 2016 02:01:20 +0800</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
@@ -278,7 +278,7 @@
 有了 HTML 我们能够找到一万种方式将其完美地展示出来，
 也有一万种方式让我们方便地去查找&lt;/p&gt;
 
-&lt;p&gt;代码及使用方法：&lt;a href=&quot;https://github.com/mwum/monitor-md-files&quot;&gt;https://github.com/mwum/monitor-md-files&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;代码及使用方法：&lt;a href=&quot;https://github.com/lifenod/monitor-md-files&quot;&gt;https://github.com/lifenod/monitor-md-files&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;浏览器自动刷新&quot;&gt;浏览器自动刷新&lt;/h2&gt;
 
@@ -1989,7 +1989,7 @@ C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\mspdb140.dll
 &lt;p&gt;还需要用到图形处理库 Pillow: &lt;a href=&quot;https://github.com/python-pillow/Pillow&quot;&gt;https://github.com/python-pillow/Pillow&lt;/a&gt;, 来判断图片是否为 JPEG 格式&lt;br /&gt;
 其实 Python 有一个内置模块 imghdr 可用来判断图片类型，但是在我使用过程中，我发现有时候会不准确，所以我改用 Pillow 来做判断&lt;/p&gt;
 
-&lt;p&gt;代码见：&lt;a href=&quot;https://github.com/mwum/remove-image-exif&quot;&gt;https://github.com/mwum/remove-image-exif&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;代码见：&lt;a href=&quot;https://github.com/lifenod/remove-image-exif&quot;&gt;https://github.com/lifenod/remove-image-exif&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;使用&quot;&gt;使用&lt;/h3&gt;
 
@@ -2629,7 +2629,7 @@ update-grub
         <description>&lt;p&gt;魔能游戏的施法脚本，例如要释放「传送术」，需要依次按下 a, s, a, space 四个键&lt;br /&gt;
 使用了脚本之后，你需要释放「传送术」，只需按数字 1 一个键即可&lt;/p&gt;
 
-&lt;p&gt;源代码地址：&lt;a href=&quot;https://github.com/mwum/magicka-spell-casting-script&quot;&gt;https://github.com/mwum/magicka-spell-casting-script&lt;/a&gt;&lt;br /&gt;
+&lt;p&gt;源代码地址：&lt;a href=&quot;https://github.com/lifenod/magicka-spell-casting-script&quot;&gt;https://github.com/lifenod/magicka-spell-casting-script&lt;/a&gt;&lt;br /&gt;
 使用 AutoHotkey 工具编写&lt;/p&gt;
 </description>
         <pubDate>Thu, 14 May 2015 00:00:00 +0800</pubDate>
@@ -5843,7 +5843,7 @@ luna_pinyin.poetry.dict.yaml&lt;br /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;需要&lt;strong&gt;注意&lt;/strong&gt;的是：&lt;code class=&quot;highlighter-rouge&quot;&gt; Rime 	rime&lt;/code&gt; 之间要有 tab，其它的类似，词典格式是如此&lt;br /&gt;
-完整的文件内容请看：&lt;a href=&quot;https://gist.github.com/mwum/931e306e2ae8bd32b169&quot;&gt;https://gist.github.com/mwum/931e306e2ae8bd32b169&lt;/a&gt;&lt;/p&gt;
+完整的文件内容请看：&lt;a href=&quot;https://gist.github.com/lifenod/931e306e2ae8bd32b169&quot;&gt;https://gist.github.com/lifenod/931e306e2ae8bd32b169&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;添加「小鹤双拼·语句流」输入方案以及对全局的定制&quot;&gt;添加「小鹤双拼·语句流」输入方案以及对全局的定制&lt;/h3&gt;
 
