@@ -6,8 +6,8 @@
     <link>http://www.dreamxu.com/</link>
     <atom:link href="http://www.dreamxu.com/rss.xml" rel="self" type="application/rss+xml"/>
     <language>zh-CN</language>
-    <pubDate>Sun, 24 Jul 2016 12:54:23 +0800</pubDate>
-    <lastBuildDate>Sun, 24 Jul 2016 12:54:23 +0800</lastBuildDate>
+    <pubDate>Fri, 05 Aug 2016 11:28:20 +0800</pubDate>
+    <lastBuildDate>Fri, 05 Aug 2016 11:28:20 +0800</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
@@ -4848,7 +4848,9 @@ procps: /usr/bin/top&lt;/li&gt;
 &lt;p&gt;自行查看《&lt;a href=&quot;https://github.com/rime/home/wiki/CustomizationGuide&quot;&gt;Rime 定製指南 | GitHub&lt;/a&gt;》&lt;/p&gt;
 
 &lt;p&gt;以下是我对官网说明书的一些摘录，加上我的一些修改，只限于对拼音输入的理解&lt;br /&gt;
-如果你用的是小鹤双拼，可以直接看下文《&lt;a href=&quot;#详细配置「小鹤双拼·语句流」&quot;&gt;详细配置「小鹤双拼·语句流」&lt;/a&gt;》，介绍的是「小鹤双拼·语句流」的配置&lt;/p&gt;
+如果你用的是小鹤双拼，可以直接看下文《&lt;a href=&quot;#详细配置「小鹤双拼·语句流」&quot;&gt;详细配置「小鹤双拼·语句流」&lt;/a&gt;》，介绍的是「小鹤双拼·语句流」的配置。
+语句流和普通的输入方式在配置上只有一条配置语句的不同，如果不喜欢语句流这种方式，改成普通的也非常简单，下文有介绍。
+BTW, 现在我自己都不使用「语句流」这种方式了&lt;/p&gt;
 
 &lt;h3 id=&quot;数据文件位置&quot;&gt;数据文件位置&lt;/h3&gt;
 
@@ -5424,6 +5426,26 @@ luna_pinyin.poetry.dict.yaml&lt;br /&gt;
 &lt;/ol&gt;
 
 &lt;h2 id=&quot;详细配置「小鹤双拼·语句流」&quot;&gt;详细配置「小鹤双拼·语句流」&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;2014-06-09 更新：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;用了一段时间的语句流，和普通的方式比起来繁琐了一点，但是又没什么明显的优点，至少在 Rime 上是这样子的，
+我理想中还是觉得语句流要好，但是现在 Rime 还不够强大。&lt;/p&gt;
+
+&lt;p&gt;我理想中的语句流输入方式：你输入一系列按键，然后他会自动生成一段话，
+有时候你会输错，有时候里面夹杂着英文。
+如果这个输入法非常聪明，他就会正确理解你的意思，就好像你让秘书做事一样，
+不用告诉他第一步是什么，第二步是什么，他理解你的意思，并且完美地做好。&lt;/p&gt;
+
+&lt;p&gt;但是 Rime 做不到秘书这样的水平，你得告诉 Rime 这是中文，这是英文，而且也不能输错。&lt;/p&gt;
+
+&lt;p&gt;普通的输入方式：空格上屏，回车输入码直接上屏。
+相比语句流简单了一点。所以我现在自己也不用语句流了。&lt;/p&gt;
+
+&lt;p&gt;虽然当初我写的是语句流的配置，但是没什么关系，他们只有一行配置的不同。
+详情见&lt;a href=&quot;#创建「小鹤双拼·语句流」输入方案&quot;&gt;《创建「小鹤双拼·语句流」输入方案》&lt;/a&gt; 配置文件中的第 40 行。&lt;/p&gt;
+
+&lt;hr /&gt;
 
 &lt;p&gt;首先简单介绍一下语句流&lt;/p&gt;
 
