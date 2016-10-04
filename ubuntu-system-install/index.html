@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <title>安装 Ubuntu 系统的方法 | 明无梦</title>
+  <title>安装和更新 Ubuntu 系统的方法 | 明无梦</title>
   <meta name="description" content="官网：http://www.ubuntu.com/Ubuntu 是一个比较好用的 Linux 发行版">
 
   <link rel="stylesheet" href="/css/main.css">
@@ -63,9 +63,11 @@
         <article class="post">
 
   <header class="post-header">
-    <h1 class="post-title"><a href="/ubuntu-system-install/">安装 Ubuntu 系统的方法</a></h1>
+    <h1 class="post-title"><a href="/ubuntu-system-install/">安装和更新 Ubuntu 系统的方法</a></h1>
     <ul class="post-meta">
       <li class="published-date">2015-06-08</li>
+      
+        <li class="updated-date"> | 更新: 2016-10-04</li>
       
 
       
@@ -76,6 +78,8 @@
           <li class="post-tag"><a href="/tags/?names=Ubuntu#tag-list-display">Ubuntu</a></li>
         
           <li class="post-tag"><a href="/tags/?names=Install#tag-list-display">Install</a></li>
+        
+          <li class="post-tag"><a href="/tags/?names=Update#tag-list-display">Update</a></li>
         
       
     </ul>
@@ -130,6 +134,31 @@ Ubuntu 是一个比较好用的 Linux 发行版</p>
     </ul>
   </li>
 </ol>
+
+<h2 id="更新系统">更新系统</h2>
+
+<p>更新系统之前都需要执行 <code class="highlighter-rouge">sudo apt-get update</code> 来更新本地的软件列表</p>
+
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">sudo apt-get upgrade</code></p>
+
+    <p>系统将现有的 Package 升级，如果有相依性的问题，而此相依性需要安装其它新的 Package 或影响到其它 Package 的相依性时，此 Package 就不会被升级</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">sudo apt-get dist-upgrade</code></p>
+
+    <p>可以聪明的解决相依性的问题，如果有相依性问题，需要安装/移除新的 Package，就会试着去安装/移除它<br />
+(所以通常这个会被认为是有点风险的升级)</p>
+
+    <p>可以作为小版本升级来使用，比如从 Ubuntu 14.04.2 升级到 Ubuntu 14.04.5</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">sudo do-release-upgrade -d</code></p>
+
+    <p>release 更新，比如从 Ubuntu 14.04 升级到 16.04</p>
+  </li>
+</ul>
 
   </div>
 
