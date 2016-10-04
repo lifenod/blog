@@ -6,8 +6,8 @@
     <link>http://www.dreamxu.com/</link>
     <atom:link href="http://www.dreamxu.com/rss.xml" rel="self" type="application/rss+xml"/>
     <language>zh-CN</language>
-    <pubDate>Tue, 04 Oct 2016 16:11:01 +0800</pubDate>
-    <lastBuildDate>Tue, 04 Oct 2016 16:11:01 +0800</lastBuildDate>
+    <pubDate>Tue, 04 Oct 2016 16:40:29 +0800</pubDate>
+    <lastBuildDate>Tue, 04 Oct 2016 16:40:29 +0800</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
@@ -4310,7 +4310,7 @@ Vargrant 将 box 解包后放在 /.vagrant.d/boxes 文件夹&lt;/p&gt;
 &lt;h3 id=&quot;通过命令直接下载&quot;&gt;通过命令直接下载&lt;/h3&gt;
 
 &lt;p&gt;例如下载 Ubuntu 官方创建的 Ubuntu Server 64-bit 14.04 的 box&lt;br /&gt;
-其中的 &lt;code class=&quot;highlighter-rouge&quot;&gt;Ubuntu Server 64-bit 14.04&lt;/code&gt; 是自己设定的 box 名字&lt;/p&gt;
+其中的 &lt;code class=&quot;highlighter-rouge&quot;&gt;Ubuntu_Server_14.04&lt;/code&gt; 是自己设定的 box 名字&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;vagrant box add Ubuntu_Server_14.04 ubuntu/trusty64
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
