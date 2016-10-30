@@ -1,3 +1,5 @@
+require "shellwords"
+
 desc "Generate blog files"
 task :generate do
   system "JEKYLL_ENV=production bundle exec jekyll build"
