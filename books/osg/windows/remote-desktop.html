@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>批量修改文件权限 | 明无梦的操作系统使用记录</title>
+        <title>远程桌面 (RDP) | 明无梦的操作系统使用记录</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.7">
@@ -41,10 +41,10 @@
         
     
     
-    <link rel="next" href="../linux/set-time-zone.html" />
+    <link rel="next" href="../windows/share.html" />
     
     
-    <link rel="prev" href="../linux/curl.html" />
+    <link rel="prev" href="../windows/fix-application-cannot-run-under-a-virtual-machine.html" />
     
 
         
@@ -53,9 +53,9 @@
         
         
     <div class="book"
-        data-level="2.6"
-        data-chapter-title="批量修改文件权限"
-        data-filepath="linux/batch-modify-file-permissions.md"
+        data-level="3.5"
+        data-chapter-title="远程桌面 (RDP)"
+        data-filepath="windows/remote-desktop.md"
         data-basepath=".."
         data-revision="Sun Dec 11 2016 02:55:29 GMT+0800 (CST)"
         data-innerlanguage="">
@@ -586,7 +586,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.6" data-path="linux/batch-modify-file-permissions.html">
+        <li class="chapter " data-level="2.6" data-path="linux/batch-modify-file-permissions.html">
             
                 
                     <a href="../linux/batch-modify-file-permissions.html">
@@ -817,7 +817,7 @@
             
         </li>
     
-        <li class="chapter " data-level="3.5" data-path="windows/remote-desktop.html">
+        <li class="chapter active" data-level="3.5" data-path="windows/remote-desktop.html">
             
                 
                     <a href="../windows/remote-desktop.html">
@@ -1192,14 +1192,18 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="&#x6279;&#x91CF;&#x4FEE;&#x6539;&#x6587;&#x4EF6;&#x6743;&#x9650;">&#x6279;&#x91CF;&#x4FEE;&#x6539;&#x6587;&#x4EF6;&#x6743;&#x9650;</h1>
-<p>2014-00-00</p>
+                        <h1 id="&#x8FDC;&#x7A0B;&#x684C;&#x9762;">&#x8FDC;&#x7A0B;&#x684C;&#x9762;</h1>
+<p>2016-12-11</p>
 <hr>
-<p>&#x4FEE;&#x6539; /home/pi/nas-data &#x6587;&#x4EF6;&#x5939;&#x5185;&#x7684;&#x6240;&#x6709;&#x6587;&#x4EF6;&#x6743;&#x9650;&#x4E3A; 664</p>
-<pre><code>find /home/pi/nas-data/ -type f -print0 | xargs -0 chmod 664
-</code></pre><p>&#x4FEE;&#x6539; /home/pi/nas-data &#x6587;&#x4EF6;&#x5939;&#x5185;&#x7684;&#x6240;&#x6709;&#x6587;&#x4EF6;&#x5939;&#x6743;&#x9650;&#x4E3A; 775</p>
-<pre><code>find /home/pi/nas-data/ -type d -print0 | xargs -0 chmod 775
-</code></pre>
+<p><a href="https://en.wikipedia.org/wiki/Remote_Desktop_Protocol" target="_blank">Remote Desktop Protocol</a> 
+&#x8FD9;&#x4E2A;&#x534F;&#x8BAE;&#x901F;&#x5EA6;&#x975E;&#x5E38;&#x5FEB;&#xFF0C;&#x800C;&#x4E14;&#x5404;&#x4E2A;&#x5E73;&#x53F0;&#x4E5F;&#x90FD;&#x652F;&#x6301;&#xFF0C;&#x6240;&#x4EE5;&#x7528;&#x8D77;&#x6765;&#x8FD8;&#x4E0D;&#x9519;&#x3002;</p>
+<p>&#x4E0D;&#x8981;&#x5FD8;&#x8BB0;&#x5728; Windows &#x4E2D;&#x5F00;&#x542F;&#x8FDC;&#x7A0B;&#x684C;&#x9762;&#xFF1A;&#x6211;&#x7684;&#x7535;&#x8111; &#x2192; &#x53F3;&#x952E;&#x300C;&#x5C5E;&#x6027;&#x300D;&#x2192; &#x70B9;&#x51FB;&#x5DE6;&#x8FB9;&#x7684;&#x300C;&#x9AD8;&#x7EA7;&#x7CFB;&#x7EDF;&#x8BBE;&#x7F6E;&#x300D;&#x2192; &#x70B9;&#x51FB;&#x4E0A;&#x9762;&#x7684;&#x300C;&#x8FDC;&#x7A0B;&#x300D;&#x2192; &#x7136;&#x540E;&#x5C31;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x8BBE;&#x7F6E;&#x4E86;&#x3002;</p>
+<h2 id="macos-client">macOS Client</h2>
+<p>&#x5FAE;&#x8F6F;&#x81EA;&#x5BB6;&#x7684; <a href="https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417" target="_blank">Microsoft Remote Desktop</a>&#xFF0C;
+&#x9700;&#x8981;&#x7F8E;&#x533A;&#x7684; Apple ID&#x3002;</p>
+<h2 id="ios-client">iOS Client</h2>
+<p>&#x5FAE;&#x8F6F;&#x81EA;&#x5BB6;&#x7684; <a href="https://itunes.apple.com/cn/app/microsoft-remote-desktop/id714464092" target="_blank">Microsoft Remote Desktop</a></p>
+
                     
                     </section>
                 
@@ -1209,10 +1213,10 @@
         </div>
 
         
-        <a href="../linux/curl.html" class="navigation navigation-prev " aria-label="Previous page: cURL - 下载工具"><i class="fa fa-angle-left"></i></a>
+        <a href="../windows/fix-application-cannot-run-under-a-virtual-machine.html" class="navigation navigation-prev " aria-label="Previous page: Fix &quot;Sorry, this application cannot run under a virtual machine&quot;"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../linux/set-time-zone.html" class="navigation navigation-next " aria-label="Next page: 设定时区"><i class="fa fa-angle-right"></i></a>
+        <a href="../windows/share.html" class="navigation navigation-next " aria-label="Next page: 共享 (SMB/CIFS)"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
