@@ -95,24 +95,24 @@
     <p>本文比较长，列个目录方便阅读</p>
 
 <ul id="markdown-toc">
-  <li><a href="#section" id="markdown-toc-section">前提</a></li>
-  <li><a href="#section-1" id="markdown-toc-section-1">准备硬盘</a></li>
-  <li><a href="#samba" id="markdown-toc-samba">安装并配置 Samba</a></li>
-  <li><a href="#samba-1" id="markdown-toc-samba-1">测试 Samba</a></li>
-  <li><a href="#ftp-" id="markdown-toc-ftp-">FTP 服务器安装及配置</a></li>
-  <li><a href="#aria2---web---" id="markdown-toc-aria2---web---">aria2 安装及配置 + web 前端 + 迅雷离线</a>    <ul>
-      <li><a href="#aria2-" id="markdown-toc-aria2-">aria2 安装及配置</a></li>
-      <li><a href="#web--yaaw--webui-aria2" id="markdown-toc-web--yaaw--webui-aria2">web 前端的配置 yaaw 和 webui-aria2</a></li>
-      <li><a href="#section-2" id="markdown-toc-section-2">迅雷离线下载</a></li>
-      <li><a href="#aria2--1" id="markdown-toc-aria2--1">aria2 出现问题的解决方法</a></li>
+  <li><a href="#前提" id="markdown-toc-前提">前提</a></li>
+  <li><a href="#准备硬盘" id="markdown-toc-准备硬盘">准备硬盘</a></li>
+  <li><a href="#安装并配置-samba" id="markdown-toc-安装并配置-samba">安装并配置 Samba</a></li>
+  <li><a href="#测试-samba" id="markdown-toc-测试-samba">测试 Samba</a></li>
+  <li><a href="#ftp-服务器安装及配置" id="markdown-toc-ftp-服务器安装及配置">FTP 服务器安装及配置</a></li>
+  <li><a href="#aria2-安装及配置-web-前端-迅雷离线" id="markdown-toc-aria2-安装及配置-web-前端-迅雷离线">aria2 安装及配置 + web 前端 + 迅雷离线</a>    <ul>
+      <li><a href="#aria2-安装及配置" id="markdown-toc-aria2-安装及配置">aria2 安装及配置</a></li>
+      <li><a href="#web-前端的配置-yaaw-和-webui-aria2" id="markdown-toc-web-前端的配置-yaaw-和-webui-aria2">web 前端的配置 yaaw 和 webui-aria2</a></li>
+      <li><a href="#迅雷离线下载" id="markdown-toc-迅雷离线下载">迅雷离线下载</a></li>
+      <li><a href="#aria2-出现问题的解决方法" id="markdown-toc-aria2-出现问题的解决方法">aria2 出现问题的解决方法</a></li>
     </ul>
   </li>
-  <li><a href="#raid1-" id="markdown-toc-raid1-">磁盘阵列 RAID1 与异地备份</a></li>
+  <li><a href="#磁盘阵列-raid1-与异地备份" id="markdown-toc-磁盘阵列-raid1-与异地备份">磁盘阵列 RAID1 与异地备份</a></li>
 </ul>
 
 <p>总的来说树莓派作为 nas 还是不错的，连续运行几十天了没有任何异常</p>
 
-<h2 id="section">前提</h2>
+<h2 id="前提">前提</h2>
 
 <p>首先保证树莓派运行 Raspbian 系统正常，并将空间扩展至整张 SD 卡，需要安装各种软件以防空间不够<br />
 操作树莓派直接使用 ssh 就可以了，不需要显示器的</p>
@@ -131,7 +131,7 @@
 </div>
 </div>
 
-<h2 id="section-1">准备硬盘</h2>
+<h2 id="准备硬盘">准备硬盘</h2>
 
 <p>若需要组建 raid1, 可看我写的另一篇文章
 《<a href="http://www.dreamxu.com/debian-create-software-raid-one-arrays/">Debian 组建软 RAID 1 磁盘阵列</a>》</p>
@@ -225,7 +225,7 @@ sudo chown pi:pi /home/pi/nas-data
   </li>
 </ol>
 
-<h2 id="samba">安装并配置 Samba</h2>
+<h2 id="安装并配置-samba">安装并配置 Samba</h2>
 
 <p>首先安装 samba</p>
 
@@ -345,7 +345,7 @@ letting you know your fd limit is set a bit low.<br />
 <p>到这里，各个设备应该都可以访问了，大功告成？<br />
 还差点，下面进行测试</p>
 
-<h2 id="samba-1">测试 Samba</h2>
+<h2 id="测试-samba">测试 Samba</h2>
 
 <p>我的网络拓扑结构如下：<br />
 linux 主机 &lt;--无线--&gt; 300M 路由器 &lt;--网线--&gt; 树莓派</p>
@@ -412,7 +412,7 @@ linux 主机 &lt;--无线--&gt; 300M 路由器 &lt;--网线--&gt; 树莓派</p>
 上 300M 网卡应该可以试试，好像也没谁那么蛋疼吧。
 如果你的树莓派还充当无线 AP，那么 300M 网卡也是可以的</p>
 
-<h2 id="ftp-">FTP 服务器安装及配置</h2>
+<h2 id="ftp-服务器安装及配置">FTP 服务器安装及配置</h2>
 
 <p>安装 vsftpd 软件，全名 very secure FTP daemon</p>
 
@@ -534,9 +534,9 @@ find /home/pi/nas-data/ -type d -print0 | xargs -0 chmod 775
 一般情况下用 ftppi 登陆 ftp 就可以了<br />
 顺便一说，umask 为 002，方便团队协作；umask 为 022 看上去貌似是 owner, 只有自己私有（组用户和其它用户不可写）</p>
 
-<h2 id="aria2---web---">aria2 安装及配置 + web 前端 + 迅雷离线</h2>
+<h2 id="aria2-安装及配置-web-前端-迅雷离线">aria2 安装及配置 + web 前端 + 迅雷离线</h2>
 
-<h3 id="aria2-">aria2 安装及配置</h3>
+<h3 id="aria2-安装及配置">aria2 安装及配置</h3>
 
 <p>关于这软件就不多说了，太有名了，总之占用资源少且非常好用<br />
 下面来安装 aria2</p>
@@ -863,7 +863,7 @@ restart<span class="p">)</span>
   </li>
 </ol>
 
-<h3 id="web--yaaw--webui-aria2">web 前端的配置 yaaw 和 webui-aria2</h3>
+<h3 id="web-前端的配置-yaaw-和-webui-aria2">web 前端的配置 yaaw 和 webui-aria2</h3>
 
 <p>yaaw 和 webui-aria2 都是不错的，yaaw 界面简洁，wubui-aria2 功能强大，可以根据自己的喜好来选择，或者两个同时使用也可以</p>
 
@@ -900,7 +900,7 @@ restart<span class="p">)</span>
 如果没有返回，请确认 aria2 是否启动以及连通性<br />
 如果是从外网访问的, 别忘记在路由器上做好 ddns 和端口映射</p>
 
-<h3 id="section-2">迅雷离线下载</h3>
+<h3 id="迅雷离线下载">迅雷离线下载</h3>
 
 <p><a href="https://github.com/binux/ThunderLixianExporter">ThunderLixianExporter</a>, 将迅雷离线地址导出成 aria2/wget 等下载命令的工具<br />
 <a href="https://github.com/ohsc/ThunderLixianAssistant">ThunderLixianAssistant</a>, 
@@ -908,7 +908,7 @@ restart<span class="p">)</span>
 以上两个工具使用方法在主页中已经说的很详细了，就不多说了<br />
 导出功能没有一个个去试，实测导出 yaaw 可用</p>
 
-<h3 id="aria2--1">aria2 出现问题的解决方法</h3>
+<h3 id="aria2-出现问题的解决方法">aria2 出现问题的解决方法</h3>
 
 <p>有读者反馈，aria2 出问题还蛮多的，我就写一点解决的方法</p>
 
@@ -923,7 +923,7 @@ restart<span class="p">)</span>
   <li>这样就能看到 aria2 的反馈，可能会出现一些 [ERROR] 提示，这样你就知道问题具体出现在哪里了</li>
 </ol>
 
-<h2 id="raid1-">磁盘阵列 RAID1 与异地备份</h2>
+<h2 id="磁盘阵列-raid1-与异地备份">磁盘阵列 RAID1 与异地备份</h2>
 
 <p>一个硬盘，不管它来自什么厂商，也不管它是机械的还是固态的，它出现故障只是时间早晚的问题<br />
 一个人，不管 TA 来自什么地方，也不管 TA 是男的还是女的，TA 总有误操作的时候<br />

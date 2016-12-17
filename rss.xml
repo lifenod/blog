@@ -6,15 +6,15 @@
     <link>http://www.dreamxu.com/</link>
     <atom:link href="http://www.dreamxu.com/rss.xml" rel="self" type="application/rss+xml"/>
     <language>zh-CN</language>
-    <pubDate>Sat, 17 Dec 2016 23:19:27 +0800</pubDate>
-    <lastBuildDate>Sat, 17 Dec 2016 23:19:27 +0800</lastBuildDate>
+    <pubDate>Sun, 18 Dec 2016 01:59:12 +0800</pubDate>
+    <lastBuildDate>Sun, 18 Dec 2016 01:59:12 +0800</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
         <title>对 Markdown 渲染引擎 kramdown 的几点 hack</title>
         <description>&lt;p&gt;kramdown version: 1.11.1&lt;/p&gt;
 
-&lt;h2 id=&quot;head-id-&quot;&gt;使生成 head ID 功能支持中文&lt;/h2&gt;
+&lt;h2 id=&quot;使生成-head-id-功能支持中文&quot;&gt;使生成 head ID 功能支持中文&lt;/h2&gt;
 
 &lt;p&gt;我查看了 kramdown 选项部分的所有文档，发现它只支持 transliterated_header_ids. 
 但是我不喜欢将中文音译为拼音，所以干脆直接修改代码好了，还比较简单。&lt;/p&gt;
@@ -107,7 +107,7 @@
 
 &lt;p&gt;我个人比较喜欢这种表达 ID 的方式，所以就那么改了，你可以随便改成什么样子。&lt;/p&gt;
 
-&lt;h2 id=&quot;alt-text----bug&quot;&gt;绕过 alt text 中出现 “|” 产生的 bug&lt;/h2&gt;
+&lt;h2 id=&quot;绕过-alt-text-中出现-产生的-bug&quot;&gt;绕过 alt text 中出现 “|” 产生的 bug&lt;/h2&gt;
 
 &lt;p&gt;先看几个例子体会一下这个 bug 是什么，以下都是链接的例子，当然在图片中也会有问题&lt;/p&gt;
 
@@ -280,7 +280,7 @@
 
 &lt;p&gt;代码及使用方法：&lt;a href=&quot;https://github.com/lifenod/monitor-md-files&quot;&gt;https://github.com/lifenod/monitor-md-files&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;section&quot;&gt;浏览器自动刷新&lt;/h2&gt;
+&lt;h2 id=&quot;浏览器自动刷新&quot;&gt;浏览器自动刷新&lt;/h2&gt;
 
 &lt;p&gt;如果想修改 MD 文件之后，浏览器能够自动刷新 HTML 页面，可使用这个 Chrome 插件：&lt;a href=&quot;https://chrome.google.com/webstore/detail/livepage/pilnojpmdoofaelbinaeodfpjheijkbh&quot;&gt;https://chrome.google.com/webstore/detail/livepage/pilnojpmdoofaelbinaeodfpjheijkbh&lt;/a&gt;&lt;/p&gt;
 </description>
@@ -962,7 +962,7 @@ Syatem → Language 修改为 Chinese, 点击 Save &amp;amp; Apply&lt;/p&gt;
 &lt;p&gt;合着下面的讲解看地图更容易理解&lt;br /&gt;
 地图下载：&lt;a href=&quot;https://www.dropbox.com/s/z4u0q7c8h1vexcx/2015-09-26-MonsterSpawnerTrap-www.dreamxu.com%20.zip?dl=0&quot;&gt;https://www.dropbox.com/s/z4u0q7c8h1vexcx/2015-09-26-MonsterSpawnerTrap-www.dreamxu.com%20.zip?dl=0&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;section&quot;&gt;获取刷怪箱&lt;/h2&gt;
+&lt;h2 id=&quot;获取刷怪箱&quot;&gt;获取刷怪箱&lt;/h2&gt;
 
 &lt;p&gt;如果你想在创造模式下试验，获取刷怪箱是第一步&lt;/p&gt;
 
@@ -980,7 +980,7 @@ Syatem → Language 修改为 Chinese, 点击 Save &amp;amp; Apply&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;h2 id=&quot;section-1&quot;&gt;刷怪范围&lt;/h2&gt;
+&lt;h2 id=&quot;刷怪范围&quot;&gt;刷怪范围&lt;/h2&gt;
 
 &lt;p&gt;根据 Wiki 上所讲述的：&lt;a href=&quot;http://minecraft-zh.gamepedia.com/刷怪箱&quot;&gt;http://minecraft-zh.gamepedia.com/刷怪箱&lt;/a&gt;&lt;br /&gt;
 刷怪箱可在空气中生成怪物，且刷怪范围为 &lt;code class=&quot;highlighter-rouge&quot;&gt;8 * 8 * 3&lt;/code&gt;, 代码如下&lt;/p&gt;
@@ -1017,7 +1017,7 @@ Z = Spawner.z + random(spawnRange*2)-spawnRange;
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;section-2&quot;&gt;刷怪条件&lt;/h2&gt;
+&lt;h2 id=&quot;刷怪条件&quot;&gt;刷怪条件&lt;/h2&gt;
 
 &lt;ol&gt;
   &lt;li&gt;上述刷怪范围&lt;/li&gt;
@@ -1028,9 +1028,9 @@ Z = Spawner.z + random(spawnRange*2)-spawnRange;
 
 &lt;p&gt;满足了以上四个条件，刷怪箱可无限刷怪（如果挂机一天肯定会被「噁」心死😜）&lt;/p&gt;
 
-&lt;h2 id=&quot;section-3&quot;&gt;建造&lt;/h2&gt;
+&lt;h2 id=&quot;建造&quot;&gt;建造&lt;/h2&gt;
 
-&lt;h3 id=&quot;section-4&quot;&gt;内部的封闭空间&lt;/h3&gt;
+&lt;h3 id=&quot;内部的封闭空间&quot;&gt;内部的封闭空间&lt;/h3&gt;
 
 &lt;p&gt;满足&lt;strong&gt;条件一&lt;/strong&gt;和&lt;strong&gt;条件二&lt;/strong&gt;&lt;br /&gt;
 虽说僵尸刷怪范围是 &lt;code class=&quot;highlighter-rouge&quot;&gt;8 * 8 * 4&lt;/code&gt;, 但是还要考虑到最下面一层放水，旁白一排也要放水，
@@ -1041,7 +1041,7 @@ Z = Spawner.z + random(spawnRange*2)-spawnRange;
 &lt;img src=&quot;/assets/images/posts/2015-09-26_232820.png&quot; alt=&quot;密闭空间&quot; /&gt;&lt;br /&gt;
 &lt;img src=&quot;/assets/images/posts/2015-09-26_233020.png&quot; alt=&quot;密闭空间&quot; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;section-5&quot;&gt;水电梯部分&lt;/h3&gt;
+&lt;h3 id=&quot;水电梯部分&quot;&gt;水电梯部分&lt;/h3&gt;
 
 &lt;p&gt;满足&lt;strong&gt;条件四&lt;/strong&gt;&lt;br /&gt;
 我们将水电梯建在刷怪箱周围 &lt;code class=&quot;highlighter-rouge&quot;&gt;17 * 9 * 17&lt;/code&gt; 的空间范围之外，为了最大化刷怪。
@@ -1069,7 +1069,7 @@ Z = Spawner.z + random(spawnRange*2)-spawnRange;
 &lt;p&gt;水电梯摔落处的设计如下图&lt;br /&gt;
 &lt;img src=&quot;/assets/images/posts/2015-09-27_004500.png&quot; alt=&quot;水电梯摔落处&quot; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;section-6&quot;&gt;僵尸与僵尸村民的分离&lt;/h3&gt;
+&lt;h3 id=&quot;僵尸与僵尸村民的分离&quot;&gt;僵尸与僵尸村民的分离&lt;/h3&gt;
 
 &lt;p&gt;原理：利用活塞和粘性活塞将水流分流&lt;/p&gt;
 
@@ -1087,7 +1087,7 @@ Z = Spawner.z + random(spawnRange*2)-spawnRange;
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;section-7&quot;&gt;僵尸村民的捕获&lt;/h3&gt;
+&lt;h3 id=&quot;僵尸村民的捕获&quot;&gt;僵尸村民的捕获&lt;/h3&gt;
 
 &lt;p&gt;捕获装置，活板门陷阱&lt;br /&gt;
 &lt;img src=&quot;/assets/images/posts/2015-09-27_163738.png&quot; alt=&quot;活板门陷阱&quot; /&gt;&lt;/p&gt;
@@ -1119,7 +1119,7 @@ Z = Spawner.z + random(spawnRange*2)-spawnRange;
     
       <item>
         <title>Minecraft 服务器插件分享</title>
-        <description>&lt;h2 id=&quot;section&quot;&gt;插件安装及使用方法&lt;/h2&gt;
+        <description>&lt;h2 id=&quot;插件安装及使用方法&quot;&gt;插件安装及使用方法&lt;/h2&gt;
 
 &lt;ol&gt;
   &lt;li&gt;
@@ -1175,7 +1175,7 @@ Z = Spawner.z + random(spawnRange*2)-spawnRange;
     
       <item>
         <title>Minecraft 服务器 PaperSpigot 的使用</title>
-        <description>&lt;h2 id=&quot;section&quot;&gt;编译&lt;/h2&gt;
+        <description>&lt;h2 id=&quot;编译&quot;&gt;编译&lt;/h2&gt;
 
 &lt;ol&gt;
   &lt;li&gt;
@@ -1198,13 +1198,13 @@ Z = Spawner.z + random(spawnRange*2)-spawnRange;
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&quot;section-1&quot;&gt;运行&lt;/h2&gt;
+&lt;h2 id=&quot;运行&quot;&gt;运行&lt;/h2&gt;
 
 &lt;p&gt;和 Minecraft 官方服务器用法差不多，paperspigot-1.8.8.jar 就相当于官方服务器的 minecraft_server.1.8.8.jar&lt;/p&gt;
 
 &lt;p&gt;Minecraft 官方服务器用法可查看我的一篇文章&lt;a href=&quot;/build-official-minecraft-server/&quot;&gt;《架设 Minecraft 官方服务器》&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;section-2&quot;&gt;比官方服务器多的那一部分&lt;/h2&gt;
+&lt;h2 id=&quot;比官方服务器多的那一部分&quot;&gt;比官方服务器多的那一部分&lt;/h2&gt;
 
 &lt;p&gt;官方服务器主要配置文件就一个 server.properties&lt;br /&gt;
 PaperSpigot 中的配置文件为 server.properties, bukkit.yml, spigot.yml, paper.yml, 
@@ -1270,7 +1270,7 @@ PaperSpigot 对 Spigot 进行了一些优化，支持 Plugin, 不支持 Mod, 次
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;section&quot;&gt;安装步骤&lt;/h2&gt;
+&lt;h2 id=&quot;安装步骤&quot;&gt;安装步骤&lt;/h2&gt;
 
 &lt;ol&gt;
   &lt;li&gt;
@@ -1337,7 +1337,7 @@ PaperSpigot 对 Spigot 进行了一些优化，支持 Plugin, 不支持 Mod, 次
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&quot;section-1&quot;&gt;配置服务器&lt;/h2&gt;
+&lt;h2 id=&quot;配置服务器&quot;&gt;配置服务器&lt;/h2&gt;
 
 &lt;p&gt;修改配置文件&lt;/p&gt;
 
@@ -1381,7 +1381,7 @@ max-players=20
 motd=A Minecraft Server
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&quot;section-2&quot;&gt;使用&lt;/h2&gt;
+&lt;h2 id=&quot;使用&quot;&gt;使用&lt;/h2&gt;
 
 &lt;p&gt;关闭服务器&lt;/p&gt;
 
@@ -1390,7 +1390,7 @@ motd=A Minecraft Server
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;h2 id=&quot;op-&quot;&gt;OP 命令&lt;/h2&gt;
+&lt;h2 id=&quot;op-命令&quot;&gt;OP 命令&lt;/h2&gt;
 
 &lt;p&gt;OP 命令可参考：&lt;a href=&quot;http://minecraft-zh.gamepedia.com/%E5%91%BD%E4%BB%A4&quot;&gt;http://minecraft-zh.gamepedia.com/%E5%91%BD%E4%BB%A4&lt;/a&gt;&lt;/p&gt;
 </description>
@@ -1413,7 +1413,7 @@ motd=A Minecraft Server
 有了坑爹的学校，才有了我去用 MFC&lt;br /&gt;
 请使用 Qt, C# WPF, Node-Webkit 等&lt;/p&gt;
 
-&lt;h2 id=&quot;afxmessagebox--messagebox-&quot;&gt;使用 AfxMessageBox 或者 MessageBox 创建模态对话框&lt;/h2&gt;
+&lt;h2 id=&quot;使用-afxmessagebox-或者-messagebox-创建模态对话框&quot;&gt;使用 AfxMessageBox 或者 MessageBox 创建模态对话框&lt;/h2&gt;
 
 &lt;p&gt;使用 AfxMessageBox 函数可创建一个模态对话框&lt;/p&gt;
 
@@ -1450,13 +1450,13 @@ motd=A Minecraft Server
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;h2 id=&quot;cdialogdomodal-&quot;&gt;使用 CDialog::DoModal 创建模态对话框&lt;/h2&gt;
+&lt;h2 id=&quot;使用-cdialogdomodal-创建模态对话框&quot;&gt;使用 CDialog::DoModal 创建模态对话框&lt;/h2&gt;
 
 &lt;p&gt;官方文档：&lt;a href=&quot;https://msdn.microsoft.com/en-us/library/619z63f5.aspx&quot;&gt;https://msdn.microsoft.com/en-us/library/619z63f5.aspx&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;文档上的例子很详细了，就不多说了&lt;/p&gt;
 
-&lt;h2 id=&quot;cdialogcreate-&quot;&gt;使用 CDialog::Create 创建非模态对话框&lt;/h2&gt;
+&lt;h2 id=&quot;使用-cdialogcreate-创建非模态对话框&quot;&gt;使用 CDialog::Create 创建非模态对话框&lt;/h2&gt;
 
 &lt;p&gt;官方文档：&lt;a href=&quot;https://msdn.microsoft.com/en-us/library/yhth57kd.aspx&quot;&gt;https://msdn.microsoft.com/en-us/library/yhth57kd.aspx&lt;/a&gt;&lt;/p&gt;
 
@@ -1506,7 +1506,7 @@ CWnd::PostNcDestroy: &lt;a href=&quot;https://msdn.microsoft.com/en-us/library/s
 &lt;p&gt;参考：
 &lt;a href=&quot;http://www.xxsof.com/?p=998&quot;&gt;http://www.xxsof.com/?p=998&lt;/a&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;section&quot;&gt;具体的例子&lt;/h3&gt;
+&lt;h3 id=&quot;具体的例子&quot;&gt;具体的例子&lt;/h3&gt;
 
 &lt;ol&gt;
   &lt;li&gt;
@@ -1788,7 +1788,7 @@ CWnd::PostNcDestroy: &lt;a href=&quot;https://msdn.microsoft.com/en-us/library/s
 &lt;p&gt;以下编译 SQLite3 和使用 SQLite3 我是分开使用两个解决方案，为了理解起来清晰一点&lt;br /&gt;
 但是最好将其放一个解决方案中，内分为两个项目，有利于代码的组织&lt;/p&gt;
 
-&lt;h2 id=&quot;sqlite3&quot;&gt;静态编译 SQLite3&lt;/h2&gt;
+&lt;h2 id=&quot;静态编译-sqlite3&quot;&gt;静态编译 SQLite3&lt;/h2&gt;
 
 &lt;ol&gt;
   &lt;li&gt;
@@ -1829,7 +1829,7 @@ CWnd::PostNcDestroy: &lt;a href=&quot;https://msdn.microsoft.com/en-us/library/s
 &lt;p&gt;选择 “Relese” 还是 “Debug” 按情况而定，如果项目需要发布了，那么选择 “Relese” 会更好，
 如果需要调试，那么选择 “Debug” 会更好。但是确保同一解决方案下的各项目要统一&lt;/p&gt;
 
-&lt;h2 id=&quot;mfc--sqlite3-&quot;&gt;在 MFC 中使用 SQLite3 静态库&lt;/h2&gt;
+&lt;h2 id=&quot;在-mfc-中使用-sqlite3-静态库&quot;&gt;在 MFC 中使用 SQLite3 静态库&lt;/h2&gt;
 
 &lt;p&gt;&lt;strong&gt;注意：&lt;/strong&gt;开发全新的 PC 桌面客户端请不要使用 MFC, 已经是过时的技术了。
 有了坑爹的学校，才有了我去用 MFC&lt;br /&gt;
@@ -1894,7 +1894,7 @@ CWnd::PostNcDestroy: &lt;a href=&quot;https://msdn.microsoft.com/en-us/library/s
 
 &lt;p&gt;使用静态库非常简单，只需将 .lib 和 .h 文件添加到项目即可&lt;/p&gt;
 
-&lt;h2 id=&quot;sqlite3-1&quot;&gt;动态编译 SQLite3&lt;/h2&gt;
+&lt;h2 id=&quot;动态编译-sqlite3&quot;&gt;动态编译 SQLite3&lt;/h2&gt;
 
 &lt;p&gt;动态编译和静态编译差不多，只有两个地方不一样&lt;/p&gt;
 
@@ -1916,7 +1916,7 @@ CWnd::PostNcDestroy: &lt;a href=&quot;https://msdn.microsoft.com/en-us/library/s
 &lt;p&gt;生成项目，即可得到 .dll 和 .lib 文件&lt;br /&gt;
 有可能会提示你，无法解析的外部符号，不要急，将那些导出函数删除即可&lt;/p&gt;
 
-&lt;h3 id=&quot;dll--def--lib&quot;&gt;或者利用官方提供的 .dll 和 .def 文件生成 .lib&lt;/h3&gt;
+&lt;h3 id=&quot;或者利用官方提供的-dll-和-def-文件生成-lib&quot;&gt;或者利用官方提供的 .dll 和 .def 文件生成 .lib&lt;/h3&gt;
 
 &lt;p&gt;下载官方提供的文件 sqlite-dll-win32-x86-3081101, 内有 sqlite3.def 和 sqlite3.dll 这两个文件&lt;/p&gt;
 
@@ -1948,7 +1948,7 @@ C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\mspdb140.dll
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&quot;mfc--sqlite3--1&quot;&gt;在 MFC 中使用 SQLite3 动态库&lt;/h2&gt;
+&lt;h2 id=&quot;在-mfc-中使用-sqlite3-动态库&quot;&gt;在 MFC 中使用 SQLite3 动态库&lt;/h2&gt;
 
 &lt;p&gt;我们需要 .dll, .lib, .h 文件&lt;/p&gt;
 
@@ -1982,7 +1982,7 @@ C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\mspdb140.dll
 
 &lt;p&gt;所以在网络上分享的时候，如果不想隐私被暴露，需要删除照片的 Exif 信息&lt;/p&gt;
 
-&lt;h2 id=&quot;python--exif-&quot;&gt;利用 Python 来删除照片的 Exif 信息&lt;/h2&gt;
+&lt;h2 id=&quot;利用-python-来删除照片的-exif-信息&quot;&gt;利用 Python 来删除照片的 Exif 信息&lt;/h2&gt;
 
 &lt;p&gt;需要用到处理 Exif 信息的库 Piexif: &lt;a href=&quot;https://github.com/hMatoba/Piexif&quot;&gt;https://github.com/hMatoba/Piexif&lt;/a&gt;&lt;/p&gt;
 
@@ -1991,7 +1991,7 @@ C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\mspdb140.dll
 
 &lt;p&gt;代码见：&lt;a href=&quot;https://github.com/lifenod/remove-image-exif&quot;&gt;https://github.com/lifenod/remove-image-exif&lt;/a&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;section&quot;&gt;使用&lt;/h3&gt;
+&lt;h3 id=&quot;使用&quot;&gt;使用&lt;/h3&gt;
 
 &lt;ol&gt;
   &lt;li&gt;
@@ -2043,9 +2043,9 @@ pip install Pillow
     
       <item>
         <title>搭建基本的 Python 开发环境</title>
-        <description>&lt;h2 id=&quot;pyenv--python&quot;&gt;使用 pyenv 来安装 Python&lt;/h2&gt;
+        <description>&lt;h2 id=&quot;使用-pyenv-来安装-python&quot;&gt;使用 pyenv 来安装 Python&lt;/h2&gt;
 
-&lt;h3 id=&quot;pyenv&quot;&gt;先安装 pyenv&lt;/h3&gt;
+&lt;h3 id=&quot;先安装-pyenv&quot;&gt;先安装 pyenv&lt;/h3&gt;
 
 &lt;p&gt;官网：&lt;a href=&quot;https://github.com/yyuu/pyenv&quot;&gt;https://github.com/yyuu/pyenv&lt;/a&gt;&lt;/p&gt;
 
@@ -2090,7 +2090,7 @@ brew install pyenv
 亦可参考我以前写的文章&lt;a href=&quot;/install-ruby-on-mac-with-rbenv/#安装-ruby&quot;&gt;《在 Mac 上用 rbenv 安装 ruby - 安装 Ruby | 明无梦的博客》&lt;/a&gt;和
 &lt;a href=&quot;/install-ruby-on-mac-with-rbenv/#管理-ruby&quot;&gt;《在 Mac 上用 rbenv 安装 ruby - 管理 Ruby | 明无梦的博客》&lt;/a&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;python3&quot;&gt;安装 Python3&lt;/h3&gt;
+&lt;h3 id=&quot;安装-python3&quot;&gt;安装 Python3&lt;/h3&gt;
 
 &lt;ol&gt;
   &lt;li&gt;
@@ -2192,7 +2192,7 @@ script of the same name. We found the following &quot;config&quot; scripts:
 &lt;p&gt;外什么要将其中的 &lt;code class=&quot;highlighter-rouge&quot;&gt;env&lt;/code&gt; 加上 &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;&quot;&lt;/code&gt; ?&lt;br /&gt;
 执行 &lt;code class=&quot;highlighter-rouge&quot;&gt;env&lt;/code&gt; 之后，如其中的结果出现了空格，会出现 &lt;code class=&quot;highlighter-rouge&quot;&gt;No such file or directory&lt;/code&gt; 的问题，为了避免此问题，所以加上 &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;&quot;&lt;/code&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;virtual-environments-&quot;&gt;安装 Virtual Environments 及使用&lt;/h2&gt;
+&lt;h2 id=&quot;安装-virtual-environments-及使用&quot;&gt;安装 Virtual Environments 及使用&lt;/h2&gt;
 
 &lt;p&gt;官网：&lt;a href=&quot;https://virtualenv.pypa.io&quot;&gt;https://virtualenv.pypa.io&lt;/a&gt;&lt;/p&gt;
 
@@ -2207,16 +2207,9 @@ script of the same name. We found the following &quot;config&quot; scripts:
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;h3 id=&quot;section&quot;&gt;基本使用&lt;/h3&gt;
+&lt;h3 id=&quot;基本使用&quot;&gt;基本使用&lt;/h3&gt;
 
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;参考：[Virtual Environments&lt;/td&gt;
-      &lt;td&gt;Python Guide](http://docs.python-guide.org/en/latest/dev/virtualenvs/)&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;参考：&lt;a href=&quot;http://docs.python-guide.org/en/latest/dev/virtualenvs/&quot;&gt;Virtual Environments | Python Guide&lt;/a&gt;&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;
@@ -2362,7 +2355,7 @@ SHA1        C71D49A6144772F352806201EF564951BE55EDD5
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;section&quot;&gt;具体安装过程&lt;/h2&gt;
+&lt;h2 id=&quot;具体安装过程&quot;&gt;具体安装过程&lt;/h2&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;「Boot Camp 助理」只为 Windows 创建一个分区，而不会抹掉现有的 OS X 宗卷。
@@ -2371,7 +2364,7 @@ SHA1        C71D49A6144772F352806201EF564951BE55EDD5
   ——苹果官方&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h3 id=&quot;bootcamp-u-windows-&quot;&gt;一、使用 BootCamp 制作启动U盘和获取 Windows 驱动&lt;/h3&gt;
+&lt;h3 id=&quot;一、使用-bootcamp-制作启动u盘和获取-windows-驱动&quot;&gt;一、使用 BootCamp 制作启动U盘和获取 Windows 驱动&lt;/h3&gt;
 
 &lt;ol&gt;
   &lt;li&gt;
@@ -2396,7 +2389,7 @@ Boot Camp Assistant 会自动制作启动盘和下载 Windows 驱动&lt;br /&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h3 id=&quot;bootcamp--windows-&quot;&gt;二、使用 BootCamp 创建用于 Windows 的分区&lt;/h3&gt;
+&lt;h3 id=&quot;二、使用-bootcamp-创建用于-windows-的分区&quot;&gt;二、使用 BootCamp 创建用于 Windows 的分区&lt;/h3&gt;
 
 &lt;p&gt;第一部分很长时间的等待过后，进入分区页面，给 Windows 分出适当的大小，点击 “Install”, 如下图所示&lt;br /&gt;
 &lt;img src=&quot;/assets/images/posts/2015-08-02_162920.png&quot; alt=&quot;Boot Camp Assistant&quot; /&gt;&lt;/p&gt;
@@ -2404,7 +2397,7 @@ Boot Camp Assistant 会自动制作启动盘和下载 Windows 驱动&lt;br /&gt;
 &lt;p&gt;分区完成之后，会自动重启进入 Windows 安装&lt;br /&gt;
 进入第三部分的安装&lt;/p&gt;
 
-&lt;h3 id=&quot;windows&quot;&gt;三、安装 Windows&lt;/h3&gt;
+&lt;h3 id=&quot;三、安装-windows&quot;&gt;三、安装 Windows&lt;/h3&gt;
 
 &lt;p&gt;进入如下步骤的时候，选择 BOOTCAMP 分区，将其格式化，然后点击「下一步」&lt;br /&gt;
 &lt;img src=&quot;/assets/images/posts/2015-08-02_172042.jpg&quot; alt=&quot;安装 Windows&quot; /&gt;&lt;/p&gt;
@@ -2412,11 +2405,11 @@ Boot Camp Assistant 会自动制作启动盘和下载 Windows 驱动&lt;br /&gt;
 &lt;p&gt;稍后系统自动重启，进入 Windows 系统的安装，安装完成之后，会自动重启进入 Windows&lt;br /&gt;
 最后进行第四部分的安装&lt;/p&gt;
 
-&lt;h3 id=&quot;section-1&quot;&gt;四、安装驱动&lt;/h3&gt;
+&lt;h3 id=&quot;四、安装驱动&quot;&gt;四、安装驱动&lt;/h3&gt;
 
 &lt;p&gt;进入 Windows 之后，再打开 U 盘目录下的 “BootCamp” 目录，运行 “setup.ext” 文件，进行驱动程序的安装&lt;/p&gt;
 
-&lt;h3 id=&quot;section-2&quot;&gt;五、如何选择使用哪个系统&lt;/h3&gt;
+&lt;h3 id=&quot;五、如何选择使用哪个系统&quot;&gt;五、如何选择使用哪个系统&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -2440,9 +2433,9 @@ Boot Camp Assistant 会自动制作启动盘和下载 Windows 驱动&lt;br /&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;section-3&quot;&gt;遇到的问题&lt;/h2&gt;
+&lt;h2 id=&quot;遇到的问题&quot;&gt;遇到的问题&lt;/h2&gt;
 
-&lt;h3 id=&quot;kb3074683-&quot;&gt;安装 KB3074683 更新总是失败&lt;/h3&gt;
+&lt;h3 id=&quot;安装-kb3074683-更新总是失败&quot;&gt;安装 KB3074683 更新总是失败&lt;/h3&gt;
 
 &lt;p&gt;系统为 64 位专业版&lt;br /&gt;
 安装此更新总是失败，导致每次开机都会重启 4-5 次&lt;/p&gt;
@@ -2536,7 +2529,7 @@ Ubuntu 是一个比较好用的 Linux 发行版&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&quot;section&quot;&gt;更新系统&lt;/h2&gt;
+&lt;h2 id=&quot;更新系统&quot;&gt;更新系统&lt;/h2&gt;
 
 &lt;p&gt;更新系统之前都需要执行 &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt-get update&lt;/code&gt; 来更新本地的软件列表&lt;/p&gt;
 
@@ -2687,7 +2680,7 @@ update-grub
         <title>Sublime Text 的基本使用</title>
         <description>&lt;p&gt;官网：&lt;a href=&quot;http://www.sublimetext.com/&quot;&gt;http://www.sublimetext.com/&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;section&quot;&gt;设置命令行启动&lt;/h2&gt;
+&lt;h2 id=&quot;设置命令行启动&quot;&gt;设置命令行启动&lt;/h2&gt;
 
 &lt;p&gt;Mac 环境，在 Shell 配置文件中加入如下内容&lt;/p&gt;
 
@@ -2696,7 +2689,7 @@ update-grub
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;h2 id=&quot;package-control&quot;&gt;安装 Package Control&lt;/h2&gt;
+&lt;h2 id=&quot;安装-package-control&quot;&gt;安装 Package Control&lt;/h2&gt;
 
 &lt;p&gt;一般都会安装此插件，用来管理其它插件的插件&lt;/p&gt;
 
@@ -2987,7 +2980,7 @@ ln -s path/libmpc.so.2 /usr/local/lib
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;h2 id=&quot;section&quot;&gt;一些例子&lt;/h2&gt;
+&lt;h2 id=&quot;一些例子&quot;&gt;一些例子&lt;/h2&gt;
 
 &lt;p&gt;如果 0 到 100 闭区间内的数能被 3 整除，则输出该数并标记 &lt;code class=&quot;highlighter-rouge&quot;&gt;*&lt;/code&gt;, 
 如果能被 5 整除，则输出该数并标记 &lt;code class=&quot;highlighter-rouge&quot;&gt;#&lt;/code&gt;, 
@@ -3064,7 +3057,7 @@ ln -s path/libmpc.so.2 /usr/local/lib
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;h3 id=&quot;section&quot;&gt;单引号和双引号的区别&lt;/h3&gt;
+&lt;h3 id=&quot;单引号和双引号的区别&quot;&gt;单引号和双引号的区别&lt;/h3&gt;
 
 &lt;p&gt;用双引号扩起来的称为字符串，例如：”String”&lt;br /&gt;
 单引号可以用于扩起表和符号，是一种结构化的数据；
@@ -3131,7 +3124,7 @@ ln -s path/libmpc.so.2 /usr/local/lib
     
       <item>
         <title>西邮联通上网激活方法（可共享，支持路由器，Mac, Windows, Linux）</title>
-        <description>&lt;h2 id=&quot;windows&quot;&gt;方法一（只支持 Windows）&lt;/h2&gt;
+        <description>&lt;h2 id=&quot;方法一（只支持-windows）&quot;&gt;方法一（只支持 Windows）&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://tieba.baidu.com/p/3606416310&quot;&gt;http://tieba.baidu.com/p/3606416310&lt;/a&gt;, 
 使用此帖子中的插件&lt;br /&gt;
@@ -3141,7 +3134,7 @@ ln -s path/libmpc.so.2 /usr/local/lib
 
 &lt;p&gt;可用版本备份下载地址：&lt;a href=&quot;https://www.dropbox.com/s/c56uadc0q6fjnv7/Freedrcom.zip?dl=0&quot;&gt;https://www.dropbox.com/s/c56uadc0q6fjnv7/Freedrcom.zip?dl=0&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;section&quot;&gt;方法二（支持各系统）&lt;/h2&gt;
+&lt;h2 id=&quot;方法二（支持各系统）&quot;&gt;方法二（支持各系统）&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/drcoms/drcom-generic&quot;&gt;https://github.com/drcoms/drcom-generic&lt;/a&gt;, 
 其中的 p 版可用，《&lt;a href=&quot;https://github.com/drcoms/drcom-generic/wiki/p版简略使用和配置说明&quot;&gt;p 版简略使用和配置说明&lt;/a&gt;》&lt;/p&gt;
@@ -3212,7 +3205,7 @@ sleep 15
     
       <item>
         <title>r6300v2 路由器 dd-wrt 系统使用 opkg</title>
-        <description>&lt;h2 id=&quot;opkg&quot;&gt;安装 opkg&lt;/h2&gt;
+        <description>&lt;h2 id=&quot;安装-opkg&quot;&gt;安装 opkg&lt;/h2&gt;
 
 &lt;p&gt;24500M 及之后的版本无法使用 ipkg, 可用 &lt;code class=&quot;highlighter-rouge&quot;&gt;bootstrap&lt;/code&gt; 命令来安装 opkg&lt;/p&gt;
 
@@ -3263,7 +3256,7 @@ ipkg install opkg
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&quot;opkg-1&quot;&gt;使用 opkg&lt;/h2&gt;
+&lt;h2 id=&quot;使用-opkg&quot;&gt;使用 opkg&lt;/h2&gt;
 
 &lt;p&gt;例如用来安装 python&lt;/p&gt;
 
@@ -3291,9 +3284,9 @@ opkg install python
     
       <item>
         <title>Chef 基本流程</title>
-        <description>&lt;h2 id=&quot;section&quot;&gt;工具介绍&lt;/h2&gt;
+        <description>&lt;h2 id=&quot;工具介绍&quot;&gt;工具介绍&lt;/h2&gt;
 
-&lt;h3 id=&quot;chef--chef-solo&quot;&gt;Chef 和 Chef Solo&lt;/h3&gt;
+&lt;h3 id=&quot;chef-和-chef-solo&quot;&gt;Chef 和 Chef Solo&lt;/h3&gt;
 
 &lt;p&gt;Chef 是一个自动化工具，用 Opscode 开发，
 使用 Ruby DSL 以一种可重复使用的格式表示配置服务器所需的命令&lt;br /&gt;
@@ -3304,7 +3297,7 @@ Chef 经常运行在服务器集群的枢纽，统筹安排其他服务器的配
 
 &lt;p&gt;如果项目不断扩大也不用担心，使用 Chef Solo 制定的自动化配置大多数都可以在 Chef 中使用&lt;/p&gt;
 
-&lt;h3 id=&quot;knife--knife-solo&quot;&gt;Knife 和 Knife Solo&lt;/h3&gt;
+&lt;h3 id=&quot;knife-和-knife-solo&quot;&gt;Knife 和 Knife Solo&lt;/h3&gt;
 
 &lt;p&gt;Knife 是一个命令行工具，为本地开发环境中的 Chef 仓库和远程服务器之间提供交互接口&lt;/p&gt;
 
@@ -3320,7 +3313,7 @@ Chef 经常运行在服务器集群的枢纽，统筹安排其他服务器的配
 &lt;p&gt;Berkshelf 就像是配方的 Bundler&lt;br /&gt;
 我们使用 Berkshelf 获取配置服务器所需的 Chef 配方（特定的版本）&lt;/p&gt;
 
-&lt;h2 id=&quot;chef-&quot;&gt;Chef 术语介绍&lt;/h2&gt;
+&lt;h2 id=&quot;chef-术语介绍&quot;&gt;Chef 术语介绍&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -3359,7 +3352,7 @@ Chef 经常运行在服务器集群的枢纽，统筹安排其他服务器的配
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;chef-solo-&quot;&gt;创建 Chef Solo 仓库&lt;/h2&gt;
+&lt;h2 id=&quot;创建-chef-solo-仓库&quot;&gt;创建 Chef Solo 仓库&lt;/h2&gt;
 
 &lt;ol&gt;
   &lt;li&gt;
@@ -3414,7 +3407,7 @@ cd chef_repo
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&quot;section-1&quot;&gt;初始化仓库&lt;/h2&gt;
+&lt;h2 id=&quot;初始化仓库&quot;&gt;初始化仓库&lt;/h2&gt;
 
 &lt;p&gt;使用 bundle exec 确保使用的 Gemfile 中定义的 gem 版本来执行命令&lt;/p&gt;
 
@@ -3539,7 +3532,7 @@ Knife Solo 添加了额外的命令，可以在本地开发设备上直接和要
 
 &lt;p&gt;用来存放自己编写的食谱&lt;/p&gt;
 
-&lt;h2 id=&quot;section-2&quot;&gt;食谱介绍&lt;/h2&gt;
+&lt;h2 id=&quot;食谱介绍&quot;&gt;食谱介绍&lt;/h2&gt;
 
 &lt;p&gt;以 redis-tlq 食谱为例：&lt;a href=&quot;https://github.com/TalkingQuickly/redis-tlq&quot;&gt;https://github.com/TalkingQuickly/redis-tlq&lt;/a&gt;&lt;br /&gt;
 将其作为自己编写的食谱放到 &lt;code class=&quot;highlighter-rouge&quot;&gt;site-cookbooks&lt;/code&gt; 文件夹下&lt;/p&gt;
@@ -3701,7 +3694,7 @@ Berkshelf 会查看 metadata.rb 文件，确认要使用的食谱中是否有匹
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;h4 id=&quot;section-3&quot;&gt;模板文件夹的说明&lt;/h4&gt;
+&lt;h4 id=&quot;模板文件夹的说明&quot;&gt;模板文件夹的说明&lt;/h4&gt;
 
 &lt;p&gt;templates 文件夹中的子文件夹对应的是服务器上所安装的操作系统&lt;br /&gt;
 如果使用的是 Ubuntu 12.04, 上面的 template 代码块就会在下面的路径中按顺序寻找 redis.conf.erb 文件：&lt;/p&gt;
@@ -3715,7 +3708,7 @@ Berkshelf 会查看 metadata.rb 文件，确认要使用的食谱中是否有匹
 &lt;p&gt;如果要编写复杂的食谱，照应多种操作系统，这种处理方式的强大就体现出来了&lt;br /&gt;
 目前，我们仅仅使用 default 文件夹&lt;/p&gt;
 
-&lt;h3 id=&quot;section-4&quot;&gt;属性&lt;/h3&gt;
+&lt;h3 id=&quot;属性&quot;&gt;属性&lt;/h3&gt;
 
 &lt;p&gt;&lt;strong&gt;配方&lt;/strong&gt;可以使用属性 (attribute) 进行定制。
 属性可以在多个地方设定，包括：&lt;/p&gt;
@@ -3756,7 +3749,7 @@ Berkshelf 会查看 metadata.rb 文件，确认要使用的食谱中是否有匹
 
 &lt;p&gt;那么就执行 &lt;code class=&quot;highlighter-rouge&quot;&gt;bind 127.0.0.1&lt;/code&gt; 这段代码&lt;/p&gt;
 
-&lt;h4 id=&quot;section-5&quot;&gt;食谱属性的默认值&lt;/h4&gt;
+&lt;h4 id=&quot;食谱属性的默认值&quot;&gt;食谱属性的默认值&lt;/h4&gt;
 
 &lt;p&gt;在食谱中可以为属性定义默认值。
 这往往也是推荐的做法，大多数用户只要做少许改动就可使用&lt;/p&gt;
@@ -3776,7 +3769,7 @@ Berkshelf 会查看 metadata.rb 文件，确认要使用的食谱中是否有匹
 &lt;p&gt;关于属性的更多说明，请阅读 OpsCode 网站上的文档：&lt;br /&gt;
 &lt;a href=&quot;http://docs.opscode.com/essentials_cookbook_attribute_files.html&quot;&gt;http://docs.opscode.com/essentials_cookbook_attribute_files.html&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;section-6&quot;&gt;角色介绍&lt;/h2&gt;
+&lt;h2 id=&quot;角色介绍&quot;&gt;角色介绍&lt;/h2&gt;
 
 &lt;p&gt;新建角色文件&lt;/p&gt;
 
@@ -3880,7 +3873,7 @@ Berkshelf 会查看 metadata.rb 文件，确认要使用的食谱中是否有匹
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;h2 id=&quot;section-7&quot;&gt;配置远程服务器&lt;/h2&gt;
+&lt;h2 id=&quot;配置远程服务器&quot;&gt;配置远程服务器&lt;/h2&gt;
 
 &lt;ol&gt;
   &lt;li&gt;
@@ -3919,7 +3912,7 @@ Berkshelf 会查看 metadata.rb 文件，确认要使用的食谱中是否有匹
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h3 id=&quot;section-8&quot;&gt;可能会遇到的问题&lt;/h3&gt;
+&lt;h3 id=&quot;可能会遇到的问题&quot;&gt;可能会遇到的问题&lt;/h3&gt;
 
 &lt;p&gt;如果不确定是什么问题，可以在安装 Chef 的命令加上 &lt;code class=&quot;highlighter-rouge&quot;&gt;-VV&lt;/code&gt; 选项来查看 DEBUG 信息&lt;/p&gt;
 
@@ -3952,7 +3945,7 @@ Berkshelf 会查看 metadata.rb 文件，确认要使用的食谱中是否有匹
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;section-9&quot;&gt;应用配方&lt;/h2&gt;
+&lt;h2 id=&quot;应用配方&quot;&gt;应用配方&lt;/h2&gt;
 
 &lt;ol&gt;
   &lt;li&gt;
@@ -4031,7 +4024,7 @@ Berkshelf 会查看 metadata.rb 文件，确认要使用的食谱中是否有匹
     
       <item>
         <title>在 Mac 上用 rbenv 安装 ruby</title>
-        <description>&lt;h2 id=&quot;rbenv&quot;&gt;安装 rbenv&lt;/h2&gt;
+        <description>&lt;h2 id=&quot;安装-rbenv&quot;&gt;安装 rbenv&lt;/h2&gt;
 
 &lt;p&gt;项目主页：&lt;a href=&quot;https://github.com/sstephenson/rbenv&quot;&gt;https://github.com/sstephenson/rbenv&lt;/a&gt;&lt;/p&gt;
 
@@ -4084,7 +4077,7 @@ type rbenv
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h3 id=&quot;rbenv-&quot;&gt;一些好用的 rbenv 插件&lt;/h3&gt;
+&lt;h3 id=&quot;一些好用的-rbenv-插件&quot;&gt;一些好用的 rbenv 插件&lt;/h3&gt;
 
 &lt;h4 id=&quot;rbenv-update&quot;&gt;rbenv-update&lt;/h4&gt;
 
@@ -4112,7 +4105,7 @@ type rbenv
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;h2 id=&quot;ruby&quot;&gt;安装 Ruby&lt;/h2&gt;
+&lt;h2 id=&quot;安装-ruby&quot;&gt;安装 Ruby&lt;/h2&gt;
 
 &lt;ol&gt;
   &lt;li&gt;
@@ -4204,7 +4197,7 @@ type rbenv
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&quot;ruby-1&quot;&gt;管理 Ruby&lt;/h2&gt;
+&lt;h2 id=&quot;管理-ruby&quot;&gt;管理 Ruby&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -4297,7 +4290,7 @@ can be used to automatically install and configure software on the machine.&lt;/
 &lt;p&gt;因其是使用虚拟机的，所以虚拟机的好处全部都有，你可以随便折腾，弄得不爽了可以马上复原，真的是很方便。
 也简化了操作虚拟机的步骤，一条命令即可创建一个虚拟系统，即开即用&lt;/p&gt;
 
-&lt;h2 id=&quot;section&quot;&gt;安装&lt;/h2&gt;
+&lt;h2 id=&quot;安装&quot;&gt;安装&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -4308,13 +4301,13 @@ can be used to automatically install and configure software on the machine.&lt;/
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;box&quot;&gt;添加 Box&lt;/h2&gt;
+&lt;h2 id=&quot;添加-box&quot;&gt;添加 Box&lt;/h2&gt;
 
 &lt;p&gt;Box 理解为一个打包好的操作系统环境就好了&lt;br /&gt;
 可以自己做，也可以直接下载制作好的&lt;br /&gt;
 Vargrant 将 box 解包后放在 /.vagrant.d/boxes 文件夹&lt;/p&gt;
 
-&lt;h3 id=&quot;section-1&quot;&gt;通过命令直接下载&lt;/h3&gt;
+&lt;h3 id=&quot;通过命令直接下载&quot;&gt;通过命令直接下载&lt;/h3&gt;
 
 &lt;p&gt;例如下载 Ubuntu 官方创建的 Ubuntu Server 64-bit 14.04 的 box&lt;br /&gt;
 其中的 &lt;code class=&quot;highlighter-rouge&quot;&gt;Ubuntu_Server_14.04&lt;/code&gt; 是自己设定的 box 名字&lt;/p&gt;
@@ -4326,7 +4319,7 @@ Vargrant 将 box 解包后放在 /.vagrant.d/boxes 文件夹&lt;/p&gt;
 
 &lt;p&gt;Box 可以去 &lt;a href=&quot;https://vagrantcloud.com/&quot;&gt;Vagrant Cloud&lt;/a&gt; 找&lt;/p&gt;
 
-&lt;h3 id=&quot;box-1&quot;&gt;手动下载 box&lt;/h3&gt;
+&lt;h3 id=&quot;手动下载-box&quot;&gt;手动下载 box&lt;/h3&gt;
 
 &lt;p&gt;例如下载 Ubuntu 的 &lt;a href=&quot;http://cloud-images.ubuntu.com/vagrant/&quot;&gt;box&lt;/a&gt;, 下载完成之后添加一下 box&lt;/p&gt;
 
@@ -4335,14 +4328,14 @@ Vargrant 将 box 解包后放在 /.vagrant.d/boxes 文件夹&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;h3 id=&quot;base-box&quot;&gt;自己制作 base box&lt;/h3&gt;
+&lt;h3 id=&quot;自己制作-base-box&quot;&gt;自己制作 base box&lt;/h3&gt;
 
 &lt;p&gt;第一次使用 Vagrant 建议跳过这一步骤，&lt;a href=&quot;#初始化和配置&quot;&gt;到下一步&lt;/a&gt;，
 直接使用制作好的 base box, 体会了 Vagrant 之后再来自己制作 base box&lt;/p&gt;
 
 &lt;p&gt;人家制作好的 box 或许没有你需要的，那么就需要自己来制作了&lt;/p&gt;
 
-&lt;h4 id=&quot;veewee--parallels&quot;&gt;使用 Veewee 工具创建（虚拟机为 Parallels）&lt;/h4&gt;
+&lt;h4 id=&quot;使用-veewee-工具创建（虚拟机为-parallels）&quot;&gt;使用 Veewee 工具创建（虚拟机为 Parallels）&lt;/h4&gt;
 
 &lt;ol&gt;
   &lt;li&gt;
@@ -4365,7 +4358,7 @@ Vargrant 将 box 解包后放在 /.vagrant.d/boxes 文件夹&lt;/p&gt;
 
 &lt;p&gt;（未完成，博主还没有实践，或许以后会补全）&lt;/p&gt;
 
-&lt;h4 id=&quot;parallels&quot;&gt;手动创建（虚拟机为 Parallels）&lt;/h4&gt;
+&lt;h4 id=&quot;手动创建（虚拟机为-parallels）&quot;&gt;手动创建（虚拟机为 Parallels）&lt;/h4&gt;
 
 &lt;ol&gt;
   &lt;li&gt;
@@ -4491,7 +4484,7 @@ Vagrantfile 文件内容可为空，metadata.json 可如下所示&lt;/p&gt;
 &lt;a href=&quot;http://docs.vagrantup.com/v2/boxes/base.html&quot;&gt;CREATING A BASE BOX | Vagrant&lt;/a&gt;&lt;br /&gt;
 &lt;a href=&quot;http://parallels.github.io/vagrant-parallels/docs/boxes/base.html&quot;&gt;Creating a Base Box | Parallels&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;section-2&quot;&gt;初始化和配置&lt;/h2&gt;
+&lt;h2 id=&quot;初始化和配置&quot;&gt;初始化和配置&lt;/h2&gt;
 
 &lt;ol&gt;
   &lt;li&gt;
@@ -4522,7 +4515,7 @@ vagrant init Ubuntu_Server_14.04
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h3 id=&quot;vagrantfile-&quot;&gt;Vagrantfile 配置文件&lt;/h3&gt;
+&lt;h3 id=&quot;vagrantfile-配置文件&quot;&gt;Vagrantfile 配置文件&lt;/h3&gt;
 
 &lt;p&gt;配置文件是用 Ruby 写的，不过都是一些常用的赋值&lt;/p&gt;
 
@@ -4561,11 +4554,11 @@ vagrant init Ubuntu_Server_14.04
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;h4 id=&quot;section-3&quot;&gt;默认共享目录&lt;/h4&gt;
+&lt;h4 id=&quot;默认共享目录&quot;&gt;默认共享目录&lt;/h4&gt;
 
 &lt;p&gt;默认主机的项目目录和虚拟机中的 /vagrant 目录是共享的&lt;/p&gt;
 
-&lt;h2 id=&quot;section-4&quot;&gt;使用&lt;/h2&gt;
+&lt;h2 id=&quot;使用&quot;&gt;使用&lt;/h2&gt;
 
 &lt;p&gt;以下命令在项目目录中执行&lt;/p&gt;
 
@@ -4580,7 +4573,7 @@ vagrant init Ubuntu_Server_14.04
 
 &lt;p&gt;更多命令请看《&lt;a href=&quot;http://docs.vagrantup.com/v2/cli/index.html&quot;&gt;官方文档 - COMMAND-LINE INTERFACE&lt;/a&gt;》&lt;/p&gt;
 
-&lt;h2 id=&quot;box-2&quot;&gt;打包成 box&lt;/h2&gt;
+&lt;h2 id=&quot;打包成-box&quot;&gt;打包成 box&lt;/h2&gt;
 
 &lt;p&gt;当你自定义了开发环境之后，在项目目录执行命令&lt;/p&gt;
 
@@ -4604,14 +4597,14 @@ vagrant init Ubuntu_Server_14.04
 解决的办法就是，如果要用 box 中的 Vagrantfile 那么把 &lt;code class=&quot;highlighter-rouge&quot;&gt;.vagrant.d/boxes/boxname/0/virtualbox/include/_Vagrantfile&lt;/code&gt; 
 文件重命名为 &lt;code class=&quot;highlighter-rouge&quot;&gt;Vagrantfile&lt;/code&gt; 并覆盖项目目录中的 Vagrantfile; 如果不用它，那么将其删除&lt;/p&gt;
 
-&lt;h2 id=&quot;section-5&quot;&gt;自动化&lt;/h2&gt;
+&lt;h2 id=&quot;自动化&quot;&gt;自动化&lt;/h2&gt;
 
 &lt;p&gt;若想统一开发环境和生产环境也是可以的，将虚拟机系统环境配置成相同的环境即可&lt;/p&gt;
 
 &lt;p&gt;若想让两个环境完全一样，并实现自动化配置，可以尝试 
 &lt;a href=&quot;/chef-basic-flow/&quot;&gt;Chef&lt;/a&gt; 或 &lt;a href=&quot;http://puppetlabs.com/&quot;&gt;Puppet&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;section-6&quot;&gt;心得&lt;/h2&gt;
+&lt;h2 id=&quot;心得&quot;&gt;心得&lt;/h2&gt;
 
 &lt;p&gt;使用一段时间这个环境之后：Mac + VirtualBox + Vagrant&lt;br /&gt;
 有个问题，使用 Public Networks 网络方式的时候，与外网的连接不是很好&lt;/p&gt;
@@ -4783,7 +4776,7 @@ procps: /usr/bin/top&lt;/li&gt;
   continuation of the unmaintained proxychains project.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h2 id=&quot;section&quot;&gt;安装&lt;/h2&gt;
+&lt;h2 id=&quot;安装&quot;&gt;安装&lt;/h2&gt;
 
 &lt;p&gt;使用 Homebrew 安装&lt;/p&gt;
 
@@ -4792,7 +4785,7 @@ procps: /usr/bin/top&lt;/li&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;h2 id=&quot;section-1&quot;&gt;配置&lt;/h2&gt;
+&lt;h2 id=&quot;配置&quot;&gt;配置&lt;/h2&gt;
 
 &lt;p&gt;编辑配置文件 &lt;code class=&quot;highlighter-rouge&quot;&gt;mvim /usr/local/etc/proxychains.conf&lt;/code&gt;&lt;br /&gt;
 在 [ProxyList] 下面（也就是末尾）加入代理类型，代理地址和端口&lt;br /&gt;
@@ -4810,7 +4803,7 @@ procps: /usr/bin/top&lt;/li&gt;
 &lt;p&gt;默认是：&lt;br /&gt;
 &lt;code class=&quot;highlighter-rouge&quot;&gt;strict_chain&lt;/code&gt; - 按照后面列表中出现的代理服务器的先后顺序组成一条链，要求所有的代理服务器都是有效的&lt;/p&gt;
 
-&lt;h2 id=&quot;section-2&quot;&gt;使用&lt;/h2&gt;
+&lt;h2 id=&quot;使用&quot;&gt;使用&lt;/h2&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;proxychains4 curl twitter.com
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
@@ -4861,7 +4854,7 @@ procps: /usr/bin/top&lt;/li&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/posts/2014-06-12_230341.gif&quot; alt=&quot;Rime输入法演示&quot; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;section&quot;&gt;安装&lt;/h2&gt;
+&lt;h2 id=&quot;安装&quot;&gt;安装&lt;/h2&gt;
 
 &lt;p&gt;就一条理由就可以使我弃用使用 N 多年的其它输入法&lt;br /&gt;
 1. &lt;a href=&quot;https://github.com/lotem/squirrel&quot;&gt;https://github.com/lotem/squirrel&lt;/a&gt;&lt;/p&gt;
@@ -4879,28 +4872,21 @@ procps: /usr/bin/top&lt;/li&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/posts/2014-06-09_212556.png&quot; alt=&quot;输入法方案选单&quot; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;section-1&quot;&gt;配置&lt;/h2&gt;
+&lt;h2 id=&quot;配置&quot;&gt;配置&lt;/h2&gt;
 
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;自行查看《[Rime 定製指南&lt;/td&gt;
-      &lt;td&gt;GitHub][]》&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;自行查看《&lt;a href=&quot;https://github.com/rime/home/wiki/CustomizationGuide&quot;&gt;Rime 定製指南 | GitHub&lt;/a&gt;》&lt;/p&gt;
 
 &lt;p&gt;以下是我对官网说明书的一些摘录，加上我的一些修改，只限于对拼音输入的理解&lt;br /&gt;
 如果你用的是小鹤双拼，可以直接看下文《&lt;a href=&quot;#详细配置「小鹤双拼·语句流」&quot;&gt;详细配置「小鹤双拼·语句流」&lt;/a&gt;》，介绍的是「小鹤双拼·语句流」的配置。
 语句流和普通的输入方式在配置上只有一条配置语句的不同，如果不喜欢语句流这种方式，改成普通的也非常简单，下文有介绍。
 BTW, 现在我自己都不使用「语句流」这种方式了&lt;/p&gt;
 
-&lt;h3 id=&quot;section-2&quot;&gt;数据文件位置&lt;/h3&gt;
+&lt;h3 id=&quot;数据文件位置&quot;&gt;数据文件位置&lt;/h3&gt;
 
 &lt;p&gt;共享资料夹：”/Library/Input Methods/Squirrel.app/Contents/SharedSupport/”&lt;br /&gt;
 用户资料夹：”~/Library/Rime/”&lt;/p&gt;
 
-&lt;h3 id=&quot;section-3&quot;&gt;用户资料夹内的文件说明如下&lt;/h3&gt;
+&lt;h3 id=&quot;用户资料夹内的文件说明如下&quot;&gt;用户资料夹内的文件说明如下&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;〔全局设定〕 default.yaml&lt;/li&gt;
@@ -4935,9 +4921,9 @@ BTW, 现在我自己都不使用「语句流」这种方式了&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;注：以上标有「※ 号」和「粗体」的文件，包含用户资料，您在清理文件时要注意备份！&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;section-4&quot;&gt;自定义配置&lt;/h3&gt;
+&lt;h3 id=&quot;自定义配置&quot;&gt;自定义配置&lt;/h3&gt;
 
-&lt;h4 id=&quot;section-5&quot;&gt;对全局的定制&lt;/h4&gt;
+&lt;h4 id=&quot;对全局的定制&quot;&gt;对全局的定制&lt;/h4&gt;
 
 &lt;p&gt;新建文件 &lt;code class=&quot;highlighter-rouge&quot;&gt;touch ~/Library/Rime/default.custom.yaml&lt;/code&gt;, 内容如下&lt;/p&gt;
 
@@ -4964,7 +4950,7 @@ BTW, 现在我自己都不使用「语句流」这种方式了&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;h4 id=&quot;section-6&quot;&gt;对输入方案的定制&lt;/h4&gt;
+&lt;h4 id=&quot;对输入方案的定制&quot;&gt;对输入方案的定制&lt;/h4&gt;
 
 &lt;p&gt;比如定制小鹤双拼&lt;br /&gt;
 新建文件 &lt;code class=&quot;highlighter-rouge&quot;&gt;touch ~/Library/Rime/double_pinyin_flypy.custom.yaml&lt;/code&gt;&lt;/p&gt;
@@ -4981,7 +4967,7 @@ BTW, 现在我自己都不使用「语句流」这种方式了&lt;/p&gt;
 &lt;p&gt;配置好之后需要「重新部署」：切换到「鼠须管」输入法，点击右上角的的输入法图标，点击「重新部署」&lt;br /&gt;
 之后就可以用小鹤双拼了&lt;/p&gt;
 
-&lt;h3 id=&quot;section-7&quot;&gt;外观设定&lt;/h3&gt;
+&lt;h3 id=&quot;外观设定&quot;&gt;外观设定&lt;/h3&gt;
 
 &lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
@@ -5048,17 +5034,17 @@ BTW, 现在我自己都不使用「语句流」这种方式了&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;h3 id=&quot;section-8&quot;&gt;一些快捷键&lt;/h3&gt;
+&lt;h3 id=&quot;一些快捷键&quot;&gt;一些快捷键&lt;/h3&gt;
 
-&lt;h4 id=&quot;section-9&quot;&gt;输入的时候删除一个音节&lt;/h4&gt;
+&lt;h4 id=&quot;输入的时候删除一个音节&quot;&gt;输入的时候删除一个音节&lt;/h4&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;⌃ + BackSpace&lt;/code&gt; 或 &lt;code class=&quot;highlighter-rouge&quot;&gt;⇧ + BackSpace&lt;/code&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;section-10&quot;&gt;从用户词典中删除误上屏的错词&lt;/h4&gt;
+&lt;h4 id=&quot;从用户词典中删除误上屏的错词&quot;&gt;从用户词典中删除误上屏的错词&lt;/h4&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Shift + Fn + Delete&lt;/code&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;emacs-&quot;&gt;Emacs 风格的编辑键&lt;/h4&gt;
+&lt;h4 id=&quot;emacs-风格的编辑键&quot;&gt;Emacs 风格的编辑键&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;↑：&lt;code class=&quot;highlighter-rouge&quot;&gt;⌃ + p&lt;/code&gt;&lt;/li&gt;
@@ -5076,7 +5062,7 @@ BTW, 现在我自己都不使用「语句流」这种方式了&lt;/p&gt;
 
 &lt;p&gt;有时候快捷键可能会用不了，那是因为其它应用首先获取了快捷键，这样输入法就不会影响你对其它软件的控制&lt;/p&gt;
 
-&lt;h3 id=&quot;section-11&quot;&gt;定制标点符号&lt;/h3&gt;
+&lt;h3 id=&quot;定制标点符号&quot;&gt;定制标点符号&lt;/h3&gt;
 
 &lt;p&gt;可以参考 default.yaml 和相应输入法方案的配置（比如 double_pinyin_flypy.schema.yaml）&lt;/p&gt;
 
@@ -5112,7 +5098,7 @@ BTW, 现在我自己都不使用「语句流」这种方式了&lt;/p&gt;
 &lt;p&gt;如果你的用的输入方案导入了 symbols.yaml, 你就可以参考 symbols.yaml 文件来修改了，
 里面还有各种特殊符号&lt;/p&gt;
 
-&lt;h4 id=&quot;section-12&quot;&gt;活用标点创建自定义词组&lt;/h4&gt;
+&lt;h4 id=&quot;活用标点创建自定义词组&quot;&gt;活用标点创建自定义词组&lt;/h4&gt;
 
 &lt;p&gt;这还有个用法，你可以将一个键或多个键专门用于输入自定义的词组比如&lt;/p&gt;
 
@@ -5129,7 +5115,7 @@ BTW, 现在我自己都不使用「语句流」这种方式了&lt;/p&gt;
 
 &lt;p&gt;当你输入 “+” 的时候就会变成 “+_+” 了&lt;/p&gt;
 
-&lt;h3 id=&quot;section-13&quot;&gt;在特定程序里关闭中文输入&lt;/h3&gt;
+&lt;h3 id=&quot;在特定程序里关闭中文输入&quot;&gt;在特定程序里关闭中文输入&lt;/h3&gt;
 
 &lt;p&gt;在一些程序里很少需要输入中文，于是让鼠须管在这些程序里默认不开启中文输入&lt;/p&gt;
 
@@ -5154,7 +5140,7 @@ BTW, 现在我自己都不使用「语句流」这种方式了&lt;/p&gt;
 
 &lt;p&gt;修改之前先查看以下 squirrel.yaml 文件，默认设置了一些常用的软件&lt;/p&gt;
 
-&lt;h3 id=&quot;section-14&quot;&gt;更改切换中西文的快捷键&lt;/h3&gt;
+&lt;h3 id=&quot;更改切换中西文的快捷键&quot;&gt;更改切换中西文的快捷键&lt;/h3&gt;
 
 &lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
@@ -5207,7 +5193,7 @@ BTW, 现在我自己都不使用「语句流」这种方式了&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;h3 id=&quot;section-15&quot;&gt;以方括号 “[” 和 “]” 来换页&lt;/h3&gt;
+&lt;h3 id=&quot;以方括号-和-来换页&quot;&gt;以方括号 “[” 和 “]” 来换页&lt;/h3&gt;
 
 &lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
@@ -5230,7 +5216,7 @@ BTW, 现在我自己都不使用「语句流」这种方式了&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;h3 id=&quot;section-16&quot;&gt;定制每页候选数&lt;/h3&gt;
+&lt;h3 id=&quot;定制每页候选数&quot;&gt;定制每页候选数&lt;/h3&gt;
 
 &lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
@@ -5245,7 +5231,7 @@ BTW, 现在我自己都不使用「语句流」这种方式了&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/posts/2014-06-12_221853.png&quot; alt=&quot;输入法15个候选词&quot; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;section-17&quot;&gt;关闭用户词典和字频调整&lt;/h3&gt;
+&lt;h3 id=&quot;关闭用户词典和字频调整&quot;&gt;关闭用户词典和字频调整&lt;/h3&gt;
 
 &lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
@@ -5256,14 +5242,14 @@ BTW, 现在我自己都不使用「语句流」这种方式了&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;h3 id=&quot;section-18&quot;&gt;关于调试&lt;/h3&gt;
+&lt;h3 id=&quot;关于调试&quot;&gt;关于调试&lt;/h3&gt;
 
 &lt;p&gt;使用过程中难免会出现莫名其妙的问题，这个时候我们可以通过如下方法来查找错误&lt;br /&gt;
 官方文档关于调试的章节 &lt;a href=&quot;https://github.com/rime/home/wiki/RimeWithSchemata#關於調試&quot;&gt;https://github.com/rime/home/wiki/RimeWithSchemata#關於調試&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;section-19&quot;&gt;词库管理及用户资料的同步&lt;/h2&gt;
+&lt;h2 id=&quot;词库管理及用户资料的同步&quot;&gt;词库管理及用户资料的同步&lt;/h2&gt;
 
-&lt;h3 id=&quot;section-20&quot;&gt;用户词库的导入导出&lt;/h3&gt;
+&lt;h3 id=&quot;用户词库的导入导出&quot;&gt;用户词库的导入导出&lt;/h3&gt;
 
 &lt;p&gt;目前鼠须管没有图形工具，使用命令行工具也是一样的&lt;/p&gt;
 
@@ -5305,7 +5291,7 @@ BTW, 现在我自己都不使用「语句流」这种方式了&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h4 id=&quot;section-21&quot;&gt;导入导出&lt;/h4&gt;
+&lt;h4 id=&quot;导入导出&quot;&gt;导入导出&lt;/h4&gt;
 
 &lt;ol&gt;
   &lt;li&gt;
@@ -5342,19 +5328,12 @@ BTW, 现在我自己都不使用「语句流」这种方式了&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h4 id=&quot;section-22&quot;&gt;导入扩充词库&lt;/h4&gt;
+&lt;h4 id=&quot;导入扩充词库&quot;&gt;导入扩充词库&lt;/h4&gt;
 
 &lt;p&gt;应该导入到系统词库，方法：固态词典引用多份码表文件&lt;br /&gt;
 详细解释请看《&lt;a href=&quot;http://tieba.baidu.com/p/2757690418&quot;&gt;〔新手推荐敎程〕关于导入词库及「深蓝词库转换」的正确操作方法 | rime 吧&lt;/a&gt;》&lt;/p&gt;
 
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;感谢词库制作者，下载词库点击《[朙月拼音擴充詞庫&lt;/td&gt;
-      &lt;td&gt;Rime 翰林院](https://bintray.com/rime-aca/dictionaries/luna_pinyin.dict)》&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;感谢词库制作者，下载词库点击《&lt;a href=&quot;https://bintray.com/rime-aca/dictionaries/luna_pinyin.dict&quot;&gt;朙月拼音擴充詞庫 | Rime 翰林院&lt;/a&gt;》&lt;/p&gt;
 
 &lt;p&gt;导入方法（以「小鹤双拼·语句流」输入方案，extend_dictionaries20131121.rar 词库文件为例）：&lt;/p&gt;
 
@@ -5417,9 +5396,9 @@ luna_pinyin.poetry.dict.yaml&lt;br /&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h3 id=&quot;section-23&quot;&gt;同步用户资料&lt;/h3&gt;
+&lt;h3 id=&quot;同步用户资料&quot;&gt;同步用户资料&lt;/h3&gt;
 
-&lt;h4 id=&quot;dropbox-&quot;&gt;使用 Dropbox 同步&lt;/h4&gt;
+&lt;h4 id=&quot;使用-dropbox-同步&quot;&gt;使用 Dropbox 同步&lt;/h4&gt;
 
 &lt;p&gt;编辑 installation.yaml 文件，添加一行：&lt;/p&gt;
 
@@ -5428,7 +5407,7 @@ luna_pinyin.poetry.dict.yaml&lt;br /&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;h4 id=&quot;section-24&quot;&gt;在不同电脑间进行同步&lt;/h4&gt;
+&lt;h4 id=&quot;在不同电脑间进行同步&quot;&gt;在不同电脑间进行同步&lt;/h4&gt;
 
 &lt;p&gt;同步机制可以理解为这样的：&lt;br /&gt;
 比如两者的同步文件夹都为 Rime（通过 Dropbox 等同步工具同步），
@@ -5475,7 +5454,7 @@ luna_pinyin.poetry.dict.yaml&lt;br /&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&quot;section-25&quot;&gt;详细配置「小鹤双拼·语句流」&lt;/h2&gt;
+&lt;h2 id=&quot;详细配置「小鹤双拼·语句流」&quot;&gt;详细配置「小鹤双拼·语句流」&lt;/h2&gt;
 
 &lt;p&gt;&lt;strong&gt;2014-06-09 更新：&lt;/strong&gt;&lt;/p&gt;
 
@@ -5507,7 +5486,7 @@ luna_pinyin.poetry.dict.yaml&lt;br /&gt;
 
 &lt;p&gt;效果图在最上面，&lt;a href=&quot;#&quot;&gt;点这里乘电梯&lt;/a&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;section-26&quot;&gt;创建「小鹤双拼·语句流」输入方案&lt;/h3&gt;
+&lt;h3 id=&quot;创建「小鹤双拼·语句流」输入方案&quot;&gt;创建「小鹤双拼·语句流」输入方案&lt;/h3&gt;
 
 &lt;p&gt;在「小鹤双拼」的基础上进行修改&lt;/p&gt;
 
@@ -5805,7 +5784,7 @@ luna_pinyin.poetry.dict.yaml&lt;br /&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;h4 id=&quot;chinesecontainenglish-&quot;&gt;创建 chinese_contain_english 输入方案&lt;/h4&gt;
+&lt;h4 id=&quot;创建-chinesecontainenglish-输入方案&quot;&gt;创建 chinese_contain_english 输入方案&lt;/h4&gt;
 
 &lt;p&gt;因「小鹤双拼·语句流」输入方案依赖 “chinese_contain_english” 输入方案，
 如果不创建的话 chinese_contain_english 词典无法被编译&lt;br /&gt;
@@ -5864,7 +5843,7 @@ luna_pinyin.poetry.dict.yaml&lt;br /&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;h4 id=&quot;chinesecontainenglish--1&quot;&gt;创建 chinese_contain_english 词典&lt;/h4&gt;
+&lt;h4 id=&quot;创建-chinesecontainenglish-词典&quot;&gt;创建 chinese_contain_english 词典&lt;/h4&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;touch ~/Library/Rime/chinese_contain_english.dict.yaml
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
@@ -5917,7 +5896,7 @@ luna_pinyin.poetry.dict.yaml&lt;br /&gt;
 &lt;p&gt;需要&lt;strong&gt;注意&lt;/strong&gt;的是：&lt;code class=&quot;highlighter-rouge&quot;&gt; Rime 	rime&lt;/code&gt; 之间要有 tab，其它的类似，词典格式是如此&lt;br /&gt;
 完整的文件内容请看：&lt;a href=&quot;https://gist.github.com/lifenod/931e306e2ae8bd32b169&quot;&gt;https://gist.github.com/lifenod/931e306e2ae8bd32b169&lt;/a&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;section-27&quot;&gt;添加「小鹤双拼·语句流」输入方案以及对全局的定制&lt;/h3&gt;
+&lt;h3 id=&quot;添加「小鹤双拼·语句流」输入方案以及对全局的定制&quot;&gt;添加「小鹤双拼·语句流」输入方案以及对全局的定制&lt;/h3&gt;
 
 &lt;p&gt;首先创建对全局的用户定制文件&lt;/p&gt;
 
@@ -5987,19 +5966,19 @@ luna_pinyin.poetry.dict.yaml&lt;br /&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;h3 id=&quot;section-28&quot;&gt;外观设定&lt;/h3&gt;
+&lt;h3 id=&quot;外观设定-1&quot;&gt;外观设定&lt;/h3&gt;
 
 &lt;p&gt;见上文《&lt;a href=&quot;#外观设定&quot;&gt;外观设定&lt;/a&gt;》&lt;/p&gt;
 
-&lt;h3 id=&quot;section-29&quot;&gt;导入扩充词库&lt;/h3&gt;
+&lt;h3 id=&quot;导入扩充词库-1&quot;&gt;导入扩充词库&lt;/h3&gt;
 
 &lt;p&gt;见上文《&lt;a href=&quot;#导入扩充词库&quot;&gt;导入扩充词库&lt;/a&gt;》&lt;/p&gt;
 
-&lt;h3 id=&quot;section-30&quot;&gt;同步用户资料&lt;/h3&gt;
+&lt;h3 id=&quot;同步用户资料-1&quot;&gt;同步用户资料&lt;/h3&gt;
 
 &lt;p&gt;见上文《&lt;a href=&quot;#同步用户资料&quot;&gt;同步用户资料&lt;/a&gt;》&lt;/p&gt;
 
-&lt;h2 id=&quot;ios-&quot;&gt;iOS 上的双拼输入法&lt;/h2&gt;
+&lt;h2 id=&quot;ios-上的双拼输入法&quot;&gt;iOS 上的双拼输入法&lt;/h2&gt;
 
 &lt;p&gt;在 iOS 9 系统下，我使用的是「SPi 双拼输入法 for iPhone」，一款不需要「完全访问」的输入法，
 界面近乎原生，简单快速，双拼功能也足够使用&lt;/p&gt;
@@ -6054,7 +6033,7 @@ GitHub 主页：&lt;a href=&quot;https://github.com/guoc/spi&quot;&gt;https://gi
 
 &lt;p&gt;iTerm2 是一个终端模拟器，官方网站：&lt;a href=&quot;http://www.iterm2.com/&quot;&gt;http://www.iterm2.com/&lt;/a&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;solarized&quot;&gt;更改配色方案为 Solarized&lt;/h3&gt;
+&lt;h3 id=&quot;更改配色方案为-solarized&quot;&gt;更改配色方案为 Solarized&lt;/h3&gt;
 
 &lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;：iTerm2 3.0.12（应该比这更早）已经内置 Solarized 的配色方案了，直接在 iTerm2 - Preferences - Profiles - Colors 里面配置就好了&lt;/p&gt;
 
@@ -6069,7 +6048,7 @@ GitHub 主页：&lt;a href=&quot;https://github.com/guoc/spi&quot;&gt;https://gi
 
 &lt;p&gt;然后打开 solarized/iterm2-colors-solarized/ 双击里面的文件&lt;/p&gt;
 
-&lt;h4 id=&quot;section&quot;&gt;遇到的问题&lt;/h4&gt;
+&lt;h4 id=&quot;遇到的问题&quot;&gt;遇到的问题&lt;/h4&gt;
 
 &lt;p&gt;终端灰蒙蒙的，就像下面这样&lt;/p&gt;
 
@@ -6081,7 +6060,7 @@ GitHub 主页：&lt;a href=&quot;https://github.com/guoc/spi&quot;&gt;https://gi
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/posts/2014-05-11_230856.png&quot; alt=&quot;terminal-color&quot; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;section-1&quot;&gt;有意思的配置&lt;/h3&gt;
+&lt;h3 id=&quot;有意思的配置&quot;&gt;有意思的配置&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -6102,7 +6081,7 @@ Preferences - Profiles - Working Directory - Reuse previous session’s director
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;section-2&quot;&gt;快捷键&lt;/h3&gt;
+&lt;h3 id=&quot;快捷键&quot;&gt;快捷键&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;⌘ + Click&lt;/code&gt;：可以打开文件，文件夹和链接&lt;/li&gt;
@@ -6334,24 +6313,24 @@ export LESS_TERMCAP_us=$&#39;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\E&lt
         <description>&lt;p&gt;本文比较长，列个目录方便阅读&lt;/p&gt;
 
 &lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;前提&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#section-1&quot; id=&quot;markdown-toc-section-1&quot;&gt;准备硬盘&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#samba&quot; id=&quot;markdown-toc-samba&quot;&gt;安装并配置 Samba&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#samba-1&quot; id=&quot;markdown-toc-samba-1&quot;&gt;测试 Samba&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#ftp-&quot; id=&quot;markdown-toc-ftp-&quot;&gt;FTP 服务器安装及配置&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#aria2---web---&quot; id=&quot;markdown-toc-aria2---web---&quot;&gt;aria2 安装及配置 + web 前端 + 迅雷离线&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#aria2-&quot; id=&quot;markdown-toc-aria2-&quot;&gt;aria2 安装及配置&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#web--yaaw--webui-aria2&quot; id=&quot;markdown-toc-web--yaaw--webui-aria2&quot;&gt;web 前端的配置 yaaw 和 webui-aria2&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#section-2&quot; id=&quot;markdown-toc-section-2&quot;&gt;迅雷离线下载&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#aria2--1&quot; id=&quot;markdown-toc-aria2--1&quot;&gt;aria2 出现问题的解决方法&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#前提&quot; id=&quot;markdown-toc-前提&quot;&gt;前提&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#准备硬盘&quot; id=&quot;markdown-toc-准备硬盘&quot;&gt;准备硬盘&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#安装并配置-samba&quot; id=&quot;markdown-toc-安装并配置-samba&quot;&gt;安装并配置 Samba&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#测试-samba&quot; id=&quot;markdown-toc-测试-samba&quot;&gt;测试 Samba&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#ftp-服务器安装及配置&quot; id=&quot;markdown-toc-ftp-服务器安装及配置&quot;&gt;FTP 服务器安装及配置&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#aria2-安装及配置-web-前端-迅雷离线&quot; id=&quot;markdown-toc-aria2-安装及配置-web-前端-迅雷离线&quot;&gt;aria2 安装及配置 + web 前端 + 迅雷离线&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#aria2-安装及配置&quot; id=&quot;markdown-toc-aria2-安装及配置&quot;&gt;aria2 安装及配置&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#web-前端的配置-yaaw-和-webui-aria2&quot; id=&quot;markdown-toc-web-前端的配置-yaaw-和-webui-aria2&quot;&gt;web 前端的配置 yaaw 和 webui-aria2&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#迅雷离线下载&quot; id=&quot;markdown-toc-迅雷离线下载&quot;&gt;迅雷离线下载&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#aria2-出现问题的解决方法&quot; id=&quot;markdown-toc-aria2-出现问题的解决方法&quot;&gt;aria2 出现问题的解决方法&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#raid1-&quot; id=&quot;markdown-toc-raid1-&quot;&gt;磁盘阵列 RAID1 与异地备份&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#磁盘阵列-raid1-与异地备份&quot; id=&quot;markdown-toc-磁盘阵列-raid1-与异地备份&quot;&gt;磁盘阵列 RAID1 与异地备份&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;总的来说树莓派作为 nas 还是不错的，连续运行几十天了没有任何异常&lt;/p&gt;
 
-&lt;h2 id=&quot;section&quot;&gt;前提&lt;/h2&gt;
+&lt;h2 id=&quot;前提&quot;&gt;前提&lt;/h2&gt;
 
 &lt;p&gt;首先保证树莓派运行 Raspbian 系统正常，并将空间扩展至整张 SD 卡，需要安装各种软件以防空间不够&lt;br /&gt;
 操作树莓派直接使用 ssh 就可以了，不需要显示器的&lt;/p&gt;
@@ -6370,7 +6349,7 @@ export LESS_TERMCAP_us=$&#39;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\E&lt
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;h2 id=&quot;section-1&quot;&gt;准备硬盘&lt;/h2&gt;
+&lt;h2 id=&quot;准备硬盘&quot;&gt;准备硬盘&lt;/h2&gt;
 
 &lt;p&gt;若需要组建 raid1, 可看我写的另一篇文章
 《&lt;a href=&quot;http://www.dreamxu.com/debian-create-software-raid-one-arrays/&quot;&gt;Debian 组建软 RAID 1 磁盘阵列&lt;/a&gt;》&lt;/p&gt;
@@ -6464,7 +6443,7 @@ sudo chown pi:pi /home/pi/nas-data
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&quot;samba&quot;&gt;安装并配置 Samba&lt;/h2&gt;
+&lt;h2 id=&quot;安装并配置-samba&quot;&gt;安装并配置 Samba&lt;/h2&gt;
 
 &lt;p&gt;首先安装 samba&lt;/p&gt;
 
@@ -6584,7 +6563,7 @@ letting you know your fd limit is set a bit low.&lt;br /&gt;
 &lt;p&gt;到这里，各个设备应该都可以访问了，大功告成？&lt;br /&gt;
 还差点，下面进行测试&lt;/p&gt;
 
-&lt;h2 id=&quot;samba-1&quot;&gt;测试 Samba&lt;/h2&gt;
+&lt;h2 id=&quot;测试-samba&quot;&gt;测试 Samba&lt;/h2&gt;
 
 &lt;p&gt;我的网络拓扑结构如下：&lt;br /&gt;
 linux 主机 &amp;lt;--无线--&amp;gt; 300M 路由器 &amp;lt;--网线--&amp;gt; 树莓派&lt;/p&gt;
@@ -6651,7 +6630,7 @@ linux 主机 &amp;lt;--无线--&amp;gt; 300M 路由器 &amp;lt;--网线--&amp;gt
 上 300M 网卡应该可以试试，好像也没谁那么蛋疼吧。
 如果你的树莓派还充当无线 AP，那么 300M 网卡也是可以的&lt;/p&gt;
 
-&lt;h2 id=&quot;ftp-&quot;&gt;FTP 服务器安装及配置&lt;/h2&gt;
+&lt;h2 id=&quot;ftp-服务器安装及配置&quot;&gt;FTP 服务器安装及配置&lt;/h2&gt;
 
 &lt;p&gt;安装 vsftpd 软件，全名 very secure FTP daemon&lt;/p&gt;
 
@@ -6773,9 +6752,9 @@ find /home/pi/nas-data/ -type d -print0 | xargs -0 chmod 775
 一般情况下用 ftppi 登陆 ftp 就可以了&lt;br /&gt;
 顺便一说，umask 为 002，方便团队协作；umask 为 022 看上去貌似是 owner, 只有自己私有（组用户和其它用户不可写）&lt;/p&gt;
 
-&lt;h2 id=&quot;aria2---web---&quot;&gt;aria2 安装及配置 + web 前端 + 迅雷离线&lt;/h2&gt;
+&lt;h2 id=&quot;aria2-安装及配置-web-前端-迅雷离线&quot;&gt;aria2 安装及配置 + web 前端 + 迅雷离线&lt;/h2&gt;
 
-&lt;h3 id=&quot;aria2-&quot;&gt;aria2 安装及配置&lt;/h3&gt;
+&lt;h3 id=&quot;aria2-安装及配置&quot;&gt;aria2 安装及配置&lt;/h3&gt;
 
 &lt;p&gt;关于这软件就不多说了，太有名了，总之占用资源少且非常好用&lt;br /&gt;
 下面来安装 aria2&lt;/p&gt;
@@ -7102,7 +7081,7 @@ restart&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h3 id=&quot;web--yaaw--webui-aria2&quot;&gt;web 前端的配置 yaaw 和 webui-aria2&lt;/h3&gt;
+&lt;h3 id=&quot;web-前端的配置-yaaw-和-webui-aria2&quot;&gt;web 前端的配置 yaaw 和 webui-aria2&lt;/h3&gt;
 
 &lt;p&gt;yaaw 和 webui-aria2 都是不错的，yaaw 界面简洁，wubui-aria2 功能强大，可以根据自己的喜好来选择，或者两个同时使用也可以&lt;/p&gt;
 
@@ -7139,7 +7118,7 @@ restart&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 如果没有返回，请确认 aria2 是否启动以及连通性&lt;br /&gt;
 如果是从外网访问的, 别忘记在路由器上做好 ddns 和端口映射&lt;/p&gt;
 
-&lt;h3 id=&quot;section-2&quot;&gt;迅雷离线下载&lt;/h3&gt;
+&lt;h3 id=&quot;迅雷离线下载&quot;&gt;迅雷离线下载&lt;/h3&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/binux/ThunderLixianExporter&quot;&gt;ThunderLixianExporter&lt;/a&gt;, 将迅雷离线地址导出成 aria2/wget 等下载命令的工具&lt;br /&gt;
 &lt;a href=&quot;https://github.com/ohsc/ThunderLixianAssistant&quot;&gt;ThunderLixianAssistant&lt;/a&gt;, 
@@ -7147,7 +7126,7 @@ restart&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 以上两个工具使用方法在主页中已经说的很详细了，就不多说了&lt;br /&gt;
 导出功能没有一个个去试，实测导出 yaaw 可用&lt;/p&gt;
 
-&lt;h3 id=&quot;aria2--1&quot;&gt;aria2 出现问题的解决方法&lt;/h3&gt;
+&lt;h3 id=&quot;aria2-出现问题的解决方法&quot;&gt;aria2 出现问题的解决方法&lt;/h3&gt;
 
 &lt;p&gt;有读者反馈，aria2 出问题还蛮多的，我就写一点解决的方法&lt;/p&gt;
 
@@ -7162,7 +7141,7 @@ restart&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
   &lt;li&gt;这样就能看到 aria2 的反馈，可能会出现一些 [ERROR] 提示，这样你就知道问题具体出现在哪里了&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&quot;raid1-&quot;&gt;磁盘阵列 RAID1 与异地备份&lt;/h2&gt;
+&lt;h2 id=&quot;磁盘阵列-raid1-与异地备份&quot;&gt;磁盘阵列 RAID1 与异地备份&lt;/h2&gt;
 
 &lt;p&gt;一个硬盘，不管它来自什么厂商，也不管它是机械的还是固态的，它出现故障只是时间早晚的问题&lt;br /&gt;
 一个人，不管 TA 来自什么地方，也不管 TA 是男的还是女的，TA 总有误操作的时候&lt;br /&gt;
@@ -7332,7 +7311,7 @@ Disk identifier: 0xe0894113
 
 &lt;p&gt;下面开始将 sda1 和 sdb1 组建成 raid1&lt;/p&gt;
 
-&lt;h2 id=&quot;section&quot;&gt;创建与配置&lt;/h2&gt;
+&lt;h2 id=&quot;创建与配置&quot;&gt;创建与配置&lt;/h2&gt;
 
 &lt;ol&gt;
   &lt;li&gt;
@@ -7470,7 +7449,7 @@ unused devices: &amp;lt;none&amp;gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&quot;section-1&quot;&gt;监控&lt;/h2&gt;
+&lt;h2 id=&quot;监控&quot;&gt;监控&lt;/h2&gt;
 
 &lt;p&gt;磁盘阵列出现问题的时候，发送邮件通知你&lt;br /&gt;
 好心发给你可别忽略了，要不然你会付出代价的&lt;/p&gt;
@@ -7580,7 +7559,7 @@ unused devices: &amp;lt;none&amp;gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&quot;section-2&quot;&gt;彻底删除&lt;/h2&gt;
+&lt;h2 id=&quot;彻底删除&quot;&gt;彻底删除&lt;/h2&gt;
 
 &lt;p&gt;删除需谨慎，都是满满的数据&lt;/p&gt;
 
@@ -7610,7 +7589,7 @@ sudo mdadm --zero-superblock /dev/sdb1
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&quot;section-3&quot;&gt;故障处理&lt;/h2&gt;
+&lt;h2 id=&quot;故障处理&quot;&gt;故障处理&lt;/h2&gt;
 
 &lt;p&gt;对一些情况进行处理&lt;/p&gt;
 
@@ -7839,7 +7818,7 @@ Disk identifier: 0xe0894113
 大多数 IT 民工的职业病主要是来自长期保持固定坐姿，以及不健康的工作方式导致。
 我根据自己的实践经历，给大家分享一些“如何更健康地工作”的信息。&lt;/p&gt;
 
-&lt;h2 id=&quot;section&quot;&gt;一小时起身走一走，给身体放放假&lt;/h2&gt;
+&lt;h2 id=&quot;一小时起身走一走，给身体放放假&quot;&gt;一小时起身走一走，给身体放放假&lt;/h2&gt;
 
 &lt;p&gt;以前读书的时候，学校的课程表基本都是上课四十五分钟，然后下课休息十分钟。
 而我从没有遇过小孩子因为读书，然后导致颈椎病、腰间盘突出的，
@@ -7850,7 +7829,7 @@ Disk identifier: 0xe0894113
 实现的方式，可以设置工作时间的每五十分钟提醒。
 此外，水杯的容量不要超过 300ml，这样在正常的喝水速度你差不多每个小时都能意识到要添水了，变相实现中间休息。&lt;/p&gt;
 
-&lt;h2 id=&quot;section-1&quot;&gt;保持屏幕与视线平齐，避免颈椎病&lt;/h2&gt;
+&lt;h2 id=&quot;保持屏幕与视线平齐，避免颈椎病&quot;&gt;保持屏幕与视线平齐，避免颈椎病&lt;/h2&gt;
 
 &lt;p&gt;我有看到很多朋友带笔记本到公司工作，然后低着头敲打键盘辛苦工作，心里都不由地一阵菊花一紧。
 这种低头干活，是存心要让颈椎病找上自己的节奏，颈椎病的主要致病原因就是颈椎长期保持一个固定的非放松的角度。
@@ -7903,7 +7882,7 @@ Disk identifier: 0xe0894113
 &lt;p&gt;关于护颈椎其它一些小技巧，也包括之前提到的一小时走一走，
 以及不定时前后左右活动一下脖子，也就是颈椎，让他可以在长时间的固定工作之余可以放松下。&lt;/p&gt;
 
-&lt;h2 id=&quot;section-2&quot;&gt;一把好腰靠，保护你的腰椎&lt;/h2&gt;
+&lt;h2 id=&quot;一把好腰靠，保护你的腰椎&quot;&gt;一把好腰靠，保护你的腰椎&lt;/h2&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/posts/2013-11-04_215643.jpg&quot; alt=&quot;三种对腰椎毫无帮助的椅子&quot; /&gt;&lt;/p&gt;
 
@@ -7945,7 +7924,7 @@ Disk identifier: 0xe0894113
 还有大屏幕显示器，预算不足的话就给员工配备一个笔记本支架，
 一台说得过去的可调高度、仰度、有头靠的椅子，再加一把不贵但可靠的腰靠。&lt;/p&gt;
 
-&lt;h2 id=&quot;section-3&quot;&gt;站立办公，可行但不可持久&lt;/h2&gt;
+&lt;h2 id=&quot;站立办公，可行但不可持久&quot;&gt;站立办公，可行但不可持久&lt;/h2&gt;
 
 &lt;p&gt;站立办公的确对避免腰椎伤害有立竿见影效果，但会采用这种方式的多半已经是受到腰痛困扰，
 并且对于已有办公桌需要进行一定程度的改造，对于预防腰椎工作疾病并没有比较好的效果。
@@ -7955,7 +7934,7 @@ Disk identifier: 0xe0894113
 &lt;p&gt;建议是，有条件的公司可以设立站立办公区，然后让坐着跟站着的同学每半个小时轮换，
 培养站立办公的习惯。对于不具备条件的公司，咱还是老老实实腰靠，然后多起来走一走，人没有累死的，只有懒死的。&lt;/p&gt;
 
-&lt;h2 id=&quot;section-4&quot;&gt;一些其它关于健康的建议&lt;/h2&gt;
+&lt;h2 id=&quot;一些其它关于健康的建议&quot;&gt;一些其它关于健康的建议&lt;/h2&gt;
 
 &lt;p&gt;人类之所以能不断进步，是因为从来不放弃对更美好生活的渴望与追求，
 我们在获得新技术带来便利的同时，也不得不承受这些技术对我们的生活、身体带来的改变。&lt;/p&gt;
@@ -7999,7 +7978,7 @@ Disk identifier: 0xe0894113
     
       <item>
         <title>Windows 软件分享</title>
-        <description>&lt;h2 id=&quot;section&quot;&gt;常用软件&lt;/h2&gt;
+        <description>&lt;h2 id=&quot;常用软件&quot;&gt;常用软件&lt;/h2&gt;
 
 &lt;p&gt;&lt;strong&gt;虚拟机&lt;/strong&gt;&lt;br /&gt;
 &lt;a href=&quot;http://pan.baidu.com/s/1pEd9C&quot;&gt;VMware Workstation 10.0.1-1379776&lt;/a&gt;
@@ -8036,7 +8015,7 @@ DiskGenius 4.3.0 专业版破解版由 MyCrack 破解，运行即为注册版本
 2008年“最佳Eclipse RCP商业应用”获奖产品，2010年度入选“PCWorld Best 100 of 2010”。
 从2008年10月起，XMind 推出 开源版本，并荣获 sourceforge 社区 2009 最佳学术应用奖。&lt;/p&gt;
 
-&lt;h2 id=&quot;section-1&quot;&gt;专用软件&lt;/h2&gt;
+&lt;h2 id=&quot;专用软件&quot;&gt;专用软件&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?shareid=507273&amp;amp;uk=3291975012&quot;&gt;Proteus_Pro_7.8_SP2&lt;/a&gt;
 , 破解+汉化+教程。
@@ -8067,7 +8046,7 @@ Keil C51是美国Keil Software公司出品的51系列兼容单片机C语言软�
     
       <item>
         <title>Windows 8 操作系统安装教程</title>
-        <description>&lt;h2 id=&quot;section&quot;&gt;准备系统镜像&lt;/h2&gt;
+        <description>&lt;h2 id=&quot;准备系统镜像&quot;&gt;准备系统镜像&lt;/h2&gt;
 
 &lt;p&gt;有些人可能对镜像不太了解，我用不专业的语言稍微解释一下。&lt;br /&gt;
 抽象一点来说呢，就是把一系列的文件压缩成了一个文件，这个文件就称为镜像文件。&lt;br /&gt;
@@ -8095,7 +8074,7 @@ SHA1：9C4EC9FC4FB561F841E22256BC9DEA6D9D6611FF
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;h2 id=&quot;section-1&quot;&gt;关于分区&lt;/h2&gt;
+&lt;h2 id=&quot;关于分区&quot;&gt;关于分区&lt;/h2&gt;
 
 &lt;p&gt;建议软件安装在系统盘，资料存放在其他盘，所以呢，推荐系统盘至少100G。&lt;br /&gt;
 总听见周围的人说，软件要安装到非系统盘，实际上完全没必要。
@@ -8113,7 +8092,7 @@ DiskGenius 4.3.0 专业版破解版由 MyCrack 破解，运行即为注册版本
 &lt;p&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?shareid=1464981392&amp;amp;uk=3291975012&quot;&gt;Acronis Disk Director 11 Home update2&lt;/a&gt;，是一个功能最齐全的磁盘管理产品的全新版本。
 如果您希望最有效的使用磁盘并确保数据安全，它是最易于创建硬盘分区或调整大小、移动及合并分区，而且不会丢失数据的工具。&lt;/p&gt;
 
-&lt;h2 id=&quot;section-2&quot;&gt;系统安装方法&lt;/h2&gt;
+&lt;h2 id=&quot;系统安装方法&quot;&gt;系统安装方法&lt;/h2&gt;
 
 &lt;p&gt;本文介绍四种安装方法，总有一种方法适合你&lt;/p&gt;
 
@@ -8419,14 +8398,14 @@ DiskGenius 4.3.0 专业版破解版由 MyCrack 破解，运行即为注册版本
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&quot;section-3&quot;&gt;系统激活&lt;/h2&gt;
+&lt;h2 id=&quot;系统激活&quot;&gt;系统激活&lt;/h2&gt;
 
 &lt;p&gt;网上不定期的会出现一些 win8 的密钥，大家都懂的微软打什么主意。
 只要你肯等，密钥肯定会出现的。&lt;/p&gt;
 
 &lt;p&gt;还可以用软件激活，推荐一款软件 &lt;a href=&quot;http://pan.baidu.com/share/link?shareid=3841365881&amp;amp;uk=3291975012&quot;&gt;HEU_KMS_Activator_CH_v6.3&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;section-4&quot;&gt;恭喜&lt;/h2&gt;
+&lt;h2 id=&quot;恭喜&quot;&gt;恭喜&lt;/h2&gt;
 
 &lt;p&gt;你又多了一个去女生家里的理由。&lt;/p&gt;
 </description>
@@ -8451,7 +8430,7 @@ DiskGenius 4.3.0 专业版破解版由 MyCrack 破解，运行即为注册版本
 书的作者是 Scott Chacon，他把书托管在 GitHub 上，见这里 &lt;a href=&quot;https://github.com/progit/progit.git&quot;&gt;progit&lt;/a&gt;&lt;br /&gt;
 然后就有了 3000 多次提交，被翻译成 30 多种语言，听说中文翻译得也很好&lt;/p&gt;
 
-&lt;h2 id=&quot;section&quot;&gt;获取书籍&lt;/h2&gt;
+&lt;h2 id=&quot;获取书籍&quot;&gt;获取书籍&lt;/h2&gt;
 
 &lt;p&gt;从项目仓库中克隆一份到本地&lt;/p&gt;
 
@@ -8460,7 +8439,7 @@ DiskGenius 4.3.0 专业版破解版由 MyCrack 破解，运行即为注册版本
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;h2 id=&quot;pdf&quot;&gt;生成 PDF&lt;/h2&gt;
+&lt;h2 id=&quot;生成-pdf&quot;&gt;生成 PDF&lt;/h2&gt;
 
 &lt;p&gt;环境 Ubuntu 13.04 x64&lt;/p&gt;
 
@@ -8506,7 +8485,7 @@ DiskGenius 4.3.0 专业版破解版由 MyCrack 破解，运行即为注册版本
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;h2 id=&quot;ebook&quot;&gt;生成 EBOOK&lt;/h2&gt;
+&lt;h2 id=&quot;生成-ebook&quot;&gt;生成 EBOOK&lt;/h2&gt;
 
 &lt;p&gt;相对来说就比较简单了&lt;/p&gt;
 
@@ -8531,7 +8510,7 @@ sudo gem install rdiscount
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;h2 id=&quot;pdf--epub--mobi-&quot;&gt;“福利” 制作好的 PDF + EPUB + MOBI 下载&lt;/h2&gt;
+&lt;h2 id=&quot;福利-制作好的-pdf-epub-mobi-下载&quot;&gt;“福利” 制作好的 PDF + EPUB + MOBI 下载&lt;/h2&gt;
 
 &lt;p&gt;PDF+EPUB+MOBI: &lt;a href=&quot;https://www.dropbox.com/sh/gjed8306imbwoep/rwiaMXxG2p&quot;&gt;Pro Git&lt;/a&gt;&lt;/p&gt;
 
@@ -8710,7 +8689,7 @@ sudo apt-get install uget aria2
     
       <item>
         <title>Ubuntu 安装 Sublime Text</title>
-        <description>&lt;h2 id=&quot;section&quot;&gt;添加源方式安装&lt;/h2&gt;
+        <description>&lt;h2 id=&quot;添加源方式安装&quot;&gt;添加源方式安装&lt;/h2&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
@@ -8730,7 +8709,7 @@ sudo apt-get install sublime-text
 
 &lt;p&gt;将所有的 gedit.desktop 替换成 sublime-text-2.desktop&lt;/p&gt;
 
-&lt;h2 id=&quot;section-1&quot;&gt;解决中文输入法问题&lt;/h2&gt;
+&lt;h2 id=&quot;解决中文输入法问题&quot;&gt;解决中文输入法问题&lt;/h2&gt;
 
 &lt;p&gt;我用的是 fcitx-sogoupinyin 输入法，无法输入中文，按如下办法可行&lt;/p&gt;
 
@@ -9163,13 +9142,13 @@ collect2: ld returned 1 exit status&lt;br /&gt;
     
       <item>
         <title>汉化 Eclipse</title>
-        <description>&lt;h2 id=&quot;section&quot;&gt;下载&lt;/h2&gt;
+        <description>&lt;h2 id=&quot;下载&quot;&gt;下载&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://www.eclipse.org/downloads/&quot;&gt;http://www.eclipse.org/downloads/&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;配置好 java 开发环境（见博文《&lt;a href=&quot;/windows-linux-install-java/&quot;&gt;配置 JAVA 环境&lt;/a&gt;》），eclipse 就可以用了。&lt;/p&gt;
 
-&lt;h2 id=&quot;section-1&quot;&gt;汉化&lt;/h2&gt;
+&lt;h2 id=&quot;汉化&quot;&gt;汉化&lt;/h2&gt;
 
 &lt;p&gt;在 &lt;a href=&quot;http://www.eclipse.org/babel/downloads.php&quot;&gt;http://www.eclipse.org/babel/downloads.php&lt;/a&gt; 找到 Babel Language Pack Zips and Update Sites 然后根据自己的版本找到对应的站点。
 比如说的我版本是 Version: Juno Service Release 2“，则对应的站点就是 http://download.eclipse.org/technology/babel/update-site/R0.10.1/juno&lt;br /&gt;
@@ -9195,11 +9174,11 @@ Eclipse 4.2 的代号就是 juno，具体版本对应的代号自己可以去查
     
       <item>
         <title>Windows &amp;amp; Linux 配置 JAVA 环境</title>
-        <description>&lt;h2 id=&quot;jdk&quot;&gt;下载 JDK&lt;/h2&gt;
+        <description>&lt;h2 id=&quot;下载-jdk&quot;&gt;下载 JDK&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://www.oracle.com/technetwork/java/javase/downloads/index.html&quot;&gt;http://www.oracle.com/technetwork/java/javase/downloads/index.html&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;section&quot;&gt;介绍几个环境变量&lt;/h2&gt;
+&lt;h2 id=&quot;介绍几个环境变量&quot;&gt;介绍几个环境变量&lt;/h2&gt;
 
 &lt;p&gt;首先，先来介绍一下需要的三个环境变量&lt;/p&gt;
 
@@ -9302,7 +9281,7 @@ sudo apt-get install oracle-java7-installer
 
 &lt;hr /&gt;
 
-&lt;h2 id=&quot;section&quot;&gt;一个爱玩的孩子&lt;/h2&gt;
+&lt;h2 id=&quot;一个爱玩的孩子&quot;&gt;一个爱玩的孩子&lt;/h2&gt;
 
 &lt;p&gt;很早之前就像开通一个博客了，写点思考后的东西，分享些好玩的东西。
 今天如愿以偿了。第一篇博文，就随便聊聊吧。&lt;/p&gt;
@@ -9319,7 +9298,7 @@ sudo apt-get install oracle-java7-installer
 
 &lt;p&gt;现在又多了个玩法，玩技术，各种有意思的都想去玩玩，玩无止境，玩得开心。&lt;/p&gt;
 
-&lt;h2 id=&quot;section-1&quot;&gt;一个平凡的生命&lt;/h2&gt;
+&lt;h2 id=&quot;一个平凡的生命&quot;&gt;一个平凡的生命&lt;/h2&gt;
 
 &lt;p&gt;并不刻意，执着什么。自闲地去追寻灵感或者心中的那个梦。&lt;/p&gt;
 
@@ -9335,7 +9314,7 @@ sudo apt-get install oracle-java7-installer
 &lt;p&gt;一个平凡的人，是&lt;strong&gt;自由&lt;/strong&gt;的，是&lt;strong&gt;快乐&lt;/strong&gt;的。
 我是一个坚定，踏实的平凡人。&lt;/p&gt;
 
-&lt;h2 id=&quot;section-2&quot;&gt;神游蓝田水&lt;/h2&gt;
+&lt;h2 id=&quot;神游蓝田水&quot;&gt;神游蓝田水&lt;/h2&gt;
 
 &lt;p&gt;当我累了，我可以躺在那么一个地方。那里很静，紫色的天空中，镶嵌着星星蓝光，右边天空有个蓝色光环，多像盘古的眼睛啊。
 哦，原来它不只是光，还是时空隧道，现在到远古，远古到现在，融合到了一起。
@@ -9346,7 +9325,7 @@ sudo apt-get install oracle-java7-installer
 他静静地躺在那里，思想神游四方，心飞向宇宙深处，忘却了一切烦恼，心在游。
 庄子所追求的真正的逍遥游，是不依靠外物的，只有心才能驾驭这无比沉重的身躯，化而成为灵，去往那未知的远方……&lt;/p&gt;
 
-&lt;h2 id=&quot;section-3&quot;&gt;为什么要写博客&lt;/h2&gt;
+&lt;h2 id=&quot;为什么要写博客&quot;&gt;为什么要写博客&lt;/h2&gt;
 
 &lt;p&gt;写给以后的自己，给自己一个检索的工具。
 大脑固然好用，但是随着时间地过去，大脑会自动略去点什么（多么智能啊），有时是自己想忘记一些东西。
@@ -9371,7 +9350,7 @@ sudo apt-get install oracle-java7-installer
 不管多么浅显的想法总有人需要，不管多么高深的见解总有人不屑。
 我写我的，你看你的，我们是和睦的一家人。&lt;/p&gt;
 
-&lt;h2 id=&quot;section-4&quot;&gt;一个静静的博客&lt;/h2&gt;
+&lt;h2 id=&quot;一个静静的博客&quot;&gt;一个静静的博客&lt;/h2&gt;
 
 &lt;p&gt;第一次看到 Twenty Twelve 主题的时候，就认定它了，简约而不简陋。
 而且是自适应的，在移动设备上也表现良好。
@@ -9383,11 +9362,11 @@ sudo apt-get install oracle-java7-installer
 当你在阅读的时候，能够感觉到，和文章身后的那个人，有着直接的交流。
 我静静地写下，只是为了静静地呈现。&lt;/p&gt;
 
-&lt;h2 id=&quot;section-5&quot;&gt;一篇没有结尾的文章&lt;/h2&gt;
+&lt;h2 id=&quot;一篇没有结尾的文章&quot;&gt;一篇没有结尾的文章&lt;/h2&gt;
 
 &lt;hr /&gt;
 
-&lt;h2 id=&quot;section-6&quot;&gt;后记一 (2013-07-19)&lt;/h2&gt;
+&lt;h2 id=&quot;后记一-2013-07-19&quot;&gt;后记一 (2013-07-19)&lt;/h2&gt;
 
 &lt;p&gt;我还记得当时学校正好停电，上面的那篇文章写了大约1天多的时间。&lt;br /&gt;
 然后把它作为博客的第一篇，当时用 &lt;a href=&quot;https://cn.wordpress.org&quot;&gt;wordpress&lt;/a&gt; 构建的博客系统，后来写得文章也很少。&lt;br /&gt;
@@ -9403,7 +9382,7 @@ sudo apt-get install oracle-java7-installer
 
 &lt;p&gt;我要勤劳，我要勤劳，我要勤劳……（流星划过 —&amp;gt;）&lt;/p&gt;
 
-&lt;h2 id=&quot;section-7&quot;&gt;后记二 (2016-07-10)&lt;/h2&gt;
+&lt;h2 id=&quot;后记二-2016-07-10&quot;&gt;后记二 (2016-07-10)&lt;/h2&gt;
 
 &lt;p&gt;会有人看到这里吗 ◔‸◔？ 我猜是不会。&lt;/p&gt;
 

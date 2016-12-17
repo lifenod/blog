@@ -88,9 +88,9 @@
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <h2 id="section">工具介绍</h2>
+    <h2 id="工具介绍">工具介绍</h2>
 
-<h3 id="chef--chef-solo">Chef 和 Chef Solo</h3>
+<h3 id="chef-和-chef-solo">Chef 和 Chef Solo</h3>
 
 <p>Chef 是一个自动化工具，用 Opscode 开发，
 使用 Ruby DSL 以一种可重复使用的格式表示配置服务器所需的命令<br />
@@ -101,7 +101,7 @@ Chef 经常运行在服务器集群的枢纽，统筹安排其他服务器的配
 
 <p>如果项目不断扩大也不用担心，使用 Chef Solo 制定的自动化配置大多数都可以在 Chef 中使用</p>
 
-<h3 id="knife--knife-solo">Knife 和 Knife Solo</h3>
+<h3 id="knife-和-knife-solo">Knife 和 Knife Solo</h3>
 
 <p>Knife 是一个命令行工具，为本地开发环境中的 Chef 仓库和远程服务器之间提供交互接口</p>
 
@@ -117,7 +117,7 @@ Chef 经常运行在服务器集群的枢纽，统筹安排其他服务器的配
 <p>Berkshelf 就像是配方的 Bundler<br />
 我们使用 Berkshelf 获取配置服务器所需的 Chef 配方（特定的版本）</p>
 
-<h2 id="chef-">Chef 术语介绍</h2>
+<h2 id="chef-术语介绍">Chef 术语介绍</h2>
 
 <ul>
   <li>
@@ -156,7 +156,7 @@ Chef 经常运行在服务器集群的枢纽，统筹安排其他服务器的配
   </li>
 </ul>
 
-<h2 id="chef-solo-">创建 Chef Solo 仓库</h2>
+<h2 id="创建-chef-solo-仓库">创建 Chef Solo 仓库</h2>
 
 <ol>
   <li>
@@ -211,7 +211,7 @@ cd chef_repo
   </li>
 </ol>
 
-<h2 id="section-1">初始化仓库</h2>
+<h2 id="初始化仓库">初始化仓库</h2>
 
 <p>使用 bundle exec 确保使用的 Gemfile 中定义的 gem 版本来执行命令</p>
 
@@ -336,7 +336,7 @@ Knife Solo 添加了额外的命令，可以在本地开发设备上直接和要
 
 <p>用来存放自己编写的食谱</p>
 
-<h2 id="section-2">食谱介绍</h2>
+<h2 id="食谱介绍">食谱介绍</h2>
 
 <p>以 redis-tlq 食谱为例：<a href="https://github.com/TalkingQuickly/redis-tlq">https://github.com/TalkingQuickly/redis-tlq</a><br />
 将其作为自己编写的食谱放到 <code class="highlighter-rouge">site-cookbooks</code> 文件夹下</p>
@@ -498,7 +498,7 @@ Berkshelf 会查看 metadata.rb 文件，确认要使用的食谱中是否有匹
 </div>
 </div>
 
-<h4 id="section-3">模板文件夹的说明</h4>
+<h4 id="模板文件夹的说明">模板文件夹的说明</h4>
 
 <p>templates 文件夹中的子文件夹对应的是服务器上所安装的操作系统<br />
 如果使用的是 Ubuntu 12.04, 上面的 template 代码块就会在下面的路径中按顺序寻找 redis.conf.erb 文件：</p>
@@ -512,7 +512,7 @@ Berkshelf 会查看 metadata.rb 文件，确认要使用的食谱中是否有匹
 <p>如果要编写复杂的食谱，照应多种操作系统，这种处理方式的强大就体现出来了<br />
 目前，我们仅仅使用 default 文件夹</p>
 
-<h3 id="section-4">属性</h3>
+<h3 id="属性">属性</h3>
 
 <p><strong>配方</strong>可以使用属性 (attribute) 进行定制。
 属性可以在多个地方设定，包括：</p>
@@ -553,7 +553,7 @@ Berkshelf 会查看 metadata.rb 文件，确认要使用的食谱中是否有匹
 
 <p>那么就执行 <code class="highlighter-rouge">bind 127.0.0.1</code> 这段代码</p>
 
-<h4 id="section-5">食谱属性的默认值</h4>
+<h4 id="食谱属性的默认值">食谱属性的默认值</h4>
 
 <p>在食谱中可以为属性定义默认值。
 这往往也是推荐的做法，大多数用户只要做少许改动就可使用</p>
@@ -573,7 +573,7 @@ Berkshelf 会查看 metadata.rb 文件，确认要使用的食谱中是否有匹
 <p>关于属性的更多说明，请阅读 OpsCode 网站上的文档：<br />
 <a href="http://docs.opscode.com/essentials_cookbook_attribute_files.html">http://docs.opscode.com/essentials_cookbook_attribute_files.html</a></p>
 
-<h2 id="section-6">角色介绍</h2>
+<h2 id="角色介绍">角色介绍</h2>
 
 <p>新建角色文件</p>
 
@@ -677,7 +677,7 @@ Berkshelf 会查看 metadata.rb 文件，确认要使用的食谱中是否有匹
 </div>
 </div>
 
-<h2 id="section-7">配置远程服务器</h2>
+<h2 id="配置远程服务器">配置远程服务器</h2>
 
 <ol>
   <li>
@@ -716,7 +716,7 @@ Berkshelf 会查看 metadata.rb 文件，确认要使用的食谱中是否有匹
   </li>
 </ol>
 
-<h3 id="section-8">可能会遇到的问题</h3>
+<h3 id="可能会遇到的问题">可能会遇到的问题</h3>
 
 <p>如果不确定是什么问题，可以在安装 Chef 的命令加上 <code class="highlighter-rouge">-VV</code> 选项来查看 DEBUG 信息</p>
 
@@ -749,7 +749,7 @@ Berkshelf 会查看 metadata.rb 文件，确认要使用的食谱中是否有匹
   </li>
 </ul>
 
-<h2 id="section-9">应用配方</h2>
+<h2 id="应用配方">应用配方</h2>
 
 <ol>
   <li>

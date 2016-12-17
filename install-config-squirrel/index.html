@@ -123,7 +123,7 @@
 
 <p><img src="/assets/images/posts/2014-06-12_230341.gif" alt="Rime输入法演示" /></p>
 
-<h2 id="section">安装</h2>
+<h2 id="安装">安装</h2>
 
 <p>就一条理由就可以使我弃用使用 N 多年的其它输入法<br />
 1. <a href="https://github.com/lotem/squirrel">https://github.com/lotem/squirrel</a></p>
@@ -141,28 +141,21 @@
 
 <p><img src="/assets/images/posts/2014-06-09_212556.png" alt="输入法方案选单" /></p>
 
-<h2 id="section-1">配置</h2>
+<h2 id="配置">配置</h2>
 
-<table>
-  <tbody>
-    <tr>
-      <td>自行查看《[Rime 定製指南</td>
-      <td>GitHub][]》</td>
-    </tr>
-  </tbody>
-</table>
+<p>自行查看《<a href="https://github.com/rime/home/wiki/CustomizationGuide">Rime 定製指南 | GitHub</a>》</p>
 
 <p>以下是我对官网说明书的一些摘录，加上我的一些修改，只限于对拼音输入的理解<br />
 如果你用的是小鹤双拼，可以直接看下文《<a href="#详细配置「小鹤双拼·语句流」">详细配置「小鹤双拼·语句流」</a>》，介绍的是「小鹤双拼·语句流」的配置。
 语句流和普通的输入方式在配置上只有一条配置语句的不同，如果不喜欢语句流这种方式，改成普通的也非常简单，下文有介绍。
 BTW, 现在我自己都不使用「语句流」这种方式了</p>
 
-<h3 id="section-2">数据文件位置</h3>
+<h3 id="数据文件位置">数据文件位置</h3>
 
 <p>共享资料夹：”/Library/Input Methods/Squirrel.app/Contents/SharedSupport/”<br />
 用户资料夹：”~/Library/Rime/”</p>
 
-<h3 id="section-3">用户资料夹内的文件说明如下</h3>
+<h3 id="用户资料夹内的文件说明如下">用户资料夹内的文件说明如下</h3>
 
 <ul>
   <li>〔全局设定〕 default.yaml</li>
@@ -197,9 +190,9 @@ BTW, 现在我自己都不使用「语句流」这种方式了</p>
 
 <p><strong>注：以上标有「※ 号」和「粗体」的文件，包含用户资料，您在清理文件时要注意备份！</strong></p>
 
-<h3 id="section-4">自定义配置</h3>
+<h3 id="自定义配置">自定义配置</h3>
 
-<h4 id="section-5">对全局的定制</h4>
+<h4 id="对全局的定制">对全局的定制</h4>
 
 <p>新建文件 <code class="highlighter-rouge">touch ~/Library/Rime/default.custom.yaml</code>, 内容如下</p>
 
@@ -226,7 +219,7 @@ BTW, 现在我自己都不使用「语句流」这种方式了</p>
 </div>
 </div>
 
-<h4 id="section-6">对输入方案的定制</h4>
+<h4 id="对输入方案的定制">对输入方案的定制</h4>
 
 <p>比如定制小鹤双拼<br />
 新建文件 <code class="highlighter-rouge">touch ~/Library/Rime/double_pinyin_flypy.custom.yaml</code></p>
@@ -243,7 +236,7 @@ BTW, 现在我自己都不使用「语句流」这种方式了</p>
 <p>配置好之后需要「重新部署」：切换到「鼠须管」输入法，点击右上角的的输入法图标，点击「重新部署」<br />
 之后就可以用小鹤双拼了</p>
 
-<h3 id="section-7">外观设定</h3>
+<h3 id="外观设定">外观设定</h3>
 
 <div class="language-yaml highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
@@ -310,17 +303,17 @@ BTW, 现在我自己都不使用「语句流」这种方式了</p>
 </div>
 </div>
 
-<h3 id="section-8">一些快捷键</h3>
+<h3 id="一些快捷键">一些快捷键</h3>
 
-<h4 id="section-9">输入的时候删除一个音节</h4>
+<h4 id="输入的时候删除一个音节">输入的时候删除一个音节</h4>
 
 <p><code class="highlighter-rouge">⌃ + BackSpace</code> 或 <code class="highlighter-rouge">⇧ + BackSpace</code></p>
 
-<h4 id="section-10">从用户词典中删除误上屏的错词</h4>
+<h4 id="从用户词典中删除误上屏的错词">从用户词典中删除误上屏的错词</h4>
 
 <p><code class="highlighter-rouge">Shift + Fn + Delete</code></p>
 
-<h4 id="emacs-">Emacs 风格的编辑键</h4>
+<h4 id="emacs-风格的编辑键">Emacs 风格的编辑键</h4>
 
 <ul>
   <li>↑：<code class="highlighter-rouge">⌃ + p</code></li>
@@ -338,7 +331,7 @@ BTW, 现在我自己都不使用「语句流」这种方式了</p>
 
 <p>有时候快捷键可能会用不了，那是因为其它应用首先获取了快捷键，这样输入法就不会影响你对其它软件的控制</p>
 
-<h3 id="section-11">定制标点符号</h3>
+<h3 id="定制标点符号">定制标点符号</h3>
 
 <p>可以参考 default.yaml 和相应输入法方案的配置（比如 double_pinyin_flypy.schema.yaml）</p>
 
@@ -374,7 +367,7 @@ BTW, 现在我自己都不使用「语句流」这种方式了</p>
 <p>如果你的用的输入方案导入了 symbols.yaml, 你就可以参考 symbols.yaml 文件来修改了，
 里面还有各种特殊符号</p>
 
-<h4 id="section-12">活用标点创建自定义词组</h4>
+<h4 id="活用标点创建自定义词组">活用标点创建自定义词组</h4>
 
 <p>这还有个用法，你可以将一个键或多个键专门用于输入自定义的词组比如</p>
 
@@ -391,7 +384,7 @@ BTW, 现在我自己都不使用「语句流」这种方式了</p>
 
 <p>当你输入 “+” 的时候就会变成 “+_+” 了</p>
 
-<h3 id="section-13">在特定程序里关闭中文输入</h3>
+<h3 id="在特定程序里关闭中文输入">在特定程序里关闭中文输入</h3>
 
 <p>在一些程序里很少需要输入中文，于是让鼠须管在这些程序里默认不开启中文输入</p>
 
@@ -416,7 +409,7 @@ BTW, 现在我自己都不使用「语句流」这种方式了</p>
 
 <p>修改之前先查看以下 squirrel.yaml 文件，默认设置了一些常用的软件</p>
 
-<h3 id="section-14">更改切换中西文的快捷键</h3>
+<h3 id="更改切换中西文的快捷键">更改切换中西文的快捷键</h3>
 
 <div class="language-yaml highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
@@ -469,7 +462,7 @@ BTW, 现在我自己都不使用「语句流」这种方式了</p>
 </div>
 </div>
 
-<h3 id="section-15">以方括号 “[” 和 “]” 来换页</h3>
+<h3 id="以方括号-和-来换页">以方括号 “[” 和 “]” 来换页</h3>
 
 <div class="language-yaml highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
@@ -492,7 +485,7 @@ BTW, 现在我自己都不使用「语句流」这种方式了</p>
 </div>
 </div>
 
-<h3 id="section-16">定制每页候选数</h3>
+<h3 id="定制每页候选数">定制每页候选数</h3>
 
 <div class="language-yaml highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
@@ -507,7 +500,7 @@ BTW, 现在我自己都不使用「语句流」这种方式了</p>
 
 <p><img src="/assets/images/posts/2014-06-12_221853.png" alt="输入法15个候选词" /></p>
 
-<h3 id="section-17">关闭用户词典和字频调整</h3>
+<h3 id="关闭用户词典和字频调整">关闭用户词典和字频调整</h3>
 
 <div class="language-yaml highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
@@ -518,14 +511,14 @@ BTW, 现在我自己都不使用「语句流」这种方式了</p>
 </div>
 </div>
 
-<h3 id="section-18">关于调试</h3>
+<h3 id="关于调试">关于调试</h3>
 
 <p>使用过程中难免会出现莫名其妙的问题，这个时候我们可以通过如下方法来查找错误<br />
 官方文档关于调试的章节 <a href="https://github.com/rime/home/wiki/RimeWithSchemata#關於調試">https://github.com/rime/home/wiki/RimeWithSchemata#關於調試</a></p>
 
-<h2 id="section-19">词库管理及用户资料的同步</h2>
+<h2 id="词库管理及用户资料的同步">词库管理及用户资料的同步</h2>
 
-<h3 id="section-20">用户词库的导入导出</h3>
+<h3 id="用户词库的导入导出">用户词库的导入导出</h3>
 
 <p>目前鼠须管没有图形工具，使用命令行工具也是一样的</p>
 
@@ -567,7 +560,7 @@ BTW, 现在我自己都不使用「语句流」这种方式了</p>
   </li>
 </ol>
 
-<h4 id="section-21">导入导出</h4>
+<h4 id="导入导出">导入导出</h4>
 
 <ol>
   <li>
@@ -604,19 +597,12 @@ BTW, 现在我自己都不使用「语句流」这种方式了</p>
   </li>
 </ol>
 
-<h4 id="section-22">导入扩充词库</h4>
+<h4 id="导入扩充词库">导入扩充词库</h4>
 
 <p>应该导入到系统词库，方法：固态词典引用多份码表文件<br />
 详细解释请看《<a href="http://tieba.baidu.com/p/2757690418">〔新手推荐敎程〕关于导入词库及「深蓝词库转换」的正确操作方法 | rime 吧</a>》</p>
 
-<table>
-  <tbody>
-    <tr>
-      <td>感谢词库制作者，下载词库点击《[朙月拼音擴充詞庫</td>
-      <td>Rime 翰林院](https://bintray.com/rime-aca/dictionaries/luna_pinyin.dict)》</td>
-    </tr>
-  </tbody>
-</table>
+<p>感谢词库制作者，下载词库点击《<a href="https://bintray.com/rime-aca/dictionaries/luna_pinyin.dict">朙月拼音擴充詞庫 | Rime 翰林院</a>》</p>
 
 <p>导入方法（以「小鹤双拼·语句流」输入方案，extend_dictionaries20131121.rar 词库文件为例）：</p>
 
@@ -679,9 +665,9 @@ luna_pinyin.poetry.dict.yaml<br />
   </li>
 </ol>
 
-<h3 id="section-23">同步用户资料</h3>
+<h3 id="同步用户资料">同步用户资料</h3>
 
-<h4 id="dropbox-">使用 Dropbox 同步</h4>
+<h4 id="使用-dropbox-同步">使用 Dropbox 同步</h4>
 
 <p>编辑 installation.yaml 文件，添加一行：</p>
 
@@ -690,7 +676,7 @@ luna_pinyin.poetry.dict.yaml<br />
 </div>
 </div>
 
-<h4 id="section-24">在不同电脑间进行同步</h4>
+<h4 id="在不同电脑间进行同步">在不同电脑间进行同步</h4>
 
 <p>同步机制可以理解为这样的：<br />
 比如两者的同步文件夹都为 Rime（通过 Dropbox 等同步工具同步），
@@ -737,7 +723,7 @@ luna_pinyin.poetry.dict.yaml<br />
   </li>
 </ol>
 
-<h2 id="section-25">详细配置「小鹤双拼·语句流」</h2>
+<h2 id="详细配置「小鹤双拼·语句流」">详细配置「小鹤双拼·语句流」</h2>
 
 <p><strong>2014-06-09 更新：</strong></p>
 
@@ -769,7 +755,7 @@ luna_pinyin.poetry.dict.yaml<br />
 
 <p>效果图在最上面，<a href="#">点这里乘电梯</a></p>
 
-<h3 id="section-26">创建「小鹤双拼·语句流」输入方案</h3>
+<h3 id="创建「小鹤双拼·语句流」输入方案">创建「小鹤双拼·语句流」输入方案</h3>
 
 <p>在「小鹤双拼」的基础上进行修改</p>
 
@@ -1067,7 +1053,7 @@ luna_pinyin.poetry.dict.yaml<br />
 </div>
 </div>
 
-<h4 id="chinesecontainenglish-">创建 chinese_contain_english 输入方案</h4>
+<h4 id="创建-chinesecontainenglish-输入方案">创建 chinese_contain_english 输入方案</h4>
 
 <p>因「小鹤双拼·语句流」输入方案依赖 “chinese_contain_english” 输入方案，
 如果不创建的话 chinese_contain_english 词典无法被编译<br />
@@ -1126,7 +1112,7 @@ luna_pinyin.poetry.dict.yaml<br />
 </div>
 </div>
 
-<h4 id="chinesecontainenglish--1">创建 chinese_contain_english 词典</h4>
+<h4 id="创建-chinesecontainenglish-词典">创建 chinese_contain_english 词典</h4>
 
 <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>touch ~/Library/Rime/chinese_contain_english.dict.yaml
 </pre></td></tr></tbody></table>
@@ -1179,7 +1165,7 @@ luna_pinyin.poetry.dict.yaml<br />
 <p>需要<strong>注意</strong>的是：<code class="highlighter-rouge"> Rime 	rime</code> 之间要有 tab，其它的类似，词典格式是如此<br />
 完整的文件内容请看：<a href="https://gist.github.com/lifenod/931e306e2ae8bd32b169">https://gist.github.com/lifenod/931e306e2ae8bd32b169</a></p>
 
-<h3 id="section-27">添加「小鹤双拼·语句流」输入方案以及对全局的定制</h3>
+<h3 id="添加「小鹤双拼·语句流」输入方案以及对全局的定制">添加「小鹤双拼·语句流」输入方案以及对全局的定制</h3>
 
 <p>首先创建对全局的用户定制文件</p>
 
@@ -1249,19 +1235,19 @@ luna_pinyin.poetry.dict.yaml<br />
 </div>
 </div>
 
-<h3 id="section-28">外观设定</h3>
+<h3 id="外观设定-1">外观设定</h3>
 
 <p>见上文《<a href="#外观设定">外观设定</a>》</p>
 
-<h3 id="section-29">导入扩充词库</h3>
+<h3 id="导入扩充词库-1">导入扩充词库</h3>
 
 <p>见上文《<a href="#导入扩充词库">导入扩充词库</a>》</p>
 
-<h3 id="section-30">同步用户资料</h3>
+<h3 id="同步用户资料-1">同步用户资料</h3>
 
 <p>见上文《<a href="#同步用户资料">同步用户资料</a>》</p>
 
-<h2 id="ios-">iOS 上的双拼输入法</h2>
+<h2 id="ios-上的双拼输入法">iOS 上的双拼输入法</h2>
 
 <p>在 iOS 9 系统下，我使用的是「SPi 双拼输入法 for iPhone」，一款不需要「完全访问」的输入法，
 界面近乎原生，简单快速，双拼功能也足够使用</p>
