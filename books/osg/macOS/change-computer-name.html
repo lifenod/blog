@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>更改主机名和计算机名 | 明无梦的操作系统使用记录</title>
+        <title>更改计算机名 | 明无梦的操作系统使用记录</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.7">
@@ -54,10 +54,10 @@
         
     <div class="book"
         data-level="1.15"
-        data-chapter-title="更改主机名和计算机名"
-        data-filepath="macOS/change-hostname-and-computername.md"
+        data-chapter-title="更改计算机名"
+        data-filepath="macOS/change-computer-name.md"
         data-basepath=".."
-        data-revision="Sat Dec 17 2016 23:19:26 GMT+0800 (CST)"
+        data-revision="Sun Dec 18 2016 14:25:02 GMT+0800 (CST)"
         data-innerlanguage="">
     
 
@@ -370,16 +370,16 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.15" data-path="macOS/change-hostname-and-computername.html">
+        <li class="chapter active" data-level="1.15" data-path="macOS/change-computer-name.html">
             
                 
-                    <a href="../macOS/change-hostname-and-computername.html">
+                    <a href="../macOS/change-computer-name.html">
                 
                         <i class="fa fa-check"></i>
                         
                             <b>1.15.</b>
                         
-                        更改主机名和计算机名
+                        更改计算机名
                     </a>
             
             
@@ -1222,16 +1222,23 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="&#x66F4;&#x6539;&#x4E3B;&#x673A;&#x540D;&#x548C;&#x8BA1;&#x7B97;&#x673A;&#x540D;">&#x66F4;&#x6539;&#x4E3B;&#x673A;&#x540D;&#x548C;&#x8BA1;&#x7B97;&#x673A;&#x540D;</h1>
-<p>2015-09-03</p>
+                        <h1 id="&#x66F4;&#x6539;&#x8BA1;&#x7B97;&#x673A;&#x540D;">&#x66F4;&#x6539;&#x8BA1;&#x7B97;&#x673A;&#x540D;</h1>
+<p>2015-09-03 | &#x66F4;&#x65B0;: 2016-12-18</p>
 <hr>
-<p>&#x4FEE;&#x6539;&#x4E3B;&#x673A;&#x540D;&#xFF0C;&#x7EC8;&#x7AEF;&#x63D0;&#x793A;&#x90A3;&#x91CC;&#x4F1A;&#x663E;&#x793A;&#x8FD9;&#x4E2A;</p>
-<pre><code>sudo scutil --set HostName &#x65B0;&#x7684;&#x4E3B;&#x673A;&#x540D;
-</code></pre><p>&#x4FEE;&#x6539;&#x8BA1;&#x7B97;&#x673A;&#x540D;&#xFF0C;&#x7F51;&#x7EDC;&#x4E0A;&#x522B;&#x4EBA;&#x770B;&#x5230;&#x7684;&#x540D;&#x5B57;</p>
-<pre><code>sudo scutil --set ComputerName &#x65B0;&#x7684;&#x4E3B;&#x673A;&#x540D;
-</code></pre><p>&#x67E5;&#x770B;&#x4E3B;&#x673A;&#x540D;&#x548C;&#x8BA1;&#x7B97;&#x673A;&#x540D;</p>
-<pre><code>scutil --get HostName
-scutil --get ComputerName
+<p>&#x4E00;&#x5171;&#x6709;&#x4E09;&#x4E2A;&#x76F8;&#x5173;&#x7684;&#x540D;&#x79F0;&#xFF1A;</p>
+<ul>
+<li><code>ComputerName</code> &#x5171;&#x4EAB;&#x7684;&#x65F6;&#x5019;&#x522B;&#x4EBA;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x7684;&#x540D;&#x5B57;&#xFF0C;&#x5B57;&#x9762;&#x610F;&#x601D;&#x5C31;&#x662F;&#x8BA1;&#x7B97;&#x673A;&#x540D;</li>
+<li><code>LocalHostName</code> &#x5728;&#x672C;&#x5730;&#x7F51;&#x7EDC;&#x4E2D;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; <code>LocalHostName.local</code> &#x6765;&#x8BBF;&#x95EE;&#x8FD9;&#x53F0;&#x7535;&#x8111;</li>
+<li><code>HostName</code> &#x7F51;&#x7EDC;&#x4E2D;&#x4F7F;&#x7528;&#x7684;&#x540D;&#x5B57;&#xFF0C;&#x8FD8;&#x6709;&#x7EC8;&#x7AEF;&#x63D0;&#x793A;&#x90A3;&#x91CC;&#x4F1A;&#x663E;&#x793A;&#x8FD9;&#x4E2A;&#xFF0C;&#x51C6;&#x786E;&#x6765;&#x8BF4;&#x5E94;&#x8BE5;&#x662F;&#x8BA1;&#x7B97;&#x673A;&#x540D;&#x52A0;&#x4E0A;&#x57DF;&#x540D;</li>
+</ul>
+<p>&#x67E5;&#x770B;&#x8FD9;&#x4E9B;&#x540D;&#x79F0;&#xFF1A;</p>
+<pre><code>scutil --get ComputerName
+scutil --get LocalHostName
+scutil --get HostName
+</code></pre><p>&#x4FEE;&#x6539;&#x8FD9;&#x4E9B;&#x540D;&#x79F0;&#xFF1A;</p>
+<pre><code>sudo scutil --set ComputerName NewName
+sudo scutil --set LocalHostName NewName
+sudo scutil --set HostName NewName
 </code></pre>
                     
                     </section>
