@@ -92,7 +92,7 @@
 <p>以下编译 SQLite3 和使用 SQLite3 我是分开使用两个解决方案，为了理解起来清晰一点<br />
 但是最好将其放一个解决方案中，内分为两个项目，有利于代码的组织</p>
 
-<h2 id="静态编译-sqlite3">静态编译 SQLite3</h2>
+<h2 id="sqlite3">静态编译 SQLite3</h2>
 
 <ol>
   <li>
@@ -133,7 +133,7 @@
 <p>选择 “Relese” 还是 “Debug” 按情况而定，如果项目需要发布了，那么选择 “Relese” 会更好，
 如果需要调试，那么选择 “Debug” 会更好。但是确保同一解决方案下的各项目要统一</p>
 
-<h2 id="在-mfc-中使用-sqlite3-静态库">在 MFC 中使用 SQLite3 静态库</h2>
+<h2 id="mfc--sqlite3-">在 MFC 中使用 SQLite3 静态库</h2>
 
 <p><strong>注意：</strong>开发全新的 PC 桌面客户端请不要使用 MFC, 已经是过时的技术了。
 有了坑爹的学校，才有了我去用 MFC<br />
@@ -198,7 +198,7 @@
 
 <p>使用静态库非常简单，只需将 .lib 和 .h 文件添加到项目即可</p>
 
-<h2 id="动态编译-sqlite3">动态编译 SQLite3</h2>
+<h2 id="sqlite3-1">动态编译 SQLite3</h2>
 
 <p>动态编译和静态编译差不多，只有两个地方不一样</p>
 
@@ -220,7 +220,7 @@
 <p>生成项目，即可得到 .dll 和 .lib 文件<br />
 有可能会提示你，无法解析的外部符号，不要急，将那些导出函数删除即可</p>
 
-<h3 id="或者利用官方提供的-dll-和-def-文件生成-lib">或者利用官方提供的 .dll 和 .def 文件生成 .lib</h3>
+<h3 id="dll--def--lib">或者利用官方提供的 .dll 和 .def 文件生成 .lib</h3>
 
 <p>下载官方提供的文件 sqlite-dll-win32-x86-3081101, 内有 sqlite3.def 和 sqlite3.dll 这两个文件</p>
 
@@ -252,7 +252,7 @@ C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\mspdb140.dll
   </li>
 </ol>
 
-<h2 id="在-mfc-中使用-sqlite3-动态库">在 MFC 中使用 SQLite3 动态库</h2>
+<h2 id="mfc--sqlite3--1">在 MFC 中使用 SQLite3 动态库</h2>
 
 <p>我们需要 .dll, .lib, .h 文件</p>
 
