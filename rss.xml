@@ -6,8 +6,8 @@
     <link>http://www.dreamxu.com/</link>
     <atom:link href="http://www.dreamxu.com/rss.xml" rel="self" type="application/rss+xml"/>
     <language>zh-CN</language>
-    <pubDate>Fri, 10 Feb 2017 22:49:40 +0800</pubDate>
-    <lastBuildDate>Fri, 10 Feb 2017 22:49:40 +0800</lastBuildDate>
+    <pubDate>Tue, 28 Feb 2017 22:55:34 +0800</pubDate>
+    <lastBuildDate>Tue, 28 Feb 2017 22:55:34 +0800</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
@@ -6279,6 +6279,18 @@ export LESS_TERMCAP_us=$&#39;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\E&lt
     &lt;/div&gt;
 
     &lt;p&gt;跳转到最多访问的目录&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;zsh-autosuggestions 插件：&lt;a href=&quot;https://github.com/zsh-users/zsh-autosuggestions&quot;&gt;https://github.com/zsh-users/zsh-autosuggestions&lt;/a&gt;&lt;/p&gt;
+
+    &lt;p&gt;Fish 类的自动建议插件&lt;/p&gt;
+
+    &lt;p&gt;自动建议的字体颜色可能和你终端的颜色相近，你可以将其改成其它的，比如设置为 blue&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=&#39;fg=blue&#39;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+    &lt;/div&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
