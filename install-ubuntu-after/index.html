@@ -97,8 +97,8 @@
     <p>安装 vim</p>
   </li>
   <li>
-    <p>开机自动挂载分区<br />
-修改 /etc/fstab 文件，例如添加<br />
+    <p>开机自动挂载分区  <br />
+修改 /etc/fstab 文件，例如添加  <br />
 UUID=588650B08650907C /media/DATA ntfs defaults,dmask=002,fmask=113,uid=1000,gid=1000 0 0</p>
   </li>
   <li>
@@ -114,14 +114,14 @@ sudo apt-get install ubuntu-tweak
     </div>
   </li>
   <li>
-    <p>修改默认中文字体<br />
-字体可以在 windows 系统下找到一些，C:/Windows/Fonts 目录下<br />
-可在 /etc/fonts/conf.d/69-language-selector-zh-cn.conf 文件中修改默认字体<br />
+    <p>修改默认中文字体  <br />
+字体可以在 windows 系统下找到一些，C:/Windows/Fonts 目录下  <br />
+可在 /etc/fonts/conf.d/69-language-selector-zh-cn.conf 文件中修改默认字体  <br />
 用命令 <code class="highlighter-rouge">fc-list :lang=zh</code> 查看系统当前可用的中文字体，用 Ubuntu Tweak 修改字体平滑度</p>
   </li>
   <li>
-    <p>修改桌面背景图片，grub 选项、顺序、背景等，等一系列系统设置<br />
-使用 Ubuntu Tweak 和 Grub Customizer<br />
+    <p>修改桌面背景图片，grub 选项、顺序、背景等，等一系列系统设置  <br />
+使用 Ubuntu Tweak 和 Grub Customizer  <br />
 Grub Customizer 安装方法如下</p>
 
     <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
@@ -136,14 +136,14 @@ sudo apt-get install grub-customizer
     <p>或者直接修改配置文件 <a href="https://help.ubuntu.com/community/Grub2#Configuring_GRUB_2">https://help.ubuntu.com/community/Grub2#Configuring_GRUB_2</a></p>
   </li>
   <li>
-    <p>安装 truecrypt 加密软件
+    <p>安装 truecrypt 加密软件<br />
 <a href="http://www.truecrypt.org">http://www.truecrypt.org</a></p>
   </li>
   <li>
-    <p>安装 VirtualBox 虚拟机
-<a href="https://www.virtualbox.org">https://www.virtualbox.org</a><br />
-Oracle VM VirtualBox Extension Pack 装上才能使用 USB 等<br />
-将用户添加到 vboxusers 组，才能访问 USB 设备 <code class="highlighter-rouge">sudo adduser username vboxusers</code><br />
+    <p>安装 VirtualBox 虚拟机<br />
+<a href="https://www.virtualbox.org">https://www.virtualbox.org</a>  <br />
+Oracle VM VirtualBox Extension Pack 装上才能使用 USB 等  <br />
+将用户添加到 vboxusers 组，才能访问 USB 设备 <code class="highlighter-rouge">sudo adduser username vboxusers</code>  <br />
 最后需要注销一下</p>
   </li>
   <li>
@@ -159,7 +159,7 @@ sudo apt-get install fcitx fcitx-sogoupinyin
     </div>
   </li>
   <li>
-    <p>安装思维导图软件 XMind
+    <p>安装思维导图软件 XMind<br />
 <a href="http://www.xmind.net">http://www.xmind.net</a></p>
   </li>
   <li>
@@ -176,10 +176,12 @@ sudo apt-get install uget aria2
 </div>
     </div>
 
-    <p>配置 uget
--   编辑-&gt;设置-&gt;插件-&gt;勾选’启用 aria2 插件’，确保 Arguments 中有 –enable-rpc=true 参数
--   打开 uget 在左下的分类中的 Home 右键点击属性，将每台服务器连接数改为16最优（网友如是说）
--   chrome 可安装 download assistant 插件，现在停止开发了，不过网上资源还是很多的</p>
+    <p>配置 uget</p>
+    <ul>
+      <li>编辑-&gt;设置-&gt;插件-&gt;勾选’启用 aria2 插件’，确保 Arguments 中有 –enable-rpc=true 参数</li>
+      <li>打开 uget 在左下的分类中的 Home 右键点击属性，将每台服务器连接数改为16最优（网友如是说）</li>
+      <li>chrome 可安装 download assistant 插件，现在停止开发了，不过网上资源还是很多的</li>
+    </ul>
   </li>
   <li>
     <p>安装视频播放器 VLC</p>

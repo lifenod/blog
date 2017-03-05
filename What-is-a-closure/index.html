@@ -86,8 +86,8 @@
   <div class="post-content" itemprop="articleBody">
     <p>本文所讲闭包是计算机中的闭包</p>
 
-<p>如果一上来就一大段理论，估计连我自己也看不懂<br />
-以具体例子入手来理解，因为在函数式语言中闭包是一个非常常见的概念，
+<p>如果一上来就一大段理论，估计连我自己也看不懂  <br />
+以具体例子入手来理解，因为在函数式语言中闭包是一个非常常见的概念，<br />
 所以我们以一种函数式语言 Scheme 为例来讲解</p>
 
 <div class="language-scheme highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
@@ -129,8 +129,8 @@
 </div>
 </div>
 
-<p>最近正好看了会 Go 语言，下面是 Go 代码，功能和写法都和上面的 Scheme 代码一样。
-也是我对 Go 语言中闭包的一种练习。
+<p>最近正好看了会 Go 语言，下面是 Go 代码，功能和写法都和上面的 Scheme 代码一样。<br />
+也是我对 Go 语言中闭包的一种练习。<br />
 如果你习惯于看 C 类的代码，那么 Scheme 代码可能不好理解，相反下面的代码就好理解一点</p>
 
 <div class="language-go highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
@@ -215,7 +215,7 @@
 
 <p>这样我们可以很方便地表示直线，而且将 a 和 b 自由变量绑定到某个值，不至于混乱</p>
 
-<p>东西的样子出来了，我们得给这个东西取个名字吧，就叫「闭包」吧<br />
+<p>东西的样子出来了，我们得给这个东西取个名字吧，就叫「闭包」吧  <br />
 将其表示地形式一点，如下；</p>
 
 <div class="language-scheme highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
@@ -229,11 +229,11 @@
 </div>
 </div>
 
-<p>我们也可以这样说，闭包就是函数和创建这个函数时的环境总和（你也可以理解为相关数据）<br />
-而这个环境指的是自由变量，如果一个函数并没有引用自由变量，那么它只是一个函数而已<br />
+<p>我们也可以这样说，闭包就是函数和创建这个函数时的环境总和（你也可以理解为相关数据）  <br />
+而这个环境指的是自由变量，如果一个函数并没有引用自由变量，那么它只是一个函数而已  <br />
 在这个例子中，函数就是 <code class="highlighter-rouge">(lambda (x) (+ (* a x) b))</code>, 环境就是 <code class="highlighter-rouge">((a . 1) (b . 1))</code></p>
 
-<p>闭包就是这么个东西，是不是感觉很简单？<br />
+<p>闭包就是这么个东西，是不是感觉很简单？  <br />
 都是我们能够很容易理解的概念，没有网上一大段一大段那么复杂，有些东西细细品味确实就简单了</p>
 
 <p>在多说一点，闭包和函数的区别就是：</p>

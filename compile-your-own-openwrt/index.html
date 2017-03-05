@@ -8,7 +8,7 @@
 
   
   <title>编译自己的 OpenWrt 固件 | 明无梦</title>
-  <meta name="description" content="编译环境：Ubuntu 14.04.2 64-Bit路由器型号：TP-LINK TL-WR703N v1, 改过硬件：16M Flash / 64M Memory">
+  <meta name="description" content="编译环境：Ubuntu 14.04.2 64-Bit  路由器型号：TP-LINK TL-WR703N v1, 改过硬件：16M Flash / 64M Memory">
 
   <link rel="stylesheet" href="/css/main.css">
   <link rel="canonical" href="http://www.dreamxu.com/compile-your-own-openwrt/">
@@ -82,10 +82,10 @@
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>编译环境：Ubuntu 14.04.2 64-Bit<br />
+    <p>编译环境：Ubuntu 14.04.2 64-Bit  <br />
 路由器型号：TP-LINK TL-WR703N v1, 改过硬件：16M Flash / 64M Memory</p>
 
-<p>固件也可以去官方下载：<a href="https://downloads.openwrt.org/">https://downloads.openwrt.org/</a><br />
+<p>固件也可以去官方下载：<a href="https://downloads.openwrt.org/">https://downloads.openwrt.org/</a>  <br />
 例如 TP-LINK TL-WR703N v1 的最新固件下载地址为：</p>
 
 <ul>
@@ -93,12 +93,12 @@
   <li>sysupgrade: <a href="https://downloads.openwrt.org/chaos_calmer/15.05/ar71xx/generic/openwrt-15.05-ar71xx-generic-tl-wr703n-v1-squashfs-sysupgrade.bin">https://downloads.openwrt.org/chaos_calmer/15.05/ar71xx/generic/openwrt-15.05-ar71xx-generic-tl-wr703n-v1-squashfs-sysupgrade.bin</a></li>
 </ul>
 
-<p>优点是方便，缺点是不能自己定制，如果你是改过 Flash 大小的，那么也必须自己编译<br />
-可参考官方文档关于编译的章节：<a href="http://wiki.openwrt.org/doc/start#building_openwrt">http://wiki.openwrt.org/doc/start#building_openwrt</a><br />
+<p>优点是方便，缺点是不能自己定制，如果你是改过 Flash 大小的，那么也必须自己编译  <br />
+可参考官方文档关于编译的章节：<a href="http://wiki.openwrt.org/doc/start#building_openwrt">http://wiki.openwrt.org/doc/start#building_openwrt</a>  <br />
 以下是我对改过硬件的 TL-WR703N 编译适合的固件的步骤：</p>
 
-<p>按以下步骤编译好的固件下载地址（如果你不想自己编译的话）：<br />
-factory: <a href="https://www.dropbox.com/s/aqe1957l4swpw9w/openwrt-15.05-ar71xx-generic-tl-wr703n-v1-squashfs-factory.bin?dl=0">https://www.dropbox.com/s/aqe1957l4swpw9w/openwrt-15.05-ar71xx-generic-tl-wr703n-v1-squashfs-factory.bin?dl=0</a><br />
+<p>按以下步骤编译好的固件下载地址（如果你不想自己编译的话）：  <br />
+factory: <a href="https://www.dropbox.com/s/aqe1957l4swpw9w/openwrt-15.05-ar71xx-generic-tl-wr703n-v1-squashfs-factory.bin?dl=0">https://www.dropbox.com/s/aqe1957l4swpw9w/openwrt-15.05-ar71xx-generic-tl-wr703n-v1-squashfs-factory.bin?dl=0</a>  <br />
 sysupgrade: <a href="https://www.dropbox.com/s/os5sz47ljfgt4i6/openwrt-15.05-ar71xx-generic-tl-wr703n-v1-squashfs-sysupgrade.bin?dl=0">https://www.dropbox.com/s/os5sz47ljfgt4i6/openwrt-15.05-ar71xx-generic-tl-wr703n-v1-squashfs-sysupgrade.bin?dl=0</a></p>
 
 <ol>
@@ -110,7 +110,7 @@ sysupgrade: <a href="https://www.dropbox.com/s/os5sz47ljfgt4i6/openwrt-15.05-ar7
 </div>
     </div>
 
-    <p>也可以获取特定分支的源码，例如我们获取 15.05 branch (Chaos Calmer) 这个分支<br />
+    <p>也可以获取特定分支的源码，例如我们获取 15.05 branch (Chaos Calmer) 这个分支  <br />
 以下步骤都使用的这份源码</p>
 
     <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>git clone git://git.openwrt.org/15.05/openwrt.git
@@ -119,14 +119,14 @@ sysupgrade: <a href="https://www.dropbox.com/s/os5sz47ljfgt4i6/openwrt-15.05-ar7
     </div>
   </li>
   <li>
-    <p>修改源码，使其适用于 16M Flash<br />
+    <p>修改源码，使其适用于 16M Flash  <br />
 参考的这篇文章：<a href="http://wiki.openwrt.org/toh/tp-link/tl-wr703n#mb_flash_mod">http://wiki.openwrt.org/toh/tp-link/tl-wr703n#mb_flash_mod</a></p>
 
     <p>进入源码目录 <code class="highlighter-rouge">cd openwrt</code></p>
 
     <ul>
       <li>
-        <p>打开 target/linux/ar71xx/image/Makefile 这个文件<br />
+        <p>打开 target/linux/ar71xx/image/Makefile 这个文件  <br />
 将如下内容</p>
 
         <div class="language-make highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
@@ -166,7 +166,7 @@ sysupgrade: <a href="https://www.dropbox.com/s/os5sz47ljfgt4i6/openwrt-15.05-ar7
         </div>
       </li>
       <li>
-        <p>打开 tools/firmware-utils/src/mktplinkfw.c 这个文件<br />
+        <p>打开 tools/firmware-utils/src/mktplinkfw.c 这个文件  <br />
 将如下内容：</p>
 
         <div class="language-make highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
@@ -249,25 +249,25 @@ Build dependency: Please install the Subversion client
 </div>
     </div>
 
-    <p>输入以上命令之后，会进入一个命令行图形界面，界面最上面是用法<br />
-以下是我的一些配置，你可以选择性的参考<br />
+    <p>输入以上命令之后，会进入一个命令行图形界面，界面最上面是用法  <br />
+以下是我的一些配置，你可以选择性的参考  <br />
 我的配置非常简单，如果需要额外的功能可以通过 opkg 来安装，所以固件简单点就好，反正之后还可以安装</p>
 
     <ul>
       <li>
-        <p>选择 CPU 型号<br />
+        <p>选择 CPU 型号  <br />
 Target System 选为 Atheros ARM7xxx/ARM9xxx</p>
       </li>
       <li>
-        <p>选择你的路由器型号<br />
+        <p>选择你的路由器型号  <br />
 Target Profile 选为 TP-LINK TP-WR703N</p>
       </li>
       <li>
-        <p>启用 Web 管理界面 LuCI<br />
+        <p>启用 Web 管理界面 LuCI  <br />
 LuCI → Collections → 选中 luci</p>
       </li>
       <li>
-        <p>添加 LuCI 中文支持<br />
+        <p>添加 LuCI 中文支持  <br />
 LuCI → Modules → Translations → 选中 Chinese (zh-cn)</p>
       </li>
     </ul>
@@ -290,14 +290,14 @@ LuCI → Modules → Translations → 选中 Chinese (zh-cn)</p>
 
     <p>在虚拟机中大概编译了一个半到二个小时，大多数时间都在下载，所以要保持网络通畅</p>
 
-    <p>编译好了之后可在 bin/ar71xx 目录找到生成的固件<br />
-openwrt-ar71xx-generic-tl-wr703n-v1-squashfs-factory.bin 和 openwrt-ar71xx-generic-tl-wr703n-v1-squashfs-sysupgrade.bin<br />
-已经安装了 OpenWrt 那么可用 sysupgrade 固件进行升级，会保留用户数据（也可选不保留）<br />
+    <p>编译好了之后可在 bin/ar71xx 目录找到生成的固件  <br />
+openwrt-ar71xx-generic-tl-wr703n-v1-squashfs-factory.bin 和 openwrt-ar71xx-generic-tl-wr703n-v1-squashfs-sysupgrade.bin  <br />
+已经安装了 OpenWrt 那么可用 sysupgrade 固件进行升级，会保留用户数据（也可选不保留）  <br />
 factory 固件在第一次刷机的时候使用</p>
   </li>
   <li>
-    <p>刷机<br />
-我所使用的 U-Boot 是这个：<a href="https://github.com/pepe2k/u-boot_mod">https://github.com/pepe2k/u-boot_mod</a><br />
+    <p>刷机  <br />
+我所使用的 U-Boot 是这个：<a href="https://github.com/pepe2k/u-boot_mod">https://github.com/pepe2k/u-boot_mod</a>  <br />
 步骤如下：</p>
 
     <ol>
@@ -308,14 +308,14 @@ factory 固件在第一次刷机的时候使用</p>
         <p>断开路由器的电源，用网线连接好电脑和路由器</p>
       </li>
       <li>
-        <p>按住路由器的 Reset 按钮，插上电源，
+        <p>按住路由器的 Reset 按钮，插上电源，<br />
 待路由器灯闪四次后放开，放开后，路由器灯会快闪一次，代表进入了恢复模式</p>
       </li>
       <li>
         <p>用电脑浏览器打开 http://192.168.1.1/index.html, 打开后，上传固件。如打不开可重复以上几步</p>
       </li>
       <li>
-        <p>上传完固件后，等一段时间，待机器自动重启<br />
+        <p>上传完固件后，等一段时间，待机器自动重启  <br />
 此时可将电脑 IP 设置为正常</p>
       </li>
     </ol>
@@ -329,20 +329,20 @@ factory 固件在第一次刷机的时候使用</p>
 
     <ol>
       <li>
-        <p>电脑浏览器打开 192.168.1.1 进入 Web 管理界面<br />
+        <p>电脑浏览器打开 192.168.1.1 进入 Web 管理界面  <br />
 不用输入密码直接登录，登录之后去设置一个新密码</p>
       </li>
       <li>
-        <p>更改系统语言<br />
+        <p>更改系统语言  <br />
 Syatem → Language 修改为 Chinese, 点击 Save &amp; Apply</p>
       </li>
       <li>
-        <p>点击，网络 → 无线，设置好 SSID, 密码点击「保存&amp;应用」，最后点击「启用」<br />
+        <p>点击，网络 → 无线，设置好 SSID, 密码点击「保存&amp;应用」，最后点击「启用」  <br />
 现在可以通过无线连接到路由器进行配置了</p>
       </li>
       <li>
-        <p>配置网络还是修改配置文件比较方便，也比较好讲解<br />
-修改之前先备份配置文件 <code class="highlighter-rouge">cp /etc/config/network /etc/config/network.old</code><br />
+        <p>配置网络还是修改配置文件比较方便，也比较好讲解  <br />
+修改之前先备份配置文件 <code class="highlighter-rouge">cp /etc/config/network /etc/config/network.old</code>  <br />
 然后编辑配置文件 <code class="highlighter-rouge">vim /etc/config/network</code></p>
 
         <ul>

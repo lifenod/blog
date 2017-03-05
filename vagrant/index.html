@@ -89,23 +89,23 @@
     <h2 id="why-vagrant">WHY VAGRANT?</h2>
 
 <blockquote>
-  <p>Vagrant provides easy to configure, reproducible, and portable work environments built 
-on top of industry-standard technology and 
-controlled by a single consistent workflow to help maximize the productivity and 
+  <p>Vagrant provides easy to configure, reproducible, and portable work environments built <br />
+on top of industry-standard technology and <br />
+controlled by a single consistent workflow to help maximize the productivity and <br />
 flexibility of you and your team.</p>
 
-  <p>To achieve its magic, Vagrant stands on the shoulders of giants. 
-Machines are provisioned on top of VirtualBox, VMware, AWS, or any other provider. 
-Then, industry-standard provisioning tools such as shell scripts, Chef, or Puppet, 
+  <p>To achieve its magic, Vagrant stands on the shoulders of giants. <br />
+Machines are provisioned on top of VirtualBox, VMware, AWS, or any other provider. <br />
+Then, industry-standard provisioning tools such as shell scripts, Chef, or Puppet, <br />
 can be used to automatically install and configure software on the machine.</p>
 </blockquote>
 
 <p>——以上内容摘自官网</p>
 
-<p>因其是使用虚拟机的，所以虚拟机的好处全部都有，你可以随便折腾，弄得不爽了可以马上复原，真的是很方便。
+<p>因其是使用虚拟机的，所以虚拟机的好处全部都有，你可以随便折腾，弄得不爽了可以马上复原，真的是很方便。<br />
 也简化了操作虚拟机的步骤，一条命令即可创建一个虚拟系统，即开即用</p>
 
-<h2 id="section">安装</h2>
+<h2 id="安装">安装</h2>
 
 <ul>
   <li>
@@ -116,15 +116,15 @@ can be used to automatically install and configure software on the machine.</p>
   </li>
 </ul>
 
-<h2 id="box">添加 Box</h2>
+<h2 id="添加-box">添加 Box</h2>
 
-<p>Box 理解为一个打包好的操作系统环境就好了<br />
-可以自己做，也可以直接下载制作好的<br />
+<p>Box 理解为一个打包好的操作系统环境就好了  <br />
+可以自己做，也可以直接下载制作好的  <br />
 Vargrant 将 box 解包后放在 /.vagrant.d/boxes 文件夹</p>
 
-<h3 id="section-1">通过命令直接下载</h3>
+<h3 id="通过命令直接下载">通过命令直接下载</h3>
 
-<p>例如下载 Ubuntu 官方创建的 Ubuntu Server 64-bit 14.04 的 box<br />
+<p>例如下载 Ubuntu 官方创建的 Ubuntu Server 64-bit 14.04 的 box  <br />
 其中的 <code class="highlighter-rouge">Ubuntu_Server_14.04</code> 是自己设定的 box 名字</p>
 
 <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>vagrant box add Ubuntu_Server_14.04 ubuntu/trusty64
@@ -134,7 +134,7 @@ Vargrant 将 box 解包后放在 /.vagrant.d/boxes 文件夹</p>
 
 <p>Box 可以去 <a href="https://vagrantcloud.com/">Vagrant Cloud</a> 找</p>
 
-<h3 id="box-1">手动下载 box</h3>
+<h3 id="手动下载-box">手动下载 box</h3>
 
 <p>例如下载 Ubuntu 的 <a href="http://cloud-images.ubuntu.com/vagrant/">box</a>, 下载完成之后添加一下 box</p>
 
@@ -143,14 +143,14 @@ Vargrant 将 box 解包后放在 /.vagrant.d/boxes 文件夹</p>
 </div>
 </div>
 
-<h3 id="base-box">自己制作 base box</h3>
+<h3 id="自己制作-base-box">自己制作 base box</h3>
 
-<p>第一次使用 Vagrant 建议跳过这一步骤，<a href="#初始化和配置">到下一步</a>，
+<p>第一次使用 Vagrant 建议跳过这一步骤，<a href="#初始化和配置">到下一步</a>，<br />
 直接使用制作好的 base box, 体会了 Vagrant 之后再来自己制作 base box</p>
 
 <p>人家制作好的 box 或许没有你需要的，那么就需要自己来制作了</p>
 
-<h4 id="veewee--parallels">使用 Veewee 工具创建（虚拟机为 Parallels）</h4>
+<h4 id="使用-veewee-工具创建虚拟机为-parallels">使用 Veewee 工具创建（虚拟机为 Parallels）</h4>
 
 <ol>
   <li>
@@ -173,11 +173,11 @@ Vargrant 将 box 解包后放在 /.vagrant.d/boxes 文件夹</p>
 
 <p>（未完成，博主还没有实践，或许以后会补全）</p>
 
-<h4 id="parallels">手动创建（虚拟机为 Parallels）</h4>
+<h4 id="手动创建虚拟机为-parallels">手动创建（虚拟机为 Parallels）</h4>
 
 <ol>
   <li>
-    <p>在 Parallels 中新建一个虚拟机，比如名字为 Ubuntu-14.04.2-vagrant<br />
+    <p>在 Parallels 中新建一个虚拟机，比如名字为 Ubuntu-14.04.2-vagrant  <br />
 把不需要的功能都关闭了，比如共享应用什么的，硬件配置自己选择合适的</p>
 
     <p>以下是推荐系统设置</p>
@@ -198,7 +198,7 @@ Main account password: vagrant
 
     <ol>
       <li>
-        <p>先去 <a href="https://github.com/mitchellh/vagrant/blob/master/keys/vagrant.pub">insecure keypair</a> 
+        <p>先去 <a href="https://github.com/mitchellh/vagrant/blob/master/keys/vagrant.pub">insecure keypair</a> <br />
 下载 Vagrant 的公钥，名为 vagrant.pub</p>
 
         <p>或者使用命令</p>
@@ -257,12 +257,12 @@ cat vagrant.pub &gt;&gt; ~/.ssh/authorized_keys
     </div>
   </li>
   <li>
-    <p>关闭虚拟机<br />
-进入虚拟机目录，例如：~/Documents/Parallels/Ubuntu-14.04.2-vagrant.pvm, 
+    <p>关闭虚拟机  <br />
+进入虚拟机目录，例如：~/Documents/Parallels/Ubuntu-14.04.2-vagrant.pvm, <br />
 可看到一些文件和文件夹，其中需要的是以下 3 个文件和文件夹，其它的可删除</p>
 
-    <p>VmInfo.pvi<br />
-config.pvs<br />
+    <p>VmInfo.pvi  <br />
+config.pvs  <br />
 *.hdd</p>
 
     <p>可对虚拟磁盘进行优化，减少大小</p>
@@ -273,8 +273,8 @@ config.pvs<br />
     </div>
   </li>
   <li>
-    <p>打包成 base box<br />
-还需要 Vagrantfile 和 metadata.json 文件，
+    <p>打包成 base box  <br />
+还需要 Vagrantfile 和 metadata.json 文件，<br />
 Vagrantfile 文件内容可为空，metadata.json 可如下所示</p>
 
     <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="p">{</span><span class="nt">"provider"</span><span class="p">:</span><span class="s2">"parallels"</span><span class="p">}</span><span class="w">
@@ -295,11 +295,11 @@ Vagrantfile 文件内容可为空，metadata.json 可如下所示</p>
 </ol>
 
 <hr />
-<p>参考资料：<br />
-<a href="http://docs.vagrantup.com/v2/boxes/base.html">CREATING A BASE BOX | Vagrant</a><br />
+<p>参考资料：  <br />
+<a href="http://docs.vagrantup.com/v2/boxes/base.html">CREATING A BASE BOX | Vagrant</a>  <br />
 <a href="http://parallels.github.io/vagrant-parallels/docs/boxes/base.html">Creating a Base Box | Parallels</a></p>
 
-<h2 id="section-2">初始化和配置</h2>
+<h2 id="初始化和配置">初始化和配置</h2>
 
 <ol>
   <li>
@@ -330,7 +330,7 @@ vagrant init Ubuntu_Server_14.04
   </li>
 </ol>
 
-<h3 id="vagrantfile-">Vagrantfile 配置文件</h3>
+<h3 id="vagrantfile-配置文件">Vagrantfile 配置文件</h3>
 
 <p>配置文件是用 Ruby 写的，不过都是一些常用的赋值</p>
 
@@ -369,11 +369,11 @@ vagrant init Ubuntu_Server_14.04
 </div>
 </div>
 
-<h4 id="section-3">默认共享目录</h4>
+<h4 id="默认共享目录">默认共享目录</h4>
 
 <p>默认主机的项目目录和虚拟机中的 /vagrant 目录是共享的</p>
 
-<h2 id="section-4">使用</h2>
+<h2 id="使用">使用</h2>
 
 <p>以下命令在项目目录中执行</p>
 
@@ -388,7 +388,7 @@ vagrant init Ubuntu_Server_14.04
 
 <p>更多命令请看《<a href="http://docs.vagrantup.com/v2/cli/index.html">官方文档 - COMMAND-LINE INTERFACE</a>》</p>
 
-<h2 id="box-2">打包成 box</h2>
+<h2 id="打包成-box">打包成 box</h2>
 
 <p>当你自定义了开发环境之后，在项目目录执行命令</p>
 
@@ -406,30 +406,30 @@ vagrant init Ubuntu_Server_14.04
 </div>
 </div>
 
-<p>但是发现个问题，下次使用 <code class="highlighter-rouge">vagrant box add</code> 和 <code class="highlighter-rouge">vagrant init</code> 添加和初始化好这个 box 之后，
-然后使用 <code class="highlighter-rouge">vagrant up</code> 会出现警告大致是说 <code class="highlighter-rouge">.vagrant.d/boxes/boxname/0/virtualbox/include/_Vagrantfile:5: warning: already initialized constant VAGRANTFILE_API_VERSION</code>, 
-出现这个问题的原因呢就是项目的当前目录有个 Vagrantfile, 并且我们用上面的命令把 Vagrantfile 也添加到了 box 中<br />
-解决的办法就是，如果要用 box 中的 Vagrantfile 那么把 <code class="highlighter-rouge">.vagrant.d/boxes/boxname/0/virtualbox/include/_Vagrantfile</code> 
+<p>但是发现个问题，下次使用 <code class="highlighter-rouge">vagrant box add</code> 和 <code class="highlighter-rouge">vagrant init</code> 添加和初始化好这个 box 之后，<br />
+然后使用 <code class="highlighter-rouge">vagrant up</code> 会出现警告大致是说 <code class="highlighter-rouge">.vagrant.d/boxes/boxname/0/virtualbox/include/_Vagrantfile:5: warning: already initialized constant VAGRANTFILE_API_VERSION</code>, <br />
+出现这个问题的原因呢就是项目的当前目录有个 Vagrantfile, 并且我们用上面的命令把 Vagrantfile 也添加到了 box 中  <br />
+解决的办法就是，如果要用 box 中的 Vagrantfile 那么把 <code class="highlighter-rouge">.vagrant.d/boxes/boxname/0/virtualbox/include/_Vagrantfile</code> <br />
 文件重命名为 <code class="highlighter-rouge">Vagrantfile</code> 并覆盖项目目录中的 Vagrantfile; 如果不用它，那么将其删除</p>
 
-<h2 id="section-5">自动化</h2>
+<h2 id="自动化">自动化</h2>
 
 <p>若想统一开发环境和生产环境也是可以的，将虚拟机系统环境配置成相同的环境即可</p>
 
-<p>若想让两个环境完全一样，并实现自动化配置，可以尝试 
+<p>若想让两个环境完全一样，并实现自动化配置，可以尝试 <br />
 <a href="/chef-basic-flow/">Chef</a> 或 <a href="http://puppetlabs.com/">Puppet</a></p>
 
-<h2 id="section-6">心得</h2>
+<h2 id="心得">心得</h2>
 
-<p>使用一段时间这个环境之后：Mac + VirtualBox + Vagrant<br />
+<p>使用一段时间这个环境之后：Mac + VirtualBox + Vagrant  <br />
 有个问题，使用 Public Networks 网络方式的时候，与外网的连接不是很好</p>
 
-<p>而且我还用着 Parallels 虚拟机，于是尝试了 <a href="https://github.com/Parallels/vagrant-parallels">vagrant-parallels</a> 插件，使之能用 Vagrant 来管理 Parallels 虚拟机<br />
-官方文档：<a href="http://parallels.github.io/vagrant-parallels/docs/">http://parallels.github.io/vagrant-parallels/docs/</a><br />
-当使用 Vagrant 启动 Parallels 虚拟机的时候，会出现 Gui 窗口，为了关闭这个窗口可以按如下操作：<br />
+<p>而且我还用着 Parallels 虚拟机，于是尝试了 <a href="https://github.com/Parallels/vagrant-parallels">vagrant-parallels</a> 插件，使之能用 Vagrant 来管理 Parallels 虚拟机  <br />
+官方文档：<a href="http://parallels.github.io/vagrant-parallels/docs/">http://parallels.github.io/vagrant-parallels/docs/</a>  <br />
+当使用 Vagrant 启动 Parallels 虚拟机的时候，会出现 Gui 窗口，为了关闭这个窗口可以按如下操作：  <br />
 执行 <code class="highlighter-rouge">prlctl set &lt;name&gt; --on-window-close keep-running</code> 命令之后，即使把窗口关了，虚拟机也在后台运行</p>
 
-<p>使用了一段时间，在 VirtualBox 中的问题没有遇到过，也没有遇到其它问题。
+<p>使用了一段时间，在 VirtualBox 中的问题没有遇到过，也没有遇到其它问题。<br />
 而且 Parallels 虚拟机的性能比 VirtualBox 虚拟机要好</p>
 
 

@@ -84,7 +84,7 @@
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <h2 id="rbenv">安装 rbenv</h2>
+    <h2 id="安装-rbenv">安装 rbenv</h2>
 
 <p>项目主页：<a href="https://github.com/sstephenson/rbenv">https://github.com/sstephenson/rbenv</a></p>
 
@@ -127,7 +127,7 @@ type rbenv
     </div>
   </li>
   <li>
-    <p>安装 ruby-build, 用来安装和编译 Ruby 源码<br />
+    <p>安装 ruby-build, 用来安装和编译 Ruby 源码  <br />
 作为 rbenv 的插件来安装</p>
 
     <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
@@ -137,7 +137,7 @@ type rbenv
   </li>
 </ol>
 
-<h3 id="rbenv-">一些好用的 rbenv 插件</h3>
+<h3 id="一些好用的-rbenv-插件">一些好用的 rbenv 插件</h3>
 
 <h4 id="rbenv-update">rbenv-update</h4>
 
@@ -165,7 +165,7 @@ type rbenv
 </div>
 </div>
 
-<h2 id="ruby">安装 Ruby</h2>
+<h2 id="安装-ruby">安装 Ruby</h2>
 
 <ol>
   <li>
@@ -200,12 +200,12 @@ type rbenv
     </div>
   </li>
   <li>
-    <p>设置版本<br />
+    <p>设置版本  <br />
 优先级依次增加</p>
 
     <ul>
       <li>
-        <p>全局成效<br />
+        <p>全局成效  <br />
 <code class="highlighter-rouge">~/.rbenv/version</code> 文件指明了 Ruby 的版本</p>
 
         <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>rbenv global 2.1.2
@@ -214,7 +214,7 @@ type rbenv
         </div>
       </li>
       <li>
-        <p>对该目录生效<br />
+        <p>对该目录生效  <br />
 在当前目录生成 <code class="highlighter-rouge">.ruby-version</code> 文件，指明了 Ruby 的版本</p>
 
         <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>rbenv local 2.1.2
@@ -230,7 +230,7 @@ type rbenv
         </div>
       </li>
       <li>
-        <p>对当前 shell 生效<br />
+        <p>对当前 shell 生效  <br />
 <code class="highlighter-rouge">RBENV_VERSIO</code> 环境变量指明了 Ruby 的版本</p>
 
         <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>rbenv shell 2.1.2
@@ -257,7 +257,7 @@ type rbenv
   </li>
 </ol>
 
-<h2 id="ruby-1">管理 Ruby</h2>
+<h2 id="管理-ruby">管理 Ruby</h2>
 
 <ul>
   <li>
@@ -271,7 +271,7 @@ git pull
     </div>
   </li>
   <li>
-    <p>为了让 rbenv 知道 Ruby 的所有可执行文件<br />
+    <p>为了让 rbenv 知道 Ruby 的所有可执行文件  <br />
 每次安装新版本的 Ruby 和安装一个 gem 后，请执行下面的命令</p>
 
     <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>rbenv rehash
@@ -299,7 +299,7 @@ git pull
 
     <ul>
       <li>
-        <p>直接用用 <code class="highlighter-rouge">rm -rf</code> 命令删除 <code class="highlighter-rouge">~/.rbenv/versions</code> 文件夹下对应的 Ruby 版本即可<br />
+        <p>直接用用 <code class="highlighter-rouge">rm -rf</code> 命令删除 <code class="highlighter-rouge">~/.rbenv/versions</code> 文件夹下对应的 Ruby 版本即可  <br />
 可用 <code class="highlighter-rouge">rbenv prefix</code> 命令查看对应 Ruby 版主的目录</p>
       </li>
       <li>

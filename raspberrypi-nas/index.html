@@ -95,26 +95,26 @@
     <p>本文比较长，列个目录方便阅读</p>
 
 <ul id="markdown-toc">
-  <li><a href="#section" id="markdown-toc-section">前提</a></li>
-  <li><a href="#section-1" id="markdown-toc-section-1">准备硬盘</a></li>
-  <li><a href="#samba" id="markdown-toc-samba">安装并配置 Samba</a></li>
-  <li><a href="#samba-1" id="markdown-toc-samba-1">测试 Samba</a></li>
-  <li><a href="#ftp-" id="markdown-toc-ftp-">FTP 服务器安装及配置</a></li>
-  <li><a href="#aria2---web---" id="markdown-toc-aria2---web---">aria2 安装及配置 + web 前端 + 迅雷离线</a>    <ul>
-      <li><a href="#aria2-" id="markdown-toc-aria2-">aria2 安装及配置</a></li>
-      <li><a href="#web--yaaw--webui-aria2" id="markdown-toc-web--yaaw--webui-aria2">web 前端的配置 yaaw 和 webui-aria2</a></li>
-      <li><a href="#section-2" id="markdown-toc-section-2">迅雷离线下载</a></li>
-      <li><a href="#aria2--1" id="markdown-toc-aria2--1">aria2 出现问题的解决方法</a></li>
+  <li><a href="#前提" id="markdown-toc-前提">前提</a></li>
+  <li><a href="#准备硬盘" id="markdown-toc-准备硬盘">准备硬盘</a></li>
+  <li><a href="#安装并配置-samba" id="markdown-toc-安装并配置-samba">安装并配置 Samba</a></li>
+  <li><a href="#测试-samba" id="markdown-toc-测试-samba">测试 Samba</a></li>
+  <li><a href="#ftp-服务器安装及配置" id="markdown-toc-ftp-服务器安装及配置">FTP 服务器安装及配置</a></li>
+  <li><a href="#aria2-安装及配置--web-前端--迅雷离线" id="markdown-toc-aria2-安装及配置--web-前端--迅雷离线">aria2 安装及配置 + web 前端 + 迅雷离线</a>    <ul>
+      <li><a href="#aria2-安装及配置" id="markdown-toc-aria2-安装及配置">aria2 安装及配置</a></li>
+      <li><a href="#web-前端的配置-yaaw-和-webui-aria2" id="markdown-toc-web-前端的配置-yaaw-和-webui-aria2">web 前端的配置 yaaw 和 webui-aria2</a></li>
+      <li><a href="#迅雷离线下载" id="markdown-toc-迅雷离线下载">迅雷离线下载</a></li>
+      <li><a href="#aria2-出现问题的解决方法" id="markdown-toc-aria2-出现问题的解决方法">aria2 出现问题的解决方法</a></li>
     </ul>
   </li>
-  <li><a href="#raid1-" id="markdown-toc-raid1-">磁盘阵列 RAID1 与异地备份</a></li>
+  <li><a href="#磁盘阵列-raid1-与异地备份" id="markdown-toc-磁盘阵列-raid1-与异地备份">磁盘阵列 RAID1 与异地备份</a></li>
 </ul>
 
 <p>总的来说树莓派作为 nas 还是不错的，连续运行几十天了没有任何异常</p>
 
-<h2 id="section">前提</h2>
+<h2 id="前提">前提</h2>
 
-<p>首先保证树莓派运行 Raspbian 系统正常，并将空间扩展至整张 SD 卡，需要安装各种软件以防空间不够<br />
+<p>首先保证树莓派运行 Raspbian 系统正常，并将空间扩展至整张 SD 卡，需要安装各种软件以防空间不够  <br />
 操作树莓派直接使用 ssh 就可以了，不需要显示器的</p>
 
 <p>在进行操作之前，最好先更新一下软件源</p>
@@ -131,9 +131,9 @@
 </div>
 </div>
 
-<h2 id="section-1">准备硬盘</h2>
+<h2 id="准备硬盘">准备硬盘</h2>
 
-<p>若需要组建 raid1, 可看我写的另一篇文章
+<p>若需要组建 raid1, 可看我写的另一篇文章<br />
 《<a href="http://www.dreamxu.com/debian-create-software-raid-one-arrays/">Debian 组建软 RAID 1 磁盘阵列</a>》</p>
 
 <p>最好使用隔离式带电源的 USB HUB, 保护硬盘也保护树莓派</p>
@@ -185,8 +185,8 @@
 
 <ol>
   <li>
-    <p>先挂载一下硬盘，修改权限，要不然我们的 pi 可是写不了的<br />
-ext4 格式是可以记录权限信息的，所以修改一次下次挂载 pi 就可以写了<br />
+    <p>先挂载一下硬盘，修改权限，要不然我们的 pi 可是写不了的  <br />
+ext4 格式是可以记录权限信息的，所以修改一次下次挂载 pi 就可以写了  <br />
 ntfs 格式的话，挂载的时候指定 uid=pi,gid=pi 就可以了，直接看第2步</p>
 
     <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
@@ -225,7 +225,7 @@ sudo chown pi:pi /home/pi/nas-data
   </li>
 </ol>
 
-<h2 id="samba">安装并配置 Samba</h2>
+<h2 id="安装并配置-samba">安装并配置 Samba</h2>
 
 <p>首先安装 samba</p>
 
@@ -314,11 +314,11 @@ Loaded services file OK.
     <p>出现 rlimit_max 这个问题，一搜发现出现这个问题的很多啊，摘录一个回答</p>
 
     <blockquote>
-      <p>It’s a warning, you can safely ignore it. Windows 7 clients need to
-have exactly the same number of open handles available as Windows
-servers, else it fails in some file copy situations with a “out of
-handles” message. Samba has taken care of it for you, but it’s just
-letting you know your fd limit is set a bit low.<br />
+      <p>It’s a warning, you can safely ignore it. Windows 7 clients need to<br />
+have exactly the same number of open handles available as Windows<br />
+servers, else it fails in some file copy situations with a “out of<br />
+handles” message. Samba has taken care of it for you, but it’s just<br />
+letting you know your fd limit is set a bit low.  <br />
 ——Jeremy</p>
     </blockquote>
 
@@ -342,12 +342,12 @@ letting you know your fd limit is set a bit low.<br />
   </li>
 </ol>
 
-<p>到这里，各个设备应该都可以访问了，大功告成？<br />
+<p>到这里，各个设备应该都可以访问了，大功告成？  <br />
 还差点，下面进行测试</p>
 
-<h2 id="samba-1">测试 Samba</h2>
+<h2 id="测试-samba">测试 Samba</h2>
 
-<p>我的网络拓扑结构如下：<br />
+<p>我的网络拓扑结构如下：  <br />
 linux 主机 &lt;--无线--&gt; 300M 路由器 &lt;--网线--&gt; 树莓派</p>
 
 <p>打开 linux 主机，首先挂载好 samba (可用 <code class="highlighter-rouge">smbclient -L [raspberrypi ip]</code> 查看树莓派分享的资源)</p>
@@ -363,31 +363,31 @@ linux 主机 &lt;--无线--&gt; 300M 路由器 &lt;--网线--&gt; 树莓派</p>
   <li>
     <p>路由器附近</p>
 
-    <p>向树莓派写入文件，四次测试分别为 10.0 MB/s, 9.8 MB/s, 10.1 MB/s, 10.0 MB/s<br />
-平均 9.975 MB/s<br />
+    <p>向树莓派写入文件，四次测试分别为 10.0 MB/s, 9.8 MB/s, 10.1 MB/s, 10.0 MB/s  <br />
+平均 9.975 MB/s  <br />
 <img src="/assets/images/posts/2013-11-29_132334.png" alt="samba-速度测试" /></p>
 
-    <p>从树莓派中读取文件，四次测试分别为 10.2 MB/s, 10.2 MB/s, 10.2 MB/s, 10.2 MB/s<br />
-平均 10.2 MB/s<br />
+    <p>从树莓派中读取文件，四次测试分别为 10.2 MB/s, 10.2 MB/s, 10.2 MB/s, 10.2 MB/s  <br />
+平均 10.2 MB/s  <br />
 <img src="/assets/images/posts/2013-11-29_135644.png" alt="samba-速度测试" /></p>
   </li>
   <li>
     <p>工作地点</p>
 
-    <p>向树莓派写入文件，四次测试分别为 6.8 MB/s, 6.9 MB/s, 6.8 MB/s, 6.9 MB/s<br />
-平均 6.85 MB/s<br />
+    <p>向树莓派写入文件，四次测试分别为 6.8 MB/s, 6.9 MB/s, 6.8 MB/s, 6.9 MB/s  <br />
+平均 6.85 MB/s  <br />
 <img src="/assets/images/posts/2013-11-29_131225.png" alt="samba-速度测试" /></p>
 
-    <p>从树莓派中读取文件，四次测试分别为 8.7 MB/s, 8.2 MB/s, 8.0 MB/s, 8.7 MB/s<br />
-平均 8.4 MB/s<br />
+    <p>从树莓派中读取文件，四次测试分别为 8.7 MB/s, 8.2 MB/s, 8.0 MB/s, 8.7 MB/s  <br />
+平均 8.4 MB/s  <br />
 <img src="/assets/images/posts/2013-11-29_132126.png" alt="samba-速度测试" /></p>
   </li>
 </ul>
 
-<p>100 以太网卡能有这样的速度已经相当不错了<br />
-距离路由器近的话性能瓶颈在树莓派的以太网卡，算它 9MB/s，相当于 72Mbps, 
-播放蓝光原盘肯定是没有问题的，本来想下部电影来试试的，可惜某些站点最近上不去了，
-而我又没存货<br />
+<p>100 以太网卡能有这样的速度已经相当不错了  <br />
+距离路由器近的话性能瓶颈在树莓派的以太网卡，算它 9MB/s，相当于 72Mbps, <br />
+播放蓝光原盘肯定是没有问题的，本来想下部电影来试试的，可惜某些站点最近上不去了，<br />
+而我又没存货  <br />
 手头有部 10G 的电影，在工作地点测试，播放完全没有问题，拖动进度条也能瞬间反应</p>
 
 <p>按我家的情况来说，就算把树莓派换成千兆网卡，还是那个速度，树莓派是够用的了</p>
@@ -396,23 +396,23 @@ linux 主机 &lt;--无线--&gt; 300M 路由器 &lt;--网线--&gt; 树莓派</p>
 
 <p>以下纯属理论上的 YY，没设备来验证</p>
 
-<p>难道树莓派就被百兆网卡耍着玩，认命了吗？<br />
-树莓派沉思了一下，不对啊，我明明是被折腾的命<br />
-拼了，外接一个千兆 USB 网卡，那到底有没有用呢？不说别的，CPU 就受不了<br />
-当然树莓派的 IO 性能也是个瓶颈，先来张图吧，树莓派功能模块之间的关系<br />
-<img src="/assets/images/posts/2013-11-29_172321.svg" alt="Raspberrypi block function" style="width: 360px" /><br />
-其中的 USB hub 和 Ethernet 应该就是 LAN9512 芯片，不管如何，网卡和硬盘是连在一个 USB hub 上的<br />
-那么这个 USB hub 的 IO 性能如何呢，可用 <code class="highlighter-rouge">dd if=/dev/sda of=/dev/null bs=32M count=10 iflag=direct</code> 这个命令测试，
-大概是 31 MB/s<br />
-所以，假设树莓派啥都不干，只通过硬盘和网卡传输数据，最大也就 15MB/s 的样子，150M 网卡就是极限了。
-等等，既然是折腾嘛，那就继续吧。
-别忘了你还有 SD 卡，这可没连在 USB hub 上哦，直接和 soc 相连的，读取速度算它 20M/s 吧。
-综合起来看，SD 卡和硬盘同时读取数据，网卡负责传输数据。
-理想情况下，SD 卡 20M/s，硬盘 5M/s，网卡 25M/s，实际网络传输速度 25M/s。
-上 300M 网卡应该可以试试，好像也没谁那么蛋疼吧。
+<p>难道树莓派就被百兆网卡耍着玩，认命了吗？  <br />
+树莓派沉思了一下，不对啊，我明明是被折腾的命  <br />
+拼了，外接一个千兆 USB 网卡，那到底有没有用呢？不说别的，CPU 就受不了  <br />
+当然树莓派的 IO 性能也是个瓶颈，先来张图吧，树莓派功能模块之间的关系  <br />
+<img src="/assets/images/posts/2013-11-29_172321.svg" alt="Raspberrypi block function" style="width: 360px" />  <br />
+其中的 USB hub 和 Ethernet 应该就是 LAN9512 芯片，不管如何，网卡和硬盘是连在一个 USB hub 上的  <br />
+那么这个 USB hub 的 IO 性能如何呢，可用 <code class="highlighter-rouge">dd if=/dev/sda of=/dev/null bs=32M count=10 iflag=direct</code> 这个命令测试，<br />
+大概是 31 MB/s  <br />
+所以，假设树莓派啥都不干，只通过硬盘和网卡传输数据，最大也就 15MB/s 的样子，150M 网卡就是极限了。<br />
+等等，既然是折腾嘛，那就继续吧。<br />
+别忘了你还有 SD 卡，这可没连在 USB hub 上哦，直接和 soc 相连的，读取速度算它 20M/s 吧。<br />
+综合起来看，SD 卡和硬盘同时读取数据，网卡负责传输数据。<br />
+理想情况下，SD 卡 20M/s，硬盘 5M/s，网卡 25M/s，实际网络传输速度 25M/s。<br />
+上 300M 网卡应该可以试试，好像也没谁那么蛋疼吧。<br />
 如果你的树莓派还充当无线 AP，那么 300M 网卡也是可以的</p>
 
-<h2 id="ftp-">FTP 服务器安装及配置</h2>
+<h2 id="ftp-服务器安装及配置">FTP 服务器安装及配置</h2>
 
 <p>安装 vsftpd 软件，全名 very secure FTP daemon</p>
 
@@ -428,7 +428,7 @@ linux 主机 &lt;--无线--&gt; 300M 路由器 &lt;--网线--&gt; 树莓派</p>
 </div>
 </div>
 
-<p>创建这个文件，下面有说为什么创建它 <code class="highlighter-rouge">sudo touch /etc/vsftpd.chroot_list</code><br />
+<p>创建这个文件，下面有说为什么创建它 <code class="highlighter-rouge">sudo touch /etc/vsftpd.chroot_list</code>  <br />
 修改配置文件 <code class="highlighter-rouge">sudo vim /etc/vsftpd.conf</code></p>
 
 <div class="language-ini highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
@@ -468,17 +468,17 @@ linux 主机 &lt;--无线--&gt; 300M 路由器 &lt;--网线--&gt; 树莓派</p>
 </div>
 </div>
 
-<p>但是问题来了，从 vsftpd 2.3.5 开始，chroot 目录必须为不可写<br />
-最简单的解决办法就是 <code class="highlighter-rouge">sudo chmod ugo-w /home/pi</code> （对于系统默认的 pi 用户来说）<br />
+<p>但是问题来了，从 vsftpd 2.3.5 开始，chroot 目录必须为不可写  <br />
+最简单的解决办法就是 <code class="highlighter-rouge">sudo chmod ugo-w /home/pi</code> （对于系统默认的 pi 用户来说）  <br />
 但是这样又出现新问题了，家目录变成不可写了，如果你没必要在家目录里写的话那也无所谓，但如果要写呢？</p>
 
-<p>这里提供一个办法，而不改变原来用户家目录<br />
-新建一个用户 ftppi, 将它的家目录变为不可写，且 pi 和 ftppi 属于同一个组 pi，实现协作编辑。
-我们上传下载使用这个目录 /home/pi/nas-data/nas-data，也是我们配置 samba 共享所使用的目录，
-详情见上上个标题《<a href="#安装并配置-samba">安装并配置 Samba</a>》<br />
-如果你不想让父母修改 /home/pi/nas-data/nas-data 中的文件，但是要能读取。
-可以新建一个用户 ftpparents, 不将 ftpparents 用户加入组 pi 就可以了。
-因为 nas-data 中的文件对于除 pi 和 ftppi 用户之外的用户是只读的<br />
+<p>这里提供一个办法，而不改变原来用户家目录  <br />
+新建一个用户 ftppi, 将它的家目录变为不可写，且 pi 和 ftppi 属于同一个组 pi，实现协作编辑。<br />
+我们上传下载使用这个目录 /home/pi/nas-data/nas-data，也是我们配置 samba 共享所使用的目录，<br />
+详情见上上个标题《<a href="#安装并配置-samba">安装并配置 Samba</a>》  <br />
+如果你不想让父母修改 /home/pi/nas-data/nas-data 中的文件，但是要能读取。<br />
+可以新建一个用户 ftpparents, 不将 ftpparents 用户加入组 pi 就可以了。<br />
+因为 nas-data 中的文件对于除 pi 和 ftppi 用户之外的用户是只读的  <br />
 因 Raspbian 系统默认 umask 为 022, 所以需要一些额外的操作</p>
 
 <ol>
@@ -505,7 +505,7 @@ linux 主机 &lt;--无线--&gt; 300M 路由器 &lt;--网线--&gt; 树莓派</p>
     </ul>
   </li>
   <li>
-    <p>将家目录变为不可写<br />
+    <p>将家目录变为不可写  <br />
 /home/pi/nas-data 不可写，/home/pi/nas-data/nas-data 可写（实际我们要用的是这个目录）</p>
 
     <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo chmod 555 /home/pi/nas-data
@@ -514,8 +514,8 @@ linux 主机 &lt;--无线--&gt; 300M 路由器 &lt;--网线--&gt; 树莓派</p>
     </div>
   </li>
   <li>
-    <p>将 pi 用户的 umask 修改为 002, 只有 pi 用户登陆才有效，系统才会去执行 “/home/pi/.profile” 这个脚本<br />
-<code class="highlighter-rouge">sudo vim /home/pi/.profile</code>, 添加一行 “umask 002”<br />
+    <p>将 pi 用户的 umask 修改为 002, 只有 pi 用户登陆才有效，系统才会去执行 “/home/pi/.profile” 这个脚本  <br />
+<code class="highlighter-rouge">sudo vim /home/pi/.profile</code>, 添加一行 “umask 002”  <br />
 这样新建文件权限为 664，而 pi 和 ftppi 同属于 pi 组，即可相互编辑文件</p>
   </li>
   <li>
@@ -530,15 +530,15 @@ find /home/pi/nas-data/ -type d -print0 | xargs -0 chmod 775
   </li>
 </ol>
 
-<p>以上步骤完成后，即实现了 pi 和 ftppi 可共同编辑 /home/pi/nas-data/nas-data 目录下的文件<br />
-一般情况下用 ftppi 登陆 ftp 就可以了<br />
+<p>以上步骤完成后，即实现了 pi 和 ftppi 可共同编辑 /home/pi/nas-data/nas-data 目录下的文件  <br />
+一般情况下用 ftppi 登陆 ftp 就可以了  <br />
 顺便一说，umask 为 002，方便团队协作；umask 为 022 看上去貌似是 owner, 只有自己私有（组用户和其它用户不可写）</p>
 
-<h2 id="aria2---web---">aria2 安装及配置 + web 前端 + 迅雷离线</h2>
+<h2 id="aria2-安装及配置--web-前端--迅雷离线">aria2 安装及配置 + web 前端 + 迅雷离线</h2>
 
-<h3 id="aria2-">aria2 安装及配置</h3>
+<h3 id="aria2-安装及配置">aria2 安装及配置</h3>
 
-<p>关于这软件就不多说了，太有名了，总之占用资源少且非常好用<br />
+<p>关于这软件就不多说了，太有名了，总之占用资源少且非常好用  <br />
 下面来安装 aria2</p>
 
 <ol>
@@ -557,8 +557,8 @@ find /home/pi/nas-data/ -type d -print0 | xargs -0 chmod 775
 </div>
     </div>
 
-    <p>将 deb http://mirrordirector.raspbian.org/raspbian/ wheezy main contrib non-free rpi<br />
-改为 deb http://mirrordirector.raspbian.org/raspbian/ testing main contrib non-free rpi<br />
+    <p>将 deb http://mirrordirector.raspbian.org/raspbian/ wheezy main contrib non-free rpi  <br />
+改为 deb http://mirrordirector.raspbian.org/raspbian/ testing main contrib non-free rpi  <br />
 然后更新源并安装新版的 aria2</p>
 
     <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
@@ -571,7 +571,7 @@ sudo apt-get install aria2
     <p>若继续用稳定版的系统及其它软件的话，记得把源改回来</p>
   </li>
   <li>
-    <p>创建 aria2 配置文件 “/home/pi/.aria2/aria2.conf” 和 “/home/pi/.aria2/aria2.session” 这个文件 (我是以 pi 账户启动 aria2 的), 
+    <p>创建 aria2 配置文件 “/home/pi/.aria2/aria2.conf” 和 “/home/pi/.aria2/aria2.session” 这个文件 (我是以 pi 账户启动 aria2 的), <br />
 命令是 <code class="highlighter-rouge">mkdir /home/pi/.aria2</code>, <code class="highlighter-rouge">touch /home/pi/.aria2/aria2.session</code> 和 <code class="highlighter-rouge">vim /home/pi/.aria2/aria2.conf</code> 配置文件内容如下，只是参考</p>
 
     <div class="language-ini highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
@@ -739,7 +739,7 @@ sudo apt-get install aria2
 </div>
     </div>
 
-    <p>什么你配置得还不过瘾，请移步《<a href="http://aria2.sourceforge.net/manual/en/html/aria2c.html#options">官方配置文档</a>》，
+    <p>什么你配置得还不过瘾，请移步《<a href="http://aria2.sourceforge.net/manual/en/html/aria2c.html#options">官方配置文档</a>》，<br />
 看完记得过来指正我这个配置的不当之处，我表示我只看了一部分</p>
   </li>
   <li>
@@ -830,7 +830,7 @@ restart<span class="p">)</span>
 </div>
         </div>
 
-        <p>本来我新建的是 /etc/init.d/aria2c 文件，但是其中的 killall -w aria2c, 这用的是字符串匹配，
+        <p>本来我新建的是 /etc/init.d/aria2c 文件，但是其中的 killall -w aria2c, 这用的是字符串匹配，<br />
 不光 kill 了 aria2c 还把脚本本身给 kill 了，所以我把脚本文件名改成了 aria2</p>
       </li>
       <li>
@@ -863,7 +863,7 @@ restart<span class="p">)</span>
   </li>
 </ol>
 
-<h3 id="web--yaaw--webui-aria2">web 前端的配置 yaaw 和 webui-aria2</h3>
+<h3 id="web-前端的配置-yaaw-和-webui-aria2">web 前端的配置 yaaw 和 webui-aria2</h3>
 
 <p>yaaw 和 webui-aria2 都是不错的，yaaw 界面简洁，wubui-aria2 功能强大，可以根据自己的喜好来选择，或者两个同时使用也可以</p>
 
@@ -874,7 +874,7 @@ restart<span class="p">)</span>
 <ol>
   <li><a href="http://binux.github.io/yaaw/">YAAW</a>, 这是 yaaw 的主页，打开它</li>
   <li>打开左边的 <a href="http://binux.github.io/yaaw/demo/">Live Demo</a> 链接</li>
-  <li>点击右上角的小扳手，在 JSON-RPC Path 中填入 “http://raspberrypi-ip:6800/jsonrpc”<br />
+  <li>点击右上角的小扳手，在 JSON-RPC Path 中填入 “http://raspberrypi-ip:6800/jsonrpc”  <br />
 如果设置了 rpc 密码，那么填入 “http://user:passwd@raspberrypi-ip:6800/jsonrpc”</li>
 </ol>
 
@@ -896,25 +896,25 @@ restart<span class="p">)</span>
 
 <p><strong>常见问题</strong></p>
 
-<p>若无法连接到 web 前端，请手动访问你的 JSON-RPC 地址 http://raspberrypi-ip:6800/jsonrpc?jsoncallback=1, 
-如果没有返回，请确认 aria2 是否启动以及连通性<br />
+<p>若无法连接到 web 前端，请手动访问你的 JSON-RPC 地址 http://raspberrypi-ip:6800/jsonrpc?jsoncallback=1, <br />
+如果没有返回，请确认 aria2 是否启动以及连通性  <br />
 如果是从外网访问的, 别忘记在路由器上做好 ddns 和端口映射</p>
 
-<h3 id="section-2">迅雷离线下载</h3>
+<h3 id="迅雷离线下载">迅雷离线下载</h3>
 
-<p><a href="https://github.com/binux/ThunderLixianExporter">ThunderLixianExporter</a>, 将迅雷离线地址导出成 aria2/wget 等下载命令的工具<br />
-<a href="https://github.com/ohsc/ThunderLixianAssistant">ThunderLixianAssistant</a>, 
-这个项目是上个项目在 chrome 上的一个封装<br />
-以上两个工具使用方法在主页中已经说的很详细了，就不多说了<br />
+<p><a href="https://github.com/binux/ThunderLixianExporter">ThunderLixianExporter</a>, 将迅雷离线地址导出成 aria2/wget 等下载命令的工具  <br />
+<a href="https://github.com/ohsc/ThunderLixianAssistant">ThunderLixianAssistant</a>, <br />
+这个项目是上个项目在 chrome 上的一个封装  <br />
+以上两个工具使用方法在主页中已经说的很详细了，就不多说了  <br />
 导出功能没有一个个去试，实测导出 yaaw 可用</p>
 
-<h3 id="aria2--1">aria2 出现问题的解决方法</h3>
+<h3 id="aria2-出现问题的解决方法">aria2 出现问题的解决方法</h3>
 
 <p>有读者反馈，aria2 出问题还蛮多的，我就写一点解决的方法</p>
 
 <p>若 yaaw 无法使用，首先看看 aria2 是否启动以及连通性，前面不远处有说明</p>
 
-<p>还有一些是 aria2 本身出现了问题，这里面出现问题的可能性就多了，
+<p>还有一些是 aria2 本身出现了问题，这里面出现问题的可能性就多了，<br />
 我只是说一下检测问题的方法，知道了问题之后，google 一下就能解决了</p>
 
 <ol>
@@ -923,10 +923,10 @@ restart<span class="p">)</span>
   <li>这样就能看到 aria2 的反馈，可能会出现一些 [ERROR] 提示，这样你就知道问题具体出现在哪里了</li>
 </ol>
 
-<h2 id="raid1-">磁盘阵列 RAID1 与异地备份</h2>
+<h2 id="磁盘阵列-raid1-与异地备份">磁盘阵列 RAID1 与异地备份</h2>
 
-<p>一个硬盘，不管它来自什么厂商，也不管它是机械的还是固态的，它出现故障只是时间早晚的问题<br />
-一个人，不管 TA 来自什么地方，也不管 TA 是男的还是女的，TA 总有误操作的时候<br />
+<p>一个硬盘，不管它来自什么厂商，也不管它是机械的还是固态的，它出现故障只是时间早晚的问题  <br />
+一个人，不管 TA 来自什么地方，也不管 TA 是男的还是女的，TA 总有误操作的时候  <br />
 我就不信你们没有丢过一点数据！</p>
 
 <p>既然问题摆在面前那怎么办呢？</p>
@@ -936,18 +936,18 @@ restart<span class="p">)</span>
   <li>对于需要永久保存的数据来说至少异地备份</li>
 </ul>
 
-<p>最好还要加上版本控制功能<br />
-当然你还得注意硬盘的健康状况，真的是比人还要脆弱<br />
-btrfs 文件系统的一些特性非常不错，快照，克隆，字卷，校验等，
-不知道现在稳定到什么程度了，听说上个月在最新的 Linux 稳定版内核 3.12 中被修改成了 stable, 
+<p>最好还要加上版本控制功能  <br />
+当然你还得注意硬盘的健康状况，真的是比人还要脆弱  <br />
+btrfs 文件系统的一些特性非常不错，快照，克隆，字卷，校验等，<br />
+不知道现在稳定到什么程度了，听说上个月在最新的 Linux 稳定版内核 3.12 中被修改成了 stable, <br />
 有时间去试一试</p>
 
-<p>这篇文章比较长，关于如何在树莓派上组建磁盘阵列 raid1, 我另外写了一篇文章
+<p>这篇文章比较长，关于如何在树莓派上组建磁盘阵列 raid1, 我另外写了一篇文章<br />
 《<a href="http://www.dreamxu.com/debian-create-software-raid-one-arrays/">Debian 组建软 RAID 1 磁盘阵列</a>》</p>
 
 <hr />
 
-<p>下面就来说说怎么异地备份吧，使用 rsync 工具, 且通过 ssh 传输，比较安全<br />
+<p>下面就来说说怎么异地备份吧，使用 rsync 工具, 且通过 ssh 传输，比较安全  <br />
 在本地主机上（将树莓派中的数据备份到这个机子）操作</p>
 
 <ol>
@@ -976,8 +976,8 @@ btrfs 文件系统的一些特性非常不错，快照，克隆，字卷，校�
     </div>
   </li>
   <li>
-    <p>执行下面的命令，作用是：保存所有文件属性与权限，删除 dst 中 src 没有的文件（传输结束以后再删除），
-通过 ssh 将 192.168.1.2 机子中 “/home/pi/nas-data/nas-data/save/” 目录备份到本地主机 “/home/mwum/save/” 目录，
+    <p>执行下面的命令，作用是：保存所有文件属性与权限，删除 dst 中 src 没有的文件（传输结束以后再删除），<br />
+通过 ssh 将 192.168.1.2 机子中 “/home/pi/nas-data/nas-data/save/” 目录备份到本地主机 “/home/mwum/save/” 目录，<br />
 并且显示详细信息</p>
 
     <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>rsync -av -delete-after -e ssh pi@192.168.1.2:/home/pi/nas-data/nas-data/save/ /home/mwum/save/
@@ -1006,12 +1006,12 @@ btrfs 文件系统的一些特性非常不错，快照，克隆，字卷，校�
 </div>
     </div>
 
-    <p>基本格式，共 6 列，如下<br />
+    <p>基本格式，共 6 列，如下  <br />
 分钟(0-59) | 小时(0-23) | 日期(1-31) | 月份(1-12) 星期(0-6, 0 表示星期日) | 命令</p>
   </li>
 </ol>
 
-<p>如果是通过外网访问，也是一样的，把 ip 改一下就可以了<br />
+<p>如果是通过外网访问，也是一样的，把 ip 改一下就可以了  <br />
 若没有固定的公网 ip, 请使用 ddns; 若使用了路由器，请设置端口映射</p>
 
 <p>不知不觉写那么多了，就告一段落吧，为啥是今天呢，是一部动画完结的日子</p>

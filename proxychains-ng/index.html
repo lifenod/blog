@@ -87,12 +87,12 @@
 <p>官方说明：</p>
 
 <blockquote>
-  <p>proxychains ng (new generation) - 
-  a preloader which hooks calls to sockets in dynamically linked programs and redirects it through one or more socks/http proxies. 
+  <p>proxychains ng (new generation) - <br />
+  a preloader which hooks calls to sockets in dynamically linked programs and redirects it through one or more socks/http proxies. <br />
   continuation of the unmaintained proxychains project.</p>
 </blockquote>
 
-<h2 id="section">安装</h2>
+<h2 id="安装">安装</h2>
 
 <p>使用 Homebrew 安装</p>
 
@@ -101,10 +101,10 @@
 </div>
 </div>
 
-<h2 id="section-1">配置</h2>
+<h2 id="配置">配置</h2>
 
-<p>编辑配置文件 <code class="highlighter-rouge">mvim /usr/local/etc/proxychains.conf</code><br />
-在 [ProxyList] 下面（也就是末尾）加入代理类型，代理地址和端口<br />
+<p>编辑配置文件 <code class="highlighter-rouge">mvim /usr/local/etc/proxychains.conf</code>  <br />
+在 [ProxyList] 下面（也就是末尾）加入代理类型，代理地址和端口  <br />
 例如使用 TOR 代理，注释掉原来的代理并添加</p>
 
 <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>socks5  127.0.0.1 9050
@@ -112,14 +112,14 @@
 </div>
 </div>
 
-<p>如果所在的网络很复杂，可能需要在配置文件中启用<br />
-<code class="highlighter-rouge">dynamic_chain</code> - 按照列表中出现的代理服务器的先后顺序组成一条链，如果有代理服务器失效，则自动将其排除，但至少要有一个是有效的<br />
+<p>如果所在的网络很复杂，可能需要在配置文件中启用  <br />
+<code class="highlighter-rouge">dynamic_chain</code> - 按照列表中出现的代理服务器的先后顺序组成一条链，如果有代理服务器失效，则自动将其排除，但至少要有一个是有效的  <br />
 然后在 [ProxyList] 下添加多个代理</p>
 
-<p>默认是：<br />
+<p>默认是：  <br />
 <code class="highlighter-rouge">strict_chain</code> - 按照后面列表中出现的代理服务器的先后顺序组成一条链，要求所有的代理服务器都是有效的</p>
 
-<h2 id="section-2">使用</h2>
+<h2 id="使用">使用</h2>
 
 <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>proxychains4 curl twitter.com
 </pre></td></tr></tbody></table>

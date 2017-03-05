@@ -8,7 +8,7 @@
 
   
   <title>在不同目录下执行不同的命令 | 明无梦</title>
-  <meta name="description" content="我经常遇到这种情况：GitBook 有 “server” 命令，例如 gitbook serveJekyll 有 “server” 命令，例如 jekyll serveRails 有 “server” 命令，例如 rails server">
+  <meta name="description" content="我经常遇到这种情况：  GitBook 有 “server” 命令，例如 gitbook serve  Jekyll 有 “server” 命令，例如 jekyll serve  Rails 有 “server” 命令，例如 rails server">
 
   <link rel="stylesheet" href="/css/main.css">
   <link rel="canonical" href="http://www.dreamxu.com/execute-different-commands-in-different-directories/">
@@ -82,15 +82,15 @@
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>我经常遇到这种情况：<br />
-GitBook 有 “server” 命令，例如 <code class="highlighter-rouge">gitbook serve</code><br />
-Jekyll 有 “server” 命令，例如 <code class="highlighter-rouge">jekyll serve</code><br />
+    <p>我经常遇到这种情况：  <br />
+GitBook 有 “server” 命令，例如 <code class="highlighter-rouge">gitbook serve</code>  <br />
+Jekyll 有 “server” 命令，例如 <code class="highlighter-rouge">jekyll serve</code>  <br />
 Rails 有 “server” 命令，例如 <code class="highlighter-rouge">rails server</code></p>
 
-<p>以上命令都不尽相同，每次打 “server” 命令之前都得想一会儿到底该使用哪个命令，好烦<br />
+<p>以上命令都不尽相同，每次打 “server” 命令之前都得想一会儿到底该使用哪个命令，好烦  <br />
 假如有一个 <code class="highlighter-rouge">server</code> 命令，可以自动选择合适的命令去执行就好了</p>
 
-<p>心动不如行动，下面是我用 Ruby 写的解决方案<br />
+<p>心动不如行动，下面是我用 Ruby 写的解决方案  <br />
 若不喜欢用 Ruby, 可用 Python, shell script 等改写一下即可</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
@@ -130,14 +130,14 @@ Rails 有 “server” 命令，例如 <code class="highlighter-rouge">rails ser
 
 <p>将以上文件命名为 server, 并放到 bin 目录下，在给它加上可执行权限 <code class="highlighter-rouge">chmod +x ./server</code>, 即可愉快使用了</p>
 
-<p>有一点需要注意的：<br />
-使用 <code class="highlighter-rouge">exec</code> 比较合适，不要使用 <code class="highlighter-rouge">system</code> 等<br />
-如果使用 <code class="highlighter-rouge">system</code>, Ruby 进程并不会退出而是会等待 <code class="highlighter-rouge">system</code> 返回，
-而 server 命令不是立即返回的，所以用 <code class="highlighter-rouge">system</code> 不合适，Ruby 进程会一直等待。
+<p>有一点需要注意的：  <br />
+使用 <code class="highlighter-rouge">exec</code> 比较合适，不要使用 <code class="highlighter-rouge">system</code> 等  <br />
+如果使用 <code class="highlighter-rouge">system</code>, Ruby 进程并不会退出而是会等待 <code class="highlighter-rouge">system</code> 返回，<br />
+而 server 命令不是立即返回的，所以用 <code class="highlighter-rouge">system</code> 不合适，Ruby 进程会一直等待。<br />
 但是 <code class="highlighter-rouge">exec</code> 是完全替换进程的，所以不存在这个问题</p>
 
-<p>以上程序还是不够智能，如果我想使某个目录下的所有子目录都执行相同的命令，
-岂不是要一个个子目录去设置，这显然是不合适的<br />
+<p>以上程序还是不够智能，如果我想使某个目录下的所有子目录都执行相同的命令，<br />
+岂不是要一个个子目录去设置，这显然是不合适的  <br />
 所以继续给上面的程序加入正则匹配功能</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1

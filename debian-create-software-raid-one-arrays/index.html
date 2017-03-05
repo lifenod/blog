@@ -8,7 +8,7 @@
 
   
   <title>Debian 组建软 RAID 1 磁盘阵列 | 明无梦</title>
-  <meta name="description" content="现状：共有2块硬盘当做数据盘，一块 500G(sda), 另一块 2T(sdb)要实现的：sda 和 sdb 其中的 500G 组成 raid1, sdb 剩下的当做普通数据盘，并且当 raid 出现问题的时候，发送邮件通知你">
+  <meta name="description" content="现状：共有2块硬盘当做数据盘，一块 500G(sda), 另一块 2T(sdb)  要实现的：sda 和 sdb 其中的 500G 组成 raid1, sdb 剩下的当做普通数据盘，并且当 raid 出现问题的时候，发送邮件通知你">
 
   <link rel="stylesheet" href="/css/main.css">
   <link rel="canonical" href="http://www.dreamxu.com/debian-create-software-raid-one-arrays/">
@@ -84,11 +84,11 @@
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>现状：共有2块硬盘当做数据盘，一块 500G(sda), 另一块 2T(sdb)<br />
-要实现的：sda 和 sdb 其中的 500G 组成 raid1, sdb 剩下的当做普通数据盘，
+    <p>现状：共有2块硬盘当做数据盘，一块 500G(sda), 另一块 2T(sdb)  <br />
+要实现的：sda 和 sdb 其中的 500G 组成 raid1, sdb 剩下的当做普通数据盘，<br />
 并且当 raid 出现问题的时候，发送邮件通知你</p>
 
-<p>使用 <code class="highlighter-rouge">sudo fdisk /dev/sdx</code> 命令进行分区，按照提示操作就可以了<br />
+<p>使用 <code class="highlighter-rouge">sudo fdisk /dev/sdx</code> 命令进行分区，按照提示操作就可以了  <br />
 分区之后情况如下</p>
 
 <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
@@ -136,7 +136,7 @@ Disk identifier: 0xe0894113
 
 <p>下面开始将 sda1 和 sdb1 组建成 raid1</p>
 
-<h2 id="section">创建与配置</h2>
+<h2 id="创建与配置">创建与配置</h2>
 
 <ol>
   <li>
@@ -274,9 +274,9 @@ unused devices: &lt;none&gt;
   </li>
 </ol>
 
-<h2 id="section-1">监控</h2>
+<h2 id="监控">监控</h2>
 
-<p>磁盘阵列出现问题的时候，发送邮件通知你<br />
+<p>磁盘阵列出现问题的时候，发送邮件通知你  <br />
 好心发给你可别忽略了，要不然你会付出代价的</p>
 
 <ol>
@@ -384,7 +384,7 @@ unused devices: &lt;none&gt;
   </li>
 </ol>
 
-<h2 id="section-2">彻底删除</h2>
+<h2 id="彻底删除">彻底删除</h2>
 
 <p>删除需谨慎，都是满满的数据</p>
 
@@ -408,13 +408,13 @@ sudo mdadm --zero-superblock /dev/sdb1
     </div>
   </li>
   <li>
-    <p>清除添加到 /etc/mdadm/mdadm.conf 中的信息<br />
-如果设置了 fstab, 那么删除其中关于 raid 的信息<br />
+    <p>清除添加到 /etc/mdadm/mdadm.conf 中的信息  <br />
+如果设置了 fstab, 那么删除其中关于 raid 的信息  <br />
 重新分区格式化来使用磁盘</p>
   </li>
 </ol>
 
-<h2 id="section-3">故障处理</h2>
+<h2 id="故障处理">故障处理</h2>
 
 <p>对一些情况进行处理</p>
 
@@ -550,7 +550,7 @@ Disk identifier: 0xe0894113
         </div>
       </li>
       <li>
-        <p>测试的时候，我将两个磁盘插到新的电脑上，它自动重组成磁盘阵列 md127 了，但是是只读的<br />
+        <p>测试的时候，我将两个磁盘插到新的电脑上，它自动重组成磁盘阵列 md127 了，但是是只读的  <br />
 先停止其运行</p>
 
         <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo mdadm --stop /dev/md127
@@ -595,9 +595,9 @@ Disk identifier: 0xe0894113
 </ul>
 
 <hr />
-<p>参考<br />
-<a href="https://raid.wiki.kernel.org/index.php/RAID_setup">https://raid.wiki.kernel.org/index.php/RAID_setup</a><br />
-<a href="http://en.wikipedia.org/wiki/Mdadm">http://en.wikipedia.org/wiki/Mdadm</a><br />
+<p>参考  <br />
+<a href="https://raid.wiki.kernel.org/index.php/RAID_setup">https://raid.wiki.kernel.org/index.php/RAID_setup</a>  <br />
+<a href="http://en.wikipedia.org/wiki/Mdadm">http://en.wikipedia.org/wiki/Mdadm</a>  <br />
 <code class="highlighter-rouge">man mdadm</code></p>
 
   </div>

@@ -90,8 +90,8 @@
 
 <p>为了操作以及表示符号数据，在语言中就需要一种新元素：具有表示符号的能力</p>
 
-<p>表示方法是在数据前面加上「单引号」，例如：<code class="highlighter-rouge">'(a b)</code><br />
-但是这样就违背了我们程序具有表的形式的普遍性，通过引进特殊形式 quote 就可以恢复这种一致性<br />
+<p>表示方法是在数据前面加上「单引号」，例如：<code class="highlighter-rouge">'(a b)</code>  <br />
+但是这样就违背了我们程序具有表的形式的普遍性，通过引进特殊形式 quote 就可以恢复这种一致性  <br />
 例如：<code class="highlighter-rouge">(quote a b)</code> 等价与 <code class="highlighter-rouge">'(a b)</code></p>
 
 <p>如下的例子展示了符号和值的区别：</p>
@@ -109,10 +109,10 @@
 </div>
 </div>
 
-<h3 id="section">单引号和双引号的区别</h3>
+<h3 id="单引号和双引号的区别">单引号和双引号的区别</h3>
 
-<p>用双引号扩起来的称为字符串，例如：”String”<br />
-单引号可以用于扩起表和符号，是一种结构化的数据；
+<p>用双引号扩起来的称为字符串，例如：”String”  <br />
+单引号可以用于扩起表和符号，是一种结构化的数据；<br />
 而双引号只能用于字符串，只是一串字符，一般用于需要打印输出的对象，例如：</p>
 
 <div class="language-scheme highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="p">(</span><span class="nb">display</span> <span class="s">"hi"</span><span class="p">)</span>

@@ -93,14 +93,14 @@
 <ul>
   <li>MinGW 工具链 + Qt Creator IDE
     <ol>
-      <li>安装 <a href="http://qt-project.org/downloads">Qt 5.0.2 for Windows 32-bit (MinGW 4.7, 650 MB)</a>
+      <li>安装 <a href="http://qt-project.org/downloads">Qt 5.0.2 for Windows 32-bit (MinGW 4.7, 650 MB)</a><br />
 （集成了 <a href="http://sourceforge.net/projects/mingw/files/">MinGW 4.7</a> 和 <a href="http://qt-project.org/downloads">Qt Creator</a>，很方便，安装的时候记得勾选上）</li>
     </ol>
   </li>
   <li>MS 工具链 + Qt Creator IDE
     <ol>
       <li>安装 <a href="http://www.microsoft.com/visualstudio/chs/products/visual-studio-overview">vs2012</a>（Express 版就可以了，注册一下就能免费使用了）</li>
-      <li>安装 <a href="http://qt-project.org/downloads">Qt 5.0.2 for Windows 64-bit (VS 2012, 500 MB)</a>
+      <li>安装 <a href="http://qt-project.org/downloads">Qt 5.0.2 for Windows 64-bit (VS 2012, 500 MB)</a><br />
 （集成了 <a href="http://qt-project.org/downloads">Qt Creator</a>，安装的时候记得勾选）</li>
       <li>安装 <a href="http://msdn.microsoft.com/zh-CN/windows/hardware/gg463009/">控制台调试器 (CDB)</a>（Qt Creator 中要使用的调试器）</li>
     </ol>
@@ -129,7 +129,7 @@
     <p><a href="http://qt-project.org/downloads">安装 Qt 5.0.2 for Linux 64-bit (394 MB)</a></p>
   </li>
   <li>
-    <p>设置环境变量<br />
+    <p>设置环境变量  <br />
 假设 Qt 安装在 /usr/local</p>
 
     <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo vim /etc/profile (所有用户) 或者 vim ~/.bashrc (当前用户)
@@ -151,10 +151,10 @@
     <p><code class="highlighter-rouge">source /etc/profile</code> 使之生效</p>
   </li>
   <li>
-    <p>构建程序的时候会如下出现错误<br />
-/usr/bin/ld: cannot find -lGL<br />
-collect2: ld returned 1 exit status<br />
-这是因为 Qt5.0 默认将 OpenGL 加入了工程，但是在机器上没有安装 OpenGL<br />
+    <p>构建程序的时候会如下出现错误  <br />
+/usr/bin/ld: cannot find -lGL  <br />
+collect2: ld returned 1 exit status  <br />
+这是因为 Qt5.0 默认将 OpenGL 加入了工程，但是在机器上没有安装 OpenGL  <br />
 解决办法就是安装 OpenGL Library</p>
 
     <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo apt-get install libgl1-mesa-dev
@@ -166,8 +166,8 @@ collect2: ld returned 1 exit status<br />
 
 <hr />
 
-<p>参考：<br />
-<a href="http://qt-project.org/doc/qt-5.0/qtdoc/platform-details.html">QtDoc</a><br />
+<p>参考：  <br />
+<a href="http://qt-project.org/doc/qt-5.0/qtdoc/platform-details.html">QtDoc</a>  <br />
 <a href="http://blog.sina.com.cn/s/blog_c289bdac0101600z.html">Ubuntu Qt5.0 安装后运行失败提示 can’t find -Igl</a></p>
 
   </div>

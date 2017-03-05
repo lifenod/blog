@@ -105,10 +105,10 @@
     <p>下载某个工具的源代码，例如 <code class="highlighter-rouge">top</code></p>
 
     <ol>
-      <li><code class="highlighter-rouge">dpkg -S $(which top)</code> 或者 <code class="highlighter-rouge">dpkg -S $(whereis top)</code> - 查看文件所属的包<br />
+      <li><code class="highlighter-rouge">dpkg -S $(which top)</code> 或者 <code class="highlighter-rouge">dpkg -S $(whereis top)</code> - 查看文件所属的包  <br />
 procps: /usr/bin/top</li>
-      <li><code class="highlighter-rouge">apt-get source -d procps</code> - 获取这个包的源码，不解包，之后你需要自己解包<br />
-<code class="highlighter-rouge">dpkg-source -x foo_version-revision.dsc</code> 或者<br />
+      <li><code class="highlighter-rouge">apt-get source -d procps</code> - 获取这个包的源码，不解包，之后你需要自己解包  <br />
+<code class="highlighter-rouge">dpkg-source -x foo_version-revision.dsc</code> 或者  <br />
 <code class="highlighter-rouge">apt-get source procps</code> - 获取源码并解包</li>
     </ol>
   </li>
@@ -118,7 +118,7 @@ procps: /usr/bin/top</li>
 
 <p>在 Debian 类系统中作为 dpkg 的前端，可以自动下载，配置，安装软件包，还能解决包的依赖关系</p>
 
-<p>APT 的软件源地址在 <code class="highlighter-rouge">/etc/apt/sources.list</code><br />
+<p>APT 的软件源地址在 <code class="highlighter-rouge">/etc/apt/sources.list</code>  <br />
 还可以在 <code class="highlighter-rouge">/etc/apt/sources.list.d</code> 目录中添加更多源</p>
 
 <ul>

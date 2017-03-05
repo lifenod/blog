@@ -96,7 +96,7 @@
 
 <p>iTerm2 是一个终端模拟器，官方网站：<a href="http://www.iterm2.com/">http://www.iterm2.com/</a></p>
 
-<h3 id="solarized">更改配色方案为 Solarized</h3>
+<h3 id="更改配色方案为-solarized">更改配色方案为 Solarized</h3>
 
 <p><strong>注意</strong>：iTerm2 3.0.12（应该比这更早）已经内置 Solarized 的配色方案了，直接在 iTerm2 - Preferences - Profiles - Colors 里面配置就好了</p>
 
@@ -111,40 +111,40 @@
 
 <p>然后打开 solarized/iterm2-colors-solarized/ 双击里面的文件</p>
 
-<h4 id="section">遇到的问题</h4>
+<h4 id="遇到的问题">遇到的问题</h4>
 
 <p>终端灰蒙蒙的，就像下面这样</p>
 
 <p><img src="/assets/images/posts/2014-05-11_230829.png" alt="terminal-gray" /></p>
 
-<p>下面我们来回到彩色世界：<br />
-依次打开 iTerm2 - Preferences - Profiles - Text - Text Rendering，将 Draw bold text in bright colors 前面的勾去掉<br />
+<p>下面我们来回到彩色世界：  <br />
+依次打开 iTerm2 - Preferences - Profiles - Text - Text Rendering，将 Draw bold text in bright colors 前面的勾去掉  <br />
 彩色的世界就回来了</p>
 
 <p><img src="/assets/images/posts/2014-05-11_230856.png" alt="terminal-color" /></p>
 
-<h3 id="section-1">有意思的配置</h3>
+<h3 id="有意思的配置">有意思的配置</h3>
 
 <ul>
   <li>
-    <p>快捷键呼出<br />
-Preferences - Keys - Hotkey - Hotkey toggles a dedicated window with profile<br />
+    <p>快捷键呼出  <br />
+Preferences - Keys - Hotkey - Hotkey toggles a dedicated window with profile  <br />
 把它设置成 Hotkey Window，按快捷键之后 Hotkey Window 会从屏幕上面折叠下来</p>
   </li>
   <li>
     <p>菜单栏中的 Window 还有一些有趣的东西，比如保存读取窗口快照</p>
   </li>
   <li>
-    <p>Preferences - Profiles - Terminal - Terminal Emulation - Report Terminal Type<br />
+    <p>Preferences - Profiles - Terminal - Terminal Emulation - Report Terminal Type  <br />
 将其中的 xterm 改成 xterm-256color，比如在 Vim 显示一些配色方案会好很多</p>
   </li>
   <li>
-    <p>复用上个会话的目录<br />
+    <p>复用上个会话的目录  <br />
 Preferences - Profiles - Working Directory - Reuse previous session’s directory</p>
   </li>
 </ul>
 
-<h3 id="section-2">快捷键</h3>
+<h3 id="快捷键">快捷键</h3>
 
 <ul>
   <li><code class="highlighter-rouge">⌘ + Click</code>：可以打开文件，文件夹和链接</li>
@@ -162,7 +162,7 @@ Preferences - Profiles - Working Directory - Reuse previous session’s director
   <li><code class="highlighter-rouge">⌘ + r</code> &amp; <code class="highlighter-rouge">⌃ + l</code>：清屏</li>
   <li><code class="highlighter-rouge">⌘ + /</code>：显示光标位置</li>
   <li><code class="highlighter-rouge">⌥⌘ + b</code>：历史回放</li>
-  <li><code class="highlighter-rouge">⌘ + f</code>：查找，然后用 <code class="highlighter-rouge">tab</code> 和 <code class="highlighter-rouge">⇧ + tab</code> 可以向右和向左补全，补全之后的内容会被自动复制，
+  <li><code class="highlighter-rouge">⌘ + f</code>：查找，然后用 <code class="highlighter-rouge">tab</code> 和 <code class="highlighter-rouge">⇧ + tab</code> 可以向右和向左补全，补全之后的内容会被自动复制，<br />
 还可以用 <code class="highlighter-rouge">⌥ + enter</code> 将查找结果输入终端</li>
   <li>选中即复制，鼠标中键粘贴</li>
 </ul>
@@ -186,7 +186,7 @@ Preferences - Profiles - Working Directory - Reuse previous session’s director
   <li><code class="highlighter-rouge">⌃ + t</code>：交换光标和之前的字符</li>
 </ul>
 
-<p>还有鼠标和触摸板控制<br />
+<p>还有鼠标和触摸板控制  <br />
 Preferences - Pointer</p>
 
 <h2 id="zsh">Zsh</h2>
@@ -198,7 +198,7 @@ Preferences - Pointer</p>
 </div>
 </div>
 
-<p>可通过 <code class="highlighter-rouge">zsh --version</code> 命令查看 Zsh 的版本<br />
+<p>可通过 <code class="highlighter-rouge">zsh --version</code> 命令查看 Zsh 的版本  <br />
 使用 <code class="highlighter-rouge">echo $ZSH_VERSION</code> 命令查看当前使用的 Zsh 版本</p>
 
 <p>修改默认 Shell</p>
@@ -228,7 +228,7 @@ Preferences - Pointer</p>
 
 <p>项目主页：<a href="https://github.com/robbyrussell/oh-my-zsh">https://github.com/robbyrussell/oh-my-zsh</a></p>
 
-<p>安装方法见主页，很简单就不说了，下面说说一些常用的好用的功能：<br />
+<p>安装方法见主页，很简单就不说了，下面说说一些常用的好用的功能：  <br />
 配置文件在 <code class="highlighter-rouge">~/.zshrc</code></p>
 
 <ul>
@@ -236,9 +236,9 @@ Preferences - Pointer</p>
     <p>连续按 tab, 能直接选择文件及文件夹，还可以使用 <code class="highlighter-rouge">⌃ + n/p/f/b</code> 来选择</p>
   </li>
   <li>
-    <p>直接输入文件名打开文件，可指定不同的后缀名用不同的程序打开<br />
-在配置文件中写入 <code class="highlighter-rouge">alias -s md=mvim</code>, 表明在命令行中输入 md 后缀的文件名，会用 mvim 打开<br />
-又例如：<code class="highlighter-rouge">alias -s gz="tar -xzvf"</code>, 自动解压后缀为 gz 的压缩包<br />
+    <p>直接输入文件名打开文件，可指定不同的后缀名用不同的程序打开  <br />
+在配置文件中写入 <code class="highlighter-rouge">alias -s md=mvim</code>, 表明在命令行中输入 md 后缀的文件名，会用 mvim 打开  <br />
+又例如：<code class="highlighter-rouge">alias -s gz="tar -xzvf"</code>, 自动解压后缀为 gz 的压缩包  <br />
 一些常用的压缩方式如下：</p>
 
     <div class="language-bash highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
@@ -284,7 +284,7 @@ export LESS_TERMCAP_us=$'</span><span class="se">\E</span><span class="o">[</spa
   </li>
 </ul>
 
-<p>Oh My Zsh 本身自带了很多插件，不过基本都没有启用，插件目录 <code class="highlighter-rouge">~/.oh-my-zsh/plugins</code><br />
+<p>Oh My Zsh 本身自带了很多插件，不过基本都没有启用，插件目录 <code class="highlighter-rouge">~/.oh-my-zsh/plugins</code>  <br />
 例如启用插件 git, autojump osx, 需要在配置文件中加入如下内容</p>
 
 <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>plugins=(git autojump osx)
@@ -358,8 +358,8 @@ export LESS_TERMCAP_us=$'</span><span class="se">\E</span><span class="o">[</spa
 
 <p>并不喜欢反人类的全键盘式操作，而且也没有特别吸引我的点，所以基本不使用</p>
 
-<p>经常连接服务器的人用起来应该挺好用的<br />
-比如，在一个窗口中分隔成多个终端同时运行不同的命令<br />
+<p>经常连接服务器的人用起来应该挺好用的  <br />
+比如，在一个窗口中分隔成多个终端同时运行不同的命令  <br />
 使用 SSH 的时候，在网络不稳定的情况下，可保存工作环境</p>
 
 <p>在网络不好的环境下，还可以尝试使用 <a href="https://mosh.mit.edu/">Mosh</a> 来代替 SSH</p>

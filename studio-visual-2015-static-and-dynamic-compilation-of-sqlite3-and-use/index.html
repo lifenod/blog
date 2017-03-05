@@ -8,7 +8,7 @@
 
   
   <title>Visual Studio 2015 下静态和动态编译 SQLite3 及使用 | 明无梦</title>
-  <meta name="description" content="可使用免费的 Visual Studio Community 版本：https://www.visualstudio.com/products/visual-studio-community-vs个人使用完全足够了">
+  <meta name="description" content="可使用免费的 Visual Studio Community 版本：https://www.visualstudio.com/products/visual-studio-community-vs  个人使用完全足够了">
 
   <link rel="stylesheet" href="/css/main.css">
   <link rel="canonical" href="http://www.dreamxu.com/studio-visual-2015-static-and-dynamic-compilation-of-sqlite3-and-use/">
@@ -82,39 +82,39 @@
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>可使用免费的 Visual Studio Community 版本：<a href="https://www.visualstudio.com/products/visual-studio-community-vs">https://www.visualstudio.com/products/visual-studio-community-vs</a><br />
+    <p>可使用免费的 Visual Studio Community 版本：<a href="https://www.visualstudio.com/products/visual-studio-community-vs">https://www.visualstudio.com/products/visual-studio-community-vs</a>  <br />
 个人使用完全足够了</p>
 
-<p>去 SQLite 官网下载 SQLite3 的源代码：<a href="https://www.sqlite.org">https://www.sqlite.org</a><br />
-例如我下载的是 sqlite-amalgamation-3081101.zip<br />
+<p>去 SQLite 官网下载 SQLite3 的源代码：<a href="https://www.sqlite.org">https://www.sqlite.org</a>  <br />
+例如我下载的是 sqlite-amalgamation-3081101.zip  <br />
 解压之后会发现有 4 个文件，但是我们只需要 sqlite3.c 和 sqlite3.h</p>
 
-<p>以下编译 SQLite3 和使用 SQLite3 我是分开使用两个解决方案，为了理解起来清晰一点<br />
+<p>以下编译 SQLite3 和使用 SQLite3 我是分开使用两个解决方案，为了理解起来清晰一点  <br />
 但是最好将其放一个解决方案中，内分为两个项目，有利于代码的组织</p>
 
-<h2 id="sqlite3">静态编译 SQLite3</h2>
+<h2 id="静态编译-sqlite3">静态编译 SQLite3</h2>
 
 <ol>
   <li>
-    <p>打开 VS 2015, 新建项目<br />
-依次选择：已安装 → 模板 → Visual C++ → Windows → Win32 → Win32 项目<br />
+    <p>打开 VS 2015, 新建项目  <br />
+依次选择：已安装 → 模板 → Visual C++ → Windows → Win32 → Win32 项目  <br />
 在下面选择好位置，输入名称，点击「确定」</p>
   </li>
   <li>
-    <p>然后会进入 Win32 应用程序向导<br />
-点击「下一步」，在「应用程序类型」选择「静态库」，
-在「附加选项」中将「预编译头」去掉<br />
-最后点击「完成」，如下图所示<br />
+    <p>然后会进入 Win32 应用程序向导  <br />
+点击「下一步」，在「应用程序类型」选择「静态库」，<br />
+在「附加选项」中将「预编译头」去掉  <br />
+最后点击「完成」，如下图所示  <br />
 <img src="/assets/images/posts/2015-09-01_212154.PNG" alt="VS 2015" /></p>
   </li>
   <li>
     <p>将 sqlite3.c 和 sqlite3.h 复制到项目目录下，然后将其添加到项目</p>
   </li>
   <li>
-    <p>在「解决方案资源管理器」中选中当前项目，然后依次点击上面菜单栏中的<br />
-项目 → 属性，进入项目属性页<br />
-将上面的配置选成 “Relase”, 然后依次进入，配置属性 → C/C++ → 代码生成 → 运行库，选择「多线程 DLL(MD)」<br />
-需要注意的一点是，同个解决方案内有多个项目，必须选择相同的运行库<br />
+    <p>在「解决方案资源管理器」中选中当前项目，然后依次点击上面菜单栏中的  <br />
+项目 → 属性，进入项目属性页  <br />
+将上面的配置选成 “Relase”, 然后依次进入，配置属性 → C/C++ → 代码生成 → 运行库，选择「多线程 DLL(MD)」  <br />
+需要注意的一点是，同个解决方案内有多个项目，必须选择相同的运行库  <br />
 <img src="/assets/images/posts/2015-09-01_214951.PNG" alt="VS 2015" /></p>
   </li>
   <li>
@@ -124,30 +124,30 @@
     <p>点击，生成 → 生成解决方案</p>
   </li>
   <li>
-    <p>静态库已生成，在项目目录 Release 文件夹下，一个 .lib 文件<br />
-该 lib 包含函数代码本身（即包括函数的索引，也包括实现），
+    <p>静态库已生成，在项目目录 Release 文件夹下，一个 .lib 文件  <br />
+该 lib 包含函数代码本身（即包括函数的索引，也包括实现），<br />
 在其它项目编译引用时只需要将该 .lib 和 .h 文件加入程序当中即可</p>
   </li>
 </ol>
 
-<p>选择 “Relese” 还是 “Debug” 按情况而定，如果项目需要发布了，那么选择 “Relese” 会更好，
+<p>选择 “Relese” 还是 “Debug” 按情况而定，如果项目需要发布了，那么选择 “Relese” 会更好，<br />
 如果需要调试，那么选择 “Debug” 会更好。但是确保同一解决方案下的各项目要统一</p>
 
-<h2 id="mfc--sqlite3-">在 MFC 中使用 SQLite3 静态库</h2>
+<h2 id="在-mfc-中使用-sqlite3-静态库">在 MFC 中使用 SQLite3 静态库</h2>
 
-<p><strong>注意：</strong>开发全新的 PC 桌面客户端请不要使用 MFC, 已经是过时的技术了。
-有了坑爹的学校，才有了我去用 MFC<br />
+<p><strong>注意：</strong>开发全新的 PC 桌面客户端请不要使用 MFC, 已经是过时的技术了。<br />
+有了坑爹的学校，才有了我去用 MFC  <br />
 请使用 Qt, C# WPF, Node-Webkit 等</p>
 
 <p>我们需要 .lib 和 .h 文件</p>
 
-<p>新建一个项目，模板 → Visual C++ → Windows → MFC → MFC 应用程序<br />
+<p>新建一个项目，模板 → Visual C++ → Windows → MFC → MFC 应用程序  <br />
 应用程序类型，我们选择「基于对话框」，看起来会简单一点，其它默认即可</p>
 
 <ol>
   <li>
-    <p>将上一步编译好的 .lib 文件和源代码中的 .h 文件放到项目目录中，然后添加到项目中<br />
-好一点的做法是，在项目目录中建立 sqlite3 文件夹，然后将两个文件放到这里
+    <p>将上一步编译好的 .lib 文件和源代码中的 .h 文件放到项目目录中，然后添加到项目中  <br />
+好一点的做法是，在项目目录中建立 sqlite3 文件夹，然后将两个文件放到这里<br />
 比如说名为 sqlite3.lib 和 sqlite3.h</p>
   </li>
   <li>
@@ -198,7 +198,7 @@
 
 <p>使用静态库非常简单，只需将 .lib 和 .h 文件添加到项目即可</p>
 
-<h2 id="sqlite3-1">动态编译 SQLite3</h2>
+<h2 id="动态编译-sqlite3">动态编译 SQLite3</h2>
 
 <p>动态编译和静态编译差不多，只有两个地方不一样</p>
 
@@ -207,8 +207,8 @@
     <p>项目属性页 → 配置属性 → 常规 → 项目默认项 → 配置类型，选择「动态库(.dll)」</p>
   </li>
   <li>
-    <p>需要模块定义文件 .def, 可从 SQLite 官网下载，
-例如 sqlite-dll-win32-x86-3081101 内有 .dll 和 .def 两个文件，但是我们只需要 .def<br />
+    <p>需要模块定义文件 .def, 可从 SQLite 官网下载，<br />
+例如 sqlite-dll-win32-x86-3081101 内有 .dll 和 .def 两个文件，但是我们只需要 .def  <br />
 当然你也可以自己编写 .def 文件，定义导出函数，比较懒就用现成的吧</p>
 
     <p>所以你总共需要 3 个文件，.c, .h, .def, 分别将其添加到项目</p>
@@ -217,10 +217,10 @@
   </li>
 </ol>
 
-<p>生成项目，即可得到 .dll 和 .lib 文件<br />
+<p>生成项目，即可得到 .dll 和 .lib 文件  <br />
 有可能会提示你，无法解析的外部符号，不要急，将那些导出函数删除即可</p>
 
-<h3 id="dll--def--lib">或者利用官方提供的 .dll 和 .def 文件生成 .lib</h3>
+<h3 id="或者利用官方提供的-dll-和-def-文件生成-lib">或者利用官方提供的 .dll 和 .def 文件生成 .lib</h3>
 
 <p>下载官方提供的文件 sqlite-dll-win32-x86-3081101, 内有 sqlite3.def 和 sqlite3.dll 这两个文件</p>
 
@@ -252,11 +252,11 @@ C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\mspdb140.dll
   </li>
 </ol>
 
-<h2 id="mfc--sqlite3--1">在 MFC 中使用 SQLite3 动态库</h2>
+<h2 id="在-mfc-中使用-sqlite3-动态库">在 MFC 中使用 SQLite3 动态库</h2>
 
 <p>我们需要 .dll, .lib, .h 文件</p>
 
-<p>和使用 SQLite3 一模一样，生成项目只需要 .lib 和 .h 文件，
+<p>和使用 SQLite3 一模一样，生成项目只需要 .lib 和 .h 文件，<br />
 但是程序运行需要 .dll 文件</p>
 
   </div>

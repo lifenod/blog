@@ -8,7 +8,7 @@
 
   
   <title>MFC 模态与非模态对话框的创建与销毁 | 明无梦</title>
-  <meta name="description" content="注意：开发全新的 PC 桌面客户端请不要使用 MFC, 已经是过时的技术了。有了坑爹的学校，才有了我去用 MFC请使用 Qt, C# WPF, Node-Webkit 等">
+  <meta name="description" content="注意：开发全新的 PC 桌面客户端请不要使用 MFC, 已经是过时的技术了。有了坑爹的学校，才有了我去用 MFC  请使用 Qt, C# WPF, Node-Webkit 等">
 
   <link rel="stylesheet" href="/css/main.css">
   <link rel="canonical" href="http://www.dreamxu.com/mfc-create-and-destroy-modal-and-modeless-dialog-box/">
@@ -84,11 +84,11 @@
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p><strong>注意</strong>：开发全新的 PC 桌面客户端请不要使用 MFC, 已经是过时的技术了。
-有了坑爹的学校，才有了我去用 MFC<br />
+    <p><strong>注意</strong>：开发全新的 PC 桌面客户端请不要使用 MFC, 已经是过时的技术了。<br />
+有了坑爹的学校，才有了我去用 MFC  <br />
 请使用 Qt, C# WPF, Node-Webkit 等</p>
 
-<h2 id="afxmessagebox--messagebox-">使用 AfxMessageBox 或者 MessageBox 创建模态对话框</h2>
+<h2 id="使用-afxmessagebox-或者-messagebox-创建模态对话框">使用 AfxMessageBox 或者 MessageBox 创建模态对话框</h2>
 
 <p>使用 AfxMessageBox 函数可创建一个模态对话框</p>
 
@@ -125,41 +125,41 @@
 </div>
 </div>
 
-<h2 id="cdialogdomodal-">使用 CDialog::DoModal 创建模态对话框</h2>
+<h2 id="使用-cdialogdomodal-创建模态对话框">使用 CDialog::DoModal 创建模态对话框</h2>
 
 <p>官方文档：<a href="https://msdn.microsoft.com/en-us/library/619z63f5.aspx">https://msdn.microsoft.com/en-us/library/619z63f5.aspx</a></p>
 
 <p>文档上的例子很详细了，就不多说了</p>
 
-<h2 id="cdialogcreate-">使用 CDialog::Create 创建非模态对话框</h2>
+<h2 id="使用-cdialogcreate-创建非模态对话框">使用 CDialog::Create 创建非模态对话框</h2>
 
 <p>官方文档：<a href="https://msdn.microsoft.com/en-us/library/yhth57kd.aspx">https://msdn.microsoft.com/en-us/library/yhth57kd.aspx</a></p>
 
-<p>首先得有个认识：在 MFC 程序中，窗口对象的生存期应长于对应的窗口，
+<p>首先得有个认识：在 MFC 程序中，窗口对象的生存期应长于对应的窗口，<br />
 也就是说，不能在未关闭屏幕上窗口的情况下先把对应的窗口对象删除掉</p>
 
-<p>对于模态对话框来说，对话框被关闭之前 DoModal 函数并不会返回，
-一旦对话框被关闭 DoModal 函数立即返回，并不会出现窗口对象先于窗口删除的情况<br />
+<p>对于模态对话框来说，对话框被关闭之前 DoModal 函数并不会返回，<br />
+一旦对话框被关闭 DoModal 函数立即返回，并不会出现窗口对象先于窗口删除的情况  <br />
 我们使用局部变量来创建模态对话框，因为局部变量的生命周期有限，所以我们不必担心何时来删除窗口对象</p>
 
-<p>但是对于非模态对话框来说情况就不一样了，Create 函数在显示了对话框后就立即返回，
-所以当调用 Create 函数的那一部分代码返回之后，窗口对象就被删除了，
-如果这时对应窗口没有被关闭，就出现了窗口对象先于窗口删除的情况，这在 MFC 程序中是不允许的<br />
-为了解决这一问题，我们需要 new 操作符来创建非模态对话框对象。
-但是（TM 问题又来了）在 C++ 中使用了 new 必定还需要将其创建的对象使用 delete 删除，
+<p>但是对于非模态对话框来说情况就不一样了，Create 函数在显示了对话框后就立即返回，<br />
+所以当调用 Create 函数的那一部分代码返回之后，窗口对象就被删除了，<br />
+如果这时对应窗口没有被关闭，就出现了窗口对象先于窗口删除的情况，这在 MFC 程序中是不允许的  <br />
+为了解决这一问题，我们需要 new 操作符来创建非模态对话框对象。<br />
+但是（TM 问题又来了）在 C++ 中使用了 new 必定还需要将其创建的对象使用 delete 删除，<br />
 不然就出现内存泄漏了</p>
 
-<p>那么何时来删除呢？<br />
-官方文档中有说：<a href="https://msdn.microsoft.com/en-us/library/vstudio/s97b2305(v=vs.140).aspx">https://msdn.microsoft.com/en-us/library/vstudio/s97b2305(v=vs.140).aspx</a><br />
+<p>那么何时来删除呢？  <br />
+官方文档中有说：<a href="https://msdn.microsoft.com/en-us/library/vstudio/s97b2305(v=vs.140).aspx">https://msdn.microsoft.com/en-us/library/vstudio/s97b2305(v=vs.140).aspx</a>  <br />
 摘录如下：</p>
 
 <blockquote>
-  <p>When you implement a modeless dialog box, 
-  always override the <strong>OnCancel</strong> member function and call <strong>DestroyWindow</strong> from within it. 
-  Don’t call the base class <strong>CDialog::OnCancel</strong>, 
-  because it calls <strong>EndDialog</strong>, which will make the dialog box invisible but will not destroy it. 
-  You should also override <strong>PostNcDestroy</strong> for modeless dialog boxes in order to delete <strong>this</strong>, 
-  since modeless dialog boxes are usually allocated with <strong>new</strong>. 
+  <p>When you implement a modeless dialog box, <br />
+  always override the <strong>OnCancel</strong> member function and call <strong>DestroyWindow</strong> from within it. <br />
+  Don’t call the base class <strong>CDialog::OnCancel</strong>, <br />
+  because it calls <strong>EndDialog</strong>, which will make the dialog box invisible but will not destroy it. <br />
+  You should also override <strong>PostNcDestroy</strong> for modeless dialog boxes in order to delete <strong>this</strong>, <br />
+  since modeless dialog boxes are usually allocated with <strong>new</strong>. <br />
   Modal dialog boxes are usually constructed on the frame and do not need <strong>PostNcDestroy</strong> cleanup.</p>
 </blockquote>
 
@@ -174,22 +174,22 @@
   </li>
 </ol>
 
-<p>原成员函数说明请看文档：<br />
-CDialog::OnCancel: <a href="https://msdn.microsoft.com/en-us/library/kw3wtttf.aspx">https://msdn.microsoft.com/en-us/library/kw3wtttf.aspx</a><br />
+<p>原成员函数说明请看文档：  <br />
+CDialog::OnCancel: <a href="https://msdn.microsoft.com/en-us/library/kw3wtttf.aspx">https://msdn.microsoft.com/en-us/library/kw3wtttf.aspx</a>  <br />
 CWnd::PostNcDestroy: <a href="https://msdn.microsoft.com/en-us/library/sk933a19.aspx">https://msdn.microsoft.com/en-us/library/sk933a19.aspx</a></p>
 
-<p>参考：
+<p>参考：<br />
 <a href="http://www.xxsof.com/?p=998">http://www.xxsof.com/?p=998</a></p>
 
-<h3 id="section">具体的例子</h3>
+<h3 id="具体的例子">具体的例子</h3>
 
 <ol>
   <li>
-    <p>新建一个对话框 ID 为 <code class="highlighter-rouge">IDD_POP_DIALOG</code>, 添加类，名为 <code class="highlighter-rouge">CPopDlg</code><br />
+    <p>新建一个对话框 ID 为 <code class="highlighter-rouge">IDD_POP_DIALOG</code>, 添加类，名为 <code class="highlighter-rouge">CPopDlg</code>  <br />
 自动生成 <code class="highlighter-rouge">PopDlg.h</code> 和 <code class="highlighter-rouge">PopDlg.cpp</code> 文件</p>
   </li>
   <li>
-    <p>在创建 <code class="highlighter-rouge">IDD_POP_DIALOG</code> 对话框的文件中，比如为 <code class="highlighter-rouge">ModelessDialogBoxDlg.cpp</code>, 
+    <p>在创建 <code class="highlighter-rouge">IDD_POP_DIALOG</code> 对话框的文件中，比如为 <code class="highlighter-rouge">ModelessDialogBoxDlg.cpp</code>, <br />
 在其中加入头文件 <code class="highlighter-rouge">PopDlg.h</code></p>
 
     <p>创建 <code class="highlighter-rouge">IDD_POP_DIALOG</code> 对话框的代码如下（我是在一个 Button 中创建的）：</p>
@@ -251,7 +251,7 @@ CWnd::PostNcDestroy: <a href="https://msdn.microsoft.com/en-us/library/sk933a19.
   </li>
 </ol>
 
-<p>还需要注意的一点，在 <code class="highlighter-rouge">IDD_POP_DIALOG</code> 对话框中有默认的确定和取消按钮，
+<p>还需要注意的一点，在 <code class="highlighter-rouge">IDD_POP_DIALOG</code> 对话框中有默认的确定和取消按钮，<br />
 一般将确定按钮去掉，然后留下取消按钮做关闭窗口之用</p>
 
 <p>取消按钮自动生成的代码如下：</p>
@@ -267,8 +267,8 @@ CWnd::PostNcDestroy: <a href="https://msdn.microsoft.com/en-us/library/sk933a19.
 </div>
 </div>
 
-<p>如果放任不管，又出问题了（MFC 好麻烦 (〒︿〒) 各位还是不要用了）<br />
-这家伙调用基类的 <code class="highlighter-rouge">OnCancel()</code> 函数，但是前面我们说过，销毁非模态窗口，我们并不能使用这个函数，
+<p>如果放任不管，又出问题了（MFC 好麻烦 (〒︿〒) 各位还是不要用了）  <br />
+这家伙调用基类的 <code class="highlighter-rouge">OnCancel()</code> 函数，但是前面我们说过，销毁非模态窗口，我们并不能使用这个函数，<br />
 所以改为如下：</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
@@ -286,7 +286,7 @@ CWnd::PostNcDestroy: <a href="https://msdn.microsoft.com/en-us/library/sk933a19.
 
 <hr />
 
-<p>但是（WC 又来？），以上实现允许你无限创建 <code class="highlighter-rouge">IDD_POP_DIALOG</code> 对话框<br />
+<p>但是（WC 又来？），以上实现允许你无限创建 <code class="highlighter-rouge">IDD_POP_DIALOG</code> 对话框  <br />
 我们一般需要的功能是，只创建一个窗口，如果再次创建，将只把原来的窗口激活</p>
 
 <p>任重道远啊，继续…</p>
@@ -295,8 +295,8 @@ CWnd::PostNcDestroy: <a href="https://msdn.microsoft.com/en-us/library/sk933a19.
 
 <ol>
   <li>
-    <p>在 <code class="highlighter-rouge">ModelessDialogBoxDlg.h</code> 头文件头部加入 <code class="highlighter-rouge">class CPopDlg</code>, 
-并不使用到 <code class="highlighter-rouge">CPopDlg</code> 类，所以可以不用引入 <code class="highlighter-rouge">CPopDlg</code> 类的头文件<br />
+    <p>在 <code class="highlighter-rouge">ModelessDialogBoxDlg.h</code> 头文件头部加入 <code class="highlighter-rouge">class CPopDlg</code>, <br />
+并不使用到 <code class="highlighter-rouge">CPopDlg</code> 类，所以可以不用引入 <code class="highlighter-rouge">CPopDlg</code> 类的头文件  <br />
 并在类 <code class="highlighter-rouge">CModelessDialogBoxDlg</code> 声明处，加入如下成员变量：</p>
 
     <div class="language-cpp highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
@@ -378,7 +378,7 @@ CWnd::PostNcDestroy: <a href="https://msdn.microsoft.com/en-us/library/sk933a19.
     </div>
   </li>
   <li>
-    <p>当 <code class="highlighter-rouge">IDD_POP_DIALOG</code> 窗口关闭之后，还需要将 <code class="highlighter-rouge">m_pPopDlg</code> 设置为 <code class="highlighter-rouge">NULL</code><br />
+    <p>当 <code class="highlighter-rouge">IDD_POP_DIALOG</code> 窗口关闭之后，还需要将 <code class="highlighter-rouge">m_pPopDlg</code> 设置为 <code class="highlighter-rouge">NULL</code>  <br />
 将重写的 <code class="highlighter-rouge">OnCancel</code> 函数修改为：</p>
 
     <div class="language-cpp highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
