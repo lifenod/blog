@@ -1,558 +1,540 @@
+
 <!DOCTYPE HTML>
-<html lang="en" >
-    
+<html lang="" >
     <head>
-        
         <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>快速排序 (Quicksort) | 明无梦的数据结构与算法学习之路</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>快速排序 (Quicksort) · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.6.7">
+        <meta name="generator" content="GitBook 3.2.3">
         
         
-        <meta name="HandheldFriendly" content="true"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="black">
-        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
-        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
         
+    
     <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
     
         
-        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-disqus/plugin.css">
+    
         
     
         
-        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+    
         
     
         
-        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-search/search.css">
-        
     
         
-        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
-        
-    
     
 
         
     
     
-    <link rel="next" href="../dc/gray-code.html" />
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="gray-code.html" />
     
     
-    <link rel="prev" href="../dc/binary-search.html" />
+    <link rel="prev" href="binary-search.html" />
     
 
-        
     </head>
     <body>
         
+<div class="book">
+    <div class="book-summary">
         
-    <div class="book"
-        data-level="2.6"
-        data-chapter-title="快速排序 (Quicksort)"
-        data-filepath="dc/quicksort.md"
-        data-basepath=".."
-        data-revision="Fri Jun 16 2017 17:54:30 GMT+0800 (CST)"
-        data-innerlanguage="">
-    
-
-<div class="book-summary">
-    <nav role="navigation">
-        <ul class="summary">
             
-            
-            
-                
-                <li>
-                    <a href="http://www.dreamxu.com/" target="blank" class="custom-link">明无梦的博客</a>
-                </li>
-            
-            
-
-            
-            <li class="divider"></li>
-            
-
-            
-    
-        <li class="chapter " data-level="0" data-path="index.html">
-            
-                
-                    <a href="../index.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                        简介
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="1" data-path="data-structure/index.html">
-            
-                
-                    <a href="../data-structure/index.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>1.</b>
-                        
-                        基本数据结构 (Elementary Data Structures
-                    </a>
-            
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.1" data-path="data-structure/slist/index.html">
-            
-                
-                    <a href="../data-structure/slist/index.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>1.1.</b>
-                        
-                        单链表 (Linked list)
-                    </a>
-            
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.1.1" data-path="data-structure/slist/src.html">
-            
-                
-                    <a href="../data-structure/slist/src.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>1.1.1.</b>
-                        
-                        实现
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="1.1.2" data-path="data-structure/slist/doc.html">
-            
-                
-                    <a href="../data-structure/slist/doc.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>1.1.2.</b>
-                        
-                        文档
-                    </a>
-            
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2" data-path="data-structure/queue/queue.html">
-            
-                
-                    <a href="../data-structure/queue/queue.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>1.2.</b>
-                        
-                        队列 (Queue)
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3" data-path="data-structure/binary-tree.html">
-            
-                
-                    <a href="../data-structure/binary-tree.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>1.3.</b>
-                        
-                        二叉树 (Binary Tree)
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4" data-path="data-structure/binary-heap.html">
-            
-                
-                    <a href="../data-structure/binary-heap.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>1.4.</b>
-                        
-                        二叉堆 (Binary heap)
-                    </a>
-            
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="2" data-path="dc/index.html">
-            
-                
-                    <a href="../dc/index.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.</b>
-                        
-                        分治算法 (Divide and conquer algorithms)
-                    </a>
-            
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="2.1" data-path="dc/rmq.html">
-            
-                
-                    <a href="../dc/rmq.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.1.</b>
-                        
-                        范围最值查询 (Range Minimum Query)
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="2.2" data-path="dc/change-coin.html">
-            
-                
-                    <a href="../dc/change-coin.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.2.</b>
-                        
-                        换硬币问题
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="2.3" data-path="dc/subset.html">
-            
-                
-                    <a href="../dc/subset.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.3.</b>
-                        
-                        子集问题
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="2.4" data-path="dc/hanio.html">
-            
-                
-                    <a href="../dc/hanio.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.4.</b>
-                        
-                        汉诺塔 (Tower of Hanoi)
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="2.5" data-path="dc/binary-search.html">
-            
-                
-                    <a href="../dc/binary-search.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.5.</b>
-                        
-                        二分搜索 (Binary search)
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter active" data-level="2.6" data-path="dc/quicksort.html">
-            
-                
-                    <a href="../dc/quicksort.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.6.</b>
-                        
-                        快速排序 (Quicksort)
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="2.7" data-path="dc/gray-code.html">
-            
-                
-                    <a href="../dc/gray-code.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.7.</b>
-                        
-                        格雷码 (Gray code)
-                    </a>
-            
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="3" data-path="dp/index.html">
-            
-                
-                    <a href="../dp/index.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>3.</b>
-                        
-                        动态规划 (Dynamic programming)
-                    </a>
-            
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="3.1" data-path="dp/edit-distance.html">
-            
-                
-                    <a href="../dp/edit-distance.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>3.1.</b>
-                        
-                        编辑距离 (Edit distance)
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="3.2" data-path="dp/digital-triangle.html">
-            
-                
-                    <a href="../dp/digital-triangle.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>3.2.</b>
-                        
-                        数字三角形
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="3.3" data-path="dp/max-k-product.html">
-            
-                
-                    <a href="../dp/max-k-product.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>3.3.</b>
-                        
-                        最大 K 乘积
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="3.4" data-path="dp/01-knapsack.html">
-            
-                
-                    <a href="../dp/01-knapsack.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>3.4.</b>
-                        
-                        0/1 背包问题 (0/1 knapsack problem)
-                    </a>
-            
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="4" data-path="greedy/index.html">
-            
-                
-                    <a href="../greedy/index.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>4.</b>
-                        
-                        贪心算法 (Greedy algorithm)
-                    </a>
-            
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="4.1" data-path="greedy/activity-selection.html">
-            
-                
-                    <a href="../greedy/activity-selection.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>4.1.</b>
-                        
-                        活动选择问题 (Activity-selection problem
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="4.2" data-path="greedy/optimal-decomposition.html">
-            
-                
-                    <a href="../greedy/optimal-decomposition.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>4.2.</b>
-                        
-                        最优分解问题
-                    </a>
-            
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="5" data-path="backtracking/index.html">
-            
-                
-                    <a href="../backtracking/index.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>5.</b>
-                        
-                        回溯算法 (Backtracking)
-                    </a>
-            
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="5.1" data-path="backtracking/eight-queens-puzzle.html">
-            
-                
-                    <a href="../backtracking/eight-queens-puzzle.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>5.1.</b>
-                        
-                        八皇后问题 (Eight queens puzzle)
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="5.2" data-path="backtracking/minimum-weight-of-the-machine.html">
-            
-                
-                    <a href="../backtracking/minimum-weight-of-the-machine.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>5.2.</b>
-                        
-                        最小重量机器设计问题
-                    </a>
-            
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-
-            
-            <li class="divider"></li>
-            <li>
-                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-                    Published with GitBook
-                </a>
-            </li>
-            
-        </ul>
-    </nav>
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
 </div>
 
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="http://www.dreamxu.com/" target="_blank" class="custom-link">明无梦的博客</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../data-structure/">
+            
+                <a href="../data-structure/">
+            
+                    
+                    基本数据结构 (Elementary Data Structures
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../data-structure/slist/">
+            
+                <a href="../data-structure/slist/">
+            
+                    
+                    单链表 (Linked list)
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" data-path="../data-structure/slist/src.html">
+            
+                <a href="../data-structure/slist/src.html">
+            
+                    
+                    实现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2" data-path="../data-structure/slist/doc.html">
+            
+                <a href="../data-structure/slist/doc.html">
+            
+                    
+                    文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../data-structure/queue/queue.html">
+            
+                <a href="../data-structure/queue/queue.html">
+            
+                    
+                    队列 (Queue)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../data-structure/binary-tree.html">
+            
+                <a href="../data-structure/binary-tree.html">
+            
+                    
+                    二叉树 (Binary Tree)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../data-structure/binary-heap.html">
+            
+                <a href="../data-structure/binary-heap.html">
+            
+                    
+                    二叉堆 (Binary heap)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    分治算法 (Divide and conquer algorithms)
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="rmq.html">
+            
+                <a href="rmq.html">
+            
+                    
+                    范围最值查询 (Range Minimum Query)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="change-coin.html">
+            
+                <a href="change-coin.html">
+            
+                    
+                    换硬币问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="subset.html">
+            
+                <a href="subset.html">
+            
+                    
+                    子集问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="hanio.html">
+            
+                <a href="hanio.html">
+            
+                    
+                    汉诺塔 (Tower of Hanoi)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="binary-search.html">
+            
+                <a href="binary-search.html">
+            
+                    
+                    二分搜索 (Binary search)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.6" data-path="quicksort.html">
+            
+                <a href="quicksort.html">
+            
+                    
+                    快速排序 (Quicksort)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="gray-code.html">
+            
+                <a href="gray-code.html">
+            
+                    
+                    格雷码 (Gray code)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../dp/">
+            
+                <a href="../dp/">
+            
+                    
+                    动态规划 (Dynamic programming)
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../dp/edit-distance.html">
+            
+                <a href="../dp/edit-distance.html">
+            
+                    
+                    编辑距离 (Edit distance)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../dp/digital-triangle.html">
+            
+                <a href="../dp/digital-triangle.html">
+            
+                    
+                    数字三角形
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../dp/max-k-product.html">
+            
+                <a href="../dp/max-k-product.html">
+            
+                    
+                    最大 K 乘积
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../dp/01-knapsack.html">
+            
+                <a href="../dp/01-knapsack.html">
+            
+                    
+                    0/1 背包问题 (0/1 knapsack problem)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../greedy/">
+            
+                <a href="../greedy/">
+            
+                    
+                    贪心算法 (Greedy algorithm)
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../greedy/activity-selection.html">
+            
+                <a href="../greedy/activity-selection.html">
+            
+                    
+                    活动选择问题 (Activity-selection problem
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../greedy/optimal-decomposition.html">
+            
+                <a href="../greedy/optimal-decomposition.html">
+            
+                    
+                    最优分解问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../backtracking/">
+            
+                <a href="../backtracking/">
+            
+                    
+                    回溯算法 (Backtracking)
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../backtracking/eight-queens-puzzle.html">
+            
+                <a href="../backtracking/eight-queens-puzzle.html">
+            
+                    
+                    八皇后问题 (Eight queens puzzle)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../backtracking/minimum-weight-of-the-machine.html">
+            
+                <a href="../backtracking/minimum-weight-of-the-machine.html">
+            
+                    
+                    最小重量机器设计问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
     <div class="book-body">
-        <div class="body-inner">
-            <div class="book-header" role="navigation">
-    <!-- Actions Left -->
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
     
 
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../" >明无梦的数据结构与算法学习之路</a>
+        <a href=".." >快速排序 (Quicksort)</a>
     </h1>
 </div>
 
-            <div class="page-wrapper" tabindex="-1" role="main">
-                <div class="page-inner">
-                
-                
-                    <section class="normal" id="section-">
-                    
-                        <h1 id="&#x5FEB;&#x901F;&#x6392;&#x5E8F;-quicksort">&#x5FEB;&#x901F;&#x6392;&#x5E8F; (Quicksort)</h1>
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x5FEB;&#x901F;&#x6392;&#x5E8F;-quicksort">&#x5FEB;&#x901F;&#x6392;&#x5E8F; (Quicksort)</h1>
 <h2 id="&#x95EE;&#x9898;">&#x95EE;&#x9898;</h2>
 <p>&#x4ECE;&#x5C0F;&#x5230;&#x5927;&#x6392;&#x5E8F;&#x5E8F;&#x5217; [l, r]</p>
 <h2 id="&#x601D;&#x8DEF;">&#x601D;&#x8DEF;</h2>
@@ -561,20 +543,20 @@
 &#x7CBE;&#x786E;&#x70B9;&#x8BF4;&#x5C31;&#x662F;&#xFF0C;[l, i-1] &#x4E2D;&#x7684;&#x6240;&#x6709;&#x503C;&#x5C0F;&#x4E8E;&#x7B49;&#x4E8E; [r], 
 [i, r-1] &#x4E2D;&#x7684;&#x6240;&#x6709;&#x503C;&#x5927;&#x4E8E;&#x7B49;&#x4E8E; [r]<br>j &#x7528;&#x4E8E;&#x6BCF;&#x6B21;&#x6BD4;&#x8F83;<br>&#x6982;&#x62EC;&#x4E00;&#x4E0B;&#x601D;&#x60F3;&#x5C31;&#x662F;&#xFF1A;j &#x4ECE; l &#x589E;&#x52A0;&#x5230; r-1, &#x6BCF;&#x6B21;&#x5C06; [j] &#x4E0E; [r] &#x6BD4;&#x8F83;&#xFF0C;&#x5982;&#x679C; [j] &#x5C0F;&#x4E8E; [r], 
 &#x90A3;&#x4E48; i++ (&#x5C0F;&#x4E8E; [r] &#x7684;&#x503C;&#x53C8;&#x591A;&#x4E86;&#x4E00;&#x4E2A;&#xFF09;, &#x4EA4;&#x6362; [j] &#x548C; [i]&#xFF08;&#x4F7F; [l, i-1] &#x4E2D;&#x7684;&#x6240;&#x6709;&#x503C;&#x90FD;&#x5C0F;&#x4E8E;&#x7B49;&#x4E8E; [r]&#xFF09;<br>&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
-<pre><code class="lang-scheme"><span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define</span></span> <span class="hljs-list">(<span class="hljs-keyword">partition</span> vec l r)</span>
-  <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">let</span></span> <span class="hljs-list">(<span class="hljs-list">[<span class="hljs-keyword">pivot-value</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">vector-ref</span></span> vec r)</span>])
-    <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define</span></span> <span class="hljs-list">(<span class="hljs-keyword">iter</span> i j)</span>
-      <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">if</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">&lt;</span></span> j r)</span>
-          <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">if</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">&lt;</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">vector-ref</span></span> vec j)</span> pivot-value)</span>
-              <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">begin</span></span>
-                <span class="hljs-list">(<span class="hljs-keyword">vector-swap!</span> vec i j)</span>
-                <span class="hljs-list">(<span class="hljs-keyword">iter</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">+</span></span> i <span class="hljs-number">1</span>)</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">+</span></span> j <span class="hljs-number">1</span>)</span>)</span>)</span>
-              <span class="hljs-list">(<span class="hljs-keyword">iter</span> i <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">+</span></span> j <span class="hljs-number">1</span>)</span>)</span>)</span>
-          <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">begin</span></span>
-            <span class="hljs-list">(<span class="hljs-keyword">vector-swap!</span> vec i r)</span>
-            i)</span>)</span>)</span>
-    <span class="hljs-list">(<span class="hljs-keyword">iter</span> l l)</span>))
-</span></span></span></span></code></pre>
+<pre><code class="lang-scheme">(<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> (<span class="hljs-name">partition</span> vec l r)
+  (<span class="hljs-name"><span class="hljs-builtin-name">let</span></span> ([<span class="hljs-name">pivot-value</span> (<span class="hljs-name"><span class="hljs-builtin-name">vector-ref</span></span> vec r)])
+    (<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> (<span class="hljs-name">iter</span> i j)
+      (<span class="hljs-name"><span class="hljs-builtin-name">if</span></span> (<span class="hljs-name"><span class="hljs-builtin-name">&lt;</span></span> j r)
+          (<span class="hljs-name"><span class="hljs-builtin-name">if</span></span> (<span class="hljs-name"><span class="hljs-builtin-name">&lt;</span></span> (<span class="hljs-name"><span class="hljs-builtin-name">vector-ref</span></span> vec j) pivot-value)
+              (<span class="hljs-name"><span class="hljs-builtin-name">begin</span></span>
+                (<span class="hljs-name">vector-swap!</span> vec i j)
+                (<span class="hljs-name">iter</span> (<span class="hljs-name"><span class="hljs-builtin-name">+</span></span> i <span class="hljs-number">1</span>) (<span class="hljs-name"><span class="hljs-builtin-name">+</span></span> j <span class="hljs-number">1</span>)))
+              (<span class="hljs-name">iter</span> i (<span class="hljs-name"><span class="hljs-builtin-name">+</span></span> j <span class="hljs-number">1</span>)))
+          (<span class="hljs-name"><span class="hljs-builtin-name">begin</span></span>
+            (<span class="hljs-name">vector-swap!</span> vec i r)
+            i)))
+    (<span class="hljs-name">iter</span> l l)))
+</code></pre>
 <p>C &#x8BED;&#x8A00;&#x7248;&#xFF1A;</p>
 <pre><code class="lang-c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">partition</span><span class="hljs-params">(<span class="hljs-keyword">int</span> arr[], <span class="hljs-keyword">int</span> l, <span class="hljs-keyword">int</span> r)</span>
 </span>{
@@ -593,70 +575,102 @@
 }
 </code></pre>
 <h2 id="&#x4EE3;&#x7801;">&#x4EE3;&#x7801;</h2>
-<pre><code class="lang-scheme"><span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define</span></span> <span class="hljs-list">(<span class="hljs-keyword">quick-sort</span> vec l r)</span>
-  <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">if</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">&lt;</span></span> l r)</span>
-      <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">let</span></span> <span class="hljs-list">(<span class="hljs-list">[<span class="hljs-keyword">p</span> <span class="hljs-list">(<span class="hljs-keyword">partition</span> vec l r)</span>])
-        <span class="hljs-list">(<span class="hljs-keyword">quick-sort</span> vec l <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">-</span></span> p <span class="hljs-number">1</span>)</span>)</span>
-        <span class="hljs-list">(<span class="hljs-keyword">quick-sort</span> vec <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">+</span></span> p <span class="hljs-number">1</span>)</span> r)</span>)
-      &apos;<span class="hljs-list">()</span>))
-</span></span></span></span></span></code></pre>
+<pre><code class="lang-scheme">(<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> (<span class="hljs-name">quick-sort</span> vec l r)
+  (<span class="hljs-name"><span class="hljs-builtin-name">if</span></span> (<span class="hljs-name"><span class="hljs-builtin-name">&lt;</span></span> l r)
+      (<span class="hljs-name"><span class="hljs-builtin-name">let</span></span> ([<span class="hljs-name">p</span> (<span class="hljs-name">partition</span> vec l r)])
+        (<span class="hljs-name">quick-sort</span> vec l (<span class="hljs-name"><span class="hljs-builtin-name">-</span></span> p <span class="hljs-number">1</span>))
+        (<span class="hljs-name">quick-sort</span> vec (<span class="hljs-name"><span class="hljs-builtin-name">+</span></span> p <span class="hljs-number">1</span>) r))
+      &apos;()))
+</code></pre>
 
-                    
-                    </section>
-                
-                
-                </div>
-            </div>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
         </div>
-
-        
-        <a href="../dc/binary-search.html" class="navigation navigation-prev " aria-label="Previous page: 二分搜索 (Binary search)"><i class="fa fa-angle-left"></i></a>
-        
-        
-        <a href="../dc/gray-code.html" class="navigation navigation-next " aria-label="Next page: 格雷码 (Gray code)"><i class="fa fa-angle-right"></i></a>
-        
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
     </div>
 </div>
 
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="binary-search.html" class="navigation navigation-prev " aria-label="Previous page: 二分搜索 (Binary search)">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="gray-code.html" class="navigation navigation-next " aria-label="Next page: 格雷码 (Gray code)">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
         
-<script src="../gitbook/app.js"></script>
+    </div>
 
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
-    
-
-    
-    <script src="../gitbook/plugins/gitbook-plugin-disqus/plugin.js"></script>
-    
-
-    
-    <script src="../gitbook/plugins/gitbook-plugin-ga/plugin.js"></script>
-    
-
-    
-    <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
-    
-
-    
-    <script src="../gitbook/plugins/gitbook-plugin-search/search.js"></script>
-    
-
-    
-    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
-    
-
-    
-    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
-    
-
-<script>
-require(["gitbook"], function(gitbook) {
-    var config = {"disqus":{"shortName":"mwum","useIdentifier":false},"ga":{"token":"UA-39279084-1","configuration":"auto"},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
-    gitbook.start(config);
-});
-</script>
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"快速排序 (Quicksort)","level":"1.3.6","depth":2,"next":{"title":"格雷码 (Gray code)","level":"1.3.7","depth":2,"path":"dc/gray-code.md","ref":"dc/gray-code.md","articles":[]},"previous":{"title":"二分搜索 (Binary search)","level":"1.3.5","depth":2,"path":"dc/binary-search.md","ref":"dc/binary-search.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"mwum"},"ga":{"configuration":"auto","token":"UA-39279084-1"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sidebar":{"明无梦的博客":"http://www.dreamxu.com/"},"sharing":{"google":false,"facebook":false,"twitter":false,"weibo":false,"all":true}},"gitbook":"*"},"file":{"path":"dc/quicksort.md","mtime":"2014-11-27T07:08:18.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-31T09:57:04.688Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
 
         
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
     </body>
-    
 </html>
+
