@@ -3,11 +3,11 @@
   <channel>
     <title>明无梦</title>
     <description>明无梦的博客</description>
-    <link>http://www.dreamxu.com/</link>
-    <atom:link href="http://www.dreamxu.com/rss.xml" rel="self" type="application/rss+xml"/>
+    <link>https://www.dreamxu.com/</link>
+    <atom:link href="https://www.dreamxu.com/rss.xml" rel="self" type="application/rss+xml"/>
     <language>zh-CN</language>
-    <pubDate>Sat, 30 Jun 2018 15:53:26 +0800</pubDate>
-    <lastBuildDate>Sat, 30 Jun 2018 15:53:26 +0800</lastBuildDate>
+    <pubDate>Fri, 17 Aug 2018 10:07:33 +0800</pubDate>
+    <lastBuildDate>Fri, 17 Aug 2018 10:07:33 +0800</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
     
       <item>
@@ -251,8 +251,8 @@
 </description>
         <pubDate>Mon, 11 Jul 2016 00:00:00 +0800</pubDate>
         
-        <link>http://www.dreamxu.com/hack-markdown-converter-kramdown/</link>
-        <guid isPermaLink="true">http://www.dreamxu.com/hack-markdown-converter-kramdown/</guid>
+        <link>https://www.dreamxu.com/hack-markdown-converter-kramdown/</link>
+        <guid isPermaLink="true">https://www.dreamxu.com/hack-markdown-converter-kramdown/</guid>
         
         <category>技术</category>
         
@@ -286,8 +286,8 @@
 </description>
         <pubDate>Fri, 25 Mar 2016 00:00:00 +0800</pubDate>
         
-        <link>http://www.dreamxu.com/monitor-markdown-file-changes-and-convert-it-to-html-file/</link>
-        <guid isPermaLink="true">http://www.dreamxu.com/monitor-markdown-file-changes-and-convert-it-to-html-file/</guid>
+        <link>https://www.dreamxu.com/monitor-markdown-file-changes-and-convert-it-to-html-file/</link>
+        <guid isPermaLink="true">https://www.dreamxu.com/monitor-markdown-file-changes-and-convert-it-to-html-file/</guid>
         
         <category>技术</category>
         
@@ -418,8 +418,8 @@ Rails 有 “server” 命令，例如 &lt;code class=&quot;highlighter-rouge&qu
 </description>
         <pubDate>Sun, 31 Jan 2016 00:00:00 +0800</pubDate>
         
-        <link>http://www.dreamxu.com/execute-different-commands-in-different-directories/</link>
-        <guid isPermaLink="true">http://www.dreamxu.com/execute-different-commands-in-different-directories/</guid>
+        <link>https://www.dreamxu.com/execute-different-commands-in-different-directories/</link>
+        <guid isPermaLink="true">https://www.dreamxu.com/execute-different-commands-in-different-directories/</guid>
         
         <category>技术</category>
         
@@ -754,8 +754,8 @@ Syatem → Language 修改为 Chinese, 点击 Save &amp;amp; Apply&lt;/p&gt;
 </description>
         <pubDate>Tue, 13 Oct 2015 00:00:00 +0800</pubDate>
         
-        <link>http://www.dreamxu.com/compile-your-own-openwrt/</link>
-        <guid isPermaLink="true">http://www.dreamxu.com/compile-your-own-openwrt/</guid>
+        <link>https://www.dreamxu.com/compile-your-own-openwrt/</link>
+        <guid isPermaLink="true">https://www.dreamxu.com/compile-your-own-openwrt/</guid>
         
         <category>记录</category>
         
@@ -936,8 +936,8 @@ Syatem → Language 修改为 Chinese, 点击 Save &amp;amp; Apply&lt;/p&gt;
 </description>
         <pubDate>Sun, 11 Oct 2015 00:00:00 +0800</pubDate>
         
-        <link>http://www.dreamxu.com/What-is-a-closure/</link>
-        <guid isPermaLink="true">http://www.dreamxu.com/What-is-a-closure/</guid>
+        <link>https://www.dreamxu.com/What-is-a-closure/</link>
+        <guid isPermaLink="true">https://www.dreamxu.com/What-is-a-closure/</guid>
         
         <category>记录</category>
         
@@ -1102,8 +1102,8 @@ Z = Spawner.z + random(spawnRange*2)-spawnRange;
 </description>
         <pubDate>Sat, 26 Sep 2015 00:00:00 +0800</pubDate>
         
-        <link>http://www.dreamxu.com/zombie-monster-spawner-trap/</link>
-        <guid isPermaLink="true">http://www.dreamxu.com/zombie-monster-spawner-trap/</guid>
+        <link>https://www.dreamxu.com/zombie-monster-spawner-trap/</link>
+        <guid isPermaLink="true">https://www.dreamxu.com/zombie-monster-spawner-trap/</guid>
         
         <category>技术</category>
         
@@ -1160,8 +1160,8 @@ Z = Spawner.z + random(spawnRange*2)-spawnRange;
 </description>
         <pubDate>Tue, 22 Sep 2015 00:00:00 +0800</pubDate>
         
-        <link>http://www.dreamxu.com/minecraft-server-plugin-share/</link>
-        <guid isPermaLink="true">http://www.dreamxu.com/minecraft-server-plugin-share/</guid>
+        <link>https://www.dreamxu.com/minecraft-server-plugin-share/</link>
+        <guid isPermaLink="true">https://www.dreamxu.com/minecraft-server-plugin-share/</guid>
         
         <category>分享</category>
         
@@ -1235,8 +1235,8 @@ PaperSpigot 中的配置文件为 server.properties, bukkit.yml, spigot.yml, pap
 </description>
         <pubDate>Sat, 19 Sep 2015 00:00:00 +0800</pubDate>
         
-        <link>http://www.dreamxu.com/minecraft-server-paperspigot-use/</link>
-        <guid isPermaLink="true">http://www.dreamxu.com/minecraft-server-paperspigot-use/</guid>
+        <link>https://www.dreamxu.com/minecraft-server-paperspigot-use/</link>
+        <guid isPermaLink="true">https://www.dreamxu.com/minecraft-server-paperspigot-use/</guid>
         
         <category>记录</category>
         
@@ -1396,8 +1396,8 @@ motd=A Minecraft Server
 </description>
         <pubDate>Fri, 18 Sep 2015 00:00:00 +0800</pubDate>
         
-        <link>http://www.dreamxu.com/build-official-minecraft-server/</link>
-        <guid isPermaLink="true">http://www.dreamxu.com/build-official-minecraft-server/</guid>
+        <link>https://www.dreamxu.com/build-official-minecraft-server/</link>
+        <guid isPermaLink="true">https://www.dreamxu.com/build-official-minecraft-server/</guid>
         
         <category>记录</category>
         
@@ -1727,8 +1727,8 @@ CWnd::PostNcDestroy: &lt;a href=&quot;https://msdn.microsoft.com/en-us/library/s
 </description>
         <pubDate>Mon, 07 Sep 2015 00:00:00 +0800</pubDate>
         
-        <link>http://www.dreamxu.com/mfc-create-and-destroy-modal-and-modeless-dialog-box/</link>
-        <guid isPermaLink="true">http://www.dreamxu.com/mfc-create-and-destroy-modal-and-modeless-dialog-box/</guid>
+        <link>https://www.dreamxu.com/mfc-create-and-destroy-modal-and-modeless-dialog-box/</link>
+        <guid isPermaLink="true">https://www.dreamxu.com/mfc-create-and-destroy-modal-and-modeless-dialog-box/</guid>
         
         <category>记录</category>
         
@@ -1752,8 +1752,8 @@ CWnd::PostNcDestroy: &lt;a href=&quot;https://msdn.microsoft.com/en-us/library/s
 </description>
         <pubDate>Sat, 05 Sep 2015 00:00:00 +0800</pubDate>
         
-        <link>http://www.dreamxu.com/osg-book-update/</link>
-        <guid isPermaLink="true">http://www.dreamxu.com/osg-book-update/</guid>
+        <link>https://www.dreamxu.com/osg-book-update/</link>
+        <guid isPermaLink="true">https://www.dreamxu.com/osg-book-update/</guid>
         
         <category>书籍</category>
         
@@ -1767,8 +1767,8 @@ CWnd::PostNcDestroy: &lt;a href=&quot;https://msdn.microsoft.com/en-us/library/s
 </description>
         <pubDate>Sat, 05 Sep 2015 00:00:00 +0800</pubDate>
         
-        <link>http://www.dreamxu.com/vim-book-update/</link>
-        <guid isPermaLink="true">http://www.dreamxu.com/vim-book-update/</guid>
+        <link>https://www.dreamxu.com/vim-book-update/</link>
+        <guid isPermaLink="true">https://www.dreamxu.com/vim-book-update/</guid>
         
         <category>书籍</category>
         
@@ -1957,8 +1957,8 @@ C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\mspdb140.dll
 </description>
         <pubDate>Tue, 01 Sep 2015 00:00:00 +0800</pubDate>
         
-        <link>http://www.dreamxu.com/studio-visual-2015-static-and-dynamic-compilation-of-sqlite3-and-use/</link>
-        <guid isPermaLink="true">http://www.dreamxu.com/studio-visual-2015-static-and-dynamic-compilation-of-sqlite3-and-use/</guid>
+        <link>https://www.dreamxu.com/studio-visual-2015-static-and-dynamic-compilation-of-sqlite3-and-use/</link>
+        <guid isPermaLink="true">https://www.dreamxu.com/studio-visual-2015-static-and-dynamic-compilation-of-sqlite3-and-use/</guid>
         
         <category>记录</category>
         
@@ -2026,8 +2026,8 @@ pip install Pillow
 </description>
         <pubDate>Fri, 21 Aug 2015 00:00:00 +0800</pubDate>
         
-        <link>http://www.dreamxu.com/protection-of-privacy-the-image-exif-information/</link>
-        <guid isPermaLink="true">http://www.dreamxu.com/protection-of-privacy-the-image-exif-information/</guid>
+        <link>https://www.dreamxu.com/protection-of-privacy-the-image-exif-information/</link>
+        <guid isPermaLink="true">https://www.dreamxu.com/protection-of-privacy-the-image-exif-information/</guid>
         
         <category>技术</category>
         
@@ -2272,8 +2272,8 @@ virtualenv venv
         
         <lastBuildDate>Sat, 22 Aug 2015 16:59:47 +0800</lastBuildDate>
         
-        <link>http://www.dreamxu.com/build-a-basic-python-development-environment/</link>
-        <guid isPermaLink="true">http://www.dreamxu.com/build-a-basic-python-development-environment/</guid>
+        <link>https://www.dreamxu.com/build-a-basic-python-development-environment/</link>
+        <guid isPermaLink="true">https://www.dreamxu.com/build-a-basic-python-development-environment/</guid>
         
         <category>记录</category>
         
@@ -2302,8 +2302,8 @@ virtualenv venv
 </description>
         <pubDate>Thu, 06 Aug 2015 00:00:00 +0800</pubDate>
         
-        <link>http://www.dreamxu.com/software-book-update/</link>
-        <guid isPermaLink="true">http://www.dreamxu.com/software-book-update/</guid>
+        <link>https://www.dreamxu.com/software-book-update/</link>
+        <guid isPermaLink="true">https://www.dreamxu.com/software-book-update/</guid>
         
         <category>书籍</category>
         
@@ -2468,8 +2468,8 @@ Boot Camp Assistant 会自动制作启动盘和下载 Windows 驱动  &lt;br /&g
         
         <lastBuildDate>Fri, 14 Aug 2015 13:26:29 +0800</lastBuildDate>
         
-        <link>http://www.dreamxu.com/mac-computer-use-bootcamp-to-install-windows-10/</link>
-        <guid isPermaLink="true">http://www.dreamxu.com/mac-computer-use-bootcamp-to-install-windows-10/</guid>
+        <link>https://www.dreamxu.com/mac-computer-use-bootcamp-to-install-windows-10/</link>
+        <guid isPermaLink="true">https://www.dreamxu.com/mac-computer-use-bootcamp-to-install-windows-10/</guid>
         
         <category>记录</category>
         
@@ -2565,8 +2565,8 @@ Ubuntu 是一个比较好用的 Linux 发行版&lt;/p&gt;
         
         <lastBuildDate>Tue, 04 Oct 2016 16:04:53 +0800</lastBuildDate>
         
-        <link>http://www.dreamxu.com/ubuntu-system-install/</link>
-        <guid isPermaLink="true">http://www.dreamxu.com/ubuntu-system-install/</guid>
+        <link>https://www.dreamxu.com/ubuntu-system-install/</link>
+        <guid isPermaLink="true">https://www.dreamxu.com/ubuntu-system-install/</guid>
         
         <category>记录</category>
         
@@ -2649,8 +2649,8 @@ update-grub
 </description>
         <pubDate>Tue, 26 May 2015 00:00:00 +0800</pubDate>
         
-        <link>http://www.dreamxu.com/ubuntu-boot-repair/</link>
-        <guid isPermaLink="true">http://www.dreamxu.com/ubuntu-boot-repair/</guid>
+        <link>https://www.dreamxu.com/ubuntu-boot-repair/</link>
+        <guid isPermaLink="true">https://www.dreamxu.com/ubuntu-boot-repair/</guid>
         
         <category>记录</category>
         
@@ -2670,8 +2670,8 @@ update-grub
 </description>
         <pubDate>Thu, 14 May 2015 00:00:00 +0800</pubDate>
         
-        <link>http://www.dreamxu.com/magicka-game-spell-casting-script/</link>
-        <guid isPermaLink="true">http://www.dreamxu.com/magicka-game-spell-casting-script/</guid>
+        <link>https://www.dreamxu.com/magicka-game-spell-casting-script/</link>
+        <guid isPermaLink="true">https://www.dreamxu.com/magicka-game-spell-casting-script/</guid>
         
         <category>技术</category>
         
@@ -2719,8 +2719,8 @@ update-grub
 </description>
         <pubDate>Mon, 11 May 2015 00:00:00 +0800</pubDate>
         
-        <link>http://www.dreamxu.com/sublime-text-basic-use/</link>
-        <guid isPermaLink="true">http://www.dreamxu.com/sublime-text-basic-use/</guid>
+        <link>https://www.dreamxu.com/sublime-text-basic-use/</link>
+        <guid isPermaLink="true">https://www.dreamxu.com/sublime-text-basic-use/</guid>
         
         <category>记录</category>
         
@@ -2748,8 +2748,8 @@ ln -s path/libmpc.so.2 /usr/local/lib
 </description>
         <pubDate>Tue, 28 Apr 2015 00:00:00 +0800</pubDate>
         
-        <link>http://www.dreamxu.com/r6300v2-dd-wrt-cross-compiler/</link>
-        <guid isPermaLink="true">http://www.dreamxu.com/r6300v2-dd-wrt-cross-compiler/</guid>
+        <link>https://www.dreamxu.com/r6300v2-dd-wrt-cross-compiler/</link>
+        <guid isPermaLink="true">https://www.dreamxu.com/r6300v2-dd-wrt-cross-compiler/</guid>
         
         <category>记录</category>
         
@@ -2928,8 +2928,8 @@ ln -s path/libmpc.so.2 /usr/local/lib
 </description>
         <pubDate>Sat, 11 Apr 2015 00:00:00 +0800</pubDate>
         
-        <link>http://www.dreamxu.com/time-calc/</link>
-        <guid isPermaLink="true">http://www.dreamxu.com/time-calc/</guid>
+        <link>https://www.dreamxu.com/time-calc/</link>
+        <guid isPermaLink="true">https://www.dreamxu.com/time-calc/</guid>
         
         <category>技术</category>
         
@@ -2949,8 +2949,8 @@ ln -s path/libmpc.so.2 /usr/local/lib
 </description>
         <pubDate>Sun, 22 Mar 2015 00:00:00 +0800</pubDate>
         
-        <link>http://www.dreamxu.com/recommend-learnxinyminutes/</link>
-        <guid isPermaLink="true">http://www.dreamxu.com/recommend-learnxinyminutes/</guid>
+        <link>https://www.dreamxu.com/recommend-learnxinyminutes/</link>
+        <guid isPermaLink="true">https://www.dreamxu.com/recommend-learnxinyminutes/</guid>
         
         <category>分享</category>
         
@@ -3026,8 +3026,8 @@ ln -s path/libmpc.so.2 /usr/local/lib
 </description>
         <pubDate>Thu, 19 Mar 2015 00:00:00 +0800</pubDate>
         
-        <link>http://www.dreamxu.com/racket-pattern-matching/</link>
-        <guid isPermaLink="true">http://www.dreamxu.com/racket-pattern-matching/</guid>
+        <link>https://www.dreamxu.com/racket-pattern-matching/</link>
+        <guid isPermaLink="true">https://www.dreamxu.com/racket-pattern-matching/</guid>
         
         <category>记录</category>
         
@@ -3114,8 +3114,8 @@ ln -s path/libmpc.so.2 /usr/local/lib
 </description>
         <pubDate>Tue, 17 Mar 2015 00:00:00 +0800</pubDate>
         
-        <link>http://www.dreamxu.com/scheme-of-the-quote-quasiquote-unquote-discuss/</link>
-        <guid isPermaLink="true">http://www.dreamxu.com/scheme-of-the-quote-quasiquote-unquote-discuss/</guid>
+        <link>https://www.dreamxu.com/scheme-of-the-quote-quasiquote-unquote-discuss/</link>
+        <guid isPermaLink="true">https://www.dreamxu.com/scheme-of-the-quote-quasiquote-unquote-discuss/</guid>
         
         <category>记录</category>
         
@@ -3199,8 +3199,8 @@ sleep 15
 </description>
         <pubDate>Sun, 01 Mar 2015 00:00:00 +0800</pubDate>
         
-        <link>http://www.dreamxu.com/xiyou-10010-activate/</link>
-        <guid isPermaLink="true">http://www.dreamxu.com/xiyou-10010-activate/</guid>
+        <link>https://www.dreamxu.com/xiyou-10010-activate/</link>
+        <guid isPermaLink="true">https://www.dreamxu.com/xiyou-10010-activate/</guid>
         
         <category>记录</category>
         
@@ -3276,8 +3276,8 @@ opkg install python
 </description>
         <pubDate>Sat, 28 Feb 2015 00:00:00 +0800</pubDate>
         
-        <link>http://www.dreamxu.com/r6300v2-dd-wrt-use-opkg/</link>
-        <guid isPermaLink="true">http://www.dreamxu.com/r6300v2-dd-wrt-use-opkg/</guid>
+        <link>https://www.dreamxu.com/r6300v2-dd-wrt-use-opkg/</link>
+        <guid isPermaLink="true">https://www.dreamxu.com/r6300v2-dd-wrt-use-opkg/</guid>
         
         <category>记录</category>
         
@@ -4014,8 +4014,8 @@ Berkshelf 会查看 metadata.rb 文件，确认要使用的食谱中是否有匹
         
         <lastBuildDate>Mon, 06 Oct 2014 01:18:13 +0800</lastBuildDate>
         
-        <link>http://www.dreamxu.com/chef-basic-flow/</link>
-        <guid isPermaLink="true">http://www.dreamxu.com/chef-basic-flow/</guid>
+        <link>https://www.dreamxu.com/chef-basic-flow/</link>
+        <guid isPermaLink="true">https://www.dreamxu.com/chef-basic-flow/</guid>
         
         <category>记录</category>
         
@@ -4263,8 +4263,8 @@ git pull
 </description>
         <pubDate>Thu, 11 Sep 2014 00:00:00 +0800</pubDate>
         
-        <link>http://www.dreamxu.com/install-ruby-on-mac-with-rbenv/</link>
-        <guid isPermaLink="true">http://www.dreamxu.com/install-ruby-on-mac-with-rbenv/</guid>
+        <link>https://www.dreamxu.com/install-ruby-on-mac-with-rbenv/</link>
+        <guid isPermaLink="true">https://www.dreamxu.com/install-ruby-on-mac-with-rbenv/</guid>
         
         <category>记录</category>
         
@@ -4629,8 +4629,8 @@ vagrant init Ubuntu_Server_14.04
         
         <lastBuildDate>Mon, 09 Mar 2015 22:14:30 +0800</lastBuildDate>
         
-        <link>http://www.dreamxu.com/vagrant/</link>
-        <guid isPermaLink="true">http://www.dreamxu.com/vagrant/</guid>
+        <link>https://www.dreamxu.com/vagrant/</link>
+        <guid isPermaLink="true">https://www.dreamxu.com/vagrant/</guid>
         
         <category>记录</category>
         
@@ -4758,8 +4758,8 @@ procps: /usr/bin/top&lt;/li&gt;
 </description>
         <pubDate>Thu, 04 Sep 2014 00:00:00 +0800</pubDate>
         
-        <link>http://www.dreamxu.com/ubuntu-package-dpkg-and-apt-commands/</link>
-        <guid isPermaLink="true">http://www.dreamxu.com/ubuntu-package-dpkg-and-apt-commands/</guid>
+        <link>https://www.dreamxu.com/ubuntu-package-dpkg-and-apt-commands/</link>
+        <guid isPermaLink="true">https://www.dreamxu.com/ubuntu-package-dpkg-and-apt-commands/</guid>
         
         <category>记录</category>
         
@@ -4821,8 +4821,8 @@ procps: /usr/bin/top&lt;/li&gt;
 </description>
         <pubDate>Wed, 27 Aug 2014 00:00:00 +0800</pubDate>
         
-        <link>http://www.dreamxu.com/proxychains-ng/</link>
-        <guid isPermaLink="true">http://www.dreamxu.com/proxychains-ng/</guid>
+        <link>https://www.dreamxu.com/proxychains-ng/</link>
+        <guid isPermaLink="true">https://www.dreamxu.com/proxychains-ng/</guid>
         
         <category>记录</category>
         
@@ -6023,8 +6023,8 @@ GitHub 主页：&lt;a href=&quot;https://github.com/guoc/spi&quot;&gt;https://gi
         
         <lastBuildDate>Wed, 03 Jun 2015 20:26:42 +0800</lastBuildDate>
         
-        <link>http://www.dreamxu.com/install-config-squirrel/</link>
-        <guid isPermaLink="true">http://www.dreamxu.com/install-config-squirrel/</guid>
+        <link>https://www.dreamxu.com/install-config-squirrel/</link>
+        <guid isPermaLink="true">https://www.dreamxu.com/install-config-squirrel/</guid>
         
         <category>记录</category>
         
@@ -6328,8 +6328,8 @@ export LESS_TERMCAP_us=$'&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\E&lt;/sp
         
         <lastBuildDate>Sun, 26 Oct 2014 14:05:00 +0800</lastBuildDate>
         
-        <link>http://www.dreamxu.com/mac-terminal/</link>
-        <guid isPermaLink="true">http://www.dreamxu.com/mac-terminal/</guid>
+        <link>https://www.dreamxu.com/mac-terminal/</link>
+        <guid isPermaLink="true">https://www.dreamxu.com/mac-terminal/</guid>
         
         <category>记录</category>
         
@@ -7271,8 +7271,8 @@ btrfs 文件系统的一些特性非常不错，快照，克隆，字卷，校�
 </description>
         <pubDate>Tue, 24 Dec 2013 00:00:00 +0800</pubDate>
         
-        <link>http://www.dreamxu.com/raspberrypi-nas/</link>
-        <guid isPermaLink="true">http://www.dreamxu.com/raspberrypi-nas/</guid>
+        <link>https://www.dreamxu.com/raspberrypi-nas/</link>
+        <guid isPermaLink="true">https://www.dreamxu.com/raspberrypi-nas/</guid>
         
         <category>技术</category>
         
@@ -7812,8 +7812,8 @@ Disk identifier: 0xe0894113
 </description>
         <pubDate>Wed, 11 Dec 2013 00:00:00 +0800</pubDate>
         
-        <link>http://www.dreamxu.com/debian-create-software-raid-one-arrays/</link>
-        <guid isPermaLink="true">http://www.dreamxu.com/debian-create-software-raid-one-arrays/</guid>
+        <link>https://www.dreamxu.com/debian-create-software-raid-one-arrays/</link>
+        <guid isPermaLink="true">https://www.dreamxu.com/debian-create-software-raid-one-arrays/</guid>
         
         <category>记录</category>
         
@@ -8002,8 +8002,8 @@ Disk identifier: 0xe0894113
 </description>
         <pubDate>Mon, 04 Nov 2013 00:00:00 +0800</pubDate>
         
-        <link>http://www.dreamxu.com/it-workers-to-avoid-death-raiders/</link>
-        <guid isPermaLink="true">http://www.dreamxu.com/it-workers-to-avoid-death-raiders/</guid>
+        <link>https://www.dreamxu.com/it-workers-to-avoid-death-raiders/</link>
+        <guid isPermaLink="true">https://www.dreamxu.com/it-workers-to-avoid-death-raiders/</guid>
         
         <category>记录</category>
         
@@ -8068,8 +8068,8 @@ Keil C51是美国Keil Software公司出品的51系列兼容单片机C语言软�
         
         <lastBuildDate>Sun, 03 Nov 2013 00:44:39 +0800</lastBuildDate>
         
-        <link>http://www.dreamxu.com/share-windows-software/</link>
-        <guid isPermaLink="true">http://www.dreamxu.com/share-windows-software/</guid>
+        <link>https://www.dreamxu.com/share-windows-software/</link>
+        <guid isPermaLink="true">https://www.dreamxu.com/share-windows-software/</guid>
         
         <category>分享</category>
         
@@ -8448,8 +8448,8 @@ DiskGenius 4.3.0 专业版破解版由 MyCrack 破解，运行即为注册版本
         
         <lastBuildDate>Thu, 08 Aug 2013 23:01:18 +0800</lastBuildDate>
         
-        <link>http://www.dreamxu.com/windows-system-install/</link>
-        <guid isPermaLink="true">http://www.dreamxu.com/windows-system-install/</guid>
+        <link>https://www.dreamxu.com/windows-system-install/</link>
+        <guid isPermaLink="true">https://www.dreamxu.com/windows-system-install/</guid>
         
         <category>技术</category>
         
@@ -8555,8 +8555,8 @@ sudo gem install rdiscount
         
         <lastBuildDate>Thu, 20 Mar 2014 16:49:23 +0800</lastBuildDate>
         
-        <link>http://www.dreamxu.com/make-progit/</link>
-        <guid isPermaLink="true">http://www.dreamxu.com/make-progit/</guid>
+        <link>https://www.dreamxu.com/make-progit/</link>
+        <guid isPermaLink="true">https://www.dreamxu.com/make-progit/</guid>
         
         <category>记录</category>
         
@@ -8713,8 +8713,8 @@ sudo apt-get install uget aria2
         
         <lastBuildDate>Sat, 03 Aug 2013 14:54:56 +0800</lastBuildDate>
         
-        <link>http://www.dreamxu.com/install-ubuntu-after/</link>
-        <guid isPermaLink="true">http://www.dreamxu.com/install-ubuntu-after/</guid>
+        <link>https://www.dreamxu.com/install-ubuntu-after/</link>
+        <guid isPermaLink="true">https://www.dreamxu.com/install-ubuntu-after/</guid>
         
         <category>记录</category>
         
@@ -8992,8 +8992,8 @@ sudo vim /usr/share/applications/sublime-text-2.desktop
         
         <lastBuildDate>Sun, 21 Jul 2013 00:00:00 +0800</lastBuildDate>
         
-        <link>http://www.dreamxu.com/ubuntu-install-sublime-text/</link>
-        <guid isPermaLink="true">http://www.dreamxu.com/ubuntu-install-sublime-text/</guid>
+        <link>https://www.dreamxu.com/ubuntu-install-sublime-text/</link>
+        <guid isPermaLink="true">https://www.dreamxu.com/ubuntu-install-sublime-text/</guid>
         
         <category>记录</category>
         
@@ -9061,8 +9061,8 @@ sudo vim /usr/share/applications/sublime-text-2.desktop
 </description>
         <pubDate>Tue, 18 Jun 2013 00:00:00 +0800</pubDate>
         
-        <link>http://www.dreamxu.com/ubuntu-install-lamp/</link>
-        <guid isPermaLink="true">http://www.dreamxu.com/ubuntu-install-lamp/</guid>
+        <link>https://www.dreamxu.com/ubuntu-install-lamp/</link>
+        <guid isPermaLink="true">https://www.dreamxu.com/ubuntu-install-lamp/</guid>
         
         <category>记录</category>
         
@@ -9162,8 +9162,8 @@ collect2: ld returned 1 exit status  &lt;br /&gt;
 </description>
         <pubDate>Wed, 05 Jun 2013 00:00:00 +0800</pubDate>
         
-        <link>http://www.dreamxu.com/windows-ubuntu-install-qt5/</link>
-        <guid isPermaLink="true">http://www.dreamxu.com/windows-ubuntu-install-qt5/</guid>
+        <link>https://www.dreamxu.com/windows-ubuntu-install-qt5/</link>
+        <guid isPermaLink="true">https://www.dreamxu.com/windows-ubuntu-install-qt5/</guid>
         
         <category>记录</category>
         
@@ -9198,8 +9198,8 @@ Eclipse 4.2 的代号就是 juno，具体版本对应的代号自己可以去查
 </description>
         <pubDate>Tue, 23 Apr 2013 00:00:00 +0800</pubDate>
         
-        <link>http://www.dreamxu.com/chinese-eclipse/</link>
-        <guid isPermaLink="true">http://www.dreamxu.com/chinese-eclipse/</guid>
+        <link>https://www.dreamxu.com/chinese-eclipse/</link>
+        <guid isPermaLink="true">https://www.dreamxu.com/chinese-eclipse/</guid>
         
         <category>记录</category>
         
@@ -9296,8 +9296,8 @@ sudo apt-get install oracle-java7-installer
 </description>
         <pubDate>Wed, 03 Apr 2013 00:00:00 +0800</pubDate>
         
-        <link>http://www.dreamxu.com/windows-linux-install-java/</link>
-        <guid isPermaLink="true">http://www.dreamxu.com/windows-linux-install-java/</guid>
+        <link>https://www.dreamxu.com/windows-linux-install-java/</link>
+        <guid isPermaLink="true">https://www.dreamxu.com/windows-linux-install-java/</guid>
         
         <category>记录</category>
         
@@ -9444,8 +9444,8 @@ sudo apt-get install oracle-java7-installer
         
         <lastBuildDate>Sun, 10 Jul 2016 01:43:40 +0800</lastBuildDate>
         
-        <link>http://www.dreamxu.com/drop-of-water/</link>
-        <guid isPermaLink="true">http://www.dreamxu.com/drop-of-water/</guid>
+        <link>https://www.dreamxu.com/drop-of-water/</link>
+        <guid isPermaLink="true">https://www.dreamxu.com/drop-of-water/</guid>
         
         <category>随笔</category>
         
@@ -9470,8 +9470,8 @@ sudo apt-get install oracle-java7-installer
 </description>
         <pubDate>Thu, 29 Mar 2012 00:00:00 +0800</pubDate>
         
-        <link>http://www.dreamxu.com/empty-heart/</link>
-        <guid isPermaLink="true">http://www.dreamxu.com/empty-heart/</guid>
+        <link>https://www.dreamxu.com/empty-heart/</link>
+        <guid isPermaLink="true">https://www.dreamxu.com/empty-heart/</guid>
         
         <category>随笔</category>
         
