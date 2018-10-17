@@ -6,8 +6,8 @@
     <link>https://www.dreamxu.com/</link>
     <atom:link href="https://www.dreamxu.com/rss.xml" rel="self" type="application/rss+xml"/>
     <language>zh-CN</language>
-    <pubDate>Mon, 15 Oct 2018 03:44:03 +0800</pubDate>
-    <lastBuildDate>Mon, 15 Oct 2018 03:44:03 +0800</lastBuildDate>
+    <pubDate>Wed, 17 Oct 2018 12:37:41 +0800</pubDate>
+    <lastBuildDate>Wed, 17 Oct 2018 12:37:41 +0800</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
     
       <item>
@@ -3126,87 +3126,6 @@ ln -s path/libmpc.so.2 /usr/local/lib
         <category>quasiquote</category>
         
         <category>unquote</category>
-        
-      </item>
-    
-      <item>
-        <title>西邮联通上网激活方法（可共享，支持路由器，Mac, Windows, Linux）</title>
-        <description>&lt;h2 id=&quot;方法一只支持-windows&quot;&gt;方法一（只支持 Windows）&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://tieba.baidu.com/p/3606416310&quot;&gt;http://tieba.baidu.com/p/3606416310&lt;/a&gt;, &lt;br /&gt;
-使用此帖子中的插件  &lt;br /&gt;
-&lt;strong&gt;记得将 IP 改为 222.24.63.10&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;亲测其中的版本 01 可用&lt;/p&gt;
-
-&lt;p&gt;可用版本备份下载地址：&lt;a href=&quot;https://www.dropbox.com/s/c56uadc0q6fjnv7/Freedrcom.zip?dl=0&quot;&gt;https://www.dropbox.com/s/c56uadc0q6fjnv7/Freedrcom.zip?dl=0&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;方法二支持各系统&quot;&gt;方法二（支持各系统）&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/drcoms/drcom-generic&quot;&gt;https://github.com/drcoms/drcom-generic&lt;/a&gt;, &lt;br /&gt;
-其中的 p 版可用，《&lt;a href=&quot;https://github.com/drcoms/drcom-generic/wiki/p版简略使用和配置说明&quot;&gt;p 版简略使用和配置说明&lt;/a&gt;》&lt;/p&gt;
-
-&lt;p&gt;通过抓包获取到的信息为：&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;n&quot;&gt;server&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'222.24.63.10'&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;pppoe_flag&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\x0a&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;keep_alive2_flag&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\xdc&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;将以上内容替换 latest-pppoe.py 文件中的相应内容，然后运行此文件来激活（需要 Python 环境）&lt;/p&gt;
-
-&lt;p&gt;亲测路由器可使用（r6300v2 刷的 dd-wrt 系统）  &lt;br /&gt;
-简单说下步骤：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;开启 SSH 和 JFFS&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;将 /jffs/opt 挂载到 /opt&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;用 ipkg 来安装 opkg&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;用 opkg 来安装 python&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;加入如下启动代码&lt;/p&gt;
-
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;mount --bind /jffs/opt /opt
-sleep 15
-/opt/bin/pppoe.sh
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-    &lt;/div&gt;
-
-    &lt;p&gt;需要修改 pppoe.sh 文件，很简单就不讲了&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;已修改好的 latest-pppoe.py 文件下载地址：&lt;a href=&quot;https://www.dropbox.com/s/idtxn22vojyiunl/latest-pppoe.py?dl=0&quot;&gt;https://www.dropbox.com/s/idtxn22vojyiunl/latest-pppoe.py?dl=0&lt;/a&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;strong&gt;以上软件皆非原创，请感谢相应作者&lt;/strong&gt;&lt;/p&gt;
-</description>
-        <pubDate>Sun, 01 Mar 2015 00:00:00 +0800</pubDate>
-        
-        <link>https://www.dreamxu.com/xiyou-10010-activate/</link>
-        <guid isPermaLink="true">https://www.dreamxu.com/xiyou-10010-activate/</guid>
-        
-        <category>记录</category>
-        
-        <category>西邮</category>
-        
-        <category>联通</category>
         
       </item>
     
