@@ -1157,17 +1157,15 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="&#x5173;&#x4E8E;-dsstore">&#x5173;&#x4E8E; .DS_store</h1>
-<p>2015-09-03</p>
+<p>2015-09-03 | &#x66F4;&#x65B0;: 2019-01-01</p>
 <hr>
 <p>&#x7981;&#x6B62; <code>.DS_store</code> &#x751F;&#x6210;&#xFF08;&#x53EA;&#x5BF9;&#x79FB;&#x52A8;&#x8BBE;&#x5907;&#x6709;&#x6548;&#xFF09;</p>
 <pre><code>defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool TRUE
 </code></pre><p>&#x6062;&#x590D; <code>.DS_store</code> &#x751F;&#x6210;</p>
 <pre><code>defaults delete com.apple.desktopservices DSDontWriteNetworkStores
-</code></pre><p>&#x5220;&#x9664;&#x6240;&#x6709;&#x7684; <code>.DS_store</code></p>
-<pre><code>sudo find / -name &quot;.DS_Store&quot; -depth -exec rm {} \;
-</code></pre><p>&#x4F60;&#x5982;&#x679C;&#x4E0D;&#x60F3;&#x5728;&#x76EE;&#x5F55;&#x4E0B;&#x751F;&#x6210; .DS_store &#x6587;&#x4EF6;&#xFF0C;&#x53EF;&#x4F7F;&#x7528; <a href="http://asepsis.binaryage.com/" target="_blank">Asepsis</a> 
-&#x8FD9;&#x4E2A;&#x8F6F;&#x4EF6;&#x5C06; .DS_store &#x91CD;&#x5B9A;&#x5411;&#x5230;&#x7EDF;&#x4E00;&#x7684;&#x6587;&#x4EF6;&#x5939;</p>
-
+</code></pre><p>&#x5220;&#x9664; <code>.</code> &#x76EE;&#x5F55;&#x4E0B;&#x7684;&#x6240;&#x6709; <code>.DS_store</code></p>
+<pre><code>find . -name .DS_Store -type f -print -delete
+</code></pre>
                                 
                                 </section>
                             
@@ -1210,7 +1208,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"关于 .DS_store","level":"1.3.19","depth":2,"next":{"title":"iconv - 字符编码转换","level":"1.3.20","depth":2,"path":"macOS/iconv.md","ref":"macOS/iconv.md","articles":[]},"previous":{"title":"系统默认截图不带窗口阴影","level":"1.3.18","depth":2,"path":"macOS/system-default-screenshot-without-a-window-shadow.md","ref":"macOS/system-default-screenshot-without-a-window-shadow.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"mwum"},"ga":{"configuration":"auto","token":"UA-39279084-1"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sidebar":{"明无梦的博客":"https://www.dreamxu.com/"},"sharing":{"google":false,"facebook":false,"twitter":false,"weibo":false,"all":true}},"gitbook":"*"},"file":{"path":"macOS/about-ds-store.md","mtime":"2015-09-05T03:27:49.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-04T17:56:11.673Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"关于 .DS_store","level":"1.3.19","depth":2,"next":{"title":"iconv - 字符编码转换","level":"1.3.20","depth":2,"path":"macOS/iconv.md","ref":"macOS/iconv.md","articles":[]},"previous":{"title":"系统默认截图不带窗口阴影","level":"1.3.18","depth":2,"path":"macOS/system-default-screenshot-without-a-window-shadow.md","ref":"macOS/system-default-screenshot-without-a-window-shadow.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"mwum"},"ga":{"configuration":"auto","token":"UA-39279084-1"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sidebar":{"明无梦的博客":"https://www.dreamxu.com/"},"sharing":{"google":false,"facebook":false,"twitter":false,"weibo":false,"all":true}},"gitbook":"*"},"file":{"path":"macOS/about-ds-store.md","mtime":"2019-01-01T08:47:27.997Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-01T08:47:53.088Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
