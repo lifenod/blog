@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Charles - HTTP 抓包 · GitBook</title>
+        <title>Wireshark - 网络抓包 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -146,7 +146,7 @@
                 <a href="./">
             
                     
-                    Charles - HTTP 抓包
+                    Wireshark - 网络抓包
             
                 </a>
             
@@ -339,7 +339,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Charles - HTTP 抓包</a>
+        <a href=".." >Wireshark - 网络抓包</a>
     </h1>
 </div>
 
@@ -354,14 +354,13 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="charles">Charles</h1>
-<p>2015-09-18</p>
-<hr>
-<p>&#x5B98;&#x7F51;&#xFF1A;<a href="http://www.charlesproxy.com/" target="_blank">http://www.charlesproxy.com/</a></p>
-<blockquote>
-<p>Charles is an HTTP proxy / HTTP monitor / Reverse Proxy that enables a developer to view all of the HTTP and SSL / HTTPS traffic between their machine and the Internet. This includes requests, responses and the HTTP headers (which contain the cookies and caching information).</p>
-</blockquote>
-<p>&#x7528;&#x6CD5;&#x53C2;&#x8003;&#xFF1A;<br><a href="http://www.infoq.com/cn/articles/network-packet-analysis-tool-charles" target="_blank">http://www.infoq.com/cn/articles/network-packet-analysis-tool-charles</a></p>
+                                <h1 id="wireshark---&#x7F51;&#x7EDC;&#x6293;&#x5305;">Wireshark - &#x7F51;&#x7EDC;&#x6293;&#x5305;</h1>
+<h2 id="decrypt-https-ssltls">Decrypt HTTPS (SSL/TLS)</h2>
+<pre><code>export SSLKEYLOGFILE=&quot;/Users/username/sslkeylog.log&quot;
+open -a firefox
+wireshark
+</code></pre><p>&#x5982;&#x679C;&#x4E0D;&#x884C;&#x90A3;&#x4E48;&#x5728; wireshark &#x4E2D;&#x914D;&#x7F6E;</p>
+<p>Wireshark &#x2192; Preference &#x2192; Protocols &#x2192; SSL &#x2192; (Pre)-Master-Secret log filename &#x586B;&#x5165; <code>/Users/username/sslkeylog.log</code></p>
 
                                 
                                 </section>
@@ -405,7 +404,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Charles - HTTP 抓包","level":"1.4","depth":1,"next":{"title":"Sequel Pro - MySQL 数据库管理","level":"1.5","depth":1,"path":"sequelpro/README.md","ref":"sequelpro/README.md","articles":[]},"previous":{"title":"iTerm2 & Zsh - 终端模拟器","level":"1.3","depth":1,"path":"iterm2/README.md","ref":"iterm2/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"mwum"},"ga":{"configuration":"auto","token":"UA-39279084-1"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sidebar":{"明无梦的博客":"https://www.dreamxu.com/"},"sharing":{"google":false,"facebook":false,"twitter":false,"weibo":false,"all":true}},"gitbook":"*"},"file":{"path":"charles/README.md","mtime":"2015-09-18T11:38:58.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-04T17:55:02.087Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Wireshark - 网络抓包","level":"1.4","depth":1,"next":{"title":"Sequel Pro - MySQL 数据库管理","level":"1.5","depth":1,"path":"sequelpro/README.md","ref":"sequelpro/README.md","articles":[]},"previous":{"title":"iTerm2 & Zsh - 终端模拟器","level":"1.3","depth":1,"path":"iterm2/README.md","ref":"iterm2/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"mwum"},"ga":{"configuration":"auto","token":"UA-39279084-1"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sidebar":{"明无梦的博客":"https://www.dreamxu.com/"},"sharing":{"google":false,"facebook":false,"twitter":false,"weibo":false,"all":true}},"gitbook":"*"},"file":{"path":"wireshark/README.md","mtime":"2018-12-11T07:33:58.361Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-11T02:56:23.215Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
