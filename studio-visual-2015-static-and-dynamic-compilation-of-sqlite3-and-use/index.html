@@ -152,7 +152,7 @@
   <li>
     <p>比如说在主 Dlg 文件 MFC-SQLite3Dlg.h 确定按钮写入如下简单使用 SQLite3 的代码</p>
 
-    <div class="language-cpp highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+    <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -169,7 +169,8 @@
 15
 16
 17
-18</pre></td><td class="code"><pre><span class="cp">#include "SQLite\sqlite3.h"
+18
+</pre></td><td class="rouge-code"><pre><span class="cp">#include "SQLite\sqlite3.h"
 </span>
 
 <span class="kt">void</span> <span class="n">CMFCSQLite3Dlg</span><span class="o">::</span><span class="n">OnBnClickedOk</span><span class="p">()</span>
@@ -187,9 +188,7 @@
 
     <span class="n">CDialogEx</span><span class="o">::</span><span class="n">OnOK</span><span class="p">();</span>
 <span class="p">}</span>
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
 
     <p>然后生成该项目就可以了</p>
   </li>
@@ -230,22 +229,20 @@
   <li>
     <p>将下面三个文件放到 SQLite3-Dynamic 文件夹中</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
-3</pre></td><td class="code"><pre>C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\lib.exe
+3
+</pre></td><td class="rouge-code"><pre>C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\lib.exe
 C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe
 C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\mspdb140.dll
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>使用命令提示符，进入 SQLite3-Dynamic 文件夹，执行如下命令：</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>LIB /DEF:sqlite3.def /machine:IX86
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>LIB /DEF:sqlite3.def /machine:IX86
+</pre></td></tr></tbody></table></code></pre></div>    </div>
 
     <p>即可生成 .lib 文件</p>
   </li>

@@ -133,10 +133,9 @@
 
 <p>可以去官网下载或者使用 Homebrew Cask 来安装（截至到今天版本非最新）</p>
 
-<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>brew cask install squirrel
-</pre></td></tr></tbody></table>
-</div>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>brew cask install squirrel
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>刚安装好，拼音输入是繁体的，按组合键 <code class="highlighter-rouge">Ctrl+`</code> 呼出输入法方案选单（如下），切换为「汉字」就可以输入简体了</p>
 
@@ -204,7 +203,7 @@ BTW, 现在我自己都不使用「语句流」这种方式了</p>
 
 <p>新建文件 <code class="highlighter-rouge">touch ~/Library/Rime/default.custom.yaml</code>, 内容如下</p>
 
-<div class="language-yaml highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -213,40 +212,38 @@ BTW, 现在我自己都不使用「语句流」这种方式了</p>
 7
 8
 9
-10</pre></td><td class="code"><pre><span class="c1"># default.custom.yaml, 全局生效</span>
+10
+</pre></td><td class="rouge-code"><pre><span class="c1"># default.custom.yaml, 全局生效</span>
 <span class="c1"># 添加小鹤双拼到方案选单</span>
-<span class="s">patch</span><span class="pi">:</span>
-  <span class="s">schema_list</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">schema</span><span class="pi">:</span> <span class="s">double_pinyin_flypy</span>   <span class="c1"># 新增小鹤双拼</span>
-    <span class="pi">-</span> <span class="s">schema</span><span class="pi">:</span> <span class="s">luna_pinyin</span>
-    <span class="pi">-</span> <span class="s">schema</span><span class="pi">:</span> <span class="s">cangjie5</span>
-    <span class="pi">-</span> <span class="s">schema</span><span class="pi">:</span> <span class="s">luna_pinyin_fluency</span>
-    <span class="pi">-</span> <span class="s">schema</span><span class="pi">:</span> <span class="s">luna_pinyin_simp</span>
-    <span class="pi">-</span> <span class="s">schema</span><span class="pi">:</span> <span class="s">luna_pinyin_tw</span>
-</pre></td></tr></tbody></table>
-</div>
-</div>
+<span class="na">patch</span><span class="pi">:</span>
+  <span class="na">schema_list</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">schema</span><span class="pi">:</span> <span class="s">double_pinyin_flypy</span>   <span class="c1"># 新增小鹤双拼</span>
+    <span class="pi">-</span> <span class="na">schema</span><span class="pi">:</span> <span class="s">luna_pinyin</span>
+    <span class="pi">-</span> <span class="na">schema</span><span class="pi">:</span> <span class="s">cangjie5</span>
+    <span class="pi">-</span> <span class="na">schema</span><span class="pi">:</span> <span class="s">luna_pinyin_fluency</span>
+    <span class="pi">-</span> <span class="na">schema</span><span class="pi">:</span> <span class="s">luna_pinyin_simp</span>
+    <span class="pi">-</span> <span class="na">schema</span><span class="pi">:</span> <span class="s">luna_pinyin_tw</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <h4 id="对输入方案的定制">对输入方案的定制</h4>
 
 <p>比如定制小鹤双拼  <br />
 新建文件 <code class="highlighter-rouge">touch ~/Library/Rime/double_pinyin_flypy.custom.yaml</code></p>
 
-<div class="language-yaml highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
-3</pre></td><td class="code"><pre><span class="c1"># double_pinyin_flypy.custom.yaml, 只对小鹤双拼生效</span>
-<span class="s">patch</span><span class="pi">:</span>
+3
+</pre></td><td class="rouge-code"><pre><span class="c1"># double_pinyin_flypy.custom.yaml, 只对小鹤双拼生效</span>
+<span class="na">patch</span><span class="pi">:</span>
   <span class="s">translator/preedit_format</span><span class="pi">:</span> <span class="pi">{}</span>     <span class="c1"># 输入双拼码的时候不转化为全拼码</span>
-</pre></td></tr></tbody></table>
-</div>
-</div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>配置好之后需要「重新部署」：切换到「鼠须管」输入法，点击右上角的的输入法图标，点击「重新部署」  <br />
 之后就可以用小鹤双拼了</p>
 
 <h3 id="外观设定">外观设定</h3>
 
-<div class="language-yaml highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -276,11 +273,12 @@ BTW, 现在我自己都不使用「语句流」这种方式了</p>
 28
 29
 30
-31</pre></td><td class="code"><pre><span class="c1"># 适用于【鼠须管】0.9.13+</span>
+31
+</pre></td><td class="rouge-code"><pre><span class="c1"># 适用于【鼠须管】0.9.13+</span>
 <span class="c1"># 位置：~/Library/Rime/squirrel.custom.yaml</span>
 <span class="c1"># 用法：想要哪项生效，就删去该行行首的 "#" 字符，但注意保留用于缩进的空格</span>
 
-<span class="s">patch</span><span class="pi">:</span>
+<span class="na">patch</span><span class="pi">:</span>
 <span class="c1">#  us_keyboard_layout: true                 # 键盘选项：应用美式键盘布局</span>
 <span class="c1"># 状态通知，适当，也可设为全开（always）全关（never）</span>
 <span class="c1">#  show_notifications_when: appropriate</span>
@@ -307,9 +305,7 @@ BTW, 现在我自己都不使用「语句流」这种方式了</p>
 <span class="c1">#   谷歌 - google</span>
 <span class="c1">#   晒经石 - solarized_rock</span>
 <span class="c1">#   简约白 - clean_white</span>
-</pre></td></tr></tbody></table>
-</div>
-</div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <h3 id="一些快捷键">一些快捷键</h3>
 
@@ -345,32 +341,30 @@ BTW, 现在我自己都不使用「语句流」这种方式了</p>
 
 <p>比如在 default.yaml 中看到</p>
 
-<div class="language-yaml highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
-3</pre></td><td class="code"><pre><span class="s">punctuator</span><span class="pi">:</span>
-  <span class="s">half_shape</span><span class="pi">:</span>
+3
+</pre></td><td class="rouge-code"><pre><span class="na">punctuator</span><span class="pi">:</span>
+  <span class="na">half_shape</span><span class="pi">:</span>
     <span class="s2">"</span><span class="s">/"</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">、"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">/"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">／"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">÷"</span><span class="pi">]</span>
-</pre></td></tr></tbody></table>
-</div>
-</div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>意思是当你输入 “/” 的时候，会出现上面列表中的候选  <br />
 若你想让 “/键” 直接输出 “、”，可以做如下修改</p>
 
-<div class="language-yaml highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
 5
-6</pre></td><td class="code"><pre><span class="c1"># double_pinyin_flypy.custom.yaml</span>
-<span class="s">patch</span><span class="pi">:</span>
+6
+</pre></td><td class="rouge-code"><pre><span class="c1"># double_pinyin_flypy.custom.yaml</span>
+<span class="na">patch</span><span class="pi">:</span>
   <span class="s">punctuator/full_shape</span><span class="pi">:</span>
     <span class="s2">"</span><span class="s">/"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">、"</span>
   <span class="s">punctuator/half_shape</span><span class="pi">:</span>
     <span class="s2">"</span><span class="s">/"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">、"</span>
-</pre></td></tr></tbody></table>
-</div>
-</div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>如果你的用的输入方案导入了 symbols.yaml, 你就可以参考 symbols.yaml 文件来修改了，<br />
 里面还有各种特殊符号</p>
@@ -379,16 +373,15 @@ BTW, 现在我自己都不使用「语句流」这种方式了</p>
 
 <p>这还有个用法，你可以将一个键或多个键专门用于输入自定义的词组比如</p>
 
-<div class="language-yaml highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
-4</pre></td><td class="code"><pre><span class="c1"># double_pinyin_flypy.custom.yaml</span>
-<span class="s">patch</span><span class="pi">:</span>
+4
+</pre></td><td class="rouge-code"><pre><span class="c1"># double_pinyin_flypy.custom.yaml</span>
+<span class="na">patch</span><span class="pi">:</span>
   <span class="s">punctuator/half_shape</span><span class="pi">:</span>
     <span class="s2">"</span><span class="s">+"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">+_+"</span>
-</pre></td></tr></tbody></table>
-</div>
-</div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>当你输入 “+” 的时候就会变成 “+_+” 了</p>
 
@@ -402,24 +395,23 @@ BTW, 现在我自己都不使用「语句流」这种方式了</p>
 
 <p>例如，要在 Xcode 里面默认关闭中文输入，又要在 Alfred 2 里面恢复开启中文输入，可如此设定：</p>
 
-<div class="language-yaml highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
-5</pre></td><td class="code"><pre><span class="c1"># squirrel.custom.yaml</span>
-<span class="s">patch</span><span class="pi">:</span>
+5
+</pre></td><td class="rouge-code"><pre><span class="c1"># squirrel.custom.yaml</span>
+<span class="na">patch</span><span class="pi">:</span>
   <span class="s">app_options/com.apple.Xcode</span><span class="pi">:</span>
-    <span class="s">ascii_mode</span><span class="pi">:</span> <span class="s">true</span>
+    <span class="na">ascii_mode</span><span class="pi">:</span> <span class="no">true</span>
   <span class="s">app_options/com.runningwithcrayons.Alfred-2</span><span class="pi">:</span> <span class="pi">{}</span>
-</pre></td></tr></tbody></table>
-</div>
-</div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>修改之前先查看以下 squirrel.yaml 文件，默认设置了一些常用的软件</p>
 
 <h3 id="更改切换中西文的快捷键">更改切换中西文的快捷键</h3>
 
-<div class="language-yaml highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -442,7 +434,8 @@ BTW, 现在我自己都不使用「语句流」这种方式了</p>
 21
 22
 23
-24</pre></td><td class="code"><pre><span class="c1"># default.custom.yaml</span>
+24
+</pre></td><td class="rouge-code"><pre><span class="c1"># default.custom.yaml</span>
 <span class="c1">#</span>
 <span class="c1"># 可用的按键有 Caps_Lock, Shift_L, Shift_R, Control_L, control_R</span>
 <span class="c1"># Mac 系统上的鼠须管不能区分左、右，因此只有对 Shift_L, Control_L 的设定起作用</span>
@@ -458,21 +451,19 @@ BTW, 现在我自己都不使用「语句流」这种方式了</p>
 <span class="c1"># 如果要以Caps Lock 切换到西文模式，默认输出小写字母，请置 ascii_composer/good_old_caps_lock: false</span>
 <span class="c1"># 如果要以Caps Lock 切换到西文模式，默认输出大写字母，请置 ascii_composer/good_old_caps_lock: true</span>
 
-<span class="s">patch</span><span class="pi">:</span>
-  <span class="s">ascii_composer/good_old_caps_lock</span><span class="pi">:</span> <span class="s">true</span>
+<span class="na">patch</span><span class="pi">:</span>
+  <span class="s">ascii_composer/good_old_caps_lock</span><span class="pi">:</span> <span class="no">true</span>
   <span class="s">ascii_composer/switch_key</span><span class="pi">:</span>
-    <span class="s">Caps_Lock</span><span class="pi">:</span> <span class="s">noop</span>
-    <span class="s">Shift_L</span><span class="pi">:</span> <span class="s">commit_code</span>
-    <span class="s">Shift_R</span><span class="pi">:</span> <span class="s">noop</span>
-    <span class="s">Control_L</span><span class="pi">:</span> <span class="s">noop</span>
-    <span class="s">Control_R</span><span class="pi">:</span> <span class="s">noop</span>
-</pre></td></tr></tbody></table>
-</div>
-</div>
+    <span class="na">Caps_Lock</span><span class="pi">:</span> <span class="s">noop</span>
+    <span class="na">Shift_L</span><span class="pi">:</span> <span class="s">commit_code</span>
+    <span class="na">Shift_R</span><span class="pi">:</span> <span class="s">noop</span>
+    <span class="na">Control_L</span><span class="pi">:</span> <span class="s">noop</span>
+    <span class="na">Control_R</span><span class="pi">:</span> <span class="s">noop</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <h3 id="以方括号--和--来换页">以方括号 “[” 和 “]” 来换页</h3>
 
-<div class="language-yaml highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -480,29 +471,27 @@ BTW, 现在我自己都不使用「语句流」这种方式了</p>
 6
 7
 8
-9</pre></td><td class="code"><pre><span class="c1"># default.custom.yaml</span>
-<span class="s">patch</span><span class="pi">:</span>
+9
+</pre></td><td class="rouge-code"><pre><span class="c1"># default.custom.yaml</span>
+<span class="na">patch</span><span class="pi">:</span>
   <span class="s">key_binder/bindings</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">when</span><span class="pi">:</span> <span class="s">paging</span>
-      <span class="s">accept</span><span class="pi">:</span> <span class="s">bracketleft</span>
-      <span class="s">send</span><span class="pi">:</span> <span class="s">Page_Up</span>
-    <span class="pi">-</span> <span class="s">when</span><span class="pi">:</span> <span class="s">has_menu</span>
-      <span class="s">accept</span><span class="pi">:</span> <span class="s">bracketright</span>
-      <span class="s">send</span><span class="pi">:</span> <span class="s">Page_Down</span>
-</pre></td></tr></tbody></table>
-</div>
-</div>
+    <span class="pi">-</span> <span class="na">when</span><span class="pi">:</span> <span class="s">paging</span>
+      <span class="na">accept</span><span class="pi">:</span> <span class="s">bracketleft</span>
+      <span class="na">send</span><span class="pi">:</span> <span class="s">Page_Up</span>
+    <span class="pi">-</span> <span class="na">when</span><span class="pi">:</span> <span class="s">has_menu</span>
+      <span class="na">accept</span><span class="pi">:</span> <span class="s">bracketright</span>
+      <span class="na">send</span><span class="pi">:</span> <span class="s">Page_Down</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <h3 id="定制每页候选数">定制每页候选数</h3>
 
-<div class="language-yaml highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
-3</pre></td><td class="code"><pre><span class="c1"># default.custom.yaml</span>
-<span class="s">patch</span><span class="pi">:</span>
+3
+</pre></td><td class="rouge-code"><pre><span class="c1"># default.custom.yaml</span>
+<span class="na">patch</span><span class="pi">:</span>
   <span class="s">menu/page_size</span><span class="pi">:</span> <span class="s">5</span>
-</pre></td></tr></tbody></table>
-</div>
-</div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>来张 15 个候选的靓照</p>
 
@@ -510,14 +499,13 @@ BTW, 现在我自己都不使用「语句流」这种方式了</p>
 
 <h3 id="关闭用户词典和字频调整">关闭用户词典和字频调整</h3>
 
-<div class="language-yaml highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
-3</pre></td><td class="code"><pre><span class="c1"># double_pinyin_flypy.custom.yaml</span>
-<span class="s">patch</span><span class="pi">:</span>
-  <span class="s">translator/enable_user_dict</span><span class="pi">:</span> <span class="s">false</span>
-</pre></td></tr></tbody></table>
-</div>
-</div>
+3
+</pre></td><td class="rouge-code"><pre><span class="c1"># double_pinyin_flypy.custom.yaml</span>
+<span class="na">patch</span><span class="pi">:</span>
+  <span class="s">translator/enable_user_dict</span><span class="pi">:</span> <span class="no">false</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <h3 id="关于调试">关于调试</h3>
 
@@ -536,14 +524,15 @@ BTW, 现在我自己都不使用「语句流」这种方式了</p>
   <li>
     <p>新建文件 <code class="highlighter-rouge">touch ~/Library/Rime/rime_dict_manager</code>, 输入如下内容</p>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
 5
 6
 7
-8</pre></td><td class="code"><pre><span class="c">#!/bin/bash</span>
+8
+</pre></td><td class="rouge-code"><pre><span class="c">#!/bin/bash</span>
 <span class="c">#</span>
 <span class="c"># put this script in ~/Library/Rime, list existing user dictionaries:</span>
 <span class="c"># ./rime_dict_manager --list</span>
@@ -551,17 +540,14 @@ BTW, 现在我自己都不使用「语句流」这种方式了</p>
 <span class="c"># ./rime_dict_manager</span>
 
 <span class="nv">DYLD_LIBRARY_PATH</span><span class="o">=</span><span class="s2">"/Library/Input Methods/Squirrel.app/Contents/Frameworks"</span> <span class="s2">"/Library/Input Methods/Squirrel.app/Contents/MacOS/rime_dict_manager"</span> <span class="nv">$@</span>
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>然后添加可执行权限</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>chmod +x ~/Library/Rime/rime_dict_manager
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>chmod +x ~/Library/Rime/rime_dict_manager
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>进入用户资料夹 (~/Library/Rime/), 执行相关操作</p>
@@ -574,34 +560,30 @@ BTW, 现在我自己都不使用「语句流」这种方式了</p>
   <li>
     <p>查看用户词典列表</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>./rime_dict_manager -l
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>./rime_dict_manager -l
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>先关闭输入法，释放以独占方式打开的词典文件</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>killall Squirrel
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>killall Squirrel
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>将词库导入</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>./rime_dict_manager -i dict_name import.txt
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>./rime_dict_manager -i dict_name import.txt
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>将词库导出</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>./rime_dict_manager -e dict_name export.txt
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>./rime_dict_manager -e dict_name export.txt
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
 </ol>
 
@@ -625,14 +607,13 @@ BTW, 现在我自己都不使用「语句流」这种方式了</p>
   <li>
     <p>修改定制文件</p>
 
-    <div class="language-yaml highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+    <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
-3</pre></td><td class="code"><pre><span class="c1"># double_pinyin_flypy_fluency.custom.yaml</span>
-<span class="s">patch</span><span class="pi">:</span>
+3
+</pre></td><td class="rouge-code"><pre><span class="c1"># double_pinyin_flypy_fluency.custom.yaml</span>
+<span class="na">patch</span><span class="pi">:</span>
   <span class="s">translator/dictionary</span><span class="pi">:</span> <span class="s">luna_pinyin.extended</span>
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>将  <br />
@@ -652,31 +633,29 @@ luna_pinyin.poetry.dict.yaml  <br />
 
     <p>说的更明白一点就是，将 luna_pinyin.extended.dict.yaml 文件中的：</p>
 
-    <div class="language-yaml highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+    <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
-5</pre></td><td class="code"><pre><span class="s">import_tables</span><span class="pi">:</span>
+5
+</pre></td><td class="rouge-code"><pre><span class="na">import_tables</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">luna_pinyin</span>
   <span class="pi">-</span> <span class="s">luna_pinyin.hanyu</span>
   <span class="pi">-</span> <span class="s">luna_pinyin.poetry</span>
   <span class="pi">-</span> <span class="s">luna_pinyin.cn_en</span>
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
 
     <p>改写成（去掉 luna_pinyin.cn_en）</p>
 
-    <div class="language-yaml highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+    <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
-4</pre></td><td class="code"><pre><span class="s">import_tables</span><span class="pi">:</span>
+4
+</pre></td><td class="rouge-code"><pre><span class="na">import_tables</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">luna_pinyin</span>
   <span class="pi">-</span> <span class="s">luna_pinyin.hanyu</span>
   <span class="pi">-</span> <span class="s">luna_pinyin.poetry</span>
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
 </ol>
 
@@ -686,10 +665,9 @@ luna_pinyin.poetry.dict.yaml  <br />
 
 <p>编辑 installation.yaml 文件，添加一行：</p>
 
-<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sync_dir: '/Users/username/Dropbox/sync/Rime'
-</pre></td></tr></tbody></table>
-</div>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>sync_dir: '/Users/username/Dropbox/sync/Rime'
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <h4 id="在不同电脑间进行同步">在不同电脑间进行同步</h4>
 
@@ -712,10 +690,9 @@ luna_pinyin.poetry.dict.yaml  <br />
   <li>
     <p>打开小狼毫的用户文件夹（开始菜单中可直接打开），修改 installation.yaml 文件，添加一行</p>
 
-    <div class="language-yaml highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="s">sync_dir</span><span class="pi">:</span> <span class="s">Y:\Rime</span>
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="na">sync_dir</span><span class="pi">:</span> <span class="s">Y:\Rime</span>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
 
     <p><strong>注意</strong>不要在路径两边加上双引号，不然无法同步</p>
   </li>
@@ -774,14 +751,13 @@ luna_pinyin.poetry.dict.yaml  <br />
 
 <p>在「小鹤双拼」的基础上进行修改</p>
 
-<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>cp /Library/Input\ Methods/Squirrel.app/Contents/SharedSupport/double_pinyin_flypy.schema.yaml ~/Library/Rime/double_pinyin_flypy_fluency.schema.yaml
-</pre></td></tr></tbody></table>
-</div>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>cp /Library/Input\ Methods/Squirrel.app/Contents/SharedSupport/double_pinyin_flypy.schema.yaml ~/Library/Rime/double_pinyin_flypy_fluency.schema.yaml
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>不同的地方基本都有说明</p>
 
-<div class="language-yaml highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -922,38 +898,39 @@ luna_pinyin.poetry.dict.yaml  <br />
 139
 140
 141
-142</pre></td><td class="code"><pre><span class="c1"># double_pinyin_flypy_fluency.schema.yaml</span>
+142
+</pre></td><td class="rouge-code"><pre><span class="c1"># double_pinyin_flypy_fluency.schema.yaml</span>
 <span class="c1"># Rime schema</span>
 <span class="c1"># encoding: utf-8</span>
 
-<span class="s">schema</span><span class="pi">:</span>
-  <span class="s">schema_id</span><span class="pi">:</span> <span class="s">double_pinyin_flypy_fluency</span>        <span class="c1"># 更改方案标识</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s">小鶴雙拼·語句流</span>
-  <span class="s">version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">fluency_0.17"</span>
-  <span class="s">author</span><span class="pi">:</span>
+<span class="na">schema</span><span class="pi">:</span>
+  <span class="na">schema_id</span><span class="pi">:</span> <span class="s">double_pinyin_flypy_fluency</span>        <span class="c1"># 更改方案标识</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">小鶴雙拼·語句流</span>
+  <span class="na">version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">fluency_0.17"</span>
+  <span class="na">author</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">double pinyin layout by 鶴</span>
     <span class="pi">-</span> <span class="s">Rime schema by 佛振 &lt;chen.sst@gmail.com&gt;</span>
-  <span class="s">description</span><span class="pi">:</span> <span class="pi">|</span>
+  <span class="na">description</span><span class="pi">:</span> <span class="pi">|</span>
     <span class="no">「朙月拼音＋小鶴雙拼」語句流方案。</span>
     <span class="no">以空格分詞、標點或回車上屏。</span>
-  <span class="s">dependencies</span><span class="pi">:</span>
+  <span class="na">dependencies</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">stroke</span>                        <span class="c1"># 带别名的 translator 所引用的字典部署时不会自动编译</span>
     <span class="pi">-</span> <span class="s">chinese_contain_english</span>       <span class="c1"># 只有 translator/dictionary: 指定的字典会被编译</span>
     <span class="pi">-</span> <span class="s">emoji</span>                         <span class="c1"># 因此需要设置输入方案的依赖关系，保证词典可用</span>
 
-<span class="s">switches</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">ascii_mode</span>
-    <span class="s">reset</span><span class="pi">:</span> <span class="s">0</span>
-    <span class="s">states</span><span class="pi">:</span> <span class="pi">[</span> <span class="nv">中文</span><span class="pi">,</span> <span class="nv">西文</span> <span class="pi">]</span>
-  <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">full_shape</span>
-    <span class="s">states</span><span class="pi">:</span> <span class="pi">[</span> <span class="nv">半角</span><span class="pi">,</span> <span class="nv">全角</span> <span class="pi">]</span>
-  <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">ascii_punct</span>
-    <span class="s">states</span><span class="pi">:</span> <span class="pi">[</span> <span class="nv">，。</span><span class="pi">,</span> <span class="nv">，．</span> <span class="pi">]</span>
-  <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">simplification</span>
-    <span class="s">states</span><span class="pi">:</span> <span class="pi">[</span> <span class="nv">漢字</span><span class="pi">,</span> <span class="nv">汉字</span> <span class="pi">]</span>
+<span class="na">switches</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">ascii_mode</span>
+    <span class="na">reset</span><span class="pi">:</span> <span class="s">0</span>
+    <span class="na">states</span><span class="pi">:</span> <span class="pi">[</span> <span class="nv">中文</span><span class="pi">,</span> <span class="nv">西文</span> <span class="pi">]</span>
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">full_shape</span>
+    <span class="na">states</span><span class="pi">:</span> <span class="pi">[</span> <span class="nv">半角</span><span class="pi">,</span> <span class="nv">全角</span> <span class="pi">]</span>
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">ascii_punct</span>
+    <span class="na">states</span><span class="pi">:</span> <span class="pi">[</span> <span class="nv">，。</span><span class="pi">,</span> <span class="nv">，．</span> <span class="pi">]</span>
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">simplification</span>
+    <span class="na">states</span><span class="pi">:</span> <span class="pi">[</span> <span class="nv">漢字</span><span class="pi">,</span> <span class="nv">汉字</span> <span class="pi">]</span>
 
-<span class="s">engine</span><span class="pi">:</span>
-  <span class="s">processors</span><span class="pi">:</span>
+<span class="na">engine</span><span class="pi">:</span>
+  <span class="na">processors</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">ascii_composer</span>
     <span class="pi">-</span> <span class="s">recognizer</span>
     <span class="pi">-</span> <span class="s">key_binder</span>
@@ -963,27 +940,27 @@ luna_pinyin.poetry.dict.yaml  <br />
     <span class="pi">-</span> <span class="s">navigator</span>
     <span class="pi">-</span> <span class="s">fluency_editor</span>        <span class="c1"># 语句流必需，编辑器，处理空格、回车上屏、回退键等</span>
                             <span class="c1"># 如果你不喜欢语句流，可将其改为 express_editor</span>
-  <span class="s">segmentors</span><span class="pi">:</span>
+  <span class="na">segmentors</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">ascii_segmentor</span>
     <span class="pi">-</span> <span class="s">matcher</span>
     <span class="pi">-</span> <span class="s">abc_segmentor</span>
     <span class="pi">-</span> <span class="s">punct_segmentor</span>
     <span class="pi">-</span> <span class="s">fallback_segmentor</span>
-  <span class="s">translators</span><span class="pi">:</span>
+  <span class="na">translators</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">punct_translator</span>
     <span class="pi">-</span> <span class="s">reverse_lookup_translator</span>
     <span class="pi">-</span> <span class="s">script_translator</span>
     <span class="pi">-</span> <span class="s">table_translator@chinese_contain_english</span>      <span class="c1"># 添加码表式副翻译器</span>
     <span class="pi">-</span> <span class="s">table_translator@custom_phrase</span>                <span class="c1"># 同上</span>
     <span class="pi">-</span> <span class="s">table_translator@emoji</span>                        <span class="c1"># 同上</span>
-  <span class="s">filters</span><span class="pi">:</span>
+  <span class="na">filters</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">simplifier</span>
     <span class="pi">-</span> <span class="s">uniquifier</span>
 
-<span class="s">speller</span><span class="pi">:</span>
-  <span class="s">alphabet</span><span class="pi">:</span> <span class="s">zyxwvutsrqponmlkjihgfedcba</span>
-  <span class="s">delimiter</span><span class="pi">:</span> <span class="s2">"</span><span class="nv"> </span><span class="s">'"</span>
-  <span class="s">algebra</span><span class="pi">:</span>
+<span class="na">speller</span><span class="pi">:</span>
+  <span class="na">alphabet</span><span class="pi">:</span> <span class="s">zyxwvutsrqponmlkjihgfedcba</span>
+  <span class="na">delimiter</span><span class="pi">:</span> <span class="s2">"</span><span class="nv"> </span><span class="s">'"</span>
+  <span class="na">algebra</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">erase/^xx$/</span>
     <span class="pi">-</span> <span class="s">derive/^([jqxy])u$/$1v/</span>
     <span class="pi">-</span> <span class="s">derive/^([aoe])([ioun])$/$1$1$2/</span>
@@ -1016,57 +993,55 @@ luna_pinyin.poetry.dict.yaml  <br />
     <span class="pi">-</span> <span class="s">xlit/QWRTYUIOPSDFGHJKLZXCVBNM/qwrtyuiopsdfghjklzxcvbnm/</span>
     <span class="c1">#- abbrev/^(.).+$/$1/</span>
 
-<span class="s">translator</span><span class="pi">:</span>
-  <span class="s">dictionary</span><span class="pi">:</span> <span class="s">luna_pinyin</span>
-  <span class="s">prism</span><span class="pi">:</span> <span class="s">double_pinyin_flypy_fluency</span>    <span class="c1"># 由拼写运算规则产生的拼写映射表的名称</span>
+<span class="na">translator</span><span class="pi">:</span>
+  <span class="na">dictionary</span><span class="pi">:</span> <span class="s">luna_pinyin</span>
+  <span class="na">prism</span><span class="pi">:</span> <span class="s">double_pinyin_flypy_fluency</span>    <span class="c1"># 由拼写运算规则产生的拼写映射表的名称</span>
   <span class="c1"># 去掉了 preedit_format:, 作用是输入双拼码的时候不转化为全拼码</span>
 
 <span class="c1"># 中英文混输的时候，可补全英文，并在英文两边加上半角空格</span>
 <span class="c1"># 例如：我爱 Rime 输入法</span>
-<span class="s">chinese_contain_english</span><span class="pi">:</span>
-  <span class="s">dictionary</span><span class="pi">:</span> <span class="s">chinese_contain_english</span>
+<span class="na">chinese_contain_english</span><span class="pi">:</span>
+  <span class="na">dictionary</span><span class="pi">:</span> <span class="s">chinese_contain_english</span>
 
 <span class="c1"># 用户自定义词典，可直接编辑文件 "~/Library/Rime/custom_phrase.txt"</span>
 <span class="c1"># db_class: stabledb 指定词典格式为文本码表格式（文字&lt;TAB&gt;编码&lt;TAB&gt;权重（可选））</span>
-<span class="s">custom_phrase</span><span class="pi">:</span>
-  <span class="s">dictionary</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
-  <span class="s">user_dict</span><span class="pi">:</span> <span class="s">custom_phrase</span>
-  <span class="s">db_class</span><span class="pi">:</span> <span class="s">stabledb</span>
-  <span class="s">enable_completion</span><span class="pi">:</span> <span class="s">false</span>
-  <span class="s">enable_sentence</span><span class="pi">:</span> <span class="s">false</span>
-  <span class="s">initial_quality</span><span class="pi">:</span> <span class="s">1</span>
+<span class="na">custom_phrase</span><span class="pi">:</span>
+  <span class="na">dictionary</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+  <span class="na">user_dict</span><span class="pi">:</span> <span class="s">custom_phrase</span>
+  <span class="na">db_class</span><span class="pi">:</span> <span class="s">stabledb</span>
+  <span class="na">enable_completion</span><span class="pi">:</span> <span class="no">false</span>
+  <span class="na">enable_sentence</span><span class="pi">:</span> <span class="no">false</span>
+  <span class="na">initial_quality</span><span class="pi">:</span> <span class="s">1</span>
 
 <span class="c1"># 可直接输入 Emoji 表情编码来输入表情</span>
-<span class="s">emoji</span><span class="pi">:</span>
-  <span class="s">dictionary</span><span class="pi">:</span> <span class="s">emoji</span>
+<span class="na">emoji</span><span class="pi">:</span>
+  <span class="na">dictionary</span><span class="pi">:</span> <span class="s">emoji</span>
 
-<span class="s">reverse_lookup</span><span class="pi">:</span>
-  <span class="s">dictionary</span><span class="pi">:</span> <span class="s">stroke</span>
-  <span class="s">enable_completion</span><span class="pi">:</span> <span class="s">true</span>
-  <span class="s">prefix</span><span class="pi">:</span> <span class="s2">"</span><span class="s">`"</span>
-  <span class="s">suffix</span><span class="pi">:</span> <span class="s2">"</span><span class="s">'"</span>
-  <span class="s">tips</span><span class="pi">:</span> <span class="s">〔筆畫〕</span>
-  <span class="s">preedit_format</span><span class="pi">:</span>
+<span class="na">reverse_lookup</span><span class="pi">:</span>
+  <span class="na">dictionary</span><span class="pi">:</span> <span class="s">stroke</span>
+  <span class="na">enable_completion</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">prefix</span><span class="pi">:</span> <span class="s2">"</span><span class="s">`"</span>
+  <span class="na">suffix</span><span class="pi">:</span> <span class="s2">"</span><span class="s">'"</span>
+  <span class="na">tips</span><span class="pi">:</span> <span class="s">〔筆畫〕</span>
+  <span class="na">preedit_format</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">xlit/hspnz/一丨丿丶乙/</span>
-  <span class="s">comment_format</span><span class="pi">:</span>
+  <span class="na">comment_format</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">xform/([nl])v/$1ü/</span>
 
-<span class="s">punctuator</span><span class="pi">:</span>
-  <span class="s">import_preset</span><span class="pi">:</span> <span class="s">symbols</span>        <span class="c1"># 导入 symbols.yaml, 用于输入特殊符号</span>
+<span class="na">punctuator</span><span class="pi">:</span>
+  <span class="na">import_preset</span><span class="pi">:</span> <span class="s">symbols</span>        <span class="c1"># 导入 symbols.yaml, 用于输入特殊符号</span>
 
-<span class="s">key_binder</span><span class="pi">:</span>
-  <span class="s">import_preset</span><span class="pi">:</span> <span class="s">default</span>
+<span class="na">key_binder</span><span class="pi">:</span>
+  <span class="na">import_preset</span><span class="pi">:</span> <span class="s">default</span>
 
-<span class="s">recognizer</span><span class="pi">:</span>
-  <span class="s">import_preset</span><span class="pi">:</span> <span class="s">default</span>
-  <span class="s">patterns</span><span class="pi">:</span>
-    <span class="s">number</span><span class="pi">:</span> <span class="s2">"</span><span class="s">^[-+]?[0-9][.:0-9]*[%]?$"</span>
+<span class="na">recognizer</span><span class="pi">:</span>
+  <span class="na">import_preset</span><span class="pi">:</span> <span class="s">default</span>
+  <span class="na">patterns</span><span class="pi">:</span>
+    <span class="na">number</span><span class="pi">:</span> <span class="s2">"</span><span class="s">^[-+]?[0-9][.:0-9]*[%]?$"</span>
     <span class="c1"># 配合特殊符号的输入</span>
-    <span class="s">punct</span><span class="pi">:</span> <span class="s2">"</span><span class="s">^/[0-9]*[a-z]*$"</span>
-    <span class="s">reverse_lookup</span><span class="pi">:</span> <span class="s2">"</span><span class="s">`[a-z]*'?$"</span>
-</pre></td></tr></tbody></table>
-</div>
-</div>
+    <span class="na">punct</span><span class="pi">:</span> <span class="s2">"</span><span class="s">^/[0-9]*[a-z]*$"</span>
+    <span class="na">reverse_lookup</span><span class="pi">:</span> <span class="s2">"</span><span class="s">`[a-z]*'?$"</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <h4 id="创建-chinese_contain_english-输入方案">创建 chinese_contain_english 输入方案</h4>
 
@@ -1074,7 +1049,7 @@ luna_pinyin.poetry.dict.yaml  <br />
 如果不创建的话 chinese_contain_english 词典无法被编译  <br />
 创建简单版本即可 <code class="highlighter-rouge">touch ~/Library/Rime/chinese_contain_english.schema.yaml</code>, 内容如下：</p>
 
-<div class="language-yaml highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -1098,45 +1073,43 @@ luna_pinyin.poetry.dict.yaml  <br />
 22
 23
 24
-25</pre></td><td class="code"><pre><span class="c1"># chinese_contain_english.schema.yaml</span>
+25
+</pre></td><td class="rouge-code"><pre><span class="c1"># chinese_contain_english.schema.yaml</span>
 <span class="c1"># Rime schema</span>
 <span class="c1"># encoding: utf-8</span>
 
-<span class="s">schema</span><span class="pi">:</span>
-  <span class="s">schema_id</span><span class="pi">:</span> <span class="s">chinese_contain_english</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s">英文</span>
-  <span class="s">version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">0.1"</span>
-  <span class="s">description</span><span class="pi">:</span>
+<span class="na">schema</span><span class="pi">:</span>
+  <span class="na">schema_id</span><span class="pi">:</span> <span class="s">chinese_contain_english</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">英文</span>
+  <span class="na">version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">0.1"</span>
+  <span class="na">description</span><span class="pi">:</span>
     <span class="s">为了配合「小鹤双拼·语句流」输入方案</span>
 
-<span class="s">engine</span><span class="pi">:</span>
-  <span class="s">processors</span><span class="pi">:</span>
+<span class="na">engine</span><span class="pi">:</span>
+  <span class="na">processors</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">speller</span>               <span class="c1"># 把字母追加到编码串</span>
     <span class="pi">-</span> <span class="s">selector</span>              <span class="c1"># 选字、换页</span>
     <span class="pi">-</span> <span class="s">navigator</span>             <span class="c1"># 移动插入点</span>
     <span class="pi">-</span> <span class="s">express_editor</span>        <span class="c1"># 空格确认当前输入、其他字符直接上屏</span>
-  <span class="s">segmentors</span><span class="pi">:</span>
+  <span class="na">segmentors</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">abc_segmentor</span>         <span class="c1"># 标记输入码的类型</span>
-  <span class="s">translators</span><span class="pi">:</span>
+  <span class="na">translators</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">echo_translator</span>       <span class="c1"># 没有候选项时，创建一个与编码串一个模样的候选项</span>
     <span class="pi">-</span> <span class="s">table_translator</span>      <span class="c1"># 码表式转换</span>
 
-<span class="s">translator</span><span class="pi">:</span>
-  <span class="s">dictionary</span><span class="pi">:</span> <span class="s">chinese_contain_english</span>       <span class="c1"># 设定 table_translator 使用的词典名</span>
-</pre></td></tr></tbody></table>
-</div>
-</div>
+<span class="na">translator</span><span class="pi">:</span>
+  <span class="na">dictionary</span><span class="pi">:</span> <span class="s">chinese_contain_english</span>       <span class="c1"># 设定 table_translator 使用的词典名</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <h4 id="创建-chinese_contain_english-词典">创建 chinese_contain_english 词典</h4>
 
-<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>touch ~/Library/Rime/chinese_contain_english.dict.yaml
-</pre></td></tr></tbody></table>
-</div>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>touch ~/Library/Rime/chinese_contain_english.dict.yaml
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>内容如下：</p>
 
-<div class="language-yaml highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -1154,17 +1127,18 @@ luna_pinyin.poetry.dict.yaml  <br />
 16
 17
 18
-19</pre></td><td class="code"><pre><span class="c1"># chinese_contain_english.dict.yaml</span>
+19
+</pre></td><td class="rouge-code"><pre><span class="c1"># chinese_contain_english.dict.yaml</span>
 <span class="c1"># Rime dictionary</span>
 <span class="c1"># encoding: utf-8</span>
 <span class="c1">#</span>
 <span class="c1"># 中英文混输的时候有用</span>
 
 <span class="nn">---</span>
-<span class="s">name</span><span class="pi">:</span> <span class="s">chinese_contain_english</span>
-<span class="s">version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">0.1"</span>
-<span class="s">sort</span><span class="pi">:</span> <span class="s">by_weight</span>
-<span class="s">use_preset_vocabulary</span><span class="pi">:</span> <span class="s">false</span>
+<span class="na">name</span><span class="pi">:</span> <span class="s">chinese_contain_english</span>
+<span class="na">version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">0.1"</span>
+<span class="na">sort</span><span class="pi">:</span> <span class="s">by_weight</span>
+<span class="na">use_preset_vocabulary</span><span class="pi">:</span> <span class="no">false</span>
 <span class="nn">...</span>
 
  <span class="s">Rime </span><span class="err">	</span><span class="s">rime</span>
@@ -1173,9 +1147,7 @@ luna_pinyin.poetry.dict.yaml  <br />
  <span class="s">Mac </span><span class="err">	</span><span class="s">mac</span>
  <span class="s">Windows </span><span class="err">	</span><span class="s">windows</span>
 <span class="c1"># ... 自己扩展</span>
-</pre></td></tr></tbody></table>
-</div>
-</div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>需要<strong>注意</strong>的是：<code class="highlighter-rouge"> Rime 	rime</code> 之间要有 tab，其它的类似，词典格式是如此  <br />
 完整的文件内容请看：<a href="https://gist.github.com/lifenod/931e306e2ae8bd32b169">https://gist.github.com/lifenod/931e306e2ae8bd32b169</a></p>
@@ -1184,14 +1156,13 @@ luna_pinyin.poetry.dict.yaml  <br />
 
 <p>首先创建对全局的用户定制文件</p>
 
-<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>touch ~/Library/Rime/default.custom.yaml
-</pre></td></tr></tbody></table>
-</div>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>touch ~/Library/Rime/default.custom.yaml
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>然后编辑该文件</p>
 
-<div class="language-yaml highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -1218,37 +1189,36 @@ luna_pinyin.poetry.dict.yaml  <br />
 25
 26
 27
-28</pre></td><td class="code"><pre><span class="c1"># default.custom.yaml</span>
+28
+</pre></td><td class="rouge-code"><pre><span class="c1"># default.custom.yaml</span>
 <span class="c1"># Rime default settings</span>
 <span class="c1"># encoding: utf-8</span>
 
-<span class="s">patch</span><span class="pi">:</span>
-  <span class="s">schema_list</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">schema</span><span class="pi">:</span> <span class="s">double_pinyin_flypy_fluency</span>   <span class="c1"># 新增「小鶴雙拼·語句流」</span>
-    <span class="pi">-</span> <span class="s">schema</span><span class="pi">:</span> <span class="s">luna_pinyin</span>
-    <span class="pi">-</span> <span class="s">schema</span><span class="pi">:</span> <span class="s">cangjie5</span>
-    <span class="pi">-</span> <span class="s">schema</span><span class="pi">:</span> <span class="s">luna_pinyin_fluency</span>
-    <span class="pi">-</span> <span class="s">schema</span><span class="pi">:</span> <span class="s">luna_pinyin_simp</span>
-    <span class="pi">-</span> <span class="s">schema</span><span class="pi">:</span> <span class="s">luna_pinyin_tw</span>
+<span class="na">patch</span><span class="pi">:</span>
+  <span class="na">schema_list</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">schema</span><span class="pi">:</span> <span class="s">double_pinyin_flypy_fluency</span>   <span class="c1"># 新增「小鶴雙拼·語句流」</span>
+    <span class="pi">-</span> <span class="na">schema</span><span class="pi">:</span> <span class="s">luna_pinyin</span>
+    <span class="pi">-</span> <span class="na">schema</span><span class="pi">:</span> <span class="s">cangjie5</span>
+    <span class="pi">-</span> <span class="na">schema</span><span class="pi">:</span> <span class="s">luna_pinyin_fluency</span>
+    <span class="pi">-</span> <span class="na">schema</span><span class="pi">:</span> <span class="s">luna_pinyin_simp</span>
+    <span class="pi">-</span> <span class="na">schema</span><span class="pi">:</span> <span class="s">luna_pinyin_tw</span>
 
   <span class="s">key_binder/bindings</span><span class="pi">:</span>                      <span class="c1"># 以方括号换页</span>
-    <span class="pi">-</span> <span class="s">when</span><span class="pi">:</span> <span class="s">paging</span>
-      <span class="s">accept</span><span class="pi">:</span> <span class="s">bracketleft</span>
-      <span class="s">send</span><span class="pi">:</span> <span class="s">Page_Up</span>
-    <span class="pi">-</span> <span class="s">when</span><span class="pi">:</span> <span class="s">has_menu</span>
-      <span class="s">accept</span><span class="pi">:</span> <span class="s">bracketright</span>
-      <span class="s">send</span><span class="pi">:</span> <span class="s">Page_Down</span>
+    <span class="pi">-</span> <span class="na">when</span><span class="pi">:</span> <span class="s">paging</span>
+      <span class="na">accept</span><span class="pi">:</span> <span class="s">bracketleft</span>
+      <span class="na">send</span><span class="pi">:</span> <span class="s">Page_Up</span>
+    <span class="pi">-</span> <span class="na">when</span><span class="pi">:</span> <span class="s">has_menu</span>
+      <span class="na">accept</span><span class="pi">:</span> <span class="s">bracketright</span>
+      <span class="na">send</span><span class="pi">:</span> <span class="s">Page_Down</span>
 
-  <span class="s">ascii_composer/good_old_caps_lock</span><span class="pi">:</span> <span class="s">true</span>   <span class="c1"># 中西文切换快捷键</span>
+  <span class="s">ascii_composer/good_old_caps_lock</span><span class="pi">:</span> <span class="no">true</span>   <span class="c1"># 中西文切换快捷键</span>
   <span class="s">ascii_composer/switch_key</span><span class="pi">:</span>
-    <span class="s">Caps_Lock</span><span class="pi">:</span> <span class="s">noop</span>
-    <span class="s">Shift_L</span><span class="pi">:</span> <span class="s">inline_ascii</span>
-    <span class="s">Shift_R</span><span class="pi">:</span> <span class="s">noop</span>
-    <span class="s">Control_L</span><span class="pi">:</span> <span class="s">noop</span>
-    <span class="s">Control_R</span><span class="pi">:</span> <span class="s">noop</span>
-</pre></td></tr></tbody></table>
-</div>
-</div>
+    <span class="na">Caps_Lock</span><span class="pi">:</span> <span class="s">noop</span>
+    <span class="na">Shift_L</span><span class="pi">:</span> <span class="s">inline_ascii</span>
+    <span class="na">Shift_R</span><span class="pi">:</span> <span class="s">noop</span>
+    <span class="na">Control_L</span><span class="pi">:</span> <span class="s">noop</span>
+    <span class="na">Control_R</span><span class="pi">:</span> <span class="s">noop</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <h3 id="外观设定-1">外观设定</h3>
 

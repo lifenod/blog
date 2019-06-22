@@ -90,49 +90,7 @@
 
 <p>首先找到相关的代码，如下所示：</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17</pre></td><td class="code"><pre><span class="c1">## /lib/kramdown/converter/base.rb</span>
-
-<span class="k">def</span> <span class="nf">generate_id</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
-  <span class="n">str</span> <span class="o">=</span> <span class="o">::</span><span class="no">Kramdown</span><span class="o">::</span><span class="no">Utils</span><span class="o">::</span><span class="no">Unidecoder</span><span class="p">.</span><span class="nf">decode</span><span class="p">(</span><span class="n">str</span><span class="p">)</span> <span class="k">if</span> <span class="vi">@options</span><span class="p">[</span><span class="ss">:transliterated_header_ids</span><span class="p">]</span>
-  <span class="n">gen_id</span> <span class="o">=</span> <span class="n">str</span><span class="p">.</span><span class="nf">gsub</span><span class="p">(</span><span class="sr">/^[^a-zA-Z]+/</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span>
-  <span class="n">gen_id</span><span class="p">.</span><span class="nf">tr!</span><span class="p">(</span><span class="s1">'^a-zA-Z0-9 -'</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span>
-  <span class="n">gen_id</span><span class="p">.</span><span class="nf">tr!</span><span class="p">(</span><span class="s1">' '</span><span class="p">,</span> <span class="s1">'-'</span><span class="p">)</span>
-  <span class="n">gen_id</span><span class="p">.</span><span class="nf">downcase!</span>
-  <span class="n">gen_id</span> <span class="o">=</span> <span class="s1">'section'</span> <span class="k">if</span> <span class="n">gen_id</span><span class="p">.</span><span class="nf">length</span> <span class="o">==</span> <span class="mi">0</span>
-  <span class="vi">@used_ids</span> <span class="o">||=</span> <span class="p">{}</span>
-  <span class="k">if</span> <span class="vi">@used_ids</span><span class="p">.</span><span class="nf">has_key?</span><span class="p">(</span><span class="n">gen_id</span><span class="p">)</span>
-    <span class="n">gen_id</span> <span class="o">+=</span> <span class="s1">'-'</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="vi">@used_ids</span><span class="p">[</span><span class="n">gen_id</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">).</span><span class="nf">to_s</span>
-  <span class="k">else</span>
-    <span class="vi">@used_ids</span><span class="p">[</span><span class="n">gen_id</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-  <span class="k">end</span>
-  <span class="vi">@options</span><span class="p">[</span><span class="ss">:auto_id_prefix</span><span class="p">]</span> <span class="o">+</span> <span class="n">gen_id</span>
-<span class="k">end</span>
-</pre></td></tr></tbody></table>
-</div>
-</div>
-
-<p>我们看上面代码中的 5-8 行，就是对 ID 的转换, str 表示 head 的 raw text.  <br />
-原代码的意思是：取以字母开始的子串，去掉除了字母，数字，空格，连字符的字符，将空格替换为连字符，将字母变为小写</p>
-
-<p>我们将代码改为如下：</p>
-
-<div class="language-ruby highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -149,7 +107,49 @@
 15
 16
 17
-18</pre></td><td class="code"><pre><span class="k">def</span> <span class="nf">generate_id</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
+</pre></td><td class="rouge-code"><pre><span class="c1">## /lib/kramdown/converter/base.rb</span>
+
+<span class="k">def</span> <span class="nf">generate_id</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
+  <span class="n">str</span> <span class="o">=</span> <span class="o">::</span><span class="no">Kramdown</span><span class="o">::</span><span class="no">Utils</span><span class="o">::</span><span class="no">Unidecoder</span><span class="p">.</span><span class="nf">decode</span><span class="p">(</span><span class="n">str</span><span class="p">)</span> <span class="k">if</span> <span class="vi">@options</span><span class="p">[</span><span class="ss">:transliterated_header_ids</span><span class="p">]</span>
+  <span class="n">gen_id</span> <span class="o">=</span> <span class="n">str</span><span class="p">.</span><span class="nf">gsub</span><span class="p">(</span><span class="sr">/^[^a-zA-Z]+/</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span>
+  <span class="n">gen_id</span><span class="p">.</span><span class="nf">tr!</span><span class="p">(</span><span class="s1">'^a-zA-Z0-9 -'</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span>
+  <span class="n">gen_id</span><span class="p">.</span><span class="nf">tr!</span><span class="p">(</span><span class="s1">' '</span><span class="p">,</span> <span class="s1">'-'</span><span class="p">)</span>
+  <span class="n">gen_id</span><span class="p">.</span><span class="nf">downcase!</span>
+  <span class="n">gen_id</span> <span class="o">=</span> <span class="s1">'section'</span> <span class="k">if</span> <span class="n">gen_id</span><span class="p">.</span><span class="nf">length</span> <span class="o">==</span> <span class="mi">0</span>
+  <span class="vi">@used_ids</span> <span class="o">||=</span> <span class="p">{}</span>
+  <span class="k">if</span> <span class="vi">@used_ids</span><span class="p">.</span><span class="nf">has_key?</span><span class="p">(</span><span class="n">gen_id</span><span class="p">)</span>
+    <span class="n">gen_id</span> <span class="o">+=</span> <span class="s1">'-'</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="vi">@used_ids</span><span class="p">[</span><span class="n">gen_id</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">).</span><span class="nf">to_s</span>
+  <span class="k">else</span>
+    <span class="vi">@used_ids</span><span class="p">[</span><span class="n">gen_id</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="k">end</span>
+  <span class="vi">@options</span><span class="p">[</span><span class="ss">:auto_id_prefix</span><span class="p">]</span> <span class="o">+</span> <span class="n">gen_id</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>我们看上面代码中的 5-8 行，就是对 ID 的转换, str 表示 head 的 raw text.  <br />
+原代码的意思是：取以字母开始的子串，去掉除了字母，数字，空格，连字符的字符，将空格替换为连字符，将字母变为小写</p>
+
+<p>我们将代码改为如下：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">generate_id</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
   <span class="n">str</span> <span class="o">=</span> <span class="o">::</span><span class="no">Kramdown</span><span class="o">::</span><span class="no">Utils</span><span class="o">::</span><span class="no">Unidecoder</span><span class="p">.</span><span class="nf">decode</span><span class="p">(</span><span class="n">str</span><span class="p">)</span> <span class="k">if</span> <span class="vi">@options</span><span class="p">[</span><span class="ss">:transliterated_header_ids</span><span class="p">]</span>
   <span class="c1"># gen_id = str.gsub(/^[^a-zA-Z]+/, '')</span>
   <span class="c1"># gen_id.tr!('^a-zA-Z0-9 -', '')</span>
@@ -167,9 +167,7 @@
   <span class="k">end</span>
   <span class="vi">@options</span><span class="p">[</span><span class="ss">:auto_id_prefix</span><span class="p">]</span> <span class="o">+</span> <span class="n">gen_id</span>
 <span class="k">end</span>
-</pre></td></tr></tbody></table>
-</div>
-</div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>代码的意思是：移除 ASCII 字符中除了字母，数字，空格，连字符的字符，但是不移除所有非 ASCII 字符，<br />
 然后将其中空格和连字符（包括重复的）转换为一个连字符，再将其转换为小写。</p>
@@ -184,21 +182,21 @@
   <li>
     <p>出错，会转换为表格。</p>
 
-    <div class="language-markdown highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="p">[</span><span class="nv">明无梦的博客 | 明无梦</span><span class="p">](</span><span class="sx">http://www.dreamxu.com/</span><span class="p">)</span>
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="p">[</span><span class="nv">明无梦的博客 | 明无梦</span><span class="p">](</span><span class="sx">http://www.dreamxu.com/</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
 
     <p>转换为：</p>
 
-    <div class="language-html highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+    <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
 5
 6
 7
-8</pre></td><td class="code"><pre><span class="nt">&lt;table&gt;</span>
+8
+</pre></td><td class="rouge-code"><pre><span class="nt">&lt;table&gt;</span>
   <span class="nt">&lt;tbody&gt;</span>
     <span class="nt">&lt;tr&gt;</span>
       <span class="nt">&lt;td&gt;</span>[明无梦的博客<span class="nt">&lt;/td&gt;</span>
@@ -206,48 +204,42 @@
     <span class="nt">&lt;/tr&gt;</span>
   <span class="nt">&lt;/tbody&gt;</span>
 <span class="nt">&lt;/table&gt;</span>
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>正常，但是需要将 <code class="highlighter-rouge">|</code> 转义，显然我不会这样做，我的 Markdown 代码写的没问题，<br />
 没必要修改，而且 ‘|’ 看起来不直观。</p>
 
-    <div class="language-markdown highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="p">[</span><span class="nv">明无梦的博客 \| 明无梦</span><span class="p">](</span><span class="sx">http://www.dreamxu.com/</span><span class="p">)</span>
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="p">[</span><span class="nv">明无梦的博客 \| 明无梦</span><span class="p">](</span><span class="sx">http://www.dreamxu.com/</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
 
     <p>转换为：</p>
 
-    <div class="language-html highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+    <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
-3</pre></td><td class="code"><pre><span class="nt">&lt;p&gt;</span>
+3
+</pre></td><td class="rouge-code"><pre><span class="nt">&lt;p&gt;</span>
   <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://www.dreamxu.com/"</span><span class="nt">&gt;</span>明无梦的博客 | 明无梦<span class="nt">&lt;/a&gt;</span>
 <span class="nt">&lt;/p&gt;</span>
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>正常，但是链接前后必须有其它文字。为什么我单独写个链接就不行！显然也不是我能接受的解决方案。</p>
 
-    <div class="language-markdown highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2</pre></td><td class="code"><pre>这是一个博客：
+    <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>这是一个博客：
 <span class="p">[</span><span class="nv">明无梦的博客 | 明无梦</span><span class="p">](</span><span class="sx">http://www.dreamxu.com/</span><span class="p">)</span>
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
 
     <p>转换为：</p>
 
-    <div class="language-html highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2</pre></td><td class="code"><pre><span class="nt">&lt;p&gt;</span>这是一个博客：
+    <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="nt">&lt;p&gt;</span>这是一个博客：
 <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://www.dreamxu.com/"</span><span class="nt">&gt;</span>明无梦的博客 | 明无梦<span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
 </ul>
 
@@ -261,7 +253,7 @@
 <p>我们只要将其 table parse 功能取消掉就好了，反正我也不使用这种表格写法。<br />
 <strong>注意</strong>，如果你用到了这个功能，那么就不要这么做了。</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -287,7 +279,8 @@
 24
 25
 26
-27</pre></td><td class="code"><pre><span class="c1"># /lib/kramdown/parser/kramdown.rb</span>
+27
+</pre></td><td class="rouge-code"><pre><span class="c1"># /lib/kramdown/parser/kramdown.rb</span>
 
 <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
   <span class="k">super</span>
@@ -314,9 +307,7 @@
                    <span class="ss">:span_extensions</span><span class="p">,</span> <span class="ss">:html_entity</span><span class="p">,</span> <span class="ss">:typographic_syms</span><span class="p">,</span> <span class="ss">:line_break</span><span class="p">,</span> <span class="ss">:escaped_chars</span><span class="p">]</span>
 
 <span class="k">end</span>
-</pre></td></tr></tbody></table>
-</div>
-</div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
   </div>
 

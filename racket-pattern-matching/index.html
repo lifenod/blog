@@ -92,25 +92,23 @@
 
 <p>例如我们要将 <code class="highlighter-rouge">'(1 2 3)</code> 其中的元素倒过来，可以这么做：</p>
 
-<div class="language-scheme highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+<div class="language-scheme highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
-3</pre></td><td class="code"><pre><span class="p">(</span><span class="nf">match</span> <span class="o">'</span><span class="p">(</span><span class="nf">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">)</span>
-  <span class="err">[</span><span class="p">(</span><span class="nb">list</span> <span class="nv">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">)</span> <span class="p">(</span><span class="nb">list</span> <span class="nv">c</span> <span class="nv">b</span> <span class="nv">a</span><span class="p">)</span><span class="err">]</span><span class="p">)</span>
+3
+</pre></td><td class="rouge-code"><pre><span class="p">(</span><span class="nf">match</span> <span class="o">'</span><span class="p">(</span><span class="nf">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">)</span>
+  <span class="p">[(</span><span class="nb">list</span> <span class="nv">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">)</span> <span class="p">(</span><span class="nb">list</span> <span class="nv">c</span> <span class="nv">b</span> <span class="nv">a</span><span class="p">)])</span>
 <span class="c1">; =&gt; '(3 2 1)</span>
-</pre></td></tr></tbody></table>
-</div>
-</div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>如果要将其中的元素相加呢？</p>
 
-<div class="language-scheme highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+<div class="language-scheme highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
-3</pre></td><td class="code"><pre><span class="p">(</span><span class="nf">match</span> <span class="o">'</span><span class="p">(</span><span class="nf">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">)</span>
-  <span class="err">[</span><span class="p">(</span><span class="nb">list</span> <span class="nv">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">)</span> <span class="p">(</span><span class="nb">+</span> <span class="nv">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">)</span><span class="err">]</span><span class="p">)</span>
+3
+</pre></td><td class="rouge-code"><pre><span class="p">(</span><span class="nf">match</span> <span class="o">'</span><span class="p">(</span><span class="nf">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">)</span>
+  <span class="p">[(</span><span class="nb">list</span> <span class="nv">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">)</span> <span class="p">(</span><span class="nb">+</span> <span class="nv">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">)])</span>
 <span class="c1">; =&gt; 6</span>
-</pre></td></tr></tbody></table>
-</div>
-</div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <h2 id="一些例子">一些例子</h2>
 
@@ -118,7 +116,7 @@
 如果能被 5 整除，则输出该数并标记 <code class="highlighter-rouge">#</code>, <br />
 如果既能被 3 整除又能被 5 整除，则输出该数并标记 <code class="highlighter-rouge">*#</code></p>
 
-<div class="language-scheme highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+<div class="language-scheme highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -130,7 +128,8 @@
 10
 11
 12
-13</pre></td><td class="code"><pre><span class="o">#</span><span class="nv">lang</span> <span class="nv">racket</span>
+13
+</pre></td><td class="rouge-code"><pre><span class="o">#</span><span class="nv">lang</span> <span class="nv">racket</span>
 <span class="p">(</span><span class="nf">require</span> <span class="nv">math/number-theory</span><span class="p">)</span>
 
 <span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">range-closed</span> <span class="nv">start</span> <span class="nv">end</span><span class="p">)</span>
@@ -138,14 +137,12 @@
 
 <span class="p">(</span><span class="nb">for-each</span> <span class="p">(</span><span class="k">lambda</span> <span class="p">(</span><span class="nf">x</span><span class="p">)</span>
             <span class="p">(</span><span class="nf">match</span> <span class="o">`</span><span class="p">(</span><span class="nf">3</span> <span class="o">,</span><span class="p">(</span><span class="nf">divides?</span> <span class="mi">3</span> <span class="nv">x</span><span class="p">)</span> <span class="nv">and</span> <span class="mi">5</span> <span class="o">,</span><span class="p">(</span><span class="nf">divides?</span> <span class="mi">5</span> <span class="nv">x</span><span class="p">))</span>
-              <span class="err">[</span><span class="o">'</span><span class="p">(</span><span class="nf">3</span> <span class="no">#t</span> <span class="nv">and</span> <span class="mi">5</span> <span class="no">#f</span><span class="p">)</span> <span class="p">(</span><span class="nf">printf</span> <span class="s">"~A*~n"</span> <span class="nv">x</span><span class="p">)</span><span class="err">]</span>
-              <span class="err">[</span><span class="o">'</span><span class="p">(</span><span class="nf">3</span> <span class="no">#f</span> <span class="nv">and</span> <span class="mi">5</span> <span class="no">#t</span><span class="p">)</span> <span class="p">(</span><span class="nf">printf</span> <span class="s">"~A#~n"</span> <span class="nv">x</span><span class="p">)</span><span class="err">]</span>
-              <span class="err">[</span><span class="o">'</span><span class="p">(</span><span class="nf">3</span> <span class="no">#t</span> <span class="nv">and</span> <span class="mi">5</span> <span class="no">#t</span><span class="p">)</span> <span class="p">(</span><span class="nf">printf</span> <span class="s">"~A*#~n"</span> <span class="nv">x</span><span class="p">)</span><span class="err">]</span>
-              <span class="err">[</span><span class="nv">else</span> <span class="o">'</span><span class="p">()</span><span class="err">]</span><span class="p">))</span>
+              <span class="p">[</span><span class="o">'</span><span class="p">(</span><span class="nf">3</span> <span class="no">#t</span> <span class="nv">and</span> <span class="mi">5</span> <span class="no">#f</span><span class="p">)</span> <span class="p">(</span><span class="nf">printf</span> <span class="s">"~A*~n"</span> <span class="nv">x</span><span class="p">)]</span>
+              <span class="p">[</span><span class="o">'</span><span class="p">(</span><span class="nf">3</span> <span class="no">#f</span> <span class="nv">and</span> <span class="mi">5</span> <span class="no">#t</span><span class="p">)</span> <span class="p">(</span><span class="nf">printf</span> <span class="s">"~A#~n"</span> <span class="nv">x</span><span class="p">)]</span>
+              <span class="p">[</span><span class="o">'</span><span class="p">(</span><span class="nf">3</span> <span class="no">#t</span> <span class="nv">and</span> <span class="mi">5</span> <span class="no">#t</span><span class="p">)</span> <span class="p">(</span><span class="nf">printf</span> <span class="s">"~A*#~n"</span> <span class="nv">x</span><span class="p">)]</span>
+              <span class="p">[</span><span class="k">else</span> <span class="o">'</span><span class="p">()]))</span>
           <span class="p">(</span><span class="nf">range-closed</span> <span class="mi">0</span> <span class="mi">100</span><span class="p">))</span>
-</pre></td></tr></tbody></table>
-</div>
-</div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>过程简洁明了</p>
 

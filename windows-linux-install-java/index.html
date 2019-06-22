@@ -129,42 +129,38 @@ jar 就是把一些 java 文件打包起来了，为了方便</p>
 <p>首先下载好 jdk 的包，假设下载的是 jdk-7u17-linux-x64.tar.gz  <br />
 然后是解压到指定目录</p>
 
-<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo tar xvf jdk-7u17-linux-x64.tar.gz -C /usr/lib
-</pre></td></tr></tbody></table>
-</div>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>sudo tar xvf jdk-7u17-linux-x64.tar.gz -C /usr/lib
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>修改环境变量</p>
 
-<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo vim /etc/profile
-</pre></td></tr></tbody></table>
-</div>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>sudo vim /etc/profile
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>打开 profile 文件，在末尾添加以下内容</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
-3</pre></td><td class="code"><pre><span class="nb">export </span><span class="nv">JAVA_HOME</span><span class="o">=</span>/usr/lib/jdk1.7.0_17
+3
+</pre></td><td class="rouge-code"><pre><span class="nb">export </span><span class="nv">JAVA_HOME</span><span class="o">=</span>/usr/lib/jdk1.7.0_17
 <span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$JAVA_HOME</span>/bin:<span class="nv">$PATH</span>
 <span class="nb">export </span><span class="nv">CLASSPATH</span><span class="o">=</span>.:<span class="nv">$JAVA_HOME</span>/lib/dt.jar:<span class="nv">$JAVA_HOME</span>/lib/tools.jar
-</pre></td></tr></tbody></table>
-</div>
-</div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p><strong>方法二（ubuntu）</strong></p>
 
 <p>ubuntu 系统中，本身有 OpenJDK 可以使用，<br />
 但你如果更喜欢 Oracle JDK，可以通过添加 PPA 的方式，安装和更新都比较方便</p>
 
-<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
-3</pre></td><td class="code"><pre>sudo add-apt-repository ppa:webupd8team/java
+3
+</pre></td><td class="rouge-code"><pre>sudo add-apt-repository ppa:webupd8team/java
 sudo apt-get update
 sudo apt-get install oracle-java7-installer
-</pre></td></tr></tbody></table>
-</div>
-</div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>输入命令 java -version ，如果出现 java version …，那么就恭喜你了</p>
 

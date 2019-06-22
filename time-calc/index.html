@@ -83,7 +83,7 @@
   <div class="post-content" itemprop="articleBody">
     <p>计算时间的差与和</p>
 
-<div class="language-scheme highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+<div class="language-scheme highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -162,7 +162,8 @@
 77
 78
 79
-80</pre></td><td class="code"><pre><span class="o">#</span><span class="nv">lang</span> <span class="nv">racket</span>
+80
+</pre></td><td class="rouge-code"><pre><span class="o">#</span><span class="nv">lang</span> <span class="nv">racket</span>
 
 <span class="p">(</span><span class="nf">require</span> <span class="nv">racket/date</span><span class="p">)</span>
 
@@ -175,14 +176,14 @@
 <span class="p">(</span><span class="k">define</span> <span class="nv">get-seconds</span>
   <span class="p">(</span><span class="k">lambda</span> <span class="p">(</span><span class="nf">date</span><span class="p">)</span>
     <span class="p">(</span><span class="nf">match</span> <span class="nv">date</span>
-      <span class="err">[</span><span class="p">(</span><span class="nb">list</span> <span class="nv">year</span> <span class="nv">month</span> <span class="nv">day</span> <span class="ss">'-</span> <span class="nv">hour</span> <span class="nv">minute</span> <span class="nv">second</span><span class="p">)</span>
+      <span class="p">[(</span><span class="nb">list</span> <span class="nv">year</span> <span class="nv">month</span> <span class="nv">day</span> <span class="ss">'-</span> <span class="nv">hour</span> <span class="nv">minute</span> <span class="nv">second</span><span class="p">)</span>
        <span class="p">(</span><span class="nf">find-seconds</span> <span class="nv">second</span>
                      <span class="nv">minute</span>
                      <span class="nv">hour</span>
                      <span class="nv">day</span>
                      <span class="nv">month</span>
                      <span class="nv">year</span>
-                     <span class="no">#t</span><span class="p">)</span><span class="err">]</span><span class="p">)))</span>
+                     <span class="no">#t</span><span class="p">)])))</span>
 
 <span class="p">(</span><span class="k">define</span> <span class="nv">add-and-display-date</span>
   <span class="p">(</span><span class="k">lambda</span> <span class="p">(</span><span class="nf">seconds</span> <span class="nv">time</span><span class="p">)</span>
@@ -193,9 +194,9 @@
 
 <span class="p">(</span><span class="k">define</span> <span class="nv">date-add</span>
   <span class="p">(</span><span class="nf">case-lambda</span>
-    <span class="err">[</span><span class="p">(</span><span class="nf">time</span><span class="p">)</span> <span class="p">(</span><span class="nf">add-and-display-date</span> <span class="p">(</span><span class="nf">current-seconds</span><span class="p">)</span> <span class="nv">time</span><span class="p">)</span><span class="err">]</span>
-    <span class="err">[</span><span class="p">(</span><span class="nf">date</span> <span class="nv">time</span><span class="p">)</span>
-     <span class="p">(</span><span class="nf">add-and-display-date</span> <span class="p">(</span><span class="nf">get-seconds</span> <span class="nv">date</span><span class="p">)</span> <span class="nv">time</span><span class="p">)</span><span class="err">]</span><span class="p">))</span>
+    <span class="p">[(</span><span class="nf">time</span><span class="p">)</span> <span class="p">(</span><span class="nf">add-and-display-date</span> <span class="p">(</span><span class="nf">current-seconds</span><span class="p">)</span> <span class="nv">time</span><span class="p">)]</span>
+    <span class="p">[(</span><span class="nf">date</span> <span class="nv">time</span><span class="p">)</span>
+     <span class="p">(</span><span class="nf">add-and-display-date</span> <span class="p">(</span><span class="nf">get-seconds</span> <span class="nv">date</span><span class="p">)</span> <span class="nv">time</span><span class="p">)]))</span>
 
 <span class="c1">;; 计算当前时刻加上 2 个小时，30 分钟，15 秒之后的时间</span>
 <span class="p">(</span><span class="nf">date-add</span> <span class="o">'</span><span class="p">(</span><span class="nf">2</span> <span class="mi">30</span> <span class="mi">15</span><span class="p">))</span>
@@ -211,18 +212,18 @@
 <span class="c1">;; 问题与解的对应关系为 21 + 5*60 + 15*(60*60) = 54321</span>
 <span class="p">(</span><span class="k">define</span> <span class="nv">hex-calc</span>
   <span class="p">(</span><span class="k">lambda</span> <span class="p">(</span><span class="nf">number</span> <span class="nv">hex-list</span><span class="p">)</span>
-    <span class="p">(</span><span class="k">cond</span> <span class="err">[</span><span class="p">(</span><span class="nf">empty?</span> <span class="nv">hex-list</span><span class="p">)</span> <span class="p">(</span><span class="nb">list</span> <span class="nv">number</span><span class="p">)</span><span class="err">]</span>
-          <span class="err">[</span><span class="nv">else</span>
-           <span class="p">(</span><span class="k">let</span> <span class="p">(</span><span class="err">[</span><span class="nv">current-hex</span> <span class="p">(</span><span class="nb">car</span> <span class="nv">hex-list</span><span class="p">)</span><span class="err">]</span><span class="p">)</span>
+    <span class="p">(</span><span class="k">cond</span> <span class="p">[(</span><span class="nf">empty?</span> <span class="nv">hex-list</span><span class="p">)</span> <span class="p">(</span><span class="nb">list</span> <span class="nv">number</span><span class="p">)]</span>
+          <span class="p">[</span><span class="k">else</span>
+           <span class="p">(</span><span class="k">let</span> <span class="p">([</span><span class="nf">current-hex</span> <span class="p">(</span><span class="nb">car</span> <span class="nv">hex-list</span><span class="p">)])</span>
              <span class="p">(</span><span class="nb">cons</span> <span class="p">(</span><span class="nb">remainder</span> <span class="nv">number</span> <span class="nv">current-hex</span><span class="p">)</span>
                    <span class="p">(</span><span class="nf">hex-calc</span> <span class="p">(</span><span class="nb">quotient</span> <span class="nv">number</span> <span class="nv">current-hex</span><span class="p">)</span>
-                             <span class="p">(</span><span class="nb">cdr</span> <span class="nv">hex-list</span><span class="p">))))</span><span class="err">]</span><span class="p">)))</span>
+                             <span class="p">(</span><span class="nb">cdr</span> <span class="nv">hex-list</span><span class="p">))))])))</span>
 
 <span class="p">(</span><span class="k">define</span> <span class="nv">display-time</span>
   <span class="p">(</span><span class="k">lambda</span> <span class="p">(</span><span class="nf">seconds1</span> <span class="nv">seconds2</span><span class="p">)</span>
-    <span class="p">(</span><span class="k">let</span> <span class="p">(</span><span class="err">[</span><span class="nv">format-time</span> <span class="p">(</span><span class="nf">hex-calc</span> <span class="p">(</span><span class="nb">abs</span> <span class="p">(</span><span class="nb">-</span> <span class="nv">seconds1</span>
+    <span class="p">(</span><span class="k">let</span> <span class="p">([</span><span class="nf">format-time</span> <span class="p">(</span><span class="nf">hex-calc</span> <span class="p">(</span><span class="nb">abs</span> <span class="p">(</span><span class="nb">-</span> <span class="nv">seconds1</span>
                                          <span class="nv">seconds2</span><span class="p">))</span>
-                                 <span class="o">'</span><span class="p">(</span><span class="nf">60</span> <span class="mi">60</span><span class="p">))</span><span class="err">]</span><span class="p">)</span>
+                                 <span class="o">'</span><span class="p">(</span><span class="nf">60</span> <span class="mi">60</span><span class="p">))])</span>
       <span class="p">(</span><span class="nf">printf</span> <span class="s">"相差 ~a 小时 ~a 分钟 ~a 秒\n"</span>
               <span class="p">(</span><span class="nf">third</span> <span class="nv">format-time</span><span class="p">)</span>
               <span class="p">(</span><span class="nf">second</span> <span class="nv">format-time</span><span class="p">)</span>
@@ -230,9 +231,9 @@
 
 <span class="p">(</span><span class="k">define</span> <span class="nv">date-sub</span>
   <span class="p">(</span><span class="nf">case-lambda</span>
-    <span class="err">[</span><span class="p">(</span><span class="nf">date</span><span class="p">)</span> <span class="p">(</span><span class="nf">display-time</span> <span class="p">(</span><span class="nf">current-seconds</span><span class="p">)</span> <span class="p">(</span><span class="nf">get-seconds</span> <span class="nv">date</span><span class="p">))</span><span class="err">]</span>
-    <span class="err">[</span><span class="p">(</span><span class="nf">date1</span> <span class="nv">date2</span><span class="p">)</span> <span class="p">(</span><span class="nf">display-time</span> <span class="p">(</span><span class="nf">get-seconds</span> <span class="nv">date1</span><span class="p">)</span>
-                                 <span class="p">(</span><span class="nf">get-seconds</span> <span class="nv">date2</span><span class="p">))</span><span class="err">]</span><span class="p">))</span>
+    <span class="p">[(</span><span class="nf">date</span><span class="p">)</span> <span class="p">(</span><span class="nf">display-time</span> <span class="p">(</span><span class="nf">current-seconds</span><span class="p">)</span> <span class="p">(</span><span class="nf">get-seconds</span> <span class="nv">date</span><span class="p">))]</span>
+    <span class="p">[(</span><span class="nf">date1</span> <span class="nv">date2</span><span class="p">)</span> <span class="p">(</span><span class="nf">display-time</span> <span class="p">(</span><span class="nf">get-seconds</span> <span class="nv">date1</span><span class="p">)</span>
+                                 <span class="p">(</span><span class="nf">get-seconds</span> <span class="nv">date2</span><span class="p">))]))</span>
 
 <span class="c1">;; 计算 2011 年 4 月 11 号 17 点 50 分 21 秒与当前时间的时间差</span>
 <span class="p">(</span><span class="nf">date-sub</span> <span class="o">'</span><span class="p">(</span><span class="nf">2011</span> <span class="mi">4</span> <span class="mi">11</span> <span class="nv">-</span> <span class="mi">17</span> <span class="mi">50</span> <span class="mi">21</span><span class="p">))</span>
@@ -242,9 +243,7 @@
 <span class="c1">;; 2015 年 4 月 11 号 17 点 50 分 00 秒的时间差</span>
 <span class="p">(</span><span class="nf">date-sub</span> <span class="o">'</span><span class="p">(</span><span class="nf">2011</span> <span class="mi">4</span> <span class="mi">11</span> <span class="nv">-</span> <span class="mi">17</span> <span class="mi">50</span> <span class="mi">21</span><span class="p">)</span> <span class="o">'</span><span class="p">(</span><span class="nf">2015</span> <span class="mi">4</span> <span class="mi">11</span> <span class="nv">-</span> <span class="mi">17</span> <span class="mi">50</span> <span class="mi">00</span><span class="p">))</span>
 <span class="c1">;; =&gt; 相差 35063 小时 59 分钟 39 秒</span>
-</pre></td></tr></tbody></table>
-</div>
-</div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
   </div>
 

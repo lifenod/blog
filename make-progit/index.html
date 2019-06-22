@@ -91,10 +91,9 @@
 
 <p>从项目仓库中克隆一份到本地</p>
 
-<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>git clone https://github.com/progit/progit.git
-</pre></td></tr></tbody></table>
-</div>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>git clone https://github.com/progit/progit.git
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <h2 id="生成-pdf">生成 PDF</h2>
 
@@ -102,33 +101,29 @@
 
 <p>首先需要安装 ruby</p>
 
-<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo apt-get install ruby
-</pre></td></tr></tbody></table>
-</div>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>sudo apt-get install ruby
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>然后安装 pandoc，这个工具能将 markdown 格式转换成 latex 格式</p>
 
-<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo apt-get install pandoc
-</pre></td></tr></tbody></table>
-</div>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>sudo apt-get install pandoc
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>接下来安装 xetex</p>
 
-<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo apt-get install texlive-xetex
-</pre></td></tr></tbody></table>
-</div>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>sudo apt-get install texlive-xetex
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>到这里若制作 pdf 的话会报错  <br />
 ! LaTeX Error: File `url.sty’ not found.  <br />
 可安装 latex-extra 来解决这个问题</p>
 
-<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo apt-get install texlive-latex-extra
-</pre></td></tr></tbody></table>
-</div>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>sudo apt-get install texlive-latex-extra
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>xetex 还是比较好用的，字体能直接使用系统的  <br />
 或许你会修改一下配置文件 latex/config.yml, <br />
@@ -137,35 +132,31 @@
 
 <p>准备工作完成之后就来生成生 pdf 吧</p>
 
-<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>./makepdfs zh
-</pre></td></tr></tbody></table>
-</div>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>./makepdfs zh
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <h2 id="生成-ebook">生成 EBOOK</h2>
 
 <p>相对来说就比较简单了</p>
 
-<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2</pre></td><td class="code"><pre>sudo apt-get install ruby rubygems calibre ruby-dev
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>sudo apt-get install ruby rubygems calibre ruby-dev
 sudo gem install rdiscount
-</pre></td></tr></tbody></table>
-</div>
-</div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>生成 mobi 格式</p>
 
-<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>FORMAT=mobi ruby makeebooks zh
-</pre></td></tr></tbody></table>
-</div>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>FORMAT=mobi ruby makeebooks zh
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>生成 epub 格式</p>
 
-<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>FORMAT=epub ruby makeebooks zh
-</pre></td></tr></tbody></table>
-</div>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>FORMAT=epub ruby makeebooks zh
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <h2 id="福利-制作好的-pdf--epub--mobi-下载">“福利” 制作好的 PDF + EPUB + MOBI 下载</h2>
 

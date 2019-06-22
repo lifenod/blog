@@ -92,7 +92,7 @@ Rails 有 “server” 命令，例如 <code class="highlighter-rouge">rails ser
 <p>心动不如行动，下面是我用 Ruby 写的解决方案  <br />
 若不喜欢用 Ruby, 可用 Python, shell script 等改写一下即可</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -107,7 +107,8 @@ Rails 有 “server” 命令，例如 <code class="highlighter-rouge">rails ser
 13
 14
 15
-16</pre></td><td class="code"><pre><span class="c1">#!/usr/bin/env ruby</span>
+16
+</pre></td><td class="rouge-code"><pre><span class="c1">#!/usr/bin/env ruby</span>
 
 <span class="n">dir_commands</span> <span class="o">=</span> <span class="p">{</span>
   <span class="s2">"/Users/mwum/Gitbook/Ruby"</span>            <span class="o">=&gt;</span> <span class="s2">"gitbook serve --port 4006"</span><span class="p">,</span>
@@ -123,9 +124,7 @@ Rails 有 “server” 命令，例如 <code class="highlighter-rouge">rails ser
 
 <span class="nb">puts</span> <span class="s2">"Command not found: </span><span class="si">#{</span><span class="no">File</span><span class="p">.</span><span class="nf">basename</span> <span class="kp">__FILE__</span><span class="si">}</span><span class="s2">"</span>
 <span class="nb">puts</span> <span class="s2">"In this directory: </span><span class="si">#{</span><span class="no">Dir</span><span class="p">.</span><span class="nf">pwd</span><span class="si">}</span><span class="s2">"</span>
-</pre></td></tr></tbody></table>
-</div>
-</div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>将以上文件命名为 server, 并放到 bin 目录下，在给它加上可执行权限 <code class="highlighter-rouge">chmod +x ./server</code>, 即可愉快使用了</p>
 
@@ -139,7 +138,7 @@ Rails 有 “server” 命令，例如 <code class="highlighter-rouge">rails ser
 岂不是要一个个子目录去设置，这显然是不合适的  <br />
 所以继续给上面的程序加入正则匹配功能</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -163,7 +162,8 @@ Rails 有 “server” 命令，例如 <code class="highlighter-rouge">rails ser
 22
 23
 24
-25</pre></td><td class="code"><pre><span class="c1">#!/usr/bin/env ruby</span>
+25
+</pre></td><td class="rouge-code"><pre><span class="c1">#!/usr/bin/env ruby</span>
 
 <span class="n">dir_commands</span> <span class="o">=</span> <span class="p">{</span>
   <span class="sr">/\/Users\/mwum\/Gitbook\/*/</span>       <span class="o">=&gt;</span> <span class="s2">"gitbook serve --port 4006"</span><span class="p">,</span>
@@ -188,9 +188,7 @@ Rails 有 “server” 命令，例如 <code class="highlighter-rouge">rails ser
 
 <span class="nb">puts</span> <span class="s2">"Command not found: </span><span class="si">#{</span><span class="no">File</span><span class="p">.</span><span class="nf">basename</span> <span class="kp">__FILE__</span><span class="si">}</span><span class="s2">"</span>
 <span class="nb">puts</span> <span class="s2">"In this directory: </span><span class="si">#{</span><span class="no">Dir</span><span class="p">.</span><span class="nf">pwd</span><span class="si">}</span><span class="s2">"</span>
-</pre></td></tr></tbody></table>
-</div>
-</div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
   </div>
 

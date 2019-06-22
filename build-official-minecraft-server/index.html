@@ -115,54 +115,49 @@ PaperSpigot 对 Spigot 进行了一些优化，支持 Plugin, 不支持 Mod, 次
     <p>将下载的服务器文件放到文件夹中，例如 minecraft_server.1.8.8  <br />
 在文件中新建文件 start.command, 输入如下内容：</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
 5
 6
-7</pre></td><td class="code"><pre><span class="c">#!/bin/bash</span>
+7
+</pre></td><td class="rouge-code"><pre><span class="c">#!/bin/bash</span>
 
 <span class="c"># 进入脚本所在的目录</span>
-<span class="nb">cd</span> <span class="s2">"</span><span class="k">$(</span>dirname <span class="s2">"</span><span class="nv">$0</span><span class="s2">"</span><span class="k">)</span><span class="s2">"</span>
+<span class="nb">cd</span> <span class="s2">"</span><span class="k">$(</span><span class="nb">dirname</span> <span class="s2">"</span><span class="nv">$0</span><span class="s2">"</span><span class="k">)</span><span class="s2">"</span>
 
 <span class="c"># 根据情况修改内存大小，服务器的名字</span>
-<span class="nb">exec </span>java -Xmx2G -Xms2G -jar minecraft_server.1.8.8.jar
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+<span class="nb">exec </span>java <span class="nt">-Xmx2G</span> <span class="nt">-Xms2G</span> <span class="nt">-jar</span> minecraft_server.1.8.8.jar
+</pre></td></tr></tbody></table></code></pre></div>    </div>
 
     <p>增加可执行权限</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>chmod +x ./start.command
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>chmod +x ./start.command
+</pre></td></tr></tbody></table></code></pre></div>    </div>
 
     <p>运行服务器</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>./start.command
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>./start.command
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>第一次运行服务器的时候，会提示如下面之类的信息</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>You need to agree to the EULA in order to run the server. Go to eula.txt for more info.
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>You need to agree to the EULA in order to run the server. Go to eula.txt for more info.
+</pre></td></tr></tbody></table></code></pre></div>    </div>
 
     <p>而且会自动生成一些目录和文件，不用管它  <br />
 我们只需要打开新生成的 eula.txt 文件，将 <code class="highlighter-rouge">eula=false</code> 改为 <code class="highlighter-rouge">eula=true</code></p>
 
     <p>再次运行服务器</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>./start.command
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>./start.command
+</pre></td></tr></tbody></table></code></pre></div>    </div>
 
     <p>服务器正常启动，现在其他玩家就可以加入进行游戏了</p>
   </li>
@@ -172,10 +167,9 @@ PaperSpigot 对 Spigot 进行了一些优化，支持 Plugin, 不支持 Mod, 次
 
 <p>修改配置文件</p>
 
-<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>mvim server.properties
-</pre></td></tr></tbody></table>
-</div>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>mvim server.properties
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>详细说明请看：<a href="http://minecraft-zh.gamepedia.com/Server.properties">http://minecraft-zh.gamepedia.com/Server.properties</a></p>
 
@@ -216,10 +210,9 @@ motd=A Minecraft Server
 
 <p>关闭服务器</p>
 
-<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>stop
-</pre></td></tr></tbody></table>
-</div>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>stop
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <h2 id="op-命令">OP 命令</h2>
 

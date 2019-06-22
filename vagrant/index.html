@@ -126,10 +126,9 @@ Vargrant 将 box 解包后放在 /.vagrant.d/boxes 文件夹</p>
 <p>例如下载 Ubuntu 官方创建的 Ubuntu Server 64-bit 14.04 的 box  <br />
 其中的 <code class="highlighter-rouge">Ubuntu_Server_14.04</code> 是自己设定的 box 名字</p>
 
-<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>vagrant box add Ubuntu_Server_14.04 ubuntu/trusty64
-</pre></td></tr></tbody></table>
-</div>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>vagrant box add Ubuntu_Server_14.04 ubuntu/trusty64
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>Box 可以去 <a href="https://vagrantcloud.com/">Vagrant Cloud</a> 找</p>
 
@@ -137,10 +136,9 @@ Vargrant 将 box 解包后放在 /.vagrant.d/boxes 文件夹</p>
 
 <p>例如下载 Ubuntu 的 <a href="http://cloud-images.ubuntu.com/vagrant/">box</a>, 下载完成之后添加一下 box</p>
 
-<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>vagrant box add Ubuntu_Server_14.04 ~/Inbox/trusty-server-cloudimg-amd64-vagrant-disk1.box
-</pre></td></tr></tbody></table>
-</div>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>vagrant box add Ubuntu_Server_14.04 ~/Inbox/trusty-server-cloudimg-amd64-vagrant-disk1.box
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <h3 id="自己制作-base-box">自己制作 base box</h3>
 
@@ -155,18 +153,16 @@ Vargrant 将 box 解包后放在 /.vagrant.d/boxes 文件夹</p>
   <li>
     <p>安装好 Ruby 之后，用如下命令安装 Veewee</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>gem install veewee
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>gem install veewee
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>查看支持的模板</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>veewee parallels templates
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>veewee parallels templates
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
 </ol>
 
@@ -181,14 +177,13 @@ Vargrant 将 box 解包后放在 /.vagrant.d/boxes 文件夹</p>
 
     <p>以下是推荐系统设置</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
-3</pre></td><td class="code"><pre>Root Password: vagrant
+3
+</pre></td><td class="rouge-code"><pre>Root Password: vagrant
 Main account login: vagrant
 Main account password: vagrant
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>安装一些必要的软件，例如 Parallels Tools, SSH</p>
@@ -202,36 +197,33 @@ Main account password: vagrant
 
         <p>或者使用命令</p>
 
-        <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>wget https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant.pub
-</pre></td></tr></tbody></table>
-</div>
-        </div>
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>wget https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant.pub
+</pre></td></tr></tbody></table></code></pre></div>        </div>
       </li>
       <li>
         <p>安装 SSH 服务</p>
 
-        <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2</pre></td><td class="code"><pre>sudo apt-get update
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>sudo apt-get update
 sudo apt-get install openssh-server
-</pre></td></tr></tbody></table>
-</div>
-        </div>
+</pre></td></tr></tbody></table></code></pre></div>        </div>
       </li>
       <li>
         <p>添加 Vagrant 的公钥</p>
 
-        <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
-5</pre></td><td class="code"><pre>mkdir ~/.ssh
+5
+</pre></td><td class="rouge-code"><pre>mkdir ~/.ssh
 chmod 700 ~/.ssh
 touch ~/.ssh/authorized_keys
 chmod 600 ~/.ssh/authorized_keys
 cat vagrant.pub &gt;&gt; ~/.ssh/authorized_keys
-</pre></td></tr></tbody></table>
-</div>
-        </div>
+</pre></td></tr></tbody></table></code></pre></div>        </div>
       </li>
     </ol>
   </li>
@@ -240,20 +232,18 @@ cat vagrant.pub &gt;&gt; ~/.ssh/authorized_keys
 
     <p>安装完软件之后清理一下软件包</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo apt-get clean
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>sudo apt-get clean
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>让 Vagrant 用户使用 sudo 时不需要输入密码（必须，要不然一些 Vagrant 的功能无法实现）</p>
 
     <p>先输入命令 <code class="highlighter-rouge">sudo visudo</code>, 然后在末尾添加一行，内容如下</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>vagrant ALL=(ALL) NOPASSWD: ALL
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>vagrant ALL=(ALL) NOPASSWD: ALL
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>关闭虚拟机  <br />
@@ -266,27 +256,24 @@ config.pvs  <br />
 
     <p>可对虚拟磁盘进行优化，减少大小</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>prl_disk_tool compact --hdd *.hdd
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>prl_disk_tool compact --hdd *.hdd
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>打包成 base box  <br />
 还需要 Vagrantfile 和 metadata.json 文件，<br />
 Vagrantfile 文件内容可为空，metadata.json 可如下所示</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="p">{</span><span class="nt">"provider"</span><span class="p">:</span><span class="s2">"parallels"</span><span class="p">}</span><span class="w">
-</span></pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>{"provider":"parallels"}
+</pre></td></tr></tbody></table></code></pre></div>    </div>
 
     <p>然后进行打包</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>tar cvzf Ubuntu-14.04.2-parallels.box ./Ubuntu-14.04.2-vagrant.pvm ./Vagrantfile ./metadata.json
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>tar cvzf Ubuntu-14.04.2-parallels.box ./Ubuntu-14.04.2-vagrant.pvm ./Vagrantfile ./metadata.json
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>做好了 base box 自己得测试一下</p>
@@ -304,26 +291,24 @@ Vagrantfile 文件内容可为空，metadata.json 可如下所示</p>
   <li>
     <p>建立一个 Vagrant 项目目录</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>mkdir ~/Vagrant
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>mkdir ~/Vagrant
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>初始化一个项目</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
-5</pre></td><td class="code"><pre>cd ~/Vagrant
+5
+</pre></td><td class="rouge-code"><pre>cd ~/Vagrant
 mkdir Ubuntu_Server_14.04
 cd Ubuntu_Server_14.04
 vagrant box list    # 列出现有的 box
 vagrant init Ubuntu_Server_14.04
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
 
     <p>会在当前目录下生成一个 <code class="highlighter-rouge">Vagrantfile</code> 文件，用于描述你的项目（虚拟机的网络连接方式，同步文件夹等）</p>
   </li>
@@ -337,7 +322,7 @@ vagrant init Ubuntu_Server_14.04
 
 <p>对于 Parallels 虚拟机可进行如下配置：</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -350,7 +335,8 @@ vagrant init Ubuntu_Server_14.04
 11
 12
 13
-14</pre></td><td class="code"><pre><span class="c1"># 设置端口转发，将主机的 8081 端口转发到虚拟机的 80 端口，在开发 Web 应用的时候非常有用</span>
+14
+</pre></td><td class="rouge-code"><pre><span class="c1"># 设置端口转发，将主机的 8081 端口转发到虚拟机的 80 端口，在开发 Web 应用的时候非常有用</span>
 <span class="n">config</span><span class="p">.</span><span class="nf">vm</span><span class="p">.</span><span class="nf">network</span> <span class="s2">"forwarded_port"</span><span class="p">,</span> <span class="ss">guest: </span><span class="mi">80</span><span class="p">,</span> <span class="ss">host: </span><span class="mi">8081</span>
 
 <span class="c1"># 将主机的 /Users/mwum/Code 文件夹共享到虚拟机的 /home/vagrant/Code 文件夹</span>
@@ -364,9 +350,7 @@ vagrant init Ubuntu_Server_14.04
   <span class="c1"># Memory</span>
   <span class="c1"># v.memory = 1024</span>
 <span class="k">end</span>
-</pre></td></tr></tbody></table>
-</div>
-</div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <h4 id="默认共享目录">默认共享目录</h4>
 
@@ -391,19 +375,17 @@ vagrant init Ubuntu_Server_14.04
 
 <p>当你自定义了开发环境之后，在项目目录执行命令</p>
 
-<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>vagrant package
-</pre></td></tr></tbody></table>
-</div>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>vagrant package
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>在此目录会生成一个 <code class="highlighter-rouge">package.box</code> 文件，将这个 box 给其它开发人员，就能保证你们的开发环境相同了</p>
 
 <p>或者使用命令 <code class="highlighter-rouge">vagrant package -h</code> 查看更详尽的用法，例如使用</p>
 
-<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>vagrant package --include readme.txt --vagrantfile Vagrantfile
-</pre></td></tr></tbody></table>
-</div>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>vagrant package --include readme.txt --vagrantfile Vagrantfile
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>但是发现个问题，下次使用 <code class="highlighter-rouge">vagrant box add</code> 和 <code class="highlighter-rouge">vagrant init</code> 添加和初始化好这个 box 之后，<br />
 然后使用 <code class="highlighter-rouge">vagrant up</code> 会出现警告大致是说 <code class="highlighter-rouge">.vagrant.d/boxes/boxname/0/virtualbox/include/_Vagrantfile:5: warning: already initialized constant VAGRANTFILE_API_VERSION</code>, <br />

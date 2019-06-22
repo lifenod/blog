@@ -103,10 +103,9 @@
 
 <p>直接去主页下载或者使用 Git</p>
 
-<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>git clone git://github.com/altercation/solarized.git
-</pre></td></tr></tbody></table>
-</div>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>git clone git://github.com/altercation/solarized.git
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>然后打开 solarized/iterm2-colors-solarized/ 双击里面的文件</p>
 
@@ -192,10 +191,9 @@ Preferences - Pointer</p>
 
 <p>Mac 系统自带了 Zsh, 一般不是最新版，如果需要最新版可通过 Homebrew 来安装</p>
 
-<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>brew install zsh
-</pre></td></tr></tbody></table>
-</div>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>brew install zsh
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>可通过 <code class="highlighter-rouge">zsh --version</code> 命令查看 Zsh 的版本  <br />
 使用 <code class="highlighter-rouge">echo $ZSH_VERSION</code> 命令查看当前使用的 Zsh 版本</p>
@@ -206,18 +204,16 @@ Preferences - Pointer</p>
   <li>
     <p>在 /etc/shells 文件中加入如下一行</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>/usr/local/bin/zsh
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>/usr/local/bin/zsh
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>然后运行命令</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>chsh -s /usr/local/bin/zsh
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>chsh -s /usr/local/bin/zsh
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
 </ol>
 
@@ -240,18 +236,17 @@ Preferences - Pointer</p>
 又例如：<code class="highlighter-rouge">alias -s gz="tar -xzvf"</code>, 自动解压后缀为 gz 的压缩包  <br />
 一些常用的压缩方式如下：</p>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
-5</pre></td><td class="code"><pre><span class="nb">alias</span> -s <span class="nv">tar</span><span class="o">=</span><span class="s2">"tar -xvf"</span>
-<span class="nb">alias</span> -s <span class="nv">gz</span><span class="o">=</span><span class="s2">"tar -xzvf"</span>
-<span class="nb">alias</span> -s <span class="nv">tgz</span><span class="o">=</span><span class="s2">"tar -xzvf"</span>
-<span class="nb">alias</span> -s <span class="nv">bz2</span><span class="o">=</span><span class="s2">"tar -xjvf"</span>
-<span class="nb">alias</span> -s <span class="nv">zip</span><span class="o">=</span><span class="s2">"unzip"</span>
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+5
+</pre></td><td class="rouge-code"><pre><span class="nb">alias</span> <span class="nt">-s</span> <span class="nb">tar</span><span class="o">=</span><span class="s2">"tar -xvf"</span>
+<span class="nb">alias</span> <span class="nt">-s</span> <span class="nv">gz</span><span class="o">=</span><span class="s2">"tar -xzvf"</span>
+<span class="nb">alias</span> <span class="nt">-s</span> <span class="nv">tgz</span><span class="o">=</span><span class="s2">"tar -xzvf"</span>
+<span class="nb">alias</span> <span class="nt">-s</span> <span class="nv">bz2</span><span class="o">=</span><span class="s2">"tar -xjvf"</span>
+<span class="nb">alias</span> <span class="nt">-s</span> <span class="nv">zip</span><span class="o">=</span><span class="s2">"unzip"</span>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p><code class="highlighter-rouge">kill &lt;tab&gt;</code> 会自动列出进程，或者 <code class="highlighter-rouge">kill nginx</code></p>
@@ -262,34 +257,32 @@ Preferences - Pointer</p>
   <li>
     <p>使 <code class="highlighter-rouge">man</code> 结果高亮显示，在配置文件中写入如下内容：</p>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
 5
 6
 7
-8</pre></td><td class="code"><pre><span class="c"># man page highlight</span>
-<span class="nb">export </span><span class="nv">LESS_TERMCAP_mb</span><span class="o">=</span><span class="nv">$'</span><span class="se">\E</span><span class="o">[</span>01;31m<span class="s1">'       # begin blinking
-export LESS_TERMCAP_md=$'</span><span class="se">\E</span><span class="o">[</span>01;38;5;74m<span class="s1">'  # begin bold
-export LESS_TERMCAP_me=$'</span><span class="se">\E</span><span class="o">[</span>0m<span class="s1">'           # end mode
-export LESS_TERMCAP_se=$'</span><span class="se">\E</span><span class="o">[</span>0m<span class="s1">'           # end standout-mode
-export LESS_TERMCAP_so=$'</span><span class="se">\E</span><span class="o">[</span>38;5;246m<span class="s1">'    # begin standout-mode - info box
-export LESS_TERMCAP_ue=$'</span><span class="se">\E</span><span class="o">[</span>0m<span class="s1">'           # end underline
-export LESS_TERMCAP_us=$'</span><span class="se">\E</span><span class="o">[</span>04;38;5;146m<span class="s1">' # begin underline
-</span></pre></td></tr></tbody></table>
-</div>
-    </div>
+8
+</pre></td><td class="rouge-code"><pre><span class="c"># man page highlight</span>
+<span class="nb">export </span><span class="nv">LESS_TERMCAP_mb</span><span class="o">=</span><span class="s1">$'</span><span class="se">\E</span><span class="s1">[01;31m'</span>       <span class="c"># begin blinking</span>
+<span class="nb">export </span><span class="nv">LESS_TERMCAP_md</span><span class="o">=</span><span class="s1">$'</span><span class="se">\E</span><span class="s1">[01;38;5;74m'</span>  <span class="c"># begin bold</span>
+<span class="nb">export </span><span class="nv">LESS_TERMCAP_me</span><span class="o">=</span><span class="s1">$'</span><span class="se">\E</span><span class="s1">[0m'</span>           <span class="c"># end mode</span>
+<span class="nb">export </span><span class="nv">LESS_TERMCAP_se</span><span class="o">=</span><span class="s1">$'</span><span class="se">\E</span><span class="s1">[0m'</span>           <span class="c"># end standout-mode</span>
+<span class="nb">export </span><span class="nv">LESS_TERMCAP_so</span><span class="o">=</span><span class="s1">$'</span><span class="se">\E</span><span class="s1">[38;5;246m'</span>    <span class="c"># begin standout-mode - info box</span>
+<span class="nb">export </span><span class="nv">LESS_TERMCAP_ue</span><span class="o">=</span><span class="s1">$'</span><span class="se">\E</span><span class="s1">[0m'</span>           <span class="c"># end underline</span>
+<span class="nb">export </span><span class="nv">LESS_TERMCAP_us</span><span class="o">=</span><span class="s1">$'</span><span class="se">\E</span><span class="s1">[04;38;5;146m'</span> <span class="c"># begin underline</span>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
 </ul>
 
 <p>Oh My Zsh 本身自带了很多插件，不过基本都没有启用，插件目录 <code class="highlighter-rouge">~/.oh-my-zsh/plugins</code>  <br />
 例如启用插件 git, autojump osx, 需要在配置文件中加入如下内容</p>
 
-<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>plugins=(git autojump osx)
-</pre></td></tr></tbody></table>
-</div>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>plugins=(git autojump osx)
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <ul>
   <li>
@@ -307,17 +300,15 @@ export LESS_TERMCAP_us=$'</span><span class="se">\E</span><span class="o">[</spa
 
     <p>需要先安装 autojump</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>brew install autojump
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>brew install autojump
+</pre></td></tr></tbody></table></code></pre></div>    </div>
 
     <p>使用方法：</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>j 目录名或目录名的一部分
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>j 目录名或目录名的一部分
+</pre></td></tr></tbody></table></code></pre></div>    </div>
 
     <p>跳转到最多访问的目录</p>
   </li>
@@ -328,10 +319,9 @@ export LESS_TERMCAP_us=$'</span><span class="se">\E</span><span class="o">[</spa
 
     <p>自动建议的字体颜色可能和你终端的颜色相近，你可以将其改成其它的，比如设置为 blue</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=blue'
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=blue'
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
 </ul>
 
@@ -343,17 +333,15 @@ export LESS_TERMCAP_us=$'</span><span class="se">\E</span><span class="o">[</spa
 
 <p>安装</p>
 
-<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>brew install tmux
-</pre></td></tr></tbody></table>
-</div>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>brew install tmux
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>配置</p>
 
-<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>mvim ~/.tmux.conf
-</pre></td></tr></tbody></table>
-</div>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>mvim ~/.tmux.conf
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>并不喜欢反人类的全键盘式操作，而且也没有特别吸引我的点，所以基本不使用</p>
 

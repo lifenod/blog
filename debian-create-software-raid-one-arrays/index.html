@@ -90,7 +90,7 @@
 <p>使用 <code class="highlighter-rouge">sudo fdisk /dev/sdx</code> 命令进行分区，按照提示操作就可以了  <br />
 分区之后情况如下</p>
 
-<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -109,7 +109,8 @@
 17
 18
 19
-20</pre></td><td class="code"><pre>Disk /dev/sda: 500.1 GB, 500107862016 bytes
+20
+</pre></td><td class="rouge-code"><pre>Disk /dev/sda: 500.1 GB, 500107862016 bytes
 45 heads, 63 sectors/track, 344540 cylinders, total 976773168 sectors
 Units = sectors of 1 * 512 = 512 bytes
 Sector size (logical/physical): 512 bytes / 512 bytes
@@ -129,9 +130,7 @@ Disk identifier: 0xe0894113
    Device Boot      Start         End      Blocks   Id  System
 /dev/sdb1            2048   976773167   488385560   83  Linux
 /dev/sdb2       976773168  3906963455  1465095144   83  Linux
-</pre></td></tr></tbody></table>
-</div>
-</div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>下面开始将 sda1 和 sdb1 组建成 raid1</p>
 
@@ -141,7 +140,7 @@ Disk identifier: 0xe0894113
   <li>
     <p>将 sda1 和 sdb1 的分区类型改为 Linux raid autodetect, 以 sda1 为例</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -149,7 +148,8 @@ Disk identifier: 0xe0894113
 6
 7
 8
-9</pre></td><td class="code"><pre>$ sudo fdisk /dev/sda
+9
+</pre></td><td class="rouge-code"><pre>$ sudo fdisk /dev/sda
 
 Command (m for help): t
 Selected partition 1
@@ -158,13 +158,11 @@ Changed system type of partition 1 to fd (Linux raid autodetect)
 
 Command (m for help): w
 The partition table has been altered!
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
 
     <p>修改好之后分区情况如下</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -183,7 +181,8 @@ The partition table has been altered!
 17
 18
 19
-20</pre></td><td class="code"><pre>Disk /dev/sda: 500.1 GB, 500107862016 bytes
+20
+</pre></td><td class="rouge-code"><pre>Disk /dev/sda: 500.1 GB, 500107862016 bytes
 45 heads, 63 sectors/track, 344540 cylinders, total 976773168 sectors
 Units = sectors of 1 * 512 = 512 bytes
 Sector size (logical/physical): 512 bytes / 512 bytes
@@ -203,25 +202,21 @@ Disk identifier: 0xe0894113
    Device Boot      Start         End      Blocks   Id  System
 /dev/sdb1            2048   976773167   488385560   fd  Linux raid autodetect
 /dev/sdb2       976773168  3906963455  1465095144   83  Linux
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>安装 mdadm</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo apt-get install mdadm
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>sudo apt-get install mdadm
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>创建磁盘阵列，raid 设备名称 md0, 指定 raid 级别 1, raid 磁盘数 2 且分别为 /dev/sda1 和 /dev/sdb1</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo mdadm --create --verbose /dev/md0 --level=1 --raid-devices=2 /dev/sda1 /dev/sdb1
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>sudo mdadm --create --verbose /dev/md0 --level=1 --raid-devices=2 /dev/sda1 /dev/sdb1
+</pre></td></tr></tbody></table></code></pre></div>    </div>
 
     <p>出现 “mdadm: array /dev/md0 started.”, 就算成功了</p>
 
@@ -230,46 +225,42 @@ Disk identifier: 0xe0894113
   <li>
     <p>可用 <code class="highlighter-rouge">cat /proc/mdstat</code> 命令查看磁盘阵列状态，正在同步中，不过好漫长啊（这机子 IO 性能比较弱），不过对于 24 小时开机的设备来说也算不了什么</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
 5
-6</pre></td><td class="code"><pre>Personalities : [raid1]
+6
+</pre></td><td class="rouge-code"><pre>Personalities : [raid1]
 md0 : active raid1 sdb1[1] sda1[0]
       488254336 blocks super 1.2 [2/2] [UU]
       [&gt;....................]  resync =  0.1% (942528/488254336) finish=469.6min speed=17292K/sec
 
 unused devices: &lt;none&gt;
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
 
     <p>可用 <code class="highlighter-rouge">sudo mdadm --detail /dev/md0</code> 命令查看磁盘阵列 md0 的详细信息</p>
   </li>
   <li>
     <p>保存配置文件，不保存配置文件也可以，但是可能会出问题</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo mdadm --detail --scan | sudo tee -a /etc/mdadm/mdadm.conf
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>sudo mdadm --detail --scan | sudo tee -a /etc/mdadm/mdadm.conf
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>就像平常使用 sda1 那样使用 md0, 对 md0 进行格式化</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo mkfs.ext4 /dev/md0
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>sudo mkfs.ext4 /dev/md0
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>如果要开机自动挂载磁盘阵列，编辑 <code class="highlighter-rouge">sudo vim /etc/fstab</code>, 例如加入如下内容</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>/dev/md0    /media/data     ext4    defaults    0   0
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>/dev/md0    /media/data     ext4    defaults    0   0
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
 </ol>
 
@@ -282,15 +273,14 @@ unused devices: &lt;none&gt;
   <li>
     <p>安装 ssmtp</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo apt-get install ssmtp
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>sudo apt-get install ssmtp
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>配置 ssmtp, <code class="highlighter-rouge">sudo vim /etc/ssmtp/ssmtp.conf</code>, 以 gmail 邮箱为例</p>
 
-    <div class="language-ini highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+    <div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -314,7 +304,8 @@ unused devices: &lt;none&gt;
 22
 23
 24
-25</pre></td><td class="code"><pre><span class="c">#
+25
+</pre></td><td class="rouge-code"><pre><span class="c">#
 # Config file for sSMTP sendmail
 #
 # The person who gets all mail for userids &lt; 1000
@@ -339,45 +330,39 @@ unused devices: &lt;none&gt;
 <span class="py">UseTLS</span><span class="p">=</span><span class="s">YES</span>
 <span class="py">AuthUser</span><span class="p">=</span><span class="s">YourUsername@gmail.com</span>
 <span class="py">AuthPass</span><span class="p">=</span><span class="s">YourPassword</span>
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>因为密码是明文存储的，安全起见修改配置文件的权限</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo chmod 660 /etc/ssmtp/ssmtp.conf
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>sudo chmod 660 /etc/ssmtp/ssmtp.conf
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>测试 ssmtp 是否配置正确，若 “mwum@dreamxu.com”(填写你自己的邮箱) 收到邮件，就算成功了</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>echo "ssmtp-test" | sudo ssmtp mwum@dreamxu.com
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>echo "ssmtp-test" | sudo ssmtp mwum@dreamxu.com
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>编辑 mdadm 配置文件，<code class="highlighter-rouge">sudo vim /etc/mdadm/mdadm.conf</code>, 加入以下内容，若原来存在如下配置，替换就行</p>
 
-    <div class="language-ini highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+    <div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
-3</pre></td><td class="code"><pre><span class="c"># 填写你自己的邮箱
+3
+</pre></td><td class="rouge-code"><pre><span class="c"># 填写你自己的邮箱
 </span><span class="err">MAILADDR</span> <span class="err">mwum@dreamxu.com</span>
 <span class="err">MAILFROM</span> <span class="err">YourUsername@gmail.com</span>
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>测试 mdadm 配置是否正确，若能收到测试邮件，那就成功了</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo mdadm --monitor /dev/md0 --test
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>sudo mdadm --monitor /dev/md0 --test
+</pre></td></tr></tbody></table></code></pre></div>    </div>
 
     <p>到这，你就可以安心睡觉了</p>
   </li>
@@ -391,20 +376,18 @@ unused devices: &lt;none&gt;
   <li>
     <p>首先停止正在运行的 raid 设备，如果挂载了，那么先卸载了</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo mdadm --stop /dev/md0
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>sudo mdadm --stop /dev/md0
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>清除磁盘中的 raid 信息，也就是清除 super block 中的信息。执行之后数据也就没有了，请谨慎操作</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2</pre></td><td class="code"><pre>sudo mdadm --zero-superblock /dev/sda1
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>sudo mdadm --zero-superblock /dev/sda1
 sudo mdadm --zero-superblock /dev/sdb1
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>清除添加到 /etc/mdadm/mdadm.conf 中的信息  <br />
@@ -421,31 +404,29 @@ sudo mdadm --zero-superblock /dev/sdb1
   <li>
     <p>如果其中的一块磁盘损坏了，比如说 sda1</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
 5
 6
-7</pre></td><td class="code"><pre>$ cat /proc/mdstat
+7
+</pre></td><td class="rouge-code"><pre>$ cat /proc/mdstat
 
 Personalities : [raid1]
 md0 : active raid1 sdb1[1] sda1[0](F)
       488254336 blocks super 1.2 [2/1] [_U]
 
 unused devices: &lt;none&gt;
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
 
     <ol>
       <li>
         <p>从磁盘阵列 md0 中移除损坏的设备 sda1</p>
 
-        <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo mdadm /dev/md0 --remove /dev/sda1
-</pre></td></tr></tbody></table>
-</div>
-        </div>
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>sudo mdadm /dev/md0 --remove /dev/sda1
+</pre></td></tr></tbody></table></code></pre></div>        </div>
       </li>
       <li>
         <p>更换新磁盘，对其进行分区并标记分区类型为 Linux raid autodetect, 例如为 sda1, 也可能是其它的</p>
@@ -453,10 +434,9 @@ unused devices: &lt;none&gt;
       <li>
         <p>添加 sda1 到磁盘阵列 md0 中，系统会自动重建数据的</p>
 
-        <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo mdadm /dev/md0 --add /dev/sda1
-</pre></td></tr></tbody></table>
-</div>
-        </div>
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>sudo mdadm /dev/md0 --add /dev/sda1
+</pre></td></tr></tbody></table></code></pre></div>        </div>
       </li>
     </ol>
   </li>
@@ -467,10 +447,9 @@ unused devices: &lt;none&gt;
       <li>
         <p>标记 sdb1 损坏</p>
 
-        <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo mdadm /dev/md0 --fail /dev/sdb1
-</pre></td></tr></tbody></table>
-</div>
-        </div>
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>sudo mdadm /dev/md0 --fail /dev/sdb1
+</pre></td></tr></tbody></table></code></pre></div>        </div>
       </li>
       <li>
         <p>接下去的步骤和上一种情况一样，就不赘述了</p>
@@ -487,7 +466,7 @@ unused devices: &lt;none&gt;
       <li>
         <p>使用 <code class="highlighter-rouge">sudo fdisk -l</code> 命令查看磁盘信息，原来的磁盘在新的系统上分别为 sdd1, sde1</p>
 
-        <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -515,7 +494,8 @@ unused devices: &lt;none&gt;
 26
 27
 28
-29</pre></td><td class="code"><pre>Disk /dev/sdd: 500.1 GB, 500107862016 bytes
+29
+</pre></td><td class="rouge-code"><pre>Disk /dev/sdd: 500.1 GB, 500107862016 bytes
 45 heads, 63 sectors/track, 344540 cylinders, total 976773168 sectors
 Units = sectors of 1 * 512 = 512 bytes
 Sector size (logical/physical): 512 bytes / 512 bytes
@@ -544,25 +524,21 @@ Disk identifier: 0xe0894113
    Device Boot      Start         End      Blocks   Id  System
 /dev/sde1            2048   976773167   488385560   fd  Linux raid autodetect
 /dev/sde2       976773168  3906963455  1465095144   83  Linux
-</pre></td></tr></tbody></table>
-</div>
-        </div>
+</pre></td></tr></tbody></table></code></pre></div>        </div>
       </li>
       <li>
         <p>测试的时候，我将两个磁盘插到新的电脑上，它自动重组成磁盘阵列 md127 了，但是是只读的  <br />
 先停止其运行</p>
 
-        <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo mdadm --stop /dev/md127
-</pre></td></tr></tbody></table>
-</div>
-        </div>
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>sudo mdadm --stop /dev/md127
+</pre></td></tr></tbody></table></code></pre></div>        </div>
 
         <p>然后执行这个命令，如果没有自动重组，那么直接执行这个命令即可</p>
 
-        <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo mdadm --assemble /dev/md0 /dev/sdd1 /dev/sde1
-</pre></td></tr></tbody></table>
-</div>
-        </div>
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>sudo mdadm --assemble /dev/md0 /dev/sdd1 /dev/sde1
+</pre></td></tr></tbody></table></code></pre></div>        </div>
       </li>
       <li>
         <p>保存配置文件，配置 fstab，上面都有就不讲了</p>
@@ -576,18 +552,16 @@ Disk identifier: 0xe0894113
       <li>
         <p>强行用其中的一个磁盘来组成磁盘阵列 raid1, 例如使用磁盘 sde1</p>
 
-        <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo mdadm --create --verbose /dev/md0 --level=1 --force --raid-devices=1 /dev/sde1
-</pre></td></tr></tbody></table>
-</div>
-        </div>
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>sudo mdadm --create --verbose /dev/md0 --level=1 --force --raid-devices=1 /dev/sde1
+</pre></td></tr></tbody></table></code></pre></div>        </div>
       </li>
       <li>
         <p>挂载 md0 并读取数据即可</p>
 
-        <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo mount /dev/md0 /mnt
-</pre></td></tr></tbody></table>
-</div>
-        </div>
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>sudo mount /dev/md0 /mnt
+</pre></td></tr></tbody></table></code></pre></div>        </div>
       </li>
     </ol>
   </li>

@@ -94,45 +94,40 @@
   <li>
     <p>使用 git 将 rbenv 源码 clone 到本地</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>将 <code class="highlighter-rouge">~/.rbenv/bin</code> 添加到环境变量</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>echo 'export PATH="$HOME/.rbenv/bin:$PATH"' &gt;&gt; ~/.zshrc
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>echo 'export PATH="$HOME/.rbenv/bin:$PATH"' &gt;&gt; ~/.zshrc
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>Add <code class="highlighter-rouge">rbenv init</code> to your shell to enable shims and autocompletion</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>echo 'eval "$(rbenv init -)"' &gt;&gt; ~/.zshrc
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>echo 'eval "$(rbenv init -)"' &gt;&gt; ~/.zshrc
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>重启 shell, 并测试 rbenv 是否设置正常</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2</pre></td><td class="code"><pre>exec $SHELL
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>exec $SHELL
 type rbenv
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>安装 ruby-build, 用来安装和编译 Ruby 源码  <br />
 作为 rbenv 的插件来安装</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
 </ol>
 
@@ -144,10 +139,9 @@ type rbenv
 
 <p>安装</p>
 
-<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>git clone https://github.com/rkh/rbenv-update.git ~/.rbenv/plugins/rbenv-update
-</pre></td></tr></tbody></table>
-</div>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>git clone https://github.com/rkh/rbenv-update.git ~/.rbenv/plugins/rbenv-update
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>使用 <code class="highlighter-rouge">rbenv update</code> 命令来更新 rbenv 以及所有插件</p>
 
@@ -159,10 +153,9 @@ type rbenv
 
 <p>安装</p>
 
-<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>git clone https://github.com/sstephenson/rbenv-gem-rehash.git ~/.rbenv/plugins/rbenv-gem-rehash
-</pre></td></tr></tbody></table>
-</div>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>git clone https://github.com/sstephenson/rbenv-gem-rehash.git ~/.rbenv/plugins/rbenv-gem-rehash
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <h2 id="安装-ruby">安装 Ruby</h2>
 
@@ -170,33 +163,29 @@ type rbenv
   <li>
     <p>列出可用的 Ruby 版本</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>rbenv install -l
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>rbenv install -l
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>安装 Ruby 2.1.2</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>rbenv install 2.1.2
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>rbenv install 2.1.2
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>列出已安装的 Ruby 版本，其中 <code class="highlighter-rouge">*</code> 号开头的是正在使用的版本</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>rbenv versions
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>rbenv versions
+</pre></td></tr></tbody></table></code></pre></div>    </div>
 
     <p>列出正在使用的版本</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>rbenv version
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>rbenv version
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>设置版本  <br />
@@ -207,52 +196,46 @@ type rbenv
         <p>全局成效  <br />
 <code class="highlighter-rouge">~/.rbenv/version</code> 文件指明了 Ruby 的版本</p>
 
-        <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>rbenv global 2.1.2
-</pre></td></tr></tbody></table>
-</div>
-        </div>
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>rbenv global 2.1.2
+</pre></td></tr></tbody></table></code></pre></div>        </div>
       </li>
       <li>
         <p>对该目录生效  <br />
 在当前目录生成 <code class="highlighter-rouge">.ruby-version</code> 文件，指明了 Ruby 的版本</p>
 
-        <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>rbenv local 2.1.2
-</pre></td></tr></tbody></table>
-</div>
-        </div>
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>rbenv local 2.1.2
+</pre></td></tr></tbody></table></code></pre></div>        </div>
 
         <p>取消设置</p>
 
-        <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>rbenv local --unset
-</pre></td></tr></tbody></table>
-</div>
-        </div>
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>rbenv local --unset
+</pre></td></tr></tbody></table></code></pre></div>        </div>
       </li>
       <li>
         <p>对当前 shell 生效  <br />
 <code class="highlighter-rouge">RBENV_VERSIO</code> 环境变量指明了 Ruby 的版本</p>
 
-        <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>rbenv shell 2.1.2
-</pre></td></tr></tbody></table>
-</div>
-        </div>
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>rbenv shell 2.1.2
+</pre></td></tr></tbody></table></code></pre></div>        </div>
 
         <p>权限设置</p>
 
-        <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>rbenv shell --unset
-</pre></td></tr></tbody></table>
-</div>
-        </div>
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>rbenv shell --unset
+</pre></td></tr></tbody></table></code></pre></div>        </div>
       </li>
     </ul>
   </li>
   <li>
     <p>告诉 Rubygems 安装软件包的时候不安装文档</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>echo "gem: --no-ri --no-rdoc" &gt; ~/.gemrc
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>echo "gem: --no-ri --no-rdoc" &gt; ~/.gemrc
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
 </ol>
 
@@ -262,36 +245,32 @@ type rbenv
   <li>
     <p>更新 rbenv</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2</pre></td><td class="code"><pre>cd ~/.rbenv
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>cd ~/.rbenv
 git pull
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>为了让 rbenv 知道 Ruby 的所有可执行文件  <br />
 每次安装新版本的 Ruby 和安装一个 gem 后，请执行下面的命令</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>rbenv rehash
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>rbenv rehash
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>列出 irb 这个命令的完整路径</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>rbenv which irb
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>rbenv which irb
+</pre></td></tr></tbody></table></code></pre></div>    </div>
 
     <p>列出包含 irb 这个命令的版本</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>rbenv whence irb
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>rbenv whence irb
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>卸载 Ruby</p>
@@ -304,10 +283,9 @@ git pull
       <li>
         <p>如果安装了 ruby-build 插件，那么使用如下命令即可</p>
 
-        <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>rbenv uninstall 2.1.2
-</pre></td></tr></tbody></table>
-</div>
-        </div>
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>rbenv uninstall 2.1.2
+</pre></td></tr></tbody></table></code></pre></div>        </div>
       </li>
     </ul>
   </li>

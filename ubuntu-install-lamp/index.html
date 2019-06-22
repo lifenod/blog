@@ -102,20 +102,18 @@
   <li>
     <p>安装 Apache</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo apt-get install apache2
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>sudo apt-get install apache2
+</pre></td></tr></tbody></table></code></pre></div>    </div>
 
     <p>测试：在浏览器中输入 http://localhost, 若出现 It works!, 请继续下一步</p>
   </li>
   <li>
     <p>安装 MySQL</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo apt-get install mysql-server
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>sudo apt-get install mysql-server
+</pre></td></tr></tbody></table></code></pre></div>    </div>
 
     <p>安装的过程中会提示你输入密码，不要忘记了  <br />
 测试：输入命令 mysql -uroot -p, 然后输入安装的时候设置的密码，<br />
@@ -124,10 +122,9 @@
   <li>
     <p>安装 Php 及一些必要模块</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo apt-get install php5 libapache2-mod-php5 php5-mysql
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>sudo apt-get install php5 libapache2-mod-php5 php5-mysql
+</pre></td></tr></tbody></table></code></pre></div>    </div>
 
     <p>测试：在 apache 的 www 文件夹下（默认在 /var）新建文件 phpinfo.php<br />
 内容为 &lt;?php phpinfo(); ?&gt;,<br />

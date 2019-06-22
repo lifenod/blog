@@ -95,12 +95,11 @@
   <li>
     <p>通过 Homebrew 安装</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2</pre></td><td class="code"><pre>brew update
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>brew update
 brew install pyenv
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
 
     <p>使用 Homebew 安装的话一些基本的 pyenv 插件都安装了，就不必再次安装，例如 pyenv-pip-rehash 插件</p>
   </li>
@@ -112,18 +111,16 @@ brew install pyenv
 
     <p>默认使用的是 ~/.pyenv 目录，如果你需要使用 Homebrew 目录请将如下内容添加到 profile</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>export PYENV_ROOT=/usr/local/var/pyenv
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>export PYENV_ROOT=/usr/local/var/pyenv
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>重新运行 shell</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>exec $SHELL
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>exec $SHELL
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
 </ol>
 
@@ -138,48 +135,43 @@ brew install pyenv
   <li>
     <p>查看可安装的 Python 版本</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>pyenv install -l
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>pyenv install -l
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>安装具体的 Python 版本</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>pyenv install 3.4.3
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>pyenv install 3.4.3
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>查看已经安装的 Python 版本</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>pyenv versions
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>pyenv versions
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>切换到需要的 Python 版本（全局生效）</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>pyenv global 3.4.3
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>pyenv global 3.4.3
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>升级 pip</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>pip install --upgrade pip
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>pip install --upgrade pip
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
 </ol>
 
 <p>如果这时你执行 <code class="highlighter-rouge">brew doctor</code> 会出现类似如下的问题</p>
 
-<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -199,7 +191,8 @@ brew install pyenv
 18
 19
 20
-21</pre></td><td class="code"><pre>$ brew doctor
+21
+</pre></td><td class="rouge-code"><pre>$ brew doctor
 Please note that these warnings are just used to help the Homebrew maintainers
 with debugging if you file an issue. If everything you use Homebrew for is
 working fine: please don't worry and just ignore them. Thanks!
@@ -220,9 +213,7 @@ script of the same name. We found the following "config" scripts:
   /Users/mwum/.pyenv/shims/python3-config
   /Users/mwum/.pyenv/shims/python3.4-config
   /Users/mwum/.pyenv/shims/python3.4m-config
-</pre></td></tr></tbody></table>
-</div>
-</div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>解决办法参考：  <br />
 <a href="http://www.task-notes.com/entry/20141223/1419324649">【Homebrew】brew doctorのWarning対処方法 (その3) + envコマンドについて</a>  <br />
@@ -244,10 +235,9 @@ script of the same name. We found the following "config" scripts:
 
 <p>通过 pip 来安装</p>
 
-<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>pip install virtualenv
-</pre></td></tr></tbody></table>
-</div>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>pip install virtualenv
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <h3 id="基本使用">基本使用</h3>
 
@@ -264,28 +254,25 @@ script of the same name. We found the following "config" scripts:
   <li>
     <p>为一个项目创建一个虚拟环境，名字为 venv, 可以改成你喜欢的名字</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2</pre></td><td class="code"><pre>cd my_project_folder
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>cd my_project_folder
 virtualenv venv
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>也可以指定 Python 版本</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>virtualenv -p /usr/local/bin/python3 venv
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>virtualenv -p /usr/local/bin/python3 venv
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>激活虚拟环境</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>source ./venv/bin/activate
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>source ./venv/bin/activate
+</pre></td></tr></tbody></table></code></pre></div>    </div>
 
     <p>如果不加参数那么全局安装的包也包括在内，如果不想加载全局的包可使用参数 <code class="highlighter-rouge">--no-site-packages</code></p>
 
@@ -295,18 +282,16 @@ virtualenv venv
   <li>
     <p>关闭虚拟环境</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>deactivate
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>deactivate
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>删除虚拟环境，只需删除 <code class="highlighter-rouge">./venv</code> 文件夹即可</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>rm -rf ./venv
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>rm -rf ./venv
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
 </ol>
 

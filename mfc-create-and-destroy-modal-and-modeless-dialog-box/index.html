@@ -95,7 +95,7 @@
 
 <p>简单例子：</p>
 
-<div class="language-cpp highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -107,7 +107,8 @@
 10
 11
 12
-13</pre></td><td class="code"><pre><span class="kt">int</span> <span class="n">nRet</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+13
+</pre></td><td class="rouge-code"><pre><span class="kt">int</span> <span class="n">nRet</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 <span class="n">nRet</span> <span class="o">=</span> <span class="n">AfxMessageBox</span><span class="p">(</span><span class="n">_T</span><span class="p">(</span><span class="s">"你看见我了吗？"</span><span class="p">),</span> <span class="n">MB_YESNO</span> <span class="o">|</span> <span class="n">MB_ICONQUESTION</span><span class="p">);</span>
 <span class="k">switch</span> <span class="p">(</span><span class="n">nRet</span><span class="p">)</span> <span class="p">{</span>
 <span class="k">case</span> <span class="mi">0</span><span class="p">:</span>
@@ -120,9 +121,7 @@
     <span class="n">AfxMessageBox</span><span class="p">(</span><span class="n">_T</span><span class="p">(</span><span class="s">"真的就只有你自己 ╮(╯_╰)╭"</span><span class="p">));</span>
     <span class="k">break</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></td></tr></tbody></table>
-</div>
-</div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <h2 id="使用-cdialogdomodal-创建模态对话框">使用 CDialog::DoModal 创建模态对话框</h2>
 
@@ -177,7 +176,7 @@
 CDialog::OnCancel: <a href="https://msdn.microsoft.com/en-us/library/kw3wtttf.aspx">https://msdn.microsoft.com/en-us/library/kw3wtttf.aspx</a>  <br />
 CWnd::PostNcDestroy: <a href="https://msdn.microsoft.com/en-us/library/sk933a19.aspx">https://msdn.microsoft.com/en-us/library/sk933a19.aspx</a></p>
 
-<p>参考：<br />
+<p>参考：  <br />
 <a href="http://www.xxsof.com/?p=998">http://www.xxsof.com/?p=998</a></p>
 
 <h3 id="具体的例子">具体的例子</h3>
@@ -193,7 +192,7 @@ CWnd::PostNcDestroy: <a href="https://msdn.microsoft.com/en-us/library/sk933a19.
 
     <p>创建 <code class="highlighter-rouge">IDD_POP_DIALOG</code> 对话框的代码如下（我是在一个 Button 中创建的）：</p>
 
-    <div class="language-cpp highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+    <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -203,7 +202,8 @@ CWnd::PostNcDestroy: <a href="https://msdn.microsoft.com/en-us/library/sk933a19.
 8
 9
 10
-11</pre></td><td class="code"><pre><span class="kt">void</span> <span class="n">CModelessDialogBoxDlg</span><span class="o">::</span><span class="n">OnBnClickedPopButton</span><span class="p">()</span>
+11
+</pre></td><td class="rouge-code"><pre><span class="kt">void</span> <span class="n">CModelessDialogBoxDlg</span><span class="o">::</span><span class="n">OnBnClickedPopButton</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="n">CPopDlg</span> <span class="o">*</span><span class="n">popDlg</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CPopDlg</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
 
@@ -214,9 +214,7 @@ CWnd::PostNcDestroy: <a href="https://msdn.microsoft.com/en-us/library/sk933a19.
 
     <span class="n">popDlg</span><span class="o">-&gt;</span><span class="n">ShowWindow</span><span class="p">(</span><span class="n">SW_SHOW</span><span class="p">);</span>
 <span class="p">}</span>
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>重写 <code class="highlighter-rouge">IDD_POP_DIALOG</code> 对话框的 <code class="highlighter-rouge">OnCancel</code> 和 <code class="highlighter-rouge">PostNcDestroy</code> 函数</p>
@@ -225,7 +223,7 @@ CWnd::PostNcDestroy: <a href="https://msdn.microsoft.com/en-us/library/sk933a19.
 
     <p>然后回到实现文件 <code class="highlighter-rouge">PopDlg.cpp</code> 中，将以上两个函数重写为如下内容：</p>
 
-    <div class="language-cpp highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+    <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -234,7 +232,8 @@ CWnd::PostNcDestroy: <a href="https://msdn.microsoft.com/en-us/library/sk933a19.
 7
 8
 9
-10</pre></td><td class="code"><pre><span class="kt">void</span> <span class="n">CPopDlg</span><span class="o">::</span><span class="n">OnCancel</span><span class="p">()</span>
+10
+</pre></td><td class="rouge-code"><pre><span class="kt">void</span> <span class="n">CPopDlg</span><span class="o">::</span><span class="n">OnCancel</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="n">DestroyWindow</span><span class="p">();</span>
 <span class="p">}</span>
@@ -244,9 +243,7 @@ CWnd::PostNcDestroy: <a href="https://msdn.microsoft.com/en-us/library/sk933a19.
     <span class="n">CDialogEx</span><span class="o">::</span><span class="n">PostNcDestroy</span><span class="p">();</span>
     <span class="k">delete</span> <span class="k">this</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
 </ol>
 
@@ -255,31 +252,29 @@ CWnd::PostNcDestroy: <a href="https://msdn.microsoft.com/en-us/library/sk933a19.
 
 <p>取消按钮自动生成的代码如下：</p>
 
-<div class="language-cpp highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
-4</pre></td><td class="code"><pre><span class="kt">void</span> <span class="n">CPopDlg</span><span class="o">::</span><span class="n">OnBnClickedCancel</span><span class="p">()</span>
+4
+</pre></td><td class="rouge-code"><pre><span class="kt">void</span> <span class="n">CPopDlg</span><span class="o">::</span><span class="n">OnBnClickedCancel</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="n">CDialogEx</span><span class="o">::</span><span class="n">OnCancel</span><span class="p">();</span>
 <span class="p">}</span>
-</pre></td></tr></tbody></table>
-</div>
-</div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>如果放任不管，又出问题了（MFC 好麻烦 (〒︿〒) 各位还是不要用了）  <br />
 这家伙调用基类的 <code class="highlighter-rouge">OnCancel()</code> 函数，但是前面我们说过，销毁非模态窗口，我们并不能使用这个函数，<br />
 所以改为如下：</p>
 
-<div class="language-cpp highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
-4</pre></td><td class="code"><pre><span class="kt">void</span> <span class="n">CPopDlg</span><span class="o">::</span><span class="n">OnBnClickedCancel</span><span class="p">()</span>
+4
+</pre></td><td class="rouge-code"><pre><span class="kt">void</span> <span class="n">CPopDlg</span><span class="o">::</span><span class="n">OnBnClickedCancel</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="n">OnCancel</span><span class="p">();</span>
 <span class="p">}</span>
-</pre></td></tr></tbody></table>
-</div>
-</div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>上面代码是正确的，因为我们已经重写过 <code class="highlighter-rouge">OnCancel()</code> 函数了</p>
 
@@ -298,25 +293,23 @@ CWnd::PostNcDestroy: <a href="https://msdn.microsoft.com/en-us/library/sk933a19.
 并不使用到 <code class="highlighter-rouge">CPopDlg</code> 类，所以可以不用引入 <code class="highlighter-rouge">CPopDlg</code> 类的头文件  <br />
 并在类 <code class="highlighter-rouge">CModelessDialogBoxDlg</code> 声明处，加入如下成员变量：</p>
 
-    <div class="language-cpp highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2</pre></td><td class="code"><pre><span class="nl">public:</span>
+    <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="nl">public:</span>
     <span class="n">CPopDlg</span> <span class="o">*</span><span class="n">m_pPopDlg</span><span class="p">;</span>
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>在 <code class="highlighter-rouge">ModelessDialogBoxDlg.cpp</code> 文件中的 <code class="highlighter-rouge">BOOL CModelessDialogBoxDlg::OnInitDialog()</code> 函数内部加入如下初始化代码：</p>
 
-    <div class="language-cpp highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="n">m_pPopDlg</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="n">m_pPopDlg</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>将创建 <code class="highlighter-rouge">IDD_POP_DIALOG</code> 对话框的代码从</p>
 
-    <div class="language-cpp highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+    <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -326,7 +319,8 @@ CWnd::PostNcDestroy: <a href="https://msdn.microsoft.com/en-us/library/sk933a19.
 8
 9
 10
-11</pre></td><td class="code"><pre><span class="kt">void</span> <span class="n">CModelessDialogBoxDlg</span><span class="o">::</span><span class="n">OnBnClickedPopButton</span><span class="p">()</span>
+11
+</pre></td><td class="rouge-code"><pre><span class="kt">void</span> <span class="n">CModelessDialogBoxDlg</span><span class="o">::</span><span class="n">OnBnClickedPopButton</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="n">CPopDlg</span> <span class="o">*</span><span class="n">popDlg</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CPopDlg</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
 
@@ -337,13 +331,11 @@ CWnd::PostNcDestroy: <a href="https://msdn.microsoft.com/en-us/library/sk933a19.
 
     <span class="n">popDlg</span><span class="o">-&gt;</span><span class="n">ShowWindow</span><span class="p">(</span><span class="n">SW_SHOW</span><span class="p">);</span>
 <span class="p">}</span>
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
 
     <p>修改为</p>
 
-    <div class="language-cpp highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+    <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -357,7 +349,8 @@ CWnd::PostNcDestroy: <a href="https://msdn.microsoft.com/en-us/library/sk933a19.
 12
 13
 14
-15</pre></td><td class="code"><pre><span class="kt">void</span> <span class="n">CModelessDialogBoxDlg</span><span class="o">::</span><span class="n">OnBnClickedPopButton</span><span class="p">()</span>
+15
+</pre></td><td class="rouge-code"><pre><span class="kt">void</span> <span class="n">CModelessDialogBoxDlg</span><span class="o">::</span><span class="n">OnBnClickedPopButton</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">m_pPopDlg</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">m_pPopDlg</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CPopDlg</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
@@ -372,28 +365,25 @@ CWnd::PostNcDestroy: <a href="https://msdn.microsoft.com/en-us/library/sk933a19.
         <span class="n">m_pPopDlg</span><span class="o">-&gt;</span><span class="n">SetActiveWindow</span><span class="p">();</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>当 <code class="highlighter-rouge">IDD_POP_DIALOG</code> 窗口关闭之后，还需要将 <code class="highlighter-rouge">m_pPopDlg</code> 设置为 <code class="highlighter-rouge">NULL</code>  <br />
 将重写的 <code class="highlighter-rouge">OnCancel</code> 函数修改为：</p>
 
-    <div class="language-cpp highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+    <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
 5
-6</pre></td><td class="code"><pre><span class="kt">void</span> <span class="n">CPopDlg</span><span class="o">::</span><span class="n">OnCancel</span><span class="p">()</span>
+6
+</pre></td><td class="rouge-code"><pre><span class="kt">void</span> <span class="n">CPopDlg</span><span class="o">::</span><span class="n">OnCancel</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="n">CModelessDialogBoxDlg</span> <span class="o">*</span><span class="n">pFather</span> <span class="o">=</span> <span class="p">(</span><span class="n">CModelessDialogBoxDlg</span> <span class="o">*</span><span class="p">)</span><span class="n">GetParent</span><span class="p">();</span>
     <span class="n">pFather</span><span class="o">-&gt;</span><span class="n">m_pPopDlg</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
     <span class="n">DestroyWindow</span><span class="p">();</span>
 <span class="p">}</span>
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
 </ol>
 

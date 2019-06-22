@@ -161,12 +161,11 @@ Chef 经常运行在服务器集群的枢纽，统筹安排其他服务器的配
   <li>
     <p>新建文件夹</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2</pre></td><td class="code"><pre>mkdir chef_repo
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>mkdir chef_repo
 cd chef_repo
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>安装工具</p>
@@ -175,36 +174,33 @@ cd chef_repo
       <li>
         <p>初始化 bundler</p>
 
-        <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>bundle init
-</pre></td></tr></tbody></table>
-</div>
-        </div>
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>bundle init
+</pre></td></tr></tbody></table></code></pre></div>        </div>
       </li>
       <li>
         <p>在刚生成的 Gemfile 文件中写入如下内容：</p>
 
-        <div class="language-ruby highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+        <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
 5
-6</pre></td><td class="code"><pre><span class="n">source</span> <span class="s1">'https://rubygems.org'</span>
+6
+</pre></td><td class="rouge-code"><pre><span class="n">source</span> <span class="s1">'https://rubygems.org'</span>
 
 <span class="n">gem</span> <span class="s1">'knife-solo'</span><span class="p">,</span> <span class="s1">'0.3.0'</span>
 <span class="n">gem</span> <span class="s1">'chef'</span><span class="p">,</span> <span class="s1">'~&gt; 11.10.0'</span>
 <span class="n">gem</span> <span class="s1">'chef-zero'</span><span class="p">,</span> <span class="s1">'1.7.2'</span>
 <span class="n">gem</span> <span class="s1">'berkshelf'</span><span class="p">,</span> <span class="s1">'~&gt; 2.0.14'</span>
-</pre></td></tr></tbody></table>
-</div>
-        </div>
+</pre></td></tr></tbody></table></code></pre></div>        </div>
       </li>
       <li>
         <p>然后运行如下命令来安装</p>
 
-        <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>bundle install
-</pre></td></tr></tbody></table>
-</div>
-        </div>
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>bundle install
+</pre></td></tr></tbody></table></code></pre></div>        </div>
       </li>
     </ol>
   </li>
@@ -214,14 +210,13 @@ cd chef_repo
 
 <p>使用 bundle exec 确保使用的 Gemfile 中定义的 gem 版本来执行命令</p>
 
-<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>bundle exec knife solo init .
-</pre></td></tr></tbody></table>
-</div>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>bundle exec knife solo init .
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>生成若干文件，结构如下：</p>
 
-<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -239,7 +234,8 @@ cd chef_repo
 16
 17
 18
-19</pre></td><td class="code"><pre>chef_repo
+19
+</pre></td><td class="rouge-code"><pre>chef_repo
 ├── .chef
 │   └── knife.rb
 ├── .gitignore
@@ -258,9 +254,7 @@ cd chef_repo
 │   └── .gitkeep
 └── site-cookbooks
     └── .gitkeep
-</pre></td></tr></tbody></table>
-</div>
-</div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>下面来说说各个文件及文件夹的作用</p>
 
@@ -342,7 +336,7 @@ Knife Solo 添加了额外的命令，可以在本地开发设备上直接和要
 
 <p>文件结构如下：</p>
 
-<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -351,7 +345,8 @@ Knife Solo 添加了额外的命令，可以在本地开发设备上直接和要
 7
 8
 9
-10</pre></td><td class="code"><pre>redis-tlq
+10
+</pre></td><td class="rouge-code"><pre>redis-tlq
 ├── attributes
 │   └── default.rb
 ├── metadata.rb
@@ -361,9 +356,7 @@ Knife Solo 添加了额外的命令，可以在本地开发设备上直接和要
     └── default
         ├── redis-server.erb
         └── redis.conf.erb
-</pre></td></tr></tbody></table>
-</div>
-</div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>下面是各个文件及文件夹的说明</p>
 
@@ -373,7 +366,7 @@ Knife Solo 添加了额外的命令，可以在本地开发设备上直接和要
 
 <p><code class="highlighter-rouge">metadata.rb:</code></p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -386,7 +379,8 @@ Knife Solo 添加了额外的命令，可以在本地开发设备上直接和要
 11
 12
 13
-14</pre></td><td class="code"><pre><span class="c1"># 食谱的名称</span>
+14
+</pre></td><td class="rouge-code"><pre><span class="c1"># 食谱的名称</span>
 <span class="nb">name</span>              <span class="s2">"redis-tlq"</span>
 <span class="n">maintainer</span>        <span class="s2">"Ben Dixon"</span>
 <span class="n">maintainer_email</span>  <span class="s2">"ben@talkingquickly.co.uk"</span>
@@ -400,9 +394,7 @@ Knife Solo 添加了额外的命令，可以在本地开发设备上直接和要
 <span class="c1"># 指定这个食谱支持的操作系统</span>
 <span class="c1"># 这个设置很重要，因为我们这个简单的食谱只支持 Ubuntu, 会用到一些只有 Ubuntu 才支持的命令</span>
 <span class="n">supports</span> <span class="s2">"ubuntu"</span>
-</pre></td></tr></tbody></table>
-</div>
-</div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>使用 Berkshelf 时，version 和 recipe 这两行是关键的设置，<br />
 Berkshelf 会查看 metadata.rb 文件，确认要使用的食谱中是否有匹配的配方</p>
@@ -416,7 +408,7 @@ Berkshelf 会查看 metadata.rb 文件，确认要使用的食谱中是否有匹
 
 <p><code class="highlighter-rouge">cookbooks/redis-tlq/recipes/default.rb:</code></p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -454,7 +446,8 @@ Berkshelf 会查看 metadata.rb 文件，确认要使用的食谱中是否有匹
 36
 37
 38
-39</pre></td><td class="code"><pre><span class="c1"># use redis from ppa rather than the one</span>
+39
+</pre></td><td class="rouge-code"><pre><span class="c1"># use redis from ppa rather than the one</span>
 <span class="c1"># available in the package manager. rwky</span>
 <span class="c1"># builds the stable version and is kept</span>
 <span class="c1"># consistently up to date. We need python-software-properties</span>
@@ -493,9 +486,7 @@ Berkshelf 会查看 metadata.rb 文件，确认要使用的食谱中是否有匹
 <span class="k">end</span>
 
 <span class="c1"># ...</span>
-</pre></td></tr></tbody></table>
-</div>
-</div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <h4 id="模板文件夹的说明">模板文件夹的说明</h4>
 
@@ -526,29 +517,27 @@ Berkshelf 会查看 metadata.rb 文件，确认要使用的食谱中是否有匹
 
 <p>在 <code class="highlighter-rouge">templates/default/redis.conf.erb</code> 文件中有这么一段代码：</p>
 
-<div class="language-eruby highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+<div class="language-eruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
-3</pre></td><td class="code"><pre><span class="cp">&lt;%</span> <span class="k">unless</span> <span class="n">node</span><span class="p">[</span><span class="ss">:redis</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="n">node</span><span class="p">[</span><span class="ss">:redis</span><span class="p">][</span><span class="ss">:dont_bind</span><span class="p">]</span> <span class="cp">%&gt;</span>
+3
+</pre></td><td class="rouge-code"><pre><span class="cp">&lt;%</span> <span class="k">unless</span> <span class="n">node</span><span class="p">[</span><span class="ss">:redis</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="n">node</span><span class="p">[</span><span class="ss">:redis</span><span class="p">][</span><span class="ss">:dont_bind</span><span class="p">]</span> <span class="cp">%&gt;</span>
   bind 127.0.0.1
 <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
-</pre></td></tr></tbody></table>
-</div>
-</div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>如果在节点中有如下代码：</p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
-5</pre></td><td class="code"><pre><span class="p">{</span><span class="w">
-  </span><span class="nt">"redis"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"dont_bind"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+5
+</pre></td><td class="rouge-code"><pre><span class="p">{</span><span class="w">
+  </span><span class="s2">"redis"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"dont_bind"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></pre></td></tr></tbody></table>
-</div>
-</div>
+</span></pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>那么就执行 <code class="highlighter-rouge">bind 127.0.0.1</code> 这段代码</p>
 
@@ -559,12 +548,11 @@ Berkshelf 会查看 metadata.rb 文件，确认要使用的食谱中是否有匹
 
 <p>属性的默认值在 <code class="highlighter-rouge">attributes/default.rb</code> 文件中定义：</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2</pre></td><td class="code"><pre><span class="c1"># whethere to prevent redis from binding to 127.0.0.1</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="c1"># whethere to prevent redis from binding to 127.0.0.1</span>
 <span class="n">default</span><span class="p">[</span><span class="ss">:redis</span><span class="p">][</span><span class="ss">:dont_bind</span><span class="p">]</span> <span class="o">=</span> <span class="kp">false</span>
-</pre></td></tr></tbody></table>
-</div>
-</div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>上面代码的作用是：  <br />
 会把 <code class="highlighter-rouge">false</code> 应用到食谱 <code class="highlighter-rouge">node[:redis][:dont_bind]</code>，除非默认值被覆盖了</p>
@@ -576,14 +564,13 @@ Berkshelf 会查看 metadata.rb 文件，确认要使用的食谱中是否有匹
 
 <p>新建角色文件</p>
 
-<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>touch roles/redis-server.json
-</pre></td></tr></tbody></table>
-</div>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>touch roles/redis-server.json
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>写入如下内容：</p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -597,24 +584,23 @@ Berkshelf 会查看 metadata.rb 文件，确认要使用的食谱中是否有匹
 12
 13
 14
-15</pre></td><td class="code"><pre><span class="p">{</span><span class="w">
-  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"redis-server"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Redis server"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"default_attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"redis"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"dont_bind"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+15
+</pre></td><td class="rouge-code"><pre><span class="p">{</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"redis-server"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Redis server"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"default_attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"redis"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"dont_bind"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="nt">"run_list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="s2">"run_list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="s2">"recipe[redis-tlq]"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"recipe[monit-tlq]"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"recipe[monit_configs-tlq::redis-server]"</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"json_class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chef::Role"</span><span class="w">
+  </span><span class="s2">"json_class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chef::Role"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></pre></td></tr></tbody></table>
-</div>
-</div>
+</span></pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>代码解释如下：</p>
 
@@ -643,17 +629,15 @@ Berkshelf 会查看 metadata.rb 文件，确认要使用的食谱中是否有匹
 
     <p>角色使用如下格式：</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>role[role_name]
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>role[role_name]
+</pre></td></tr></tbody></table></code></pre></div>    </div>
 
     <p>配方使用如下格式：</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>recipe[cookbook_name::recipe]
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>recipe[cookbook_name::recipe]
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>“json_class”: “Chef::Role”</p>
@@ -669,12 +653,11 @@ Berkshelf 会查看 metadata.rb 文件，确认要使用的食谱中是否有匹
 
 <p>所以我们需要在仓库根目录的 <code class="highlighter-rouge">Berksfile</code> 文件中加入如下内容：</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2</pre></td><td class="code"><pre><span class="n">cookbook</span> <span class="s1">'monit-tlq'</span><span class="p">,</span> <span class="ss">github: </span><span class="s1">'TalkingQuickly/monit-tlq'</span><span class="p">,</span> <span class="ss">branch: </span><span class="s1">'master'</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="n">cookbook</span> <span class="s1">'monit-tlq'</span><span class="p">,</span> <span class="ss">github: </span><span class="s1">'TalkingQuickly/monit-tlq'</span><span class="p">,</span> <span class="ss">branch: </span><span class="s1">'master'</span>
 <span class="n">cookbook</span> <span class="s1">'monit_configs-tlq'</span><span class="p">,</span> <span class="ss">github: </span><span class="s1">'TalkingQuickly/monit_configs-tlq'</span><span class="p">,</span> <span class="ss">branch: </span><span class="s1">'master'</span>
-</pre></td></tr></tbody></table>
-</div>
-</div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <h2 id="配置远程服务器">配置远程服务器</h2>
 
@@ -682,25 +665,22 @@ Berkshelf 会查看 metadata.rb 文件，确认要使用的食谱中是否有匹
   <li>
     <p>把公钥复制到远程服务器</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>ssh-copy-id root@yourserverip
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>ssh-copy-id root@yourserverip
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>在远程服务器上安装 Chef, 在本地仓库根目录执行如下命令：</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>bundle exec knife solo prepare root@yourserverip
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>bundle exec knife solo prepare root@yourserverip
+</pre></td></tr></tbody></table></code></pre></div>    </div>
 
     <p>若使用 Vagrant 可以用 <code class="highlighter-rouge">vagrant ssh-config</code> 命令查看 ssh 配置，然后执行如下类似命令：</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>bundle exec knife solo prepare vagrant@127.0.0.1 -p 2222 -i /Users/mwum/.vagrant.d/insecure_private_key
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>bundle exec knife solo prepare vagrant@127.0.0.1 -p 2222 -i /Users/mwum/.vagrant.d/insecure_private_key
+</pre></td></tr></tbody></table></code></pre></div>    </div>
 
     <p>安装时间稍长，耐心等待吧</p>
 
@@ -730,16 +710,15 @@ Berkshelf 会查看 metadata.rb 文件，确认要使用的食谱中是否有匹
       <li>
         <p>在 ~/.bashrc 中加入如下内容：</p>
 
-        <div class="language-bash highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
-4</pre></td><td class="code"><pre><span class="nb">export </span><span class="nv">http_proxy</span><span class="o">=</span><span class="s2">"http://your-proxy.company.org:80"</span>
+4
+</pre></td><td class="rouge-code"><pre><span class="nb">export </span><span class="nv">http_proxy</span><span class="o">=</span><span class="s2">"http://your-proxy.company.org:80"</span>
 <span class="nb">export </span><span class="nv">https_proxy</span><span class="o">=</span><span class="s2">"http://your-proxy.company.org:80"</span>
 <span class="nb">export </span><span class="nv">HTTP_PROXY</span><span class="o">=</span><span class="s2">"http://your-proxy.company.org:80"</span>
 <span class="nb">export </span><span class="nv">HTTPS_PROXY</span><span class="o">=</span><span class="s2">"http://your-proxy.company.org:80"</span>
-</pre></td></tr></tbody></table>
-</div>
-        </div>
+</pre></td></tr></tbody></table></code></pre></div>        </div>
       </li>
       <li>
         <p>退出远程服务器，重新安装 Chef</p>
@@ -754,34 +733,32 @@ Berkshelf 会查看 metadata.rb 文件，确认要使用的食谱中是否有匹
   <li>
     <p>配置节点文件 <code class="highlighter-rouge">nodes/yourserverip.json</code>, 加入如下内容：</p>
 
-    <div class="language-json highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
 5
 6
 7
-8</pre></td><td class="code"><pre><span class="p">{</span><span class="w">
-  </span><span class="nt">"redis"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"dont_bind"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+8
+</pre></td><td class="rouge-code"><pre><span class="p">{</span><span class="w">
+  </span><span class="s2">"redis"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"dont_bind"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="nt">"run_list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="s2">"run_list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="s2">"role[redis-server]"</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></pre></td></tr></tbody></table>
-</div>
-    </div>
+</span></pre></td></tr></tbody></table></code></pre></div>    </div>
 
     <p>代码上半段是属性定义，<code class="highlighter-rouge">run_list</code> 的作用和角色文件中的一样</p>
   </li>
   <li>
     <p>应用配方，在仓库根目录下执行如下命令：</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>bundle exec knife solo cook root@yourserverip
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>bundle exec knife solo cook root@yourserverip
+</pre></td></tr></tbody></table></code></pre></div>    </div>
 
     <p>这个命令的作用如下：</p>
 
@@ -794,10 +771,9 @@ Berkshelf 会查看 metadata.rb 文件，确认要使用的食谱中是否有匹
 
     <p>如果要经常重用某个节点定义，可以将其另存为，例如 nodes/side_project_server.json, 然后执行如下命令：</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>bundle exec knife solo cook root@yourserverip nodes/side_project_server.json
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>bundle exec knife solo cook root@yourserverip nodes/side_project_server.json
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
 </ol>
 

@@ -119,10 +119,9 @@
   <li>
     <p>安装 C/C++ 编译环境</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo apt-get install build-essential
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>sudo apt-get install build-essential
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p><a href="http://qt-project.org/downloads">安装 Qt 5.0.2 for Linux 64-bit (394 MB)</a></p>
@@ -131,21 +130,19 @@
     <p>设置环境变量  <br />
 假设 Qt 安装在 /usr/local</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo vim /etc/profile (所有用户) 或者 vim ~/.bashrc (当前用户)
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>sudo vim /etc/profile (所有用户) 或者 vim ~/.bashrc (当前用户)
+</pre></td></tr></tbody></table></code></pre></div>    </div>
 
     <p>在末尾加入如下内容</p>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
-3</pre></td><td class="code"><pre><span class="nb">export </span><span class="nv">QTDIR</span><span class="o">=</span>/usr/local/Qt5.0.2
+3
+</pre></td><td class="rouge-code"><pre><span class="nb">export </span><span class="nv">QTDIR</span><span class="o">=</span>/usr/local/Qt5.0.2
 <span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$QTDIR</span>/5.0.2/gcc_64/bin:<span class="nv">$PATH</span>
 <span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$QTDIR</span>/Tools/QtCreator/bin:<span class="nv">$PATH</span>
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
 
     <p><code class="highlighter-rouge">source /etc/profile</code> 使之生效</p>
   </li>
@@ -156,10 +153,9 @@ collect2: ld returned 1 exit status  <br />
 这是因为 Qt5.0 默认将 OpenGL 加入了工程，但是在机器上没有安装 OpenGL  <br />
 解决办法就是安装 OpenGL Library</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo apt-get install libgl1-mesa-dev
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>sudo apt-get install libgl1-mesa-dev
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
 </ol>
 

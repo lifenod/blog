@@ -104,18 +104,16 @@ sysupgrade: <a href="https://www.dropbox.com/s/os5sz47ljfgt4i6/openwrt-15.05-ar7
   <li>
     <p>获取最新源码，如何获取源码可查看：<a href="https://dev.openwrt.org/wiki/GetSource">https://dev.openwrt.org/wiki/GetSource</a></p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>git clone git://git.openwrt.org/openwrt.git
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>git clone git://git.openwrt.org/openwrt.git
+</pre></td></tr></tbody></table></code></pre></div>    </div>
 
     <p>也可以获取特定分支的源码，例如我们获取 15.05 branch (Chaos Calmer) 这个分支  <br />
 以下步骤都使用的这份源码</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>git clone git://git.openwrt.org/15.05/openwrt.git
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>git clone git://git.openwrt.org/15.05/openwrt.git
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>修改源码，使其适用于 16M Flash  <br />
@@ -128,125 +126,116 @@ sysupgrade: <a href="https://www.dropbox.com/s/os5sz47ljfgt4i6/openwrt-15.05-ar7
         <p>打开 target/linux/ar71xx/image/Makefile 这个文件  <br />
 将如下内容</p>
 
-        <div class="language-make highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+        <div class="language-make highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
 5
 6
-7</pre></td><td class="code"><pre><span class="err">define</span> <span class="err">Device/tl-wr703n-v1</span>
+7
+</pre></td><td class="rouge-code"><pre><span class="err">define</span> <span class="err">Device/tl-wr703n-v1</span>
     <span class="err">$(Device/tplink-4mlzma)</span>
     <span class="nv">BOARDNAME</span> <span class="o">:=</span> TL-WR703N
     <span class="nv">DEVICE_PROFILE</span> <span class="o">:=</span> TLWR703
     <span class="nv">TPLINK_HWID</span> <span class="o">:=</span> 0x07030101
     <span class="nv">CONSOLE</span> <span class="o">:=</span> ttyATH0,115200
 <span class="err">endef</span>
-</pre></td></tr></tbody></table>
-</div>
-        </div>
+</pre></td></tr></tbody></table></code></pre></div>        </div>
 
         <p>改为：</p>
 
-        <div class="language-make highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+        <div class="language-make highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
 5
 6
-7</pre></td><td class="code"><pre><span class="err">define</span> <span class="err">Device/tl-wr703n-v1</span>
+7
+</pre></td><td class="rouge-code"><pre><span class="err">define</span> <span class="err">Device/tl-wr703n-v1</span>
     <span class="err">$(Device/tplink-16mlzma)</span>
     <span class="nv">BOARDNAME</span> <span class="o">:=</span> TL-WR703N
     <span class="nv">DEVICE_PROFILE</span> <span class="o">:=</span> TLWR703
     <span class="nv">TPLINK_HWID</span> <span class="o">:=</span> 0x07030101
     <span class="nv">CONSOLE</span> <span class="o">:=</span> ttyATH0,115200
 <span class="err">endef</span>
-</pre></td></tr></tbody></table>
-</div>
-        </div>
+</pre></td></tr></tbody></table></code></pre></div>        </div>
       </li>
       <li>
         <p>打开 tools/firmware-utils/src/mktplinkfw.c 这个文件  <br />
 将如下内容：</p>
 
-        <div class="language-make highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+        <div class="language-make highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
-4</pre></td><td class="code"><pre><span class="nv">.id</span>             <span class="o">=</span> <span class="s2">"TL-WR703Nv1"</span>,
+4
+</pre></td><td class="rouge-code"><pre><span class="nv">.id</span>             <span class="o">=</span> <span class="s2">"TL-WR703Nv1"</span>,
 <span class="nv">.hw_id</span>          <span class="o">=</span> HWID_TL_WR703N_V1,
 <span class="nv">.hw_rev</span>         <span class="o">=</span> 1,
 <span class="nv">.layout_id</span>      <span class="o">=</span> <span class="s2">"4Mlzma"</span>,
-</pre></td></tr></tbody></table>
-</div>
-        </div>
+</pre></td></tr></tbody></table></code></pre></div>        </div>
 
         <p>改为：</p>
 
-        <div class="language-make highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+        <div class="language-make highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
-4</pre></td><td class="code"><pre><span class="nv">.id</span>             <span class="o">=</span> <span class="s2">"TL-WR703Nv1"</span>,
+4
+</pre></td><td class="rouge-code"><pre><span class="nv">.id</span>             <span class="o">=</span> <span class="s2">"TL-WR703Nv1"</span>,
 <span class="nv">.hw_id</span>          <span class="o">=</span> HWID_TL_WR703N_V1,
 <span class="nv">.hw_rev</span>         <span class="o">=</span> 1,
 <span class="nv">.layout_id</span>      <span class="o">=</span> <span class="s2">"16Mlzma"</span>,
-</pre></td></tr></tbody></table>
-</div>
-        </div>
+</pre></td></tr></tbody></table></code></pre></div>        </div>
       </li>
     </ul>
   </li>
   <li>
     <p>（可选）下载和安装所有可用的 Feeds, 如果不清楚 Feeds 是什么，可查看：<a href="http://wiki.openwrt.org/doc/devel/feeds">http://wiki.openwrt.org/doc/devel/feeds</a></p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2</pre></td><td class="code"><pre>./scripts/feeds update -a
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>./scripts/feeds update -a
 ./scripts/feeds install -a
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>输入以下命令，检查哪些需要的包还没有安装：</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
-3</pre></td><td class="code"><pre>make defconfig
+3
+</pre></td><td class="rouge-code"><pre>make defconfig
 make prereq
 make menuconfig
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
 
     <p>例如在我这提示：</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
-5</pre></td><td class="code"><pre>Build dependency: Please install ncurses. (Missing libncurses.so or ncurses.h)
+5
+</pre></td><td class="rouge-code"><pre>Build dependency: Please install ncurses. (Missing libncurses.so or ncurses.h)
 Build dependency: Please install zlib. (Missing libz.so or zlib.h)
 Build dependency: Please install the openssl library (with development headers)
 Build dependency: Please install GNU 'awk'
 Build dependency: Please install the Subversion client
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
 
     <p>安装缺少的包：</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo apt-get install subversion libncurses5-dev zlib1g-dev libssl-dev gawk subversion
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>sudo apt-get install subversion libncurses5-dev zlib1g-dev libssl-dev gawk subversion
+</pre></td></tr></tbody></table></code></pre></div>    </div>
 
     <p>你或许还需要安装 build-essential 这个包，我是以前就安好了</p>
   </li>
   <li>
     <p>配置编译详情</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>make menuconfig
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>make menuconfig
+</pre></td></tr></tbody></table></code></pre></div>    </div>
 
     <p>输入以上命令之后，会进入一个命令行图形界面，界面最上面是用法  <br />
 以下是我的一些配置，你可以选择性的参考  <br />
@@ -274,18 +263,16 @@ LuCI → Modules → Translations → 选中 Chinese (zh-cn)</p>
   <li>
     <p>生成构建的配置文件，检查依赖等</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>make defconfig
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>make defconfig
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>编译，可加上 <code class="highlighter-rouge">V=99</code> 参数输出所有调试信息</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>make
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>make
+</pre></td></tr></tbody></table></code></pre></div>    </div>
 
     <p>在虚拟机中大概编译了一个半到二个小时，大多数时间都在下载，所以要保持网络通畅</p>
 
@@ -348,7 +335,7 @@ Syatem → Language 修改为 Chinese, 点击 Save &amp; Apply</p>
           <li>
             <p>修改 lan 配置，修改成如下样子</p>
 
-            <div class="language-conf highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+            <div class="language-conf highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -357,7 +344,8 @@ Syatem → Language 修改为 Chinese, 点击 Save &amp; Apply</p>
 7
 8
 9
-10</pre></td><td class="code"><pre><span class="n">config</span> <span class="n">interface</span> <span class="s1">'lan'</span>
+10
+</pre></td><td class="rouge-code"><pre><span class="n">config</span> <span class="n">interface</span> <span class="s1">'lan'</span>
     <span class="c"># 去掉这个，表示只有无线应用到 lan
 </span>    <span class="c"># option ifname 'eth0'
 </span>    <span class="n">option</span> <span class="n">force_link</span> <span class="s1">'1'</span>
@@ -367,34 +355,30 @@ Syatem → Language 修改为 Chinese, 点击 Save &amp; Apply</p>
     <span class="n">option</span> <span class="n">ipaddr</span> <span class="s1">'192.168.1.1'</span>
     <span class="n">option</span> <span class="n">netmask</span> <span class="s1">'255.255.255.0'</span>
     <span class="n">option</span> <span class="n">ip6assign</span> <span class="s1">'60'</span>
-</pre></td></tr></tbody></table>
-</div>
-            </div>
+</pre></td></tr></tbody></table></code></pre></div>            </div>
           </li>
           <li>
             <p>增加 wan 配置，PPPoE 方式上网</p>
 
-            <div class="language-conf highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+            <div class="language-conf highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
-5</pre></td><td class="code"><pre><span class="n">config</span> <span class="n">interface</span> <span class="s1">'wan'</span>
+5
+</pre></td><td class="rouge-code"><pre><span class="n">config</span> <span class="n">interface</span> <span class="s1">'wan'</span>
     <span class="n">option</span> <span class="n">ifname</span> <span class="s1">'eth0'</span>
     <span class="n">option</span> <span class="n">proto</span> <span class="s1">'pppoe'</span>
     <span class="n">option</span> <span class="n">username</span> <span class="s1">'USERNAME'</span>
     <span class="n">option</span> <span class="n">password</span> <span class="s1">'PASSWORD'</span>
-</pre></td></tr></tbody></table>
-</div>
-            </div>
+</pre></td></tr></tbody></table></code></pre></div>            </div>
           </li>
         </ul>
 
         <p>最后使用如下命令重启网络服务：</p>
 
-        <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>/etc/init.d/network restart
-</pre></td></tr></tbody></table>
-</div>
-        </div>
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>/etc/init.d/network restart
+</pre></td></tr></tbody></table></code></pre></div>        </div>
       </li>
     </ol>
 

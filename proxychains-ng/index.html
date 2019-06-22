@@ -95,10 +95,9 @@
 
 <p>使用 Homebrew 安装</p>
 
-<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>brew install proxychains-ng
-</pre></td></tr></tbody></table>
-</div>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>brew install proxychains-ng
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <h2 id="配置">配置</h2>
 
@@ -106,10 +105,9 @@
 在 [ProxyList] 下面（也就是末尾）加入代理类型，代理地址和端口  <br />
 例如使用 TOR 代理，注释掉原来的代理并添加</p>
 
-<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>socks5  127.0.0.1 9050
-</pre></td></tr></tbody></table>
-</div>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>socks5  127.0.0.1 9050
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>如果所在的网络很复杂，可能需要在配置文件中启用  <br />
 <code class="highlighter-rouge">dynamic_chain</code> - 按照列表中出现的代理服务器的先后顺序组成一条链，如果有代理服务器失效，则自动将其排除，但至少要有一个是有效的  <br />
@@ -120,10 +118,9 @@
 
 <h2 id="使用">使用</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>proxychains4 curl twitter.com
-</pre></td></tr></tbody></table>
-</div>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>proxychains4 curl twitter.com
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>配合 wget 和 curl 来下载，非常好用</p>
 

@@ -102,39 +102,36 @@
 
 <p>我们使用如下命令</p>
 
-<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>/give [用户名] mob_spawner &lt;数量&gt; 0 {BlockEntityTag:{EntityId:"&lt;实体字母ID&gt;"}}
-</pre></td></tr></tbody></table>
-</div>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>/give [用户名] mob_spawner &lt;数量&gt; 0 {BlockEntityTag:{EntityId:"&lt;实体字母ID&gt;"}}
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>举个具体的例子，例如获取一个僵尸刷怪箱</p>
 
-<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>/give HS66BI mob_spawner 1 0 {BlockEntityTag:{EntityId:"Zombie"}}
-</pre></td></tr></tbody></table>
-</div>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>/give HS66BI mob_spawner 1 0 {BlockEntityTag:{EntityId:"Zombie"}}
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <h2 id="刷怪范围">刷怪范围</h2>
 
 <p>根据 Wiki 上所讲述的：<a href="http://minecraft-zh.gamepedia.com/刷怪箱">http://minecraft-zh.gamepedia.com/刷怪箱</a>  <br />
 刷怪箱可在空气中生成怪物，且刷怪范围为 <code class="highlighter-rouge">8 * 8 * 3</code>, 代码如下</p>
 
-<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
 5
 6
-7</pre></td><td class="code"><pre>// 这份伪代码基于 Minecraft 1.7.10 反编译出的源文件
+7
+</pre></td><td class="rouge-code"><pre>// 这份伪代码基于 Minecraft 1.7.10 反编译出的源文件
 
 spawnRange = 4
 
 X = Spawner.x + random(spawnRange*2)-spawnRange;
 Y = Spawner.y + random(3)-1;
 Z = Spawner.z + random(spawnRange*2)-spawnRange;
-</pre></td></tr></tbody></table>
-</div>
-</div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>我画了个图，描述了代码中的刷怪范围</p>
 
@@ -193,10 +190,9 @@ Z = Spawner.z + random(spawnRange*2)-spawnRange;
 <p>水电梯的摔落系统  <br />
 我们先看伤害公式</p>
 
-<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>跌落伤害值 = 跌落的方块数 - 3
-</pre></td></tr></tbody></table>
-</div>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>跌落伤害值 = 跌落的方块数 - 3
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>僵尸血量为 20, 所以我们让僵尸摔落 22 格（即摔落坐标相差 22），使其为最少血量</p>
 

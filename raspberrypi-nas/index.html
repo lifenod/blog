@@ -118,17 +118,15 @@
 
 <p>在进行操作之前，最好先更新一下软件源</p>
 
-<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo apt-get update
-</pre></td></tr></tbody></table>
-</div>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>sudo apt-get update
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>然后再更新一下软件（非必须）</p>
 
-<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo apt-get upgrade
-</pre></td></tr></tbody></table>
-</div>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>sudo apt-get upgrade
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <h2 id="准备硬盘">准备硬盘</h2>
 
@@ -143,10 +141,9 @@
   <li>
     <p>安装 ntfs-3g 模块，就能读写 ntfs 格式了。不安装的话只能读，但是不能写</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo apt-get install ntfs-3g
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>sudo apt-get install ntfs-3g
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>格式化硬盘为 ext4 格式</p>
@@ -155,26 +152,23 @@
       <li>
         <p>查看硬盘的内核名称，其中的 “/dev/mmcblk0” 指的是树莓派中的 SD 卡，而 “/dev/sda” 一般就是指硬盘了</p>
 
-        <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo fdisk -l
-</pre></td></tr></tbody></table>
-</div>
-        </div>
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>sudo fdisk -l
+</pre></td></tr></tbody></table></code></pre></div>        </div>
       </li>
       <li>
         <p>按照提示对硬盘进行进行分区</p>
 
-        <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo fdisk /dev/sda
-</pre></td></tr></tbody></table>
-</div>
-        </div>
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>sudo fdisk /dev/sda
+</pre></td></tr></tbody></table></code></pre></div>        </div>
       </li>
       <li>
         <p>将硬盘分区格式化为 ext4 格式，格式化之前必须先卸载硬盘，使用 umount 命令即可</p>
 
-        <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo mkfs.ext4 /dev/sda1
-</pre></td></tr></tbody></table>
-</div>
-        </div>
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>sudo mkfs.ext4 /dev/sda1
+</pre></td></tr></tbody></table></code></pre></div>        </div>
       </li>
     </ol>
   </li>
@@ -188,39 +182,35 @@
 ext4 格式是可以记录权限信息的，所以修改一次下次挂载 pi 就可以写了  <br />
 ntfs 格式的话，挂载的时候指定 uid=pi,gid=pi 就可以了，直接看第2步</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
-3</pre></td><td class="code"><pre>mkdir /home/pi/nas-data
+3
+</pre></td><td class="rouge-code"><pre>mkdir /home/pi/nas-data
 sudo mount /dev/sda1 /home/pi/nas-data
 sudo chown pi:pi /home/pi/nas-data
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>查看硬盘的 uuid</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2</pre></td><td class="code"><pre>$ sudo blkid
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>$ sudo blkid
 /dev/sda1: UUID="d5a3d30a-d2e7-4b12-bb31-b4439c5db200" TYPE="ext4"
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>编辑 <code class="highlighter-rouge">sudo vim /etc/fstab</code> 文件，在末尾加入以下内容，文件格式说明请看 <code class="highlighter-rouge">man fstab</code> 或者《<a href="http://vbird.dic.ksu.edu.tw/linux_basic/0230filesystem.php#bootup">配置启动挂载</a>》</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>UUID=d5a3d30a-d2e7-4b12-bb31-b4439c5db200       /home/pi/nas-data   ext4    defaults    0       2
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>UUID=d5a3d30a-d2e7-4b12-bb31-b4439c5db200       /home/pi/nas-data   ext4    defaults    0       2
+</pre></td></tr></tbody></table></code></pre></div>    </div>
 
     <p>如果是 ntfs 格式，如下</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>UUID=588650B08650907C   /home/pi/nas-data   ntfs    gid=pi,uid=pi,dmask=002,fmask=113   0   0
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>UUID=588650B08650907C   /home/pi/nas-data   ntfs    gid=pi,uid=pi,dmask=002,fmask=113   0   0
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
 </ol>
 
@@ -228,10 +218,9 @@ sudo chown pi:pi /home/pi/nas-data
 
 <p>首先安装 samba</p>
 
-<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo apt-get install samba samba-common-bin
-</pre></td></tr></tbody></table>
-</div>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>sudo apt-get install samba samba-common-bin
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>然后配置 samba</p>
 
@@ -239,15 +228,14 @@ sudo chown pi:pi /home/pi/nas-data
   <li>
     <p>备份配置文件，备份是个好习惯</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.bak
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.bak
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>编辑配置文件 <code class="highlighter-rouge">sudo vim /etc/samba/smb.conf</code> , 做如下修改</p>
 
-    <div class="language-ini highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+    <div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -267,7 +255,8 @@ sudo chown pi:pi /home/pi/nas-data
 18
 19
 20
-21</pre></td><td class="code"><pre><span class="c"># 找到 "#   security = user" 这一行，将前面的"#"去掉，修改后内容如下
+21
+</pre></td><td class="rouge-code"><pre><span class="c"># 找到 "#   security = user" 这一行，将前面的"#"去掉，修改后内容如下
 </span>    <span class="c"># 使用本地用户来登陆
 </span>    <span class="py">security</span> <span class="p">=</span> <span class="s">user</span>
 
@@ -288,27 +277,24 @@ sudo chown pi:pi /home/pi/nas-data
 </span>    <span class="err">create</span> <span class="py">mask</span> <span class="p">=</span> <span class="s">0664</span>
     <span class="c"># 新建目录的权限为 775
 </span>    <span class="err">directory</span> <span class="py">mask</span> <span class="p">=</span> <span class="s">0775</span>
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
 
     <p>可以把配置文件中你不需要的分享名称删除，例如 [homes], [printers] 等</p>
   </li>
   <li>
     <p>测试配置文件是否有错误，”[ ]”之前的为错误信息，根据提示做相应修改</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
-5</pre></td><td class="code"><pre>$ testparm
+5
+</pre></td><td class="rouge-code"><pre>$ testparm
 rlimit_max: increasing rlimit_max (1024) to minimum Windows limit (16384)
 Processing section "[nas]"
 Loaded services file OK.
 ...
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
 
     <p>出现 rlimit_max 这个问题，一搜发现出现这个问题的很多啊，摘录一个回答</p>
 
@@ -326,18 +312,16 @@ letting you know your fd limit is set a bit low.  <br />
   <li>
     <p>给 samba 添加用户并创建密码（登陆 samba 用的），其中的用户必须是 linux 已存在的用户</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo smbpasswd -a pi
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>sudo smbpasswd -a pi
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>配置好后，使用如下命令重启 samba 服务</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo /etc/init.d/samba restart
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>sudo /etc/init.d/samba restart
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
 </ol>
 
@@ -351,10 +335,9 @@ linux 主机 &lt;--无线--&gt; 300M 路由器 &lt;--网线--&gt; 树莓派</p>
 
 <p>打开 linux 主机，首先挂载好 samba (可用 <code class="highlighter-rouge">smbclient -L [raspberrypi ip]</code> 查看树莓派分享的资源)</p>
 
-<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo mount -t cifs //192.168.1.2/nas /mnt -o username=pi,password=raspberry
-</pre></td></tr></tbody></table>
-</div>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>sudo mount -t cifs //192.168.1.2/nas /mnt -o username=pi,password=raspberry
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>分别在路由器附近和工作地点测试（距离路由器10米左右，穿过2堵墙）</p>
 
@@ -415,22 +398,20 @@ linux 主机 &lt;--无线--&gt; 300M 路由器 &lt;--网线--&gt; 树莓派</p>
 
 <p>安装 vsftpd 软件，全名 very secure FTP daemon</p>
 
-<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo apt-get install vsftpd
-</pre></td></tr></tbody></table>
-</div>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>sudo apt-get install vsftpd
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>备份配置文件</p>
 
-<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo cp /etc/vsftpd.conf /etc/vsftpd.conf.bak
-</pre></td></tr></tbody></table>
-</div>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>sudo cp /etc/vsftpd.conf /etc/vsftpd.conf.bak
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>创建这个文件，下面有说为什么创建它 <code class="highlighter-rouge">sudo touch /etc/vsftpd.chroot_list</code>  <br />
 修改配置文件 <code class="highlighter-rouge">sudo vim /etc/vsftpd.conf</code></p>
 
-<div class="language-ini highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -446,7 +427,8 @@ linux 主机 &lt;--无线--&gt; 300M 路由器 &lt;--网线--&gt; 树莓派</p>
 14
 15
 16
-17</pre></td><td class="code"><pre><span class="c"># 不允许匿名者登陆
+17
+</pre></td><td class="rouge-code"><pre><span class="c"># 不允许匿名者登陆
 </span><span class="py">anonymous_enable</span><span class="p">=</span><span class="s">NO</span>
 <span class="c"># 允许本地用户登陆
 </span><span class="py">local_enable</span><span class="p">=</span><span class="s">YES</span>
@@ -463,9 +445,7 @@ linux 主机 &lt;--无线--&gt; 300M 路由器 &lt;--网线--&gt; 树莓派</p>
 </span><span class="py">chroot_list_file</span><span class="p">=</span><span class="s">/etc/vsftpd.chroot_list</span>
 
 <span class="c"># 只列出了一些的配置，还有很多可查看配置文件内部的说明，更详细请 "man 5 vsftpd.conf"
-</span></pre></td></tr></tbody></table>
-</div>
-</div>
+</span></pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>但是问题来了，从 vsftpd 2.3.5 开始，chroot 目录必须为不可写  <br />
 最简单的解决办法就是 <code class="highlighter-rouge">sudo chmod ugo-w /home/pi</code> （对于系统默认的 pi 用户来说）  <br />
@@ -484,18 +464,16 @@ linux 主机 &lt;--无线--&gt; 300M 路由器 &lt;--网线--&gt; 树莓派</p>
   <li>
     <p>新建一个用户 ftppi, 家目录为 /home/pi/nas-data, 指定所属组 pi</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo useradd -d /home/pi/nas-data -g pi ftppi
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>sudo useradd -d /home/pi/nas-data -g pi ftppi
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>创建 ftppi 用户的密码</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo passwd ftppi
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>sudo passwd ftppi
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>如果不允许 ftppi 账户登陆系统，但是能用 ftp, 做如下修改
     <ul>
@@ -507,10 +485,9 @@ linux 主机 &lt;--无线--&gt; 300M 路由器 &lt;--网线--&gt; 树莓派</p>
     <p>将家目录变为不可写  <br />
 /home/pi/nas-data 不可写，/home/pi/nas-data/nas-data 可写（实际我们要用的是这个目录）</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo chmod 555 /home/pi/nas-data
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>sudo chmod 555 /home/pi/nas-data
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>将 pi 用户的 umask 修改为 002, 只有 pi 用户登陆才有效，系统才会去执行 “/home/pi/.profile” 这个脚本  <br />
@@ -520,12 +497,11 @@ linux 主机 &lt;--无线--&gt; 300M 路由器 &lt;--网线--&gt; 树莓派</p>
   <li>
     <p>修改 /home/pi/nas-data 文件夹内所有文件权限为 664, 文件夹权限为 775</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2</pre></td><td class="code"><pre>find /home/pi/nas-data/ -type f -print0 | xargs -0 chmod 664
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>find /home/pi/nas-data/ -type f -print0 | xargs -0 chmod 664
 find /home/pi/nas-data/ -type d -print0 | xargs -0 chmod 775
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
 </ol>
 
@@ -544,28 +520,25 @@ find /home/pi/nas-data/ -type d -print0 | xargs -0 chmod 775
   <li>
     <p>直接用 apt-get 安装的话，版本比较老（aria2 version 1.15.11），可自行编译最新版</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo apt-get install aria2
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>sudo apt-get install aria2
+</pre></td></tr></tbody></table></code></pre></div>    </div>
 
     <p>或者改变 apt-get 的源来安装比较新的版本</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo vim /etc/apt/sources.list
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>sudo vim /etc/apt/sources.list
+</pre></td></tr></tbody></table></code></pre></div>    </div>
 
     <p>将 deb http://mirrordirector.raspbian.org/raspbian/ wheezy main contrib non-free rpi  <br />
 改为 deb http://mirrordirector.raspbian.org/raspbian/ testing main contrib non-free rpi  <br />
 然后更新源并安装新版的 aria2</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2</pre></td><td class="code"><pre>sudo apt-get update
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>sudo apt-get update
 sudo apt-get install aria2
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
 
     <p>若继续用稳定版的系统及其它软件的话，记得把源改回来</p>
   </li>
@@ -573,7 +546,7 @@ sudo apt-get install aria2
     <p>创建 aria2 配置文件 “/home/pi/.aria2/aria2.conf” 和 “/home/pi/.aria2/aria2.session” 这个文件 (我是以 pi 账户启动 aria2 的), <br />
 命令是 <code class="highlighter-rouge">mkdir /home/pi/.aria2</code>, <code class="highlighter-rouge">touch /home/pi/.aria2/aria2.session</code> 和 <code class="highlighter-rouge">vim /home/pi/.aria2/aria2.conf</code> 配置文件内容如下，只是参考</p>
 
-    <div class="language-ini highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+    <div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -653,7 +626,8 @@ sudo apt-get install aria2
 78
 79
 80
-81</pre></td><td class="code"><pre><span class="c"># 基本配置
+81
+</pre></td><td class="rouge-code"><pre><span class="c"># 基本配置
 # 下载目录
 </span><span class="py">dir</span><span class="p">=</span><span class="s">/home/pi/nas-data/nas-data/Inbox</span>
 <span class="c"># 下载从这个文件中找到的 urls, 需自己建立这个文件
@@ -734,9 +708,7 @@ sudo apt-get install aria2
 </span><span class="py">save-session-interval</span><span class="p">=</span><span class="s">300</span>
 
 <span class="c"># 若要用于 PT 下载，需另外的配置，这里没写
-</span></pre></td></tr></tbody></table>
-</div>
-    </div>
+</span></pre></td></tr></tbody></table></code></pre></div>    </div>
 
     <p>什么你配置得还不过瘾，请移步《<a href="http://aria2.sourceforge.net/manual/en/html/aria2c.html#options">官方配置文档</a>》，<br />
 看完记得过来指正我这个配置的不当之处，我表示我只看了一部分</p>
@@ -744,10 +716,9 @@ sudo apt-get install aria2
   <li>
     <p>运行 aria2, 测试配置是否有错误</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>aria2c --conf-path=/home/pi/.aria2/aria2.conf
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>aria2c --conf-path=/home/pi/.aria2/aria2.conf
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>为 aria2 添加自启动服务</p>
@@ -756,7 +727,7 @@ sudo apt-get install aria2
       <li>
         <p>新建 <code class="highlighter-rouge">sudo vim /etc/init.d/aria2</code> 文件，输入以下内容</p>
 
-        <div class="language-bash highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -790,7 +761,8 @@ sudo apt-get install aria2
 32
 33
 34
-35</pre></td><td class="code"><pre><span class="c">#!/bin/sh</span>
+35
+</pre></td><td class="rouge-code"><pre><span class="c">#!/bin/sh</span>
 <span class="c">### BEGIN INIT INFO</span>
 <span class="c"># Provides:          aria2</span>
 <span class="c"># Required-Start:    $remote_fs $network</span>
@@ -807,27 +779,25 @@ sudo apt-get install aria2
 </span>start<span class="p">)</span>
     <span class="nb">echo</span> <span class="s2">"Start aria2c"</span>
     <span class="nb">umask </span>0002
-    su - <span class="nv">$USER</span> -c <span class="s2">"aria2c --conf-path=</span><span class="nv">$CONF</span><span class="s2"> -D"</span>
+    su - <span class="nv">$USER</span> <span class="nt">-c</span> <span class="s2">"aria2c --conf-path=</span><span class="nv">$CONF</span><span class="s2"> -D"</span>
     <span class="p">;;</span>
 stop<span class="p">)</span>
     <span class="nb">echo</span> <span class="s2">"Stopping aria2c, please wait..."</span>
-    killall -w aria2c
+    killall <span class="nt">-w</span> aria2c
     <span class="p">;;</span>
 restart<span class="p">)</span>
     <span class="nb">echo</span> <span class="s2">"Stopping aria2c, please wait..."</span>
-    killall -w aria2c
+    killall <span class="nt">-w</span> aria2c
     <span class="nb">echo</span> <span class="s2">"Start aria2c"</span>
     <span class="nb">umask </span>0002
-    su - <span class="nv">$USER</span> -c <span class="s2">"aria2c --conf-path=</span><span class="nv">$CONF</span><span class="s2"> -D"</span>
+    su - <span class="nv">$USER</span> <span class="nt">-c</span> <span class="s2">"aria2c --conf-path=</span><span class="nv">$CONF</span><span class="s2"> -D"</span>
     <span class="p">;;</span>
 <span class="k">*</span><span class="p">)</span>
     <span class="nb">echo</span> <span class="s2">"</span><span class="nv">$0</span><span class="s2"> {start|stop|restart|status}"</span>
     <span class="p">;;</span>
 <span class="k">esac</span>
 <span class="nb">exit</span>
-</pre></td></tr></tbody></table>
-</div>
-        </div>
+</pre></td></tr></tbody></table></code></pre></div>        </div>
 
         <p>本来我新建的是 /etc/init.d/aria2c 文件，但是其中的 killall -w aria2c, 这用的是字符串匹配，<br />
 不光 kill 了 aria2c 还把脚本本身给 kill 了，所以我把脚本文件名改成了 aria2</p>
@@ -835,28 +805,25 @@ restart<span class="p">)</span>
       <li>
         <p>赋予可执行权限</p>
 
-        <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo chmod 755 /etc/init.d/aria2
-</pre></td></tr></tbody></table>
-</div>
-        </div>
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>sudo chmod 755 /etc/init.d/aria2
+</pre></td></tr></tbody></table></code></pre></div>        </div>
       </li>
       <li>
         <p>测试服务是否可以启动</p>
 
-        <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo service aria2 start
-</pre></td></tr></tbody></table>
-</div>
-        </div>
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>sudo service aria2 start
+</pre></td></tr></tbody></table></code></pre></div>        </div>
 
         <p>如果出现 “Start aria2c”, 而没有其它错误的话，表示服务可以正常启动</p>
       </li>
       <li>
         <p>使 aria2 服务自动运行，其中当然也包括了开机运行</p>
 
-        <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo update-rc.d aria2 defaults
-</pre></td></tr></tbody></table>
-</div>
-        </div>
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>sudo update-rc.d aria2 defaults
+</pre></td></tr></tbody></table></code></pre></div>        </div>
       </li>
     </ol>
   </li>
@@ -953,36 +920,32 @@ btrfs 文件系统的一些特性非常不错，快照，克隆，字卷，校�
   <li>
     <p>首先创建公钥和私钥，一路回车就可以了。假设生成为 “~/.ssh/id_rsa” 和 “~/.ssh/id_rsa.pub”</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>ssh-keygen -t rsa
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>ssh-keygen -t rsa
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>将私钥加入 ssh-agent</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>ssh-add ~/.ssh/id_rsa
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>ssh-add ~/.ssh/id_rsa
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>将公钥复制到树莓派上</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>ssh-copy-id pi@192.168.1.2
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>ssh-copy-id pi@192.168.1.2
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>执行下面的命令，作用是：保存所有文件属性与权限，删除 dst 中 src 没有的文件（传输结束以后再删除），<br />
 通过 ssh 将 192.168.1.2 机子中 “/home/pi/nas-data/nas-data/save/” 目录备份到本地主机 “/home/mwum/save/” 目录，<br />
 并且显示详细信息</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>rsync -av -delete-after -e ssh pi@192.168.1.2:/home/pi/nas-data/nas-data/save/ /home/mwum/save/
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>rsync -av -delete-after -e ssh pi@192.168.1.2:/home/pi/nas-data/nas-data/save/ /home/mwum/save/
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
 </ol>
 
@@ -992,18 +955,16 @@ btrfs 文件系统的一些特性非常不错，快照，克隆，字卷，校�
   <li>
     <p>编辑当前用户的任务</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>crontab -e
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>crontab -e
+</pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>
     <p>例如加入一行，表示每天凌晨2点自动备份</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>0 2 * * * rsync -av -delete-after -e ssh pi@192.168.1.2:/home/pi/nas-data/nas-data/save/ /home/mwum/save/
-</pre></td></tr></tbody></table>
-</div>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>0 2 * * * rsync -av -delete-after -e ssh pi@192.168.1.2:/home/pi/nas-data/nas-data/save/ /home/mwum/save/
+</pre></td></tr></tbody></table></code></pre></div>    </div>
 
     <p>基本格式，共 6 列，如下  <br />
 分钟(0-59) | 小时(0-23) | 日期(1-31) | 月份(1-12) 星期(0-6, 0 表示星期日) | 命令</p>
