@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
+<head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  
   <title>Ubuntu 软件包管理工具 dpkg, APT 的一些命令 | 明无梦</title>
-  <meta name="description" content="dpkg">
-
-  <link rel="stylesheet" href="/css/main.css">
+  <meta name="description" content="dpkg dpkg 是由 Debian 开发的包管理系统，是一个比较底层的工具，它的最常见的前端是 APT
+常用的命令
+dpkg -i debFileName - 安装一个 deb 的包 dpkg -I debFileName - 查看一个包的信息 dpkg -r packageName - 删除包（保留配置文件） …">
   <link rel="canonical" href="https://www.dreamxu.com/ubuntu-package-dpkg-and-apt-commands/">
-  <link rel="alternate" type="application/rss+xml" title="明无梦" href="https://www.dreamxu.com/feed.xml">
+    <link rel="stylesheet" href="/css/style.min.2a2aa4ed426afcd7c5ffde31042cdd4d55ebbfcab2754fcfd5577a4a7b59019b.css" integrity="sha256-Kiqk7UJq/NfF/94xBCzdTVXrv8qydU/P1Vd6SntZAZs=" crossorigin="anonymous">
+  <script type="text/javascript" src="/js/bundle.min.441c485d1d9104b8017416429af24d2115fb80b39ccd1f1cb4907dc6c9d0e84d.js" integrity="sha256-RBxIXR2RBLgBdBZCmvJNIRX7gLOczR8ctJB9xsnQ6E0=" defer></script>
+
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
 
 
-  <body>
+<body>
 
-    <header class="site-header">
+<header class="site-header">
 
   <div class="wrapper">
 
@@ -43,11 +44,10 @@
       </a>
 
       <div class="trigger" id="js-nav-menu-trigger">
-        <a class="page-link" href="/archive">归档</a>
-        <a class="page-link" href="/tags">标签</a>
-        <a class="page-link" href="/books">书籍</a>
-        <a class="page-link" href="/tweet/2018">微语</a>
-        <a class="page-link" href="/about">关于</a>
+        <a class="page-link" href="/archive/">归档</a>
+        <a class="page-link" href="/tags/">标签</a>
+        <a class="page-link" href="/books/">书籍</a>
+        <a class="page-link" href="/about/">关于</a>
         <a class="page-link" href="/rss.xml">订阅</a>
       </div>
     </nav>
@@ -57,166 +57,141 @@
 </header>
 
 
-    <div class="content">
-      <div class="wrapper">
-        <article class="post">
+<div class="content">
+  <div class="wrapper">
+    
+
+<article class="post">
 
   <header class="post-header">
     <h1 class="post-title"><a href="/ubuntu-package-dpkg-and-apt-commands/">Ubuntu 软件包管理工具 dpkg, APT 的一些命令</a></h1>
     <ul class="post-meta">
       <li class="published-date">2014-09-04</li>
       
-
-      
         <li> | 标签: </li>
-        
-          <li class="post-tag"><a href="/tags/?names=记录#tag-list-display">记录</a></li>
-        
+          <li class="post-tag"><a href="/tags/?names=%e8%ae%b0%e5%bd%95#tag-list-display">记录</a></li>
           <li class="post-tag"><a href="/tags/?names=Ubuntu#tag-list-display">Ubuntu</a></li>
-        
           <li class="post-tag"><a href="/tags/?names=dpkg#tag-list-display">dpkg</a></li>
-        
           <li class="post-tag"><a href="/tags/?names=APT#tag-list-display">APT</a></li>
-        
-      
     </ul>
   </header>
 
   <div class="post-content" itemprop="articleBody">
     <h2 id="dpkg">dpkg</h2>
-
 <p>dpkg 是由 Debian 开发的包管理系统，是一个比较底层的工具，它的最常见的前端是 APT</p>
-
 <ul>
-  <li>
-    <p>常用的命令</p>
-
-    <ul>
-      <li><code class="highlighter-rouge">dpkg -i debFileName</code> - 安装一个 deb 的包</li>
-      <li><code class="highlighter-rouge">dpkg -I debFileName</code> - 查看一个包的信息</li>
-      <li><code class="highlighter-rouge">dpkg -r packageName</code> - 删除包（保留配置文件）</li>
-      <li><code class="highlighter-rouge">dpkg -P packageName</code> - 彻底删除包（包括配置文件等）</li>
-      <li><code class="highlighter-rouge">dpkg -l [packageName]</code> - 查看己安装包，常与 <code class="highlighter-rouge">grep</code> 搭配使用</li>
-      <li><code class="highlighter-rouge">dpkg -L packageName</code> - 查看包所拥有的文件</li>
-    </ul>
-  </li>
-  <li>
-    <p>下载某个工具的源代码，例如 <code class="highlighter-rouge">top</code></p>
-
-    <ol>
-      <li><code class="highlighter-rouge">dpkg -S $(which top)</code> 或者 <code class="highlighter-rouge">dpkg -S $(whereis top)</code> - 查看文件所属的包  <br />
-procps: /usr/bin/top</li>
-      <li><code class="highlighter-rouge">apt-get source -d procps</code> - 获取这个包的源码，不解包，之后你需要自己解包  <br />
-<code class="highlighter-rouge">dpkg-source -x foo_version-revision.dsc</code> 或者  <br />
-<code class="highlighter-rouge">apt-get source procps</code> - 获取源码并解包</li>
-    </ol>
-  </li>
+<li>
+<p>常用的命令</p>
+<ul>
+<li><code>dpkg -i debFileName</code> - 安装一个 deb 的包</li>
+<li><code>dpkg -I debFileName</code> - 查看一个包的信息</li>
+<li><code>dpkg -r packageName</code> - 删除包（保留配置文件）</li>
+<li><code>dpkg -P packageName</code> - 彻底删除包（包括配置文件等）</li>
+<li><code>dpkg -l [packageName]</code> - 查看己安装包，常与 <code>grep</code> 搭配使用</li>
+<li><code>dpkg -L packageName</code> - 查看包所拥有的文件</li>
 </ul>
-
+</li>
+<li>
+<p>下载某个工具的源代码，例如 <code>top</code></p>
+<ol>
+<li><code>dpkg -S $(which top)</code> 或者 <code>dpkg -S $(whereis top)</code> - 查看文件所属的包<br>
+procps: /usr/bin/top</li>
+<li><code>apt-get source -d procps</code> - 获取这个包的源码，不解包，之后你需要自己解包<br>
+<code>dpkg-source -x foo_version-revision.dsc</code> 或者<br>
+<code>apt-get source procps</code> - 获取源码并解包</li>
+</ol>
+</li>
+</ul>
 <h2 id="apt">APT</h2>
-
 <p>在 Debian 类系统中作为 dpkg 的前端，可以自动下载，配置，安装软件包，还能解决包的依赖关系</p>
-
-<p>APT 的软件源地址在 <code class="highlighter-rouge">/etc/apt/sources.list</code>  <br />
-还可以在 <code class="highlighter-rouge">/etc/apt/sources.list.d</code> 目录中添加更多源</p>
-
+<p>APT 的软件源地址在 <code>/etc/apt/sources.list</code><br>
+还可以在 <code>/etc/apt/sources.list.d</code> 目录中添加更多源</p>
 <ul>
-  <li>
-    <p>一些参数</p>
-
-    <ul>
-      <li><code class="highlighter-rouge">-h</code> - 帮助</li>
-      <li><code class="highlighter-rouge">-q</code> - 输出到日志，无提示</li>
-      <li><code class="highlighter-rouge">-qq</code> - 什么都不输出，错误除外</li>
-      <li><code class="highlighter-rouge">-d</code> - 不安装或解压归档文件</li>
-      <li><code class="highlighter-rouge">-s</code> - 不实际安装，只模拟执行命令</li>
-      <li><code class="highlighter-rouge">-y</code> - 所有的询问选是，不提示</li>
-      <li><code class="highlighter-rouge">-f</code> - 当没有通过完整性测试时，仍然尝试继续执行</li>
-      <li><code class="highlighter-rouge">-m</code> - 当有包归档无法找到时，仍然尝试继续执行</li>
-      <li><code class="highlighter-rouge">-u</code> - 同时显示更新软件包的列表</li>
-      <li><code class="highlighter-rouge">-b</code> - 获取源码包后编译</li>
-      <li><code class="highlighter-rouge">-V</code> - 显示详细的版本号</li>
-      <li><code class="highlighter-rouge">-c=?</code> - 读取指定的配置</li>
-      <li><code class="highlighter-rouge">-o=?</code> - 设定任意指定的配置选项，例如 -o dir::cache=/tmp</li>
-    </ul>
-  </li>
-  <li>
-    <p>更新/升级</p>
-
-    <ul>
-      <li><code class="highlighter-rouge">apt-get update</code> - 更新软件源索引</li>
-      <li><code class="highlighter-rouge">apt-get upgrade</code> - 升级所有软件包，并重新分析依赖关系并安装相关的包</li>
-      <li><code class="highlighter-rouge">apt-get dselect-upgrade</code> - 根据 dselect（一个传统的前端包管理工具）的选择对软件包进行升级</li>
-      <li><code class="highlighter-rouge">apt-get dist-upgrade</code> - 升级系统及所有软件包，<strong>慎用</strong></li>
-    </ul>
-  </li>
-  <li>
-    <p>安装/卸载</p>
-
-    <ul>
-      <li><code class="highlighter-rouge">apt-get install pkg</code> - 安装软件包</li>
-      <li><code class="highlighter-rouge">apt-get build-dep pkg</code> - 安装该包的所有依赖</li>
-      <li><code class="highlighter-rouge">apt-get remove pkg</code> - 卸载软件包</li>
-      <li><code class="highlighter-rouge">apt-get purge pkg</code> - 彻底卸载软件包（包括配置文件等）</li>
-      <li><code class="highlighter-rouge">apt-get remove --purge pkg</code> - 和上面的命令等价，彻底卸载软件包（包括配置文件等）</li>
-      <li><code class="highlighter-rouge">apt-get autoremove</code> - 清理因依赖关系而被安装，而后又不需要的包</li>
-    </ul>
-  </li>
-  <li>
-    <p>清理/维护</p>
-
-    <ul>
-      <li><code class="highlighter-rouge">apt-get clean</code> - 清除下载的包</li>
-      <li><code class="highlighter-rouge">apt-get autoclean</code> - 只清除过时的包</li>
-      <li><code class="highlighter-rouge">apt-get check</code> - 检查是否有不正确的依赖关系</li>
-    </ul>
-  </li>
-  <li>
-    <p>搜索/下载</p>
-
-    <ul>
-      <li><code class="highlighter-rouge">apt-cache search pkg</code> - 搜索包</li>
-      <li><code class="highlighter-rouge">apt-cache show pkg</code> - 显示包的信息</li>
-      <li><code class="highlighter-rouge">apt-cache showpkg pkg</code> - 显示包的信息</li>
-      <li><code class="highlighter-rouge">apt-cache depends pkg</code> - 显示包所依赖的包</li>
-      <li><code class="highlighter-rouge">apt-cache rdepends pkg</code> - 显示该包被哪项包依赖</li>
-      <li><code class="highlighter-rouge">apt-cache stats</code> - 显示统计信息</li>
-      <li><code class="highlighter-rouge">apt-get download pkg</code> - 下载软件包</li>
-      <li><code class="highlighter-rouge">apt-get source pkg</code> - 下载源码包并解包</li>
-      <li><code class="highlighter-rouge">apt-get source -d pkg</code> 只下载源码包</li>
-    </ul>
-  </li>
-  <li>
-    <p>彩蛋</p>
-
-    <ul>
-      <li><code class="highlighter-rouge">apt-get moo</code></li>
-    </ul>
-  </li>
+<li>
+<p>一些参数</p>
+<ul>
+<li><code>-h</code> - 帮助</li>
+<li><code>-q</code> - 输出到日志，无提示</li>
+<li><code>-qq</code> - 什么都不输出，错误除外</li>
+<li><code>-d</code> - 不安装或解压归档文件</li>
+<li><code>-s</code> - 不实际安装，只模拟执行命令</li>
+<li><code>-y</code> - 所有的询问选是，不提示</li>
+<li><code>-f</code> - 当没有通过完整性测试时，仍然尝试继续执行</li>
+<li><code>-m</code> - 当有包归档无法找到时，仍然尝试继续执行</li>
+<li><code>-u</code> - 同时显示更新软件包的列表</li>
+<li><code>-b</code> - 获取源码包后编译</li>
+<li><code>-V</code> - 显示详细的版本号</li>
+<li><code>-c=?</code> - 读取指定的配置</li>
+<li><code>-o=?</code> - 设定任意指定的配置选项，例如 -o dir::cache=/tmp</li>
+</ul>
+</li>
+<li>
+<p>更新/升级</p>
+<ul>
+<li><code>apt-get update</code> - 更新软件源索引</li>
+<li><code>apt-get upgrade</code> - 升级所有软件包，并重新分析依赖关系并安装相关的包</li>
+<li><code>apt-get dselect-upgrade</code> - 根据 dselect（一个传统的前端包管理工具）的选择对软件包进行升级</li>
+<li><code>apt-get dist-upgrade</code> - 升级系统及所有软件包，<strong>慎用</strong></li>
+</ul>
+</li>
+<li>
+<p>安装/卸载</p>
+<ul>
+<li><code>apt-get install pkg</code> - 安装软件包</li>
+<li><code>apt-get build-dep pkg</code> - 安装该包的所有依赖</li>
+<li><code>apt-get remove pkg</code> - 卸载软件包</li>
+<li><code>apt-get purge pkg</code> - 彻底卸载软件包（包括配置文件等）</li>
+<li><code>apt-get remove --purge pkg</code> - 和上面的命令等价，彻底卸载软件包（包括配置文件等）</li>
+<li><code>apt-get autoremove</code> - 清理因依赖关系而被安装，而后又不需要的包</li>
+</ul>
+</li>
+<li>
+<p>清理/维护</p>
+<ul>
+<li><code>apt-get clean</code> - 清除下载的包</li>
+<li><code>apt-get autoclean</code> - 只清除过时的包</li>
+<li><code>apt-get check</code> - 检查是否有不正确的依赖关系</li>
+</ul>
+</li>
+<li>
+<p>搜索/下载</p>
+<ul>
+<li><code>apt-cache search pkg</code> - 搜索包</li>
+<li><code>apt-cache show pkg</code> - 显示包的信息</li>
+<li><code>apt-cache showpkg pkg</code> - 显示包的信息</li>
+<li><code>apt-cache depends pkg</code> - 显示包所依赖的包</li>
+<li><code>apt-cache rdepends pkg</code> - 显示该包被哪项包依赖</li>
+<li><code>apt-cache stats</code> - 显示统计信息</li>
+<li><code>apt-get download pkg</code> - 下载软件包</li>
+<li><code>apt-get source pkg</code> - 下载源码包并解包</li>
+<li><code>apt-get source -d pkg</code> 只下载源码包</li>
+</ul>
+</li>
+<li>
+<p>彩蛋</p>
+<ul>
+<li><code>apt-get moo</code></li>
+</ul>
+</li>
 </ul>
 
   </div>
 
   <div class="quiet-link">
-    
-    <span>上一篇：</span><a href="/proxychains-ng/">Mac 下安装及配置 ProxyChains-NG 实现终端下代理</a><br />
-    
-    
-    <span>下一篇：</span><a href="/vagrant/">用 Vagrant 统一开发环境</a>
-    
+      <span>上一篇：</span><a href="/proxychains-ng/">Mac 下安装及配置 ProxyChains-NG 实现终端下代理</a><br />
+      <span>下一篇：</span><a href="/vagrant/">用 Vagrant 统一开发环境</a>
   </div>
 
 </article>
 
-
-
-<hr>
-
 <div id="disqus_thread"></div>
 <script type="text/javascript">
-    var disqus_shortname = 'mwum'; // required: replace example with your forum shortname
-    /* * * DON'T EDIT BELOW THIS LINE * * */
+    var disqus_shortname = 'mwum'; 
+     
     (function() {
+        if (window.location.hostname == "localhost")
+            return;
+
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
@@ -227,19 +202,18 @@ procps: /usr/bin/top</li>
 
 
 
+  </div>
+</div>
 
-      </div>
-    </div>
-
-    <footer class="site-footer">
+<footer class="site-footer">
 
   <div class="wrapper">
     <div class="footer-content">
       <p>
         <span class="no-palm">本站采用 <a rel="license" href="//creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可<br></span>
-        <span>&copy;2013-2019 <a href="https://www.dreamxu.com">明无梦</a></span>
+        <span>©2013-2024 <a href="https://www.dreamxu.com">明无梦</a></span>
         <span class="no-palm">| </span>
-        <span>Powered by <a href="//jekyllrb.com/">Jekyll</a></span>
+        <span>Powered by <a href="//gohugo.io/">Hugo</a></span>
         <span class="no-palm">| </span>
         <span>Hosted by <a href="//github.com/">GitHub</a></span>
         <span class="no-palm">| </span>
@@ -253,29 +227,6 @@ procps: /usr/bin/top</li>
 </footer>
 
 
-    <script type="text/javascript" src="/js/main.js"></script>
-
-
-
-
-
-    
-
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-39279084-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-
-
-
-
-  </body>
+</body>
 
 </html>

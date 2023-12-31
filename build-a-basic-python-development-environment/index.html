@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
+<head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  
   <title>搭建基本的 Python 开发环境 | 明无梦</title>
-  <meta name="description" content="使用 pyenv 来安装 Python">
-
-  <link rel="stylesheet" href="/css/main.css">
+  <meta name="description" content="使用 pyenv 来安装 Python 先安装 pyenv 官网：https://github.com/yyuu/pyenv
+通过 Homebrew 安装
+brew update brew install pyenv 使用 Homebew 安装的话一些基本的 pyenv 插件都安装了，就不必再次安装， …">
   <link rel="canonical" href="https://www.dreamxu.com/build-a-basic-python-development-environment/">
-  <link rel="alternate" type="application/rss+xml" title="明无梦" href="https://www.dreamxu.com/feed.xml">
+    <link rel="stylesheet" href="/css/style.min.2a2aa4ed426afcd7c5ffde31042cdd4d55ebbfcab2754fcfd5577a4a7b59019b.css" integrity="sha256-Kiqk7UJq/NfF/94xBCzdTVXrv8qydU/P1Vd6SntZAZs=" crossorigin="anonymous">
+  <script type="text/javascript" src="/js/bundle.min.441c485d1d9104b8017416429af24d2115fb80b39ccd1f1cb4907dc6c9d0e84d.js" integrity="sha256-RBxIXR2RBLgBdBZCmvJNIRX7gLOczR8ctJB9xsnQ6E0=" defer></script>
+
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
 
 
-  <body>
+<body>
 
-    <header class="site-header">
+<header class="site-header">
 
   <div class="wrapper">
 
@@ -43,11 +44,10 @@
       </a>
 
       <div class="trigger" id="js-nav-menu-trigger">
-        <a class="page-link" href="/archive">归档</a>
-        <a class="page-link" href="/tags">标签</a>
-        <a class="page-link" href="/books">书籍</a>
-        <a class="page-link" href="/tweet/2018">微语</a>
-        <a class="page-link" href="/about">关于</a>
+        <a class="page-link" href="/archive/">归档</a>
+        <a class="page-link" href="/tags/">标签</a>
+        <a class="page-link" href="/books/">书籍</a>
+        <a class="page-link" href="/about/">关于</a>
         <a class="page-link" href="/rss.xml">订阅</a>
       </div>
     </nav>
@@ -57,9 +57,11 @@
 </header>
 
 
-    <div class="content">
-      <div class="wrapper">
-        <article class="post">
+<div class="content">
+  <div class="wrapper">
+    
+
+<article class="post">
 
   <header class="post-header">
     <h1 class="post-title"><a href="/build-a-basic-python-development-environment/">搭建基本的 Python 开发环境</a></h1>
@@ -67,256 +69,158 @@
       <li class="published-date">2015-08-20</li>
       
         <li class="updated-date"> | 更新: 2015-08-22</li>
-      
-
-      
         <li> | 标签: </li>
-        
-          <li class="post-tag"><a href="/tags/?names=记录#tag-list-display">记录</a></li>
-        
+          <li class="post-tag"><a href="/tags/?names=%e8%ae%b0%e5%bd%95#tag-list-display">记录</a></li>
           <li class="post-tag"><a href="/tags/?names=Python#tag-list-display">Python</a></li>
-        
           <li class="post-tag"><a href="/tags/?names=pyenv#tag-list-display">pyenv</a></li>
-        
           <li class="post-tag"><a href="/tags/?names=Virtualenv#tag-list-display">Virtualenv</a></li>
-        
-      
     </ul>
   </header>
 
   <div class="post-content" itemprop="articleBody">
     <h2 id="使用-pyenv-来安装-python">使用 pyenv 来安装 Python</h2>
-
 <h3 id="先安装-pyenv">先安装 pyenv</h3>
-
 <p>官网：<a href="https://github.com/yyuu/pyenv">https://github.com/yyuu/pyenv</a></p>
-
 <ol>
-  <li>
-    <p>通过 Homebrew 安装</p>
-
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-</pre></td><td class="rouge-code"><pre>brew update
+<li>
+<p>通过 Homebrew 安装</p>
+<pre><code>brew update
 brew install pyenv
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-
-    <p>使用 Homebew 安装的话一些基本的 pyenv 插件都安装了，就不必再次安装，例如 pyenv-pip-rehash 插件</p>
-  </li>
-  <li>
-    <p>将 <code class="highlighter-rouge">eval "$(pyenv init -)"</code> 添加到 profile, 例如 .zshrc</p>
-  </li>
-  <li>
-    <p>一般不用进行如下操作</p>
-
-    <p>默认使用的是 ~/.pyenv 目录，如果你需要使用 Homebrew 目录请将如下内容添加到 profile</p>
-
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>export PYENV_ROOT=/usr/local/var/pyenv
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-  </li>
-  <li>
-    <p>重新运行 shell</p>
-
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>exec $SHELL
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-  </li>
+</code></pre>
+<p>使用 Homebew 安装的话一些基本的 pyenv 插件都安装了，就不必再次安装，例如 pyenv-pip-rehash 插件</p>
+</li>
+<li>
+<p>将 <code>eval &quot;$(pyenv init -)&quot;</code> 添加到 profile, 例如 .zshrc</p>
+</li>
+<li>
+<p>一般不用进行如下操作</p>
+<p>默认使用的是 ~/.pyenv 目录，如果你需要使用 Homebrew 目录请将如下内容添加到 profile</p>
+<pre><code>export PYENV_ROOT=/usr/local/var/pyenv
+</code></pre>
+</li>
+<li>
+<p>重新运行 shell</p>
+<pre><code>exec $SHELL
+</code></pre>
+</li>
 </ol>
-
-<p>具体 pyenv 用法可参考：<a href="https://github.com/yyuu/pyenv/blob/master/COMMANDS.md">https://github.com/yyuu/pyenv/blob/master/COMMANDS.md</a>  <br />
-既然这个项目是从 <a href="https://github.com/sstephenson/rbenv">rbenv</a> fork 而来的，想必用法也差不多了，事实也确实如此，<br />
-亦可参考我以前写的文章<a href="/install-ruby-on-mac-with-rbenv/#安装-ruby">《在 Mac 上用 rbenv 安装 ruby - 安装 Ruby | 明无梦的博客》</a>和<br />
-<a href="/install-ruby-on-mac-with-rbenv/#管理-ruby">《在 Mac 上用 rbenv 安装 ruby - 管理 Ruby | 明无梦的博客》</a></p>
-
+<p>具体 pyenv 用法可参考：<a href="https://github.com/yyuu/pyenv/blob/master/COMMANDS.md">https://github.com/yyuu/pyenv/blob/master/COMMANDS.md</a><br>
+既然这个项目是从 <a href="https://github.com/sstephenson/rbenv">rbenv</a> fork 而来的，想必用法也差不多了，事实也确实如此，亦可参考我以前写的文章<a href="/install-ruby-on-mac-with-rbenv/#%E5%AE%89%E8%A3%85-ruby">《在 Mac 上用 rbenv 安装 ruby - 安装 Ruby | 明无梦的博客》</a>和<a href="/install-ruby-on-mac-with-rbenv/#%E7%AE%A1%E7%90%86-ruby">《在 Mac 上用 rbenv 安装 ruby - 管理 Ruby | 明无梦的博客》</a></p>
 <h3 id="安装-python3">安装 Python3</h3>
-
 <ol>
-  <li>
-    <p>查看可安装的 Python 版本</p>
-
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>pyenv install -l
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-  </li>
-  <li>
-    <p>安装具体的 Python 版本</p>
-
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>pyenv install 3.4.3
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-  </li>
-  <li>
-    <p>查看已经安装的 Python 版本</p>
-
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>pyenv versions
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-  </li>
-  <li>
-    <p>切换到需要的 Python 版本（全局生效）</p>
-
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>pyenv global 3.4.3
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-  </li>
-  <li>
-    <p>升级 pip</p>
-
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>pip install --upgrade pip
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-  </li>
+<li>
+<p>查看可安装的 Python 版本</p>
+<pre><code>pyenv install -l
+</code></pre>
+</li>
+<li>
+<p>安装具体的 Python 版本</p>
+<pre><code>pyenv install 3.4.3
+</code></pre>
+</li>
+<li>
+<p>查看已经安装的 Python 版本</p>
+<pre><code>pyenv versions
+</code></pre>
+</li>
+<li>
+<p>切换到需要的 Python 版本（全局生效）</p>
+<pre><code>pyenv global 3.4.3
+</code></pre>
+</li>
+<li>
+<p>升级 pip</p>
+<pre><code>pip install --upgrade pip
+</code></pre>
+</li>
 </ol>
-
-<p>如果这时你执行 <code class="highlighter-rouge">brew doctor</code> 会出现类似如下的问题</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-</pre></td><td class="rouge-code"><pre>$ brew doctor
+<p>如果这时你执行 <code>brew doctor</code> 会出现类似如下的问题</p>
+<pre tabindex="0"><code>$ brew doctor
 Please note that these warnings are just used to help the Homebrew maintainers
 with debugging if you file an issue. If everything you use Homebrew for is
-working fine: please don't worry and just ignore them. Thanks!
+working fine: please don&#39;t worry and just ignore them. Thanks!
 
 Warning: python is symlinked to python3
 This will confuse build scripts and in general lead to subtle breakage.
 
-Warning: "config" scripts exist outside your system or Homebrew directories.
+Warning: &#34;config&#34; scripts exist outside your system or Homebrew directories.
 `./configure` scripts often look for *-config scripts to determine if
 software packages are installed, and what additional flags to use when
 compiling and linking.
 
 Having additional scripts in your path can confuse software installed via
 Homebrew if the config script overrides a system or Homebrew provided
-script of the same name. We found the following "config" scripts:
+script of the same name. We found the following &#34;config&#34; scripts:
 
   /Users/mwum/.pyenv/shims/python-config
   /Users/mwum/.pyenv/shims/python3-config
   /Users/mwum/.pyenv/shims/python3.4-config
   /Users/mwum/.pyenv/shims/python3.4m-config
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>解决办法参考：  <br />
-<a href="http://www.task-notes.com/entry/20141223/1419324649">【Homebrew】brew doctorのWarning対処方法 (その3) + envコマンドについて</a>  <br />
-<a href="https://github.com/yyuu/pyenv/issues/106">pyenv not playing nice with brew “config”. [$5] #106</a></p>
-
-<p>方法为：  <br />
-将 <code class="highlighter-rouge">alias brew='"env" PATH=${PATH//$(pyenv root)\/shims:/} brew'</code> 添加到 profile</p>
-
-<p>外什么要将其中的 <code class="highlighter-rouge">env</code> 加上 <code class="highlighter-rouge">""</code> ?  <br />
-执行 <code class="highlighter-rouge">env</code> 之后，如其中的结果出现了空格，会出现 <code class="highlighter-rouge">No such file or directory</code> 的问题，为了避免此问题，所以加上 <code class="highlighter-rouge">""</code></p>
-
+</code></pre><p>解决办法参考：<br>
+<a href="http://www.task-notes.com/entry/20141223/1419324649">【Homebrew】brew doctorのWarning対処方法 (その3) + envコマンドについて</a><br>
+<a href="https://github.com/yyuu/pyenv/issues/106">pyenv not playing nice with brew &ldquo;config&rdquo;. [$5] #106</a></p>
+<p>方法为：<br>
+将 <code>alias brew='&quot;env&quot; PATH=${PATH//$(pyenv root)\/shims:/} brew'</code> 添加到 profile</p>
+<p>外什么要将其中的 <code>env</code> 加上 <code>&quot;&quot;</code> ?<br>
+执行 <code>env</code> 之后，如其中的结果出现了空格，会出现 <code>No such file or directory</code> 的问题，为了避免此问题，所以加上 <code>&quot;&quot;</code></p>
 <h2 id="安装-virtual-environments-及使用">安装 Virtual Environments 及使用</h2>
-
 <p>官网：<a href="https://virtualenv.pypa.io">https://virtualenv.pypa.io</a></p>
-
-<p>这个工具可使不同的项目保持不同的依赖，（很闲的话还可以使同一个项目保持不同的依赖）  <br />
-例如，Project X 依赖版本 1.x, 但是 Project Y  依赖版本 4.x  <br />
+<p>这个工具可使不同的项目保持不同的依赖，（很闲的话还可以使同一个项目保持不同的依赖）<br>
+例如，Project X 依赖版本 1.x, 但是 Project Y  依赖版本 4.x<br>
 也可使用 <a href="https://github.com/yyuu/pyenv-virtualenv">pyenv-virtualenv</a> 这个工具，功能是一样的</p>
-
 <p>通过 pip 来安装</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>pip install virtualenv
-</pre></td></tr></tbody></table></code></pre></div></div>
-
+<pre><code>pip install virtualenv
+</code></pre>
 <h3 id="基本使用">基本使用</h3>
-
-<table>
-  <tbody>
-    <tr>
-      <td>参考：[Virtual Environments</td>
-      <td>Python Guide](http://docs.python-guide.org/en/latest/dev/virtualenvs/)</td>
-    </tr>
-  </tbody>
-</table>
-
+<p>参考：<a href="http://docs.python-guide.org/en/latest/dev/virtualenvs/">Virtual Environments | Python Guide</a></p>
 <ol>
-  <li>
-    <p>为一个项目创建一个虚拟环境，名字为 venv, 可以改成你喜欢的名字</p>
-
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-</pre></td><td class="rouge-code"><pre>cd my_project_folder
+<li>
+<p>为一个项目创建一个虚拟环境，名字为 venv, 可以改成你喜欢的名字</p>
+<pre><code>cd my_project_folder
 virtualenv venv
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-  </li>
-  <li>
-    <p>也可以指定 Python 版本</p>
-
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>virtualenv -p /usr/local/bin/python3 venv
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-  </li>
-  <li>
-    <p>激活虚拟环境</p>
-
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>source ./venv/bin/activate
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-
-    <p>如果不加参数那么全局安装的包也包括在内，如果不想加载全局的包可使用参数 <code class="highlighter-rouge">--no-site-packages</code></p>
-
-    <p>在虚拟环境激活的情况下，如果使用 <code class="highlighter-rouge">pip</code> 来安装各种包，包会被安装在当前虚拟环境下，即 <code class="highlighter-rouge">./venv</code> 文件夹下，<br />
-并不会对全局环境产生影响</p>
-  </li>
-  <li>
-    <p>关闭虚拟环境</p>
-
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>deactivate
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-  </li>
-  <li>
-    <p>删除虚拟环境，只需删除 <code class="highlighter-rouge">./venv</code> 文件夹即可</p>
-
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>rm -rf ./venv
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-  </li>
+</code></pre>
+</li>
+<li>
+<p>也可以指定 Python 版本</p>
+<pre><code>virtualenv -p /usr/local/bin/python3 venv
+</code></pre>
+</li>
+<li>
+<p>激活虚拟环境</p>
+<pre><code>source ./venv/bin/activate
+</code></pre>
+<p>如果不加参数那么全局安装的包也包括在内，如果不想加载全局的包可使用参数 <code>--no-site-packages</code></p>
+<p>在虚拟环境激活的情况下，如果使用 <code>pip</code> 来安装各种包，包会被安装在当前虚拟环境下，即 <code>./venv</code> 文件夹下，并不会对全局环境产生影响</p>
+</li>
+<li>
+<p>关闭虚拟环境</p>
+<pre><code>deactivate
+</code></pre>
+</li>
+<li>
+<p>删除虚拟环境，只需删除 <code>./venv</code> 文件夹即可</p>
+<pre><code>rm -rf ./venv
+</code></pre>
+</li>
 </ol>
 
   </div>
 
   <div class="quiet-link">
-    
-    <span>上一篇：</span><a href="/software-book-update/">《明无梦的软件使用记录》书籍更新中</a><br />
-    
-    
-    <span>下一篇：</span><a href="/protection-of-privacy-the-image-exif-information/">保护隐私：图片的 Exif 信息</a>
-    
+      <span>上一篇：</span><a href="/software-book-update/">《明无梦的软件使用记录》书籍更新中</a><br />
+      <span>下一篇：</span><a href="/protection-of-privacy-the-image-exif-information/">保护隐私：图片的 Exif 信息</a>
   </div>
 
 </article>
 
-
-
-<hr>
-
 <div id="disqus_thread"></div>
 <script type="text/javascript">
-    var disqus_shortname = 'mwum'; // required: replace example with your forum shortname
-    /* * * DON'T EDIT BELOW THIS LINE * * */
+    var disqus_shortname = 'mwum'; 
+     
     (function() {
+        if (window.location.hostname == "localhost")
+            return;
+
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
@@ -327,19 +231,18 @@ virtualenv venv
 
 
 
+  </div>
+</div>
 
-      </div>
-    </div>
-
-    <footer class="site-footer">
+<footer class="site-footer">
 
   <div class="wrapper">
     <div class="footer-content">
       <p>
         <span class="no-palm">本站采用 <a rel="license" href="//creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可<br></span>
-        <span>&copy;2013-2019 <a href="https://www.dreamxu.com">明无梦</a></span>
+        <span>©2013-2024 <a href="https://www.dreamxu.com">明无梦</a></span>
         <span class="no-palm">| </span>
-        <span>Powered by <a href="//jekyllrb.com/">Jekyll</a></span>
+        <span>Powered by <a href="//gohugo.io/">Hugo</a></span>
         <span class="no-palm">| </span>
         <span>Hosted by <a href="//github.com/">GitHub</a></span>
         <span class="no-palm">| </span>
@@ -353,29 +256,6 @@ virtualenv venv
 </footer>
 
 
-    <script type="text/javascript" src="/js/main.js"></script>
-
-
-
-
-
-    
-
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-39279084-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-
-
-
-
-  </body>
+</body>
 
 </html>

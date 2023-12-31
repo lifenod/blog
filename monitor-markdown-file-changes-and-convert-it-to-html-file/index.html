@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
+<head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  
   <title>监测 Markdown 文件改动并将其转化为 HTML 文件 | 明无梦</title>
-  <meta name="description" content="大脑应该记住哪些有意义的事情，也不是说我们要将很多事情遗忘  我们将那些随处可见以及不是很重要的事情的细节记下来，大脑只需留下些许印象即可，当我们需要这些资料的时候，我们随时能将这些细节找出来">
-
-  <link rel="stylesheet" href="/css/main.css">
+  <meta name="description" content="大脑应该记住哪些有意义的事情，也不是说我们要将很多事情遗忘
+我们将那些随处可见以及不是很重要的事情的细节记下来，大脑只需留下些许印象即可，当我们需要这些资料的时候，我们随时能将这些细节找出来
+比如专题性的东西我会用书籍的形式来记录，单篇性的东西我会用博客的形式来记录，短小琐碎的东西我会用 Bits 的形式来记录，以上这 …">
   <link rel="canonical" href="https://www.dreamxu.com/monitor-markdown-file-changes-and-convert-it-to-html-file/">
-  <link rel="alternate" type="application/rss+xml" title="明无梦" href="https://www.dreamxu.com/feed.xml">
+    <link rel="stylesheet" href="/css/style.min.2a2aa4ed426afcd7c5ffde31042cdd4d55ebbfcab2754fcfd5577a4a7b59019b.css" integrity="sha256-Kiqk7UJq/NfF/94xBCzdTVXrv8qydU/P1Vd6SntZAZs=" crossorigin="anonymous">
+  <script type="text/javascript" src="/js/bundle.min.441c485d1d9104b8017416429af24d2115fb80b39ccd1f1cb4907dc6c9d0e84d.js" integrity="sha256-RBxIXR2RBLgBdBZCmvJNIRX7gLOczR8ctJB9xsnQ6E0=" defer></script>
+
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
 
 
-  <body>
+<body>
 
-    <header class="site-header">
+<header class="site-header">
 
   <div class="wrapper">
 
@@ -43,11 +44,10 @@
       </a>
 
       <div class="trigger" id="js-nav-menu-trigger">
-        <a class="page-link" href="/archive">归档</a>
-        <a class="page-link" href="/tags">标签</a>
-        <a class="page-link" href="/books">书籍</a>
-        <a class="page-link" href="/tweet/2018">微语</a>
-        <a class="page-link" href="/about">关于</a>
+        <a class="page-link" href="/archive/">归档</a>
+        <a class="page-link" href="/tags/">标签</a>
+        <a class="page-link" href="/books/">书籍</a>
+        <a class="page-link" href="/about/">关于</a>
         <a class="page-link" href="/rss.xml">订阅</a>
       </div>
     </nav>
@@ -57,78 +57,54 @@
 </header>
 
 
-    <div class="content">
-      <div class="wrapper">
-        <article class="post">
+<div class="content">
+  <div class="wrapper">
+    
+
+<article class="post">
 
   <header class="post-header">
     <h1 class="post-title"><a href="/monitor-markdown-file-changes-and-convert-it-to-html-file/">监测 Markdown 文件改动并将其转化为 HTML 文件</a></h1>
     <ul class="post-meta">
       <li class="published-date">2016-03-25</li>
       
-
-      
         <li> | 标签: </li>
-        
-          <li class="post-tag"><a href="/tags/?names=技术#tag-list-display">技术</a></li>
-        
+          <li class="post-tag"><a href="/tags/?names=%e6%8a%80%e6%9c%af#tag-list-display">技术</a></li>
           <li class="post-tag"><a href="/tags/?names=Markdown#tag-list-display">Markdown</a></li>
-        
           <li class="post-tag"><a href="/tags/?names=HTML#tag-list-display">HTML</a></li>
-        
           <li class="post-tag"><a href="/tags/?names=Pandoc#tag-list-display">Pandoc</a></li>
-        
           <li class="post-tag"><a href="/tags/?names=Ruby#tag-list-display">Ruby</a></li>
-        
           <li class="post-tag"><a href="/tags/?names=Filewatcher#tag-list-display">Filewatcher</a></li>
-        
-      
     </ul>
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>大脑应该记住哪些有意义的事情，也不是说我们要将很多事情遗忘  <br />
-我们将那些随处可见以及不是很重要的事情的细节记下来，大脑只需留下些许印象即可，<br />
-当我们需要这些资料的时候，我们随时能将这些细节找出来</p>
-
-<p>比如专题性的东西我会用<a href="http://www.dreamxu.com/books.html">书籍</a>的形式来记录，单篇性的东西我会用<a href="http://www.dreamxu.com/">博客</a>的形式来记录，<br />
-短小琐碎的东西我会用 <a href="http://www.dreamxu.com/bits/2016/">Bits</a> 的形式来记录，<br />
-以上这些都能够利用合适的工具将其转换为 HTML, 并通过 nginx 展现出来  <br />
-还有很多分散在各个目录中的笔记，比如这个项目有一份笔记，那个项目有一份笔记等等，<br />
-我们也需要将其很好地展现出来</p>
-
-<p>我希望的效果是，实时监测目录或者文件，并实时将其转换为 HTML, <br />
-有了 HTML 我们能够找到一万种方式将其完美地展示出来，<br />
-也有一万种方式让我们方便地去查找</p>
-
+    <p>大脑应该记住哪些有意义的事情，也不是说我们要将很多事情遗忘<br>
+我们将那些随处可见以及不是很重要的事情的细节记下来，大脑只需留下些许印象即可，当我们需要这些资料的时候，我们随时能将这些细节找出来</p>
+<p>比如专题性的东西我会用<a href="http://www.dreamxu.com/books.html">书籍</a>的形式来记录，单篇性的东西我会用<a href="http://www.dreamxu.com/">博客</a>的形式来记录，短小琐碎的东西我会用 <a href="http://www.dreamxu.com/bits/2016/">Bits</a> 的形式来记录，以上这些都能够利用合适的工具将其转换为 HTML, 并通过 nginx 展现出来<br>
+还有很多分散在各个目录中的笔记，比如这个项目有一份笔记，那个项目有一份笔记等等，我们也需要将其很好地展现出来</p>
+<p>我希望的效果是，实时监测目录或者文件，并实时将其转换为 HTML, 有了 HTML 我们能够找到一万种方式将其完美地展示出来，也有一万种方式让我们方便地去查找</p>
 <p>代码及使用方法：<a href="https://github.com/lifenod/monitor-md-files">https://github.com/lifenod/monitor-md-files</a></p>
-
 <h2 id="浏览器自动刷新">浏览器自动刷新</h2>
-
 <p>如果想修改 MD 文件之后，浏览器能够自动刷新 HTML 页面，可使用这个 Chrome 插件：<a href="https://chrome.google.com/webstore/detail/livepage/pilnojpmdoofaelbinaeodfpjheijkbh">https://chrome.google.com/webstore/detail/livepage/pilnojpmdoofaelbinaeodfpjheijkbh</a></p>
 
   </div>
 
   <div class="quiet-link">
-    
-    <span>上一篇：</span><a href="/execute-different-commands-in-different-directories/">在不同目录下执行不同的命令</a><br />
-    
-    
-    <span>下一篇：</span><a href="/hack-markdown-converter-kramdown/">对 Markdown 渲染引擎 kramdown 的几点 hack</a>
-    
+      <span>上一篇：</span><a href="/execute-different-commands-in-different-directories/">在不同目录下执行不同的命令</a><br />
+      <span>下一篇：</span><a href="/hack-markdown-converter-kramdown/">对 Markdown 渲染引擎 kramdown 的几点 hack</a>
   </div>
 
 </article>
 
-
-
-<hr>
-
 <div id="disqus_thread"></div>
 <script type="text/javascript">
-    var disqus_shortname = 'mwum'; // required: replace example with your forum shortname
-    /* * * DON'T EDIT BELOW THIS LINE * * */
+    var disqus_shortname = 'mwum'; 
+     
     (function() {
+        if (window.location.hostname == "localhost")
+            return;
+
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
@@ -139,19 +115,18 @@
 
 
 
+  </div>
+</div>
 
-      </div>
-    </div>
-
-    <footer class="site-footer">
+<footer class="site-footer">
 
   <div class="wrapper">
     <div class="footer-content">
       <p>
         <span class="no-palm">本站采用 <a rel="license" href="//creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可<br></span>
-        <span>&copy;2013-2019 <a href="https://www.dreamxu.com">明无梦</a></span>
+        <span>©2013-2024 <a href="https://www.dreamxu.com">明无梦</a></span>
         <span class="no-palm">| </span>
-        <span>Powered by <a href="//jekyllrb.com/">Jekyll</a></span>
+        <span>Powered by <a href="//gohugo.io/">Hugo</a></span>
         <span class="no-palm">| </span>
         <span>Hosted by <a href="//github.com/">GitHub</a></span>
         <span class="no-palm">| </span>
@@ -165,29 +140,6 @@
 </footer>
 
 
-    <script type="text/javascript" src="/js/main.js"></script>
-
-
-
-
-
-    
-
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-39279084-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-
-
-
-
-  </body>
+</body>
 
 </html>

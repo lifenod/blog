@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
+<head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  
   <title>Racket 中的模式匹配 | 明无梦</title>
-  <meta name="description" content="简单来说，模式匹配就是以确定的结构去「匹配」原数据，将原数据结构化（将原数据拆分成各个元素，并命名之），也就得到了对原数据的操作能力">
-
-  <link rel="stylesheet" href="/css/main.css">
+  <meta name="description" content="简单来说，模式匹配就是以确定的结构去「匹配」原数据，将原数据结构化（将原数据拆分成各个元素，并命名之），也就得到了对原数据的操作能力
+用法呢，要比正则表达式简单多了
+可查看 Pattern Matching | Racket Documentation
+例如我们要将 &#39;(1 2 3) 其中的元素倒过来，可以这么做： …">
   <link rel="canonical" href="https://www.dreamxu.com/racket-pattern-matching/">
-  <link rel="alternate" type="application/rss+xml" title="明无梦" href="https://www.dreamxu.com/feed.xml">
+    <link rel="stylesheet" href="/css/style.min.2a2aa4ed426afcd7c5ffde31042cdd4d55ebbfcab2754fcfd5577a4a7b59019b.css" integrity="sha256-Kiqk7UJq/NfF/94xBCzdTVXrv8qydU/P1Vd6SntZAZs=" crossorigin="anonymous">
+  <script type="text/javascript" src="/js/bundle.min.441c485d1d9104b8017416429af24d2115fb80b39ccd1f1cb4907dc6c9d0e84d.js" integrity="sha256-RBxIXR2RBLgBdBZCmvJNIRX7gLOczR8ctJB9xsnQ6E0=" defer></script>
+
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
 
 
-  <body>
+<body>
 
-    <header class="site-header">
+<header class="site-header">
 
   <div class="wrapper">
 
@@ -43,11 +45,10 @@
       </a>
 
       <div class="trigger" id="js-nav-menu-trigger">
-        <a class="page-link" href="/archive">归档</a>
-        <a class="page-link" href="/tags">标签</a>
-        <a class="page-link" href="/books">书籍</a>
-        <a class="page-link" href="/tweet/2018">微语</a>
-        <a class="page-link" href="/about">关于</a>
+        <a class="page-link" href="/archive/">归档</a>
+        <a class="page-link" href="/tags/">标签</a>
+        <a class="page-link" href="/books/">书籍</a>
+        <a class="page-link" href="/about/">关于</a>
         <a class="page-link" href="/rss.xml">订阅</a>
       </div>
     </nav>
@@ -57,117 +58,71 @@
 </header>
 
 
-    <div class="content">
-      <div class="wrapper">
-        <article class="post">
+<div class="content">
+  <div class="wrapper">
+    
+
+<article class="post">
 
   <header class="post-header">
     <h1 class="post-title"><a href="/racket-pattern-matching/">Racket 中的模式匹配</a></h1>
     <ul class="post-meta">
       <li class="published-date">2015-03-19</li>
       
-
-      
         <li> | 标签: </li>
-        
-          <li class="post-tag"><a href="/tags/?names=记录#tag-list-display">记录</a></li>
-        
+          <li class="post-tag"><a href="/tags/?names=%e8%ae%b0%e5%bd%95#tag-list-display">记录</a></li>
           <li class="post-tag"><a href="/tags/?names=Racket#tag-list-display">Racket</a></li>
-        
           <li class="post-tag"><a href="/tags/?names=Scheme#tag-list-display">Scheme</a></li>
-        
-          <li class="post-tag"><a href="/tags/?names=Pattern matching#tag-list-display">Pattern matching</a></li>
-        
-      
+          <li class="post-tag"><a href="/tags/?names=Pattern%20matching#tag-list-display">Pattern matching</a></li>
     </ul>
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>简单来说，模式匹配就是以确定的结构去「匹配」原数据，<br />
-将原数据结构化（将原数据拆分成各个元素，并命名之），<br />
-也就得到了对原数据的操作能力</p>
-
-<p>用法呢，要比正则表达式简单多了  <br />
+    <p>简单来说，模式匹配就是以确定的结构去「匹配」原数据，将原数据结构化（将原数据拆分成各个元素，并命名之），也就得到了对原数据的操作能力</p>
+<p>用法呢，要比正则表达式简单多了<br>
 可查看 <em><a href="http://docs.racket-lang.org/reference/match.html">Pattern Matching | Racket Documentation</a></em></p>
-
-<p>例如我们要将 <code class="highlighter-rouge">'(1 2 3)</code> 其中的元素倒过来，可以这么做：</p>
-
-<div class="language-scheme highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-</pre></td><td class="rouge-code"><pre><span class="p">(</span><span class="nf">match</span> <span class="o">'</span><span class="p">(</span><span class="nf">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">)</span>
-  <span class="p">[(</span><span class="nb">list</span> <span class="nv">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">)</span> <span class="p">(</span><span class="nb">list</span> <span class="nv">c</span> <span class="nv">b</span> <span class="nv">a</span><span class="p">)])</span>
-<span class="c1">; =&gt; '(3 2 1)</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>如果要将其中的元素相加呢？</p>
-
-<div class="language-scheme highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-</pre></td><td class="rouge-code"><pre><span class="p">(</span><span class="nf">match</span> <span class="o">'</span><span class="p">(</span><span class="nf">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">)</span>
-  <span class="p">[(</span><span class="nb">list</span> <span class="nv">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">)</span> <span class="p">(</span><span class="nb">+</span> <span class="nv">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">)])</span>
-<span class="c1">; =&gt; 6</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<h2 id="一些例子">一些例子</h2>
-
-<p>如果 0 到 100 闭区间内的数能被 3 整除，则输出该数并标记 <code class="highlighter-rouge">*</code>, <br />
-如果能被 5 整除，则输出该数并标记 <code class="highlighter-rouge">#</code>, <br />
-如果既能被 3 整除又能被 5 整除，则输出该数并标记 <code class="highlighter-rouge">*#</code></p>
-
-<div class="language-scheme highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-</pre></td><td class="rouge-code"><pre><span class="o">#</span><span class="nv">lang</span> <span class="nv">racket</span>
-<span class="p">(</span><span class="nf">require</span> <span class="nv">math/number-theory</span><span class="p">)</span>
-
-<span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">range-closed</span> <span class="nv">start</span> <span class="nv">end</span><span class="p">)</span>
-  <span class="p">(</span><span class="nf">range</span> <span class="nv">start</span> <span class="p">(</span><span class="nb">+</span> <span class="nv">end</span> <span class="mi">1</span><span class="p">)))</span>
-
-<span class="p">(</span><span class="nb">for-each</span> <span class="p">(</span><span class="k">lambda</span> <span class="p">(</span><span class="nf">x</span><span class="p">)</span>
-            <span class="p">(</span><span class="nf">match</span> <span class="o">`</span><span class="p">(</span><span class="nf">3</span> <span class="o">,</span><span class="p">(</span><span class="nf">divides?</span> <span class="mi">3</span> <span class="nv">x</span><span class="p">)</span> <span class="nv">and</span> <span class="mi">5</span> <span class="o">,</span><span class="p">(</span><span class="nf">divides?</span> <span class="mi">5</span> <span class="nv">x</span><span class="p">))</span>
-              <span class="p">[</span><span class="o">'</span><span class="p">(</span><span class="nf">3</span> <span class="no">#t</span> <span class="nv">and</span> <span class="mi">5</span> <span class="no">#f</span><span class="p">)</span> <span class="p">(</span><span class="nf">printf</span> <span class="s">"~A*~n"</span> <span class="nv">x</span><span class="p">)]</span>
-              <span class="p">[</span><span class="o">'</span><span class="p">(</span><span class="nf">3</span> <span class="no">#f</span> <span class="nv">and</span> <span class="mi">5</span> <span class="no">#t</span><span class="p">)</span> <span class="p">(</span><span class="nf">printf</span> <span class="s">"~A#~n"</span> <span class="nv">x</span><span class="p">)]</span>
-              <span class="p">[</span><span class="o">'</span><span class="p">(</span><span class="nf">3</span> <span class="no">#t</span> <span class="nv">and</span> <span class="mi">5</span> <span class="no">#t</span><span class="p">)</span> <span class="p">(</span><span class="nf">printf</span> <span class="s">"~A*#~n"</span> <span class="nv">x</span><span class="p">)]</span>
-              <span class="p">[</span><span class="k">else</span> <span class="o">'</span><span class="p">()]))</span>
-          <span class="p">(</span><span class="nf">range-closed</span> <span class="mi">0</span> <span class="mi">100</span><span class="p">))</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>过程简洁明了</p>
+<p>例如我们要将 <code>'(1 2 3)</code> 其中的元素倒过来，可以这么做：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scheme" data-lang="scheme"><span class="line"><span class="cl"><span class="p">(</span><span class="nf">match</span> <span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[(</span><span class="nb">list </span><span class="nv">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">)</span> <span class="p">(</span><span class="nb">list </span><span class="nv">c</span> <span class="nv">b</span> <span class="nv">a</span><span class="p">)])</span>
+</span></span><span class="line"><span class="cl"><span class="c1">; =&gt; &#39;(3 2 1)</span>
+</span></span></code></pre></div><p>如果要将其中的元素相加呢？</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scheme" data-lang="scheme"><span class="line"><span class="cl"><span class="p">(</span><span class="nf">match</span> <span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[(</span><span class="nb">list </span><span class="nv">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">)</span> <span class="p">(</span><span class="nb">+ </span><span class="nv">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">)])</span>
+</span></span><span class="line"><span class="cl"><span class="c1">; =&gt; 6</span>
+</span></span></code></pre></div><h2 id="一些例子">一些例子</h2>
+<p>如果 0 到 100 闭区间内的数能被 3 整除，则输出该数并标记 <code>*</code>, 如果能被 5 整除，则输出该数并标记 <code>#</code>, 如果既能被 3 整除又能被 5 整除，则输出该数并标记 <code>*#</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scheme" data-lang="scheme"><span class="line"><span class="cl"><span class="o">#</span><span class="nv">lang</span> <span class="nv">racket</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">require</span> <span class="nv">math/number-theory</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">range-closed</span> <span class="nv">start</span> <span class="nv">end</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nf">range</span> <span class="nv">start</span> <span class="p">(</span><span class="nb">+ </span><span class="nv">end</span> <span class="mi">1</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">for-each </span><span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">(</span><span class="nf">match</span> <span class="o">`</span><span class="p">(</span><span class="mi">3</span> <span class="o">,</span><span class="p">(</span><span class="nf">divides?</span> <span class="mi">3</span> <span class="nv">x</span><span class="p">)</span> <span class="k">and </span><span class="mi">5</span> <span class="o">,</span><span class="p">(</span><span class="nf">divides?</span> <span class="mi">5</span> <span class="nv">x</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">              <span class="p">[</span><span class="o">&#39;</span><span class="p">(</span><span class="mi">3</span> <span class="no">#t</span> <span class="k">and </span><span class="mi">5</span> <span class="no">#f</span><span class="p">)</span> <span class="p">(</span><span class="nf">printf</span> <span class="s">&#34;~A*~n&#34;</span> <span class="nv">x</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">              <span class="p">[</span><span class="o">&#39;</span><span class="p">(</span><span class="mi">3</span> <span class="no">#f</span> <span class="k">and </span><span class="mi">5</span> <span class="no">#t</span><span class="p">)</span> <span class="p">(</span><span class="nf">printf</span> <span class="s">&#34;~A#~n&#34;</span> <span class="nv">x</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">              <span class="p">[</span><span class="o">&#39;</span><span class="p">(</span><span class="mi">3</span> <span class="no">#t</span> <span class="k">and </span><span class="mi">5</span> <span class="no">#t</span><span class="p">)</span> <span class="p">(</span><span class="nf">printf</span> <span class="s">&#34;~A*#~n&#34;</span> <span class="nv">x</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">              <span class="p">[</span><span class="k">else </span><span class="o">&#39;</span><span class="p">()]))</span>
+</span></span><span class="line"><span class="cl">          <span class="p">(</span><span class="nf">range-closed</span> <span class="mi">0</span> <span class="mi">100</span><span class="p">))</span>
+</span></span></code></pre></div><p>过程简洁明了</p>
 
   </div>
 
   <div class="quiet-link">
-    
-    <span>上一篇：</span><a href="/scheme-of-the-quote-quasiquote-unquote-discuss/">Scheme 中的 quote, quasiquote, unquote 浅谈</a><br />
-    
-    
-    <span>下一篇：</span><a href="/recommend-learnxinyminutes/">推荐 - Learn X in Y minutes</a>
-    
+      <span>上一篇：</span><a href="/scheme-of-the-quote-quasiquote-unquote-discuss/">Scheme 中的 quote, quasiquote, unquote 浅谈</a><br />
+      <span>下一篇：</span><a href="/recommend-learnxinyminutes/">推荐 - Learn X in Y minutes</a>
   </div>
 
 </article>
 
-
-
-<hr>
-
 <div id="disqus_thread"></div>
 <script type="text/javascript">
-    var disqus_shortname = 'mwum'; // required: replace example with your forum shortname
-    /* * * DON'T EDIT BELOW THIS LINE * * */
+    var disqus_shortname = 'mwum'; 
+     
     (function() {
+        if (window.location.hostname == "localhost")
+            return;
+
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
@@ -178,19 +133,18 @@
 
 
 
+  </div>
+</div>
 
-      </div>
-    </div>
-
-    <footer class="site-footer">
+<footer class="site-footer">
 
   <div class="wrapper">
     <div class="footer-content">
       <p>
         <span class="no-palm">本站采用 <a rel="license" href="//creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可<br></span>
-        <span>&copy;2013-2019 <a href="https://www.dreamxu.com">明无梦</a></span>
+        <span>©2013-2024 <a href="https://www.dreamxu.com">明无梦</a></span>
         <span class="no-palm">| </span>
-        <span>Powered by <a href="//jekyllrb.com/">Jekyll</a></span>
+        <span>Powered by <a href="//gohugo.io/">Hugo</a></span>
         <span class="no-palm">| </span>
         <span>Hosted by <a href="//github.com/">GitHub</a></span>
         <span class="no-palm">| </span>
@@ -204,29 +158,6 @@
 </footer>
 
 
-    <script type="text/javascript" src="/js/main.js"></script>
-
-
-
-
-
-    
-
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-39279084-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-
-
-
-
-  </body>
+</body>
 
 </html>

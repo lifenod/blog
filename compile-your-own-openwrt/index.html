@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
+<head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  
   <title>编译自己的 OpenWrt 固件 | 明无梦</title>
-  <meta name="description" content="编译环境：Ubuntu 14.04.2 64-Bit  路由器型号：TP-LINK TL-WR703N v1, 改过硬件：16M Flash / 64M Memory">
-
-  <link rel="stylesheet" href="/css/main.css">
+  <meta name="description" content="编译环境：Ubuntu 14.04.2 64-Bit
+路由器型号：TP-LINK TL-WR703N v1, 改过硬件：16M Flash / 64M Memory
+固件也可以去官方下载：https://downloads.openwrt.org/
+例如 TP-LINK TL-WR703N v1 的最新固件下载地址为： …">
   <link rel="canonical" href="https://www.dreamxu.com/compile-your-own-openwrt/">
-  <link rel="alternate" type="application/rss+xml" title="明无梦" href="https://www.dreamxu.com/feed.xml">
+    <link rel="stylesheet" href="/css/style.min.2a2aa4ed426afcd7c5ffde31042cdd4d55ebbfcab2754fcfd5577a4a7b59019b.css" integrity="sha256-Kiqk7UJq/NfF/94xBCzdTVXrv8qydU/P1Vd6SntZAZs=" crossorigin="anonymous">
+  <script type="text/javascript" src="/js/bundle.min.441c485d1d9104b8017416429af24d2115fb80b39ccd1f1cb4907dc6c9d0e84d.js" integrity="sha256-RBxIXR2RBLgBdBZCmvJNIRX7gLOczR8ctJB9xsnQ6E0=" defer></script>
+
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
 
 
-  <body>
+<body>
 
-    <header class="site-header">
+<header class="site-header">
 
   <div class="wrapper">
 
@@ -43,11 +45,10 @@
       </a>
 
       <div class="trigger" id="js-nav-menu-trigger">
-        <a class="page-link" href="/archive">归档</a>
-        <a class="page-link" href="/tags">标签</a>
-        <a class="page-link" href="/books">书籍</a>
-        <a class="page-link" href="/tweet/2018">微语</a>
-        <a class="page-link" href="/about">关于</a>
+        <a class="page-link" href="/archive/">归档</a>
+        <a class="page-link" href="/tags/">标签</a>
+        <a class="page-link" href="/books/">书籍</a>
+        <a class="page-link" href="/about/">关于</a>
         <a class="page-link" href="/rss.xml">订阅</a>
       </div>
     </nav>
@@ -57,357 +58,247 @@
 </header>
 
 
-    <div class="content">
-      <div class="wrapper">
-        <article class="post">
+<div class="content">
+  <div class="wrapper">
+    
+
+<article class="post">
 
   <header class="post-header">
     <h1 class="post-title"><a href="/compile-your-own-openwrt/">编译自己的 OpenWrt 固件</a></h1>
     <ul class="post-meta">
       <li class="published-date">2015-10-13</li>
       
-
-      
         <li> | 标签: </li>
-        
-          <li class="post-tag"><a href="/tags/?names=记录#tag-list-display">记录</a></li>
-        
+          <li class="post-tag"><a href="/tags/?names=%e8%ae%b0%e5%bd%95#tag-list-display">记录</a></li>
           <li class="post-tag"><a href="/tags/?names=OpenWrt#tag-list-display">OpenWrt</a></li>
-        
           <li class="post-tag"><a href="/tags/?names=TL-WR703N#tag-list-display">TL-WR703N</a></li>
-        
-      
     </ul>
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>编译环境：Ubuntu 14.04.2 64-Bit  <br />
+    <p>编译环境：Ubuntu 14.04.2 64-Bit<br>
 路由器型号：TP-LINK TL-WR703N v1, 改过硬件：16M Flash / 64M Memory</p>
-
-<p>固件也可以去官方下载：<a href="https://downloads.openwrt.org/">https://downloads.openwrt.org/</a>  <br />
+<p>固件也可以去官方下载：<a href="https://downloads.openwrt.org/">https://downloads.openwrt.org/</a><br>
 例如 TP-LINK TL-WR703N v1 的最新固件下载地址为：</p>
-
 <ul>
-  <li>factory: <a href="https://downloads.openwrt.org/chaos_calmer/15.05/ar71xx/generic/openwrt-15.05-ar71xx-generic-tl-wr703n-v1-squashfs-factory.bin">https://downloads.openwrt.org/chaos_calmer/15.05/ar71xx/generic/openwrt-15.05-ar71xx-generic-tl-wr703n-v1-squashfs-factory.bin</a></li>
-  <li>sysupgrade: <a href="https://downloads.openwrt.org/chaos_calmer/15.05/ar71xx/generic/openwrt-15.05-ar71xx-generic-tl-wr703n-v1-squashfs-sysupgrade.bin">https://downloads.openwrt.org/chaos_calmer/15.05/ar71xx/generic/openwrt-15.05-ar71xx-generic-tl-wr703n-v1-squashfs-sysupgrade.bin</a></li>
+<li>factory: <a href="https://downloads.openwrt.org/chaos_calmer/15.05/ar71xx/generic/openwrt-15.05-ar71xx-generic-tl-wr703n-v1-squashfs-factory.bin">https://downloads.openwrt.org/chaos_calmer/15.05/ar71xx/generic/openwrt-15.05-ar71xx-generic-tl-wr703n-v1-squashfs-factory.bin</a></li>
+<li>sysupgrade: <a href="https://downloads.openwrt.org/chaos_calmer/15.05/ar71xx/generic/openwrt-15.05-ar71xx-generic-tl-wr703n-v1-squashfs-sysupgrade.bin">https://downloads.openwrt.org/chaos_calmer/15.05/ar71xx/generic/openwrt-15.05-ar71xx-generic-tl-wr703n-v1-squashfs-sysupgrade.bin</a></li>
 </ul>
-
-<p>优点是方便，缺点是不能自己定制，如果你是改过 Flash 大小的，那么也必须自己编译  <br />
-可参考官方文档关于编译的章节：<a href="http://wiki.openwrt.org/doc/start#building_openwrt">http://wiki.openwrt.org/doc/start#building_openwrt</a>  <br />
+<p>优点是方便，缺点是不能自己定制，如果你是改过 Flash 大小的，那么也必须自己编译<br>
+可参考官方文档关于编译的章节：<a href="http://wiki.openwrt.org/doc/start#building_openwrt">http://wiki.openwrt.org/doc/start#building_openwrt</a><br>
 以下是我对改过硬件的 TL-WR703N 编译适合的固件的步骤：</p>
-
-<p>按以下步骤编译好的固件下载地址（如果你不想自己编译的话）：  <br />
-factory: <a href="https://www.dropbox.com/s/aqe1957l4swpw9w/openwrt-15.05-ar71xx-generic-tl-wr703n-v1-squashfs-factory.bin?dl=0">https://www.dropbox.com/s/aqe1957l4swpw9w/openwrt-15.05-ar71xx-generic-tl-wr703n-v1-squashfs-factory.bin?dl=0</a>  <br />
+<p>按以下步骤编译好的固件下载地址（如果你不想自己编译的话）：<br>
+factory: <a href="https://www.dropbox.com/s/aqe1957l4swpw9w/openwrt-15.05-ar71xx-generic-tl-wr703n-v1-squashfs-factory.bin?dl=0">https://www.dropbox.com/s/aqe1957l4swpw9w/openwrt-15.05-ar71xx-generic-tl-wr703n-v1-squashfs-factory.bin?dl=0</a><br>
 sysupgrade: <a href="https://www.dropbox.com/s/os5sz47ljfgt4i6/openwrt-15.05-ar71xx-generic-tl-wr703n-v1-squashfs-sysupgrade.bin?dl=0">https://www.dropbox.com/s/os5sz47ljfgt4i6/openwrt-15.05-ar71xx-generic-tl-wr703n-v1-squashfs-sysupgrade.bin?dl=0</a></p>
-
 <ol>
-  <li>
-    <p>获取最新源码，如何获取源码可查看：<a href="https://dev.openwrt.org/wiki/GetSource">https://dev.openwrt.org/wiki/GetSource</a></p>
-
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>git clone git://git.openwrt.org/openwrt.git
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-
-    <p>也可以获取特定分支的源码，例如我们获取 15.05 branch (Chaos Calmer) 这个分支  <br />
+<li>
+<p>获取最新源码，如何获取源码可查看：<a href="https://dev.openwrt.org/wiki/GetSource">https://dev.openwrt.org/wiki/GetSource</a></p>
+<pre><code>git clone git://git.openwrt.org/openwrt.git
+</code></pre>
+<p>也可以获取特定分支的源码，例如我们获取 15.05 branch (Chaos Calmer) 这个分支<br>
 以下步骤都使用的这份源码</p>
-
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>git clone git://git.openwrt.org/15.05/openwrt.git
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-  </li>
-  <li>
-    <p>修改源码，使其适用于 16M Flash  <br />
+<pre><code>git clone git://git.openwrt.org/15.05/openwrt.git
+</code></pre>
+</li>
+<li>
+<p>修改源码，使其适用于 16M Flash<br>
 参考的这篇文章：<a href="http://wiki.openwrt.org/toh/tp-link/tl-wr703n#mb_flash_mod">http://wiki.openwrt.org/toh/tp-link/tl-wr703n#mb_flash_mod</a></p>
-
-    <p>进入源码目录 <code class="highlighter-rouge">cd openwrt</code></p>
-
-    <ul>
-      <li>
-        <p>打开 target/linux/ar71xx/image/Makefile 这个文件  <br />
+<p>进入源码目录 <code>cd openwrt</code></p>
+<ul>
+<li>
+<p>打开 target/linux/ar71xx/image/Makefile 这个文件<br>
 将如下内容</p>
-
-        <div class="language-make highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-</pre></td><td class="rouge-code"><pre><span class="err">define</span> <span class="err">Device/tl-wr703n-v1</span>
-    <span class="err">$(Device/tplink-4mlzma)</span>
-    <span class="nv">BOARDNAME</span> <span class="o">:=</span> TL-WR703N
-    <span class="nv">DEVICE_PROFILE</span> <span class="o">:=</span> TLWR703
-    <span class="nv">TPLINK_HWID</span> <span class="o">:=</span> 0x07030101
-    <span class="nv">CONSOLE</span> <span class="o">:=</span> ttyATH0,115200
-<span class="err">endef</span>
-</pre></td></tr></tbody></table></code></pre></div>        </div>
-
-        <p>改为：</p>
-
-        <div class="language-make highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-</pre></td><td class="rouge-code"><pre><span class="err">define</span> <span class="err">Device/tl-wr703n-v1</span>
-    <span class="err">$(Device/tplink-16mlzma)</span>
-    <span class="nv">BOARDNAME</span> <span class="o">:=</span> TL-WR703N
-    <span class="nv">DEVICE_PROFILE</span> <span class="o">:=</span> TLWR703
-    <span class="nv">TPLINK_HWID</span> <span class="o">:=</span> 0x07030101
-    <span class="nv">CONSOLE</span> <span class="o">:=</span> ttyATH0,115200
-<span class="err">endef</span>
-</pre></td></tr></tbody></table></code></pre></div>        </div>
-      </li>
-      <li>
-        <p>打开 tools/firmware-utils/src/mktplinkfw.c 这个文件  <br />
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-make" data-lang="make"><span class="line"><span class="cl"><span class="err">define</span> <span class="err">Device/tl-wr703n-v1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">$(</span><span class="nv">Device</span>/<span class="nv">tplink</span>-4<span class="nv">mlzma</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">BOARDNAME</span> <span class="o">:=</span> TL-WR703N
+</span></span><span class="line"><span class="cl">    DEVICE_PROFILE :<span class="o">=</span> TLWR703
+</span></span><span class="line"><span class="cl">    TPLINK_HWID :<span class="o">=</span> 0x07030101
+</span></span><span class="line"><span class="cl">    CONSOLE :<span class="o">=</span> ttyATH0,115200
+</span></span><span class="line"><span class="cl"><span class="err">endef</span>
+</span></span></code></pre></div><p>改为：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-make" data-lang="make"><span class="line"><span class="cl"><span class="err">define</span> <span class="err">Device/tl-wr703n-v1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">$(</span><span class="nv">Device</span>/<span class="nv">tplink</span>-16<span class="nv">mlzma</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">BOARDNAME</span> <span class="o">:=</span> TL-WR703N
+</span></span><span class="line"><span class="cl">    DEVICE_PROFILE :<span class="o">=</span> TLWR703
+</span></span><span class="line"><span class="cl">    TPLINK_HWID :<span class="o">=</span> 0x07030101
+</span></span><span class="line"><span class="cl">    CONSOLE :<span class="o">=</span> ttyATH0,115200
+</span></span><span class="line"><span class="cl"><span class="err">endef</span>
+</span></span></code></pre></div></li>
+<li>
+<p>打开 tools/firmware-utils/src/mktplinkfw.c 这个文件<br>
 将如下内容：</p>
-
-        <div class="language-make highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-</pre></td><td class="rouge-code"><pre><span class="nv">.id</span>             <span class="o">=</span> <span class="s2">"TL-WR703Nv1"</span>,
-<span class="nv">.hw_id</span>          <span class="o">=</span> HWID_TL_WR703N_V1,
-<span class="nv">.hw_rev</span>         <span class="o">=</span> 1,
-<span class="nv">.layout_id</span>      <span class="o">=</span> <span class="s2">"4Mlzma"</span>,
-</pre></td></tr></tbody></table></code></pre></div>        </div>
-
-        <p>改为：</p>
-
-        <div class="language-make highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-</pre></td><td class="rouge-code"><pre><span class="nv">.id</span>             <span class="o">=</span> <span class="s2">"TL-WR703Nv1"</span>,
-<span class="nv">.hw_id</span>          <span class="o">=</span> HWID_TL_WR703N_V1,
-<span class="nv">.hw_rev</span>         <span class="o">=</span> 1,
-<span class="nv">.layout_id</span>      <span class="o">=</span> <span class="s2">"16Mlzma"</span>,
-</pre></td></tr></tbody></table></code></pre></div>        </div>
-      </li>
-    </ul>
-  </li>
-  <li>
-    <p>（可选）下载和安装所有可用的 Feeds, 如果不清楚 Feeds 是什么，可查看：<a href="http://wiki.openwrt.org/doc/devel/feeds">http://wiki.openwrt.org/doc/devel/feeds</a></p>
-
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-</pre></td><td class="rouge-code"><pre>./scripts/feeds update -a
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-make" data-lang="make"><span class="line"><span class="cl"><span class="nv">.id</span>             <span class="o">=</span> <span class="s2">&#34;TL-WR703Nv1&#34;</span>,
+</span></span><span class="line"><span class="cl"><span class="nv">.hw_id</span>          <span class="o">=</span> HWID_TL_WR703N_V1,
+</span></span><span class="line"><span class="cl"><span class="nv">.hw_rev</span>         <span class="o">=</span> 1,
+</span></span><span class="line"><span class="cl"><span class="nv">.layout_id</span>      <span class="o">=</span> <span class="s2">&#34;4Mlzma&#34;</span>,
+</span></span></code></pre></div><p>改为：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-make" data-lang="make"><span class="line"><span class="cl"><span class="nv">.id</span>             <span class="o">=</span> <span class="s2">&#34;TL-WR703Nv1&#34;</span>,
+</span></span><span class="line"><span class="cl"><span class="nv">.hw_id</span>          <span class="o">=</span> HWID_TL_WR703N_V1,
+</span></span><span class="line"><span class="cl"><span class="nv">.hw_rev</span>         <span class="o">=</span> 1,
+</span></span><span class="line"><span class="cl"><span class="nv">.layout_id</span>      <span class="o">=</span> <span class="s2">&#34;16Mlzma&#34;</span>,
+</span></span></code></pre></div></li>
+</ul>
+</li>
+<li>
+<p>（可选）下载和安装所有可用的 Feeds, 如果不清楚 Feeds 是什么，可查看：<a href="http://wiki.openwrt.org/doc/devel/feeds">http://wiki.openwrt.org/doc/devel/feeds</a></p>
+<pre><code>./scripts/feeds update -a
 ./scripts/feeds install -a
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-  </li>
-  <li>
-    <p>输入以下命令，检查哪些需要的包还没有安装：</p>
-
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-</pre></td><td class="rouge-code"><pre>make defconfig
+</code></pre>
+</li>
+<li>
+<p>输入以下命令，检查哪些需要的包还没有安装：</p>
+<pre><code>make defconfig
 make prereq
 make menuconfig
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-
-    <p>例如在我这提示：</p>
-
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-</pre></td><td class="rouge-code"><pre>Build dependency: Please install ncurses. (Missing libncurses.so or ncurses.h)
+</code></pre>
+<p>例如在我这提示：</p>
+<pre><code>Build dependency: Please install ncurses. (Missing libncurses.so or ncurses.h)
 Build dependency: Please install zlib. (Missing libz.so or zlib.h)
 Build dependency: Please install the openssl library (with development headers)
 Build dependency: Please install GNU 'awk'
 Build dependency: Please install the Subversion client
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-
-    <p>安装缺少的包：</p>
-
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>sudo apt-get install subversion libncurses5-dev zlib1g-dev libssl-dev gawk subversion
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-
-    <p>你或许还需要安装 build-essential 这个包，我是以前就安好了</p>
-  </li>
-  <li>
-    <p>配置编译详情</p>
-
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>make menuconfig
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-
-    <p>输入以上命令之后，会进入一个命令行图形界面，界面最上面是用法  <br />
-以下是我的一些配置，你可以选择性的参考  <br />
+</code></pre>
+<p>安装缺少的包：</p>
+<pre><code>sudo apt-get install subversion libncurses5-dev zlib1g-dev libssl-dev gawk subversion
+</code></pre>
+<p>你或许还需要安装 build-essential 这个包，我是以前就安好了</p>
+</li>
+<li>
+<p>配置编译详情</p>
+<pre><code>make menuconfig
+</code></pre>
+<p>输入以上命令之后，会进入一个命令行图形界面，界面最上面是用法<br>
+以下是我的一些配置，你可以选择性的参考<br>
 我的配置非常简单，如果需要额外的功能可以通过 opkg 来安装，所以固件简单点就好，反正之后还可以安装</p>
-
-    <ul>
-      <li>
-        <p>选择 CPU 型号  <br />
+<ul>
+<li>
+<p>选择 CPU 型号<br>
 Target System 选为 Atheros ARM7xxx/ARM9xxx</p>
-      </li>
-      <li>
-        <p>选择你的路由器型号  <br />
+</li>
+<li>
+<p>选择你的路由器型号<br>
 Target Profile 选为 TP-LINK TP-WR703N</p>
-      </li>
-      <li>
-        <p>启用 Web 管理界面 LuCI  <br />
+</li>
+<li>
+<p>启用 Web 管理界面 LuCI<br>
 LuCI → Collections → 选中 luci</p>
-      </li>
-      <li>
-        <p>添加 LuCI 中文支持  <br />
+</li>
+<li>
+<p>添加 LuCI 中文支持<br>
 LuCI → Modules → Translations → 选中 Chinese (zh-cn)</p>
-      </li>
-    </ul>
-  </li>
-  <li>
-    <p>生成构建的配置文件，检查依赖等</p>
-
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>make defconfig
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-  </li>
-  <li>
-    <p>编译，可加上 <code class="highlighter-rouge">V=99</code> 参数输出所有调试信息</p>
-
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>make
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-
-    <p>在虚拟机中大概编译了一个半到二个小时，大多数时间都在下载，所以要保持网络通畅</p>
-
-    <p>编译好了之后可在 bin/ar71xx 目录找到生成的固件  <br />
-openwrt-ar71xx-generic-tl-wr703n-v1-squashfs-factory.bin 和 openwrt-ar71xx-generic-tl-wr703n-v1-squashfs-sysupgrade.bin  <br />
-已经安装了 OpenWrt 那么可用 sysupgrade 固件进行升级，会保留用户数据（也可选不保留）  <br />
+</li>
+</ul>
+</li>
+<li>
+<p>生成构建的配置文件，检查依赖等</p>
+<pre><code>make defconfig
+</code></pre>
+</li>
+<li>
+<p>编译，可加上 <code>V=99</code> 参数输出所有调试信息</p>
+<pre><code>make
+</code></pre>
+<p>在虚拟机中大概编译了一个半到二个小时，大多数时间都在下载，所以要保持网络通畅</p>
+<p>编译好了之后可在 bin/ar71xx 目录找到生成的固件<br>
+openwrt-ar71xx-generic-tl-wr703n-v1-squashfs-factory.bin 和 openwrt-ar71xx-generic-tl-wr703n-v1-squashfs-sysupgrade.bin<br>
+已经安装了 OpenWrt 那么可用 sysupgrade 固件进行升级，会保留用户数据（也可选不保留）<br>
 factory 固件在第一次刷机的时候使用</p>
-  </li>
-  <li>
-    <p>刷机  <br />
-我所使用的 U-Boot 是这个：<a href="https://github.com/pepe2k/u-boot_mod">https://github.com/pepe2k/u-boot_mod</a>  <br />
+</li>
+<li>
+<p>刷机<br>
+我所使用的 U-Boot 是这个：<a href="https://github.com/pepe2k/u-boot_mod">https://github.com/pepe2k/u-boot_mod</a><br>
 步骤如下：</p>
-
-    <ol>
-      <li>
-        <p>将电脑 IP 设置为 192.168.1.2, 子网掩码设置为 255.255.255.0</p>
-      </li>
-      <li>
-        <p>断开路由器的电源，用网线连接好电脑和路由器</p>
-      </li>
-      <li>
-        <p>按住路由器的 Reset 按钮，插上电源，<br />
+<ol>
+<li>
+<p>将电脑 IP 设置为 192.168.1.2, 子网掩码设置为 255.255.255.0</p>
+</li>
+<li>
+<p>断开路由器的电源，用网线连接好电脑和路由器</p>
+</li>
+<li>
+<p>按住路由器的 Reset 按钮，插上电源，<br>
 待路由器灯闪四次后放开，放开后，路由器灯会快闪一次，代表进入了恢复模式</p>
-      </li>
-      <li>
-        <p>用电脑浏览器打开 http://192.168.1.1/index.html, 打开后，上传固件。如打不开可重复以上几步</p>
-      </li>
-      <li>
-        <p>上传完固件后，等一段时间，待机器自动重启  <br />
+</li>
+<li>
+<p>用电脑浏览器打开 http://192.168.1.1/index.html, 打开后，上传固件。如打不开可重复以上几步</p>
+</li>
+<li>
+<p>上传完固件后，等一段时间，待机器自动重启<br>
 此时可将电脑 IP 设置为正常</p>
-      </li>
-    </ol>
-  </li>
-  <li>
-    <p>配置系统</p>
-
-    <p>配置成网口 PPPoE 上网，电脑连接无线上网</p>
-
-    <p>因为系统初始是不开启无线连接的，所以你需要用网线将电脑和路由器连起来</p>
-
-    <ol>
-      <li>
-        <p>电脑浏览器打开 192.168.1.1 进入 Web 管理界面  <br />
+</li>
+</ol>
+</li>
+<li>
+<p>配置系统</p>
+<p>配置成网口 PPPoE 上网，电脑连接无线上网</p>
+<p>因为系统初始是不开启无线连接的，所以你需要用网线将电脑和路由器连起来</p>
+<ol>
+<li>
+<p>电脑浏览器打开 192.168.1.1 进入 Web 管理界面<br>
 不用输入密码直接登录，登录之后去设置一个新密码</p>
-      </li>
-      <li>
-        <p>更改系统语言  <br />
+</li>
+<li>
+<p>更改系统语言<br>
 Syatem → Language 修改为 Chinese, 点击 Save &amp; Apply</p>
-      </li>
-      <li>
-        <p>点击，网络 → 无线，设置好 SSID, 密码点击「保存&amp;应用」，最后点击「启用」  <br />
+</li>
+<li>
+<p>点击，网络 → 无线，设置好 SSID, 密码点击「保存&amp;应用」，最后点击「启用」<br>
 现在可以通过无线连接到路由器进行配置了</p>
-      </li>
-      <li>
-        <p>配置网络还是修改配置文件比较方便，也比较好讲解  <br />
-修改之前先备份配置文件 <code class="highlighter-rouge">cp /etc/config/network /etc/config/network.old</code>  <br />
-然后编辑配置文件 <code class="highlighter-rouge">vim /etc/config/network</code></p>
-
-        <ul>
-          <li>
-            <p>修改 lan 配置，修改成如下样子</p>
-
-            <div class="language-conf highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-</pre></td><td class="rouge-code"><pre><span class="n">config</span> <span class="n">interface</span> <span class="s1">'lan'</span>
-    <span class="c"># 去掉这个，表示只有无线应用到 lan
-</span>    <span class="c"># option ifname 'eth0'
-</span>    <span class="n">option</span> <span class="n">force_link</span> <span class="s1">'1'</span>
-    <span class="c"># 去掉这个，因为只有无线应用到 lan, 所以不需要桥接
-</span>    <span class="c"># option type 'bridge'
-</span>    <span class="n">option</span> <span class="n">proto</span> <span class="s1">'static'</span>
-    <span class="n">option</span> <span class="n">ipaddr</span> <span class="s1">'192.168.1.1'</span>
-    <span class="n">option</span> <span class="n">netmask</span> <span class="s1">'255.255.255.0'</span>
-    <span class="n">option</span> <span class="n">ip6assign</span> <span class="s1">'60'</span>
-</pre></td></tr></tbody></table></code></pre></div>            </div>
-          </li>
-          <li>
-            <p>增加 wan 配置，PPPoE 方式上网</p>
-
-            <div class="language-conf highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-</pre></td><td class="rouge-code"><pre><span class="n">config</span> <span class="n">interface</span> <span class="s1">'wan'</span>
-    <span class="n">option</span> <span class="n">ifname</span> <span class="s1">'eth0'</span>
-    <span class="n">option</span> <span class="n">proto</span> <span class="s1">'pppoe'</span>
-    <span class="n">option</span> <span class="n">username</span> <span class="s1">'USERNAME'</span>
-    <span class="n">option</span> <span class="n">password</span> <span class="s1">'PASSWORD'</span>
-</pre></td></tr></tbody></table></code></pre></div>            </div>
-          </li>
-        </ul>
-
-        <p>最后使用如下命令重启网络服务：</p>
-
-        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>/etc/init.d/network restart
-</pre></td></tr></tbody></table></code></pre></div>        </div>
-      </li>
-    </ol>
-
-    <p>以后配置路由器请使用无线连接方式，有线连接用于 PPPoE 上网</p>
-  </li>
+</li>
+<li>
+<p>配置网络还是修改配置文件比较方便，也比较好讲解<br>
+修改之前先备份配置文件 <code>cp /etc/config/network /etc/config/network.old</code><br>
+然后编辑配置文件 <code>vim /etc/config/network</code></p>
+<ul>
+<li>
+<p>修改 lan 配置，修改成如下样子</p>
+<pre tabindex="0"><code class="language-conf" data-lang="conf">config interface &#39;lan&#39;
+    # 去掉这个，表示只有无线应用到 lan
+    # option ifname &#39;eth0&#39;
+    option force_link &#39;1&#39;
+    # 去掉这个，因为只有无线应用到 lan, 所以不需要桥接
+    # option type &#39;bridge&#39;
+    option proto &#39;static&#39;
+    option ipaddr &#39;192.168.1.1&#39;
+    option netmask &#39;255.255.255.0&#39;
+    option ip6assign &#39;60&#39;
+</code></pre></li>
+<li>
+<p>增加 wan 配置，PPPoE 方式上网</p>
+<pre tabindex="0"><code class="language-conf" data-lang="conf">config interface &#39;wan&#39;
+    option ifname &#39;eth0&#39;
+    option proto &#39;pppoe&#39;
+    option username &#39;USERNAME&#39;
+    option password &#39;PASSWORD&#39;
+</code></pre></li>
+</ul>
+<p>最后使用如下命令重启网络服务：</p>
+<pre><code>/etc/init.d/network restart
+</code></pre>
+</li>
+</ol>
+<p>以后配置路由器请使用无线连接方式，有线连接用于 PPPoE 上网</p>
+</li>
 </ol>
 
   </div>
 
   <div class="quiet-link">
-    
-    <span>上一篇：</span><a href="/What-is-a-closure/">闭包 (Closure) 是什么</a><br />
-    
-    
-    <span>下一篇：</span><a href="/execute-different-commands-in-different-directories/">在不同目录下执行不同的命令</a>
-    
+      <span>上一篇：</span><a href="/What-is-a-closure/">闭包 (Closure) 是什么</a><br />
+      <span>下一篇：</span><a href="/execute-different-commands-in-different-directories/">在不同目录下执行不同的命令</a>
   </div>
 
 </article>
 
-
-
-<hr>
-
 <div id="disqus_thread"></div>
 <script type="text/javascript">
-    var disqus_shortname = 'mwum'; // required: replace example with your forum shortname
-    /* * * DON'T EDIT BELOW THIS LINE * * */
+    var disqus_shortname = 'mwum'; 
+     
     (function() {
+        if (window.location.hostname == "localhost")
+            return;
+
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
@@ -418,19 +309,18 @@ Syatem → Language 修改为 Chinese, 点击 Save &amp; Apply</p>
 
 
 
+  </div>
+</div>
 
-      </div>
-    </div>
-
-    <footer class="site-footer">
+<footer class="site-footer">
 
   <div class="wrapper">
     <div class="footer-content">
       <p>
         <span class="no-palm">本站采用 <a rel="license" href="//creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可<br></span>
-        <span>&copy;2013-2019 <a href="https://www.dreamxu.com">明无梦</a></span>
+        <span>©2013-2024 <a href="https://www.dreamxu.com">明无梦</a></span>
         <span class="no-palm">| </span>
-        <span>Powered by <a href="//jekyllrb.com/">Jekyll</a></span>
+        <span>Powered by <a href="//gohugo.io/">Hugo</a></span>
         <span class="no-palm">| </span>
         <span>Hosted by <a href="//github.com/">GitHub</a></span>
         <span class="no-palm">| </span>
@@ -444,29 +334,6 @@ Syatem → Language 修改为 Chinese, 点击 Save &amp; Apply</p>
 </footer>
 
 
-    <script type="text/javascript" src="/js/main.js"></script>
-
-
-
-
-
-    
-
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-39279084-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-
-
-
-
-  </body>
+</body>
 
 </html>

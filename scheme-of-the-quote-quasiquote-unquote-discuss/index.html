@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
+<head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  
   <title>Scheme 中的 quote, quasiquote, unquote 浅谈 | 明无梦</title>
-  <meta name="description" content="quote">
-
-  <link rel="stylesheet" href="/css/main.css">
+  <meta name="description" content="quote 为了操作以及表示符号数据，在语言中就需要一种新元素：具有表示符号的能力
+表示方法是在数据前面加上「单引号」，例如：&#39;(a b)
+但是这样就违背了我们程序具有表的形式的普遍性，通过引进特殊形式 quote 就可以恢复这种一致性
+例如：(quote a b) 等价与 &#39;(a b)
+如下的例子展示了符号和值的区 …">
   <link rel="canonical" href="https://www.dreamxu.com/scheme-of-the-quote-quasiquote-unquote-discuss/">
-  <link rel="alternate" type="application/rss+xml" title="明无梦" href="https://www.dreamxu.com/feed.xml">
+    <link rel="stylesheet" href="/css/style.min.2a2aa4ed426afcd7c5ffde31042cdd4d55ebbfcab2754fcfd5577a4a7b59019b.css" integrity="sha256-Kiqk7UJq/NfF/94xBCzdTVXrv8qydU/P1Vd6SntZAZs=" crossorigin="anonymous">
+  <script type="text/javascript" src="/js/bundle.min.441c485d1d9104b8017416429af24d2115fb80b39ccd1f1cb4907dc6c9d0e84d.js" integrity="sha256-RBxIXR2RBLgBdBZCmvJNIRX7gLOczR8ctJB9xsnQ6E0=" defer></script>
+
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
 
 
-  <body>
+<body>
 
-    <header class="site-header">
+<header class="site-header">
 
   <div class="wrapper">
 
@@ -43,11 +46,10 @@
       </a>
 
       <div class="trigger" id="js-nav-menu-trigger">
-        <a class="page-link" href="/archive">归档</a>
-        <a class="page-link" href="/tags">标签</a>
-        <a class="page-link" href="/books">书籍</a>
-        <a class="page-link" href="/tweet/2018">微语</a>
-        <a class="page-link" href="/about">关于</a>
+        <a class="page-link" href="/archive/">归档</a>
+        <a class="page-link" href="/tags/">标签</a>
+        <a class="page-link" href="/books/">书籍</a>
+        <a class="page-link" href="/about/">关于</a>
         <a class="page-link" href="/rss.xml">订阅</a>
       </div>
     </nav>
@@ -57,122 +59,74 @@
 </header>
 
 
-    <div class="content">
-      <div class="wrapper">
-        <article class="post">
+<div class="content">
+  <div class="wrapper">
+    
+
+<article class="post">
 
   <header class="post-header">
     <h1 class="post-title"><a href="/scheme-of-the-quote-quasiquote-unquote-discuss/">Scheme 中的 quote, quasiquote, unquote 浅谈</a></h1>
     <ul class="post-meta">
       <li class="published-date">2015-03-17</li>
       
-
-      
         <li> | 标签: </li>
-        
-          <li class="post-tag"><a href="/tags/?names=记录#tag-list-display">记录</a></li>
-        
+          <li class="post-tag"><a href="/tags/?names=%e8%ae%b0%e5%bd%95#tag-list-display">记录</a></li>
           <li class="post-tag"><a href="/tags/?names=Scheme#tag-list-display">Scheme</a></li>
-        
           <li class="post-tag"><a href="/tags/?names=quote#tag-list-display">quote</a></li>
-        
           <li class="post-tag"><a href="/tags/?names=quasiquote#tag-list-display">quasiquote</a></li>
-        
           <li class="post-tag"><a href="/tags/?names=unquote#tag-list-display">unquote</a></li>
-        
-      
     </ul>
   </header>
 
   <div class="post-content" itemprop="articleBody">
     <h2 id="quote">quote</h2>
-
 <p>为了操作以及表示符号数据，在语言中就需要一种新元素：具有表示符号的能力</p>
-
-<p>表示方法是在数据前面加上「单引号」，例如：<code class="highlighter-rouge">'(a b)</code>  <br />
-但是这样就违背了我们程序具有表的形式的普遍性，通过引进特殊形式 quote 就可以恢复这种一致性  <br />
-例如：<code class="highlighter-rouge">(quote a b)</code> 等价与 <code class="highlighter-rouge">'(a b)</code></p>
-
+<p>表示方法是在数据前面加上「单引号」，例如：<code>'(a b)</code><br>
+但是这样就违背了我们程序具有表的形式的普遍性，通过引进特殊形式 quote 就可以恢复这种一致性<br>
+例如：<code>(quote a b)</code> 等价与 <code>'(a b)</code></p>
 <p>如下的例子展示了符号和值的区别：</p>
-
-<div class="language-scheme highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-</pre></td><td class="rouge-code"><pre><span class="p">(</span><span class="k">define</span> <span class="nv">a</span> <span class="mi">1</span><span class="p">)</span>
-<span class="p">(</span><span class="k">define</span> <span class="nv">b</span> <span class="mi">2</span><span class="p">)</span>
-
-<span class="p">(</span><span class="nb">list</span> <span class="nv">a</span> <span class="nv">b</span><span class="p">)</span>      <span class="c1">; =&gt; '(1 2)</span>
-<span class="p">(</span><span class="nb">list</span> <span class="ss">'a</span> <span class="ss">'b</span><span class="p">)</span>    <span class="c1">; =&gt; '(a b)</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<h3 id="单引号和双引号的区别">单引号和双引号的区别</h3>
-
-<p>用双引号扩起来的称为字符串，例如：”String”  <br />
-单引号可以用于扩起表和符号，是一种结构化的数据；<br />
-而双引号只能用于字符串，只是一串字符，一般用于需要打印输出的对象，例如：</p>
-
-<div class="language-scheme highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre><span class="p">(</span><span class="nb">display</span> <span class="s">"hi"</span><span class="p">)</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>但是不能这样：</p>
-
-<div class="language-scheme highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre><span class="p">(</span><span class="nb">car</span> <span class="s">"(a b c)"</span><span class="p">)</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>可以用单引号来实现：</p>
-
-<div class="language-scheme highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre><span class="p">(</span><span class="nb">car</span> <span class="o">'</span><span class="p">(</span><span class="nf">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">))</span>      <span class="c1">; =&gt; 'a</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<h2 id="quote-quasiquote-unquote">quote, quasiquote, unquote</h2>
-
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scheme" data-lang="scheme"><span class="line"><span class="cl"><span class="p">(</span><span class="k">define </span><span class="nv">a</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="k">define </span><span class="nv">b</span> <span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">list </span><span class="nv">a</span> <span class="nv">b</span><span class="p">)</span>      <span class="c1">; =&gt; &#39;(1 2)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">list </span><span class="ss">&#39;a</span> <span class="ss">&#39;b</span><span class="p">)</span>    <span class="c1">; =&gt; &#39;(a b)</span>
+</span></span></code></pre></div><h3 id="单引号和双引号的区别">单引号和双引号的区别</h3>
+<p>用双引号扩起来的称为字符串，例如：&ldquo;String&rdquo;<br>
+单引号可以用于扩起表和符号，是一种结构化的数据；而双引号只能用于字符串，只是一串字符，一般用于需要打印输出的对象，例如：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scheme" data-lang="scheme"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">display </span><span class="s">&#34;hi&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><p>但是不能这样：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scheme" data-lang="scheme"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">car </span><span class="s">&#34;(a b c)&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><p>可以用单引号来实现：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scheme" data-lang="scheme"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">car </span><span class="o">&#39;</span><span class="p">(</span><span class="nv">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">))</span>      <span class="c1">; =&gt; &#39;a</span>
+</span></span></code></pre></div><h2 id="quote-quasiquote-unquote">quote, quasiquote, unquote</h2>
 <p>有时候不想整个表都表示为符号，这时可用 quasiquote 和 unquote 来实现，例如：</p>
-
-<div class="language-scheme highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="rouge-code"><pre><span class="p">(</span><span class="k">define</span> <span class="nv">a</span> <span class="mi">1</span><span class="p">)</span>
-<span class="p">(</span><span class="k">define</span> <span class="nv">b</span> <span class="mi">2</span><span class="p">)</span>
-
-<span class="o">`</span><span class="p">(</span><span class="nf">a</span> <span class="o">,</span><span class="nv">b</span><span class="p">)</span>                         <span class="c1">; =&gt; '(a 2), b 依旧是那个变量 b</span>
-<span class="p">(</span><span class="k">quasiquote</span> <span class="p">(</span><span class="nf">a</span> <span class="p">(</span><span class="k">unquote</span> <span class="nv">b</span><span class="p">)))</span>    <span class="c1">; =&gt; '(a 2), 和 `(a ,b) 等价</span>
-
-<span class="o">`</span><span class="p">(</span><span class="nf">,a</span> <span class="o">,</span><span class="nv">b</span><span class="p">)</span>                        <span class="c1">; =&gt; '(1 2), 从结果上来看等价于 (list a b)</span>
-<span class="o">`</span><span class="p">(</span><span class="nf">a</span> <span class="nv">b</span><span class="p">)</span>                          <span class="c1">; =&gt; '(a b), 从结果上来看等价于 (list 'a 'b)</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scheme" data-lang="scheme"><span class="line"><span class="cl"><span class="p">(</span><span class="k">define </span><span class="nv">a</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="k">define </span><span class="nv">b</span> <span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">`</span><span class="p">(</span><span class="nf">a</span> <span class="o">,</span><span class="nv">b</span><span class="p">)</span>                         <span class="c1">; =&gt; &#39;(a 2), b 依旧是那个变量 b</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="k">quasiquote </span><span class="p">(</span><span class="nf">a</span> <span class="p">(</span><span class="k">unquote </span><span class="nv">b</span><span class="p">)))</span>    <span class="c1">; =&gt; &#39;(a 2), 和 `(a ,b) 等价</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">`</span><span class="p">(</span><span class="o">,</span><span class="nv">a</span> <span class="o">,</span><span class="nv">b</span><span class="p">)</span>                        <span class="c1">; =&gt; &#39;(1 2), 从结果上来看等价于 (list a b)</span>
+</span></span><span class="line"><span class="cl"><span class="o">`</span><span class="p">(</span><span class="nf">a</span> <span class="nv">b</span><span class="p">)</span>                          <span class="c1">; =&gt; &#39;(a b), 从结果上来看等价于 (list &#39;a &#39;b)</span>
+</span></span></code></pre></div>
   </div>
 
   <div class="quiet-link">
-    
-    <span>上一篇：</span><a href="/r6300v2-dd-wrt-use-opkg/">r6300v2 路由器 dd-wrt 系统使用 opkg</a><br />
-    
-    
-    <span>下一篇：</span><a href="/racket-pattern-matching/">Racket 中的模式匹配</a>
-    
+      <span>上一篇：</span><a href="/r6300v2-dd-wrt-use-opkg/">r6300v2 路由器 dd-wrt 系统使用 opkg</a><br />
+      <span>下一篇：</span><a href="/racket-pattern-matching/">Racket 中的模式匹配</a>
   </div>
 
 </article>
 
-
-
-<hr>
-
 <div id="disqus_thread"></div>
 <script type="text/javascript">
-    var disqus_shortname = 'mwum'; // required: replace example with your forum shortname
-    /* * * DON'T EDIT BELOW THIS LINE * * */
+    var disqus_shortname = 'mwum'; 
+     
     (function() {
+        if (window.location.hostname == "localhost")
+            return;
+
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
@@ -183,19 +137,18 @@
 
 
 
+  </div>
+</div>
 
-      </div>
-    </div>
-
-    <footer class="site-footer">
+<footer class="site-footer">
 
   <div class="wrapper">
     <div class="footer-content">
       <p>
         <span class="no-palm">本站采用 <a rel="license" href="//creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可<br></span>
-        <span>&copy;2013-2019 <a href="https://www.dreamxu.com">明无梦</a></span>
+        <span>©2013-2024 <a href="https://www.dreamxu.com">明无梦</a></span>
         <span class="no-palm">| </span>
-        <span>Powered by <a href="//jekyllrb.com/">Jekyll</a></span>
+        <span>Powered by <a href="//gohugo.io/">Hugo</a></span>
         <span class="no-palm">| </span>
         <span>Hosted by <a href="//github.com/">GitHub</a></span>
         <span class="no-palm">| </span>
@@ -209,29 +162,6 @@
 </footer>
 
 
-    <script type="text/javascript" src="/js/main.js"></script>
-
-
-
-
-
-    
-
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-39279084-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-
-
-
-
-  </body>
+</body>
 
 </html>

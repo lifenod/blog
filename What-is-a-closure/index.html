@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
+<head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  
   <title>闭包 (Closure) 是什么 | 明无梦</title>
-  <meta name="description" content="本文所讲闭包是计算机中的闭包">
-
-  <link rel="stylesheet" href="/css/main.css">
+  <meta name="description" content="本文所讲闭包是计算机中的闭包
+如果一上来就一大段理论，估计连我自己也看不懂
+以具体例子入手来理解，因为在函数式语言中闭包是一个非常常见的概念，所以我们以一种函数式语言 Scheme 为例来讲解
+; 以斜截式的方式定义一条直线 y = ax &#43; b (define straight-line (lambda (a b) …">
   <link rel="canonical" href="https://www.dreamxu.com/What-is-a-closure/">
-  <link rel="alternate" type="application/rss+xml" title="明无梦" href="https://www.dreamxu.com/feed.xml">
+    <link rel="stylesheet" href="/css/style.min.2a2aa4ed426afcd7c5ffde31042cdd4d55ebbfcab2754fcfd5577a4a7b59019b.css" integrity="sha256-Kiqk7UJq/NfF/94xBCzdTVXrv8qydU/P1Vd6SntZAZs=" crossorigin="anonymous">
+  <script type="text/javascript" src="/js/bundle.min.441c485d1d9104b8017416429af24d2115fb80b39ccd1f1cb4907dc6c9d0e84d.js" integrity="sha256-RBxIXR2RBLgBdBZCmvJNIRX7gLOczR8ctJB9xsnQ6E0=" defer></script>
+
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
 
 
-  <body>
+<body>
 
-    <header class="site-header">
+<header class="site-header">
 
   <div class="wrapper">
 
@@ -43,11 +45,10 @@
       </a>
 
       <div class="trigger" id="js-nav-menu-trigger">
-        <a class="page-link" href="/archive">归档</a>
-        <a class="page-link" href="/tags">标签</a>
-        <a class="page-link" href="/books">书籍</a>
-        <a class="page-link" href="/tweet/2018">微语</a>
-        <a class="page-link" href="/about">关于</a>
+        <a class="page-link" href="/archive/">归档</a>
+        <a class="page-link" href="/tags/">标签</a>
+        <a class="page-link" href="/books/">书籍</a>
+        <a class="page-link" href="/about/">关于</a>
         <a class="page-link" href="/rss.xml">订阅</a>
       </div>
     </nav>
@@ -57,217 +58,124 @@
 </header>
 
 
-    <div class="content">
-      <div class="wrapper">
-        <article class="post">
+<div class="content">
+  <div class="wrapper">
+    
+
+<article class="post">
 
   <header class="post-header">
     <h1 class="post-title"><a href="/What-is-a-closure/">闭包 (Closure) 是什么</a></h1>
     <ul class="post-meta">
       <li class="published-date">2015-10-11</li>
       
-
-      
         <li> | 标签: </li>
-        
-          <li class="post-tag"><a href="/tags/?names=记录#tag-list-display">记录</a></li>
-        
+          <li class="post-tag"><a href="/tags/?names=%e8%ae%b0%e5%bd%95#tag-list-display">记录</a></li>
           <li class="post-tag"><a href="/tags/?names=Closure#tag-list-display">Closure</a></li>
-        
           <li class="post-tag"><a href="/tags/?names=Scheme#tag-list-display">Scheme</a></li>
-        
           <li class="post-tag"><a href="/tags/?names=Golang#tag-list-display">Golang</a></li>
-        
-      
     </ul>
   </header>
 
   <div class="post-content" itemprop="articleBody">
     <p>本文所讲闭包是计算机中的闭包</p>
-
-<p>如果一上来就一大段理论，估计连我自己也看不懂  <br />
-以具体例子入手来理解，因为在函数式语言中闭包是一个非常常见的概念，<br />
-所以我们以一种函数式语言 Scheme 为例来讲解</p>
-
-<div class="language-scheme highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-</pre></td><td class="rouge-code"><pre><span class="c1">; 以斜截式的方式定义一条直线 y = ax + b</span>
-<span class="p">(</span><span class="k">define</span> <span class="nv">straight-line</span>
-  <span class="p">(</span><span class="k">lambda</span> <span class="p">(</span><span class="nf">a</span> <span class="nv">b</span><span class="p">)</span>
-    <span class="p">(</span><span class="k">lambda</span> <span class="p">(</span><span class="nf">x</span><span class="p">)</span>
-      <span class="p">(</span><span class="nb">+</span> <span class="p">(</span><span class="nb">*</span> <span class="nv">a</span> <span class="nv">x</span><span class="p">)</span> <span class="nv">b</span><span class="p">))))</span>
-
-<span class="c1">; 定义一条斜率为 1, 截距为 1 的直线</span>
-<span class="p">(</span><span class="k">define</span> <span class="nv">straight-line-1-1</span> <span class="p">(</span><span class="nf">straight-line</span> <span class="mi">1</span> <span class="mi">1</span><span class="p">))</span>
-
-<span class="c1">; 定义一条斜率为 2, 截距为 2 的直线</span>
-<span class="p">(</span><span class="k">define</span> <span class="nv">straight-line-2-2</span> <span class="p">(</span><span class="nf">straight-line</span> <span class="mi">2</span> <span class="mi">2</span><span class="p">))</span>
-
-<span class="c1">; 求当 x 等于 1 时，这条直线的 y 值</span>
-<span class="p">(</span><span class="nf">straight-line-1-1</span> <span class="mi">1</span><span class="p">)</span>   <span class="c1">; =&gt; 2</span>
-<span class="p">(</span><span class="nf">straight-line-1-1</span> <span class="mi">0</span><span class="p">)</span>   <span class="c1">; =&gt; 1</span>
-
-<span class="p">(</span><span class="nf">straight-line-2-2</span> <span class="mi">1</span><span class="p">)</span>   <span class="c1">; =&gt; 4</span>
-<span class="p">(</span><span class="nf">straight-line-2-2</span> <span class="mi">0</span><span class="p">)</span>   <span class="c1">; =&gt; 2</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>最近正好看了会 Go 语言，下面是 Go 代码，功能和写法都和上面的 Scheme 代码一样。<br />
-也是我对 Go 语言中闭包的一种练习。<br />
-如果你习惯于看 C 类的代码，那么 Scheme 代码可能不好理解，相反下面的代码就好理解一点</p>
-
-<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-</pre></td><td class="rouge-code"><pre><span class="k">package</span> <span class="n">main</span>
-
-<span class="k">import</span> <span class="s">"fmt"</span>
-
-<span class="c">// 以斜截式的方式定义一条直线 y = ax + b</span>
-<span class="k">func</span> <span class="n">straight_line</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="kt">float64</span><span class="p">)</span> <span class="k">func</span><span class="p">(</span><span class="n">x</span> <span class="kt">float64</span><span class="p">)</span> <span class="kt">float64</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="k">func</span><span class="p">(</span><span class="n">x</span> <span class="kt">float64</span><span class="p">)</span> <span class="kt">float64</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">b</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="c">// 定义一条斜率为 1, 截距为 1 的直线</span>
-    <span class="n">straight_line_1_1</span> <span class="o">:=</span> <span class="n">straight_line</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span>
-
-    <span class="c">// 定义一条斜率为 2, 截距为 2 的直线</span>
-    <span class="n">straight_line_2_2</span> <span class="o">:=</span> <span class="n">straight_line</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">2</span><span class="p">)</span>
-
-    <span class="c">// 求当 x 等于 1 时，这条直线的 y 值</span>
-    <span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">straight_line_1_1</span><span class="p">(</span><span class="m">1</span><span class="p">))</span>
-    <span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">straight_line_1_1</span><span class="p">(</span><span class="m">0</span><span class="p">))</span>
-
-    <span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">straight_line_2_2</span><span class="p">(</span><span class="m">1</span><span class="p">))</span>
-    <span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">straight_line_2_2</span><span class="p">(</span><span class="m">0</span><span class="p">))</span>
-<span class="p">}</span>
-
-<span class="c">// 输出：</span>
-<span class="c">// 2</span>
-<span class="c">// 1</span>
-<span class="c">// 4</span>
-<span class="c">// 2</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>以上面中的 <code class="highlighter-rouge">straight-line-1-1</code> 为例，它是什么呢？或者换种问法，我们希望它是什么呢？</p>
-
+<p>如果一上来就一大段理论，估计连我自己也看不懂<br>
+以具体例子入手来理解，因为在函数式语言中闭包是一个非常常见的概念，所以我们以一种函数式语言 Scheme 为例来讲解</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scheme" data-lang="scheme"><span class="line"><span class="cl"><span class="c1">; 以斜截式的方式定义一条直线 y = ax + b</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="k">define </span><span class="nv">straight-line</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">a</span> <span class="nv">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">(</span><span class="nb">+ </span><span class="p">(</span><span class="nb">* </span><span class="nv">a</span> <span class="nv">x</span><span class="p">)</span> <span class="nv">b</span><span class="p">))))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">; 定义一条斜率为 1, 截距为 1 的直线</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="k">define </span><span class="nv">straight-line-1-1</span> <span class="p">(</span><span class="nf">straight-line</span> <span class="mi">1</span> <span class="mi">1</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">; 定义一条斜率为 2, 截距为 2 的直线</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="k">define </span><span class="nv">straight-line-2-2</span> <span class="p">(</span><span class="nf">straight-line</span> <span class="mi">2</span> <span class="mi">2</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">; 求当 x 等于 1 时，这条直线的 y 值</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">straight-line-1-1</span> <span class="mi">1</span><span class="p">)</span>   <span class="c1">; =&gt; 2</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">straight-line-1-1</span> <span class="mi">0</span><span class="p">)</span>   <span class="c1">; =&gt; 1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">straight-line-2-2</span> <span class="mi">1</span><span class="p">)</span>   <span class="c1">; =&gt; 4</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">straight-line-2-2</span> <span class="mi">0</span><span class="p">)</span>   <span class="c1">; =&gt; 2</span>
+</span></span></code></pre></div><p>最近正好看了会 Go 语言，下面是 Go 代码，功能和写法都和上面的 Scheme 代码一样。也是我对 Go 语言中闭包的一种练习。如果你习惯于看 C 类的代码，那么 Scheme 代码可能不好理解，相反下面的代码就好理解一点</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 以斜截式的方式定义一条直线 y = ax + b
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">straight_line</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span> <span class="kt">float64</span><span class="p">)</span> <span class="kd">func</span><span class="p">(</span><span class="nx">x</span> <span class="kt">float64</span><span class="p">)</span> <span class="kt">float64</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kd">func</span><span class="p">(</span><span class="nx">x</span> <span class="kt">float64</span><span class="p">)</span> <span class="kt">float64</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">a</span> <span class="o">*</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">b</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 定义一条斜率为 1, 截距为 1 的直线
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">straight_line_1_1</span> <span class="o">:=</span> <span class="nf">straight_line</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 定义一条斜率为 2, 截距为 2 的直线
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">straight_line_2_2</span> <span class="o">:=</span> <span class="nf">straight_line</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 求当 x 等于 1 时，这条直线的 y 值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">straight_line_1_1</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">straight_line_1_1</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">straight_line_2_2</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">straight_line_2_2</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 输出：
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 2
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 1
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 4
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 2
+</span></span></span></code></pre></div><p>以上面中的 <code>straight-line-1-1</code> 为例，它是什么呢？或者换种问法，我们希望它是什么呢？</p>
 <p>至少我希望它是这个东西</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-</pre></td><td class="rouge-code"><pre>(lambda (x)
+<pre tabindex="0"><code>(lambda (x)
   (+ (* a x) b))))
 
 且 a 为 1, b 为 1
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>这样我们可以很方便地表示直线，而且将 a 和 b 自由变量绑定到某个值，不至于混乱</p>
-
-<p>东西的样子出来了，我们得给这个东西取个名字吧，就叫「闭包」吧  <br />
+</code></pre><p>这样我们可以很方便地表示直线，而且将 a 和 b 自由变量绑定到某个值，不至于混乱</p>
+<p>东西的样子出来了，我们得给这个东西取个名字吧，就叫「闭包」吧<br>
 将其表示地形式一点，如下；</p>
-
-<div class="language-scheme highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-</pre></td><td class="rouge-code"><pre><span class="p">(</span><span class="nf">Closure</span>
- <span class="o">'</span><span class="p">(</span><span class="k">lambda</span> <span class="p">(</span><span class="nf">x</span><span class="p">)</span>
-    <span class="p">(</span><span class="nb">+</span> <span class="p">(</span><span class="nb">*</span> <span class="nv">a</span> <span class="nv">x</span><span class="p">)</span> <span class="nv">b</span><span class="p">))</span>
- <span class="o">'</span><span class="p">((</span><span class="nf">a</span> <span class="o">.</span> <span class="mi">1</span><span class="p">)</span> <span class="p">(</span><span class="nf">b</span> <span class="o">.</span> <span class="mi">1</span><span class="p">)))</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>我们也可以这样说，闭包就是函数和创建这个函数时的环境总和（你也可以理解为相关数据）  <br />
-而这个环境指的是自由变量，如果一个函数并没有引用自由变量，那么它只是一个函数而已  <br />
-在这个例子中，函数就是 <code class="highlighter-rouge">(lambda (x) (+ (* a x) b))</code>, 环境就是 <code class="highlighter-rouge">((a . 1) (b . 1))</code></p>
-
-<p>闭包就是这么个东西，是不是感觉很简单？  <br />
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scheme" data-lang="scheme"><span class="line"><span class="cl"><span class="p">(</span><span class="nf">Closure</span>
+</span></span><span class="line"><span class="cl"> <span class="o">&#39;</span><span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nb">+ </span><span class="p">(</span><span class="nb">* </span><span class="nv">a</span> <span class="nv">x</span><span class="p">)</span> <span class="nv">b</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"> <span class="o">&#39;</span><span class="p">((</span><span class="nf">a</span> <span class="o">.</span> <span class="mi">1</span><span class="p">)</span> <span class="p">(</span><span class="nf">b</span> <span class="o">.</span> <span class="mi">1</span><span class="p">)))</span>
+</span></span></code></pre></div><p>我们也可以这样说，闭包就是函数和创建这个函数时的环境总和（你也可以理解为相关数据）<br>
+而这个环境指的是自由变量，如果一个函数并没有引用自由变量，那么它只是一个函数而已<br>
+在这个例子中，函数就是 <code>(lambda (x) (+ (* a x) b))</code>, 环境就是 <code>((a . 1) (b . 1))</code></p>
+<p>闭包就是这么个东西，是不是感觉很简单？<br>
 都是我们能够很容易理解的概念，没有网上一大段一大段那么复杂，有些东西细细品味确实就简单了</p>
-
 <p>在多说一点，闭包和函数的区别就是：</p>
-
 <ul>
-  <li>闭包包含了函数和环境</li>
-  <li>函数只是一个过程，并不包括创建这个函数的环境，或者说它也有环境，但是这个环境为空</li>
+<li>闭包包含了函数和环境</li>
+<li>函数只是一个过程，并不包括创建这个函数的环境，或者说它也有环境，但是这个环境为空</li>
 </ul>
-
 <p>其实理解了闭包是什么，你也就知道闭包有哪些特性了，在以后的使用过程中不至于出错</p>
-
 <p>你可能又会想到对象这个概念，是的，用闭包可以实现对象的封装，继承等，具体可见：<a href="http://okmij.org/ftp/Scheme/oop-in-fp.txt">http://okmij.org/ftp/Scheme/oop-in-fp.txt</a></p>
-
-<hr />
-
+<hr>
 <p>参考：<a href="http://www.yinwang.org/blog-cn/2013/03/26/lisp-dead-alive/">http://www.yinwang.org/blog-cn/2013/03/26/lisp-dead-alive/</a></p>
 
   </div>
 
   <div class="quiet-link">
-    
-    <span>上一篇：</span><a href="/zombie-monster-spawner-trap/">Minecraft 僵尸刷怪箱陷阱 (Monster Spawner Trap)</a><br />
-    
-    
-    <span>下一篇：</span><a href="/compile-your-own-openwrt/">编译自己的 OpenWrt 固件</a>
-    
+      <span>上一篇：</span><a href="/zombie-monster-spawner-trap/">Minecraft 僵尸刷怪箱陷阱 (Monster Spawner Trap)</a><br />
+      <span>下一篇：</span><a href="/compile-your-own-openwrt/">编译自己的 OpenWrt 固件</a>
   </div>
 
 </article>
 
-
-
-<hr>
-
 <div id="disqus_thread"></div>
 <script type="text/javascript">
-    var disqus_shortname = 'mwum'; // required: replace example with your forum shortname
-    /* * * DON'T EDIT BELOW THIS LINE * * */
+    var disqus_shortname = 'mwum'; 
+     
     (function() {
+        if (window.location.hostname == "localhost")
+            return;
+
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
@@ -278,19 +186,18 @@
 
 
 
+  </div>
+</div>
 
-      </div>
-    </div>
-
-    <footer class="site-footer">
+<footer class="site-footer">
 
   <div class="wrapper">
     <div class="footer-content">
       <p>
         <span class="no-palm">本站采用 <a rel="license" href="//creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可<br></span>
-        <span>&copy;2013-2019 <a href="https://www.dreamxu.com">明无梦</a></span>
+        <span>©2013-2024 <a href="https://www.dreamxu.com">明无梦</a></span>
         <span class="no-palm">| </span>
-        <span>Powered by <a href="//jekyllrb.com/">Jekyll</a></span>
+        <span>Powered by <a href="//gohugo.io/">Hugo</a></span>
         <span class="no-palm">| </span>
         <span>Hosted by <a href="//github.com/">GitHub</a></span>
         <span class="no-palm">| </span>
@@ -304,29 +211,6 @@
 </footer>
 
 
-    <script type="text/javascript" src="/js/main.js"></script>
-
-
-
-
-
-    
-
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-39279084-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-
-
-
-
-  </body>
+</body>
 
 </html>

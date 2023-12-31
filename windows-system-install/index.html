@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
+<head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  
   <title>Windows 8 操作系统安装教程 | 明无梦</title>
-  <meta name="description" content="准备系统镜像">
-
-  <link rel="stylesheet" href="/css/main.css">
+  <meta name="description" content="准备系统镜像 有些人可能对镜像不太了解，我用不专业的语言稍微解释一下。
+抽象一点来说呢，就是把一系列的文件压缩成了一个文件，这个文件就称为镜像文件。
+你也可以把它当成光盘的一个副本，可以把镜像文件刻成一张光盘，也可以把光盘做成一个镜像文件。
+常用的镜像文件格式有 ISO, BIN 等。 …">
   <link rel="canonical" href="https://www.dreamxu.com/windows-system-install/">
-  <link rel="alternate" type="application/rss+xml" title="明无梦" href="https://www.dreamxu.com/feed.xml">
+    <link rel="stylesheet" href="/css/style.min.2a2aa4ed426afcd7c5ffde31042cdd4d55ebbfcab2754fcfd5577a4a7b59019b.css" integrity="sha256-Kiqk7UJq/NfF/94xBCzdTVXrv8qydU/P1Vd6SntZAZs=" crossorigin="anonymous">
+  <script type="text/javascript" src="/js/bundle.min.441c485d1d9104b8017416429af24d2115fb80b39ccd1f1cb4907dc6c9d0e84d.js" integrity="sha256-RBxIXR2RBLgBdBZCmvJNIRX7gLOczR8ctJB9xsnQ6E0=" defer></script>
+
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
 
 
-  <body>
+<body>
 
-    <header class="site-header">
+<header class="site-header">
 
   <div class="wrapper">
 
@@ -43,11 +45,10 @@
       </a>
 
       <div class="trigger" id="js-nav-menu-trigger">
-        <a class="page-link" href="/archive">归档</a>
-        <a class="page-link" href="/tags">标签</a>
-        <a class="page-link" href="/books">书籍</a>
-        <a class="page-link" href="/tweet/2018">微语</a>
-        <a class="page-link" href="/about">关于</a>
+        <a class="page-link" href="/archive/">归档</a>
+        <a class="page-link" href="/tags/">标签</a>
+        <a class="page-link" href="/books/">书籍</a>
+        <a class="page-link" href="/about/">关于</a>
         <a class="page-link" href="/rss.xml">订阅</a>
       </div>
     </nav>
@@ -57,9 +58,11 @@
 </header>
 
 
-    <div class="content">
-      <div class="wrapper">
-        <article class="post">
+<div class="content">
+  <div class="wrapper">
+    
+
+<article class="post">
 
   <header class="post-header">
     <h1 class="post-title"><a href="/windows-system-install/">Windows 8 操作系统安装教程</a></h1>
@@ -67,406 +70,304 @@
       <li class="published-date">2013-07-26</li>
       
         <li class="updated-date"> | 更新: 2013-08-08</li>
-      
-
-      
         <li> | 标签: </li>
-        
-          <li class="post-tag"><a href="/tags/?names=技术#tag-list-display">技术</a></li>
-        
+          <li class="post-tag"><a href="/tags/?names=%e6%8a%80%e6%9c%af#tag-list-display">技术</a></li>
           <li class="post-tag"><a href="/tags/?names=Windows#tag-list-display">Windows</a></li>
-        
           <li class="post-tag"><a href="/tags/?names=Install#tag-list-display">Install</a></li>
-        
-      
     </ul>
   </header>
 
   <div class="post-content" itemprop="articleBody">
     <h2 id="准备系统镜像">准备系统镜像</h2>
-
-<p>有些人可能对镜像不太了解，我用不专业的语言稍微解释一下。  <br />
-抽象一点来说呢，就是把一系列的文件压缩成了一个文件，这个文件就称为镜像文件。  <br />
-你也可以把它当成光盘的一个副本，可以把镜像文件刻成一张光盘，也可以把光盘做成一个镜像文件。  <br />
+<p>有些人可能对镜像不太了解，我用不专业的语言稍微解释一下。<br>
+抽象一点来说呢，就是把一系列的文件压缩成了一个文件，这个文件就称为镜像文件。<br>
+你也可以把它当成光盘的一个副本，可以把镜像文件刻成一张光盘，也可以把光盘做成一个镜像文件。<br>
 常用的镜像文件格式有 ISO, BIN 等。</p>
-
-<p><a href="http://msdn.ez58.net/">http://msdn.ez58.net/</a><br /><br />
-<a href="http://msdn.itellyou.cn/">http://msdn.itellyou.cn/</a>  <br />
-上面那两个网站上的东西都是微软发给 MSDN 订阅用户的，都是官方原版哦，<br />
-你要是不信的话可以去验证 SHA-1 信息。  <br />
+<p><a href="http://msdn.ez58.net/">http://msdn.ez58.net/</a><br>
+<a href="http://msdn.itellyou.cn/">http://msdn.itellyou.cn/</a><br>
+上面那两个网站上的东西都是微软发给 MSDN 订阅用户的，都是官方原版哦，你要是不信的话可以去验证 SHA-1 信息。<br>
 不得不说，东西真的是太全了，网友强大啊。</p>
-
-<p>在上面下载一个系统镜像，比如说<a href="ed2k://|file|cn_windows_8_pro_vl_x64_dvd_917773.iso|3558014976|7956620A80428F37D4F2989CB5CF3B5A|/">这个</a></p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-</pre></td><td class="rouge-code"><pre>Windows 8 Pro VL (x64) - DVD (Chinese-Simplified)
+<p>在上面下载一个系统镜像，比如说<a href="ed2k://%7Cfile%7Ccn_windows_8_pro_vl_x64_dvd_917773.iso%7C3558014976%7C7956620A80428F37D4F2989CB5CF3B5A%7C/">这个</a></p>
+<pre><code>Windows 8 Pro VL (x64) - DVD (Chinese-Simplified)
 语言：中文(简体)
 文件名：cn_windows_8_pro_vl_x64_dvd_917773.iso
 发布日期(UTC)：2012-08-15 14:54:38  文件大小：3.31 GB
 SHA1：9C4EC9FC4FB561F841E22256BC9DEA6D9D6611FF
-</pre></td></tr></tbody></table></code></pre></div></div>
-
+</code></pre>
 <h2 id="关于分区">关于分区</h2>
-
-<p>建议软件安装在系统盘，资料存放在其他盘，所以呢，推荐系统盘至少100G。  <br />
-总听见周围的人说，软件要安装到非系统盘，实际上完全没必要。<br />
-软件安装在系统盘，方便管理（统一），方便备份。<br />
-而且软件安装在系统盘对系统的速度没有丝毫影响。</p>
-
+<p>建议软件安装在系统盘，资料存放在其他盘，所以呢，推荐系统盘至少100G。<br>
+总听见周围的人说，软件要安装到非系统盘，实际上完全没必要。软件安装在系统盘，方便管理（统一），方便备份。而且软件安装在系统盘对系统的速度没有丝毫影响。</p>
 <p>如果不是特殊需要一般使用安装盘自带的分区工具就可以了。</p>
-
 <p>其他分区工具推荐：</p>
-
-<p><a href="http://pan.baidu.com/share/link?shareid=507250&amp;uk=3291975012">DiskGenius 4.3.0</a>, 专业版破解版。<br />
-DiskGenius 是一款集磁盘分区管理与数据恢复功能于一身的工具软件。<br />
-DiskGenius 4.3.0 专业版破解版由 MyCrack 破解，运行即为注册版本。</p>
-
-<p><a href="http://pan.baidu.com/share/link?shareid=1464981392&amp;uk=3291975012">Acronis Disk Director 11 Home update2</a>，是一个功能最齐全的磁盘管理产品的全新版本。<br />
-如果您希望最有效的使用磁盘并确保数据安全，它是最易于创建硬盘分区或调整大小、移动及合并分区，而且不会丢失数据的工具。</p>
-
+<p><a href="http://pan.baidu.com/share/link?shareid=507250&amp;uk=3291975012">DiskGenius 4.3.0</a>, 专业版破解版。DiskGenius 是一款集磁盘分区管理与数据恢复功能于一身的工具软件。DiskGenius 4.3.0 专业版破解版由 MyCrack 破解，运行即为注册版本。</p>
+<p><a href="http://pan.baidu.com/share/link?shareid=1464981392&amp;uk=3291975012">Acronis Disk Director 11 Home update2</a>，是一个功能最齐全的磁盘管理产品的全新版本。如果您希望最有效的使用磁盘并确保数据安全，它是最易于创建硬盘分区或调整大小、移动及合并分区，而且不会丢失数据的工具。</p>
 <h2 id="系统安装方法">系统安装方法</h2>
-
 <p>本文介绍四种安装方法，总有一种方法适合你</p>
-
 <ul>
-  <li><a href="#usb-install">U盘安装</a>（推荐）</li>
-  <li><a href="#cd-install">光盘安装</a></li>
-  <li><a href="#hard-disk-install">硬盘安装</a></li>
-  <li><a href="#pe-install">PE系统安装</a></li>
+<li><a href="#usb-install">U盘安装</a>（推荐）</li>
+<li><a href="#cd-install">光盘安装</a></li>
+<li><a href="#hard-disk-install">硬盘安装</a></li>
+<li><a href="#pe-install">PE系统安装</a></li>
 </ul>
-
 <h2 id="usb-install">U盘安装</h2>
-
 <p>需要软件 <a href="http://pan.baidu.com/share/link?shareid=172613120&amp;uk=3291975012">UltraISO</a>，它是一款功能强大而又方便实用的光盘映像文件制作/编辑/转换工具。</p>
-
 <div class="fold">
   <p class="fold-show">图文制作U盘启动盘</p>
   <p class="fold-hide">图文制作U盘启动盘</p>
 </div>
 
 <ol>
-  <li>
-    <p>将U盘插入电脑  <br />
-打开 UltraISO 软件（<strong>注意</strong>：要以管理员身份运行），点击“文件”，选择“打开”，<br />
-在弹出的窗口中选择要制作的系统镜像文件  <br />
-<img src="/assets/images/posts/2013-07-30_141919.png" alt="制作U盘启动盘1" /></p>
-  </li>
-  <li>
-    <p>点击“启动”，选择“写入硬盘映像”  <br />
-<img src="/assets/images/posts/2013-07-30_141938.png" alt="制作U盘启动盘2" /></p>
-  </li>
-  <li>
-    <p>步骤2好了之后弹出如下界面  <br />
-确认磁盘驱动器为你要制作的U盘，不然就悲剧了  <br />
-写入方式选择 USB-HDD+ （一般选这个，不行的话你可以试试其它的）  <br />
-点击便携启动，选择“写入新的硬盘主引导记录(MBR)”，选择“USB-HDD+”  <br />
-<img src="/assets/images/posts/2013-07-30_142004.png" alt="制作U盘启动盘3" /></p>
-  </li>
-  <li>
-    <p>最后，点击“写入”，等待片刻，系统启动盘就制作完成了  <br />
-<img src="/assets/images/posts/2013-07-30_145703.png" alt="制作U盘启动盘4" /></p>
-  </li>
+<li>
+<p>将U盘插入电脑<br>
+打开 UltraISO 软件（<strong>注意</strong>：要以管理员身份运行），点击“文件”，选择“打开”，在弹出的窗口中选择要制作的系统镜像文件<br>
+<img src="2013-07-30_141919.png" alt="制作U盘启动盘1"></p>
+</li>
+<li>
+<p>点击“启动”，选择“写入硬盘映像”<br>
+<img src="2013-07-30_141938.png" alt="制作U盘启动盘2"></p>
+</li>
+<li>
+<p>步骤2好了之后弹出如下界面<br>
+确认磁盘驱动器为你要制作的U盘，不然就悲剧了<br>
+写入方式选择 USB-HDD+ （一般选这个，不行的话你可以试试其它的）<br>
+点击便携启动，选择“写入新的硬盘主引导记录(MBR)”，选择“USB-HDD+”<br>
+<img src="2013-07-30_142004.png" alt="制作U盘启动盘3"></p>
+</li>
+<li>
+<p>最后，点击“写入”，等待片刻，系统启动盘就制作完成了<br>
+<img src="2013-07-30_145703.png" alt="制作U盘启动盘4"></p>
+</li>
 </ol>
-
 <p>接下来，重启电脑设置从U盘启动，详细设置请见<a href="#bios-setup">BIOS设置启动</a></p>
-
 <p>最后，重启电脑进入<a href="#system-install">系统安装</a></p>
-
 <h2 id="cd-install">光盘安装</h2>
-
-<p>本来想使用 nero 来刻录的，不过看见那臃肿的身躯，我默默地转身离开了。  <br />
+<p>本来想使用 nero 来刻录的，不过看见那臃肿的身躯，我默默地转身离开了。<br>
 需要软件 <a href="http://pan.baidu.com/share/link?shareid=172613120&amp;uk=3291975012">UltraISO</a>，你会想怎么还是它。嗯，它确实不错。</p>
-
 <div class="fold">
   <p class="fold-show">图文制作光盘启动盘</p>
   <p class="fold-hide">图文制作光盘启动盘</p>
 </div>
 
 <ol>
-  <li>
-    <p>将空白的光盘放入光驱中  <br />
-打开 UltraISO 软件（注意：要以管理员身份运行），点击界面上的“刻录光盘映像”按钮  <br />
-<img src="/assets/images/posts/2013-07-30_151354.png" alt="制作光盘启动盘1" /></p>
-  </li>
-  <li>
-    <p>进入到如下界面  <br />
-刻录机：一般只有一个刻录机，默认就可以。如果有两台以上的刻录机，可以通过下拉菜单选择  <br />
-刻录校验：用于刻录完毕之后检查你的光盘刻录是否成功  <br />
-写入速度：CD推荐24x或者一下，DVD最好用8x  <br />
-写入方式：一般采用默认  <br />
-映像文件：点击右边的浏览按钮，选择要刻录的镜像文件  <br />
-查看没有什么错误之后，点击“刻录”按钮  <br />
-<img src="/assets/images/posts/2013-07-30_151747.png" alt="制作光盘启动盘2" /></p>
-  </li>
-  <li>
-    <p>刻录成功  <br />
-<img src="/assets/images/posts/2013-07-30_153622.png" alt="制作光盘启动盘3" /></p>
-  </li>
+<li>
+<p>将空白的光盘放入光驱中<br>
+打开 UltraISO 软件（注意：要以管理员身份运行），点击界面上的“刻录光盘映像”按钮<br>
+<img src="2013-07-30_151354.png" alt="制作光盘启动盘1"></p>
+</li>
+<li>
+<p>进入到如下界面<br>
+刻录机：一般只有一个刻录机，默认就可以。如果有两台以上的刻录机，可以通过下拉菜单选择<br>
+刻录校验：用于刻录完毕之后检查你的光盘刻录是否成功<br>
+写入速度：CD推荐24x或者一下，DVD最好用8x<br>
+写入方式：一般采用默认<br>
+映像文件：点击右边的浏览按钮，选择要刻录的镜像文件<br>
+查看没有什么错误之后，点击“刻录”按钮<br>
+<img src="2013-07-30_151747.png" alt="制作光盘启动盘2"></p>
+</li>
+<li>
+<p>刻录成功<br>
+<img src="2013-07-30_153622.png" alt="制作光盘启动盘3"></p>
+</li>
 </ol>
-
 <p>接下来，重启电脑设置从光盘启动，详细设置请见<a href="#bios-setup">BIOS设置启动</a></p>
-
 <p>最后，重启电脑进入<a href="#system-install">系统安装</a></p>
-
 <h2 id="hard-disk-install">硬盘安装</h2>
-
-<p>需要软件 <a href="http://pan.baidu.com/share/link?shareid=3313744434&amp;uk=3291975012">nt6 hdd installer v3.1.4</a><br />
-, 帮助没有光驱或者U盘的用户安装 NT6.x 系统。</p>
-
+<p>需要软件 <a href="http://pan.baidu.com/share/link?shareid=3313744434&amp;uk=3291975012">nt6 hdd installer v3.1.4</a>, 帮助没有光驱或者U盘的用户安装 NT6.x 系统。</p>
 <div class="fold">
   <p class="fold-show">官方的图文安装说明</p>
   <p class="fold-hide">官方的图文安装说明</p>
 </div>
 
-<p><img src="/assets/images/posts/2013-07-27_232300.jpg" alt="硬盘安装的官方的图文安装说明" /></p>
-
+<p><img src="2013-07-27_232300.jpg" alt="硬盘安装的官方的图文安装说明"></p>
 <p>最后，重启电脑进入<a href="#system-install">系统安装</a></p>
-
 <h2 id="pe-install">PE系统安装</h2>
-
-<p>网上pe系统很多，有的是个人爱好制作，你自己也可以做，不难的。差别都不是很大，自己用着爽就好了。  <br />
-常用的pe系统有<br />
-<a href="http://u.diannaodian.com/">电脑店PE</a>、<br />
-<a href="http://www.tongyongpe.com/">通用PE工具箱</a>、<br />
-<a href="http://www.laomaotao.net/">老毛桃PE</a>、<br />
-<a href="http://www.dabaicai.com/">大白菜PE</a>、<br />
-<a href="http://www.pccppc.com/">小马PE</a>、<br />
-<a href="http://www.myfeng.cn/">晨枫PE</a>、<br />
-<a href="http://www.winpe.cc/">天意PE</a>等。</p>
-
-<p>现在的PE工具很厉害，有的支持直接将ISO镜像添加到启动菜单中。  <br />
+<p>网上pe系统很多，有的是个人爱好制作，你自己也可以做，不难的。差别都不是很大，自己用着爽就好了。<br>
+常用的pe系统有<a href="http://u.diannaodian.com/">电脑店PE</a>、<a href="http://www.tongyongpe.com/">通用PE工具箱</a>、<a href="http://www.laomaotao.net/">老毛桃PE</a>、<a href="http://www.dabaicai.com/">大白菜PE</a>、<a href="http://www.pccppc.com/">小马PE</a>、<a href="http://www.myfeng.cn/">晨枫PE</a>、<a href="http://www.winpe.cc/">天意PE</a>等。</p>
+<p>现在的PE工具很厉害，有的支持直接将ISO镜像添加到启动菜单中。<br>
 这里介绍一种通用的方法（非GHO）。</p>
-
-<p>首先得进入PE系统，如何制作可以查看具体的PE系统的官方教程，然后设置从U盘启动（PE系统安装在哪就从哪启动），<br />
-详细设置请见<a href="#bios-setup">BIOS设置启动</a></p>
-
+<p>首先得进入PE系统，如何制作可以查看具体的PE系统的官方教程，然后设置从U盘启动（PE系统安装在哪就从哪启动），详细设置请见<a href="#bios-setup">BIOS设置启动</a></p>
 <div class="fold">
   <p class="fold-show">使用PE系统安装WIN8</p>
   <p class="fold-hide">使用PE系统安装WIN8</p>
 </div>
 
 <ol>
-  <li>
-    <p>演示用的是“通用pe工具箱V6.0版”PE系统。进入PE系统，打开虚拟光驱软件  <br />
-<img src="/assets/images/posts/2013-07-30_003636.jpg" alt="PE系统安装WIN8_1" /></p>
-  </li>
-  <li>
-    <p>使用虚拟光驱加载系统镜像  <br />
-<img src="/assets/images/posts/2013-07-30_005130.gif" alt="PE系统安装WIN8_2" /></p>
-  </li>
-  <li>
-    <p>使用“windows安装器”  <br />
-<img src="/assets/images/posts/2013-07-30_005517.gif" alt="PE系统安装WIN8_3" /></p>
-  </li>
-  <li>
-    <p>一些要注意的地方  <br />
-<img src="/assets/images/posts/2013-07-30_005712.jpg" alt="PE系统安装WIN8_4" /></p>
-  </li>
-  <li>
-    <p>一路下一步，加上漫长地等待，终于看到了这个界面  <br />
-<img src="/assets/images/posts/2013-07-30_011120.jpg" alt="PE系统安装WIN8_5" /></p>
-  </li>
+<li>
+<p>演示用的是“通用pe工具箱V6.0版”PE系统。进入PE系统，打开虚拟光驱软件<br>
+<img src="2013-07-30_003636.jpg" alt="PE系统安装WIN8_1"></p>
+</li>
+<li>
+<p>使用虚拟光驱加载系统镜像<br>
+<img src="2013-07-30_005130.gif" alt="PE系统安装WIN8_2"></p>
+</li>
+<li>
+<p>使用“windows安装器”<br>
+<img src="2013-07-30_005517.gif" alt="PE系统安装WIN8_3"></p>
+</li>
+<li>
+<p>一些要注意的地方<br>
+<img src="2013-07-30_005712.jpg" alt="PE系统安装WIN8_4"></p>
+</li>
+<li>
+<p>一路下一步，加上漫长地等待，终于看到了这个界面<br>
+<img src="2013-07-30_011120.jpg" alt="PE系统安装WIN8_5"></p>
+</li>
 </ol>
-
-<p>重启几次之后进入<a href="#system-install">系统安装</a>，<br />
-某些地方不一样，不过我相信聪明的你肯定没有问题的</p>
-
+<p>重启几次之后进入<a href="#system-install">系统安装</a>，某些地方不一样，不过我相信聪明的你肯定没有问题的</p>
 <h2 id="bios-setup">BIOS设置启动</h2>
-
 <p>有两种方法，如下</p>
-
 <ul>
-  <li>开机的时候按 F12 （不同的主板不一样，有的是 F8, F11, ESC 等），选择从相应设备启动</li>
-  <li>开机的时候按 F2 （有的主板是 DEL, TAB 等）进入 BIOS，修改启动顺序之后，按 F10 保存</li>
+<li>开机的时候按 F12 （不同的主板不一样，有的是 F8, F11, ESC 等），选择从相应设备启动</li>
+<li>开机的时候按 F2 （有的主板是 DEL, TAB 等）进入 BIOS，修改启动顺序之后，按 F10 保存</li>
 </ul>
-
 <p>如果不行的话，可以查看下面的教程 (U盘启动为例，光盘类似可能还简单一点)</p>
-
 <div class="fold">
   <p class="fold-show">BIOS设置图解教程</p>
   <p class="fold-hide">BIOS设置图解教程</p>
 </div>
 
 <ul>
-  <li>
-    <p>用户可以根据不同的电脑型号，选择相应的热键，直接启动一键U盘装系统工具设置<br />
-（<strong>重要提示</strong>：在选择启动热键前，需先插入U盘方可）  <br />
-<img src="/assets/images/posts/2013-07-28_184951.png" alt="BIOS热键" /></p>
-  </li>
-  <li>
-    <p>设置U盘启动，不同的BIOS设置U盘启动方法均不同，以下为常见的三种方法：</p>
-
-    <ol>
-      <li><a href="#bios-setup-one">Phoenix – AwardBIOS（2010年之后的电脑）</a></li>
-      <li><a href="#bios-setup-two">旧的Award BIOS（2009年电脑主板）</a></li>
-      <li><a href="#bios-setup-three">2002年电脑主板的一款BIOS</a></li>
-    </ol>
-
-    <h3 id="bios-setup-one">Phoenix – AwardBIOS（2010年之后的电脑设置方法）</h3>
-
-    <ol>
-      <li>
-        <p>开机时按住Del键进入到该电脑的BIOS设置界面，选择高级BIOS设置Advanced BIOS Features  <br />
-<img src="/assets/images/posts/2013-07-28_210818.jpg" alt="bios-setup-one_1" /></p>
-      </li>
-      <li>
-        <p>在进入高级BIOS设置（Advanced BIOS Features）界面后，首先要选择硬盘启动优先级：Hard Disk Boot Priority  <br />
-<img src="/assets/images/posts/2013-07-28_211401.jpg" alt="bios-setup-one_2" /></p>
-      </li>
-      <li>
-        <p>在进入到硬盘启动优先级（Hard Disk Boot Priority）界面后，<br />
-需使用小键盘上的加减符号（+、-）来选择与移动设备，要将U盘选择在最上面。<br />
-然后，按住ESC键退出，这时会回到步骤2的设置界面  <br />
-<img src="/assets/images/posts/2013-07-29_221943.jpg" alt="bios-setup-one_3" /></p>
-      </li>
-      <li>
-        <p>完成上一步后，再选择第一启动设备（First Boot Device）：<br />
-该版本的BIOS这里没有U盘的“USB-HDD”、“USB-ZIP”同类的选项，选择移动设备“Removable”也不能正常启动。<br />
-但是，选择“Hard Disk”就可以启动电脑  <br />
-<img src="/assets/images/posts/2013-07-29_222025.jpg" alt="bios-setup-one_4" /></p>
-      </li>
-    </ol>
-
-    <h3 id="bios-setup-two">旧的Award BIOS（2009年电脑主板设置方法）</h3>
-
-    <ol>
-      <li>
-        <p>开机按住Del键进入到该电脑的BIOS设置界面，然后选择高级BIOS设置：Advanced BIOS Features  <br />
-<img src="/assets/images/posts/2013-07-29_222356.jpg" alt="bios-setup-two_1" /></p>
-      </li>
-      <li>
-        <p>在高级BIOS设置（Advanced BIOS Features）的界面，首先要选择硬盘启动优先级：Hard Disk Boot Priority  <br />
-<img src="/assets/images/posts/2013-07-29_222407.jpg" alt="bios-setup-two_2" /></p>
-      </li>
-      <li>
-        <p>进入到硬盘启动优先级（Hard Disk Boot Priority）界面后。<br />
-需要使用小键盘上的加减符号（+、-）来选择与移动设备，要将U盘选择在最上面。<br />
-完成前面的步骤后按住ESC键退出，便会回到步骤2的设置界面  <br />
-<img src="/assets/images/posts/2013-07-29_222420.jpg" alt="bios-setup-two_3" /></p>
-      </li>
-      <li>
-        <p>在第一启动设备（First Boot Device）的界面里，有U盘的USB-ZIP、USB-HDD之类的相关选项，<br />
-我们可以选择“Hard Disk”，也可以选择“USB-HDD”之类的选项，来启动该电脑  <br />
-<img src="/assets/images/posts/2013-07-29_222429.jpg" alt="bios-setup-two_4" /></p>
-      </li>
-    </ol>
-
-    <h3 id="bios-setup-three">2002年电脑主板的一款BIOS</h3>
-
-    <ol>
-      <li>
-        <p>选择Boot菜单界面设置中的U盘启动项  <br />
-<img src="/assets/images/posts/2013-07-29_223142.jpg" alt="bios-setup-three_1" /></p>
-      </li>
-      <li>
-        <p>启动优先级设备选择（Boot Device Priority）在第一启动设备（1st Boot Device）里选择U盘，<br />
-如果在步骤1中的硬盘驱动器“Hard Disk Drives”里面没有将U盘作为第一启动设备，<br />
-那么，在这里就不会存在和显示U盘，如下图所示。<br />
-但是，我们可以选择移动设备“Removable Dev.”来作为第一启动设备  <br />
-<img src="/assets/images/posts/2013-07-29_223150.jpg" alt="bios-setup-three_2" /></p>
-      </li>
-      <li>
-        <p>进入硬盘驱动器“Hard Disk Drives”界面，需要选择U盘作为第一启动设备“1st Drive”。<br />
-如果之前在“Hard Disk Drives”里已经选择U盘为第一启动设备，如下图所示，<br />
-那么在这个界面里就会显示有U盘，我们就可以选择U盘作为第一启动设备，如步骤4  <br />
-<img src="/assets/images/posts/2013-07-29_223157.jpg" alt="bios-setup-three_3" /></p>
-      </li>
-      <li>
-        <p>当我们之前就在步骤3的硬盘驱动器“Hard Disk Drives”中选择U盘作为第一启动设备“1st Drive”后，<br />
-要启动优先级设备选择（Boot Device Priority），这时才会显示有U盘，<br />
-然后我们就可以优先选择U盘作为第一启动设备（1st Boot Device）  <br />
-<img src="/assets/images/posts/2013-07-29_223204.jpg" alt="bios-setup-three_4" /></p>
-      </li>
-    </ol>
-  </li>
+<li>
+<p>用户可以根据不同的电脑型号，选择相应的热键，直接启动一键U盘装系统工具设置（<strong>重要提示</strong>：在选择启动热键前，需先插入U盘方可）<br>
+<img src="2013-07-28_184951.png" alt="BIOS热键"></p>
+</li>
+<li>
+<p>设置U盘启动，不同的BIOS设置U盘启动方法均不同，以下为常见的三种方法：</p>
+<ol>
+<li><a href="#bios-setup-one">Phoenix – AwardBIOS（2010年之后的电脑）</a></li>
+<li><a href="#bios-setup-two">旧的Award BIOS（2009年电脑主板）</a></li>
+<li><a href="#bios-setup-three">2002年电脑主板的一款BIOS</a></li>
+</ol>
+<h3 id="bios-setup-one">Phoenix – AwardBIOS（2010年之后的电脑设置方法）</h3>
+<ol>
+<li>
+<p>开机时按住Del键进入到该电脑的BIOS设置界面，选择高级BIOS设置Advanced BIOS Features<br>
+<img src="2013-07-28_210818.jpg" alt="bios-setup-one_1"></p>
+</li>
+<li>
+<p>在进入高级BIOS设置（Advanced BIOS Features）界面后，首先要选择硬盘启动优先级：Hard Disk Boot Priority<br>
+<img src="2013-07-28_211401.jpg" alt="bios-setup-one_2"></p>
+</li>
+<li>
+<p>在进入到硬盘启动优先级（Hard Disk Boot Priority）界面后，<br>
+需使用小键盘上的加减符号（+、-）来选择与移动设备，要将U盘选择在最上面。<br>
+然后，按住ESC键退出，这时会回到步骤2的设置界面<br>
+<img src="2013-07-29_221943.jpg" alt="bios-setup-one_3"></p>
+</li>
+<li>
+<p>完成上一步后，再选择第一启动设备（First Boot Device）：该版本的BIOS这里没有U盘的“USB-HDD”、“USB-ZIP”同类的选项，选择移动设备“Removable”也不能正常启动。但是，选择“Hard Disk”就可以启动电脑<br>
+<img src="2013-07-29_222025.jpg" alt="bios-setup-one_4"></p>
+</li>
+</ol>
+<h3 id="bios-setup-two">旧的Award BIOS（2009年电脑主板设置方法）</h3>
+<ol>
+<li>
+<p>开机按住Del键进入到该电脑的BIOS设置界面，然后选择高级BIOS设置：Advanced BIOS Features<br>
+<img src="2013-07-29_222356.jpg" alt="bios-setup-two_1"></p>
+</li>
+<li>
+<p>在高级BIOS设置（Advanced BIOS Features）的界面，首先要选择硬盘启动优先级：Hard Disk Boot Priority<br>
+<img src="2013-07-29_222407.jpg" alt="bios-setup-two_2"></p>
+</li>
+<li>
+<p>进入到硬盘启动优先级（Hard Disk Boot Priority）界面后。需要使用小键盘上的加减符号（+、-）来选择与移动设备，要将U盘选择在最上面。完成前面的步骤后按住ESC键退出，便会回到步骤2的设置界面<br>
+<img src="2013-07-29_222420.jpg" alt="bios-setup-two_3"></p>
+</li>
+<li>
+<p>在第一启动设备（First Boot Device）的界面里，有U盘的USB-ZIP、USB-HDD之类的相关选项，我们可以选择“Hard Disk”，也可以选择“USB-HDD”之类的选项，来启动该电脑<br>
+<img src="2013-07-29_222429.jpg" alt="bios-setup-two_4"></p>
+</li>
+</ol>
+<h3 id="bios-setup-three">2002年电脑主板的一款BIOS</h3>
+<ol>
+<li>
+<p>选择Boot菜单界面设置中的U盘启动项<br>
+<img src="2013-07-29_223142.jpg" alt="bios-setup-three_1"></p>
+</li>
+<li>
+<p>启动优先级设备选择（Boot Device Priority）在第一启动设备（1st Boot Device）里选择U盘，如果在步骤1中的硬盘驱动器“Hard Disk Drives”里面没有将U盘作为第一启动设备，那么，在这里就不会存在和显示U盘，如下图所示。但是，我们可以选择移动设备“Removable Dev.”来作为第一启动设备<br>
+<img src="2013-07-29_223150.jpg" alt="bios-setup-three_2"></p>
+</li>
+<li>
+<p>进入硬盘驱动器“Hard Disk Drives”界面，需要选择U盘作为第一启动设备“1st Drive”。如果之前在“Hard Disk Drives”里已经选择U盘为第一启动设备，如下图所示，那么在这个界面里就会显示有U盘，我们就可以选择U盘作为第一启动设备，如步骤4<br>
+<img src="2013-07-29_223157.jpg" alt="bios-setup-three_3"></p>
+</li>
+<li>
+<p>当我们之前就在步骤3的硬盘驱动器“Hard Disk Drives”中选择U盘作为第一启动设备“1st Drive”后，要启动优先级设备选择（Boot Device Priority），这时才会显示有U盘，然后我们就可以优先选择U盘作为第一启动设备（1st Boot Device）<br>
+<img src="2013-07-29_223204.jpg" alt="bios-setup-three_4"></p>
+</li>
+</ol>
+</li>
 </ul>
-
 <p>以上教程转自<a href="http://www.tongyongpe.com/bios.html">BIOS设置图解教程</a></p>
-
 <h2 id="system-install">系统安装</h2>
-
 <div class="fold">
   <p class="fold-show">详细的图文安装过程</p>
   <p class="fold-hide">详细的图文安装过程</p>
 </div>
 
 <ol>
-  <li>
-    <p>一开始就进入这个界面，这个没啥说的直接下一步  <br />
-<img src="/assets/images/posts/2013-07-28_001744.png" alt="WIN8系统安装1" /></p>
-  </li>
-  <li>
-    <p>点击“现在安装”  <br />
-<img src="/assets/images/posts/2013-07-28_001941.png" alt="WIN8系统安装2" /></p>
-  </li>
-  <li>
-    <p>继续下一步  <br />
-<img src="/assets/images/posts/2013-07-28_002038.png" alt="WIN8系统安装3" /></p>
-  </li>
-  <li>
-    <p>这里选择自定义，上面那个没有特殊需要一般不选  <br />
-<img src="/assets/images/posts/2013-07-28_002116.png" alt="WIN8系统安装4" /></p>
-  </li>
-  <li>
-    <p>点击“驱动器选项(高级)(A)”可以进行分区等操作，注意不要误删资料分区  <br />
-<img src="/assets/images/posts/2013-07-28_002350.png" alt="WIN8系统安装5" /></p>
-  </li>
-  <li>
-    <p>然后看到这个界面，耐心等待一会  <br />
-<img src="/assets/images/posts/2013-07-28_002500.png" alt="WIN8系统安装6" /></p>
-  </li>
-  <li>
-    <p>电脑重启几次之后，进入这里，一路下一步吧  <br />
-<img src="/assets/images/posts/2013-07-28_003226.png" alt="WIN8系统安装7" /></p>
-  </li>
-  <li>
-    <p>到达这里，点击“不使用 Microsoft 账户登陆”，可以不用输入电子邮件地址，就像安装 win7 时设置账户那样  <br />
-<img src="/assets/images/posts/2013-07-28_003337.png" alt="WIN8系统安装8" /></p>
-  </li>
-  <li>
-    <p>好了，进行 win8 之旅吧，祝大家玩得开心  <br />
-<img src="/assets/images/posts/2013-07-28_003653.png" alt="WIN8系统安装9_1" /><br />
-<img src="/assets/images/posts/2013-07-28_003726.png" alt="WIN8系统安装9_2" /></p>
-  </li>
+<li>
+<p>一开始就进入这个界面，这个没啥说的直接下一步<br>
+<img src="2013-07-28_001744.png" alt="WIN8系统安装1"></p>
+</li>
+<li>
+<p>点击“现在安装”<br>
+<img src="2013-07-28_001941.png" alt="WIN8系统安装2"></p>
+</li>
+<li>
+<p>继续下一步<br>
+<img src="2013-07-28_002038.png" alt="WIN8系统安装3"></p>
+</li>
+<li>
+<p>这里选择自定义，上面那个没有特殊需要一般不选<br>
+<img src="2013-07-28_002116.png" alt="WIN8系统安装4"></p>
+</li>
+<li>
+<p>点击“驱动器选项(高级)(A)”可以进行分区等操作，注意不要误删资料分区<br>
+<img src="2013-07-28_002350.png" alt="WIN8系统安装5"></p>
+</li>
+<li>
+<p>然后看到这个界面，耐心等待一会<br>
+<img src="2013-07-28_002500.png" alt="WIN8系统安装6"></p>
+</li>
+<li>
+<p>电脑重启几次之后，进入这里，一路下一步吧<br>
+<img src="2013-07-28_003226.png" alt="WIN8系统安装7"></p>
+</li>
+<li>
+<p>到达这里，点击“不使用 Microsoft 账户登陆”，可以不用输入电子邮件地址，就像安装 win7 时设置账户那样<br>
+<img src="2013-07-28_003337.png" alt="WIN8系统安装8"></p>
+</li>
+<li>
+<p>好了，进行 win8 之旅吧，祝大家玩得开心<br>
+<img src="2013-07-28_003653.png" alt="WIN8系统安装9_1"><br>
+<img src="2013-07-28_003726.png" alt="WIN8系统安装9_2"></p>
+</li>
 </ol>
-
 <h2 id="系统激活">系统激活</h2>
-
-<p>网上不定期的会出现一些 win8 的密钥，大家都懂的微软打什么主意。<br />
-只要你肯等，密钥肯定会出现的。</p>
-
+<p>网上不定期的会出现一些 win8 的密钥，大家都懂的微软打什么主意。只要你肯等，密钥肯定会出现的。</p>
 <p>还可以用软件激活，推荐一款软件 <a href="http://pan.baidu.com/share/link?shareid=3841365881&amp;uk=3291975012">HEU_KMS_Activator_CH_v6.3</a></p>
-
 <h2 id="恭喜">恭喜</h2>
-
 <p>你又多了一个去女生家里的理由。</p>
 
   </div>
 
   <div class="quiet-link">
-    
-    <span>上一篇：</span><a href="/make-progit/">制作 Pro Git 电子书</a><br />
-    
-    
-    <span>下一篇：</span><a href="/share-windows-software/">Windows 软件分享</a>
-    
+      <span>上一篇：</span><a href="/make-progit/">制作 Pro Git 电子书</a><br />
+      <span>下一篇：</span><a href="/share-windows-software/">Windows 软件分享</a>
   </div>
 
 </article>
 
-
-
-<hr>
-
 <div id="disqus_thread"></div>
 <script type="text/javascript">
-    var disqus_shortname = 'mwum'; // required: replace example with your forum shortname
-    /* * * DON'T EDIT BELOW THIS LINE * * */
+    var disqus_shortname = 'mwum'; 
+     
     (function() {
+        if (window.location.hostname == "localhost")
+            return;
+
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
@@ -477,19 +378,18 @@ DiskGenius 4.3.0 专业版破解版由 MyCrack 破解，运行即为注册版本
 
 
 
+  </div>
+</div>
 
-      </div>
-    </div>
-
-    <footer class="site-footer">
+<footer class="site-footer">
 
   <div class="wrapper">
     <div class="footer-content">
       <p>
         <span class="no-palm">本站采用 <a rel="license" href="//creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可<br></span>
-        <span>&copy;2013-2019 <a href="https://www.dreamxu.com">明无梦</a></span>
+        <span>©2013-2024 <a href="https://www.dreamxu.com">明无梦</a></span>
         <span class="no-palm">| </span>
-        <span>Powered by <a href="//jekyllrb.com/">Jekyll</a></span>
+        <span>Powered by <a href="//gohugo.io/">Hugo</a></span>
         <span class="no-palm">| </span>
         <span>Hosted by <a href="//github.com/">GitHub</a></span>
         <span class="no-palm">| </span>
@@ -503,35 +403,6 @@ DiskGenius 4.3.0 专业版破解版由 MyCrack 破解，运行即为注册版本
 </footer>
 
 
-    <script type="text/javascript" src="/js/main.js"></script>
-
-
-
-  
-    <script type="text/javascript" src="/js/lib/jquery.js"></script>
-  
-    <script type="text/javascript" src="/js/fold.js"></script>
-  
-
-
-
-    
-
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-39279084-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-
-
-
-
-  </body>
+</body>
 
 </html>

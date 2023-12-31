@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
+<head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  
   <title>Mac 下安装及配置 ProxyChains-NG 实现终端下代理 | 明无梦</title>
-  <meta name="description" content="项目主页：https://github.com/rofl0r/proxychains-ng">
-
-  <link rel="stylesheet" href="/css/main.css">
+  <meta name="description" content="项目主页：https://github.com/rofl0r/proxychains-ng
+官方说明：
+proxychains ng (new generation) - a preloader which hooks calls to sockets in dynamically linked programs …">
   <link rel="canonical" href="https://www.dreamxu.com/proxychains-ng/">
-  <link rel="alternate" type="application/rss+xml" title="明无梦" href="https://www.dreamxu.com/feed.xml">
+    <link rel="stylesheet" href="/css/style.min.2a2aa4ed426afcd7c5ffde31042cdd4d55ebbfcab2754fcfd5577a4a7b59019b.css" integrity="sha256-Kiqk7UJq/NfF/94xBCzdTVXrv8qydU/P1Vd6SntZAZs=" crossorigin="anonymous">
+  <script type="text/javascript" src="/js/bundle.min.441c485d1d9104b8017416429af24d2115fb80b39ccd1f1cb4907dc6c9d0e84d.js" integrity="sha256-RBxIXR2RBLgBdBZCmvJNIRX7gLOczR8ctJB9xsnQ6E0=" defer></script>
+
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
 
 
-  <body>
+<body>
 
-    <header class="site-header">
+<header class="site-header">
 
   <div class="wrapper">
 
@@ -43,11 +44,10 @@
       </a>
 
       <div class="trigger" id="js-nav-menu-trigger">
-        <a class="page-link" href="/archive">归档</a>
-        <a class="page-link" href="/tags">标签</a>
-        <a class="page-link" href="/books">书籍</a>
-        <a class="page-link" href="/tweet/2018">微语</a>
-        <a class="page-link" href="/about">关于</a>
+        <a class="page-link" href="/archive/">归档</a>
+        <a class="page-link" href="/tags/">标签</a>
+        <a class="page-link" href="/books/">书籍</a>
+        <a class="page-link" href="/about/">关于</a>
         <a class="page-link" href="/rss.xml">订阅</a>
       </div>
     </nav>
@@ -57,95 +57,67 @@
 </header>
 
 
-    <div class="content">
-      <div class="wrapper">
-        <article class="post">
+<div class="content">
+  <div class="wrapper">
+    
+
+<article class="post">
 
   <header class="post-header">
     <h1 class="post-title"><a href="/proxychains-ng/">Mac 下安装及配置 ProxyChains-NG 实现终端下代理</a></h1>
     <ul class="post-meta">
       <li class="published-date">2014-08-27</li>
       
-
-      
         <li> | 标签: </li>
-        
-          <li class="post-tag"><a href="/tags/?names=记录#tag-list-display">记录</a></li>
-        
+          <li class="post-tag"><a href="/tags/?names=%e8%ae%b0%e5%bd%95#tag-list-display">记录</a></li>
           <li class="post-tag"><a href="/tags/?names=ProxyChains-NG#tag-list-display">ProxyChains-NG</a></li>
-        
           <li class="post-tag"><a href="/tags/?names=ProxyChains#tag-list-display">ProxyChains</a></li>
-        
-      
     </ul>
   </header>
 
   <div class="post-content" itemprop="articleBody">
     <p>项目主页：<a href="https://github.com/rofl0r/proxychains-ng">https://github.com/rofl0r/proxychains-ng</a></p>
-
 <p>官方说明：</p>
-
 <blockquote>
-  <p>proxychains ng (new generation) - <br />
-  a preloader which hooks calls to sockets in dynamically linked programs and redirects it through one or more socks/http proxies. <br />
-  continuation of the unmaintained proxychains project.</p>
+<p>proxychains ng (new generation) - a preloader which hooks calls to sockets in dynamically linked programs and redirects it through one or more socks/http proxies. continuation of the unmaintained proxychains project.</p>
 </blockquote>
-
 <h2 id="安装">安装</h2>
-
 <p>使用 Homebrew 安装</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>brew install proxychains-ng
-</pre></td></tr></tbody></table></code></pre></div></div>
-
+<pre><code>brew install proxychains-ng
+</code></pre>
 <h2 id="配置">配置</h2>
-
-<p>编辑配置文件 <code class="highlighter-rouge">mvim /usr/local/etc/proxychains.conf</code>  <br />
-在 [ProxyList] 下面（也就是末尾）加入代理类型，代理地址和端口  <br />
+<p>编辑配置文件 <code>mvim /usr/local/etc/proxychains.conf</code><br>
+在 [ProxyList] 下面（也就是末尾）加入代理类型，代理地址和端口<br>
 例如使用 TOR 代理，注释掉原来的代理并添加</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>socks5  127.0.0.1 9050
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>如果所在的网络很复杂，可能需要在配置文件中启用  <br />
-<code class="highlighter-rouge">dynamic_chain</code> - 按照列表中出现的代理服务器的先后顺序组成一条链，如果有代理服务器失效，则自动将其排除，但至少要有一个是有效的  <br />
+<pre><code>socks5  127.0.0.1 9050
+</code></pre>
+<p>如果所在的网络很复杂，可能需要在配置文件中启用<br>
+<code>dynamic_chain</code> - 按照列表中出现的代理服务器的先后顺序组成一条链，如果有代理服务器失效，则自动将其排除，但至少要有一个是有效的<br>
 然后在 [ProxyList] 下添加多个代理</p>
-
-<p>默认是：  <br />
-<code class="highlighter-rouge">strict_chain</code> - 按照后面列表中出现的代理服务器的先后顺序组成一条链，要求所有的代理服务器都是有效的</p>
-
+<p>默认是：<br>
+<code>strict_chain</code> - 按照后面列表中出现的代理服务器的先后顺序组成一条链，要求所有的代理服务器都是有效的</p>
 <h2 id="使用">使用</h2>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>proxychains4 curl twitter.com
-</pre></td></tr></tbody></table></code></pre></div></div>
-
+<pre><code>proxychains4 curl twitter.com
+</code></pre>
 <p>配合 wget 和 curl 来下载，非常好用</p>
 
   </div>
 
   <div class="quiet-link">
-    
-    <span>上一篇：</span><a href="/install-config-squirrel/">安装及配置 Mac 上的 Rime 输入法——鼠鬚管 (Squirrel)</a><br />
-    
-    
-    <span>下一篇：</span><a href="/ubuntu-package-dpkg-and-apt-commands/">Ubuntu 软件包管理工具 dpkg, APT 的一些命令</a>
-    
+      <span>上一篇：</span><a href="/install-config-squirrel/">安装及配置 Mac 上的 Rime 输入法——鼠鬚管 (Squirrel)</a><br />
+      <span>下一篇：</span><a href="/ubuntu-package-dpkg-and-apt-commands/">Ubuntu 软件包管理工具 dpkg, APT 的一些命令</a>
   </div>
 
 </article>
 
-
-
-<hr>
-
 <div id="disqus_thread"></div>
 <script type="text/javascript">
-    var disqus_shortname = 'mwum'; // required: replace example with your forum shortname
-    /* * * DON'T EDIT BELOW THIS LINE * * */
+    var disqus_shortname = 'mwum'; 
+     
     (function() {
+        if (window.location.hostname == "localhost")
+            return;
+
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
@@ -156,19 +128,18 @@
 
 
 
+  </div>
+</div>
 
-      </div>
-    </div>
-
-    <footer class="site-footer">
+<footer class="site-footer">
 
   <div class="wrapper">
     <div class="footer-content">
       <p>
         <span class="no-palm">本站采用 <a rel="license" href="//creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可<br></span>
-        <span>&copy;2013-2019 <a href="https://www.dreamxu.com">明无梦</a></span>
+        <span>©2013-2024 <a href="https://www.dreamxu.com">明无梦</a></span>
         <span class="no-palm">| </span>
-        <span>Powered by <a href="//jekyllrb.com/">Jekyll</a></span>
+        <span>Powered by <a href="//gohugo.io/">Hugo</a></span>
         <span class="no-palm">| </span>
         <span>Hosted by <a href="//github.com/">GitHub</a></span>
         <span class="no-palm">| </span>
@@ -182,29 +153,6 @@
 </footer>
 
 
-    <script type="text/javascript" src="/js/main.js"></script>
-
-
-
-
-
-    
-
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-39279084-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-
-
-
-
-  </body>
+</body>
 
 </html>

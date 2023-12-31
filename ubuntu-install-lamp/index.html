@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
+<head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  
-  <title>Ubuntu 搭建 LAMP(Linux+Apache+MySQL+Php) 环境 | 明无梦</title>
-  <meta name="description" content="LAMP 是指一组通常一起使用来运行动态网站或者服务器的自由软件名称首字母缩写：">
-
-  <link rel="stylesheet" href="/css/main.css">
+  <title>Ubuntu 搭建 LAMP(Linux&#43;Apache&#43;MySQL&#43;Php) 环境 | 明无梦</title>
+  <meta name="description" content="LAMP 是指一组通常一起使用来运行动态网站或者服务器的自由软件名称首字母缩写：
+Linux, 操作系统 Apache, 网页服务器 MySQL, 数据库管理系统（或者数据库服务器） PHP 和有时 Perl 或 Python, 脚本语言 ——wikipedia
+下面是安装步骤（顺序不固定）
+安装 Apache …">
   <link rel="canonical" href="https://www.dreamxu.com/ubuntu-install-lamp/">
-  <link rel="alternate" type="application/rss+xml" title="明无梦" href="https://www.dreamxu.com/feed.xml">
+    <link rel="stylesheet" href="/css/style.min.2a2aa4ed426afcd7c5ffde31042cdd4d55ebbfcab2754fcfd5577a4a7b59019b.css" integrity="sha256-Kiqk7UJq/NfF/94xBCzdTVXrv8qydU/P1Vd6SntZAZs=" crossorigin="anonymous">
+  <script type="text/javascript" src="/js/bundle.min.441c485d1d9104b8017416429af24d2115fb80b39ccd1f1cb4907dc6c9d0e84d.js" integrity="sha256-RBxIXR2RBLgBdBZCmvJNIRX7gLOczR8ctJB9xsnQ6E0=" defer></script>
+
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
 
 
-  <body>
+<body>
 
-    <header class="site-header">
+<header class="site-header">
 
   <div class="wrapper">
 
@@ -43,11 +45,10 @@
       </a>
 
       <div class="trigger" id="js-nav-menu-trigger">
-        <a class="page-link" href="/archive">归档</a>
-        <a class="page-link" href="/tags">标签</a>
-        <a class="page-link" href="/books">书籍</a>
-        <a class="page-link" href="/tweet/2018">微语</a>
-        <a class="page-link" href="/about">关于</a>
+        <a class="page-link" href="/archive/">归档</a>
+        <a class="page-link" href="/tags/">标签</a>
+        <a class="page-link" href="/books/">书籍</a>
+        <a class="page-link" href="/about/">关于</a>
         <a class="page-link" href="/rss.xml">订阅</a>
       </div>
     </nav>
@@ -57,103 +58,75 @@
 </header>
 
 
-    <div class="content">
-      <div class="wrapper">
-        <article class="post">
+<div class="content">
+  <div class="wrapper">
+    
+
+<article class="post">
 
   <header class="post-header">
-    <h1 class="post-title"><a href="/ubuntu-install-lamp/">Ubuntu 搭建 LAMP(Linux+Apache+MySQL+Php) 环境</a></h1>
+    <h1 class="post-title"><a href="/ubuntu-install-lamp/">Ubuntu 搭建 LAMP(Linux&#43;Apache&#43;MySQL&#43;Php) 环境</a></h1>
     <ul class="post-meta">
       <li class="published-date">2013-06-18</li>
       
-
-      
         <li> | 标签: </li>
-        
-          <li class="post-tag"><a href="/tags/?names=记录#tag-list-display">记录</a></li>
-        
+          <li class="post-tag"><a href="/tags/?names=%e8%ae%b0%e5%bd%95#tag-list-display">记录</a></li>
           <li class="post-tag"><a href="/tags/?names=Ubuntu#tag-list-display">Ubuntu</a></li>
-        
           <li class="post-tag"><a href="/tags/?names=Install#tag-list-display">Install</a></li>
-        
           <li class="post-tag"><a href="/tags/?names=LAMP#tag-list-display">LAMP</a></li>
-        
-      
     </ul>
   </header>
 
   <div class="post-content" itemprop="articleBody">
     <p>LAMP 是指一组通常一起使用来运行动态网站或者服务器的自由软件名称首字母缩写：</p>
-
 <ul>
-  <li>Linux, 操作系统</li>
-  <li>Apache, 网页服务器</li>
-  <li>MySQL, 数据库管理系统（或者数据库服务器）</li>
-  <li>PHP 和有时 Perl 或 Python, 脚本语言</li>
+<li>Linux, 操作系统</li>
+<li>Apache, 网页服务器</li>
+<li>MySQL, 数据库管理系统（或者数据库服务器）</li>
+<li>PHP 和有时 Perl 或 Python, 脚本语言</li>
 </ul>
-
 <p>——wikipedia</p>
-
-<hr />
-
+<hr>
 <p>下面是安装步骤（顺序不固定）</p>
-
 <ul>
-  <li>
-    <p>安装 Apache</p>
-
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>sudo apt-get install apache2
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-
-    <p>测试：在浏览器中输入 http://localhost, 若出现 It works!, 请继续下一步</p>
-  </li>
-  <li>
-    <p>安装 MySQL</p>
-
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>sudo apt-get install mysql-server
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-
-    <p>安装的过程中会提示你输入密码，不要忘记了  <br />
-测试：输入命令 mysql -uroot -p, 然后输入安装的时候设置的密码，<br />
-若出现欢迎界面（Welcome to the MySQL monitor.），请继续下一步</p>
-  </li>
-  <li>
-    <p>安装 Php 及一些必要模块</p>
-
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>sudo apt-get install php5 libapache2-mod-php5 php5-mysql
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-
-    <p>测试：在 apache 的 www 文件夹下（默认在 /var）新建文件 phpinfo.php<br />
-内容为 &lt;?php phpinfo(); ?&gt;,<br />
-在浏览器中输入 http://localhost/phpinfo.php, 若出现 php 信息, 请继续下一步</p>
-  </li>
+<li>
+<p>安装 Apache</p>
+<pre><code>sudo apt-get install apache2
+</code></pre>
+<p>测试：在浏览器中输入 http://localhost, 若出现 It works!, 请继续下一步</p>
+</li>
+<li>
+<p>安装 MySQL</p>
+<pre><code>sudo apt-get install mysql-server
+</code></pre>
+<p>安装的过程中会提示你输入密码，不要忘记了<br>
+测试：输入命令 mysql -uroot -p, 然后输入安装的时候设置的密码，若出现欢迎界面（Welcome to the MySQL monitor.），请继续下一步</p>
+</li>
+<li>
+<p>安装 Php 及一些必要模块</p>
+<pre><code>sudo apt-get install php5 libapache2-mod-php5 php5-mysql
+</code></pre>
+<p>测试：在 apache 的 www 文件夹下（默认在 /var）新建文件 phpinfo.php 内容为 &lt;?php phpinfo(); ?&gt;, 在浏览器中输入 http://localhost/phpinfo.php, 若出现 php 信息, 请继续下一步</p>
+</li>
 </ul>
 
   </div>
 
   <div class="quiet-link">
-    
-    <span>上一篇：</span><a href="/windows-ubuntu-install-qt5/">Windows &amp; Ubuntu 配置 Qt5.0 开发环境</a><br />
-    
-    
-    <span>下一篇：</span><a href="/ubuntu-install-sublime-text/">Ubuntu 安装 Sublime Text</a>
-    
+      <span>上一篇：</span><a href="/windows-ubuntu-install-qt5/">Windows &amp; Ubuntu 配置 Qt5.0 开发环境</a><br />
+      <span>下一篇：</span><a href="/ubuntu-install-sublime-text/">Ubuntu 安装 Sublime Text</a>
   </div>
 
 </article>
 
-
-
-<hr>
-
 <div id="disqus_thread"></div>
 <script type="text/javascript">
-    var disqus_shortname = 'mwum'; // required: replace example with your forum shortname
-    /* * * DON'T EDIT BELOW THIS LINE * * */
+    var disqus_shortname = 'mwum'; 
+     
     (function() {
+        if (window.location.hostname == "localhost")
+            return;
+
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
@@ -164,19 +137,18 @@
 
 
 
+  </div>
+</div>
 
-      </div>
-    </div>
-
-    <footer class="site-footer">
+<footer class="site-footer">
 
   <div class="wrapper">
     <div class="footer-content">
       <p>
         <span class="no-palm">本站采用 <a rel="license" href="//creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可<br></span>
-        <span>&copy;2013-2019 <a href="https://www.dreamxu.com">明无梦</a></span>
+        <span>©2013-2024 <a href="https://www.dreamxu.com">明无梦</a></span>
         <span class="no-palm">| </span>
-        <span>Powered by <a href="//jekyllrb.com/">Jekyll</a></span>
+        <span>Powered by <a href="//gohugo.io/">Hugo</a></span>
         <span class="no-palm">| </span>
         <span>Hosted by <a href="//github.com/">GitHub</a></span>
         <span class="no-palm">| </span>
@@ -190,29 +162,6 @@
 </footer>
 
 
-    <script type="text/javascript" src="/js/main.js"></script>
-
-
-
-
-
-    
-
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-39279084-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-
-
-
-
-  </body>
+</body>
 
 </html>

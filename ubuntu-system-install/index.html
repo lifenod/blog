@@ -1,25 +1,29 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
+<head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  
   <title>安装和更新 Ubuntu 系统的方法 | 明无梦</title>
-  <meta name="description" content="官网：http://www.ubuntu.com/  Ubuntu 是一个比较好用的 Linux 发行版">
-
-  <link rel="stylesheet" href="/css/main.css">
+  <meta name="description" content="官网：http://www.ubuntu.com/
+Ubuntu 是一个比较好用的 Linux 发行版
+下载系统镜像
+在这个网站可下载 Ubuntu 系统的各个版本，http://releases.ubuntu.com/
+制作启动 U 盘，选择其中的一种方法：
+How to create a bootable USB …">
   <link rel="canonical" href="https://www.dreamxu.com/ubuntu-system-install/">
-  <link rel="alternate" type="application/rss+xml" title="明无梦" href="https://www.dreamxu.com/feed.xml">
+    <link rel="stylesheet" href="/css/style.min.2a2aa4ed426afcd7c5ffde31042cdd4d55ebbfcab2754fcfd5577a4a7b59019b.css" integrity="sha256-Kiqk7UJq/NfF/94xBCzdTVXrv8qydU/P1Vd6SntZAZs=" crossorigin="anonymous">
+  <script type="text/javascript" src="/js/bundle.min.441c485d1d9104b8017416429af24d2115fb80b39ccd1f1cb4907dc6c9d0e84d.js" integrity="sha256-RBxIXR2RBLgBdBZCmvJNIRX7gLOczR8ctJB9xsnQ6E0=" defer></script>
+
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
 
 
-  <body>
+<body>
 
-    <header class="site-header">
+<header class="site-header">
 
   <div class="wrapper">
 
@@ -43,11 +47,10 @@
       </a>
 
       <div class="trigger" id="js-nav-menu-trigger">
-        <a class="page-link" href="/archive">归档</a>
-        <a class="page-link" href="/tags">标签</a>
-        <a class="page-link" href="/books">书籍</a>
-        <a class="page-link" href="/tweet/2018">微语</a>
-        <a class="page-link" href="/about">关于</a>
+        <a class="page-link" href="/archive/">归档</a>
+        <a class="page-link" href="/tags/">标签</a>
+        <a class="page-link" href="/books/">书籍</a>
+        <a class="page-link" href="/about/">关于</a>
         <a class="page-link" href="/rss.xml">订阅</a>
       </div>
     </nav>
@@ -57,9 +60,11 @@
 </header>
 
 
-    <div class="content">
-      <div class="wrapper">
-        <article class="post">
+<div class="content">
+  <div class="wrapper">
+    
+
+<article class="post">
 
   <header class="post-header">
     <h1 class="post-title"><a href="/ubuntu-system-install/">安装和更新 Ubuntu 系统的方法</a></h1>
@@ -67,120 +72,95 @@
       <li class="published-date">2015-06-08</li>
       
         <li class="updated-date"> | 更新: 2016-10-04</li>
-      
-
-      
         <li> | 标签: </li>
-        
-          <li class="post-tag"><a href="/tags/?names=记录#tag-list-display">记录</a></li>
-        
+          <li class="post-tag"><a href="/tags/?names=%e8%ae%b0%e5%bd%95#tag-list-display">记录</a></li>
           <li class="post-tag"><a href="/tags/?names=Ubuntu#tag-list-display">Ubuntu</a></li>
-        
           <li class="post-tag"><a href="/tags/?names=Install#tag-list-display">Install</a></li>
-        
           <li class="post-tag"><a href="/tags/?names=Update#tag-list-display">Update</a></li>
-        
-      
     </ul>
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>官网：<a href="http://www.ubuntu.com/">http://www.ubuntu.com/</a>  <br />
+    <p>官网：<a href="http://www.ubuntu.com/">http://www.ubuntu.com/</a><br>
 Ubuntu 是一个比较好用的 Linux 发行版</p>
-
 <ol>
-  <li>
-    <p>下载系统镜像  <br />
+<li>
+<p>下载系统镜像<br>
 在这个网站可下载 Ubuntu 系统的各个版本，<a href="http://releases.ubuntu.com/">http://releases.ubuntu.com/</a></p>
-  </li>
-  <li>
-    <p>制作启动 U 盘，选择其中的一种方法：</p>
-
-    <ul>
-      <li><a href="http://www.ubuntu.com/download/desktop/create-a-usb-stick-on-ubuntu">How to create a bootable USB stick on Ubuntu</a></li>
-      <li><a href="http://www.ubuntu.com/download/desktop/create-a-usb-stick-on-windows">How to create a bootable USB stick on Windows</a></li>
-      <li><a href="http://www.ubuntu.com/download/desktop/create-a-usb-stick-on-mac-osx">How to create a bootable USB stick on OS X</a></li>
-    </ul>
-  </li>
-  <li>
-    <p>重新开机选择「从 U 盘启动」，一般按 F12 选择引导</p>
-  </li>
-  <li>
-    <p>安装系统  <br />
-<strong>注意分区的时候选择手动分区</strong></p>
-
-    <p>提供一个分区方案  <br />
-参考自：<a href="https://help.ubuntu.com/community/PartitioningSchemes">PartitioningSchemes</a></p>
-
-    <ul>
-      <li>主分区
-        <ul>
-          <li>/boot - 1G  <br />
-用于引导系统</li>
-        </ul>
-      </li>
-      <li>扩展分区
-        <ul>
-          <li>swap - 10G  <br />
-如果内存为 8G 的话。比内存稍大一点比较好，休眠需要使用，以现在机子的大内存来看，其它情况下不怎么用得着</li>
-          <li>/ - 30G  <br />
-存放 Ubuntu 的系统文件以及应用</li>
-          <li>/home - 100G  <br />
-系统应用的配置，数据，其它个人数据等。单独划分一个分区以后重装系统的话，数据都在</li>
-        </ul>
-      </li>
-      <li>剩下的可用于其它系统</li>
-    </ul>
-  </li>
-</ol>
-
-<h2 id="更新系统">更新系统</h2>
-
-<p>更新系统之前都需要执行 <code class="highlighter-rouge">sudo apt-get update</code> 来更新本地的软件列表</p>
-
+</li>
+<li>
+<p>制作启动 U 盘，选择其中的一种方法：</p>
 <ul>
-  <li>
-    <p><code class="highlighter-rouge">sudo apt-get upgrade</code></p>
-
-    <p>系统将现有的 Package 升级，如果有相依性的问题，而此相依性需要安装其它新的 Package 或影响到其它 Package 的相依性时，此 Package 就不会被升级</p>
-  </li>
-  <li>
-    <p><code class="highlighter-rouge">sudo apt-get dist-upgrade</code></p>
-
-    <p>可以聪明的解决相依性的问题，如果有相依性问题，需要安装/移除新的 Package，就会试着去安装/移除它  <br />
+<li><a href="http://www.ubuntu.com/download/desktop/create-a-usb-stick-on-ubuntu">How to create a bootable USB stick on Ubuntu</a></li>
+<li><a href="http://www.ubuntu.com/download/desktop/create-a-usb-stick-on-windows">How to create a bootable USB stick on Windows</a></li>
+<li><a href="http://www.ubuntu.com/download/desktop/create-a-usb-stick-on-mac-osx">How to create a bootable USB stick on OS X</a></li>
+</ul>
+</li>
+<li>
+<p>重新开机选择「从 U 盘启动」，一般按 F12 选择引导</p>
+</li>
+<li>
+<p>安装系统<br>
+<strong>注意分区的时候选择手动分区</strong></p>
+<p>提供一个分区方案<br>
+参考自：<a href="https://help.ubuntu.com/community/PartitioningSchemes">PartitioningSchemes</a></p>
+<ul>
+<li>主分区
+<ul>
+<li>/boot - 1G<br>
+用于引导系统</li>
+</ul>
+</li>
+<li>扩展分区
+<ul>
+<li>swap - 10G<br>
+如果内存为 8G 的话。比内存稍大一点比较好，休眠需要使用，以现在机子的大内存来看，其它情况下不怎么用得着</li>
+<li>/ - 30G<br>
+存放 Ubuntu 的系统文件以及应用</li>
+<li>/home - 100G<br>
+系统应用的配置，数据，其它个人数据等。单独划分一个分区以后重装系统的话，数据都在</li>
+</ul>
+</li>
+<li>剩下的可用于其它系统</li>
+</ul>
+</li>
+</ol>
+<h2 id="更新系统">更新系统</h2>
+<p>更新系统之前都需要执行 <code>sudo apt-get update</code> 来更新本地的软件列表</p>
+<ul>
+<li>
+<p><code>sudo apt-get upgrade</code></p>
+<p>系统将现有的 Package 升级，如果有相依性的问题，而此相依性需要安装其它新的 Package 或影响到其它 Package 的相依性时，此 Package 就不会被升级</p>
+</li>
+<li>
+<p><code>sudo apt-get dist-upgrade</code></p>
+<p>可以聪明的解决相依性的问题，如果有相依性问题，需要安装/移除新的 Package，就会试着去安装/移除它<br>
 (所以通常这个会被认为是有点风险的升级)</p>
-
-    <p>可以作为小版本升级来使用，比如从 Ubuntu 14.04.2 升级到 Ubuntu 14.04.5</p>
-  </li>
-  <li>
-    <p><code class="highlighter-rouge">sudo do-release-upgrade -d</code></p>
-
-    <p>release 更新，比如从 Ubuntu 14.04 升级到 16.04</p>
-  </li>
+<p>可以作为小版本升级来使用，比如从 Ubuntu 14.04.2 升级到 Ubuntu 14.04.5</p>
+</li>
+<li>
+<p><code>sudo do-release-upgrade -d</code></p>
+<p>release 更新，比如从 Ubuntu 14.04 升级到 16.04</p>
+</li>
 </ul>
 
   </div>
 
   <div class="quiet-link">
-    
-    <span>上一篇：</span><a href="/ubuntu-boot-repair/">Ubuntu 系统的引导修复</a><br />
-    
-    
-    <span>下一篇：</span><a href="/mac-computer-use-bootcamp-to-install-windows-10/">Mac 电脑使用 BootCamp 来安装 Windows 10</a>
-    
+      <span>上一篇：</span><a href="/ubuntu-boot-repair/">Ubuntu 系统的引导修复</a><br />
+      <span>下一篇：</span><a href="/mac-computer-use-bootcamp-to-install-windows-10/">Mac 电脑使用 BootCamp 来安装 Windows 10</a>
   </div>
 
 </article>
 
-
-
-<hr>
-
 <div id="disqus_thread"></div>
 <script type="text/javascript">
-    var disqus_shortname = 'mwum'; // required: replace example with your forum shortname
-    /* * * DON'T EDIT BELOW THIS LINE * * */
+    var disqus_shortname = 'mwum'; 
+     
     (function() {
+        if (window.location.hostname == "localhost")
+            return;
+
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
@@ -191,19 +171,18 @@ Ubuntu 是一个比较好用的 Linux 发行版</p>
 
 
 
+  </div>
+</div>
 
-      </div>
-    </div>
-
-    <footer class="site-footer">
+<footer class="site-footer">
 
   <div class="wrapper">
     <div class="footer-content">
       <p>
         <span class="no-palm">本站采用 <a rel="license" href="//creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可<br></span>
-        <span>&copy;2013-2019 <a href="https://www.dreamxu.com">明无梦</a></span>
+        <span>©2013-2024 <a href="https://www.dreamxu.com">明无梦</a></span>
         <span class="no-palm">| </span>
-        <span>Powered by <a href="//jekyllrb.com/">Jekyll</a></span>
+        <span>Powered by <a href="//gohugo.io/">Hugo</a></span>
         <span class="no-palm">| </span>
         <span>Hosted by <a href="//github.com/">GitHub</a></span>
         <span class="no-palm">| </span>
@@ -217,29 +196,6 @@ Ubuntu 是一个比较好用的 Linux 发行版</p>
 </footer>
 
 
-    <script type="text/javascript" src="/js/main.js"></script>
-
-
-
-
-
-    
-
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-39279084-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-
-
-
-
-  </body>
+</body>
 
 </html>

@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
+<head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  
   <title>Minecraft 服务器 PaperSpigot 的使用 | 明无梦</title>
-  <meta name="description" content="编译">
-
-  <link rel="stylesheet" href="/css/main.css">
+  <meta name="description" content="编译 去 https://ci.destroystokyo.com/job/PaperSpigot-BuildTools/ 下载构建工具，下载到文件为 PaperTools.jar
+新建一个目录，并将 PaperTools.jar 放到里面
+自动编译
+java -jar PaperTools.jar 等好一会之后，例如 …">
   <link rel="canonical" href="https://www.dreamxu.com/minecraft-server-paperspigot-use/">
-  <link rel="alternate" type="application/rss+xml" title="明无梦" href="https://www.dreamxu.com/feed.xml">
+    <link rel="stylesheet" href="/css/style.min.2a2aa4ed426afcd7c5ffde31042cdd4d55ebbfcab2754fcfd5577a4a7b59019b.css" integrity="sha256-Kiqk7UJq/NfF/94xBCzdTVXrv8qydU/P1Vd6SntZAZs=" crossorigin="anonymous">
+  <script type="text/javascript" src="/js/bundle.min.441c485d1d9104b8017416429af24d2115fb80b39ccd1f1cb4907dc6c9d0e84d.js" integrity="sha256-RBxIXR2RBLgBdBZCmvJNIRX7gLOczR8ctJB9xsnQ6E0=" defer></script>
+
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
 
 
-  <body>
+<body>
 
-    <header class="site-header">
+<header class="site-header">
 
   <div class="wrapper">
 
@@ -43,11 +45,10 @@
       </a>
 
       <div class="trigger" id="js-nav-menu-trigger">
-        <a class="page-link" href="/archive">归档</a>
-        <a class="page-link" href="/tags">标签</a>
-        <a class="page-link" href="/books">书籍</a>
-        <a class="page-link" href="/tweet/2018">微语</a>
-        <a class="page-link" href="/about">关于</a>
+        <a class="page-link" href="/archive/">归档</a>
+        <a class="page-link" href="/tags/">标签</a>
+        <a class="page-link" href="/books/">书籍</a>
+        <a class="page-link" href="/about/">关于</a>
         <a class="page-link" href="/rss.xml">订阅</a>
       </div>
     </nav>
@@ -57,110 +58,75 @@
 </header>
 
 
-    <div class="content">
-      <div class="wrapper">
-        <article class="post">
+<div class="content">
+  <div class="wrapper">
+    
+
+<article class="post">
 
   <header class="post-header">
     <h1 class="post-title"><a href="/minecraft-server-paperspigot-use/">Minecraft 服务器 PaperSpigot 的使用</a></h1>
     <ul class="post-meta">
       <li class="published-date">2015-09-19</li>
       
-
-      
         <li> | 标签: </li>
-        
-          <li class="post-tag"><a href="/tags/?names=记录#tag-list-display">记录</a></li>
-        
+          <li class="post-tag"><a href="/tags/?names=%e8%ae%b0%e5%bd%95#tag-list-display">记录</a></li>
           <li class="post-tag"><a href="/tags/?names=Minecraft#tag-list-display">Minecraft</a></li>
-        
           <li class="post-tag"><a href="/tags/?names=PaperSpigot#tag-list-display">PaperSpigot</a></li>
-        
           <li class="post-tag"><a href="/tags/?names=Game#tag-list-display">Game</a></li>
-        
-      
     </ul>
   </header>
 
   <div class="post-content" itemprop="articleBody">
     <h2 id="编译">编译</h2>
-
 <ol>
-  <li>
-    <p>去 <a href="https://ci.destroystokyo.com/job/PaperSpigot-BuildTools/">https://ci.destroystokyo.com/job/PaperSpigot-BuildTools/</a> 下载构建工具，<br />
-下载到文件为 PaperTools.jar</p>
-  </li>
-  <li>
-    <p>新建一个目录，并将 PaperTools.jar 放到里面</p>
-  </li>
-  <li>
-    <p>自动编译</p>
-
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>java -jar PaperTools.jar
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-
-    <p>等好一会之后，例如会在当前目录下生成 paperspigot-1.8.8.jar 文件，<br />
-这就是我们要的最终文件了</p>
-  </li>
+<li>
+<p>去 <a href="https://ci.destroystokyo.com/job/PaperSpigot-BuildTools/">https://ci.destroystokyo.com/job/PaperSpigot-BuildTools/</a> 下载构建工具，下载到文件为 PaperTools.jar</p>
+</li>
+<li>
+<p>新建一个目录，并将 PaperTools.jar 放到里面</p>
+</li>
+<li>
+<p>自动编译</p>
+<pre><code>java -jar PaperTools.jar
+</code></pre>
+<p>等好一会之后，例如会在当前目录下生成 paperspigot-1.8.8.jar 文件，这就是我们要的最终文件了</p>
+</li>
 </ol>
-
 <h2 id="运行">运行</h2>
-
 <p>和 Minecraft 官方服务器用法差不多，paperspigot-1.8.8.jar 就相当于官方服务器的 minecraft_server.1.8.8.jar</p>
-
 <p>Minecraft 官方服务器用法可查看我的一篇文章<a href="/build-official-minecraft-server/">《架设 Minecraft 官方服务器》</a></p>
-
 <h2 id="比官方服务器多的那一部分">比官方服务器多的那一部分</h2>
-
-<p>官方服务器主要配置文件就一个 server.properties  <br />
-PaperSpigot 中的配置文件为 server.properties, bukkit.yml, spigot.yml, paper.yml, <br />
-可配置部分也多多了</p>
-
+<p>官方服务器主要配置文件就一个 server.properties<br>
+PaperSpigot 中的配置文件为 server.properties, bukkit.yml, spigot.yml, paper.yml, 可配置部分也多多了</p>
 <p>以下只列举出了配置的很少一部分</p>
-
 <h3 id="bukkityml">bukkit.yml</h3>
-
 <p>详情见：<a href="http://wiki.bukkit.org/Bukkit.yml">http://wiki.bukkit.org/Bukkit.yml</a></p>
-
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-</pre></td><td class="rouge-code"><pre><span class="c1"># 一个区块中允许的生成生物数</span>
-<span class="c1"># 刷怪箱不受其影响，是另一套机制</span>
-<span class="na">spawn-limits</span><span class="pi">:</span>
-  <span class="na">monsters</span><span class="pi">:</span> <span class="s">70</span>
-  <span class="na">animals</span><span class="pi">:</span> <span class="s">15</span>
-  <span class="na">water-animals</span><span class="pi">:</span> <span class="s">5</span>
-  <span class="na">ambient</span><span class="pi">:</span> <span class="s">15</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># 一个区块中允许的生成生物数</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># 刷怪箱不受其影响，是另一套机制</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spawn-limits</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">monsters</span><span class="p">:</span><span class="w"> </span><span class="m">70</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">animals</span><span class="p">:</span><span class="w"> </span><span class="m">15</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">water-animals</span><span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ambient</span><span class="p">:</span><span class="w"> </span><span class="m">15</span><span class="w">
+</span></span></span></code></pre></div>
   </div>
 
   <div class="quiet-link">
-    
-    <span>上一篇：</span><a href="/build-official-minecraft-server/">架设 Minecraft 官方服务器</a><br />
-    
-    
-    <span>下一篇：</span><a href="/minecraft-server-plugin-share/">Minecraft 服务器插件分享</a>
-    
+      <span>上一篇：</span><a href="/build-official-minecraft-server/">架设 Minecraft 官方服务器</a><br />
+      <span>下一篇：</span><a href="/minecraft-server-plugin-share/">Minecraft 服务器插件分享</a>
   </div>
 
 </article>
 
-
-
-<hr>
-
 <div id="disqus_thread"></div>
 <script type="text/javascript">
-    var disqus_shortname = 'mwum'; // required: replace example with your forum shortname
-    /* * * DON'T EDIT BELOW THIS LINE * * */
+    var disqus_shortname = 'mwum'; 
+     
     (function() {
+        if (window.location.hostname == "localhost")
+            return;
+
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
@@ -171,19 +137,18 @@ PaperSpigot 中的配置文件为 server.properties, bukkit.yml, spigot.yml, pap
 
 
 
+  </div>
+</div>
 
-      </div>
-    </div>
-
-    <footer class="site-footer">
+<footer class="site-footer">
 
   <div class="wrapper">
     <div class="footer-content">
       <p>
         <span class="no-palm">本站采用 <a rel="license" href="//creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可<br></span>
-        <span>&copy;2013-2019 <a href="https://www.dreamxu.com">明无梦</a></span>
+        <span>©2013-2024 <a href="https://www.dreamxu.com">明无梦</a></span>
         <span class="no-palm">| </span>
-        <span>Powered by <a href="//jekyllrb.com/">Jekyll</a></span>
+        <span>Powered by <a href="//gohugo.io/">Hugo</a></span>
         <span class="no-palm">| </span>
         <span>Hosted by <a href="//github.com/">GitHub</a></span>
         <span class="no-palm">| </span>
@@ -197,29 +162,6 @@ PaperSpigot 中的配置文件为 server.properties, bukkit.yml, spigot.yml, pap
 </footer>
 
 
-    <script type="text/javascript" src="/js/main.js"></script>
-
-
-
-
-
-    
-
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-39279084-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-
-
-
-
-  </body>
+</body>
 
 </html>

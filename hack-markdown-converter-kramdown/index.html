@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
+<head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  
   <title>对 Markdown 渲染引擎 kramdown 的几点 hack | 明无梦</title>
-  <meta name="description" content="kramdown version: 1.11.1">
-
-  <link rel="stylesheet" href="/css/main.css">
+  <meta name="description" content="kramdown version: 1.11.1
+使生成 head ID 功能支持中文 我查看了 kramdown 选项部分的所有文档，发现它只支持 transliterated_header_ids. 但是我不喜欢将中文音译为拼音，所以干脆直接修改代码好了，还比较简单。
+首先找到相关的代码，如下所示：
+## …">
   <link rel="canonical" href="https://www.dreamxu.com/hack-markdown-converter-kramdown/">
-  <link rel="alternate" type="application/rss+xml" title="明无梦" href="https://www.dreamxu.com/feed.xml">
+    <link rel="stylesheet" href="/css/style.min.2a2aa4ed426afcd7c5ffde31042cdd4d55ebbfcab2754fcfd5577a4a7b59019b.css" integrity="sha256-Kiqk7UJq/NfF/94xBCzdTVXrv8qydU/P1Vd6SntZAZs=" crossorigin="anonymous">
+  <script type="text/javascript" src="/js/bundle.min.441c485d1d9104b8017416429af24d2115fb80b39ccd1f1cb4907dc6c9d0e84d.js" integrity="sha256-RBxIXR2RBLgBdBZCmvJNIRX7gLOczR8ctJB9xsnQ6E0=" defer></script>
+
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
 
 
-  <body>
+<body>
 
-    <header class="site-header">
+<header class="site-header">
 
   <div class="wrapper">
 
@@ -43,11 +45,10 @@
       </a>
 
       <div class="trigger" id="js-nav-menu-trigger">
-        <a class="page-link" href="/archive">归档</a>
-        <a class="page-link" href="/tags">标签</a>
-        <a class="page-link" href="/books">书籍</a>
-        <a class="page-link" href="/tweet/2018">微语</a>
-        <a class="page-link" href="/about">关于</a>
+        <a class="page-link" href="/archive/">归档</a>
+        <a class="page-link" href="/tags/">标签</a>
+        <a class="page-link" href="/books/">书籍</a>
+        <a class="page-link" href="/about/">关于</a>
         <a class="page-link" href="/rss.xml">订阅</a>
       </div>
     </nav>
@@ -57,280 +58,150 @@
 </header>
 
 
-    <div class="content">
-      <div class="wrapper">
-        <article class="post">
+<div class="content">
+  <div class="wrapper">
+    
+
+<article class="post">
 
   <header class="post-header">
     <h1 class="post-title"><a href="/hack-markdown-converter-kramdown/">对 Markdown 渲染引擎 kramdown 的几点 hack</a></h1>
     <ul class="post-meta">
       <li class="published-date">2016-07-11</li>
       
-
-      
         <li> | 标签: </li>
-        
-          <li class="post-tag"><a href="/tags/?names=技术#tag-list-display">技术</a></li>
-        
+          <li class="post-tag"><a href="/tags/?names=%e6%8a%80%e6%9c%af#tag-list-display">技术</a></li>
           <li class="post-tag"><a href="/tags/?names=Markdown#tag-list-display">Markdown</a></li>
-        
           <li class="post-tag"><a href="/tags/?names=kramdown#tag-list-display">kramdown</a></li>
-        
-      
     </ul>
   </header>
 
   <div class="post-content" itemprop="articleBody">
     <p>kramdown version: 1.11.1</p>
-
 <h2 id="使生成-head-id-功能支持中文">使生成 head ID 功能支持中文</h2>
-
-<p>我查看了 kramdown 选项部分的所有文档，发现它只支持 transliterated_header_ids. <br />
-但是我不喜欢将中文音译为拼音，所以干脆直接修改代码好了，还比较简单。</p>
-
+<p>我查看了 kramdown 选项部分的所有文档，发现它只支持 transliterated_header_ids. 但是我不喜欢将中文音译为拼音，所以干脆直接修改代码好了，还比较简单。</p>
 <p>首先找到相关的代码，如下所示：</p>
-
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-</pre></td><td class="rouge-code"><pre><span class="c1">## /lib/kramdown/converter/base.rb</span>
-
-<span class="k">def</span> <span class="nf">generate_id</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
-  <span class="n">str</span> <span class="o">=</span> <span class="o">::</span><span class="no">Kramdown</span><span class="o">::</span><span class="no">Utils</span><span class="o">::</span><span class="no">Unidecoder</span><span class="p">.</span><span class="nf">decode</span><span class="p">(</span><span class="n">str</span><span class="p">)</span> <span class="k">if</span> <span class="vi">@options</span><span class="p">[</span><span class="ss">:transliterated_header_ids</span><span class="p">]</span>
-  <span class="n">gen_id</span> <span class="o">=</span> <span class="n">str</span><span class="p">.</span><span class="nf">gsub</span><span class="p">(</span><span class="sr">/^[^a-zA-Z]+/</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span>
-  <span class="n">gen_id</span><span class="p">.</span><span class="nf">tr!</span><span class="p">(</span><span class="s1">'^a-zA-Z0-9 -'</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span>
-  <span class="n">gen_id</span><span class="p">.</span><span class="nf">tr!</span><span class="p">(</span><span class="s1">' '</span><span class="p">,</span> <span class="s1">'-'</span><span class="p">)</span>
-  <span class="n">gen_id</span><span class="p">.</span><span class="nf">downcase!</span>
-  <span class="n">gen_id</span> <span class="o">=</span> <span class="s1">'section'</span> <span class="k">if</span> <span class="n">gen_id</span><span class="p">.</span><span class="nf">length</span> <span class="o">==</span> <span class="mi">0</span>
-  <span class="vi">@used_ids</span> <span class="o">||=</span> <span class="p">{}</span>
-  <span class="k">if</span> <span class="vi">@used_ids</span><span class="p">.</span><span class="nf">has_key?</span><span class="p">(</span><span class="n">gen_id</span><span class="p">)</span>
-    <span class="n">gen_id</span> <span class="o">+=</span> <span class="s1">'-'</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="vi">@used_ids</span><span class="p">[</span><span class="n">gen_id</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">).</span><span class="nf">to_s</span>
-  <span class="k">else</span>
-    <span class="vi">@used_ids</span><span class="p">[</span><span class="n">gen_id</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-  <span class="k">end</span>
-  <span class="vi">@options</span><span class="p">[</span><span class="ss">:auto_id_prefix</span><span class="p">]</span> <span class="o">+</span> <span class="n">gen_id</span>
-<span class="k">end</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>我们看上面代码中的 5-8 行，就是对 ID 的转换, str 表示 head 的 raw text.  <br />
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="c1">## /lib/kramdown/converter/base.rb</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">generate_id</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">str</span> <span class="o">=</span> <span class="o">::</span><span class="no">Kramdown</span><span class="o">::</span><span class="no">Utils</span><span class="o">::</span><span class="no">Unidecoder</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">str</span><span class="p">)</span> <span class="k">if</span> <span class="vi">@options</span><span class="o">[</span><span class="ss">:transliterated_header_ids</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">  <span class="n">gen_id</span> <span class="o">=</span> <span class="n">str</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/^[^a-zA-Z]+/</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">gen_id</span><span class="o">.</span><span class="n">tr!</span><span class="p">(</span><span class="s1">&#39;^a-zA-Z0-9 -&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">gen_id</span><span class="o">.</span><span class="n">tr!</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">gen_id</span><span class="o">.</span><span class="n">downcase!</span>
+</span></span><span class="line"><span class="cl">  <span class="n">gen_id</span> <span class="o">=</span> <span class="s1">&#39;section&#39;</span> <span class="k">if</span> <span class="n">gen_id</span><span class="o">.</span><span class="n">length</span> <span class="o">==</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">  <span class="vi">@used_ids</span> <span class="o">||=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="vi">@used_ids</span><span class="o">.</span><span class="n">has_key?</span><span class="p">(</span><span class="n">gen_id</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">gen_id</span> <span class="o">+=</span> <span class="s1">&#39;-&#39;</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="vi">@used_ids</span><span class="o">[</span><span class="n">gen_id</span><span class="o">]</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">to_s</span>
+</span></span><span class="line"><span class="cl">  <span class="k">else</span>
+</span></span><span class="line"><span class="cl">    <span class="vi">@used_ids</span><span class="o">[</span><span class="n">gen_id</span><span class="o">]</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl">  <span class="vi">@options</span><span class="o">[</span><span class="ss">:auto_id_prefix</span><span class="o">]</span> <span class="o">+</span> <span class="n">gen_id</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></div><p>我们看上面代码中的 5-8 行，就是对 ID 的转换, str 表示 head 的 raw text.<br>
 原代码的意思是：取以字母开始的子串，去掉除了字母，数字，空格，连字符的字符，将空格替换为连字符，将字母变为小写</p>
-
 <p>我们将代码改为如下：</p>
-
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-</pre></td><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">generate_id</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
-  <span class="n">str</span> <span class="o">=</span> <span class="o">::</span><span class="no">Kramdown</span><span class="o">::</span><span class="no">Utils</span><span class="o">::</span><span class="no">Unidecoder</span><span class="p">.</span><span class="nf">decode</span><span class="p">(</span><span class="n">str</span><span class="p">)</span> <span class="k">if</span> <span class="vi">@options</span><span class="p">[</span><span class="ss">:transliterated_header_ids</span><span class="p">]</span>
-  <span class="c1"># gen_id = str.gsub(/^[^a-zA-Z]+/, '')</span>
-  <span class="c1"># gen_id.tr!('^a-zA-Z0-9 -', '')</span>
-  <span class="c1"># gen_id.tr!(' ', '-')</span>
-  <span class="c1"># gen_id.downcase!</span>
-  <span class="c1"># gen_id = 'section' if gen_id.length == 0</span>
-  <span class="n">gen_id</span> <span class="o">=</span> <span class="n">str</span><span class="p">.</span><span class="nf">scan</span><span class="p">(</span><span class="sr">/([a-zA-Z0-9 \-]|[^\x00-\x7F])/</span><span class="p">).</span><span class="nf">join</span>
-  <span class="n">gen_id</span><span class="p">.</span><span class="nf">gsub!</span><span class="p">(</span><span class="sr">/[ \-]+/</span><span class="p">,</span> <span class="s1">'-'</span><span class="p">)</span>
-  <span class="n">gen_id</span><span class="p">.</span><span class="nf">downcase!</span>
-  <span class="vi">@used_ids</span> <span class="o">||=</span> <span class="p">{}</span>
-  <span class="k">if</span> <span class="vi">@used_ids</span><span class="p">.</span><span class="nf">has_key?</span><span class="p">(</span><span class="n">gen_id</span><span class="p">)</span>
-    <span class="n">gen_id</span> <span class="o">+=</span> <span class="s1">'-'</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="vi">@used_ids</span><span class="p">[</span><span class="n">gen_id</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">).</span><span class="nf">to_s</span>
-  <span class="k">else</span>
-    <span class="vi">@used_ids</span><span class="p">[</span><span class="n">gen_id</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-  <span class="k">end</span>
-  <span class="vi">@options</span><span class="p">[</span><span class="ss">:auto_id_prefix</span><span class="p">]</span> <span class="o">+</span> <span class="n">gen_id</span>
-<span class="k">end</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>代码的意思是：移除 ASCII 字符中除了字母，数字，空格，连字符的字符，但是不移除所有非 ASCII 字符，<br />
-然后将其中空格和连字符（包括重复的）转换为一个连字符，再将其转换为小写。</p>
-
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">generate_id</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">str</span> <span class="o">=</span> <span class="o">::</span><span class="no">Kramdown</span><span class="o">::</span><span class="no">Utils</span><span class="o">::</span><span class="no">Unidecoder</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">str</span><span class="p">)</span> <span class="k">if</span> <span class="vi">@options</span><span class="o">[</span><span class="ss">:transliterated_header_ids</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># gen_id = str.gsub(/^[^a-zA-Z]+/, &#39;&#39;)</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># gen_id.tr!(&#39;^a-zA-Z0-9 -&#39;, &#39;&#39;)</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># gen_id.tr!(&#39; &#39;, &#39;-&#39;)</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># gen_id.downcase!</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># gen_id = &#39;section&#39; if gen_id.length == 0</span>
+</span></span><span class="line"><span class="cl">  <span class="n">gen_id</span> <span class="o">=</span> <span class="n">str</span><span class="o">.</span><span class="n">scan</span><span class="p">(</span><span class="sr">/([a-zA-Z0-9 \-]|[^\x00-\x7F])/</span><span class="p">)</span><span class="o">.</span><span class="n">join</span>
+</span></span><span class="line"><span class="cl">  <span class="n">gen_id</span><span class="o">.</span><span class="n">gsub!</span><span class="p">(</span><span class="sr">/[ \-]+/</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">gen_id</span><span class="o">.</span><span class="n">downcase!</span>
+</span></span><span class="line"><span class="cl">  <span class="vi">@used_ids</span> <span class="o">||=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="vi">@used_ids</span><span class="o">.</span><span class="n">has_key?</span><span class="p">(</span><span class="n">gen_id</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">gen_id</span> <span class="o">+=</span> <span class="s1">&#39;-&#39;</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="vi">@used_ids</span><span class="o">[</span><span class="n">gen_id</span><span class="o">]</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">to_s</span>
+</span></span><span class="line"><span class="cl">  <span class="k">else</span>
+</span></span><span class="line"><span class="cl">    <span class="vi">@used_ids</span><span class="o">[</span><span class="n">gen_id</span><span class="o">]</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl">  <span class="vi">@options</span><span class="o">[</span><span class="ss">:auto_id_prefix</span><span class="o">]</span> <span class="o">+</span> <span class="n">gen_id</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></div><p>代码的意思是：移除 ASCII 字符中除了字母，数字，空格，连字符的字符，但是不移除所有非 ASCII 字符，然后将其中空格和连字符（包括重复的）转换为一个连字符，再将其转换为小写。</p>
 <p>我个人比较喜欢这种表达 ID 的方式，所以就那么改了，你可以随便改成什么样子。</p>
-
-<h2 id="绕过-alt-text-中出现--产生的-bug">绕过 alt text 中出现 “|” 产生的 bug</h2>
-
+<h2 id="绕过-alt-text-中出现--产生的-bug">绕过 alt text 中出现 &ldquo;|&rdquo; 产生的 bug</h2>
 <p>先看几个例子体会一下这个 bug 是什么，以下都是链接的例子，当然在图片中也会有问题</p>
-
 <ul>
-  <li>
-    <p>出错，会转换为表格。</p>
-
-    <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre><span class="p">[</span><span class="nv">明无梦的博客 | 明无梦</span><span class="p">](</span><span class="sx">http://www.dreamxu.com/</span><span class="p">)</span>
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-
-    <p>转换为：</p>
-
-    <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="rouge-code"><pre><span class="nt">&lt;table&gt;</span>
-  <span class="nt">&lt;tbody&gt;</span>
-    <span class="nt">&lt;tr&gt;</span>
-      <span class="nt">&lt;td&gt;</span>[明无梦的博客<span class="nt">&lt;/td&gt;</span>
-      <span class="nt">&lt;td&gt;</span>明无梦](http://www.dreamxu.com/)<span class="nt">&lt;/td&gt;</span>
-    <span class="nt">&lt;/tr&gt;</span>
-  <span class="nt">&lt;/tbody&gt;</span>
-<span class="nt">&lt;/table&gt;</span>
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-  </li>
-  <li>
-    <p>正常，但是需要将 <code class="highlighter-rouge">|</code> 转义，显然我不会这样做，我的 Markdown 代码写的没问题，<br />
-没必要修改，而且 ‘|’ 看起来不直观。</p>
-
-    <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre><span class="p">[</span><span class="nv">明无梦的博客 \| 明无梦</span><span class="p">](</span><span class="sx">http://www.dreamxu.com/</span><span class="p">)</span>
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-
-    <p>转换为：</p>
-
-    <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-</pre></td><td class="rouge-code"><pre><span class="nt">&lt;p&gt;</span>
-  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://www.dreamxu.com/"</span><span class="nt">&gt;</span>明无梦的博客 | 明无梦<span class="nt">&lt;/a&gt;</span>
-<span class="nt">&lt;/p&gt;</span>
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-  </li>
-  <li>
-    <p>正常，但是链接前后必须有其它文字。为什么我单独写个链接就不行！显然也不是我能接受的解决方案。</p>
-
-    <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-</pre></td><td class="rouge-code"><pre>这是一个博客：
-<span class="p">[</span><span class="nv">明无梦的博客 | 明无梦</span><span class="p">](</span><span class="sx">http://www.dreamxu.com/</span><span class="p">)</span>
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-
-    <p>转换为：</p>
-
-    <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-</pre></td><td class="rouge-code"><pre><span class="nt">&lt;p&gt;</span>这是一个博客：
-<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://www.dreamxu.com/"</span><span class="nt">&gt;</span>明无梦的博客 | 明无梦<span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-  </li>
+<li>
+<p>出错，会转换为表格。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl">[<span class="nt">明无梦的博客 | 明无梦</span>](<span class="na">http://www.dreamxu.com/</span>)
+</span></span></code></pre></div><p>转换为：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">table</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">tbody</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>[明无梦的博客<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>明无梦](http://www.dreamxu.com/)<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">tbody</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+</span></span></code></pre></div></li>
+<li>
+<p>正常，但是需要将 <code>|</code> 转义，显然我不会这样做，我的 Markdown 代码写的没问题，没必要修改，而且 &lsquo;|&rsquo; 看起来不直观。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl">[<span class="nt">明无梦的博客 \| 明无梦</span>](<span class="na">http://www.dreamxu.com/</span>)
+</span></span></code></pre></div><p>转换为：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;http://www.dreamxu.com/&#34;</span><span class="p">&gt;</span>明无梦的博客 | 明无梦<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span></code></pre></div></li>
+<li>
+<p>正常，但是链接前后必须有其它文字。为什么我单独写个链接就不行！显然也不是我能接受的解决方案。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl">这是一个博客：
+</span></span><span class="line"><span class="cl">[<span class="nt">明无梦的博客 | 明无梦</span>](<span class="na">http://www.dreamxu.com/</span>)
+</span></span></code></pre></div><p>转换为：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>这是一个博客：
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;http://www.dreamxu.com/&#34;</span><span class="p">&gt;</span>明无梦的博客 | 明无梦<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span></code></pre></div></li>
 </ul>
-
-<p>产生这个 bug 的原因很简单，就是 kramdown 支持 PHP Markdown 式的表格，其中有用 <code class="highlighter-rouge">|</code> 关键词，<br />
-所以会将其转换为表格。</p>
-
-<p>我看 Github 上也有人提出了这个 bug: <a href="https://github.com/gettalong/kramdown/issues/135">https://github.com/gettalong/kramdown/issues/135</a>, <br />
-看样子是已经修好了。<br />
-但是从上面的例子中也可以看出来并没有修好，所以我打算绕过这个 bug, 这是最简单的处理方式了。</p>
-
-<p>我们只要将其 table parse 功能取消掉就好了，反正我也不使用这种表格写法。<br />
-<strong>注意</strong>，如果你用到了这个功能，那么就不要这么做了。</p>
-
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-</pre></td><td class="rouge-code"><pre><span class="c1"># /lib/kramdown/parser/kramdown.rb</span>
-
-<span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
-  <span class="k">super</span>
-
-  <span class="n">reset_env</span>
-
-  <span class="vi">@alds</span> <span class="o">=</span> <span class="p">{}</span>
-  <span class="vi">@footnotes</span> <span class="o">=</span> <span class="p">{}</span>
-  <span class="vi">@link_defs</span> <span class="o">=</span> <span class="p">{}</span>
-  <span class="n">update_link_definitions</span><span class="p">(</span><span class="vi">@options</span><span class="p">[</span><span class="ss">:link_defs</span><span class="p">])</span>
-
-
-  <span class="c1"># 原来的代码是这个样子的，将 :table 去掉即可</span>
-  <span class="c1">#</span>
-  <span class="c1"># @block_parsers = [:blank_line, :codeblock, :codeblock_fenced, :blockquote, :atx_header,</span>
-  <span class="c1">#                   :horizontal_rule, :list, :definition_list, :block_html, :setext_header,</span>
-  <span class="c1">#                   :block_math, :table, :footnote_definition, :link_definition, :abbrev_definition,</span>
-  <span class="c1">#                   :block_extensions, :eob_marker, :paragraph]</span>
-  <span class="vi">@block_parsers</span> <span class="o">=</span> <span class="p">[</span><span class="ss">:blank_line</span><span class="p">,</span> <span class="ss">:codeblock</span><span class="p">,</span> <span class="ss">:codeblock_fenced</span><span class="p">,</span> <span class="ss">:blockquote</span><span class="p">,</span> <span class="ss">:atx_header</span><span class="p">,</span>
-                    <span class="ss">:horizontal_rule</span><span class="p">,</span> <span class="ss">:list</span><span class="p">,</span> <span class="ss">:definition_list</span><span class="p">,</span> <span class="ss">:block_html</span><span class="p">,</span> <span class="ss">:setext_header</span><span class="p">,</span>
-                    <span class="ss">:block_math</span><span class="p">,</span> <span class="ss">:footnote_definition</span><span class="p">,</span> <span class="ss">:link_definition</span><span class="p">,</span> <span class="ss">:abbrev_definition</span><span class="p">,</span>
-                    <span class="ss">:block_extensions</span><span class="p">,</span> <span class="ss">:eob_marker</span><span class="p">,</span> <span class="ss">:paragraph</span><span class="p">]</span>
-  <span class="vi">@span_parsers</span> <span class="o">=</span>  <span class="p">[</span><span class="ss">:emphasis</span><span class="p">,</span> <span class="ss">:codespan</span><span class="p">,</span> <span class="ss">:autolink</span><span class="p">,</span> <span class="ss">:span_html</span><span class="p">,</span> <span class="ss">:footnote_marker</span><span class="p">,</span> <span class="ss">:link</span><span class="p">,</span> <span class="ss">:smart_quotes</span><span class="p">,</span> <span class="ss">:inline_math</span><span class="p">,</span>
-                   <span class="ss">:span_extensions</span><span class="p">,</span> <span class="ss">:html_entity</span><span class="p">,</span> <span class="ss">:typographic_syms</span><span class="p">,</span> <span class="ss">:line_break</span><span class="p">,</span> <span class="ss">:escaped_chars</span><span class="p">]</span>
-
-<span class="k">end</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
+<p>产生这个 bug 的原因很简单，就是 kramdown 支持 PHP Markdown 式的表格，其中有用 <code>|</code> 关键词，所以会将其转换为表格。</p>
+<p>我看 Github 上也有人提出了这个 bug: <a href="https://github.com/gettalong/kramdown/issues/135">https://github.com/gettalong/kramdown/issues/135</a>, 看样子是已经修好了。但是从上面的例子中也可以看出来并没有修好，所以我打算绕过这个 bug, 这是最简单的处理方式了。</p>
+<p>我们只要将其 table parse 功能取消掉就好了，反正我也不使用这种表格写法。<strong>注意</strong>，如果你用到了这个功能，那么就不要这么做了。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="c1"># /lib/kramdown/parser/kramdown.rb</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="k">super</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">reset_env</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="vi">@alds</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">  <span class="vi">@footnotes</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">  <span class="vi">@link_defs</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">  <span class="n">update_link_definitions</span><span class="p">(</span><span class="vi">@options</span><span class="o">[</span><span class="ss">:link_defs</span><span class="o">]</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1"># 原来的代码是这个样子的，将 :table 去掉即可</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">#</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># @block_parsers = [:blank_line, :codeblock, :codeblock_fenced, :blockquote, :atx_header,</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">#                   :horizontal_rule, :list, :definition_list, :block_html, :setext_header,</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">#                   :block_math, :table, :footnote_definition, :link_definition, :abbrev_definition,</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">#                   :block_extensions, :eob_marker, :paragraph]</span>
+</span></span><span class="line"><span class="cl">  <span class="vi">@block_parsers</span> <span class="o">=</span> <span class="o">[</span><span class="ss">:blank_line</span><span class="p">,</span> <span class="ss">:codeblock</span><span class="p">,</span> <span class="ss">:codeblock_fenced</span><span class="p">,</span> <span class="ss">:blockquote</span><span class="p">,</span> <span class="ss">:atx_header</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="ss">:horizontal_rule</span><span class="p">,</span> <span class="ss">:list</span><span class="p">,</span> <span class="ss">:definition_list</span><span class="p">,</span> <span class="ss">:block_html</span><span class="p">,</span> <span class="ss">:setext_header</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="ss">:block_math</span><span class="p">,</span> <span class="ss">:footnote_definition</span><span class="p">,</span> <span class="ss">:link_definition</span><span class="p">,</span> <span class="ss">:abbrev_definition</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="ss">:block_extensions</span><span class="p">,</span> <span class="ss">:eob_marker</span><span class="p">,</span> <span class="ss">:paragraph</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">  <span class="vi">@span_parsers</span> <span class="o">=</span>  <span class="o">[</span><span class="ss">:emphasis</span><span class="p">,</span> <span class="ss">:codespan</span><span class="p">,</span> <span class="ss">:autolink</span><span class="p">,</span> <span class="ss">:span_html</span><span class="p">,</span> <span class="ss">:footnote_marker</span><span class="p">,</span> <span class="ss">:link</span><span class="p">,</span> <span class="ss">:smart_quotes</span><span class="p">,</span> <span class="ss">:inline_math</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                   <span class="ss">:span_extensions</span><span class="p">,</span> <span class="ss">:html_entity</span><span class="p">,</span> <span class="ss">:typographic_syms</span><span class="p">,</span> <span class="ss">:line_break</span><span class="p">,</span> <span class="ss">:escaped_chars</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></div>
   </div>
 
   <div class="quiet-link">
-    
-    <span>上一篇：</span><a href="/monitor-markdown-file-changes-and-convert-it-to-html-file/">监测 Markdown 文件改动并将其转化为 HTML 文件</a><br />
-    
-    
-    <span>下一篇：</span>想看吗，玩穿越吧<br />
-    
+      <span>上一篇：</span><a href="/monitor-markdown-file-changes-and-convert-it-to-html-file/">监测 Markdown 文件改动并将其转化为 HTML 文件</a><br />
+      <span>下一篇：</span>想看吗，玩穿越吧
   </div>
 
 </article>
 
-
-
-<hr>
-
 <div id="disqus_thread"></div>
 <script type="text/javascript">
-    var disqus_shortname = 'mwum'; // required: replace example with your forum shortname
-    /* * * DON'T EDIT BELOW THIS LINE * * */
+    var disqus_shortname = 'mwum'; 
+     
     (function() {
+        if (window.location.hostname == "localhost")
+            return;
+
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
@@ -341,19 +212,18 @@
 
 
 
+  </div>
+</div>
 
-      </div>
-    </div>
-
-    <footer class="site-footer">
+<footer class="site-footer">
 
   <div class="wrapper">
     <div class="footer-content">
       <p>
         <span class="no-palm">本站采用 <a rel="license" href="//creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可<br></span>
-        <span>&copy;2013-2019 <a href="https://www.dreamxu.com">明无梦</a></span>
+        <span>©2013-2024 <a href="https://www.dreamxu.com">明无梦</a></span>
         <span class="no-palm">| </span>
-        <span>Powered by <a href="//jekyllrb.com/">Jekyll</a></span>
+        <span>Powered by <a href="//gohugo.io/">Hugo</a></span>
         <span class="no-palm">| </span>
         <span>Hosted by <a href="//github.com/">GitHub</a></span>
         <span class="no-palm">| </span>
@@ -367,29 +237,6 @@
 </footer>
 
 
-    <script type="text/javascript" src="/js/main.js"></script>
-
-
-
-
-
-    
-
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-39279084-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-
-
-
-
-  </body>
+</body>
 
 </html>

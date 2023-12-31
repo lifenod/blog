@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
+<head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  
   <title>Mac 电脑使用 BootCamp 来安装 Windows 10 | 明无梦</title>
-  <meta name="description" content="参考自苹果的技术支持《如何使用 Boot Camp 来安装 Windows》  更具体可查看《Boot Camp 帮助》">
-
-  <link rel="stylesheet" href="/css/main.css">
+  <meta name="description" content="参考自苹果的技术支持《如何使用 Boot Camp 来安装 Windows》
+更具体可查看《Boot Camp 帮助》
+Boot Camp 6.0 已经完美支持 Windows 10
+我们能达到的效果：
+能够以原生速度运行 Windows 启动的时候可在 Windows 和 OS X 间切换 安装和卸载非常容易，不会对 …">
   <link rel="canonical" href="https://www.dreamxu.com/mac-computer-use-bootcamp-to-install-windows-10/">
-  <link rel="alternate" type="application/rss+xml" title="明无梦" href="https://www.dreamxu.com/feed.xml">
+    <link rel="stylesheet" href="/css/style.min.2a2aa4ed426afcd7c5ffde31042cdd4d55ebbfcab2754fcfd5577a4a7b59019b.css" integrity="sha256-Kiqk7UJq/NfF/94xBCzdTVXrv8qydU/P1Vd6SntZAZs=" crossorigin="anonymous">
+  <script type="text/javascript" src="/js/bundle.min.441c485d1d9104b8017416429af24d2115fb80b39ccd1f1cb4907dc6c9d0e84d.js" integrity="sha256-RBxIXR2RBLgBdBZCmvJNIRX7gLOczR8ctJB9xsnQ6E0=" defer></script>
+
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
 
 
-  <body>
+<body>
 
-    <header class="site-header">
+<header class="site-header">
 
   <div class="wrapper">
 
@@ -43,11 +46,10 @@
       </a>
 
       <div class="trigger" id="js-nav-menu-trigger">
-        <a class="page-link" href="/archive">归档</a>
-        <a class="page-link" href="/tags">标签</a>
-        <a class="page-link" href="/books">书籍</a>
-        <a class="page-link" href="/tweet/2018">微语</a>
-        <a class="page-link" href="/about">关于</a>
+        <a class="page-link" href="/archive/">归档</a>
+        <a class="page-link" href="/tags/">标签</a>
+        <a class="page-link" href="/books/">书籍</a>
+        <a class="page-link" href="/about/">关于</a>
         <a class="page-link" href="/rss.xml">订阅</a>
       </div>
     </nav>
@@ -57,9 +59,11 @@
 </header>
 
 
-    <div class="content">
-      <div class="wrapper">
-        <article class="post">
+<div class="content">
+  <div class="wrapper">
+    
+
+<article class="post">
 
   <header class="post-header">
     <h1 class="post-title"><a href="/mac-computer-use-bootcamp-to-install-windows-10/">Mac 电脑使用 BootCamp 来安装 Windows 10</a></h1>
@@ -67,200 +71,148 @@
       <li class="published-date">2015-08-02</li>
       
         <li class="updated-date"> | 更新: 2015-08-14</li>
-      
-
-      
         <li> | 标签: </li>
-        
-          <li class="post-tag"><a href="/tags/?names=记录#tag-list-display">记录</a></li>
-        
+          <li class="post-tag"><a href="/tags/?names=%e8%ae%b0%e5%bd%95#tag-list-display">记录</a></li>
           <li class="post-tag"><a href="/tags/?names=Mac#tag-list-display">Mac</a></li>
-        
-          <li class="post-tag"><a href="/tags/?names=OS X#tag-list-display">OS X</a></li>
-        
+          <li class="post-tag"><a href="/tags/?names=OS%20X#tag-list-display">OS X</a></li>
           <li class="post-tag"><a href="/tags/?names=BootCamp#tag-list-display">BootCamp</a></li>
-        
           <li class="post-tag"><a href="/tags/?names=Windows#tag-list-display">Windows</a></li>
-        
           <li class="post-tag"><a href="/tags/?names=Install#tag-list-display">Install</a></li>
-        
-      
     </ul>
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>参考自苹果的技术支持<a href="https://support.apple.com/zh-cn/HT201468">《如何使用 Boot Camp 来安装 Windows》</a>  <br />
+    <p>参考自苹果的技术支持<a href="https://support.apple.com/zh-cn/HT201468">《如何使用 Boot Camp 来安装 Windows》</a><br>
 更具体可查看<a href="https://help.apple.com/bootcamp/mac/5.0/help/?lang=zh-cn">《Boot Camp 帮助》</a></p>
-
 <p>Boot Camp 6.0 已经完美支持 Windows 10</p>
-
 <p>我们能达到的效果：</p>
-
 <ul>
-  <li>能够以原生速度运行 Windows</li>
-  <li>启动的时候可在 Windows 和 OS X 间切换</li>
-  <li>安装和卸载非常容易，不会对原有系统产生影响，不会对现有文件产生影响</li>
+<li>能够以原生速度运行 Windows</li>
+<li>启动的时候可在 Windows 和 OS X 间切换</li>
+<li>安装和卸载非常容易，不会对原有系统产生影响，不会对现有文件产生影响</li>
 </ul>
-
 <p>准备：</p>
-
 <ul>
-  <li>
-    <p>基于 Intel 的 Mac</p>
-  </li>
-  <li>
-    <p>64 位版本的 Windows 系统镜像，例如  <br />
+<li>
+<p>基于 Intel 的 Mac</p>
+</li>
+<li>
+<p>64 位版本的 Windows 系统镜像，例如<br>
 Windows 10 (Multiple Editions) (x64) - DVD (Chinese-Simplified)</p>
-
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-</pre></td><td class="rouge-code"><pre>文件名      cn_windows_10_multiple_editions_x64_dvd_6848463.iso
+<pre tabindex="0"><code>文件名      cn_windows_10_multiple_editions_x64_dvd_6848463.iso
 SHA1        C71D49A6144772F352806201EF564951BE55EDD5
 文件大小    4.01GB
 发布时间    2015-07-29
 下载地址    ed2k://|file|cn_windows_10_multiple_editions_x64_dvd_6848463.iso|4303300608|94FD861E82458005A9CA8E617379856A|/
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-
-    <p>也可去 <a href="http://msdn.itellyou.cn/">http://msdn.itellyou.cn/</a> 下载</p>
-  </li>
-  <li>
-    <p>可以删除的 8 GB 或更大容量的 USB2 U盘</p>
-  </li>
-  <li>
-    <p>足够的剩余硬盘空间，至少为 30 GB</p>
-  </li>
-  <li>
-    <p>备份好 Mac 电脑上的所有资料</p>
-  </li>
+</code></pre><p>也可去 <a href="http://msdn.itellyou.cn/">http://msdn.itellyou.cn/</a> 下载</p>
+</li>
+<li>
+<p>可以删除的 8 GB 或更大容量的 USB2 U盘</p>
+</li>
+<li>
+<p>足够的剩余硬盘空间，至少为 30 GB</p>
+</li>
+<li>
+<p>备份好 Mac 电脑上的所有资料</p>
+</li>
 </ul>
-
 <h2 id="具体安装过程">具体安装过程</h2>
-
 <blockquote>
-  <p>「Boot Camp 助理」只为 Windows 创建一个分区，而不会抹掉现有的 OS X 宗卷。<br />
-  <strong>重要信息</strong>：如需安装 Windows，请勿使用「磁盘工具」对硬盘驱动器进行分区。<br />
-  务必使用 Boot Camp 助理。  <br />
-  ——苹果官方</p>
+<p>「Boot Camp 助理」只为 Windows 创建一个分区，而不会抹掉现有的 OS X 宗卷。<strong>重要信息</strong>：如需安装 Windows，请勿使用「磁盘工具」对硬盘驱动器进行分区。务必使用 Boot Camp 助理。<br>
+——苹果官方</p>
 </blockquote>
-
 <h3 id="一使用-bootcamp-制作启动u盘和获取-windows-驱动">一、使用 BootCamp 制作启动U盘和获取 Windows 驱动</h3>
-
 <ol>
-  <li>
-    <p>打开 “Boot Camp Assistant” 软件，点击 “Continue”</p>
-  </li>
-  <li>
-    <p>将三个选项都选上，点击 “Continue”，如下图所示  <br />
-<img src="/assets/images/posts/2015-08-02_151718.png" alt="Boot Camp Assistant" /></p>
-  </li>
-  <li>
-    <p>选取需要安装的 Windows 镜像，在 “Destination disk” 中选择要制作成启动盘的 U 盘，<br />
-千万不要选错了，不然被格式化就麻烦了，最后点击 “Continue”, 如下图所示  <br />
-<img src="/assets/images/posts/2015-08-02_152916.png" alt="Boot Camp Assistant" /></p>
-  </li>
-  <li>
-    <p>跳出一个小对话框，提醒你会删除 U 盘中的所有数据，点击 “Continue”</p>
-  </li>
-  <li>
-    <p>漫长的等待…  <br />
-Boot Camp Assistant 会自动制作启动盘和下载 Windows 驱动  <br />
+<li>
+<p>打开 &ldquo;Boot Camp Assistant&rdquo; 软件，点击 &ldquo;Continue&rdquo;</p>
+</li>
+<li>
+<p>将三个选项都选上，点击 &ldquo;Continue&rdquo;，如下图所示<br>
+<img src="2015-08-02_151718.png" alt="Boot Camp Assistant"></p>
+</li>
+<li>
+<p>选取需要安装的 Windows 镜像，在 &ldquo;Destination disk&rdquo; 中选择要制作成启动盘的 U 盘，千万不要选错了，不然被格式化就麻烦了，最后点击 &ldquo;Continue&rdquo;, 如下图所示<br>
+<img src="2015-08-02_152916.png" alt="Boot Camp Assistant"></p>
+</li>
+<li>
+<p>跳出一个小对话框，提醒你会删除 U 盘中的所有数据，点击 &ldquo;Continue&rdquo;</p>
+</li>
+<li>
+<p>漫长的等待&hellip;<br>
+Boot Camp Assistant 会自动制作启动盘和下载 Windows 驱动<br>
 不要关闭 BootCamp 软件，继续第二部分的安装</p>
-  </li>
+</li>
 </ol>
-
 <h3 id="二使用-bootcamp-创建用于-windows-的分区">二、使用 BootCamp 创建用于 Windows 的分区</h3>
-
-<p>第一部分很长时间的等待过后，进入分区页面，给 Windows 分出适当的大小，点击 “Install”, 如下图所示  <br />
-<img src="/assets/images/posts/2015-08-02_162920.png" alt="Boot Camp Assistant" /></p>
-
-<p>分区完成之后，会自动重启进入 Windows 安装  <br />
+<p>第一部分很长时间的等待过后，进入分区页面，给 Windows 分出适当的大小，点击 &ldquo;Install&rdquo;, 如下图所示<br>
+<img src="2015-08-02_162920.png" alt="Boot Camp Assistant"></p>
+<p>分区完成之后，会自动重启进入 Windows 安装<br>
 进入第三部分的安装</p>
-
 <h3 id="三安装-windows">三、安装 Windows</h3>
-
-<p>进入如下步骤的时候，选择 BOOTCAMP 分区，将其格式化，然后点击「下一步」  <br />
-<img src="/assets/images/posts/2015-08-02_172042.jpg" alt="安装 Windows" /></p>
-
-<p>稍后系统自动重启，进入 Windows 系统的安装，安装完成之后，会自动重启进入 Windows  <br />
+<p>进入如下步骤的时候，选择 BOOTCAMP 分区，将其格式化，然后点击「下一步」<br>
+<img src="2015-08-02_172042.jpg" alt="安装 Windows"></p>
+<p>稍后系统自动重启，进入 Windows 系统的安装，安装完成之后，会自动重启进入 Windows<br>
 最后进行第四部分的安装</p>
-
 <h3 id="四安装驱动">四、安装驱动</h3>
-
-<p>进入 Windows 之后，再打开 U 盘目录下的 “BootCamp” 目录，运行 “setup.ext” 文件，进行驱动程序的安装</p>
-
+<p>进入 Windows 之后，再打开 U 盘目录下的 &ldquo;BootCamp&rdquo; 目录，运行 &ldquo;setup.ext&rdquo; 文件，进行驱动程序的安装</p>
 <h3 id="五如何选择使用哪个系统">五、如何选择使用哪个系统</h3>
-
 <ul>
-  <li>
-    <p>选择默认启动的操作系统</p>
-
-    <ul>
-      <li>
-        <p>在 Windows 下  <br />
+<li>
+<p>选择默认启动的操作系统</p>
+<ul>
+<li>
+<p>在 Windows 下<br>
 单击系统托盘中的「BootCamp 图标」，然后选取「BootCamp 控制面板」，按情况设置即可</p>
-      </li>
-      <li>
-        <p>在 OS X 下  <br />
-依次打开 “System Preferences” -&gt; “Startup Disk”, 按情况设置即可</p>
-      </li>
-    </ul>
-  </li>
-  <li>
-    <p>临时改变需要启动的操作系统，但是不会改变默认启动</p>
-
-    <p>在电脑启动的时候按住 “Option” 键，会出现启动选择页面</p>
-  </li>
+</li>
+<li>
+<p>在 OS X 下<br>
+依次打开 &ldquo;System Preferences&rdquo; -&gt; &ldquo;Startup Disk&rdquo;, 按情况设置即可</p>
+</li>
 </ul>
-
+</li>
+<li>
+<p>临时改变需要启动的操作系统，但是不会改变默认启动</p>
+<p>在电脑启动的时候按住 &ldquo;Option&rdquo; 键，会出现启动选择页面</p>
+</li>
+</ul>
 <h2 id="遇到的问题">遇到的问题</h2>
-
 <h3 id="安装-kb3074683-更新总是失败">安装 KB3074683 更新总是失败</h3>
-
-<p>系统为 64 位专业版  <br />
+<p>系统为 64 位专业版<br>
 安装此更新总是失败，导致每次开机都会重启 4-5 次</p>
-
-<p>解决办法来自 <a href="http://answers.microsoft.com/zh-hans/windows/forum/windows_10-update/win10%E7%9A%84kb3074683/99dcaae9-1d0a-4721-9f91-a9f8a103a10c">《win10的KB3074683 更新失败 ，回滚。正式64位专业版。》</a>  <br />
+<p>解决办法来自 <a href="http://answers.microsoft.com/zh-hans/windows/forum/windows_10-update/win10%E7%9A%84kb3074683/99dcaae9-1d0a-4721-9f91-a9f8a103a10c">《win10的KB3074683 更新失败 ，回滚。正式64位专业版。》</a><br>
 以下是摘录：</p>
-
 <ol>
-  <li>按下 “Win + R” 键打开「运行」，输入 “regedit” 然后回车打开注册表</li>
-  <li>
-    <p>依次进入 <code class="highlighter-rouge">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList</code> 目录  <br />
-「ProfileList 目录」里面有 “S-1-5-21-1927424506-2982433050-3234380617-1001” <br />
-和 “S-1-5-21-1927424506-2982433050-3234380617-1002” 两个目录（每台电脑目录名称不一样，下图是我电脑中的名称）。<br />
-其中有一个链接到 “UpdatusUser”, 另一个链接到你的本地账户（或个人Windows账户）  <br />
-<img src="/assets/images/posts/2015-08-06_022925-KB3074683.jpg" alt="注册表" /></p>
-
-    <p>删除那个链接到 “UpdatusUser” 的目录（即上面图片中选中的目录），另一个目录保留</p>
-  </li>
-  <li>重新安装 KB3074683 更新</li>
+<li>
+<p>按下 &ldquo;Win + R&rdquo; 键打开「运行」，输入 &ldquo;regedit&rdquo; 然后回车打开注册表</p>
+</li>
+<li>
+<p>依次进入 <code>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList</code> 目录<br>
+「ProfileList 目录」里面有 &ldquo;S-1-5-21-1927424506-2982433050-3234380617-1001&rdquo; 和 &ldquo;S-1-5-21-1927424506-2982433050-3234380617-1002&rdquo; 两个目录（每台电脑目录名称不一样，下图是我电脑中的名称）。其中有一个链接到 &ldquo;UpdatusUser&rdquo;, 另一个链接到你的本地账户（或个人Windows账户）<br>
+<img src="2015-08-06_022925-KB3074683.jpg" alt="注册表"></p>
+<p>删除那个链接到 &ldquo;UpdatusUser&rdquo; 的目录（即上面图片中选中的目录），另一个目录保留</p>
+</li>
+<li>
+<p>重新安装 KB3074683 更新</p>
+</li>
 </ol>
 
   </div>
 
   <div class="quiet-link">
-    
-    <span>上一篇：</span><a href="/ubuntu-system-install/">安装和更新 Ubuntu 系统的方法</a><br />
-    
-    
-    <span>下一篇：</span><a href="/software-book-update/">《明无梦的软件使用记录》书籍更新中</a>
-    
+      <span>上一篇：</span><a href="/ubuntu-system-install/">安装和更新 Ubuntu 系统的方法</a><br />
+      <span>下一篇：</span><a href="/software-book-update/">《明无梦的软件使用记录》书籍更新中</a>
   </div>
 
 </article>
 
-
-
-<hr>
-
 <div id="disqus_thread"></div>
 <script type="text/javascript">
-    var disqus_shortname = 'mwum'; // required: replace example with your forum shortname
-    /* * * DON'T EDIT BELOW THIS LINE * * */
+    var disqus_shortname = 'mwum'; 
+     
     (function() {
+        if (window.location.hostname == "localhost")
+            return;
+
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
@@ -271,19 +223,18 @@ Boot Camp Assistant 会自动制作启动盘和下载 Windows 驱动  <br />
 
 
 
+  </div>
+</div>
 
-      </div>
-    </div>
-
-    <footer class="site-footer">
+<footer class="site-footer">
 
   <div class="wrapper">
     <div class="footer-content">
       <p>
         <span class="no-palm">本站采用 <a rel="license" href="//creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可<br></span>
-        <span>&copy;2013-2019 <a href="https://www.dreamxu.com">明无梦</a></span>
+        <span>©2013-2024 <a href="https://www.dreamxu.com">明无梦</a></span>
         <span class="no-palm">| </span>
-        <span>Powered by <a href="//jekyllrb.com/">Jekyll</a></span>
+        <span>Powered by <a href="//gohugo.io/">Hugo</a></span>
         <span class="no-palm">| </span>
         <span>Hosted by <a href="//github.com/">GitHub</a></span>
         <span class="no-palm">| </span>
@@ -297,29 +248,6 @@ Boot Camp Assistant 会自动制作启动盘和下载 Windows 驱动  <br />
 </footer>
 
 
-    <script type="text/javascript" src="/js/main.js"></script>
-
-
-
-
-
-    
-
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-39279084-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-
-
-
-
-  </body>
+</body>
 
 </html>

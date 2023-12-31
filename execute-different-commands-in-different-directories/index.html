@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
+<head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  
   <title>在不同目录下执行不同的命令 | 明无梦</title>
-  <meta name="description" content="我经常遇到这种情况：  GitBook 有 “server” 命令，例如 gitbook serve  Jekyll 有 “server” 命令，例如 jekyll serve  Rails 有 “server” 命令，例如 rails server">
-
-  <link rel="stylesheet" href="/css/main.css">
+  <meta name="description" content="我经常遇到这种情况：
+GitBook 有 &amp;ldquo;server&amp;rdquo; 命令，例如 gitbook serve
+Jekyll 有 &amp;ldquo;server&amp;rdquo; 命令，例如 jekyll serve
+Rails 有 &amp;ldquo;server&amp;rdquo; 命令，例如 rails server
+以 …">
   <link rel="canonical" href="https://www.dreamxu.com/execute-different-commands-in-different-directories/">
-  <link rel="alternate" type="application/rss+xml" title="明无梦" href="https://www.dreamxu.com/feed.xml">
+    <link rel="stylesheet" href="/css/style.min.2a2aa4ed426afcd7c5ffde31042cdd4d55ebbfcab2754fcfd5577a4a7b59019b.css" integrity="sha256-Kiqk7UJq/NfF/94xBCzdTVXrv8qydU/P1Vd6SntZAZs=" crossorigin="anonymous">
+  <script type="text/javascript" src="/js/bundle.min.441c485d1d9104b8017416429af24d2115fb80b39ccd1f1cb4907dc6c9d0e84d.js" integrity="sha256-RBxIXR2RBLgBdBZCmvJNIRX7gLOczR8ctJB9xsnQ6E0=" defer></script>
+
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
 
 
-  <body>
+<body>
 
-    <header class="site-header">
+<header class="site-header">
 
   <div class="wrapper">
 
@@ -43,11 +46,10 @@
       </a>
 
       <div class="trigger" id="js-nav-menu-trigger">
-        <a class="page-link" href="/archive">归档</a>
-        <a class="page-link" href="/tags">标签</a>
-        <a class="page-link" href="/books">书籍</a>
-        <a class="page-link" href="/tweet/2018">微语</a>
-        <a class="page-link" href="/about">关于</a>
+        <a class="page-link" href="/archive/">归档</a>
+        <a class="page-link" href="/tags/">标签</a>
+        <a class="page-link" href="/books/">书籍</a>
+        <a class="page-link" href="/about/">关于</a>
         <a class="page-link" href="/rss.xml">订阅</a>
       </div>
     </nav>
@@ -57,161 +59,98 @@
 </header>
 
 
-    <div class="content">
-      <div class="wrapper">
-        <article class="post">
+<div class="content">
+  <div class="wrapper">
+    
+
+<article class="post">
 
   <header class="post-header">
     <h1 class="post-title"><a href="/execute-different-commands-in-different-directories/">在不同目录下执行不同的命令</a></h1>
     <ul class="post-meta">
       <li class="published-date">2016-01-31</li>
       
-
-      
         <li> | 标签: </li>
-        
-          <li class="post-tag"><a href="/tags/?names=技术#tag-list-display">技术</a></li>
-        
+          <li class="post-tag"><a href="/tags/?names=%e6%8a%80%e6%9c%af#tag-list-display">技术</a></li>
           <li class="post-tag"><a href="/tags/?names=Ruby#tag-list-display">Ruby</a></li>
-        
           <li class="post-tag"><a href="/tags/?names=Shell#tag-list-display">Shell</a></li>
-        
-      
     </ul>
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>我经常遇到这种情况：  <br />
-GitBook 有 “server” 命令，例如 <code class="highlighter-rouge">gitbook serve</code>  <br />
-Jekyll 有 “server” 命令，例如 <code class="highlighter-rouge">jekyll serve</code>  <br />
-Rails 有 “server” 命令，例如 <code class="highlighter-rouge">rails server</code></p>
-
-<p>以上命令都不尽相同，每次打 “server” 命令之前都得想一会儿到底该使用哪个命令，好烦  <br />
-假如有一个 <code class="highlighter-rouge">server</code> 命令，可以自动选择合适的命令去执行就好了</p>
-
-<p>心动不如行动，下面是我用 Ruby 写的解决方案  <br />
+    <p>我经常遇到这种情况：<br>
+GitBook 有 &ldquo;server&rdquo; 命令，例如 <code>gitbook serve</code><br>
+Jekyll 有 &ldquo;server&rdquo; 命令，例如 <code>jekyll serve</code><br>
+Rails 有 &ldquo;server&rdquo; 命令，例如 <code>rails server</code></p>
+<p>以上命令都不尽相同，每次打 &ldquo;server&rdquo; 命令之前都得想一会儿到底该使用哪个命令，好烦<br>
+假如有一个 <code>server</code> 命令，可以自动选择合适的命令去执行就好了</p>
+<p>心动不如行动，下面是我用 Ruby 写的解决方案<br>
 若不喜欢用 Ruby, 可用 Python, shell script 等改写一下即可</p>
-
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-</pre></td><td class="rouge-code"><pre><span class="c1">#!/usr/bin/env ruby</span>
-
-<span class="n">dir_commands</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">"/Users/mwum/Gitbook/Ruby"</span>            <span class="o">=&gt;</span> <span class="s2">"gitbook serve --port 4006"</span><span class="p">,</span>
-  <span class="s2">"/Users/mwum/dx"</span>                      <span class="o">=&gt;</span> <span class="s2">"jekyll serve -w"</span><span class="p">,</span>
-  <span class="s2">"/Users/mwum/Code/Rails/chat-system"</span>  <span class="o">=&gt;</span> <span class="s2">"bundle exec rails server"</span>
-<span class="p">}</span>
-
-<span class="n">dir_commands</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">dir</span><span class="p">,</span> <span class="n">command</span><span class="o">|</span>
-  <span class="k">if</span> <span class="no">Dir</span><span class="p">.</span><span class="nf">pwd</span> <span class="o">==</span> <span class="n">dir</span>
-    <span class="nb">exec</span> <span class="n">command</span>
-  <span class="k">end</span>
-<span class="k">end</span>
-
-<span class="nb">puts</span> <span class="s2">"Command not found: </span><span class="si">#{</span><span class="no">File</span><span class="p">.</span><span class="nf">basename</span> <span class="kp">__FILE__</span><span class="si">}</span><span class="s2">"</span>
-<span class="nb">puts</span> <span class="s2">"In this directory: </span><span class="si">#{</span><span class="no">Dir</span><span class="p">.</span><span class="nf">pwd</span><span class="si">}</span><span class="s2">"</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>将以上文件命名为 server, 并放到 bin 目录下，在给它加上可执行权限 <code class="highlighter-rouge">chmod +x ./server</code>, 即可愉快使用了</p>
-
-<p>有一点需要注意的：  <br />
-使用 <code class="highlighter-rouge">exec</code> 比较合适，不要使用 <code class="highlighter-rouge">system</code> 等  <br />
-如果使用 <code class="highlighter-rouge">system</code>, Ruby 进程并不会退出而是会等待 <code class="highlighter-rouge">system</code> 返回，<br />
-而 server 命令不是立即返回的，所以用 <code class="highlighter-rouge">system</code> 不合适，Ruby 进程会一直等待。<br />
-但是 <code class="highlighter-rouge">exec</code> 是完全替换进程的，所以不存在这个问题</p>
-
-<p>以上程序还是不够智能，如果我想使某个目录下的所有子目录都执行相同的命令，<br />
-岂不是要一个个子目录去设置，这显然是不合适的  <br />
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="ch">#!/usr/bin/env ruby</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">dir_commands</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;/Users/mwum/Gitbook/Ruby&#34;</span>            <span class="o">=&gt;</span> <span class="s2">&#34;gitbook serve --port 4006&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;/Users/mwum/dx&#34;</span>                      <span class="o">=&gt;</span> <span class="s2">&#34;jekyll serve -w&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;/Users/mwum/Code/Rails/chat-system&#34;</span>  <span class="o">=&gt;</span> <span class="s2">&#34;bundle exec rails server&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">dir_commands</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">dir</span><span class="p">,</span> <span class="n">command</span><span class="o">|</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="no">Dir</span><span class="o">.</span><span class="n">pwd</span> <span class="o">==</span> <span class="n">dir</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">exec</span> <span class="n">command</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">puts</span> <span class="s2">&#34;Command not found: </span><span class="si">#{</span><span class="no">File</span><span class="o">.</span><span class="n">basename</span> <span class="bp">__FILE__</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">puts</span> <span class="s2">&#34;In this directory: </span><span class="si">#{</span><span class="no">Dir</span><span class="o">.</span><span class="n">pwd</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span></code></pre></div><p>将以上文件命名为 server, 并放到 bin 目录下，在给它加上可执行权限 <code>chmod +x ./server</code>, 即可愉快使用了</p>
+<p>有一点需要注意的：<br>
+使用 <code>exec</code> 比较合适，不要使用 <code>system</code> 等<br>
+如果使用 <code>system</code>, Ruby 进程并不会退出而是会等待 <code>system</code> 返回，而 server 命令不是立即返回的，所以用 <code>system</code> 不合适，Ruby 进程会一直等待。但是 <code>exec</code> 是完全替换进程的，所以不存在这个问题</p>
+<p>以上程序还是不够智能，如果我想使某个目录下的所有子目录都执行相同的命令，岂不是要一个个子目录去设置，这显然是不合适的<br>
 所以继续给上面的程序加入正则匹配功能</p>
-
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-</pre></td><td class="rouge-code"><pre><span class="c1">#!/usr/bin/env ruby</span>
-
-<span class="n">dir_commands</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="sr">/\/Users\/mwum\/Gitbook\/*/</span>       <span class="o">=&gt;</span> <span class="s2">"gitbook serve --port 4006"</span><span class="p">,</span>
-  <span class="s2">"/Users/mwum/dx"</span>                  <span class="o">=&gt;</span> <span class="s2">"jekyll serve -w"</span><span class="p">,</span>
-  <span class="sr">/\/Users\/mwum\/Code\/Rails\/*/</span>   <span class="o">=&gt;</span> <span class="s2">"bundle exec rails server"</span>
-<span class="p">}</span>
-
-<span class="n">dir_commands</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">dir</span><span class="p">,</span> <span class="n">command</span><span class="o">|</span>
-  <span class="k">if</span> <span class="n">dir</span><span class="p">.</span><span class="nf">class</span> <span class="o">==</span> <span class="no">Regexp</span>
-    <span class="k">if</span> <span class="no">Dir</span><span class="p">.</span><span class="nf">pwd</span> <span class="o">=~</span> <span class="n">dir</span>
-      <span class="nb">exec</span> <span class="n">command</span>
-    <span class="k">end</span>
-  <span class="k">elsif</span> <span class="n">dir</span><span class="p">.</span><span class="nf">class</span> <span class="o">==</span> <span class="no">String</span>
-    <span class="k">if</span> <span class="no">Dir</span><span class="p">.</span><span class="nf">pwd</span> <span class="o">==</span> <span class="n">dir</span>
-      <span class="nb">exec</span> <span class="n">command</span>
-    <span class="k">end</span>
-  <span class="k">else</span>
-    <span class="nb">puts</span> <span class="s2">"This class is not supported: </span><span class="si">#{</span><span class="n">dir</span><span class="p">.</span><span class="nf">class</span><span class="si">}</span><span class="s2">"</span>
-    <span class="nb">exit</span>
-  <span class="k">end</span>
-<span class="k">end</span>
-
-<span class="nb">puts</span> <span class="s2">"Command not found: </span><span class="si">#{</span><span class="no">File</span><span class="p">.</span><span class="nf">basename</span> <span class="kp">__FILE__</span><span class="si">}</span><span class="s2">"</span>
-<span class="nb">puts</span> <span class="s2">"In this directory: </span><span class="si">#{</span><span class="no">Dir</span><span class="p">.</span><span class="nf">pwd</span><span class="si">}</span><span class="s2">"</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="ch">#!/usr/bin/env ruby</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">dir_commands</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="sr">/\/Users\/mwum\/Gitbook\/*/</span>       <span class="o">=&gt;</span> <span class="s2">&#34;gitbook serve --port 4006&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;/Users/mwum/dx&#34;</span>                  <span class="o">=&gt;</span> <span class="s2">&#34;jekyll serve -w&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="sr">/\/Users\/mwum\/Code\/Rails\/*/</span>   <span class="o">=&gt;</span> <span class="s2">&#34;bundle exec rails server&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">dir_commands</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">dir</span><span class="p">,</span> <span class="n">command</span><span class="o">|</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="n">dir</span><span class="o">.</span><span class="n">class</span> <span class="o">==</span> <span class="no">Regexp</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="no">Dir</span><span class="o">.</span><span class="n">pwd</span> <span class="o">=~</span> <span class="n">dir</span>
+</span></span><span class="line"><span class="cl">      <span class="nb">exec</span> <span class="n">command</span>
+</span></span><span class="line"><span class="cl">    <span class="k">end</span>
+</span></span><span class="line"><span class="cl">  <span class="k">elsif</span> <span class="n">dir</span><span class="o">.</span><span class="n">class</span> <span class="o">==</span> <span class="nb">String</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="no">Dir</span><span class="o">.</span><span class="n">pwd</span> <span class="o">==</span> <span class="n">dir</span>
+</span></span><span class="line"><span class="cl">      <span class="nb">exec</span> <span class="n">command</span>
+</span></span><span class="line"><span class="cl">    <span class="k">end</span>
+</span></span><span class="line"><span class="cl">  <span class="k">else</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">puts</span> <span class="s2">&#34;This class is not supported: </span><span class="si">#{</span><span class="n">dir</span><span class="o">.</span><span class="n">class</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">exit</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">puts</span> <span class="s2">&#34;Command not found: </span><span class="si">#{</span><span class="no">File</span><span class="o">.</span><span class="n">basename</span> <span class="bp">__FILE__</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">puts</span> <span class="s2">&#34;In this directory: </span><span class="si">#{</span><span class="no">Dir</span><span class="o">.</span><span class="n">pwd</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span></code></pre></div>
   </div>
 
   <div class="quiet-link">
-    
-    <span>上一篇：</span><a href="/compile-your-own-openwrt/">编译自己的 OpenWrt 固件</a><br />
-    
-    
-    <span>下一篇：</span><a href="/monitor-markdown-file-changes-and-convert-it-to-html-file/">监测 Markdown 文件改动并将其转化为 HTML 文件</a>
-    
+      <span>上一篇：</span><a href="/compile-your-own-openwrt/">编译自己的 OpenWrt 固件</a><br />
+      <span>下一篇：</span><a href="/monitor-markdown-file-changes-and-convert-it-to-html-file/">监测 Markdown 文件改动并将其转化为 HTML 文件</a>
   </div>
 
 </article>
 
-
-
-<hr>
-
 <div id="disqus_thread"></div>
 <script type="text/javascript">
-    var disqus_shortname = 'mwum'; // required: replace example with your forum shortname
-    /* * * DON'T EDIT BELOW THIS LINE * * */
+    var disqus_shortname = 'mwum'; 
+     
     (function() {
+        if (window.location.hostname == "localhost")
+            return;
+
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
@@ -222,19 +161,18 @@ Rails 有 “server” 命令，例如 <code class="highlighter-rouge">rails ser
 
 
 
+  </div>
+</div>
 
-      </div>
-    </div>
-
-    <footer class="site-footer">
+<footer class="site-footer">
 
   <div class="wrapper">
     <div class="footer-content">
       <p>
         <span class="no-palm">本站采用 <a rel="license" href="//creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可<br></span>
-        <span>&copy;2013-2019 <a href="https://www.dreamxu.com">明无梦</a></span>
+        <span>©2013-2024 <a href="https://www.dreamxu.com">明无梦</a></span>
         <span class="no-palm">| </span>
-        <span>Powered by <a href="//jekyllrb.com/">Jekyll</a></span>
+        <span>Powered by <a href="//gohugo.io/">Hugo</a></span>
         <span class="no-palm">| </span>
         <span>Hosted by <a href="//github.com/">GitHub</a></span>
         <span class="no-palm">| </span>
@@ -248,29 +186,6 @@ Rails 有 “server” 命令，例如 <code class="highlighter-rouge">rails ser
 </footer>
 
 
-    <script type="text/javascript" src="/js/main.js"></script>
-
-
-
-
-
-    
-
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-39279084-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-
-
-
-
-  </body>
+</body>
 
 </html>
