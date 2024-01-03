@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 
 <head>
   <meta charset="utf-8">
@@ -9,8 +9,8 @@
   <title>用 Vagrant 统一开发环境 | 明无梦</title>
   <meta name="description" content="WHY VAGRANT? Vagrant provides easy to configure, reproducible, and portable work environments built on top of industry-standard technology and controlled by a …">
   <link rel="canonical" href="https://www.dreamxu.com/vagrant/">
-    <link rel="stylesheet" href="/css/style.min.534b49c9f752cbcc304fd9653e3d075e3d6f4af525f95b01dc59c0ed4510655a.css" integrity="sha256-U0tJyfdSy8wwT9llPj0HXj1vSvUl&#43;VsB3FnA7UUQZVo=" crossorigin="anonymous">
-  <script type="text/javascript" src="/js/bundle.min.441c485d1d9104b8017416429af24d2115fb80b39ccd1f1cb4907dc6c9d0e84d.js" integrity="sha256-RBxIXR2RBLgBdBZCmvJNIRX7gLOczR8ctJB9xsnQ6E0=" defer></script>
+    <link rel="stylesheet" href="/css/style.min.4fd667a8bb643e5754c07d1267c2bdac88a8ea6b8a6706999224379d8515aede.css" integrity="sha256-T9ZnqLtkPldUwH0SZ8K9rIio6muKZwaZkiQ3nYUVrt4=" crossorigin="anonymous">
+  <script src="/js/bundle.min.441c485d1d9104b8017416429af24d2115fb80b39ccd1f1cb4907dc6c9d0e84d.js" integrity="sha256-RBxIXR2RBLgBdBZCmvJNIRX7gLOczR8ctJB9xsnQ6E0=" defer></script>
 
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
     
@@ -86,8 +86,9 @@ if (!doNotTrack) {
     </ul>
   </header>
 
-  <div class="post-content" itemprop="articleBody">
-    <h2 id="why-vagrant"><a class="anchor" href="#why-vagrant">WHY VAGRANT?</a></h2>
+  <div itemscope itemtype="http://schema.org/Article">
+    <div class="post-content" itemprop="articleBody">
+      <h2 id="why-vagrant"><a class="anchor" href="#why-vagrant">WHY VAGRANT?</a></h2>
 <blockquote>
 <p>Vagrant provides easy to configure, reproducible, and portable work environments built on top of industry-standard technology and controlled by a single consistent workflow to help maximize the productivity and flexibility of you and your team.</p>
 <p>To achieve its magic, Vagrant stands on the shoulders of giants. Machines are provisioned on top of VirtualBox, VMware, AWS, or any other provider. Then, industry-standard provisioning tools such as shell scripts, Chef, or Puppet, can be used to automatically install and configure software on the machine.</p>
@@ -283,10 +284,11 @@ vagrant init Ubuntu_Server_14.04
 执行 <code>prlctl set &lt;name&gt; --on-window-close keep-running</code> 命令之后，即使把窗口关了，虚拟机也在后台运行</p>
 <p>使用了一段时间，在 VirtualBox 中的问题没有遇到过，也没有遇到其它问题。而且 Parallels 虚拟机的性能比 VirtualBox 虚拟机要好</p>
 
+    </div>
   </div>
 
   <div class="quiet-link">
-      <span>上一篇：</span><a href="/ubuntu-package-dpkg-and-apt-commands/">Ubuntu 软件包管理工具 dpkg, APT 的一些命令</a><br />
+      <span>上一篇：</span><a href="/ubuntu-package-dpkg-and-apt-commands/">Ubuntu 软件包管理工具 dpkg, APT 的一些命令</a><br>
       <span>下一篇：</span><a href="/install-ruby-on-mac-with-rbenv/">在 Mac 上用 rbenv 安装 ruby</a>
   </div>
 
@@ -295,20 +297,17 @@ vagrant init Ubuntu_Server_14.04
 <hr>
 
 <div id="disqus_thread"></div>
-<script type="text/javascript">
+<script>
     var disqus_shortname = 'mwum'; 
      
     (function() {
-        if (window.location.hostname == "localhost")
-            return;
-
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
   </div>

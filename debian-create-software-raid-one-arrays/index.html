@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 
 <head>
   <meta charset="utf-8">
@@ -12,8 +12,8 @@
 使用 sudo fdisk /dev/sdx 命令进行分区，按照提示操作就可以了
 分区之后 …">
   <link rel="canonical" href="https://www.dreamxu.com/debian-create-software-raid-one-arrays/">
-    <link rel="stylesheet" href="/css/style.min.534b49c9f752cbcc304fd9653e3d075e3d6f4af525f95b01dc59c0ed4510655a.css" integrity="sha256-U0tJyfdSy8wwT9llPj0HXj1vSvUl&#43;VsB3FnA7UUQZVo=" crossorigin="anonymous">
-  <script type="text/javascript" src="/js/bundle.min.441c485d1d9104b8017416429af24d2115fb80b39ccd1f1cb4907dc6c9d0e84d.js" integrity="sha256-RBxIXR2RBLgBdBZCmvJNIRX7gLOczR8ctJB9xsnQ6E0=" defer></script>
+    <link rel="stylesheet" href="/css/style.min.4fd667a8bb643e5754c07d1267c2bdac88a8ea6b8a6706999224379d8515aede.css" integrity="sha256-T9ZnqLtkPldUwH0SZ8K9rIio6muKZwaZkiQ3nYUVrt4=" crossorigin="anonymous">
+  <script src="/js/bundle.min.441c485d1d9104b8017416429af24d2115fb80b39ccd1f1cb4907dc6c9d0e84d.js" integrity="sha256-RBxIXR2RBLgBdBZCmvJNIRX7gLOczR8ctJB9xsnQ6E0=" defer></script>
 
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
     
@@ -88,8 +88,9 @@ if (!doNotTrack) {
     </ul>
   </header>
 
-  <div class="post-content" itemprop="articleBody">
-    <p>现状：共有2块硬盘当做数据盘，一块 500G(sda), 另一块 2T(sdb)<br>
+  <div itemscope itemtype="http://schema.org/Article">
+    <div class="post-content" itemprop="articleBody">
+      <p>现状：共有2块硬盘当做数据盘，一块 500G(sda), 另一块 2T(sdb)<br>
 要实现的：sda 和 sdb 其中的 500G 组成 raid1, sdb 剩下的当做普通数据盘，并且当 raid 出现问题的时候，发送邮件通知你</p>
 <p>使用 <code>sudo fdisk /dev/sdx</code> 命令进行分区，按照提示操作就可以了<br>
 分区之后情况如下</p>
@@ -387,10 +388,11 @@ Disk identifier: 0xe0894113
 <a href="http://en.wikipedia.org/wiki/Mdadm">http://en.wikipedia.org/wiki/Mdadm</a><br>
 <code>man mdadm</code></p>
 
+    </div>
   </div>
 
   <div class="quiet-link">
-      <span>上一篇：</span><a href="/it-workers-to-avoid-death-raiders/">转载 - IT 民工避免猝死攻略 v1.0</a><br />
+      <span>上一篇：</span><a href="/it-workers-to-avoid-death-raiders/">转载 - IT 民工避免猝死攻略 v1.0</a><br>
       <span>下一篇：</span><a href="/raspberrypi-nas/">树莓派作 NAS (RAID1, SMB/FTP, ARIA2, 迅雷离线, 异地备份)</a>
   </div>
 
@@ -399,20 +401,17 @@ Disk identifier: 0xe0894113
 <hr>
 
 <div id="disqus_thread"></div>
-<script type="text/javascript">
+<script>
     var disqus_shortname = 'mwum'; 
      
     (function() {
-        if (window.location.hostname == "localhost")
-            return;
-
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
   </div>

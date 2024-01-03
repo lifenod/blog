@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 
 <head>
   <meta charset="utf-8">
@@ -10,8 +10,8 @@
   <meta name="description" content="计算时间的差与和
 #lang racket (require racket/date) (define display-date-with-chinese (lambda (seconds) (displayln (date-&amp;gt;string (seconds-&amp;gt;date seconds) …">
   <link rel="canonical" href="https://www.dreamxu.com/time-calc/">
-    <link rel="stylesheet" href="/css/style.min.534b49c9f752cbcc304fd9653e3d075e3d6f4af525f95b01dc59c0ed4510655a.css" integrity="sha256-U0tJyfdSy8wwT9llPj0HXj1vSvUl&#43;VsB3FnA7UUQZVo=" crossorigin="anonymous">
-  <script type="text/javascript" src="/js/bundle.min.441c485d1d9104b8017416429af24d2115fb80b39ccd1f1cb4907dc6c9d0e84d.js" integrity="sha256-RBxIXR2RBLgBdBZCmvJNIRX7gLOczR8ctJB9xsnQ6E0=" defer></script>
+    <link rel="stylesheet" href="/css/style.min.4fd667a8bb643e5754c07d1267c2bdac88a8ea6b8a6706999224379d8515aede.css" integrity="sha256-T9ZnqLtkPldUwH0SZ8K9rIio6muKZwaZkiQ3nYUVrt4=" crossorigin="anonymous">
+  <script src="/js/bundle.min.441c485d1d9104b8017416429af24d2115fb80b39ccd1f1cb4907dc6c9d0e84d.js" integrity="sha256-RBxIXR2RBLgBdBZCmvJNIRX7gLOczR8ctJB9xsnQ6E0=" defer></script>
 
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
     
@@ -85,8 +85,9 @@ if (!doNotTrack) {
     </ul>
   </header>
 
-  <div class="post-content" itemprop="articleBody">
-    <p>计算时间的差与和</p>
+  <div itemscope itemtype="http://schema.org/Article">
+    <div class="post-content" itemprop="articleBody">
+      <p>计算时间的差与和</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scheme" data-lang="scheme"><span class="line"><span class="cl"><span class="o">#</span><span class="nv">lang</span> <span class="nv">racket</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">require</span> <span class="nv">racket/date</span><span class="p">)</span>
@@ -168,10 +169,11 @@ if (!doNotTrack) {
 </span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">date-sub</span> <span class="o">&#39;</span><span class="p">(</span><span class="mi">2011</span> <span class="mi">4</span> <span class="mi">11</span> <span class="nv">-</span> <span class="mi">17</span> <span class="mi">50</span> <span class="mi">21</span><span class="p">)</span> <span class="o">&#39;</span><span class="p">(</span><span class="mi">2015</span> <span class="mi">4</span> <span class="mi">11</span> <span class="nv">-</span> <span class="mi">17</span> <span class="mi">50</span> <span class="mi">00</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; 相差 35063 小时 59 分钟 39 秒</span>
 </span></span></code></pre></div>
+    </div>
   </div>
 
   <div class="quiet-link">
-      <span>上一篇：</span><a href="/recommend-learnxinyminutes/">推荐 - Learn X in Y minutes</a><br />
+      <span>上一篇：</span><a href="/recommend-learnxinyminutes/">推荐 - Learn X in Y minutes</a><br>
       <span>下一篇：</span><a href="/r6300v2-dd-wrt-cross-compiler/">r6300v2 路由器 dd-wrt 系统的交叉编译</a>
   </div>
 
@@ -180,20 +182,17 @@ if (!doNotTrack) {
 <hr>
 
 <div id="disqus_thread"></div>
-<script type="text/javascript">
+<script>
     var disqus_shortname = 'mwum'; 
      
     (function() {
-        if (window.location.hostname == "localhost")
-            return;
-
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
   </div>

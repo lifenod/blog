@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 
 <head>
   <meta charset="utf-8">
@@ -11,8 +11,8 @@
 使用的工具是：hndtools-arm-linux-2.6.36-uclibc-4.5.3
 工具运行环境：Ubuntu 14.04.2 32-bit …">
   <link rel="canonical" href="https://www.dreamxu.com/r6300v2-dd-wrt-cross-compiler/">
-    <link rel="stylesheet" href="/css/style.min.534b49c9f752cbcc304fd9653e3d075e3d6f4af525f95b01dc59c0ed4510655a.css" integrity="sha256-U0tJyfdSy8wwT9llPj0HXj1vSvUl&#43;VsB3FnA7UUQZVo=" crossorigin="anonymous">
-  <script type="text/javascript" src="/js/bundle.min.441c485d1d9104b8017416429af24d2115fb80b39ccd1f1cb4907dc6c9d0e84d.js" integrity="sha256-RBxIXR2RBLgBdBZCmvJNIRX7gLOczR8ctJB9xsnQ6E0=" defer></script>
+    <link rel="stylesheet" href="/css/style.min.4fd667a8bb643e5754c07d1267c2bdac88a8ea6b8a6706999224379d8515aede.css" integrity="sha256-T9ZnqLtkPldUwH0SZ8K9rIio6muKZwaZkiQ3nYUVrt4=" crossorigin="anonymous">
+  <script src="/js/bundle.min.441c485d1d9104b8017416429af24d2115fb80b39ccd1f1cb4907dc6c9d0e84d.js" integrity="sha256-RBxIXR2RBLgBdBZCmvJNIRX7gLOczR8ctJB9xsnQ6E0=" defer></script>
 
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
     
@@ -86,8 +86,9 @@ if (!doNotTrack) {
     </ul>
   </header>
 
-  <div class="post-content" itemprop="articleBody">
-    <p>路由器系统版本：DD-WRT v24-sp2 (06/13/14) kongac, (SVN revision 24345M)</p>
+  <div itemscope itemtype="http://schema.org/Article">
+    <div class="post-content" itemprop="articleBody">
+      <p>路由器系统版本：DD-WRT v24-sp2 (06/13/14) kongac, (SVN revision 24345M)</p>
 <p>使用的工具是：hndtools-arm-linux-2.6.36-uclibc-4.5.3<br>
 工具运行环境：Ubuntu 14.04.2 32-bit</p>
 <p>编译的时候会找不到 libmpc.so.2, 所以在编译之前执行如下命令</p>
@@ -96,10 +97,11 @@ ln -s path/libmpc.so.2 /usr/local/lib
 </code></pre>
 <p>经实测，工具可使用，下载地址：<a href="https://www.dropbox.com/s/rzmoz1wxlctartd/hndtools-arm-linux-2.6.36-uclibc-4.5.3.tar.gz?dl=0">https://www.dropbox.com/s/rzmoz1wxlctartd/hndtools-arm-linux-2.6.36-uclibc-4.5.3.tar.gz?dl=0</a></p>
 
+    </div>
   </div>
 
   <div class="quiet-link">
-      <span>上一篇：</span><a href="/time-calc/">时间计算器（Racket 实现）</a><br />
+      <span>上一篇：</span><a href="/time-calc/">时间计算器（Racket 实现）</a><br>
       <span>下一篇：</span><a href="/sublime-text-basic-use/">Sublime Text 的基本使用</a>
   </div>
 
@@ -108,20 +110,17 @@ ln -s path/libmpc.so.2 /usr/local/lib
 <hr>
 
 <div id="disqus_thread"></div>
-<script type="text/javascript">
+<script>
     var disqus_shortname = 'mwum'; 
      
     (function() {
-        if (window.location.hostname == "localhost")
-            return;
-
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
   </div>

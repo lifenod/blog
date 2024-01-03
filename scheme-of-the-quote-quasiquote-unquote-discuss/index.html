@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 
 <head>
   <meta charset="utf-8">
@@ -13,8 +13,8 @@
 例如：(quote a b) 等价与 &#39;(a b)
 如下的例子展示了符号和值的区 …">
   <link rel="canonical" href="https://www.dreamxu.com/scheme-of-the-quote-quasiquote-unquote-discuss/">
-    <link rel="stylesheet" href="/css/style.min.534b49c9f752cbcc304fd9653e3d075e3d6f4af525f95b01dc59c0ed4510655a.css" integrity="sha256-U0tJyfdSy8wwT9llPj0HXj1vSvUl&#43;VsB3FnA7UUQZVo=" crossorigin="anonymous">
-  <script type="text/javascript" src="/js/bundle.min.441c485d1d9104b8017416429af24d2115fb80b39ccd1f1cb4907dc6c9d0e84d.js" integrity="sha256-RBxIXR2RBLgBdBZCmvJNIRX7gLOczR8ctJB9xsnQ6E0=" defer></script>
+    <link rel="stylesheet" href="/css/style.min.4fd667a8bb643e5754c07d1267c2bdac88a8ea6b8a6706999224379d8515aede.css" integrity="sha256-T9ZnqLtkPldUwH0SZ8K9rIio6muKZwaZkiQ3nYUVrt4=" crossorigin="anonymous">
+  <script src="/js/bundle.min.441c485d1d9104b8017416429af24d2115fb80b39ccd1f1cb4907dc6c9d0e84d.js" integrity="sha256-RBxIXR2RBLgBdBZCmvJNIRX7gLOczR8ctJB9xsnQ6E0=" defer></script>
 
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
     
@@ -90,8 +90,9 @@ if (!doNotTrack) {
     </ul>
   </header>
 
-  <div class="post-content" itemprop="articleBody">
-    <h2 id="quote"><a class="anchor" href="#quote">quote</a></h2>
+  <div itemscope itemtype="http://schema.org/Article">
+    <div class="post-content" itemprop="articleBody">
+      <h2 id="quote"><a class="anchor" href="#quote">quote</a></h2>
 <p>为了操作以及表示符号数据，在语言中就需要一种新元素：具有表示符号的能力</p>
 <p>表示方法是在数据前面加上「单引号」，例如：<code>'(a b)</code><br>
 但是这样就违背了我们程序具有表的形式的普遍性，通过引进特殊形式 quote 就可以恢复这种一致性<br>
@@ -121,10 +122,11 @@ if (!doNotTrack) {
 </span></span><span class="line"><span class="cl"><span class="o">`</span><span class="p">(</span><span class="o">,</span><span class="nv">a</span> <span class="o">,</span><span class="nv">b</span><span class="p">)</span>                        <span class="c1">; =&gt; &#39;(1 2), 从结果上来看等价于 (list a b)</span>
 </span></span><span class="line"><span class="cl"><span class="o">`</span><span class="p">(</span><span class="nf">a</span> <span class="nv">b</span><span class="p">)</span>                          <span class="c1">; =&gt; &#39;(a b), 从结果上来看等价于 (list &#39;a &#39;b)</span>
 </span></span></code></pre></div>
+    </div>
   </div>
 
   <div class="quiet-link">
-      <span>上一篇：</span><a href="/r6300v2-dd-wrt-use-opkg/">r6300v2 路由器 dd-wrt 系统使用 opkg</a><br />
+      <span>上一篇：</span><a href="/r6300v2-dd-wrt-use-opkg/">r6300v2 路由器 dd-wrt 系统使用 opkg</a><br>
       <span>下一篇：</span><a href="/racket-pattern-matching/">Racket 中的模式匹配</a>
   </div>
 
@@ -133,20 +135,17 @@ if (!doNotTrack) {
 <hr>
 
 <div id="disqus_thread"></div>
-<script type="text/javascript">
+<script>
     var disqus_shortname = 'mwum'; 
      
     (function() {
-        if (window.location.hostname == "localhost")
-            return;
-
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
   </div>
