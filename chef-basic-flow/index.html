@@ -12,7 +12,7 @@ Chef 经常运行在服务器集群的枢纽，统筹安排其他服务器的配
 可以在单机模式下使用 Chef (Chef Solo)
 在这种模式下，我们在本地开发平 …">
   <link rel="canonical" href="https://www.dreamxu.com/chef-basic-flow/">
-    <link rel="stylesheet" href="/css/style.min.2a2aa4ed426afcd7c5ffde31042cdd4d55ebbfcab2754fcfd5577a4a7b59019b.css" integrity="sha256-Kiqk7UJq/NfF/94xBCzdTVXrv8qydU/P1Vd6SntZAZs=" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.min.9f99e59e1cc74cf7ebe20083a9efb57b958fe030b43d7202ec47de2c32fb0d52.css" integrity="sha256-n5nlnhzHTPfr4gCDqe&#43;1e5WP4DC0PXIC7EfeLDL7DVI=" crossorigin="anonymous">
   <script type="text/javascript" src="/js/bundle.min.441c485d1d9104b8017416429af24d2115fb80b39ccd1f1cb4907dc6c9d0e84d.js" integrity="sha256-RBxIXR2RBLgBdBZCmvJNIRX7gLOczR8ctJB9xsnQ6E0=" defer></script>
 
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -91,22 +91,22 @@ if (!doNotTrack) {
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <h2 id="工具介绍">工具介绍</h2>
-<h3 id="chef-和-chef-solo">Chef 和 Chef Solo</h3>
+    <h2 id="工具介绍"><a class="anchor" href="#%e5%b7%a5%e5%85%b7%e4%bb%8b%e7%bb%8d">工具介绍</a></h2>
+<h3 id="chef-和-chef-solo"><a class="anchor" href="#chef-%e5%92%8c-chef-solo">Chef 和 Chef Solo</a></h3>
 <p>Chef 是一个自动化工具，用 Opscode 开发，使用 Ruby DSL 以一种可重复使用的格式表示配置服务器所需的命令<br>
 Chef 经常运行在服务器集群的枢纽，统筹安排其他服务器的配置</p>
 <p>可以在单机模式下使用 Chef (Chef Solo)<br>
 在这种模式下，我们在本地开发平台上定义服务器的各种角色和设置，然后根据需要手动应用这些设置</p>
 <p>如果项目不断扩大也不用担心，使用 Chef Solo 制定的自动化配置大多数都可以在 Chef 中使用</p>
-<h3 id="knife-和-knife-solo">Knife 和 Knife Solo</h3>
+<h3 id="knife-和-knife-solo"><a class="anchor" href="#knife-%e5%92%8c-knife-solo">Knife 和 Knife Solo</a></h3>
 <p>Knife 是一个命令行工具，为本地开发环境中的 Chef 仓库和远程服务器之间提供交互接口</p>
 <p>一般情况下，远程服务器必须是主 Chef 服务器。不过 Knife Solo 允许在单机模式下使用 Chef, 可以直接和需要配置的服务器交互</p>
 <p><a href="https://matschaffer.github.io/knife-solo/">Knife Solo 使用介绍</a></p>
-<h3 id="berkshelf">Berkshelf</h3>
+<h3 id="berkshelf"><a class="anchor" href="#berkshelf">Berkshelf</a></h3>
 <p>在 Chef 中，安装各组件所需的命令成为「配方」</p>
 <p>Berkshelf 就像是配方的 Bundler<br>
 我们使用 Berkshelf 获取配置服务器所需的 Chef 配方（特定的版本）</p>
-<h2 id="chef-术语介绍">Chef 术语介绍</h2>
+<h2 id="chef-术语介绍"><a class="anchor" href="#chef-%e6%9c%af%e8%af%ad%e4%bb%8b%e7%bb%8d">Chef 术语介绍</a></h2>
 <ul>
 <li>
 <p>配方 (recipe)</p>
@@ -134,7 +134,7 @@ Chef 经常运行在服务器集群的枢纽，统筹安排其他服务器的配
 <p>一系列节点和角色定义</p>
 </li>
 </ul>
-<h2 id="创建-chef-solo-仓库">创建 Chef Solo 仓库</h2>
+<h2 id="创建-chef-solo-仓库"><a class="anchor" href="#%e5%88%9b%e5%bb%ba-chef-solo-%e4%bb%93%e5%ba%93">创建 Chef Solo 仓库</a></h2>
 <ol>
 <li>
 <p>新建文件夹</p>
@@ -167,7 +167,7 @@ cd chef_repo
 </ol>
 </li>
 </ol>
-<h2 id="初始化仓库">初始化仓库</h2>
+<h2 id="初始化仓库"><a class="anchor" href="#%e5%88%9d%e5%a7%8b%e5%8c%96%e4%bb%93%e5%ba%93">初始化仓库</a></h2>
 <p>使用 bundle exec 确保使用的 Gemfile 中定义的 gem 版本来执行命令</p>
 <pre><code>bundle exec knife solo init .
 </code></pre>
@@ -192,7 +192,7 @@ cd chef_repo
 └── site-cookbooks
     └── .gitkeep
 </code></pre><p>下面来说说各个文件及文件夹的作用</p>
-<h3 id="kniferb">knife.rb</h3>
+<h3 id="kniferb"><a class="anchor" href="#kniferb">knife.rb</a></h3>
 <p>Knife 是个命令行工具，可以和远程服务器上的 Chef 交互<br>
 Knife Solo 添加了额外的命令，可以在本地开发设备上直接和要配置的服务器交互（而不用通过 Chef 中央服务器中转）</p>
 <p>knife.rb 中包含针对我们这个仓库的 Knife 设置。这个文件在使用 Chef 中央服务器时更有用，并不符合我们使用的单机模式，但却是 Knife 的主要设置（也是唯一的设置文件）</p>
@@ -217,24 +217,24 @@ Knife Solo 添加了额外的命令，可以在本地开发设备上直接和要
 </li>
 </ul>
 <p>一般情况下，都可以直接使用默认值</p>
-<h3 id="berksfile">Berksfile</h3>
+<h3 id="berksfile"><a class="anchor" href="#berksfile">Berksfile</a></h3>
 <p>在 Berkfile 中定义 Chef 仓库要使用的食谱，以及各自的版本。然后执行 <code>berks install</code> 命令安装这些食谱。如果食谱在 metadata.rb 文件用 depends 定义了依赖食谱，Berkshelf 会负责安装这些依赖食谱</p>
 <p>和 Bundler 一样，Berkshelf 也会生成一个 Berksfile.lock 文件，写入食谱及相应的版本号</p>
-<h3 id="cookbooks">cookbooks</h3>
+<h3 id="cookbooks"><a class="anchor" href="#cookbooks">cookbooks</a></h3>
 <p>cookbooks 文件夹用来存放使用 Berkshelf 安装的他人编写的食谱<br>
 如想存放自己编写的食谱，应放在 site-cookbooks 文件夹</p>
 <p><strong>千万别在 cookbooks 文件夹中存放没有使用 Berkshel 来管理的食谱，因为，每次运行 knife solo 后，cookbooks 文件夹中的内容都会被抹去重新写入</strong></p>
-<h3 id="data_bags">data_bags</h3>
+<h3 id="data_bags"><a class="anchor" href="#data_bags">data_bags</a></h3>
 <p>如果食谱中要用到大量数据，就可以将数据存放在这里</p>
-<h3 id="environments">environments</h3>
+<h3 id="environments"><a class="anchor" href="#environments">environments</a></h3>
 <p>对应现实中的工作流，比如说生产环境，准备环境，测试环境，开发环境</p>
-<h3 id="nodes">nodes</h3>
+<h3 id="nodes"><a class="anchor" href="#nodes">nodes</a></h3>
 <p>存放节点文件</p>
-<h3 id="roles">roles</h3>
+<h3 id="roles"><a class="anchor" href="#roles">roles</a></h3>
 <p>存放角色文件</p>
-<h3 id="site-cookbooks">site-cookbooks</h3>
+<h3 id="site-cookbooks"><a class="anchor" href="#site-cookbooks">site-cookbooks</a></h3>
 <p>用来存放自己编写的食谱</p>
-<h2 id="食谱介绍">食谱介绍</h2>
+<h2 id="食谱介绍"><a class="anchor" href="#%e9%a3%9f%e8%b0%b1%e4%bb%8b%e7%bb%8d">食谱介绍</a></h2>
 <p>以 redis-tlq 食谱为例：<a href="https://github.com/TalkingQuickly/redis-tlq">https://github.com/TalkingQuickly/redis-tlq</a><br>
 将其作为自己编写的食谱放到 <code>site-cookbooks</code> 文件夹下</p>
 <p>文件结构如下：</p>
@@ -249,7 +249,7 @@ Knife Solo 添加了额外的命令，可以在本地开发设备上直接和要
         ├── redis-server.erb
         └── redis.conf.erb
 </code></pre><p>下面是各个文件及文件夹的说明</p>
-<h3 id="metadatarb">metadata.rb</h3>
+<h3 id="metadatarb"><a class="anchor" href="#metadatarb">metadata.rb</a></h3>
 <p>元数据文件中详细说明了这个食谱的作用，编写人，依赖件以及版本号</p>
 <p><code>metadata.rb:</code></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="c1"># 食谱的名称</span>
@@ -268,7 +268,7 @@ Knife Solo 添加了额外的命令，可以在本地开发设备上直接和要
 </span></span><span class="line"><span class="cl"><span class="n">supports</span> <span class="s2">&#34;ubuntu&#34;</span>
 </span></span></code></pre></div><p>使用 Berkshelf 时，version 和 recipe 这两行是关键的设置，Berkshelf 会查看 metadata.rb 文件，确认要使用的食谱中是否有匹配的配方</p>
 <p>还有一个选项 depends 这里没提到，用来指定要依赖的其他食谱</p>
-<h3 id="recipesdefaultrb">recipes/default.rb</h3>
+<h3 id="recipesdefaultrb"><a class="anchor" href="#recipesdefaultrb">recipes/default.rb</a></h3>
 <p>Chef 食谱必须包含一个名为 default 的配方<br>
 如果在节点或角色定义中使用到了某个食谱，而没有指定要用哪个配方，就会使用这个默认配方</p>
 <p><code>cookbooks/redis-tlq/recipes/default.rb:</code></p>
@@ -311,7 +311,7 @@ Knife Solo 添加了额外的命令，可以在本地开发设备上直接和要
 </span></span><span class="line"><span class="cl"><span class="k">end</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># ...</span>
-</span></span></code></pre></div><h4 id="模板文件夹的说明">模板文件夹的说明</h4>
+</span></span></code></pre></div><h4 id="模板文件夹的说明"><a class="anchor" href="#%e6%a8%a1%e6%9d%bf%e6%96%87%e4%bb%b6%e5%a4%b9%e7%9a%84%e8%af%b4%e6%98%8e">模板文件夹的说明</a></h4>
 <p>templates 文件夹中的子文件夹对应的是服务器上所安装的操作系统<br>
 如果使用的是 Ubuntu 12.04, 上面的 template 代码块就会在下面的路径中按顺序寻找 redis.conf.erb 文件：</p>
 <ol>
@@ -321,7 +321,7 @@ Knife Solo 添加了额外的命令，可以在本地开发设备上直接和要
 </ol>
 <p>如果要编写复杂的食谱，照应多种操作系统，这种处理方式的强大就体现出来了<br>
 目前，我们仅仅使用 default 文件夹</p>
-<h3 id="属性">属性</h3>
+<h3 id="属性"><a class="anchor" href="#%e5%b1%9e%e6%80%a7">属性</a></h3>
 <p><strong>配方</strong>可以使用属性 (attribute) 进行定制。属性可以在多个地方设定，包括：</p>
 <ul>
 <li>节点定义</li>
@@ -340,7 +340,7 @@ Knife Solo 添加了额外的命令，可以在本地开发设备上直接和要
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>那么就执行 <code>bind 127.0.0.1</code> 这段代码</p>
-<h4 id="食谱属性的默认值">食谱属性的默认值</h4>
+<h4 id="食谱属性的默认值"><a class="anchor" href="#%e9%a3%9f%e8%b0%b1%e5%b1%9e%e6%80%a7%e7%9a%84%e9%bb%98%e8%ae%a4%e5%80%bc">食谱属性的默认值</a></h4>
 <p>在食谱中可以为属性定义默认值。这往往也是推荐的做法，大多数用户只要做少许改动就可使用</p>
 <p>属性的默认值在 <code>attributes/default.rb</code> 文件中定义：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="c1"># whethere to prevent redis from binding to 127.0.0.1</span>
@@ -349,7 +349,7 @@ Knife Solo 添加了额外的命令，可以在本地开发设备上直接和要
 会把 <code>false</code> 应用到食谱 <code>node[:redis][:dont_bind]</code>，除非默认值被覆盖了</p>
 <p>关于属性的更多说明，请阅读 OpsCode 网站上的文档：<br>
 <a href="http://docs.opscode.com/essentials_cookbook_attribute_files.html">http://docs.opscode.com/essentials_cookbook_attribute_files.html</a></p>
-<h2 id="角色介绍">角色介绍</h2>
+<h2 id="角色介绍"><a class="anchor" href="#%e8%a7%92%e8%89%b2%e4%bb%8b%e7%bb%8d">角色介绍</a></h2>
 <p>新建角色文件</p>
 <pre><code>touch roles/redis-server.json
 </code></pre>
@@ -406,7 +406,7 @@ Knife Solo 添加了额外的命令，可以在本地开发设备上直接和要
 <p>所以我们需要在仓库根目录的 <code>Berksfile</code> 文件中加入如下内容：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">cookbook</span> <span class="s1">&#39;monit-tlq&#39;</span><span class="p">,</span> <span class="ss">github</span><span class="p">:</span> <span class="s1">&#39;TalkingQuickly/monit-tlq&#39;</span><span class="p">,</span> <span class="ss">branch</span><span class="p">:</span> <span class="s1">&#39;master&#39;</span>
 </span></span><span class="line"><span class="cl"><span class="n">cookbook</span> <span class="s1">&#39;monit_configs-tlq&#39;</span><span class="p">,</span> <span class="ss">github</span><span class="p">:</span> <span class="s1">&#39;TalkingQuickly/monit_configs-tlq&#39;</span><span class="p">,</span> <span class="ss">branch</span><span class="p">:</span> <span class="s1">&#39;master&#39;</span>
-</span></span></code></pre></div><h2 id="配置远程服务器">配置远程服务器</h2>
+</span></span></code></pre></div><h2 id="配置远程服务器"><a class="anchor" href="#%e9%85%8d%e7%bd%ae%e8%bf%9c%e7%a8%8b%e6%9c%8d%e5%8a%a1%e5%99%a8">配置远程服务器</a></h2>
 <ol>
 <li>
 <p>把公钥复制到远程服务器</p>
@@ -430,7 +430,7 @@ Knife Solo 添加了额外的命令，可以在本地开发设备上直接和要
 </ul>
 </li>
 </ol>
-<h3 id="可能会遇到的问题">可能会遇到的问题</h3>
+<h3 id="可能会遇到的问题"><a class="anchor" href="#%e5%8f%af%e8%83%bd%e4%bc%9a%e9%81%87%e5%88%b0%e7%9a%84%e9%97%ae%e9%a2%98">可能会遇到的问题</a></h3>
 <p>如果不确定是什么问题，可以在安装 Chef 的命令加上 <code>-VV</code> 选项来查看 DEBUG 信息</p>
 <ul>
 <li>
@@ -452,7 +452,7 @@ Knife Solo 添加了额外的命令，可以在本地开发设备上直接和要
 </ol>
 </li>
 </ul>
-<h2 id="应用配方">应用配方</h2>
+<h2 id="应用配方"><a class="anchor" href="#%e5%ba%94%e7%94%a8%e9%85%8d%e6%96%b9">应用配方</a></h2>
 <ol>
 <li>
 <p>配置节点文件 <code>nodes/yourserverip.json</code>, 加入如下内容：</p>

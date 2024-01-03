@@ -13,7 +13,7 @@
 例如：(quote a b) 等价与 &#39;(a b)
 如下的例子展示了符号和值的区 …">
   <link rel="canonical" href="https://www.dreamxu.com/scheme-of-the-quote-quasiquote-unquote-discuss/">
-    <link rel="stylesheet" href="/css/style.min.2a2aa4ed426afcd7c5ffde31042cdd4d55ebbfcab2754fcfd5577a4a7b59019b.css" integrity="sha256-Kiqk7UJq/NfF/94xBCzdTVXrv8qydU/P1Vd6SntZAZs=" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.min.9f99e59e1cc74cf7ebe20083a9efb57b958fe030b43d7202ec47de2c32fb0d52.css" integrity="sha256-n5nlnhzHTPfr4gCDqe&#43;1e5WP4DC0PXIC7EfeLDL7DVI=" crossorigin="anonymous">
   <script type="text/javascript" src="/js/bundle.min.441c485d1d9104b8017416429af24d2115fb80b39ccd1f1cb4907dc6c9d0e84d.js" integrity="sha256-RBxIXR2RBLgBdBZCmvJNIRX7gLOczR8ctJB9xsnQ6E0=" defer></script>
 
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -91,7 +91,7 @@ if (!doNotTrack) {
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <h2 id="quote">quote</h2>
+    <h2 id="quote"><a class="anchor" href="#quote">quote</a></h2>
 <p>为了操作以及表示符号数据，在语言中就需要一种新元素：具有表示符号的能力</p>
 <p>表示方法是在数据前面加上「单引号」，例如：<code>'(a b)</code><br>
 但是这样就违背了我们程序具有表的形式的普遍性，通过引进特殊形式 quote 就可以恢复这种一致性<br>
@@ -102,7 +102,7 @@ if (!doNotTrack) {
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">list </span><span class="nv">a</span> <span class="nv">b</span><span class="p">)</span>      <span class="c1">; =&gt; &#39;(1 2)</span>
 </span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">list </span><span class="ss">&#39;a</span> <span class="ss">&#39;b</span><span class="p">)</span>    <span class="c1">; =&gt; &#39;(a b)</span>
-</span></span></code></pre></div><h3 id="单引号和双引号的区别">单引号和双引号的区别</h3>
+</span></span></code></pre></div><h3 id="单引号和双引号的区别"><a class="anchor" href="#%e5%8d%95%e5%bc%95%e5%8f%b7%e5%92%8c%e5%8f%8c%e5%bc%95%e5%8f%b7%e7%9a%84%e5%8c%ba%e5%88%ab">单引号和双引号的区别</a></h3>
 <p>用双引号扩起来的称为字符串，例如：&ldquo;String&rdquo;<br>
 单引号可以用于扩起表和符号，是一种结构化的数据；而双引号只能用于字符串，只是一串字符，一般用于需要打印输出的对象，例如：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scheme" data-lang="scheme"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">display </span><span class="s">&#34;hi&#34;</span><span class="p">)</span>
@@ -110,7 +110,7 @@ if (!doNotTrack) {
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scheme" data-lang="scheme"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">car </span><span class="s">&#34;(a b c)&#34;</span><span class="p">)</span>
 </span></span></code></pre></div><p>可以用单引号来实现：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scheme" data-lang="scheme"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">car </span><span class="o">&#39;</span><span class="p">(</span><span class="nv">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">))</span>      <span class="c1">; =&gt; &#39;a</span>
-</span></span></code></pre></div><h2 id="quote-quasiquote-unquote">quote, quasiquote, unquote</h2>
+</span></span></code></pre></div><h2 id="quote-quasiquote-unquote"><a class="anchor" href="#quote-quasiquote-unquote">quote, quasiquote, unquote</a></h2>
 <p>有时候不想整个表都表示为符号，这时可用 quasiquote 和 unquote 来实现，例如：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scheme" data-lang="scheme"><span class="line"><span class="cl"><span class="p">(</span><span class="k">define </span><span class="nv">a</span> <span class="mi">1</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">(</span><span class="k">define </span><span class="nv">b</span> <span class="mi">2</span><span class="p">)</span>

@@ -11,7 +11,7 @@
 介绍几个环境变量 首先，先来介绍一下需要的三个环境变量
 JAVA_HOME —— JAVA 的安装目录。需要 JAVA 环境的软件可能会用到，比如 tomcat, …">
   <link rel="canonical" href="https://www.dreamxu.com/windows-linux-install-java/">
-    <link rel="stylesheet" href="/css/style.min.2a2aa4ed426afcd7c5ffde31042cdd4d55ebbfcab2754fcfd5577a4a7b59019b.css" integrity="sha256-Kiqk7UJq/NfF/94xBCzdTVXrv8qydU/P1Vd6SntZAZs=" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.min.9f99e59e1cc74cf7ebe20083a9efb57b958fe030b43d7202ec47de2c32fb0d52.css" integrity="sha256-n5nlnhzHTPfr4gCDqe&#43;1e5WP4DC0PXIC7EfeLDL7DVI=" crossorigin="anonymous">
   <script type="text/javascript" src="/js/bundle.min.441c485d1d9104b8017416429af24d2115fb80b39ccd1f1cb4907dc6c9d0e84d.js" integrity="sha256-RBxIXR2RBLgBdBZCmvJNIRX7gLOczR8ctJB9xsnQ6E0=" defer></script>
 
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -89,14 +89,14 @@ if (!doNotTrack) {
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <h2 id="下载-jdk">下载 JDK</h2>
+    <h2 id="下载-jdk"><a class="anchor" href="#%e4%b8%8b%e8%bd%bd-jdk">下载 JDK</a></h2>
 <p><a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">http://www.oracle.com/technetwork/java/javase/downloads/index.html</a></p>
-<h2 id="介绍几个环境变量">介绍几个环境变量</h2>
+<h2 id="介绍几个环境变量"><a class="anchor" href="#%e4%bb%8b%e7%bb%8d%e5%87%a0%e4%b8%aa%e7%8e%af%e5%a2%83%e5%8f%98%e9%87%8f">介绍几个环境变量</a></h2>
 <p>首先，先来介绍一下需要的三个环境变量</p>
 <p>JAVA_HOME —— JAVA 的安装目录。需要 JAVA 环境的软件可能会用到，比如 tomcat, eclipse 等。配置 PATH, CLASSPATH 变量的时候会用到，增加了方便性，复用性</p>
 <p>Path —— 可执行文件搜索路径。当执行一个可执行文件的时候，如果在当前目录下找不到，系统会依次到 Path 指定的目录下去寻找，直到找到第一个，若找不到则报错。JAVA 的编译命令（javac），执行命令（java），提取注释工具（javadoc）等，都在 %JAVA_HOME%\bin 目录下</p>
 <p>CLASSPATH —— 类搜索路径。用于搜索 JAVA 程序编译或者运行时用到的类。自己写的一些类可能放在当前目录下，所以在环境变量中加上 .; 表示当前目录。还有一些常用的类库 rt.jar（JAVA基础类库。默认加载的，可以不加到 CLASSPATH 中）, dt.jar（关于运行环境的类库）, tools.jar（工具类库）。jar 就是把一些 java 文件打包起来了，为了方便</p>
-<h2 id="windows">Windows</h2>
+<h2 id="windows"><a class="anchor" href="#windows">Windows</a></h2>
 <p>右键我的电脑，打开属性，然后点击高级系统设置，就能看见环境变量<br>
 假定 JDK 安装在 <code>C:\Program Files\Java\jdk1.7.0_17</code><br>
 修改系统变量，步骤如下:</p>
@@ -106,7 +106,7 @@ if (!doNotTrack) {
 <li>新建变量 CLASSPATH，变量值为 <code>.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar</code></li>
 </ol>
 <p>点击确定，设置完毕。在cmd中输入 java -version ，如果出现 java version “1.7.0_17″…，环境变量就设置成功了。</p>
-<h2 id="linux">Linux</h2>
+<h2 id="linux"><a class="anchor" href="#linux">Linux</a></h2>
 <p><strong>方法一</strong></p>
 <p>首先下载好 jdk 的包，假设下载的是 jdk-7u17-linux-x64.tar.gz<br>
 然后是解压到指定目录</p>

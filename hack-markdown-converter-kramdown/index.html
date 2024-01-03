@@ -12,7 +12,7 @@
 首先找到相关的代码，如下所示：
 ## …">
   <link rel="canonical" href="https://www.dreamxu.com/hack-markdown-converter-kramdown/">
-    <link rel="stylesheet" href="/css/style.min.2a2aa4ed426afcd7c5ffde31042cdd4d55ebbfcab2754fcfd5577a4a7b59019b.css" integrity="sha256-Kiqk7UJq/NfF/94xBCzdTVXrv8qydU/P1Vd6SntZAZs=" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.min.9f99e59e1cc74cf7ebe20083a9efb57b958fe030b43d7202ec47de2c32fb0d52.css" integrity="sha256-n5nlnhzHTPfr4gCDqe&#43;1e5WP4DC0PXIC7EfeLDL7DVI=" crossorigin="anonymous">
   <script type="text/javascript" src="/js/bundle.min.441c485d1d9104b8017416429af24d2115fb80b39ccd1f1cb4907dc6c9d0e84d.js" integrity="sha256-RBxIXR2RBLgBdBZCmvJNIRX7gLOczR8ctJB9xsnQ6E0=" defer></script>
 
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -89,7 +89,7 @@ if (!doNotTrack) {
 
   <div class="post-content" itemprop="articleBody">
     <p>kramdown version: 1.11.1</p>
-<h2 id="使生成-head-id-功能支持中文">使生成 head ID 功能支持中文</h2>
+<h2 id="使生成-head-id-功能支持中文"><a class="anchor" href="#%e4%bd%bf%e7%94%9f%e6%88%90-head-id-%e5%8a%9f%e8%83%bd%e6%94%af%e6%8c%81%e4%b8%ad%e6%96%87">使生成 head ID 功能支持中文</a></h2>
 <p>我查看了 kramdown 选项部分的所有文档，发现它只支持 transliterated_header_ids. 但是我不喜欢将中文音译为拼音，所以干脆直接修改代码好了，还比较简单。</p>
 <p>首先找到相关的代码，如下所示：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="c1">## /lib/kramdown/converter/base.rb</span>
@@ -132,7 +132,7 @@ if (!doNotTrack) {
 </span></span><span class="line"><span class="cl"><span class="k">end</span>
 </span></span></code></pre></div><p>代码的意思是：移除 ASCII 字符中除了字母，数字，空格，连字符的字符，但是不移除所有非 ASCII 字符，然后将其中空格和连字符（包括重复的）转换为一个连字符，再将其转换为小写。</p>
 <p>我个人比较喜欢这种表达 ID 的方式，所以就那么改了，你可以随便改成什么样子。</p>
-<h2 id="绕过-alt-text-中出现--产生的-bug">绕过 alt text 中出现 &ldquo;|&rdquo; 产生的 bug</h2>
+<h2 id="绕过-alt-text-中出现--产生的-bug"><a class="anchor" href="#%e7%bb%95%e8%bf%87-alt-text-%e4%b8%ad%e5%87%ba%e7%8e%b0--%e4%ba%a7%e7%94%9f%e7%9a%84-bug">绕过 alt text 中出现 &ldquo;|&rdquo; 产生的 bug</a></h2>
 <p>先看几个例子体会一下这个 bug 是什么，以下都是链接的例子，当然在图片中也会有问题</p>
 <ul>
 <li>

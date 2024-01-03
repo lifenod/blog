@@ -12,7 +12,7 @@
 使用 AfxMessageBox 或者 MessageBox 创建模态对话框 使用 AfxMessageBox 函数可创建一个模态对话框
 官方文 …">
   <link rel="canonical" href="https://www.dreamxu.com/mfc-create-and-destroy-modal-and-modeless-dialog-box/">
-    <link rel="stylesheet" href="/css/style.min.2a2aa4ed426afcd7c5ffde31042cdd4d55ebbfcab2754fcfd5577a4a7b59019b.css" integrity="sha256-Kiqk7UJq/NfF/94xBCzdTVXrv8qydU/P1Vd6SntZAZs=" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.min.9f99e59e1cc74cf7ebe20083a9efb57b958fe030b43d7202ec47de2c32fb0d52.css" integrity="sha256-n5nlnhzHTPfr4gCDqe&#43;1e5WP4DC0PXIC7EfeLDL7DVI=" crossorigin="anonymous">
   <script type="text/javascript" src="/js/bundle.min.441c485d1d9104b8017416429af24d2115fb80b39ccd1f1cb4907dc6c9d0e84d.js" integrity="sha256-RBxIXR2RBLgBdBZCmvJNIRX7gLOczR8ctJB9xsnQ6E0=" defer></script>
 
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -91,7 +91,7 @@ if (!doNotTrack) {
   <div class="post-content" itemprop="articleBody">
     <p><strong>注意</strong>：开发全新的 PC 桌面客户端请不要使用 MFC, 已经是过时的技术了。有了坑爹的学校，才有了我去用 MFC<br>
 请使用 Qt, C# WPF, Node-Webkit 等</p>
-<h2 id="使用-afxmessagebox-或者-messagebox-创建模态对话框">使用 AfxMessageBox 或者 MessageBox 创建模态对话框</h2>
+<h2 id="使用-afxmessagebox-或者-messagebox-创建模态对话框"><a class="anchor" href="#%e4%bd%bf%e7%94%a8-afxmessagebox-%e6%88%96%e8%80%85-messagebox-%e5%88%9b%e5%bb%ba%e6%a8%a1%e6%80%81%e5%af%b9%e8%af%9d%e6%a1%86">使用 AfxMessageBox 或者 MessageBox 创建模态对话框</a></h2>
 <p>使用 AfxMessageBox 函数可创建一个模态对话框</p>
 <p>官方文档：<a href="https://msdn.microsoft.com/en-us/library/as6se7cb.aspx">https://msdn.microsoft.com/en-us/library/as6se7cb.aspx</a></p>
 <p>简单例子：</p>
@@ -108,10 +108,10 @@ if (!doNotTrack) {
 </span></span><span class="line"><span class="cl">    <span class="n">AfxMessageBox</span><span class="p">(</span><span class="n">_T</span><span class="p">(</span><span class="s">&#34;真的就只有你自己 ╮(╯_╰)╭&#34;</span><span class="p">));</span>
 </span></span><span class="line"><span class="cl">    <span class="k">break</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h2 id="使用-cdialogdomodal-创建模态对话框">使用 CDialog::DoModal 创建模态对话框</h2>
+</span></span></code></pre></div><h2 id="使用-cdialogdomodal-创建模态对话框"><a class="anchor" href="#%e4%bd%bf%e7%94%a8-cdialogdomodal-%e5%88%9b%e5%bb%ba%e6%a8%a1%e6%80%81%e5%af%b9%e8%af%9d%e6%a1%86">使用 CDialog::DoModal 创建模态对话框</a></h2>
 <p>官方文档：<a href="https://msdn.microsoft.com/en-us/library/619z63f5.aspx">https://msdn.microsoft.com/en-us/library/619z63f5.aspx</a></p>
 <p>文档上的例子很详细了，就不多说了</p>
-<h2 id="使用-cdialogcreate-创建非模态对话框">使用 CDialog::Create 创建非模态对话框</h2>
+<h2 id="使用-cdialogcreate-创建非模态对话框"><a class="anchor" href="#%e4%bd%bf%e7%94%a8-cdialogcreate-%e5%88%9b%e5%bb%ba%e9%9d%9e%e6%a8%a1%e6%80%81%e5%af%b9%e8%af%9d%e6%a1%86">使用 CDialog::Create 创建非模态对话框</a></h2>
 <p>官方文档：<a href="https://msdn.microsoft.com/en-us/library/yhth57kd.aspx">https://msdn.microsoft.com/en-us/library/yhth57kd.aspx</a></p>
 <p>首先得有个认识：在 MFC 程序中，窗口对象的生存期应长于对应的窗口，也就是说，不能在未关闭屏幕上窗口的情况下先把对应的窗口对象删除掉</p>
 <p>对于模态对话框来说，对话框被关闭之前 DoModal 函数并不会返回，一旦对话框被关闭 DoModal 函数立即返回，并不会出现窗口对象先于窗口删除的情况<br>
@@ -138,7 +138,7 @@ CDialog::OnCancel: <a href="https://msdn.microsoft.com/en-us/library/kw3wtttf.as
 CWnd::PostNcDestroy: <a href="https://msdn.microsoft.com/en-us/library/sk933a19.aspx">https://msdn.microsoft.com/en-us/library/sk933a19.aspx</a></p>
 <p>参考：<br>
 <a href="http://www.xxsof.com/?p=998">http://www.xxsof.com/?p=998</a></p>
-<h3 id="具体的例子">具体的例子</h3>
+<h3 id="具体的例子"><a class="anchor" href="#%e5%85%b7%e4%bd%93%e7%9a%84%e4%be%8b%e5%ad%90">具体的例子</a></h3>
 <ol>
 <li>
 <p>新建一个对话框 ID 为 <code>IDD_POP_DIALOG</code>, 添加类，名为 <code>CPopDlg</code><br>

@@ -10,7 +10,7 @@
   <meta name="description" content="本文比较长，列个目录方便阅读
 前提 准备硬盘 安装并配置 Samba 测试 Samba FTP 服务器安装及配置 aria2 安装及配置 &#43; web 前端 &#43; 迅雷离线 aria2 安装及配置 web 前端的配置 yaaw 和 webui-aria2 迅雷离线下载 aria2 出现问题的解决方法 磁盘阵列 RAID1  …">
   <link rel="canonical" href="https://www.dreamxu.com/raspberrypi-nas/">
-    <link rel="stylesheet" href="/css/style.min.2a2aa4ed426afcd7c5ffde31042cdd4d55ebbfcab2754fcfd5577a4a7b59019b.css" integrity="sha256-Kiqk7UJq/NfF/94xBCzdTVXrv8qydU/P1Vd6SntZAZs=" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.min.9f99e59e1cc74cf7ebe20083a9efb57b958fe030b43d7202ec47de2c32fb0d52.css" integrity="sha256-n5nlnhzHTPfr4gCDqe&#43;1e5WP4DC0PXIC7EfeLDL7DVI=" crossorigin="anonymous">
   <script type="text/javascript" src="/js/bundle.min.441c485d1d9104b8017416429af24d2115fb80b39ccd1f1cb4907dc6c9d0e84d.js" integrity="sha256-RBxIXR2RBLgBdBZCmvJNIRX7gLOczR8ctJB9xsnQ6E0=" defer></script>
 
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -114,7 +114,7 @@ if (!doNotTrack) {
 </div>
 
 <p>总的来说树莓派作为 nas 还是不错的，连续运行几十天了没有任何异常</p>
-<h2 id="前提">前提</h2>
+<h2 id="前提"><a class="anchor" href="#%e5%89%8d%e6%8f%90">前提</a></h2>
 <p>首先保证树莓派运行 Raspbian 系统正常，并将空间扩展至整张 SD 卡，需要安装各种软件以防空间不够<br>
 操作树莓派直接使用 ssh 就可以了，不需要显示器的</p>
 <p>在进行操作之前，最好先更新一下软件源</p>
@@ -123,7 +123,7 @@ if (!doNotTrack) {
 <p>然后再更新一下软件（非必须）</p>
 <pre><code>sudo apt-get upgrade
 </code></pre>
-<h2 id="准备硬盘">准备硬盘</h2>
+<h2 id="准备硬盘"><a class="anchor" href="#%e5%87%86%e5%a4%87%e7%a1%ac%e7%9b%98">准备硬盘</a></h2>
 <p>若需要组建 raid1, 可看我写的另一篇文章《<a href="http://www.dreamxu.com/debian-create-software-raid-one-arrays/">Debian 组建软 RAID 1 磁盘阵列</a>》</p>
 <p>最好使用隔离式带电源的 USB HUB, 保护硬盘也保护树莓派</p>
 <p>如果硬盘是 NTFS 格式的，那么需要安装 ntfs-3g 模块或者将硬盘格式化为 ext4 格式。</p>
@@ -180,7 +180,7 @@ sudo chown pi:pi /home/pi/nas-data
 </code></pre>
 </li>
 </ol>
-<h2 id="安装并配置-samba">安装并配置 Samba</h2>
+<h2 id="安装并配置-samba"><a class="anchor" href="#%e5%ae%89%e8%a3%85%e5%b9%b6%e9%85%8d%e7%bd%ae-samba">安装并配置 Samba</a></h2>
 <p>首先安装 samba</p>
 <pre><code>sudo apt-get install samba samba-common-bin
 </code></pre>
@@ -244,7 +244,7 @@ Loaded services file OK.
 </ol>
 <p>到这里，各个设备应该都可以访问了，大功告成？<br>
 还差点，下面进行测试</p>
-<h2 id="测试-samba">测试 Samba</h2>
+<h2 id="测试-samba"><a class="anchor" href="#%e6%b5%8b%e8%af%95-samba">测试 Samba</a></h2>
 <p>我的网络拓扑结构如下：<br>
 linux 主机 &lt;--无线--&gt; 300M 路由器 &lt;--网线--&gt; 树莓派</p>
 <p>打开 linux 主机，首先挂载好 samba (可用 <code>smbclient -L [raspberrypi ip]</code> 查看树莓派分享的资源)</p>
@@ -286,7 +286,7 @@ linux 主机 &lt;--无线--&gt; 300M 路由器 &lt;--网线--&gt; 树莓派</p>
 其中的 USB hub 和 Ethernet 应该就是 LAN9512 芯片，不管如何，网卡和硬盘是连在一个 USB hub 上的<br>
 那么这个 USB hub 的 IO 性能如何呢，可用 <code>dd if=/dev/sda of=/dev/null bs=32M count=10 iflag=direct</code> 这个命令测试，大概是 31 MB/s<br>
 所以，假设树莓派啥都不干，只通过硬盘和网卡传输数据，最大也就 15MB/s 的样子，150M 网卡就是极限了。等等，既然是折腾嘛，那就继续吧。别忘了你还有 SD 卡，这可没连在 USB hub 上哦，直接和 soc 相连的，读取速度算它 20M/s 吧。综合起来看，SD 卡和硬盘同时读取数据，网卡负责传输数据。理想情况下，SD 卡 20M/s，硬盘 5M/s，网卡 25M/s，实际网络传输速度 25M/s。上 300M 网卡应该可以试试，好像也没谁那么蛋疼吧。如果你的树莓派还充当无线 AP，那么 300M 网卡也是可以的</p>
-<h2 id="ftp-服务器安装及配置">FTP 服务器安装及配置</h2>
+<h2 id="ftp-服务器安装及配置"><a class="anchor" href="#ftp-%e6%9c%8d%e5%8a%a1%e5%99%a8%e5%ae%89%e8%a3%85%e5%8f%8a%e9%85%8d%e7%bd%ae">FTP 服务器安装及配置</a></h2>
 <p>安装 vsftpd 软件，全名 very secure FTP daemon</p>
 <pre><code>sudo apt-get install vsftpd
 </code></pre>
@@ -358,8 +358,8 @@ find /home/pi/nas-data/ -type d -print0 | xargs -0 chmod 775
 <p>以上步骤完成后，即实现了 pi 和 ftppi 可共同编辑 /home/pi/nas-data/nas-data 目录下的文件<br>
 一般情况下用 ftppi 登陆 ftp 就可以了<br>
 顺便一说，umask 为 002，方便团队协作；umask 为 022 看上去貌似是 owner, 只有自己私有（组用户和其它用户不可写）</p>
-<h2 id="aria2-安装及配置--web-前端--迅雷离线">aria2 安装及配置 + web 前端 + 迅雷离线</h2>
-<h3 id="aria2-安装及配置">aria2 安装及配置</h3>
+<h2 id="aria2-安装及配置--web-前端--迅雷离线"><a class="anchor" href="#aria2-%e5%ae%89%e8%a3%85%e5%8f%8a%e9%85%8d%e7%bd%ae--web-%e5%89%8d%e7%ab%af--%e8%bf%85%e9%9b%b7%e7%a6%bb%e7%ba%bf">aria2 安装及配置 + web 前端 + 迅雷离线</a></h2>
+<h3 id="aria2-安装及配置"><a class="anchor" href="#aria2-%e5%ae%89%e8%a3%85%e5%8f%8a%e9%85%8d%e7%bd%ae">aria2 安装及配置</a></h3>
 <p>关于这软件就不多说了，太有名了，总之占用资源少且非常好用<br>
 下面来安装 aria2</p>
 <ol>
@@ -530,7 +530,7 @@ sudo apt-get install aria2
 </ol>
 </li>
 </ol>
-<h3 id="web-前端的配置-yaaw-和-webui-aria2">web 前端的配置 yaaw 和 webui-aria2</h3>
+<h3 id="web-前端的配置-yaaw-和-webui-aria2"><a class="anchor" href="#web-%e5%89%8d%e7%ab%af%e7%9a%84%e9%85%8d%e7%bd%ae-yaaw-%e5%92%8c-webui-aria2">web 前端的配置 yaaw 和 webui-aria2</a></h3>
 <p>yaaw 和 webui-aria2 都是不错的，yaaw 界面简洁，wubui-aria2 功能强大，可以根据自己的喜好来选择，或者两个同时使用也可以</p>
 <p>首先保证 aria2c 正常运行着，然后进行下面的动作</p>
 <p>YAAW</p>
@@ -553,12 +553,12 @@ sudo apt-get install aria2
 <p><strong>常见问题</strong></p>
 <p>若无法连接到 web 前端，请手动访问你的 JSON-RPC 地址 http://raspberrypi-ip:6800/jsonrpc?jsoncallback=1, 如果没有返回，请确认 aria2 是否启动以及连通性<br>
 如果是从外网访问的, 别忘记在路由器上做好 ddns 和端口映射</p>
-<h3 id="迅雷离线下载">迅雷离线下载</h3>
+<h3 id="迅雷离线下载"><a class="anchor" href="#%e8%bf%85%e9%9b%b7%e7%a6%bb%e7%ba%bf%e4%b8%8b%e8%bd%bd">迅雷离线下载</a></h3>
 <p><a href="https://github.com/binux/ThunderLixianExporter">ThunderLixianExporter</a>, 将迅雷离线地址导出成 aria2/wget 等下载命令的工具<br>
 <a href="https://github.com/ohsc/ThunderLixianAssistant">ThunderLixianAssistant</a>, 这个项目是上个项目在 chrome 上的一个封装<br>
 以上两个工具使用方法在主页中已经说的很详细了，就不多说了<br>
 导出功能没有一个个去试，实测导出 yaaw 可用</p>
-<h3 id="aria2-出现问题的解决方法">aria2 出现问题的解决方法</h3>
+<h3 id="aria2-出现问题的解决方法"><a class="anchor" href="#aria2-%e5%87%ba%e7%8e%b0%e9%97%ae%e9%a2%98%e7%9a%84%e8%a7%a3%e5%86%b3%e6%96%b9%e6%b3%95">aria2 出现问题的解决方法</a></h3>
 <p>有读者反馈，aria2 出问题还蛮多的，我就写一点解决的方法</p>
 <p>若 yaaw 无法使用，首先看看 aria2 是否启动以及连通性，前面不远处有说明</p>
 <p>还有一些是 aria2 本身出现了问题，这里面出现问题的可能性就多了，我只是说一下检测问题的方法，知道了问题之后，google 一下就能解决了</p>
@@ -567,7 +567,7 @@ sudo apt-get install aria2
 <li>使用 <code>aria2c --conf-path=/home/pi/.aria2/aria2.conf</code> 命令来运行 aria2</li>
 <li>这样就能看到 aria2 的反馈，可能会出现一些 [ERROR] 提示，这样你就知道问题具体出现在哪里了</li>
 </ol>
-<h2 id="磁盘阵列-raid1-与异地备份">磁盘阵列 RAID1 与异地备份</h2>
+<h2 id="磁盘阵列-raid1-与异地备份"><a class="anchor" href="#%e7%a3%81%e7%9b%98%e9%98%b5%e5%88%97-raid1-%e4%b8%8e%e5%bc%82%e5%9c%b0%e5%a4%87%e4%bb%bd">磁盘阵列 RAID1 与异地备份</a></h2>
 <p>一个硬盘，不管它来自什么厂商，也不管它是机械的还是固态的，它出现故障只是时间早晚的问题<br>
 一个人，不管 TA 来自什么地方，也不管 TA 是男的还是女的，TA 总有误操作的时候<br>
 我就不信你们没有丢过一点数据！</p>

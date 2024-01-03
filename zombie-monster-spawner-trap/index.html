@@ -14,7 +14,7 @@
 合着下面的讲解看地图更容易理解
 地图下 …">
   <link rel="canonical" href="https://www.dreamxu.com/zombie-monster-spawner-trap/">
-    <link rel="stylesheet" href="/css/style.min.2a2aa4ed426afcd7c5ffde31042cdd4d55ebbfcab2754fcfd5577a4a7b59019b.css" integrity="sha256-Kiqk7UJq/NfF/94xBCzdTVXrv8qydU/P1Vd6SntZAZs=" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.min.9f99e59e1cc74cf7ebe20083a9efb57b958fe030b43d7202ec47de2c32fb0d52.css" integrity="sha256-n5nlnhzHTPfr4gCDqe&#43;1e5WP4DC0PXIC7EfeLDL7DVI=" crossorigin="anonymous">
   <script type="text/javascript" src="/js/bundle.min.441c485d1d9104b8017416429af24d2115fb80b39ccd1f1cb4907dc6c9d0e84d.js" integrity="sha256-RBxIXR2RBLgBdBZCmvJNIRX7gLOczR8ctJB9xsnQ6E0=" defer></script>
 
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -99,7 +99,7 @@ if (!doNotTrack) {
 <img src="2015-09-27_165813.png" alt="僵尸刷怪箱陷阱整体外观"></p>
 <p>合着下面的讲解看地图更容易理解<br>
 地图下载：<a href="https://www.dropbox.com/s/z4u0q7c8h1vexcx/2015-09-26-MonsterSpawnerTrap-www.dreamxu.com%20.zip?dl=0">https://www.dropbox.com/s/z4u0q7c8h1vexcx/2015-09-26-MonsterSpawnerTrap-www.dreamxu.com%20.zip?dl=0</a></p>
-<h2 id="获取刷怪箱">获取刷怪箱</h2>
+<h2 id="获取刷怪箱"><a class="anchor" href="#%e8%8e%b7%e5%8f%96%e5%88%b7%e6%80%aa%e7%ae%b1">获取刷怪箱</a></h2>
 <p>如果你想在创造模式下试验，获取刷怪箱是第一步</p>
 <p>我们使用如下命令</p>
 <pre><code>/give [用户名] mob_spawner &lt;数量&gt; 0 {BlockEntityTag:{EntityId:&quot;&lt;实体字母ID&gt;&quot;}}
@@ -107,7 +107,7 @@ if (!doNotTrack) {
 <p>举个具体的例子，例如获取一个僵尸刷怪箱</p>
 <pre><code>/give HS66BI mob_spawner 1 0 {BlockEntityTag:{EntityId:&quot;Zombie&quot;}}
 </code></pre>
-<h2 id="刷怪范围">刷怪范围</h2>
+<h2 id="刷怪范围"><a class="anchor" href="#%e5%88%b7%e6%80%aa%e8%8c%83%e5%9b%b4">刷怪范围</a></h2>
 <p>根据 Wiki 上所讲述的：<a href="http://minecraft-zh.gamepedia.com/%E5%88%B7%E6%80%AA%E7%AE%B1">http://minecraft-zh.gamepedia.com/刷怪箱</a><br>
 刷怪箱可在空气中生成怪物，且刷怪范围为 <code>8 * 8 * 3</code>, 代码如下</p>
 <pre tabindex="0"><code>// 这份伪代码基于 Minecraft 1.7.10 反编译出的源文件
@@ -130,7 +130,7 @@ Z = Spawner.z + random(spawnRange*2)-spawnRange;
 <img src="2015-09-25_211728.svg" alt="僵尸刷怪箱范围纵向"></p>
 </li>
 </ul>
-<h2 id="刷怪条件">刷怪条件</h2>
+<h2 id="刷怪条件"><a class="anchor" href="#%e5%88%b7%e6%80%aa%e6%9d%a1%e4%bb%b6">刷怪条件</a></h2>
 <ol>
 <li>上述刷怪范围</li>
 <li>亮度 7 或以下</li>
@@ -138,15 +138,15 @@ Z = Spawner.z + random(spawnRange*2)-spawnRange;
 <li>刷怪箱周围 <code>17 * 9 * 17</code> 的空间存在的僵尸少于 6 个，如果大于等于 6 个则不会刷怪</li>
 </ol>
 <p>满足了以上四个条件，刷怪箱可无限刷怪（如果挂机一天肯定会被「噁」心死😜）</p>
-<h2 id="建造">建造</h2>
-<h3 id="内部的封闭空间">内部的封闭空间</h3>
+<h2 id="建造"><a class="anchor" href="#%e5%bb%ba%e9%80%a0">建造</a></h2>
+<h3 id="内部的封闭空间"><a class="anchor" href="#%e5%86%85%e9%83%a8%e7%9a%84%e5%b0%81%e9%97%ad%e7%a9%ba%e9%97%b4">内部的封闭空间</a></h3>
 <p>满足<strong>条件一</strong>和<strong>条件二</strong><br>
 虽说僵尸刷怪范围是 <code>8 * 8 * 4</code>, 但是还要考虑到最下面一层放水，旁白一排也要放水，所以干脆挖 <code>9 * 9 * 5</code> 空间好了，正中间是刷怪箱<br>
 并且将这个空间封闭，满足条件二（亮度要求）</p>
 <p>具体如下图所示：<br>
 <img src="2015-09-26_232820.png" alt="密闭空间"><br>
 <img src="2015-09-26_233020.png" alt="密闭空间"></p>
-<h3 id="水电梯部分">水电梯部分</h3>
+<h3 id="水电梯部分"><a class="anchor" href="#%e6%b0%b4%e7%94%b5%e6%a2%af%e9%83%a8%e5%88%86">水电梯部分</a></h3>
 <p>满足<strong>条件四</strong><br>
 我们将水电梯建在刷怪箱周围 <code>17 * 9 * 17</code> 的空间范围之外，为了最大化刷怪。而且也要点亮 <code>9 * 9 * 5</code> 到 <code>17 * 9 * 17</code> 的空间，防止刷怪<br>
 如下图，稍微远离刷怪箱（其实还另有目的，下面我们会讲到，分离僵尸村民）<br>
@@ -163,7 +163,7 @@ Z = Spawner.z + random(spawnRange*2)-spawnRange;
 <p>僵尸血量为 20, 所以我们让僵尸摔落 22 格（即摔落坐标相差 22），使其为最少血量</p>
 <p>水电梯摔落处的设计如下图<br>
 <img src="2015-09-27_004500.png" alt="水电梯摔落处"></p>
-<h3 id="僵尸与僵尸村民的分离">僵尸与僵尸村民的分离</h3>
+<h3 id="僵尸与僵尸村民的分离"><a class="anchor" href="#%e5%83%b5%e5%b0%b8%e4%b8%8e%e5%83%b5%e5%b0%b8%e6%9d%91%e6%b0%91%e7%9a%84%e5%88%86%e7%a6%bb">僵尸与僵尸村民的分离</a></h3>
 <p>原理：利用活塞和粘性活塞将水流分流</p>
 <p>具体如下图所示</p>
 <ul>
@@ -177,7 +177,7 @@ Z = Spawner.z + random(spawnRange*2)-spawnRange;
 <img src="2015-09-27_162513.png" alt="不拉拉杆"></p>
 </li>
 </ul>
-<h3 id="僵尸村民的捕获">僵尸村民的捕获</h3>
+<h3 id="僵尸村民的捕获"><a class="anchor" href="#%e5%83%b5%e5%b0%b8%e6%9d%91%e6%b0%91%e7%9a%84%e6%8d%95%e8%8e%b7">僵尸村民的捕获</a></h3>
 <p>捕获装置，活板门陷阱<br>
 <img src="2015-09-27_163738.png" alt="活板门陷阱"></p>
 <p>利用一系列的活板门陷阱，有多少陷阱，就能一次捕获多少僵尸<br>
