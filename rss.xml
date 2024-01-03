@@ -10,7 +10,7 @@
     <managingEditor>blog@mwum.com</managingEditor>
     <webMaster>blog@mwum.com</webMaster>
     <copyright>©2013 明无梦 CC BY-SA 4.0</copyright>
-    <lastBuildDate>Wed, 03 Jan 2024 16:17:40 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 03 Jan 2024 17:37:28 +0800</lastBuildDate>
       <item>
         <title>对 Markdown 渲染引擎 kramdown 的几点 hack</title>
         <link>https://www.dreamxu.com/hack-markdown-converter-kramdown/</link>
