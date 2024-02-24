@@ -1,397 +1,323 @@
-
 <!DOCTYPE HTML>
-<html lang="" >
+<html lang="zh-CN" class="light" dir="ltr">
     <head>
+        <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>枚举类型 (enum) · GitBook</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>枚举类型 (enum) - 明无梦的 CPP 语言记录与心得</title>
+
+
+        <!-- Custom HTML head -->
+        
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.3">
-        
-        
-        
-    
-    <link rel="stylesheet" href="../gitbook/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
 
-    
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
-                
-            
-        
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
 
-    
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
 
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
 
-        
-    
-    
-    <meta name="HandheldFriendly" content="true"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
-    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/custom.css">
 
-    
-    
-    <link rel="prev" href="../different-from-the-C-language/" />
-    
 
+        <script>
+            var localAddrs = ["localhost", "127.0.0.1", ""];
+            if (localAddrs.indexOf(document.location.hostname) === -1) {
+                  var script = document.createElement('script');
+                  script.async = true;
+                  script.src = 'https://www.googletagmanager.com/gtag/js?id=G-XNJSCC1KSF';
+                  document.head.appendChild(script);
+
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+
+                  gtag('config', 'G-XNJSCC1KSF');
+            }
+        </script>
     </head>
-    <body>
-        
-<div class="book">
-    <div class="book-summary">
-        
-            
-<div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search" />
-</div>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
 
-            
-                <nav role="navigation">
-                
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
 
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
 
-<ul class="summary">
-    
-    
-    
-        
-        <li>
-            <a href="https://www.dreamxu.com/" target="_blank" class="custom-link">明无梦的博客</a>
-        </li>
-    
-    
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
 
-    
-    <li class="divider"></li>
-    
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
 
-    
-        
-        
-    
-        <li class="chapter " data-level="1.1" data-path="../">
-            
-                <a href="../">
-            
-                    
-                    简介
-            
-                </a>
-            
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2" data-path="../clion/">
-            
-                <a href="../clion/">
-            
-                    
-                    CLion
-            
-                </a>
-            
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
 
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3" data-path="../traversal/">
-            
-                <a href="../traversal/">
-            
-                    
-                    遍历
-            
-                </a>
-            
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">简介</a></li><li class="chapter-item expanded "><a href="../clion/index.html"><strong aria-hidden="true">1.</strong> CLion</a></li><li class="chapter-item expanded "><a href="../traversal/index.html"><strong aria-hidden="true">2.</strong> 遍历</a></li><li class="chapter-item expanded "><a href="../basic-type-range/index.html"><strong aria-hidden="true">3.</strong> 基本类型取值范围</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> 溢出问题</div></li><li class="chapter-item expanded "><a href="../different-from-the-C-language/index.html"><strong aria-hidden="true">5.</strong> 与 C 语言的不同</a></li><li class="chapter-item expanded "><a href="../enum/index.html" class="active"><strong aria-hidden="true">6.</strong> 枚举类型 (enum)</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
 
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4" data-path="../basic-type-range/">
-            
-                <a href="../basic-type-range/">
-            
-                    
-                    基本类型取值范围
-            
-                </a>
-            
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
 
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5" data-path="../overflow-problem/">
-            
-                <a href="../overflow-problem/">
-            
-                    
-                    溢出问题
-            
-                </a>
-            
+        <div id="page-wrapper" class="page-wrapper">
 
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6" data-path="../different-from-the-C-language/">
-            
-                <a href="../different-from-the-C-language/">
-            
-                    
-                    与 C 语言的不同
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter active" data-level="1.7" data-path="./">
-            
-                <a href="./">
-            
-                    
-                    枚举类型 (enum)
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-    
-
-    <li class="divider"></li>
-
-    <li>
-        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Published with GitBook
-        </a>
-    </li>
-</ul>
-
-
-                </nav>
-            
-        
-    </div>
-
-    <div class="book-body">
-        
-            <div class="body-inner">
-                
-                    
-
-<div class="book-header" role="navigation">
-    
-
-    <!-- Title -->
-    <h1>
-        <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >枚举类型 (enum)</a>
-    </h1>
-</div>
-
-
-
-
-                    <div class="page-wrapper" tabindex="-1" role="main">
-                        <div class="page-inner">
-                            
-<div id="book-search-results">
-    <div class="search-noresults">
-    
-                                <section class="normal markdown-section">
-                                
-                                <h1 id="&#x679A;&#x4E3E;&#x7C7B;&#x578B;-enum">&#x679A;&#x4E3E;&#x7C7B;&#x578B; (enum)</h1>
-<p>&#x5982;&#x679C;&#x67D0;&#x4E9B;&#x53D8;&#x91CF;&#x6709;&#x6709;&#x9650;&#x7684;&#x503C;<br>&#x90A3;&#x4E48;&#x6211;&#x53EF;&#x4EE5;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x679A;&#x4E3E;&#x7C7B;&#x578B;&#xFF0C;&#x518D;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x679A;&#x4E3E;&#x53D8;&#x91CF;<br>&#x679A;&#x4E3E;&#x53D8;&#x91CF;&#x7684;&#x53D6;&#x503C;&#x5C31;&#x662F;&#x6709;&#x9650;&#x7684;&#xFF0C;&#x53EF;&#x4EE5;&#x9632;&#x6B62;&#x53D6;&#x9519;&#x503C;&#xFF0C;&#x4E5F;&#x53EF;&#x63D0;&#x9AD8;&#x7A0B;&#x5E8F;&#x7684;&#x53EF;&#x8BFB;&#x6027;</p>
-<p>&#x770B;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#xFF1A;</p>
-<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
-
-
-<span class="hljs-keyword">enum</span> Weekday { kMon, kTue, kWed, kThu, kFri, kSat, kSun};
-
-
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])</span>
-</span>{
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;kMon: &quot;</span> &lt;&lt; kMon &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;kTue: &quot;</span> &lt;&lt; kTue &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;kWed: &quot;</span> &lt;&lt; kWed &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;kThu: &quot;</span> &lt;&lt; kThu &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;kFri: &quot;</span> &lt;&lt; kFri &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;kSat: &quot;</span> &lt;&lt; kSat &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;kSun: &quot;</span> &lt;&lt; kSun &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
-
-    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-}
-</code></pre>
-<p>&#x5982;&#x679C; <code>enum</code> &#x5B9A;&#x4E49;&#x5728;&#x5168;&#x5C40;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x90A3;&#x4E48;&#x5176;&#x4E2D;&#x7684;&#x679A;&#x4E3E;&#x503C;&#x53EF;&#x5728;&#x5168;&#x5C40;&#x4F5C;&#x7528;&#x57DF;&#x4E2D;&#x4F7F;&#x7528;&#xFF0C;
-&#x8FD9;&#x6837;&#x4F1A;&#x6C61;&#x67D3;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#xFF0C;&#x6211;&#x4EEC;&#x4E00;&#x822C;&#x4E0D;&#x4F1A;&#x8FD9;&#x6837;&#x7528;</p>
-<p>&#x4F8B;&#x5982;&#xFF0C;&#x53EF;&#x4EE5;&#x52A0;&#x4E0A;&#x547D;&#x540D;&#x7A7A;&#x95F4;</p>
-<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
-
-
-<span class="hljs-keyword">namespace</span> Day {
-
-<span class="hljs-keyword">enum</span> Weekday { kMon, kTue, kWed, kThu, kFri, kSat, kSun};
-
-}  <span class="hljs-comment">// namespace Day</span>
-
-
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])</span>
-</span>{
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;kMon: &quot;</span> &lt;&lt; Day::kMon &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;kTue: &quot;</span> &lt;&lt; Day::kTue &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;kWed: &quot;</span> &lt;&lt; Day::kWed &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;kThu: &quot;</span> &lt;&lt; Day::kThu &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;kFri: &quot;</span> &lt;&lt; Day::kFri &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;kSat: &quot;</span> &lt;&lt; Day::kSat &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;kSun: &quot;</span> &lt;&lt; Day::kSun &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
-
-    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-}
-</code></pre>
-<p>&#x6216;&#x8005;&#x5B9A;&#x4E49;&#x5728;&#x4E00;&#x4E2A;&#x7C7B;&#x4E2D;</p>
-<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
-
-
-<span class="hljs-keyword">class</span> Day {
-<span class="hljs-keyword">public</span>:
-    <span class="hljs-keyword">enum</span> Weekday { kMon, kTue, kWed, kThu, kFri, kSat, kSun};
-};  <span class="hljs-comment">// class Day</span>
-
-
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])</span>
-</span>{
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;kMon: &quot;</span> &lt;&lt; Day::kMon &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;kTue: &quot;</span> &lt;&lt; Day::kTue &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;kWed: &quot;</span> &lt;&lt; Day::kWed &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;kThu: &quot;</span> &lt;&lt; Day::kThu &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;kFri: &quot;</span> &lt;&lt; Day::kFri &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;kSat: &quot;</span> &lt;&lt; Day::kSat &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;kSun: &quot;</span> &lt;&lt; Day::kSun &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
-
-    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-}
-</code></pre>
-
-                                
-                                </section>
-                            
-    </div>
-    <div class="search-results">
-        <div class="has-results">
-            
-            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
-            <ul class="search-results-list"></ul>
-            
-        </div>
-        <div class="no-results">
-            
-            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
-            
-        </div>
-    </div>
-</div>
-
-                        </div>
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
                     </div>
-                
+
+                    <h1 class="menu-title">明无梦的 CPP 语言记录与心得</h1>
+
+                    <div class="right-buttons">
+
+                        <a href="https://www.mwum.com" target="_blank" rel="noopener noreferrer"><i id="home-button" class="fa fa-home"></i></a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="枚举类型-enum"><a class="header" href="#枚举类型-enum">枚举类型 (enum)</a></h1>
+<p>如果某些变量有有限的值<br />
+那么我可以定义一个枚举类型，再定义一个枚举变量<br />
+枚举变量的取值就是有限的，可以防止取错值，也可提高程序的可读性</p>
+<p>看如下代码：</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+
+
+enum Weekday { kMon, kTue, kWed, kThu, kFri, kSat, kSun};
+
+
+int main(int argc, char *argv[])
+{
+    std::cout &lt;&lt; "kMon: " &lt;&lt; kMon &lt;&lt; std::endl;
+    std::cout &lt;&lt; "kTue: " &lt;&lt; kTue &lt;&lt; std::endl;
+    std::cout &lt;&lt; "kWed: " &lt;&lt; kWed &lt;&lt; std::endl;
+    std::cout &lt;&lt; "kThu: " &lt;&lt; kThu &lt;&lt; std::endl;
+    std::cout &lt;&lt; "kFri: " &lt;&lt; kFri &lt;&lt; std::endl;
+    std::cout &lt;&lt; "kSat: " &lt;&lt; kSat &lt;&lt; std::endl;
+    std::cout &lt;&lt; "kSun: " &lt;&lt; kSun &lt;&lt; std::endl;
+
+    return 0;
+}
+</code></pre>
+<p>如果 <code>enum</code> 定义在全局作用域，那么其中的枚举值可在全局作用域中使用，
+这样会污染命名空间，我们一般不会这样用</p>
+<p>例如，可以加上命名空间</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+
+
+namespace Day {
+
+enum Weekday { kMon, kTue, kWed, kThu, kFri, kSat, kSun};
+
+}  // namespace Day
+
+
+int main(int argc, char *argv[])
+{
+    std::cout &lt;&lt; "kMon: " &lt;&lt; Day::kMon &lt;&lt; std::endl;
+    std::cout &lt;&lt; "kTue: " &lt;&lt; Day::kTue &lt;&lt; std::endl;
+    std::cout &lt;&lt; "kWed: " &lt;&lt; Day::kWed &lt;&lt; std::endl;
+    std::cout &lt;&lt; "kThu: " &lt;&lt; Day::kThu &lt;&lt; std::endl;
+    std::cout &lt;&lt; "kFri: " &lt;&lt; Day::kFri &lt;&lt; std::endl;
+    std::cout &lt;&lt; "kSat: " &lt;&lt; Day::kSat &lt;&lt; std::endl;
+    std::cout &lt;&lt; "kSun: " &lt;&lt; Day::kSun &lt;&lt; std::endl;
+
+    return 0;
+}
+</code></pre>
+<p>或者定义在一个类中</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+
+
+class Day {
+public:
+    enum Weekday { kMon, kTue, kWed, kThu, kFri, kSat, kSun};
+};  // class Day
+
+
+int main(int argc, char *argv[])
+{
+    std::cout &lt;&lt; "kMon: " &lt;&lt; Day::kMon &lt;&lt; std::endl;
+    std::cout &lt;&lt; "kTue: " &lt;&lt; Day::kTue &lt;&lt; std::endl;
+    std::cout &lt;&lt; "kWed: " &lt;&lt; Day::kWed &lt;&lt; std::endl;
+    std::cout &lt;&lt; "kThu: " &lt;&lt; Day::kThu &lt;&lt; std::endl;
+    std::cout &lt;&lt; "kFri: " &lt;&lt; Day::kFri &lt;&lt; std::endl;
+    std::cout &lt;&lt; "kSat: " &lt;&lt; Day::kSat &lt;&lt; std::endl;
+    std::cout &lt;&lt; "kSun: " &lt;&lt; Day::kSun &lt;&lt; std::endl;
+
+    return 0;
+}
+</code></pre>
+
+
+                        <br>
+                        <div id="remark42"></div>
+                        <script>
+                            var localAddrs = ["localhost", "127.0.0.1", ""];
+                            if (localAddrs.indexOf(document.location.hostname) === -1) {
+                                var remark_config = {
+                                    host: 'https://comments.mwum.com',
+                                    site_id: 'mwum',
+                                    locale: 'zh',
+                                    no_footer: true,
+                                }
+                                !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+                            }
+                        </script>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../different-from-the-C-language/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
             </div>
 
-            
-                
-                <a href="../different-from-the-C-language/" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 与 C 语言的不同">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                
-                
-            
-        
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../different-from-the-C-language/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
     </div>
-
-    <script>
-        var gitbook = gitbook || [];
-        gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"枚举类型 (enum)","level":"1.7","depth":1,"previous":{"title":"与 C 语言的不同","level":"1.6","depth":1,"path":"different-from-the-C-language/README.md","ref":"different-from-the-C-language/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"mwum"},"ga":{"configuration":"auto","token":"UA-39279084-1"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sidebar":{"明无梦的博客":"https://www.dreamxu.com/"},"sharing":{"google":false,"facebook":false,"twitter":false,"weibo":false,"all":true}},"gitbook":"*"},"file":{"path":"enum/README.md","mtime":"2015-09-16T14:34:12.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-04T17:54:29.844Z"},"basePath":"..","book":{"language":""}});
-        });
-    </script>
-</div>
-
-        
-    <script src="../gitbook/gitbook.js"></script>
-    <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
-        
-    
-
     </body>
 </html>
-

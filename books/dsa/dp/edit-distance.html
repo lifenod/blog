@@ -1,769 +1,408 @@
-
 <!DOCTYPE HTML>
-<html lang="" >
+<html lang="zh-CN" class="light" dir="ltr">
     <head>
+        <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>编辑距离 (Edit distance) · GitBook</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>编辑距离 (Edit distance) - 明无梦的数据结构与算法学习之路</title>
+
+
+        <!-- Custom HTML head -->
+        
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.3">
-        
-        
-        
-    
-    <link rel="stylesheet" href="../gitbook/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
 
-    
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
-                
-            
-        
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
 
-    
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
 
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
 
-        
-    
-    
-    <meta name="HandheldFriendly" content="true"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
-    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/custom.css">
 
-    
-    <link rel="next" href="digital-triangle.html" />
-    
-    
-    <link rel="prev" href="./" />
-    
 
+        <script>
+            var localAddrs = ["localhost", "127.0.0.1", ""];
+            if (localAddrs.indexOf(document.location.hostname) === -1) {
+                  var script = document.createElement('script');
+                  script.async = true;
+                  script.src = 'https://www.googletagmanager.com/gtag/js?id=G-XNJSCC1KSF';
+                  document.head.appendChild(script);
+
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+
+                  gtag('config', 'G-XNJSCC1KSF');
+            }
+        </script>
     </head>
-    <body>
-        
-<div class="book">
-    <div class="book-summary">
-        
-            
-<div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search" />
-</div>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
 
-            
-                <nav role="navigation">
-                
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
 
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
 
-<ul class="summary">
-    
-    
-    
-        
-        <li>
-            <a href="https://www.dreamxu.com/" target="_blank" class="custom-link">明无梦的博客</a>
-        </li>
-    
-    
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
 
-    
-    <li class="divider"></li>
-    
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
 
-    
-        
-        
-    
-        <li class="chapter " data-level="1.1" data-path="../">
-            
-                <a href="../">
-            
-                    
-                    简介
-            
-                </a>
-            
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2" data-path="../data-structure/">
-            
-                <a href="../data-structure/">
-            
-                    
-                    基本数据结构 (Elementary Data Structures
-            
-                </a>
-            
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
 
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.2.1" data-path="../data-structure/slist/">
-            
-                <a href="../data-structure/slist/">
-            
-                    
-                    单链表 (Linked list)
-            
-                </a>
-            
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">简介</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> 基本数据结构 (Basic Data Structures</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">1.1.</strong> 单链表 (Linked list)</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../data-structure/slist/src.html"><strong aria-hidden="true">1.1.1.</strong> 实现</a></li><li class="chapter-item expanded "><a href="../data-structure/slist/doc.html"><strong aria-hidden="true">1.1.2.</strong> 文档</a></li></ol></li><li class="chapter-item expanded "><a href="../data-structure/queue/queue.html"><strong aria-hidden="true">1.2.</strong> 队列 (Queue)</a></li><li class="chapter-item expanded "><a href="../data-structure/binary-tree.html"><strong aria-hidden="true">1.3.</strong> 二叉树 (Binary Tree)</a></li><li class="chapter-item expanded "><a href="../data-structure/binary-heap.html"><strong aria-hidden="true">1.4.</strong> 二叉堆 (Binary heap)</a></li></ol></li><li class="chapter-item expanded "><a href="../dc/index.html"><strong aria-hidden="true">2.</strong> 分治算法 (Divide and conquer algorithms)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../dc/rmq.html"><strong aria-hidden="true">2.1.</strong> 范围最值查询 (Range Minimum Query)</a></li><li class="chapter-item expanded "><a href="../dc/change-coin.html"><strong aria-hidden="true">2.2.</strong> 换硬币问题</a></li><li class="chapter-item expanded "><a href="../dc/subset.html"><strong aria-hidden="true">2.3.</strong> 子集问题</a></li><li class="chapter-item expanded "><a href="../dc/hanio.html"><strong aria-hidden="true">2.4.</strong> 汉诺塔 (Tower of Hanoi)</a></li><li class="chapter-item expanded "><a href="../dc/binary-search.html"><strong aria-hidden="true">2.5.</strong> 二分搜索 (Binary search)</a></li><li class="chapter-item expanded "><a href="../dc/quicksort.html"><strong aria-hidden="true">2.6.</strong> 快速排序 (Quicksort)</a></li><li class="chapter-item expanded "><a href="../dc/gray-code.html"><strong aria-hidden="true">2.7.</strong> 格雷码 (Gray code)</a></li></ol></li><li class="chapter-item expanded "><a href="../dp/index.html"><strong aria-hidden="true">3.</strong> 动态规划 (Dynamic programming)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../dp/edit-distance.html" class="active"><strong aria-hidden="true">3.1.</strong> 编辑距离 (Edit distance)</a></li><li class="chapter-item expanded "><a href="../dp/digital-triangle.html"><strong aria-hidden="true">3.2.</strong> 数字三角形</a></li><li class="chapter-item expanded "><a href="../dp/max-k-product.html"><strong aria-hidden="true">3.3.</strong> 最大 K 乘积</a></li><li class="chapter-item expanded "><a href="../dp/01-knapsack.html"><strong aria-hidden="true">3.4.</strong> 0/1 背包问题 (0/1 knapsack problem)</a></li></ol></li><li class="chapter-item expanded "><a href="../greedy/index.html"><strong aria-hidden="true">4.</strong> 贪心算法 (Greedy algorithm)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../greedy/activity-selection.html"><strong aria-hidden="true">4.1.</strong> 活动选择问题 (Activity-selection problem</a></li><li class="chapter-item expanded "><a href="../greedy/optimal-decomposition.html"><strong aria-hidden="true">4.2.</strong> 最优分解问题</a></li></ol></li><li class="chapter-item expanded "><a href="../backtracking/index.html"><strong aria-hidden="true">5.</strong> 回溯算法 (Backtracking)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../backtracking/eight-queens-puzzle.html"><strong aria-hidden="true">5.1.</strong> 八皇后问题 (Eight queens puzzle)</a></li><li class="chapter-item expanded "><a href="../backtracking/minimum-weight-of-the-machine.html"><strong aria-hidden="true">5.2.</strong> 最小重量机器设计问题</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
 
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.2.1.1" data-path="../data-structure/slist/src.html">
-            
-                <a href="../data-structure/slist/src.html">
-            
-                    
-                    实现
-            
-                </a>
-            
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
 
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.1.2" data-path="../data-structure/slist/doc.html">
-            
-                <a href="../data-structure/slist/doc.html">
-            
-                    
-                    文档
-            
-                </a>
-            
+        <div id="page-wrapper" class="page-wrapper">
 
-            
-        </li>
-    
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
 
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.2" data-path="../data-structure/queue/queue.html">
-            
-                <a href="../data-structure/queue/queue.html">
-            
-                    
-                    队列 (Queue)
-            
-                </a>
-            
+                    <h1 class="menu-title">明无梦的数据结构与算法学习之路</h1>
 
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.3" data-path="../data-structure/binary-tree.html">
-            
-                <a href="../data-structure/binary-tree.html">
-            
-                    
-                    二叉树 (Binary Tree)
-            
-                </a>
-            
+                    <div class="right-buttons">
 
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.4" data-path="../data-structure/binary-heap.html">
-            
-                <a href="../data-structure/binary-heap.html">
-            
-                    
-                    二叉堆 (Binary heap)
-            
-                </a>
-            
+                        <a href="https://www.mwum.com" target="_blank" rel="noopener noreferrer"><i id="home-button" class="fa fa-home"></i></a>
+                    </div>
+                </div>
 
-            
-        </li>
-    
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
 
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3" data-path="../dc/">
-            
-                <a href="../dc/">
-            
-                    
-                    分治算法 (Divide and conquer algorithms)
-            
-                </a>
-            
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
 
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.3.1" data-path="../dc/rmq.html">
-            
-                <a href="../dc/rmq.html">
-            
-                    
-                    范围最值查询 (Range Minimum Query)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.2" data-path="../dc/change-coin.html">
-            
-                <a href="../dc/change-coin.html">
-            
-                    
-                    换硬币问题
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.3" data-path="../dc/subset.html">
-            
-                <a href="../dc/subset.html">
-            
-                    
-                    子集问题
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.4" data-path="../dc/hanio.html">
-            
-                <a href="../dc/hanio.html">
-            
-                    
-                    汉诺塔 (Tower of Hanoi)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.5" data-path="../dc/binary-search.html">
-            
-                <a href="../dc/binary-search.html">
-            
-                    
-                    二分搜索 (Binary search)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.6" data-path="../dc/quicksort.html">
-            
-                <a href="../dc/quicksort.html">
-            
-                    
-                    快速排序 (Quicksort)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.7" data-path="../dc/gray-code.html">
-            
-                <a href="../dc/gray-code.html">
-            
-                    
-                    格雷码 (Gray code)
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4" data-path="./">
-            
-                <a href="./">
-            
-                    
-                    动态规划 (Dynamic programming)
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter active" data-level="1.4.1" data-path="edit-distance.html">
-            
-                <a href="edit-distance.html">
-            
-                    
-                    编辑距离 (Edit distance)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.2" data-path="digital-triangle.html">
-            
-                <a href="digital-triangle.html">
-            
-                    
-                    数字三角形
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.3" data-path="max-k-product.html">
-            
-                <a href="max-k-product.html">
-            
-                    
-                    最大 K 乘积
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.4" data-path="01-knapsack.html">
-            
-                <a href="01-knapsack.html">
-            
-                    
-                    0/1 背包问题 (0/1 knapsack problem)
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5" data-path="../greedy/">
-            
-                <a href="../greedy/">
-            
-                    
-                    贪心算法 (Greedy algorithm)
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.5.1" data-path="../greedy/activity-selection.html">
-            
-                <a href="../greedy/activity-selection.html">
-            
-                    
-                    活动选择问题 (Activity-selection problem
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.2" data-path="../greedy/optimal-decomposition.html">
-            
-                <a href="../greedy/optimal-decomposition.html">
-            
-                    
-                    最优分解问题
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6" data-path="../backtracking/">
-            
-                <a href="../backtracking/">
-            
-                    
-                    回溯算法 (Backtracking)
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.6.1" data-path="../backtracking/eight-queens-puzzle.html">
-            
-                <a href="../backtracking/eight-queens-puzzle.html">
-            
-                    
-                    八皇后问题 (Eight queens puzzle)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.2" data-path="../backtracking/minimum-weight-of-the-machine.html">
-            
-                <a href="../backtracking/minimum-weight-of-the-machine.html">
-            
-                    
-                    最小重量机器设计问题
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-
-    <li class="divider"></li>
-
-    <li>
-        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Published with GitBook
-        </a>
-    </li>
-</ul>
-
-
-                </nav>
-            
-        
-    </div>
-
-    <div class="book-body">
-        
-            <div class="body-inner">
-                
-                    
-
-<div class="book-header" role="navigation">
-    
-
-    <!-- Title -->
-    <h1>
-        <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >编辑距离 (Edit distance)</a>
-    </h1>
-</div>
-
-
-
-
-                    <div class="page-wrapper" tabindex="-1" role="main">
-                        <div class="page-inner">
-                            
-<div id="book-search-results">
-    <div class="search-noresults">
-    
-                                <section class="normal markdown-section">
-                                
-                                <h1 id="&#x7F16;&#x8F91;&#x8DDD;&#x79BB;-edit-distance">&#x7F16;&#x8F91;&#x8DDD;&#x79BB; (Edit distance)</h1>
-<p>2015-00-00 | &#x66F4;&#x65B0;: 2018-05-31</p>
-<hr>
-<h2 id="&#x95EE;&#x9898;&#x63CF;&#x8FF0;">&#x95EE;&#x9898;&#x63CF;&#x8FF0;</h2>
-<p>&#x7ED9;&#x5B9A; 2 &#x4E2A;&#x5B57;&#x7B26;&#x4E32; a, b. 
-&#x7F16;&#x8F91;&#x8DDD;&#x79BB;&#x662F;&#x5C06; a &#x8F6C;&#x6362;&#x4E3A; b &#x7684;&#x6700;&#x5C11;&#x64CD;&#x4F5C;&#x6B21;&#x6570;&#xFF0C;&#x64CD;&#x4F5C;&#x53EA;&#x5141;&#x8BB8;&#x5982;&#x4E0B; 3 &#x79CD;&#xFF1A;</p>
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="编辑距离-edit-distance"><a class="header" href="#编辑距离-edit-distance">编辑距离 (Edit distance)</a></h1>
+<p>2015-00-00 | 更新: 2018-05-31</p>
+<hr />
+<h2 id="问题描述"><a class="header" href="#问题描述">问题描述</a></h2>
+<p>给定 2 个字符串 a, b.
+编辑距离是将 a 转换为 b 的最少操作次数，操作只允许如下 3 种：</p>
 <ol>
-<li>&#x63D2;&#x5165;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;fj -&gt; fxj</li>
-<li>&#x5220;&#x9664;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;fxj -&gt; fj</li>
-<li>&#x66FF;&#x6362;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;jxj -&gt; fyj</li>
+<li>插入一个字符，例如：fj -&gt; fxj</li>
+<li>删除一个字符，例如：fxj -&gt; fj</li>
+<li>替换一个字符，例如：jxj -&gt; fyj</li>
 </ol>
-<h2 id="&#x601D;&#x8DEF;">&#x601D;&#x8DEF;</h2>
-<p>&#x7528;&#x5206;&#x6CBB;&#x7684;&#x601D;&#x60F3;&#x89E3;&#x51B3;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#xFF0C;&#x5C06;&#x590D;&#x6742;&#x7684;&#x95EE;&#x9898;&#x5206;&#x89E3;&#x6210;&#x76F8;&#x4F3C;&#x7684;&#x5B50;&#x95EE;&#x9898;</p>
-<p>&#x5047;&#x8BBE;&#x5B57;&#x7B26;&#x4E32; a, &#x5171; m &#x4F4D;&#xFF0C;&#x4ECE; <code>a[1]</code> &#x5230; <code>a[m]</code><br>&#x5B57;&#x7B26;&#x4E32; b, &#x5171; n &#x4F4D;&#xFF0C;&#x4ECE; <code>b[1]</code> &#x5230; <code>b[n]</code><br><code>d[i][j]</code> &#x8868;&#x793A;&#x5B57;&#x7B26;&#x4E32; <code>a[1]-a[i]</code> &#x8F6C;&#x6362;&#x4E3A; <code>b[1]-b[j]</code> &#x7684;&#x7F16;&#x8F91;&#x8DDD;&#x79BB;</p>
-<p>&#x90A3;&#x4E48;&#x6709;&#x5982;&#x4E0B;&#x9012;&#x5F52;&#x89C4;&#x5F8B;&#xFF08;<code>a[i]</code> &#x548C; <code>b[j]</code> &#x5206;&#x522B;&#x662F;&#x5B57;&#x7B26;&#x4E32; a &#x548C; b &#x7684;&#x6700;&#x540E;&#x4E00;&#x4F4D;&#xFF09;&#xFF1A;  </p>
+<h2 id="思路"><a class="header" href="#思路">思路</a></h2>
+<p>用分治的思想解决比较简单，将复杂的问题分解成相似的子问题</p>
+<p>假设字符串 a, 共 m 位，从 <code>a[1]</code> 到 <code>a[m]</code><br />
+字符串 b, 共 n 位，从 <code>b[1]</code> 到 <code>b[n]</code><br />
+<code>d[i][j]</code> 表示字符串 <code>a[1]-a[i]</code> 转换为 <code>b[1]-b[j]</code> 的编辑距离</p>
+<p>那么有如下递归规律（<code>a[i]</code> 和 <code>b[j]</code> 分别是字符串 a 和 b 的最后一位）：</p>
 <ol>
-<li>&#x5F53; <code>a[i]</code> &#x7B49;&#x4E8E; <code>b[j]</code> &#x65F6;&#xFF0C;<code>d[i][j] = d[i-1][j-1]</code>, 
-&#x6BD4;&#x5982; fxy -&gt; fay &#x7684;&#x7F16;&#x8F91;&#x8DDD;&#x79BB;&#x7B49;&#x4E8E; fx -&gt; fa &#x7684;&#x7F16;&#x8F91;&#x8DDD;&#x79BB;</li>
-<li>&#x5F53; <code>a[i]</code> &#x4E0D;&#x7B49;&#x4E8E; <code>b[j]</code> &#x65F6;&#xFF0C;<code>d[i][j]</code> &#x7B49;&#x4E8E;&#x5982;&#x4E0B; 3 &#x9879;&#x7684;&#x6700;&#x5C0F;&#x503C;&#xFF1A;<ul>
-<li><code>d[i-1][j]</code> + 1&#xFF08;&#x5220;&#x9664; <code>a[i]</code>&#xFF09;&#xFF0C;
-&#x6BD4;&#x5982; fxy -&gt; fab &#x7684;&#x7F16;&#x8F91;&#x8DDD;&#x79BB; =  fx -&gt; fab &#x7684;&#x7F16;&#x8F91;&#x8DDD;&#x79BB; + 1</li>
-<li><code>d[i][j-1]</code> + 1&#xFF08;&#x63D2;&#x5165; <code>b[j]</code>)&#xFF0C;
-&#x6BD4;&#x5982; fxy -&gt; fab &#x7684;&#x7F16;&#x8F91;&#x8DDD;&#x79BB; = fxyb -&gt; fab &#x7684;&#x7F16;&#x8F91;&#x8DDD;&#x79BB; + 1 = fxy -&gt; fa &#x7684;&#x7F16;&#x8F91;&#x8DDD;&#x79BB; + 1</li>
-<li><code>d[i-1][j-1]</code> + 1&#xFF08;&#x5C06; <code>a[i]</code> &#x66FF;&#x6362;&#x4E3A; <code>b[j]</code>&#xFF09;&#xFF0C;
-&#x6BD4;&#x5982; fxy -&gt; fab &#x7684;&#x7F16;&#x8F91;&#x8DDD;&#x79BB; = fxb -&gt; fab &#x7684;&#x7F16;&#x8F91;&#x8DDD;&#x79BB; + 1 = fx -&gt; fa &#x7684;&#x7F16;&#x8F91;&#x8DDD;&#x79BB; + 1</li>
+<li>当 <code>a[i]</code> 等于 <code>b[j]</code> 时，<code>d[i][j] = d[i-1][j-1]</code>,
+比如 fxy -&gt; fay 的编辑距离等于 fx -&gt; fa 的编辑距离</li>
+<li>当 <code>a[i]</code> 不等于 <code>b[j]</code> 时，<code>d[i][j]</code> 等于如下 3 项的最小值：
+<ul>
+<li><code>d[i-1][j]</code> + 1（删除 <code>a[i]</code>），
+比如 fxy -&gt; fab 的编辑距离 =  fx -&gt; fab 的编辑距离 + 1</li>
+<li><code>d[i][j-1]</code> + 1（插入 <code>b[j]</code>)，
+比如 fxy -&gt; fab 的编辑距离 = fxyb -&gt; fab 的编辑距离 + 1 = fxy -&gt; fa 的编辑距离 + 1</li>
+<li><code>d[i-1][j-1]</code> + 1（将 <code>a[i]</code> 替换为 <code>b[j]</code>），
+比如 fxy -&gt; fab 的编辑距离 = fxb -&gt; fab 的编辑距离 + 1 = fx -&gt; fa 的编辑距离 + 1</li>
 </ul>
 </li>
 </ol>
-<p>&#x9012;&#x5F52;&#x8FB9;&#x754C;&#xFF1A;</p>
+<p>递归边界：</p>
 <ol>
-<li><code>a[i][0] = i</code>, b &#x5B57;&#x7B26;&#x4E32;&#x4E3A;&#x7A7A;&#xFF0C;&#x8868;&#x793A;&#x5C06; <code>a[1]-a[i]</code> &#x5168;&#x90E8;&#x5220;&#x9664;&#xFF0C;&#x6240;&#x4EE5;&#x7F16;&#x8F91;&#x8DDD;&#x79BB;&#x4E3A; i</li>
-<li><code>a[0][j] = j</code>, a &#x5B57;&#x7B26;&#x4E32;&#x4E3A;&#x7A7A;&#xFF0C;&#x8868;&#x793A; a &#x63D2;&#x5165; <code>b[1]-b[j]</code>&#xFF0C;&#x6240;&#x4EE5;&#x7F16;&#x8F91;&#x8DDD;&#x79BB;&#x4E3A; j</li>
+<li><code>a[i][0] = i</code>, b 字符串为空，表示将 <code>a[1]-a[i]</code> 全部删除，所以编辑距离为 i</li>
+<li><code>a[0][j] = j</code>, a 字符串为空，表示 a 插入 <code>b[1]-b[j]</code>，所以编辑距离为 j</li>
 </ol>
-<h2 id="&#x4EE3;&#x7801;">&#x4EE3;&#x7801;</h2>
-<p>&#x6309;&#x7167;&#x4E0A;&#x9762;&#x7684;&#x601D;&#x8DEF;&#x5C06;&#x4EE3;&#x7801;&#x5199;&#x4E0B;&#x6765;</p>
-<pre><code class="lang-c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">edit_distance</span><span class="hljs-params">(<span class="hljs-keyword">char</span> *a, <span class="hljs-keyword">char</span> *b, <span class="hljs-keyword">int</span> i, <span class="hljs-keyword">int</span> j)</span>
-</span>{
-    <span class="hljs-keyword">if</span> (j == <span class="hljs-number">0</span>) {
-        <span class="hljs-keyword">return</span> i;
-    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (i == <span class="hljs-number">0</span>) {
-        <span class="hljs-keyword">return</span> j;
-    <span class="hljs-comment">// &#x7B97;&#x6CD5;&#x4E2D; a, b &#x5B57;&#x7B26;&#x4E32;&#x4E0B;&#x6807;&#x4ECE; 1 &#x5F00;&#x59CB;&#xFF0C;c &#x8BED;&#x8A00;&#x4ECE; 0 &#x5F00;&#x59CB;&#xFF0C;&#x6240;&#x4EE5; -1</span>
-    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (a[i<span class="hljs-number">-1</span>] == b[j<span class="hljs-number">-1</span>]) {
-        <span class="hljs-keyword">return</span> edit_distance(a, b, i - <span class="hljs-number">1</span>, j - <span class="hljs-number">1</span>);
-    } <span class="hljs-keyword">else</span> {
-        <span class="hljs-keyword">return</span> min_of_three(edit_distance(a, b, i - <span class="hljs-number">1</span>, j) + <span class="hljs-number">1</span>,
-                            edit_distance(a, b, i, j - <span class="hljs-number">1</span>) + <span class="hljs-number">1</span>,
-                            edit_distance(a, b, i - <span class="hljs-number">1</span>, j - <span class="hljs-number">1</span>) + <span class="hljs-number">1</span>);
+<h2 id="代码"><a class="header" href="#代码">代码</a></h2>
+<p>按照上面的思路将代码写下来</p>
+<pre><code class="language-c">int edit_distance(char *a, char *b, int i, int j)
+{
+    if (j == 0) {
+        return i;
+    } else if (i == 0) {
+        return j;
+    // 算法中 a, b 字符串下标从 1 开始，c 语言从 0 开始，所以 -1
+    } else if (a[i-1] == b[j-1]) {
+        return edit_distance(a, b, i - 1, j - 1);
+    } else {
+        return min_of_three(edit_distance(a, b, i - 1, j) + 1,
+                            edit_distance(a, b, i, j - 1) + 1,
+                            edit_distance(a, b, i - 1, j - 1) + 1);
     }
 }
 
-edit_distance(stra, strb, <span class="hljs-built_in">strlen</span>(stra), <span class="hljs-built_in">strlen</span>(strb));
+edit_distance(stra, strb, strlen(stra), strlen(strb));
 </code></pre>
-<p>&#x4F46;&#x662F;&#x6709;&#x4E2A;&#x4E25;&#x91CD;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x5C31;&#x662F;&#x4EE3;&#x7801;&#x7684;&#x6027;&#x80FD;&#x5F88;&#x4F4E;&#x4E0B;&#xFF0C;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x662F;&#x6307;&#x6570;&#x589E;&#x957F;&#x7684;<br>&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x5F88;&#x591A;&#x76F8;&#x540C;&#x7684;&#x5B50;&#x95EE;&#x9898;&#x5176;&#x5B9E;&#x662F;&#x7ECF;&#x8FC7;&#x4E86;&#x591A;&#x6B21;&#x6C42;&#x89E3;&#xFF0C;&#x89E3;&#x51B3;&#x8FD9;&#x7C7B;&#x95EE;&#x9898;&#x7684;&#x529E;&#x6CD5;&#x662F;&#x7528;&#x52A8;&#x6001;&#x89C4;&#x5212;</p>
-<h3 id="&#x7528;&#x52A8;&#x6001;&#x89C4;&#x5212;&#x601D;&#x60F3;&#x4F18;&#x5316;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;">&#x7528;&#x52A8;&#x6001;&#x89C4;&#x5212;&#x601D;&#x60F3;&#x4F18;&#x5316;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;</h3>
-<p>&#x50CF;&#x4EE5;&#x4E0A;&#x89E3;&#x51B3;&#x601D;&#x8DEF;&#xFF0C;&#x662F;&#x4ECE;&#x540E;&#x5F80;&#x524D;&#x7B97;&#x7684;&#xFF0C;&#x6BD4;&#x5982;&#x6211;&#x60F3;&#x77E5;&#x9053; <code>edit_distance(a, b, i, j)</code> 
-&#x6211;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x77E5;&#x9053; <code>edit_distance(a, b, i-1, j-1)</code><br>&#x6709;&#x4E00;&#x79CD;&#x60F3;&#x6CD5;&#x4E0D;&#x9519;&#xFF0C;&#x5C31;&#x662F;&#x4ECE;&#x524D;&#x5F80;&#x540E;&#x7B97;&#xFF0C;&#x5148;&#x7B97;&#x51FA;&#x5404;&#x4E2A;&#x5B50;&#x95EE;&#x9898;&#xFF0C;&#x7136;&#x540E;&#x6839;&#x636E;&#x5B50;&#x95EE;&#x9898;&#xFF0C;&#x8BA1;&#x7B97;&#x51FA;&#x539F;&#x95EE;&#x9898;&#xFF0C;
-&#x5BF9;&#x4E8E;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x6027;&#x80FD;&#x4E0D;&#x9519;&#xFF0C;&#x800C;&#x4E14;&#x4E5F;&#x633A;&#x5BB9;&#x6613;&#x7406;&#x89E3;&#xFF0C;&#x4E0B;&#x9762;&#x5C31;&#x6765;&#x8BF4;&#x4E00;&#x8BF4;</p>
-<p>&#x4F8B;&#x5982;&#x4EE5;&#x5B57;&#x7B26;&#x4E32; a = &quot;fxy&quot;, b = &quot;fab&quot; &#x4E3A;&#x4F8B;  </p>
+<p>但是有个严重的问题，就是代码的性能很低下，时间复杂度是指数增长的<br />
+上面的代码中，很多相同的子问题其实是经过了多次求解，解决这类问题的办法是用动态规划</p>
+<h3 id="用动态规划思想优化时间复杂度"><a class="header" href="#用动态规划思想优化时间复杂度">用动态规划思想优化时间复杂度</a></h3>
+<p>像以上解决思路，是从后往前算的，比如我想知道 <code>edit_distance(a, b, i, j)</code>
+我可能需要知道 <code>edit_distance(a, b, i-1, j-1)</code><br />
+有一种想法不错，就是从前往后算，先算出各个子问题，然后根据子问题，计算出原问题，
+对于这个问题性能不错，而且也挺容易理解，下面就来说一说</p>
+<p>例如以字符串 a = "fxy", b = "fab" 为例</p>
 <ol>
-<li><p>&#x9996;&#x5148;&#x5EFA;&#x7ACB;&#x4E00;&#x4E2A;&#x77E9;&#x9635;&#xFF0C;&#x7528;&#x6765;&#x5B58;&#x653E;&#x5B50;&#x95EE;&#x9898;&#x53CA;&#x539F;&#x95EE;&#x9898;&#x7684;&#x7F16;&#x8F91;&#x8DDD;&#x79BB;&#xFF0C;&#x5E76;&#x5C06;&#x9012;&#x5F52;&#x8FB9;&#x754C;&#x5728;&#x77E9;&#x9635;&#x4E2D;&#x586B;&#x597D;&#xFF0C;&#x5982;&#x4E0B;&#xFF1A;</p>
-<p><img src="images/2014-11-05_123018.svg" alt="&#x7F16;&#x8F91;&#x8DDD;&#x79BB;&#x77E9;&#x9635;"></p>
+<li>
+<p>首先建立一个矩阵，用来存放子问题及原问题的编辑距离，并将递归边界在矩阵中填好，如下：</p>
+<p><img src="images/2014-11-05_123018.svg" alt="编辑距离矩阵" /></p>
 </li>
-<li><p>&#x7136;&#x540E;&#x8BA1;&#x7B97; i = 1, j = 1 &#x6240;&#x5BF9;&#x5E94;&#x7684;&#x7F16;&#x8F91;&#x8DDD;&#x79BB;&#xFF1A;&#x6BD4;&#x8F83; <code>a[i]</code> &#x548C; <code>b[j]</code> &#x662F;&#x5426;&#x76F8;&#x7B49;&#x7136;&#x540E;&#x6839;&#x636E;&#x9012;&#x5F52;&#x89C4;&#x5F8B;&#x7B97;&#x51FA;&#x8FD9;&#x4E2A;&#x503C;<br>&#x6BD4;&#x5982;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B; <code>a[i] = f</code> &#x548C; <code>b[j] = f</code>, &#x90A3;&#x4E48; <code>d[i][j]</code> &#x5C31;&#x7B49;&#x4E8E; <code>d[i-1][j-1]</code> &#x7B49;&#x4E8E; 0<br>&#x7136;&#x540E;&#x8BA1;&#x7B97; i = 1, j = 2 &#x76F4;&#x5230;&#x7B97;&#x51FA; i = 3, j = 3, &#x539F;&#x95EE;&#x9898;&#x7684;&#x7F16;&#x8F91;&#x8DDD;&#x79BB;&#x5C31;&#x7B49;&#x4E8E; <code>d[3][3]</code><br>&#x6700;&#x7EC8;&#x77E9;&#x9635;&#x5982;&#x4E0B;&#xFF1A;</p>
-<p><img src="images/2014-11-05_133201.svg" alt="&#x7F16;&#x8F91;&#x8DDD;&#x79BB;&#x77E9;&#x9635;"></p>
+<li>
+<p>然后计算 i = 1, j = 1 所对应的编辑距离：比较 <code>a[i]</code> 和 <code>b[j]</code> 是否相等然后根据递归规律算出这个值<br />
+比如在这种情况下 <code>a[i] = f</code> 和 <code>b[j] = f</code>, 那么 <code>d[i][j]</code> 就等于 <code>d[i-1][j-1]</code> 等于 0<br />
+然后计算 i = 1, j = 2 直到算出 i = 3, j = 3, 原问题的编辑距离就等于 <code>d[3][3]</code><br />
+最终矩阵如下：</p>
+<p><img src="images/2014-11-05_133201.svg" alt="编辑距离矩阵" /></p>
 </li>
 </ol>
-<p>&#x73B0;&#x5728;&#x7684;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x5DF2;&#x5230;&#x4E86;&#x53EF;&#x63A5;&#x53D7;&#x8303;&#x56F4;&#xFF0C;&#x4E3A; O(mn)  </p>
-<p>&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
-<pre><code class="lang-c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">edit_distance</span><span class="hljs-params">(<span class="hljs-keyword">char</span> *a, <span class="hljs-keyword">char</span> *b)</span>
-</span>{
-    <span class="hljs-keyword">int</span> lena = <span class="hljs-built_in">strlen</span>(a);
-    <span class="hljs-keyword">int</span> lenb = <span class="hljs-built_in">strlen</span>(b);
-    <span class="hljs-keyword">int</span> d[lena+<span class="hljs-number">1</span>][lenb+<span class="hljs-number">1</span>];
-    <span class="hljs-keyword">int</span> i, j;
+<p>现在的时间复杂度已到了可接受范围，为 O(mn)</p>
+<p>代码如下：</p>
+<pre><code class="language-c">int edit_distance(char *a, char *b)
+{
+    int lena = strlen(a);
+    int lenb = strlen(b);
+    int d[lena+1][lenb+1];
+    int i, j;
 
-    <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt;= lena; i++) {
-        d[i][<span class="hljs-number">0</span>] = i;
+    for (i = 0; i &lt;= lena; i++) {
+        d[i][0] = i;
     }
-    <span class="hljs-keyword">for</span> (j = <span class="hljs-number">0</span>; j &lt;= lenb; j++) {
-        d[<span class="hljs-number">0</span>][j] = j;
+    for (j = 0; j &lt;= lenb; j++) {
+        d[0][j] = j;
     }
 
-    <span class="hljs-keyword">for</span> (i = <span class="hljs-number">1</span>; i &lt;= lena; i++) {
-        <span class="hljs-keyword">for</span> (j = <span class="hljs-number">1</span>; j &lt;= lenb; j++) {
-            <span class="hljs-comment">// &#x7B97;&#x6CD5;&#x4E2D; a, b &#x5B57;&#x7B26;&#x4E32;&#x4E0B;&#x6807;&#x4ECE; 1 &#x5F00;&#x59CB;&#xFF0C;c &#x8BED;&#x8A00;&#x4ECE; 0 &#x5F00;&#x59CB;&#xFF0C;&#x6240;&#x4EE5; -1</span>
-            <span class="hljs-keyword">if</span> (a[i<span class="hljs-number">-1</span>] == b[j<span class="hljs-number">-1</span>]) {
-                d[i][j] = d[i<span class="hljs-number">-1</span>][j<span class="hljs-number">-1</span>];
-            } <span class="hljs-keyword">else</span> {
-                d[i][j] = min_of_three(d[i<span class="hljs-number">-1</span>][j]+<span class="hljs-number">1</span>, d[i][j<span class="hljs-number">-1</span>]+<span class="hljs-number">1</span>, d[i<span class="hljs-number">-1</span>][j<span class="hljs-number">-1</span>]+<span class="hljs-number">1</span>);
+    for (i = 1; i &lt;= lena; i++) {
+        for (j = 1; j &lt;= lenb; j++) {
+            // 算法中 a, b 字符串下标从 1 开始，c 语言从 0 开始，所以 -1
+            if (a[i-1] == b[j-1]) {
+                d[i][j] = d[i-1][j-1];
+            } else {
+                d[i][j] = min_of_three(d[i-1][j]+1, d[i][j-1]+1, d[i-1][j-1]+1);
             }
         }
     }
 
-    <span class="hljs-keyword">return</span> d[lena][lenb];
+    return d[lena][lenb];
 }
 </code></pre>
-<p>&#x8FD9;&#x4E2A;&#x7B97;&#x6CD5;&#x7684;&#x7A7A;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x4E3A; O(mn), &#x5F53;&#x4E00;&#x6B65;&#x6B65;&#x586B;&#x5199;&#x77E9;&#x9635;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x5E94;&#x8BE5;&#x80FD;&#x591F;&#x611F;&#x53D7;&#x5230;&#xFF0C;
-&#x7A7A;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x53EF;&#x4EE5;&#x7EE7;&#x7EED;&#x4F18;&#x5316;&#xFF0C;&#x56E0;&#x4E3A;&#x8BA1;&#x7B97;&#x77E9;&#x9635;&#x7684;&#x65F6;&#x5019;&#x603B;&#x662F;&#x9700;&#x8981;&#x6709;&#x9650;&#x7684;&#x91CF;&#xFF0C;&#x540C;&#x4E00;&#x65F6;&#x95F4;&#x5E76;&#x4E0D;&#x9700;&#x8981;&#x6240;&#x6709;&#x77E9;&#x9635;&#x7684;&#x503C;</p>
-<h3 id="&#x6839;&#x636E;&#x5177;&#x4F53;&#x95EE;&#x9898;&#x4F18;&#x5316;&#x7A7A;&#x95F4;&#x590D;&#x6742;&#x5EA6;">&#x6839;&#x636E;&#x5177;&#x4F53;&#x95EE;&#x9898;&#x4F18;&#x5316;&#x7A7A;&#x95F4;&#x590D;&#x6742;&#x5EA6;</h3>
-<p>&#x8FD8;&#x662F;&#x4EE5; a = &quot;fxy&quot;, b = &quot;fab&quot; &#x4E3A;&#x4F8B;&#xFF0C;&#x4F8B;&#x5982;&#x8BA1;&#x7B97; <code>d[1][3]</code>, &#x4E5F;&#x5C31;&#x662F;&#x4E0B;&#x56FE;&#x4E2D;&#x7684;&#x7EFF;&#x8272;&#x65B9;&#x5757;&#xFF0C;
-&#x6211;&#x4EEC;&#x9700;&#x8981;&#x77E5;&#x9053;&#x7684;&#x503C;&#x53EA;&#x9700; 3 &#x4E2A;&#xFF0C;&#x4E0B;&#x56FE;&#x4E2D;&#x84DD;&#x8272;&#x65B9;&#x5757;&#x7684;&#x503C;</p>
-<p><img src="images/2014-11-05_134029.svg" alt="&#x7F16;&#x8F91;&#x8DDD;&#x79BB;&#x77E9;&#x9635;"></p>
-<p>&#x8FDB;&#x4E00;&#x6B65;&#x5206;&#x6790;&#xFF0C;&#x6211;&#x4EEC;&#x77E5;&#x9053;&#xFF0C;&#x5F53;&#x8BA1;&#x7B97; <code>d[1]</code> &#x8FD9;&#x884C;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6211;&#x4EEC;&#x53EA;&#x9700;&#x77E5;&#x9053; <code>d[0]</code> &#x8FD9;&#x884C;&#x7684;&#x503C;&#xFF0C;
-&#x540C;&#x7406;&#x6211;&#x4EEC;&#x8BA1;&#x7B97;&#x5F53;&#x524D;&#x884C;&#x7684;&#x65F6;&#x5019;&#x53EA;&#x9700;&#x77E5;&#x9053;&#x4E0A;&#x4E00;&#x884C;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;<br>&#x518D;&#x8FDB;&#x4E00;&#x6B65;&#x5206;&#x6790;&#xFF0C;&#x5176;&#x5B9E;&#x6211;&#x4EEC;&#x53EA;&#x9700;&#x8981;&#x4E00;&#x884C;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#xFF0C;&#x6BCF;&#x6B21;&#x8BA1;&#x7B97;&#x7684;&#x65F6;&#x5019;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x7684; 3 &#x4E2A;&#x503C;&#xFF0C;
-&#x5176;&#x4E2D;&#x4E0A;&#x8FB9;&#x548C;&#x5DE6;&#x8FB9;&#x7684;&#x503C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5F97;&#x5230;&#xFF0C;&#x5750;&#x4E0A;&#x89D2;&#x7684;&#x503C;&#x9700;&#x8981;&#x4E34;&#x65F6;&#x53D8;&#x91CF;&#xFF08;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#x4F7F;&#x7528; old&#xFF09;&#x6765;&#x8BB0;&#x5F55;</p>
-<p>&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
-<pre><code class="lang-c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">edit_distance</span><span class="hljs-params">(<span class="hljs-keyword">char</span> *a, <span class="hljs-keyword">char</span> *b)</span>
-</span>{
-    <span class="hljs-keyword">int</span> lena = <span class="hljs-built_in">strlen</span>(a);
-    <span class="hljs-keyword">int</span> lenb = <span class="hljs-built_in">strlen</span>(b);
-    <span class="hljs-keyword">int</span> d[lenb+<span class="hljs-number">1</span>];
-    <span class="hljs-keyword">int</span> i, j, old, tnmp;
+<p>这个算法的空间复杂度为 O(mn), 当一步步填写矩阵的过程中，应该能够感受到，
+空间复杂度可以继续优化，因为计算矩阵的时候总是需要有限的量，同一时间并不需要所有矩阵的值</p>
+<h3 id="根据具体问题优化空间复杂度"><a class="header" href="#根据具体问题优化空间复杂度">根据具体问题优化空间复杂度</a></h3>
+<p>还是以 a = "fxy", b = "fab" 为例，例如计算 <code>d[1][3]</code>, 也就是下图中的绿色方块，
+我们需要知道的值只需 3 个，下图中蓝色方块的值</p>
+<p><img src="images/2014-11-05_134029.svg" alt="编辑距离矩阵" /></p>
+<p>进一步分析，我们知道，当计算 <code>d[1]</code> 这行的时候，我们只需知道 <code>d[0]</code> 这行的值，
+同理我们计算当前行的时候只需知道上一行就可以了<br />
+再进一步分析，其实我们只需要一行就可以了，每次计算的时候我们需要的 3 个值，
+其中上边和左边的值我们可以直接得到，坐上角的值需要临时变量（如下代码使用 old）来记录</p>
+<p>代码如下：</p>
+<pre><code class="language-c">int edit_distance(char *a, char *b)
+{
+    int lena = strlen(a);
+    int lenb = strlen(b);
+    int d[lenb+1];
+    int i, j, old, tnmp;
 
-    <span class="hljs-keyword">for</span> (j = <span class="hljs-number">0</span>; j &lt;= lenb; j++) {
+    for (j = 0; j &lt;= lenb; j++) {
         d[j] = j;
     }
 
-    <span class="hljs-keyword">for</span> (i = <span class="hljs-number">1</span>; i &lt;= lena; i++) {
-        old = i - <span class="hljs-number">1</span>;
-        d[<span class="hljs-number">0</span>] = i;
-        <span class="hljs-keyword">for</span> (j = <span class="hljs-number">1</span>; j &lt;= lenb; j++) {
+    for (i = 1; i &lt;= lena; i++) {
+        old = i - 1;
+        d[0] = i;
+        for (j = 1; j &lt;= lenb; j++) {
             temp = d[j];
-            <span class="hljs-comment">// &#x7B97;&#x6CD5;&#x4E2D; a, b &#x5B57;&#x7B26;&#x4E32;&#x4E0B;&#x6807;&#x4ECE; 1 &#x5F00;&#x59CB;&#xFF0C;c &#x8BED;&#x8A00;&#x4ECE; 0 &#x5F00;&#x59CB;&#xFF0C;&#x6240;&#x4EE5; -1</span>
-            <span class="hljs-keyword">if</span> (a[i<span class="hljs-number">-1</span>] == b[j<span class="hljs-number">-1</span>]) {
+            // 算法中 a, b 字符串下标从 1 开始，c 语言从 0 开始，所以 -1
+            if (a[i-1] == b[j-1]) {
                 d[j] = old;
-            } <span class="hljs-keyword">else</span> {
-                d[j] = min_of_three(d[j] + <span class="hljs-number">1</span>, d[j<span class="hljs-number">-1</span>] + <span class="hljs-number">1</span>, old + <span class="hljs-number">1</span>);
+            } else {
+                d[j] = min_of_three(d[j] + 1, d[j-1] + 1, old + 1);
             }
             old = temp;
         }
     }
 
-    <span class="hljs-keyword">return</span> d[lenb];
+    return d[lenb];
 }
 </code></pre>
-<p>&#x5199;&#x4EE3;&#x7801;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x4E00;&#x70B9;&#x5C31;&#x662F;&#xFF0C;&#x5F53;&#x4E00;&#x884C;&#x8BA1;&#x7B97;&#x597D;&#x4E4B;&#x540E;&#x5F00;&#x59CB;&#x4E0B;&#x4E00;&#x884C;&#x7684;&#x65F6;&#x5019;&#xFF0C;
-&#x8981;&#x521D;&#x59CB;&#x5316; <code>old</code> &#x548C; <code>d[0]</code> &#x7684;&#x503C;</p>
-<p>&#x4F18;&#x5316;&#x8FC7;&#x540E;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x8FD8;&#x662F; O(mn), 
-&#x7A7A;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x964D;&#x4F4E;&#x4E86;&#xFF0C;&#x4EE5;&#x4E0A;&#x4EE3;&#x7801;&#x662F; O(n), &#x5176;&#x5B9E;&#x5F88;&#x7B80;&#x5355;&#x53EF;&#x4EE5;&#x5199;&#x6210; O(min(m,n)), 
-&#x4E3A;&#x4E86;&#x4FBF;&#x4E8E;&#x7406;&#x89E3;&#xFF0C;&#x5C31;&#x4E0D;&#x5177;&#x4F53;&#x5199;&#x4E86;</p>
+<p>写代码的过程中需要注意的一点就是，当一行计算好之后开始下一行的时候，
+要初始化 <code>old</code> 和 <code>d[0]</code> 的值</p>
+<p>优化过后时间复杂度还是 O(mn),
+空间复杂度降低了，以上代码是 O(n), 其实很简单可以写成 O(min(m,n)),
+为了便于理解，就不具体写了</p>
 
-                                
-                                </section>
-                            
-    </div>
-    <div class="search-results">
-        <div class="has-results">
-            
-            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
-            <ul class="search-results-list"></ul>
-            
-        </div>
-        <div class="no-results">
-            
-            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
-            
-        </div>
-    </div>
-</div>
 
-                        </div>
-                    </div>
-                
+                        <br>
+                        <div id="remark42"></div>
+                        <script>
+                            var localAddrs = ["localhost", "127.0.0.1", ""];
+                            if (localAddrs.indexOf(document.location.hostname) === -1) {
+                                var remark_config = {
+                                    host: 'https://comments.mwum.com',
+                                    site_id: 'mwum',
+                                    locale: 'zh',
+                                    no_footer: true,
+                                }
+                                !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+                            }
+                        </script>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../dp/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../dp/digital-triangle.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
             </div>
 
-            
-                
-                <a href="./" class="navigation navigation-prev " aria-label="Previous page: 动态规划 (Dynamic programming)">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                
-                
-                <a href="digital-triangle.html" class="navigation navigation-next " aria-label="Next page: 数字三角形">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-                
-            
-        
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../dp/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../dp/digital-triangle.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
     </div>
-
-    <script>
-        var gitbook = gitbook || [];
-        gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"编辑距离 (Edit distance)","level":"1.4.1","depth":2,"next":{"title":"数字三角形","level":"1.4.2","depth":2,"path":"dp/digital-triangle.md","ref":"dp/digital-triangle.md","articles":[]},"previous":{"title":"动态规划 (Dynamic programming)","level":"1.4","depth":1,"path":"dp/README.md","ref":"dp/README.md","articles":[{"title":"编辑距离 (Edit distance)","level":"1.4.1","depth":2,"path":"dp/edit-distance.md","ref":"dp/edit-distance.md","articles":[]},{"title":"数字三角形","level":"1.4.2","depth":2,"path":"dp/digital-triangle.md","ref":"dp/digital-triangle.md","articles":[]},{"title":"最大 K 乘积","level":"1.4.3","depth":2,"path":"dp/max-k-product.md","ref":"dp/max-k-product.md","articles":[]},{"title":"0/1 背包问题 (0/1 knapsack problem)","level":"1.4.4","depth":2,"path":"dp/01-knapsack.md","ref":"dp/01-knapsack.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["disqus","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"mwum"},"ga":{"configuration":"auto","token":"UA-39279084-1"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sidebar":{"明无梦的博客":"https://www.dreamxu.com/"},"sharing":{"google":false,"facebook":false,"twitter":false,"weibo":false,"all":true}},"gitbook":"*"},"file":{"path":"dp/edit-distance.md","mtime":"2018-08-17T02:06:23.688Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-17T02:07:28.161Z"},"basePath":"..","book":{"language":""}});
-        });
-    </script>
-</div>
-
-        
-    <script src="../gitbook/gitbook.js"></script>
-    <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
-        
-    
-
     </body>
 </html>
-

@@ -1,542 +1,195 @@
-
 <!DOCTYPE HTML>
-<html lang="" >
+<html lang="zh-CN" class="light" dir="ltr">
     <head>
+        <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>格雷码 (Gray code) · GitBook</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>格雷码 (Gray code) - 明无梦的数据结构与算法学习之路</title>
+
+
+        <!-- Custom HTML head -->
+        
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.3">
-        
-        
-        
-    
-    <link rel="stylesheet" href="../gitbook/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
 
-    
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
-                
-            
-        
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
 
-    
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
 
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
 
-        
-    
-    
-    <meta name="HandheldFriendly" content="true"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
-    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/custom.css">
 
-    
-    <link rel="next" href="../dp/" />
-    
-    
-    <link rel="prev" href="quicksort.html" />
-    
 
+        <script>
+            var localAddrs = ["localhost", "127.0.0.1", ""];
+            if (localAddrs.indexOf(document.location.hostname) === -1) {
+                  var script = document.createElement('script');
+                  script.async = true;
+                  script.src = 'https://www.googletagmanager.com/gtag/js?id=G-XNJSCC1KSF';
+                  document.head.appendChild(script);
+
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+
+                  gtag('config', 'G-XNJSCC1KSF');
+            }
+        </script>
     </head>
-    <body>
-        
-<div class="book">
-    <div class="book-summary">
-        
-            
-<div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search" />
-</div>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
 
-            
-                <nav role="navigation">
-                
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
 
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
 
-<ul class="summary">
-    
-    
-    
-        
-        <li>
-            <a href="https://www.dreamxu.com/" target="_blank" class="custom-link">明无梦的博客</a>
-        </li>
-    
-    
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
 
-    
-    <li class="divider"></li>
-    
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
 
-    
-        
-        
-    
-        <li class="chapter " data-level="1.1" data-path="../">
-            
-                <a href="../">
-            
-                    
-                    简介
-            
-                </a>
-            
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2" data-path="../data-structure/">
-            
-                <a href="../data-structure/">
-            
-                    
-                    基本数据结构 (Elementary Data Structures
-            
-                </a>
-            
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
 
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.2.1" data-path="../data-structure/slist/">
-            
-                <a href="../data-structure/slist/">
-            
-                    
-                    单链表 (Linked list)
-            
-                </a>
-            
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">简介</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> 基本数据结构 (Basic Data Structures</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">1.1.</strong> 单链表 (Linked list)</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../data-structure/slist/src.html"><strong aria-hidden="true">1.1.1.</strong> 实现</a></li><li class="chapter-item expanded "><a href="../data-structure/slist/doc.html"><strong aria-hidden="true">1.1.2.</strong> 文档</a></li></ol></li><li class="chapter-item expanded "><a href="../data-structure/queue/queue.html"><strong aria-hidden="true">1.2.</strong> 队列 (Queue)</a></li><li class="chapter-item expanded "><a href="../data-structure/binary-tree.html"><strong aria-hidden="true">1.3.</strong> 二叉树 (Binary Tree)</a></li><li class="chapter-item expanded "><a href="../data-structure/binary-heap.html"><strong aria-hidden="true">1.4.</strong> 二叉堆 (Binary heap)</a></li></ol></li><li class="chapter-item expanded "><a href="../dc/index.html"><strong aria-hidden="true">2.</strong> 分治算法 (Divide and conquer algorithms)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../dc/rmq.html"><strong aria-hidden="true">2.1.</strong> 范围最值查询 (Range Minimum Query)</a></li><li class="chapter-item expanded "><a href="../dc/change-coin.html"><strong aria-hidden="true">2.2.</strong> 换硬币问题</a></li><li class="chapter-item expanded "><a href="../dc/subset.html"><strong aria-hidden="true">2.3.</strong> 子集问题</a></li><li class="chapter-item expanded "><a href="../dc/hanio.html"><strong aria-hidden="true">2.4.</strong> 汉诺塔 (Tower of Hanoi)</a></li><li class="chapter-item expanded "><a href="../dc/binary-search.html"><strong aria-hidden="true">2.5.</strong> 二分搜索 (Binary search)</a></li><li class="chapter-item expanded "><a href="../dc/quicksort.html"><strong aria-hidden="true">2.6.</strong> 快速排序 (Quicksort)</a></li><li class="chapter-item expanded "><a href="../dc/gray-code.html" class="active"><strong aria-hidden="true">2.7.</strong> 格雷码 (Gray code)</a></li></ol></li><li class="chapter-item expanded "><a href="../dp/index.html"><strong aria-hidden="true">3.</strong> 动态规划 (Dynamic programming)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../dp/edit-distance.html"><strong aria-hidden="true">3.1.</strong> 编辑距离 (Edit distance)</a></li><li class="chapter-item expanded "><a href="../dp/digital-triangle.html"><strong aria-hidden="true">3.2.</strong> 数字三角形</a></li><li class="chapter-item expanded "><a href="../dp/max-k-product.html"><strong aria-hidden="true">3.3.</strong> 最大 K 乘积</a></li><li class="chapter-item expanded "><a href="../dp/01-knapsack.html"><strong aria-hidden="true">3.4.</strong> 0/1 背包问题 (0/1 knapsack problem)</a></li></ol></li><li class="chapter-item expanded "><a href="../greedy/index.html"><strong aria-hidden="true">4.</strong> 贪心算法 (Greedy algorithm)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../greedy/activity-selection.html"><strong aria-hidden="true">4.1.</strong> 活动选择问题 (Activity-selection problem</a></li><li class="chapter-item expanded "><a href="../greedy/optimal-decomposition.html"><strong aria-hidden="true">4.2.</strong> 最优分解问题</a></li></ol></li><li class="chapter-item expanded "><a href="../backtracking/index.html"><strong aria-hidden="true">5.</strong> 回溯算法 (Backtracking)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../backtracking/eight-queens-puzzle.html"><strong aria-hidden="true">5.1.</strong> 八皇后问题 (Eight queens puzzle)</a></li><li class="chapter-item expanded "><a href="../backtracking/minimum-weight-of-the-machine.html"><strong aria-hidden="true">5.2.</strong> 最小重量机器设计问题</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
 
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.2.1.1" data-path="../data-structure/slist/src.html">
-            
-                <a href="../data-structure/slist/src.html">
-            
-                    
-                    实现
-            
-                </a>
-            
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
 
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.1.2" data-path="../data-structure/slist/doc.html">
-            
-                <a href="../data-structure/slist/doc.html">
-            
-                    
-                    文档
-            
-                </a>
-            
+        <div id="page-wrapper" class="page-wrapper">
 
-            
-        </li>
-    
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
 
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.2" data-path="../data-structure/queue/queue.html">
-            
-                <a href="../data-structure/queue/queue.html">
-            
-                    
-                    队列 (Queue)
-            
-                </a>
-            
+                    <h1 class="menu-title">明无梦的数据结构与算法学习之路</h1>
 
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.3" data-path="../data-structure/binary-tree.html">
-            
-                <a href="../data-structure/binary-tree.html">
-            
-                    
-                    二叉树 (Binary Tree)
-            
-                </a>
-            
+                    <div class="right-buttons">
 
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.4" data-path="../data-structure/binary-heap.html">
-            
-                <a href="../data-structure/binary-heap.html">
-            
-                    
-                    二叉堆 (Binary heap)
-            
-                </a>
-            
+                        <a href="https://www.mwum.com" target="_blank" rel="noopener noreferrer"><i id="home-button" class="fa fa-home"></i></a>
+                    </div>
+                </div>
 
-            
-        </li>
-    
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
 
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3" data-path="./">
-            
-                <a href="./">
-            
-                    
-                    分治算法 (Divide and conquer algorithms)
-            
-                </a>
-            
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
 
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.3.1" data-path="rmq.html">
-            
-                <a href="rmq.html">
-            
-                    
-                    范围最值查询 (Range Minimum Query)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.2" data-path="change-coin.html">
-            
-                <a href="change-coin.html">
-            
-                    
-                    换硬币问题
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.3" data-path="subset.html">
-            
-                <a href="subset.html">
-            
-                    
-                    子集问题
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.4" data-path="hanio.html">
-            
-                <a href="hanio.html">
-            
-                    
-                    汉诺塔 (Tower of Hanoi)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.5" data-path="binary-search.html">
-            
-                <a href="binary-search.html">
-            
-                    
-                    二分搜索 (Binary search)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.6" data-path="quicksort.html">
-            
-                <a href="quicksort.html">
-            
-                    
-                    快速排序 (Quicksort)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter active" data-level="1.3.7" data-path="gray-code.html">
-            
-                <a href="gray-code.html">
-            
-                    
-                    格雷码 (Gray code)
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4" data-path="../dp/">
-            
-                <a href="../dp/">
-            
-                    
-                    动态规划 (Dynamic programming)
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.4.1" data-path="../dp/edit-distance.html">
-            
-                <a href="../dp/edit-distance.html">
-            
-                    
-                    编辑距离 (Edit distance)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.2" data-path="../dp/digital-triangle.html">
-            
-                <a href="../dp/digital-triangle.html">
-            
-                    
-                    数字三角形
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.3" data-path="../dp/max-k-product.html">
-            
-                <a href="../dp/max-k-product.html">
-            
-                    
-                    最大 K 乘积
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.4" data-path="../dp/01-knapsack.html">
-            
-                <a href="../dp/01-knapsack.html">
-            
-                    
-                    0/1 背包问题 (0/1 knapsack problem)
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5" data-path="../greedy/">
-            
-                <a href="../greedy/">
-            
-                    
-                    贪心算法 (Greedy algorithm)
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.5.1" data-path="../greedy/activity-selection.html">
-            
-                <a href="../greedy/activity-selection.html">
-            
-                    
-                    活动选择问题 (Activity-selection problem
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.2" data-path="../greedy/optimal-decomposition.html">
-            
-                <a href="../greedy/optimal-decomposition.html">
-            
-                    
-                    最优分解问题
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6" data-path="../backtracking/">
-            
-                <a href="../backtracking/">
-            
-                    
-                    回溯算法 (Backtracking)
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.6.1" data-path="../backtracking/eight-queens-puzzle.html">
-            
-                <a href="../backtracking/eight-queens-puzzle.html">
-            
-                    
-                    八皇后问题 (Eight queens puzzle)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.2" data-path="../backtracking/minimum-weight-of-the-machine.html">
-            
-                <a href="../backtracking/minimum-weight-of-the-machine.html">
-            
-                    
-                    最小重量机器设计问题
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-
-    <li class="divider"></li>
-
-    <li>
-        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Published with GitBook
-        </a>
-    </li>
-</ul>
-
-
-                </nav>
-            
-        
-    </div>
-
-    <div class="book-body">
-        
-            <div class="body-inner">
-                
-                    
-
-<div class="book-header" role="navigation">
-    
-
-    <!-- Title -->
-    <h1>
-        <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >格雷码 (Gray code)</a>
-    </h1>
-</div>
-
-
-
-
-                    <div class="page-wrapper" tabindex="-1" role="main">
-                        <div class="page-inner">
-                            
-<div id="book-search-results">
-    <div class="search-noresults">
-    
-                                <section class="normal markdown-section">
-                                
-                                <h1 id="&#x683C;&#x96F7;&#x7801;-gray-code">&#x683C;&#x96F7;&#x7801; (Gray code)</h1>
-<p>&#x683C;&#x96F7;&#x7801;&#x662F;&#x4EFB;&#x610F;&#x4E24;&#x4E2A;&#x76F8;&#x90BB;&#x6570;&#x7684;&#x4EE3;&#x7801;&#x53EA;&#x6709;&#x4E00;&#x4F4D;&#x4E8C;&#x8FDB;&#x5236;&#x6570;&#x4E0D;&#x540C;&#x7684;&#x7F16;&#x7801;</p>
-<p>&#x4F8B;&#x5982; 3 &#x4F4D;&#x683C;&#x96F7;&#x7801;&#x4E3A;</p>
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="格雷码-gray-code"><a class="header" href="#格雷码-gray-code">格雷码 (Gray code)</a></h1>
+<p>格雷码是任意两个相邻数的代码只有一位二进制数不同的编码</p>
+<p>例如 3 位格雷码为</p>
 <pre><code>000
 001
 011
@@ -545,145 +198,121 @@
 111
 101
 100
-</code></pre><p>&#x751F;&#x6210;&#x683C;&#x96F7;&#x7801;&#x7684;&#x4EE3;&#x7801;&#x4E3A;</p>
-<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;vector&gt;</span></span>
+</code></pre>
+<p>生成格雷码的代码为</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;vector&gt;
 
 
-<span class="hljs-comment">// &#x4EA7;&#x751F; n &#x4F4D;&#x683C;&#x96F7;&#x683C;&#x96F7;&#x7801;</span>
-<span class="hljs-comment">//</span>
-<span class="hljs-comment">// &#x91C7;&#x7528;&#x65B9;&#x6CD5;&#x4E3A;&#x955C;&#x5C04;&#x6784;&#x5EFA;&#x6CD5;</span>
-<span class="hljs-comment">// n &#x4F4D;&#x683C;&#x96F7;&#x7801;&#x53EF;&#x7531; n - 1 &#x4F4D;&#x683C;&#x96F7;&#x7801;&#x5F97;&#x5230;</span>
-<span class="hljs-comment">//</span>
-<span class="hljs-comment">// &#x53EA;&#x9700;&#x5728; n - 1 &#x4F4D;&#x683C;&#x96F7;&#x7801;&#x7684;&#x524D;&#x9762;&#x52A0;&#x4E0A; &quot;0&quot;, &#x6574;&#x4F53;&#x518D;&#x52A0;&#x4E0A;</span>
-<span class="hljs-comment">// &#x5C06; n - 1 &#x4F4D;&#x683C;&#x96F7;&#x7801;&#x9006;&#x5E8F;&#x4E4B;&#x540E;&#x5728;&#x524D;&#x9762;&#x52A0;&#x4E0A; &quot;1&quot;</span>
-<span class="hljs-comment">//</span>
-<span class="hljs-comment">// &#x4F8B;&#x5982;&#xFF1A;</span>
-<span class="hljs-comment">// 0    00    000</span>
-<span class="hljs-comment">// 1    01    001</span>
-<span class="hljs-comment">//      11    011</span>
-<span class="hljs-comment">//      10    010</span>
-<span class="hljs-comment">//            110</span>
-<span class="hljs-comment">//            111</span>
-<span class="hljs-comment">//            101</span>
-<span class="hljs-comment">//            100</span>
-<span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&gt; StringGrayCode(<span class="hljs-keyword">int</span> n)
+// 产生 n 位格雷格雷码
+//
+// 采用方法为镜射构建法
+// n 位格雷码可由 n - 1 位格雷码得到
+//
+// 只需在 n - 1 位格雷码的前面加上 "0", 整体再加上
+// 将 n - 1 位格雷码逆序之后在前面加上 "1"
+//
+// 例如：
+// 0    00    000
+// 1    01    001
+//      11    011
+//      10    010
+//            110
+//            111
+//            101
+//            100
+std::vector&lt;std::string&gt; StringGrayCode(int n)
 {
-    <span class="hljs-keyword">if</span> (n == <span class="hljs-number">1</span>) {
-        <span class="hljs-keyword">return</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&gt; {<span class="hljs-string">&quot;0&quot;</span>, <span class="hljs-string">&quot;1&quot;</span>};
+    if (n == 1) {
+        return std::vector&lt;std::string&gt; {"0", "1"};
     }
 
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&gt; gray_code_old = StringGrayCode(n - <span class="hljs-number">1</span>);
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&gt; gray_code_new{};
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> per_gray_code : gray_code_old) {
-        gray_code_new.push_back(<span class="hljs-string">&quot;0&quot;</span> + per_gray_code);
+    std::vector&lt;std::string&gt; gray_code_old = StringGrayCode(n - 1);
+    std::vector&lt;std::string&gt; gray_code_new{};
+    for (auto per_gray_code : gray_code_old) {
+        gray_code_new.push_back("0" + per_gray_code);
     }
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> p_per_gray_code = gray_code_old.rbegin();
+    for (auto p_per_gray_code = gray_code_old.rbegin();
             p_per_gray_code != gray_code_old.rend(); ++p_per_gray_code) {
-        gray_code_new.push_back(<span class="hljs-string">&quot;1&quot;</span> + *p_per_gray_code);
+        gray_code_new.push_back("1" + *p_per_gray_code);
     }
 
-    <span class="hljs-keyword">return</span> gray_code_new;
+    return gray_code_new;
 }
 
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])</span>
-</span>{
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> per_gray_code : StringGrayCode(<span class="hljs-number">4</span>)) {
-        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; per_gray_code &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+int main(int argc, char *argv[])
+{
+    for (auto per_gray_code : StringGrayCode(4)) {
+        std::cout &lt;&lt; per_gray_code &lt;&lt; std::endl;
     }
 
-    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    return 0;
 }
 </code></pre>
 
-                                
-                                </section>
-                            
-    </div>
-    <div class="search-results">
-        <div class="has-results">
-            
-            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
-            <ul class="search-results-list"></ul>
-            
-        </div>
-        <div class="no-results">
-            
-            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
-            
-        </div>
-    </div>
-</div>
 
-                        </div>
-                    </div>
-                
+                        <br>
+                        <div id="remark42"></div>
+                        <script>
+                            var localAddrs = ["localhost", "127.0.0.1", ""];
+                            if (localAddrs.indexOf(document.location.hostname) === -1) {
+                                var remark_config = {
+                                    host: 'https://comments.mwum.com',
+                                    site_id: 'mwum',
+                                    locale: 'zh',
+                                    no_footer: true,
+                                }
+                                !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+                            }
+                        </script>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../dc/quicksort.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../dp/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
             </div>
 
-            
-                
-                <a href="quicksort.html" class="navigation navigation-prev " aria-label="Previous page: 快速排序 (Quicksort)">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                
-                
-                <a href="../dp/" class="navigation navigation-next " aria-label="Next page: 动态规划 (Dynamic programming)">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-                
-            
-        
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../dc/quicksort.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../dp/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
     </div>
-
-    <script>
-        var gitbook = gitbook || [];
-        gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"格雷码 (Gray code)","level":"1.3.7","depth":2,"next":{"title":"动态规划 (Dynamic programming)","level":"1.4","depth":1,"path":"dp/README.md","ref":"dp/README.md","articles":[{"title":"编辑距离 (Edit distance)","level":"1.4.1","depth":2,"path":"dp/edit-distance.md","ref":"dp/edit-distance.md","articles":[]},{"title":"数字三角形","level":"1.4.2","depth":2,"path":"dp/digital-triangle.md","ref":"dp/digital-triangle.md","articles":[]},{"title":"最大 K 乘积","level":"1.4.3","depth":2,"path":"dp/max-k-product.md","ref":"dp/max-k-product.md","articles":[]},{"title":"0/1 背包问题 (0/1 knapsack problem)","level":"1.4.4","depth":2,"path":"dp/01-knapsack.md","ref":"dp/01-knapsack.md","articles":[]}]},"previous":{"title":"快速排序 (Quicksort)","level":"1.3.6","depth":2,"path":"dc/quicksort.md","ref":"dc/quicksort.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"mwum"},"ga":{"configuration":"auto","token":"UA-39279084-1"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sidebar":{"明无梦的博客":"https://www.dreamxu.com/"},"sharing":{"google":false,"facebook":false,"twitter":false,"weibo":false,"all":true}},"gitbook":"*"},"file":{"path":"dc/gray-code.md","mtime":"2015-09-09T14:12:24.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-17T02:07:28.161Z"},"basePath":"..","book":{"language":""}});
-        });
-    </script>
-</div>
-
-        
-    <script src="../gitbook/gitbook.js"></script>
-    <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
-        
-    
-
     </body>
 </html>
-

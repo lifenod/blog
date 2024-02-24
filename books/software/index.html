@@ -1,1354 +1,257 @@
-
 <!DOCTYPE HTML>
-<html lang="" >
+<html lang="zh-CN" class="light" dir="ltr">
     <head>
+        <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>介绍 · GitBook</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>介绍 - 明无梦的软件使用记录</title>
+
+
+        <!-- Custom HTML head -->
+        
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.3">
-        
-        
-        
-    
-    <link rel="stylesheet" href="gitbook/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
 
-    
-            
-                
-                <link rel="stylesheet" href="gitbook/gitbook-plugin-disqus/plugin.css">
-                
-            
-                
-                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
-                
-            
-                
-                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
-                
-            
-                
-                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
-                
-            
-        
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
 
-    
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
 
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
 
-        
-    
-    
-    <meta name="HandheldFriendly" content="true"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
-    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="theme/custom.css">
 
-    
-    <link rel="next" href="firefox/" />
-    
-    
 
+        <script>
+            var localAddrs = ["localhost", "127.0.0.1", ""];
+            if (localAddrs.indexOf(document.location.hostname) === -1) {
+                  var script = document.createElement('script');
+                  script.async = true;
+                  script.src = 'https://www.googletagmanager.com/gtag/js?id=G-XNJSCC1KSF';
+                  document.head.appendChild(script);
+
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+
+                  gtag('config', 'G-XNJSCC1KSF');
+            }
+        </script>
     </head>
-    <body>
-        
-<div class="book">
-    <div class="book-summary">
-        
-            
-<div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search" />
-</div>
-
-            
-                <nav role="navigation">
-                
-
-
-<ul class="summary">
-    
-    
-    
-        
-        <li>
-            <a href="https://www.dreamxu.com/" target="_blank" class="custom-link">明无梦的博客</a>
-        </li>
-    
-    
-
-    
-    <li class="divider"></li>
-    
-
-    
-        
-        
-    
-        <li class="chapter active" data-level="1.1" data-path="./">
-            
-                <a href="./">
-            
-                    
-                    介绍
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2" data-path="firefox/">
-            
-                <a href="firefox/">
-            
-                    
-                    Firefox - 浏览器
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3" data-path="best-trace/">
-            
-                <a href="best-trace/">
-            
-                    
-                    BestTrace - 可视化路由追踪
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4" data-path="ikev2-client/">
-            
-                <a href="ikev2-client/">
-            
-                    
-                    IKEv2 Client
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5" data-path="aria2/">
-            
-                <a href="aria2/">
-            
-                    
-                    aria2 - 下载工具
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6" data-path="cnnic/">
-            
-                <a href="cnnic/">
-            
-                    
-                    移除 CNNIC 证书
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7" data-path="gitbook/">
-            
-                <a href="gitbook/">
-            
-                    
-                    GitBook - 写书工具
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.7.1" data-path="gitbook/disqus.html">
-            
-                <a href="gitbook/disqus.html">
-            
-                    
-                    Disqus integration - 评论
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.2" data-path="gitbook/google-analystics.html">
-            
-                <a href="gitbook/google-analystics.html">
-            
-                    
-                    Google Analytics
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8" data-path="dropbox/">
-            
-                <a href="dropbox/">
-            
-                    
-                    Dropbox - 网盘
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.9" data-path="rime/">
-            
-                <a href="rime/">
-            
-                    
-                    Rime 输入法
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10" data-path="1password/">
-            
-                <a href="1password/">
-            
-                    
-                    1Password - 密码管理
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11" data-path="parallels/">
-            
-                <a href="parallels/">
-            
-                    
-                    Parallels Desktop - 虚拟机
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.12" data-path="unzip/">
-            
-                <a href="unzip/">
-            
-                    
-                    The Unarchiver & 7-Zip - 解压缩
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.13" data-path="homebrew/">
-            
-                <a href="homebrew/">
-            
-                    
-                    Homebrew - 包管理器
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.13.1" data-path="homebrew/homebrew-cask.html">
-            
-                <a href="homebrew/homebrew-cask.html">
-            
-                    
-                    Homebrew Cask
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.14" data-path="rufus/">
-            
-                <a href="rufus/">
-            
-                    
-                    Rufus - 制作 USB 启动盘
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15" data-path="chrome/">
-            
-                <a href="chrome/">
-            
-                    
-                    Chrome - 浏览器
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.15.1" data-path="chrome/proxmate.html">
-            
-                <a href="chrome/proxmate.html">
-            
-                    
-                    ProxMate - 突破区域限制
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.2" data-path="chrome/enable-copy.html">
-            
-                <a href="chrome/enable-copy.html">
-            
-                    
-                    Enable Copy - 开启复制和右键
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.3" data-path="chrome/extensions-manager.html">
-            
-                <a href="chrome/extensions-manager.html">
-            
-                    
-                    Extensity - 快速启用和禁用插件
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.4" data-path="chrome/open-seo-stats.html">
-            
-                <a href="chrome/open-seo-stats.html">
-            
-                    
-                    Open SEO Stats - 显示 SEO
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.5" data-path="chrome/adblock-plus.html">
-            
-                <a href="chrome/adblock-plus.html">
-            
-                    
-                    Adblock Plus - 广告拦截
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.6" data-path="chrome/dream-afar-new-tab.html">
-            
-                <a href="chrome/dream-afar-new-tab.html">
-            
-                    
-                    Dream Afar New Tab - 在 New Tab 显示美丽
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.16" data-path="rinetd/">
-            
-                <a href="rinetd/">
-            
-                    
-                    rinetd - TCP 端口转发
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.17" data-path="privoxy/">
-            
-                <a href="privoxy/">
-            
-                    
-                    Privoxy - HTTP 代理
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.18" data-path="tor/">
-            
-                <a href="tor/">
-            
-                    
-                    Tor - 隐匿上网身份
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.19" data-path="autohotkey/">
-            
-                <a href="autohotkey/">
-            
-                    
-                    AutoHotkey - 自动化脚本
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.20" data-path="pandoc/">
-            
-                <a href="pandoc/">
-            
-                    
-                    Pandoc - 标记语言格式转换
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.21" data-path="veracrypt/">
-            
-                <a href="veracrypt/">
-            
-                    
-                    VeraCrypt - 加密
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.22" data-path="retinizer/">
-            
-                <a href="retinizer/">
-            
-                    
-                    Retinizer - 使 Retina 显示
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.23" data-path="gfw/">
-            
-                <a href="gfw/">
-            
-                    
-                    GFW
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.24" data-path="alfred/">
-            
-                <a href="alfred/">
-            
-                    
-                    Alfred - 必备效率工具
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.24.1" data-path="alfred/alfred-emoji-workflow.html">
-            
-                <a href="alfred/alfred-emoji-workflow.html">
-            
-                    
-                    alfred-emoji-workflow
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.24.2" data-path="alfred/new-file.html">
-            
-                <a href="alfred/new-file.html">
-            
-                    
-                    NewFile
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.25" data-path="omnifocus/">
-            
-                <a href="omnifocus/">
-            
-                    
-                    OmniFocus - GTD 时间管理
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.26" data-path="omnigraffle/">
-            
-                <a href="omnigraffle/">
-            
-                    
-                    OmniGraffle - 绘图
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.27" data-path="reeder/">
-            
-                <a href="reeder/">
-            
-                    
-                    Reeder - RSS 阅读器
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.28" data-path="appcleaner/">
-            
-                <a href="appcleaner/">
-            
-                    
-                    AppCleaner - 程序卸载
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.29" data-path="keyboard-cleaner/">
-            
-                <a href="keyboard-cleaner/">
-            
-                    
-                    Keyboard Cleaner - 屏幕键盘清理
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.30" data-path="iina/">
-            
-                <a href="iina/">
-            
-                    
-                    IINA - 现代视频播放器
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.31" data-path="cheatsheet/">
-            
-                <a href="cheatsheet/">
-            
-                    
-                    CheatSheet - 快捷键清单
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.32" data-path="asepsis/">
-            
-                <a href="asepsis/">
-            
-                    
-                    Asepsis - 重定向 .DS_Store 文件
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.33" data-path="teamviewer/">
-            
-                <a href="teamviewer/">
-            
-                    
-                    TeamViewer - 远程访问与控制
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.34" data-path="vox/">
-            
-                <a href="vox/">
-            
-                    
-                    VOX - 音乐播放器
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.35" data-path="xld/">
-            
-                <a href="xld/">
-            
-                    
-                    X Lossless Decoder - 音频格式转换
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.36" data-path="gifbrewery/">
-            
-                <a href="gifbrewery/">
-            
-                    
-                    GIF Brewery - GIF 图片制作
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.37" data-path="licecap/">
-            
-                <a href="licecap/">
-            
-                    
-                    LICEcap - 屏幕录制
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.38" data-path="eudic/">
-            
-                <a href="eudic/">
-            
-                    
-                    欧陆词典
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.39" data-path="vim/">
-            
-                <a href="vim/">
-            
-                    
-                    Vim - 文本编辑器
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.40" data-path="coconut-battery/">
-            
-                <a href="coconut-battery/">
-            
-                    
-                    coconutBattery - 电池查看
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.41" data-path="ios-jailbreak/">
-            
-                <a href="ios-jailbreak/">
-            
-                    
-                    iOS Jailbreak（越狱）
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.41.1" data-path="ios-jailbreak/game-emulators.html">
-            
-                <a href="ios-jailbreak/game-emulators.html">
-            
-                    
-                    Game Emulators（游戏模拟器）
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.41.2" data-path="ios-jailbreak/afc.html">
-            
-                <a href="ios-jailbreak/afc.html">
-            
-                    
-                    Apple File Conduit "2" - USB 访问
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.41.3" data-path="ios-jailbreak/cfa.html">
-            
-                <a href="ios-jailbreak/cfa.html">
-            
-                    
-                    Controllers For All - 手柄手柄
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.41.4" data-path="ios-jailbreak/ccsettings.html">
-            
-                <a href="ios-jailbreak/ccsettings.html">
-            
-                    
-                    CCSettings - 自定义控制中心
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.41.5" data-path="ios-jailbreak/zeppelin.html">
-            
-                <a href="ios-jailbreak/zeppelin.html">
-            
-                    
-                    Zeppelin - 改变运营商图标
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.41.6" data-path="ios-jailbreak/activator.html">
-            
-                <a href="ios-jailbreak/activator.html">
-            
-                    
-                    Activator - 手势
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.42" data-path="calibre/">
-            
-                <a href="calibre/">
-            
-                    
-                    calibre - 电子书管理
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.43" data-path="dedrm/">
-            
-                <a href="dedrm/">
-            
-                    
-                    DeDRM - 移除电子书 DRM
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.44" data-path="telegram/">
-            
-                <a href="telegram/">
-            
-                    
-                    Telegram - 即时通讯
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.45" data-path="timing/">
-            
-                <a href="timing/">
-            
-                    
-                    Timing for Mac - 时间记录
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.46" data-path="habitica/">
-            
-                <a href="habitica/">
-            
-                    
-                    Habitica - 将生活变成游戏
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.47" data-path="macdown/">
-            
-                <a href="macdown/">
-            
-                    
-                    MacDown - Markdown 编辑器
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.48" data-path="bartender/">
-            
-                <a href="bartender/">
-            
-                    
-                    Bartender - 折叠菜单栏图标
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.49" data-path="istat-menus/">
-            
-                <a href="istat-menus/">
-            
-                    
-                    iStat Menus - 系统监测
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.50" data-path="1writer/">
-            
-                <a href="1writer/">
-            
-                    
-                    1Writer - iOS 文本编辑
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.51" data-path="ncdu/">
-            
-                <a href="ncdu/">
-            
-                    
-                    ncdu - 磁盘空间分析
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.52" data-path="graphviz/">
-            
-                <a href="graphviz/">
-            
-                    
-                    Graphviz - DOT 语言绘图
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.53" data-path="docker/">
-            
-                <a href="docker/">
-            
-                    
-                    Docker - 虚拟化系统
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.54" data-path="language-switcher/">
-            
-                <a href="language-switcher/">
-            
-                    
-                    Language Switcher - macOS 应用语言切换
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.55" data-path="notion/">
-            
-                <a href="notion/">
-            
-                    
-                    Notion - notes, wikis, tasks
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.56" data-path="unclutter/">
-            
-                <a href="unclutter/">
-            
-                    
-                    Unclutter - 临时笔记，文件，剪贴板
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.57" data-path="kap/">
-            
-                <a href="kap/">
-            
-                    
-                    Kap - 屏幕录制
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.58" data-path="other/">
-            
-                <a href="other/">
-            
-                    
-                    Other
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.59" data-path="to-be-used/">
-            
-                <a href="to-be-used/">
-            
-                    
-                    待使用
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.60" >
-            
-                <span>
-            
-                    
-                    过时
-            
-                </span>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.60.1" data-path="outdated/sublime-text/">
-            
-                <a href="outdated/sublime-text/">
-            
-                    
-                    Sublime Text - 文本编辑器
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.60.2" data-path="outdated/logcg/">
-            
-                <a href="outdated/logcg/">
-            
-                    
-                    落格输入法
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.60.3" data-path="outdated/truecrypt/">
-            
-                <a href="outdated/truecrypt/">
-            
-                    
-                    TrueCrypt - 加密
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.60.4" data-path="outdated/spi/">
-            
-                <a href="outdated/spi/">
-            
-                    
-                    SPi - 双拼输入法
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.60.5" data-path="outdated/evernote/">
-            
-                <a href="outdated/evernote/">
-            
-                    
-                    Evernote - 笔记应用
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.60.6" data-path="outdated/vlc/">
-            
-                <a href="outdated/vlc/">
-            
-                    
-                    VLC - 多媒体播放器
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-
-    <li class="divider"></li>
-
-    <li>
-        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Published with GitBook
-        </a>
-    </li>
-</ul>
-
-
-                </nav>
-            
-        
-    </div>
-
-    <div class="book-body">
-        
-            <div class="body-inner">
-                
-                    
-
-<div class="book-header" role="navigation">
-    
-
-    <!-- Title -->
-    <h1>
-        <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >介绍</a>
-    </h1>
-</div>
-
-
-
-
-                    <div class="page-wrapper" tabindex="-1" role="main">
-                        <div class="page-inner">
-                            
-<div id="book-search-results">
-    <div class="search-noresults">
-    
-                                <section class="normal markdown-section">
-                                
-                                <h1 id="&#x660E;&#x65E0;&#x68A6;&#x7684;&#x8F6F;&#x4EF6;&#x4F7F;&#x7528;&#x8BB0;&#x5F55;">&#x660E;&#x65E0;&#x68A6;&#x7684;&#x8F6F;&#x4EF6;&#x4F7F;&#x7528;&#x8BB0;&#x5F55;</h1>
-<p>&#x4E00;&#x4E9B;&#x8F6F;&#x4EF6;&#x7684;&#x300C;&#x5B89;&#x88C5;&#xFF0C;&#x914D;&#x7F6E;&#xFF0C;&#x4F7F;&#x7528;&#x300D;&#x8BB0;&#x5F55;&#x4E0E;&#x5FC3;&#x5F97;<br>OS X &#x4E0B;&#x7684;&#x8F6F;&#x4EF6;&#x4F1A;&#x504F;&#x591A;&#x4E00;&#x70B9;</p>
-<p>&#x8F6F;&#x4EF6;&#x5E76;&#x4E0D;&#x9700;&#x8981;&#x5C40;&#x9650;&#x4E8E;&#x4EC0;&#x4E48;&#x5E73;&#x53F0;&#xFF0C;&#x6BCF;&#x4E2A;&#x5E73;&#x53F0;&#x4E0B;&#x90FD;&#x6709;&#x5F88;&#x591A;&#x4F18;&#x79C0;&#x7684;&#x8F6F;&#x4EF6;</p>
-<p>&#x4E0D;&#x65AD;&#x66F4;&#x65B0;&#x4E2D;...</p>
-
-                                
-                                </section>
-                            
-    </div>
-    <div class="search-results">
-        <div class="has-results">
-            
-            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
-            <ul class="search-results-list"></ul>
-            
-        </div>
-        <div class="no-results">
-            
-            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
-            
-        </div>
-    </div>
-</div>
-
-                        </div>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html" class="active">介绍</a></li><li class="chapter-item expanded "><a href="homebrew/index.html"><strong aria-hidden="true">1.</strong> Homebrew - 包管理器</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="homebrew/homebrew-cask.html"><strong aria-hidden="true">1.1.</strong> Homebrew Cask</a></li></ol></li><li class="chapter-item expanded "><a href="rufus/index.html"><strong aria-hidden="true">2.</strong> Rufus - 制作 USB 启动盘</a></li><li class="chapter-item expanded "><a href="chrome/index.html"><strong aria-hidden="true">3.</strong> Chrome - 浏览器</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chrome/proxmate.html"><strong aria-hidden="true">3.1.</strong> ProxMate - 突破区域限制</a></li><li class="chapter-item expanded "><a href="chrome/enable-copy.html"><strong aria-hidden="true">3.2.</strong> Enable Copy - 开启复制和右键</a></li><li class="chapter-item expanded "><a href="chrome/extensions-manager.html"><strong aria-hidden="true">3.3.</strong> Extensity - 快速启用和禁用插件</a></li><li class="chapter-item expanded "><a href="chrome/open-seo-stats.html"><strong aria-hidden="true">3.4.</strong> Open SEO Stats - 显示 SEO</a></li><li class="chapter-item expanded "><a href="chrome/adblock-plus.html"><strong aria-hidden="true">3.5.</strong> Adblock Plus - 广告拦截</a></li><li class="chapter-item expanded "><a href="chrome/dream-afar-new-tab.html"><strong aria-hidden="true">3.6.</strong> Dream Afar New Tab - 在 New Tab 显示美丽的图片</a></li></ol></li><li class="chapter-item expanded "><a href="rinetd/index.html"><strong aria-hidden="true">4.</strong> rinetd - TCP 端口转发</a></li><li class="chapter-item expanded "><a href="privoxy/index.html"><strong aria-hidden="true">5.</strong> Privoxy - HTTP 代理</a></li><li class="chapter-item expanded "><a href="tor/index.html"><strong aria-hidden="true">6.</strong> Tor - 隐匿上网身份</a></li><li class="chapter-item expanded "><a href="autohotkey/index.html"><strong aria-hidden="true">7.</strong> AutoHotkey - 自动化脚本</a></li><li class="chapter-item expanded "><a href="pandoc/index.html"><strong aria-hidden="true">8.</strong> Pandoc - 标记语言格式转换</a></li><li class="chapter-item expanded "><a href="veracrypt/index.html"><strong aria-hidden="true">9.</strong> VeraCrypt - 加密</a></li><li class="chapter-item expanded "><a href="retinizer/index.html"><strong aria-hidden="true">10.</strong> Retinizer - 使 Retina 显示</a></li><li class="chapter-item expanded "><a href="alfred/index.html"><strong aria-hidden="true">11.</strong> Alfred - 必备效率工具</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="alfred/alfred-emoji-workflow.html"><strong aria-hidden="true">11.1.</strong> alfred-emoji-workflow</a></li><li class="chapter-item expanded "><a href="alfred/new-file.html"><strong aria-hidden="true">11.2.</strong> NewFile</a></li></ol></li><li class="chapter-item expanded "><a href="omnifocus/index.html"><strong aria-hidden="true">12.</strong> OmniFocus - GTD 时间管理</a></li><li class="chapter-item expanded "><a href="omnigraffle/index.html"><strong aria-hidden="true">13.</strong> OmniGraffle - 绘图</a></li><li class="chapter-item expanded "><a href="reeder/index.html"><strong aria-hidden="true">14.</strong> Reeder - RSS 阅读器</a></li><li class="chapter-item expanded "><a href="appcleaner/index.html"><strong aria-hidden="true">15.</strong> AppCleaner - 程序卸载</a></li><li class="chapter-item expanded "><a href="keyboard-cleaner/index.html"><strong aria-hidden="true">16.</strong> Keyboard Cleaner - 屏幕键盘清理</a></li><li class="chapter-item expanded "><a href="iina/index.html"><strong aria-hidden="true">17.</strong> IINA - 现代视频播放器</a></li><li class="chapter-item expanded "><a href="cheatsheet/index.html"><strong aria-hidden="true">18.</strong> CheatSheet - 快捷键清单</a></li><li class="chapter-item expanded "><a href="asepsis/index.html"><strong aria-hidden="true">19.</strong> Asepsis - 重定向 .DS_Store 文件</a></li><li class="chapter-item expanded "><a href="teamviewer/index.html"><strong aria-hidden="true">20.</strong> TeamViewer - 远程访问与控制</a></li><li class="chapter-item expanded "><a href="vox/index.html"><strong aria-hidden="true">21.</strong> VOX - 音乐播放器</a></li><li class="chapter-item expanded "><a href="xld/index.html"><strong aria-hidden="true">22.</strong> X Lossless Decoder - 音频格式转换</a></li><li class="chapter-item expanded "><a href="gifbrewery/index.html"><strong aria-hidden="true">23.</strong> GIF Brewery - GIF 图片制作</a></li><li class="chapter-item expanded "><a href="licecap/index.html"><strong aria-hidden="true">24.</strong> LICEcap - 屏幕录制</a></li><li class="chapter-item expanded "><a href="eudic/index.html"><strong aria-hidden="true">25.</strong> 欧陆词典</a></li><li class="chapter-item expanded "><a href="vim/index.html"><strong aria-hidden="true">26.</strong> Vim - 文本编辑器</a></li><li class="chapter-item expanded "><a href="coconut-battery/index.html"><strong aria-hidden="true">27.</strong> coconutBattery - 电池查看</a></li><li class="chapter-item expanded "><a href="ios-jailbreak/index.html"><strong aria-hidden="true">28.</strong> iOS Jailbreak（越狱）</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ios-jailbreak/game-emulators.html"><strong aria-hidden="true">28.1.</strong> Game Emulators（游戏模拟器）</a></li><li class="chapter-item expanded "><a href="ios-jailbreak/afc.html"><strong aria-hidden="true">28.2.</strong> Apple File Conduit "2" - USB 访问</a></li><li class="chapter-item expanded "><a href="ios-jailbreak/cfa.html"><strong aria-hidden="true">28.3.</strong> Controllers For All - 手柄手柄</a></li><li class="chapter-item expanded "><a href="ios-jailbreak/ccsettings.html"><strong aria-hidden="true">28.4.</strong> CCSettings - 自定义控制中心</a></li><li class="chapter-item expanded "><a href="ios-jailbreak/zeppelin.html"><strong aria-hidden="true">28.5.</strong> Zeppelin - 改变运营商图标</a></li><li class="chapter-item expanded "><a href="ios-jailbreak/activator.html"><strong aria-hidden="true">28.6.</strong> Activator - 手势</a></li></ol></li><li class="chapter-item expanded "><a href="calibre/index.html"><strong aria-hidden="true">29.</strong> calibre - 电子书管理</a></li><li class="chapter-item expanded "><a href="dedrm/index.html"><strong aria-hidden="true">30.</strong> DeDRM - 移除电子书 DRM</a></li><li class="chapter-item expanded "><a href="telegram/index.html"><strong aria-hidden="true">31.</strong> Telegram - 即时通讯</a></li><li class="chapter-item expanded "><a href="timing/index.html"><strong aria-hidden="true">32.</strong> Timing for Mac - 时间记录</a></li><li class="chapter-item expanded "><a href="habitica/index.html"><strong aria-hidden="true">33.</strong> Habitica - 将生活变成游戏</a></li><li class="chapter-item expanded "><a href="macdown/index.html"><strong aria-hidden="true">34.</strong> MacDown - Markdown 编辑器</a></li><li class="chapter-item expanded "><a href="bartender/index.html"><strong aria-hidden="true">35.</strong> Bartender - 折叠菜单栏图标</a></li><li class="chapter-item expanded "><a href="istat-menus/index.html"><strong aria-hidden="true">36.</strong> iStat Menus - 系统监测</a></li><li class="chapter-item expanded "><a href="1writer/index.html"><strong aria-hidden="true">37.</strong> 1Writer - iOS 文本编辑</a></li><li class="chapter-item expanded "><a href="ncdu/index.html"><strong aria-hidden="true">38.</strong> ncdu - 磁盘空间分析</a></li><li class="chapter-item expanded "><a href="graphviz/index.html"><strong aria-hidden="true">39.</strong> Graphviz - DOT 语言绘图</a></li><li class="chapter-item expanded "><a href="docker/index.html"><strong aria-hidden="true">40.</strong> Docker - 虚拟化系统</a></li><li class="chapter-item expanded "><a href="language-switcher/index.html"><strong aria-hidden="true">41.</strong> Language Switcher - macOS 应用语言切换</a></li><li class="chapter-item expanded "><a href="notion/index.html"><strong aria-hidden="true">42.</strong> Notion - notes, wikis, tasks</a></li><li class="chapter-item expanded "><a href="unclutter/index.html"><strong aria-hidden="true">43.</strong> Unclutter - 临时笔记，文件，剪贴板</a></li><li class="chapter-item expanded "><a href="kap/index.html"><strong aria-hidden="true">44.</strong> Kap - 屏幕录制</a></li><li class="chapter-item expanded "><a href="others/index.html"><strong aria-hidden="true">45.</strong> Others</a></li><li class="chapter-item expanded "><a href="to-be-used/index.html"><strong aria-hidden="true">46.</strong> 待使用</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">过时</li><li class="chapter-item expanded "><a href="outdated/sublime-text/index.html"><strong aria-hidden="true">47.</strong> Sublime Text - 文本编辑器</a></li><li class="chapter-item expanded "><a href="outdated/logcg/index.html"><strong aria-hidden="true">48.</strong> 落格输入法</a></li><li class="chapter-item expanded "><a href="outdated/truecrypt/index.html"><strong aria-hidden="true">49.</strong> TrueCrypt - 加密</a></li><li class="chapter-item expanded "><a href="outdated/spi/index.html"><strong aria-hidden="true">50.</strong> SPi - 双拼输入法</a></li><li class="chapter-item expanded "><a href="outdated/evernote/index.html"><strong aria-hidden="true">51.</strong> Evernote - 笔记应用</a></li><li class="chapter-item expanded "><a href="outdated/vlc/index.html"><strong aria-hidden="true">52.</strong> VLC - 多媒体播放器</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
                     </div>
-                
+
+                    <h1 class="menu-title">明无梦的软件使用记录</h1>
+
+                    <div class="right-buttons">
+
+                        <a href="https://www.mwum.com" target="_blank" rel="noopener noreferrer"><i id="home-button" class="fa fa-home"></i></a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="明无梦的软件使用记录"><a class="header" href="#明无梦的软件使用记录">明无梦的软件使用记录</a></h1>
+<p>2014-00-00</p>
+<hr />
+<p>一些软件的「安装，配置，使用」记录与心得<br />
+OS X 下的软件会偏多一点</p>
+<p>软件并不需要局限于什么平台，每个平台下都有很多优秀的软件</p>
+<p>不断更新中...</p>
+
+
+                        <br>
+                        <div id="remark42"></div>
+                        <script>
+                            var localAddrs = ["localhost", "127.0.0.1", ""];
+                            if (localAddrs.indexOf(document.location.hostname) === -1) {
+                                var remark_config = {
+                                    host: 'https://comments.mwum.com',
+                                    site_id: 'mwum',
+                                    locale: 'zh',
+                                    no_footer: true,
+                                }
+                                !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+                            }
+                        </script>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+                            <a rel="next prefetch" href="homebrew/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
             </div>
 
-            
-                
-                
-                <a href="firefox/" class="navigation navigation-next navigation-unique" aria-label="Next page: Firefox - 浏览器">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-                
-            
-        
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+                    <a rel="next prefetch" href="homebrew/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
     </div>
-
-    <script>
-        var gitbook = gitbook || [];
-        gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"介绍","level":"1.1","depth":1,"next":{"title":"Firefox - 浏览器","level":"1.2","depth":1,"path":"firefox/README.md","ref":"firefox/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"mwum"},"ga":{"configuration":"auto","token":"UA-39279084-1"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sidebar":{"明无梦的博客":"https://www.dreamxu.com/"},"sharing":{"google":false,"facebook":false,"twitter":false,"weibo":false,"all":true}},"gitbook":"*"},"file":{"path":"README.md","mtime":"2016-03-27T06:38:23.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-07T05:26:07.284Z"},"basePath":".","book":{"language":""}});
-        });
-    </script>
-</div>
-
-        
-    <script src="gitbook/gitbook.js"></script>
-    <script src="gitbook/theme.js"></script>
-    
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
-        
-    
-        
-        <script src="gitbook/gitbook-plugin-disqus/plugin.js"></script>
-        
-    
-        
-        <script src="gitbook/gitbook-plugin-ga/plugin.js"></script>
-        
-    
-        
-        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
-        
-    
-        
-        <script src="gitbook/gitbook-plugin-search/search.js"></script>
-        
-    
-        
-        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
-        
-    
-        
-        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
-        
-    
-        
-        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
-        
-    
-        
-        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
-        
-    
-
     </body>
 </html>
-

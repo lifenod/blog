@@ -1,657 +1,265 @@
-
 <!DOCTYPE HTML>
-<html lang="" >
+<html lang="zh-CN" class="light" dir="ltr">
     <head>
+        <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>快捷键 · GitBook</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>快捷键 - 明无梦的 Vim 使用记录</title>
+
+
+        <!-- Custom HTML head -->
+        
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.3">
-        
-        
-        
-    
-    <link rel="stylesheet" href="../gitbook/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
 
-    
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
-                
-            
-        
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
 
-    
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
 
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
 
-        
-    
-    
-    <meta name="HandheldFriendly" content="true"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
-    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/custom.css">
 
-    
-    <link rel="next" href="custom.html" />
-    
-    
-    <link rel="prev" href="../configure/map.html" />
-    
 
+        <script>
+            var localAddrs = ["localhost", "127.0.0.1", ""];
+            if (localAddrs.indexOf(document.location.hostname) === -1) {
+                  var script = document.createElement('script');
+                  script.async = true;
+                  script.src = 'https://www.googletagmanager.com/gtag/js?id=G-XNJSCC1KSF';
+                  document.head.appendChild(script);
+
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+
+                  gtag('config', 'G-XNJSCC1KSF');
+            }
+        </script>
     </head>
-    <body>
-        
-<div class="book">
-    <div class="book-summary">
-        
-            
-<div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search" />
-</div>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
 
-            
-                <nav role="navigation">
-                
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
 
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
 
-<ul class="summary">
-    
-    
-    
-        
-        <li>
-            <a href="https://www.dreamxu.com/" target="_blank" class="custom-link">明无梦的博客</a>
-        </li>
-    
-    
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
 
-    
-    <li class="divider"></li>
-    
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
 
-    
-        
-        
-    
-        <li class="chapter " data-level="1.1" data-path="../">
-            
-                <a href="../">
-            
-                    
-                    简介
-            
-                </a>
-            
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2" data-path="../study/">
-            
-                <a href="../study/">
-            
-                    
-                    学习
-            
-                </a>
-            
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
 
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3" data-path="../resources/">
-            
-                <a href="../resources/">
-            
-                    
-                    资源
-            
-                </a>
-            
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">简介</a></li><li class="chapter-item expanded "><a href="../study/index.html"><strong aria-hidden="true">1.</strong> 学习</a></li><li class="chapter-item expanded "><a href="../resources/index.html"><strong aria-hidden="true">2.</strong> 资源</a></li><li class="chapter-item expanded "><a href="../install/index.html"><strong aria-hidden="true">3.</strong> 安装</a></li><li class="chapter-item expanded "><a href="../configure/index.html"><strong aria-hidden="true">4.</strong> 配置</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../configure/map.html"><strong aria-hidden="true">4.1.</strong> 键盘映射</a></li></ol></li><li class="chapter-item expanded "><a href="../shortcuts/index.html" class="active"><strong aria-hidden="true">5.</strong> 快捷键</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../shortcuts/custom.html"><strong aria-hidden="true">5.1.</strong> 自定义</a></li><li class="chapter-item expanded "><a href="../shortcuts/find.html"><strong aria-hidden="true">5.2.</strong> 查找</a></li><li class="chapter-item expanded "><a href="../shortcuts/edit.html"><strong aria-hidden="true">5.3.</strong> 编辑</a></li><li class="chapter-item expanded "><a href="../shortcuts/fold.html"><strong aria-hidden="true">5.4.</strong> 折叠</a></li><li class="chapter-item expanded "><a href="../shortcuts/jump.html"><strong aria-hidden="true">5.5.</strong> 跳转</a></li><li class="chapter-item expanded "><a href="../shortcuts/window.html"><strong aria-hidden="true">5.6.</strong> 窗口</a></li></ol></li><li class="chapter-item expanded "><a href="../plugin/index.html"><strong aria-hidden="true">6.</strong> 插件</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../plugin/shortcuts.html"><strong aria-hidden="true">6.1.</strong> 插件快捷键汇总</a></li><li class="chapter-item expanded "><a href="../plugin/vundle.html"><strong aria-hidden="true">6.2.</strong> 插件管理 (Vundle)</a></li><li class="chapter-item expanded "><a href="../plugin/youcompleteme.html"><strong aria-hidden="true">6.3.</strong> 自动补全 (YouCompleteMe</a></li><li class="chapter-item expanded "><a href="../plugin/ultisnips.html"><strong aria-hidden="true">6.4.</strong> 代码片段 (UltiSnips)</a></li><li class="chapter-item expanded "><a href="../plugin/ctrlp.html"><strong aria-hidden="true">6.5.</strong> 文件查找 (CtrlP)</a></li><li class="chapter-item expanded "><a href="../plugin/vim-airline.html"><strong aria-hidden="true">6.6.</strong> 状态栏 (vim-airline)</a></li><li class="chapter-item expanded "><a href="../plugin/syntastic.html"><strong aria-hidden="true">6.7.</strong> 代码检查 (Syntastic)</a></li><li class="chapter-item expanded "><a href="../plugin/nerdcommenter.html"><strong aria-hidden="true">6.8.</strong> 批量注释 (NERD Commenter)</a></li><li class="chapter-item expanded "><a href="../plugin/vim-easymotion.html"><strong aria-hidden="true">6.9.</strong> 快速移动 (vim-easymotion)</a></li><li class="chapter-item expanded "><a href="../plugin/nerdtree.html"><strong aria-hidden="true">6.10.</strong> 显示目录 (The NERD Tree)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../plugin/nerdtree-git-plugin.html"><strong aria-hidden="true">6.10.1.</strong> nerdtree-git-plugin</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.11.</strong> Golang</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../plugin/golang/gocode.html"><strong aria-hidden="true">6.11.1.</strong> gocode</a></li><li class="chapter-item expanded "><a href="../plugin/golang/vim-go.html"><strong aria-hidden="true">6.11.2.</strong> vim-go</a></li></ol></li><li class="chapter-item expanded "><a href="../plugin/to-be-used.html"><strong aria-hidden="true">6.12.</strong> 待使用</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
 
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4" data-path="../install/">
-            
-                <a href="../install/">
-            
-                    
-                    安装
-            
-                </a>
-            
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
 
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5" data-path="../configure/">
-            
-                <a href="../configure/">
-            
-                    
-                    配置
-            
-                </a>
-            
+        <div id="page-wrapper" class="page-wrapper">
 
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.5.1" data-path="../configure/map.html">
-            
-                <a href="../configure/map.html">
-            
-                    
-                    键盘映射
-            
-                </a>
-            
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
 
-            
-        </li>
-    
+                    <h1 class="menu-title">明无梦的 Vim 使用记录</h1>
 
-            </ul>
-            
-        </li>
-    
-        <li class="chapter active" data-level="1.6" data-path="./">
-            
-                <a href="./">
-            
-                    
-                    快捷键
-            
-                </a>
-            
+                    <div class="right-buttons">
 
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.6.1" data-path="custom.html">
-            
-                <a href="custom.html">
-            
-                    
-                    自定义
-            
-                </a>
-            
+                        <a href="https://www.mwum.com" target="_blank" rel="noopener noreferrer"><i id="home-button" class="fa fa-home"></i></a>
+                    </div>
+                </div>
 
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.2" data-path="find.html">
-            
-                <a href="find.html">
-            
-                    
-                    查找
-            
-                </a>
-            
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
 
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.3" data-path="edit.html">
-            
-                <a href="edit.html">
-            
-                    
-                    编辑
-            
-                </a>
-            
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
 
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.4" data-path="fold.html">
-            
-                <a href="fold.html">
-            
-                    
-                    折叠
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.5" data-path="jump.html">
-            
-                <a href="jump.html">
-            
-                    
-                    跳转
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.6" data-path="window.html">
-            
-                <a href="window.html">
-            
-                    
-                    窗口
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7" data-path="../plugin/">
-            
-                <a href="../plugin/">
-            
-                    
-                    插件
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.7.1" data-path="../plugin/shortcuts.html">
-            
-                <a href="../plugin/shortcuts.html">
-            
-                    
-                    插件快捷键汇总
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.2" data-path="../plugin/vundle.html">
-            
-                <a href="../plugin/vundle.html">
-            
-                    
-                    插件管理 (Vundle)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.3" data-path="../plugin/youcompleteme.html">
-            
-                <a href="../plugin/youcompleteme.html">
-            
-                    
-                    自动补全 (YouCompleteMe
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.4" data-path="../plugin/ultisnips.html">
-            
-                <a href="../plugin/ultisnips.html">
-            
-                    
-                    代码片段 (UltiSnips)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.5" data-path="../plugin/ctrlp.html">
-            
-                <a href="../plugin/ctrlp.html">
-            
-                    
-                    文件查找 (CtrlP)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.6" data-path="../plugin/vim-airline.html">
-            
-                <a href="../plugin/vim-airline.html">
-            
-                    
-                    状态栏 (vim-airline)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.7" data-path="../plugin/syntastic.html">
-            
-                <a href="../plugin/syntastic.html">
-            
-                    
-                    代码检查 (Syntastic)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.8" data-path="../plugin/nerdcommenter.html">
-            
-                <a href="../plugin/nerdcommenter.html">
-            
-                    
-                    批量注释 (NERD Commenter)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.9" data-path="../plugin/vim-easymotion.html">
-            
-                <a href="../plugin/vim-easymotion.html">
-            
-                    
-                    快速移动 (vim-easymotion)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.10" data-path="../plugin/nerdtree.html">
-            
-                <a href="../plugin/nerdtree.html">
-            
-                    
-                    显示目录 (The NERD Tree)
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.7.10.1" data-path="../plugin/nerdtree-git-plugin.html">
-            
-                <a href="../plugin/nerdtree-git-plugin.html">
-            
-                    
-                    nerdtree-git-plugin
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.11" >
-            
-                <span>
-            
-                    
-                    Golang
-            
-                </span>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.7.11.1" data-path="../plugin/golang/gocode.html">
-            
-                <a href="../plugin/golang/gocode.html">
-            
-                    
-                    gocode
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.11.2" data-path="../plugin/golang/vim-go.html">
-            
-                <a href="../plugin/golang/vim-go.html">
-            
-                    
-                    vim-go
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.12" data-path="../plugin/to-be-used.html">
-            
-                <a href="../plugin/to-be-used.html">
-            
-                    
-                    待使用
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-
-    <li class="divider"></li>
-
-    <li>
-        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Published with GitBook
-        </a>
-    </li>
-</ul>
-
-
-                </nav>
-            
-        
-    </div>
-
-    <div class="book-body">
-        
-            <div class="body-inner">
-                
-                    
-
-<div class="book-header" role="navigation">
-    
-
-    <!-- Title -->
-    <h1>
-        <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >快捷键</a>
-    </h1>
-</div>
-
-
-
-
-                    <div class="page-wrapper" tabindex="-1" role="main">
-                        <div class="page-inner">
-                            
-<div id="book-search-results">
-    <div class="search-noresults">
-    
-                                <section class="normal markdown-section">
-                                
-                                <h1 id="&#x5FEB;&#x6377;&#x952E;">&#x5FEB;&#x6377;&#x952E;</h1>
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="快捷键"><a class="header" href="#快捷键">快捷键</a></h1>
 <p>2014-00-00</p>
-<hr>
-<h2 id="&#x67E5;&#x770B;&#x5FEB;&#x6377;&#x952E;&#x5E2E;&#x52A9;">&#x67E5;&#x770B;&#x5FEB;&#x6377;&#x952E;&#x5E2E;&#x52A9;</h2>
-<p>&#x6709;&#x4E24;&#x79CD;&#x60C5;&#x51B5;&#xFF1A;</p>
+<hr />
+<h2 id="查看快捷键帮助"><a class="header" href="#查看快捷键帮助">查看快捷键帮助</a></h2>
+<p>有两种情况：</p>
 <ol>
-<li>vim &#x9ED8;&#x8BA4;&#x7684;&#x5FEB;&#x6377;&#x952E;&#xFF0C;&#x53EF;&#x901A;&#x8FC7; <code>:help c-r</code> &#x7C7B;&#x4F3C;&#x7684;&#x547D;&#x4EE4;&#x67E5;&#x770B;</li>
-<li>&#x901A;&#x8FC7; map &#x5B9A;&#x4E49;&#x7684;&#x5FEB;&#x6377;&#x952E;&#xFF0C;&#x53EF;&#x901A;&#x8FC7; <code>:map ,jd</code> &#x7C7B;&#x4F3C;&#x7684;&#x547D;&#x4EE4;&#x67E5;&#x770B;</li>
+<li>vim 默认的快捷键，可通过 <code>:help c-r</code> 类似的命令查看</li>
+<li>通过 map 定义的快捷键，可通过 <code>:map ,jd</code> 类似的命令查看</li>
 </ol>
 
-                                
-                                </section>
-                            
-    </div>
-    <div class="search-results">
-        <div class="has-results">
-            
-            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
-            <ul class="search-results-list"></ul>
-            
-        </div>
-        <div class="no-results">
-            
-            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
-            
-        </div>
-    </div>
-</div>
 
-                        </div>
-                    </div>
-                
+                        <br>
+                        <div id="remark42"></div>
+                        <script>
+                            var localAddrs = ["localhost", "127.0.0.1", ""];
+                            if (localAddrs.indexOf(document.location.hostname) === -1) {
+                                var remark_config = {
+                                    host: 'https://comments.mwum.com',
+                                    site_id: 'mwum',
+                                    locale: 'zh',
+                                    no_footer: true,
+                                }
+                                !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+                            }
+                        </script>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../configure/map.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../shortcuts/custom.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
             </div>
 
-            
-                
-                <a href="../configure/map.html" class="navigation navigation-prev " aria-label="Previous page: 键盘映射">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                
-                
-                <a href="custom.html" class="navigation navigation-next " aria-label="Next page: 自定义">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-                
-            
-        
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../configure/map.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../shortcuts/custom.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
     </div>
-
-    <script>
-        var gitbook = gitbook || [];
-        gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"快捷键","level":"1.6","depth":1,"next":{"title":"自定义","level":"1.6.1","depth":2,"path":"shortcuts/custom.md","ref":"shortcuts/custom.md","articles":[]},"previous":{"title":"键盘映射","level":"1.5.1","depth":2,"path":"configure/map.md","ref":"configure/map.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"mwum"},"ga":{"configuration":"auto","token":"UA-39279084-1"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sidebar":{"明无梦的博客":"https://www.dreamxu.com/"},"sharing":{"google":false,"facebook":false,"twitter":false,"weibo":false,"all":true}},"gitbook":"*"},"file":{"path":"shortcuts/README.md","mtime":"2016-01-28T05:10:11.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-04T17:57:25.969Z"},"basePath":"..","book":{"language":""}});
-        });
-    </script>
-</div>
-
-        
-    <script src="../gitbook/gitbook.js"></script>
-    <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
-        
-    
-
     </body>
 </html>
-

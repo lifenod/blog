@@ -1,1125 +1,549 @@
-
 <!DOCTYPE HTML>
-<html lang="" >
+<html lang="zh-CN" class="light" dir="ltr">
     <head>
+        <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>相关结构与函数 · GitBook</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>相关结构与函数 - 明无梦的 C 语言记录与心得</title>
+
+
+        <!-- Custom HTML head -->
+        
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.3">
-        
-        
-        
-    
-    <link rel="stylesheet" href="../gitbook/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
 
-    
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
-                
-            
-        
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
 
-    
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
 
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
 
-        
-    
-    
-    <meta name="HandheldFriendly" content="true"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
-    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/custom.css">
 
-    
-    <link rel="next" href="../manage/" />
-    
-    
-    <link rel="prev" href="tcp-connection-establishment-and-termination.html" />
-    
 
+        <script>
+            var localAddrs = ["localhost", "127.0.0.1", ""];
+            if (localAddrs.indexOf(document.location.hostname) === -1) {
+                  var script = document.createElement('script');
+                  script.async = true;
+                  script.src = 'https://www.googletagmanager.com/gtag/js?id=G-XNJSCC1KSF';
+                  document.head.appendChild(script);
+
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+
+                  gtag('config', 'G-XNJSCC1KSF');
+            }
+        </script>
     </head>
-    <body>
-        
-<div class="book">
-    <div class="book-summary">
-        
-            
-<div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search" />
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">简介</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> 语言</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../language/others.html"><strong aria-hidden="true">1.1.</strong> 其它</a></li><li class="chapter-item expanded "><a href="../language/extern.html"><strong aria-hidden="true">1.2.</strong> extern</a></li><li class="chapter-item expanded "><a href="../language/static.html"><strong aria-hidden="true">1.3.</strong> static</a></li><li class="chapter-item expanded "><a href="../language/header-file.html"><strong aria-hidden="true">1.4.</strong> 头文件 (header file)</a></li><li class="chapter-item expanded "><a href="../language/basic-types.html"><strong aria-hidden="true">1.5.</strong> 基本类型</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 库 (Library)</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../lib/general.html"><strong aria-hidden="true">2.1.</strong> General</a></li><li class="chapter-item expanded "><a href="../lib/c-standard-library.html"><strong aria-hidden="true">2.2.</strong> C 标准库 (C standard library)</a></li><li class="chapter-item expanded "><a href="../lib/static-library.html"><strong aria-hidden="true">2.3.</strong> 静态库 (Static library)</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Tips</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tips/code-snippet.html"><strong aria-hidden="true">3.1.</strong> 代码片段</a></li><li class="chapter-item expanded "><a href="../tips/macro-definition.html"><strong aria-hidden="true">3.2.</strong> 宏定义</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> 文件 I/O</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../file/reading-and-writing.html"><strong aria-hidden="true">4.1.</strong> 读写方式</a></li><li class="chapter-item expanded "><a href="../file/read-numerical-data.html"><strong aria-hidden="true">4.2.</strong> 读取数值型数据</a></li></ol></li><li class="chapter-item expanded "><a href="../process/index.html"><strong aria-hidden="true">5.</strong> 进程</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../process/command-line-arguments.html"><strong aria-hidden="true">5.1.</strong> 命令行参数</a></li><li class="chapter-item expanded "><a href="../process/process-termination.html"><strong aria-hidden="true">5.2.</strong> 进程终止</a></li><li class="chapter-item expanded "><a href="../process/process-control.html"><strong aria-hidden="true">5.3.</strong> 进程控制</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> 套接字</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../socket/osi.html"><strong aria-hidden="true">6.1.</strong> OSI 模型</a></li><li class="chapter-item expanded "><a href="../socket/tcp-connection-establishment-and-termination.html"><strong aria-hidden="true">6.2.</strong> TCP 连接的建立和终止</a></li><li class="chapter-item expanded "><a href="../socket/structures-and-functions.html" class="active"><strong aria-hidden="true">6.3.</strong> 相关结构与函数</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.</strong> 管理</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../manage/make.html"><strong aria-hidden="true">7.1.</strong> Make</a></li><li class="chapter-item expanded "><a href="../manage/cmake.html"><strong aria-hidden="true">7.2.</strong> CMake</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.</strong> 测试</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../test/minunit.html"><strong aria-hidden="true">8.1.</strong> MinUnit</a></li><li class="chapter-item expanded "><a href="../test/cmockery.html"><strong aria-hidden="true">8.2.</strong> Cmockery</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">9.</strong> 编译</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../compile/clang.html"><strong aria-hidden="true">9.1.</strong> clang</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">10.</strong> 库</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../library/gmp.html"><strong aria-hidden="true">10.1.</strong> GMP</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">11.</strong> Linux</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../linux/kernel-modules.html"><strong aria-hidden="true">11.1.</strong> 简单内核模块编写</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">明无梦的 C 语言记录与心得</h1>
+
+                    <div class="right-buttons">
+
+                        <a href="https://www.mwum.com" target="_blank" rel="noopener noreferrer"><i id="home-button" class="fa fa-home"></i></a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="相关结构与函数"><a class="header" href="#相关结构与函数">相关结构与函数</a></h1>
+<pre><code class="language-c">struct in_addr {
+    in_addr_t   s_addr;             /* normally uint32_t */
+                                    /* network byte ordered */
+};
+
+struct sockaddr_in {
+    uint8_t         sin_len;        /* length of structure (16) */
+    sa_family_t     sin_family;     /* AF_INET, normally uint8_t */
+    in_port_t       sin_port;       /* 16-bit TCP or UDP port number */
+                                    /* network byte ordered */
+    struct in_addr  sin_addr;       /* 32-bit IPv4 address */
+                                    /* network byte ordered */
+    char            sin_zero[8];    /* unused */
+};
+</code></pre>
+<p>POSIX 规范要求的数据类型：</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">数据类型</th><th style="text-align: left">说明</th><th style="text-align: left">头文件</th></tr></thead><tbody>
+<tr><td style="text-align: left"><code>int8_t</code></td><td style="text-align: left">带符号的 8 位整数</td><td style="text-align: left"><code>&lt;sys/types.h&gt;</code></td></tr>
+<tr><td style="text-align: left"><code>unit8_t</code></td><td style="text-align: left">无符号的 8 位整数</td><td style="text-align: left"><code>&lt;sys/types.h&gt;</code></td></tr>
+<tr><td style="text-align: left"><code>int16_t</code></td><td style="text-align: left">带符号的 16 位整数</td><td style="text-align: left"><code>&lt;sys/types.h&gt;</code></td></tr>
+<tr><td style="text-align: left"><code>uint16_t</code></td><td style="text-align: left">无符号的 16 位整数</td><td style="text-align: left"><code>&lt;sys/types.h&gt;</code></td></tr>
+<tr><td style="text-align: left"><code>int32_t</code></td><td style="text-align: left">带符号的 32 位整数</td><td style="text-align: left"><code>&lt;sys/types.h&gt;</code></td></tr>
+<tr><td style="text-align: left"><code>uint32_t</code></td><td style="text-align: left">无符号的 32 位整数</td><td style="text-align: left"><code>&lt;sys/types.h&gt;</code></td></tr>
+<tr><td style="text-align: left"><code>sa_family_t</code></td><td style="text-align: left">套接字地址结构的地址族</td><td style="text-align: left"><code>&lt;sys/socket.h&gt;</code></td></tr>
+<tr><td style="text-align: left"><code>in_addr_t</code></td><td style="text-align: left">IPv4 地址，一般为 <code>uint32_t</code></td><td style="text-align: left"><code>&lt;netinet/in.h&gt;</code></td></tr>
+<tr><td style="text-align: left"><code>in_port_t</code></td><td style="text-align: left">TCP 或 UDP 端口，一般为 <code>uint16_t</code></td><td style="text-align: left"><code>&lt;netinet/in.h&gt;</code></td></tr>
+</tbody></table>
 </div>
-
-            
-                <nav role="navigation">
-                
-
-
-<ul class="summary">
-    
-    
-    
-        
-        <li>
-            <a href="https://www.dreamxu.com/" target="_blank" class="custom-link">明无梦的博客</a>
-        </li>
-    
-    
-
-    
-    <li class="divider"></li>
-    
-
-    
-        
-        
-    
-        <li class="chapter " data-level="1.1" data-path="../">
-            
-                <a href="../">
-            
-                    
-                    简介
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2" data-path="../language/">
-            
-                <a href="../language/">
-            
-                    
-                    语言
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.2.1" data-path="../language/others.html">
-            
-                <a href="../language/others.html">
-            
-                    
-                    其它
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.2" data-path="../language/extern.html">
-            
-                <a href="../language/extern.html">
-            
-                    
-                    extern
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.3" data-path="../language/static.html">
-            
-                <a href="../language/static.html">
-            
-                    
-                    static
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.4" data-path="../language/header-file.html">
-            
-                <a href="../language/header-file.html">
-            
-                    
-                    头文件 (header file)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.5" data-path="../language/basic-types.html">
-            
-                <a href="../language/basic-types.html">
-            
-                    
-                    基本类型
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3" data-path="../lib/">
-            
-                <a href="../lib/">
-            
-                    
-                    库 (Library)
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.3.1" data-path="../lib/general.html">
-            
-                <a href="../lib/general.html">
-            
-                    
-                    General
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.2" data-path="../lib/c-standard-library.html">
-            
-                <a href="../lib/c-standard-library.html">
-            
-                    
-                    C 标准库 (C standard library)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.3" data-path="../lib/static-library.html">
-            
-                <a href="../lib/static-library.html">
-            
-                    
-                    静态库 (Static library)
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4" data-path="../tips/">
-            
-                <a href="../tips/">
-            
-                    
-                    Tips
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.4.1" data-path="../tips/code-snippet.html">
-            
-                <a href="../tips/code-snippet.html">
-            
-                    
-                    代码片段
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.2" data-path="../tips/macro-definition.html">
-            
-                <a href="../tips/macro-definition.html">
-            
-                    
-                    宏定义
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5" data-path="../file/">
-            
-                <a href="../file/">
-            
-                    
-                    文件 I/O
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.5.1" data-path="../file/reading-and-writing.html">
-            
-                <a href="../file/reading-and-writing.html">
-            
-                    
-                    读写方式
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.2" data-path="../file/read-numerical-data.html">
-            
-                <a href="../file/read-numerical-data.html">
-            
-                    
-                    读取数值型数据
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6" data-path="../process/">
-            
-                <a href="../process/">
-            
-                    
-                    进程
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.6.1" data-path="../process/command-line-arguments.html">
-            
-                <a href="../process/command-line-arguments.html">
-            
-                    
-                    命令行参数
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.2" data-path="../process/process-termination.html">
-            
-                <a href="../process/process-termination.html">
-            
-                    
-                    进程终止
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.3" data-path="../process/process-control.html">
-            
-                <a href="../process/process-control.html">
-            
-                    
-                    进程控制
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7" data-path="./">
-            
-                <a href="./">
-            
-                    
-                    套接字
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.7.1" data-path="osi.html">
-            
-                <a href="osi.html">
-            
-                    
-                    OSI 模型
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.2" data-path="tcp-connection-establishment-and-termination.html">
-            
-                <a href="tcp-connection-establishment-and-termination.html">
-            
-                    
-                    TCP 连接的建立和终止
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter active" data-level="1.7.3" data-path="structures-and-functions.html">
-            
-                <a href="structures-and-functions.html">
-            
-                    
-                    相关结构与函数
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8" data-path="../manage/">
-            
-                <a href="../manage/">
-            
-                    
-                    管理
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.8.1" data-path="../manage/make.html">
-            
-                <a href="../manage/make.html">
-            
-                    
-                    Make
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.2" data-path="../manage/cmake.html">
-            
-                <a href="../manage/cmake.html">
-            
-                    
-                    CMake
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.9" data-path="../test/">
-            
-                <a href="../test/">
-            
-                    
-                    测试
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.9.1" data-path="../test/minunit.html">
-            
-                <a href="../test/minunit.html">
-            
-                    
-                    MinUnit
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.9.2" data-path="../test/cmockery.html">
-            
-                <a href="../test/cmockery.html">
-            
-                    
-                    Cmockery
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10" data-path="../compile/">
-            
-                <a href="../compile/">
-            
-                    
-                    编译
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.10.1" data-path="../compile/clang.html">
-            
-                <a href="../compile/clang.html">
-            
-                    
-                    clang
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11" data-path="../library/">
-            
-                <a href="../library/">
-            
-                    
-                    库
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.11.1" data-path="../library/gmp.html">
-            
-                <a href="../library/gmp.html">
-            
-                    
-                    GMP
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.12" data-path="../linux/">
-            
-                <a href="../linux/">
-            
-                    
-                    Linux
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.12.1" data-path="../linux/kernel-modules.html">
-            
-                <a href="../linux/kernel-modules.html">
-            
-                    
-                    简单内核模块编写
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-
-    <li class="divider"></li>
-
-    <li>
-        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Published with GitBook
-        </a>
-    </li>
-</ul>
-
-
-                </nav>
-            
-        
-    </div>
-
-    <div class="book-body">
-        
-            <div class="body-inner">
-                
-                    
-
-<div class="book-header" role="navigation">
-    
-
-    <!-- Title -->
-    <h1>
-        <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >相关结构与函数</a>
-    </h1>
-</div>
-
-
-
-
-                    <div class="page-wrapper" tabindex="-1" role="main">
-                        <div class="page-inner">
-                            
-<div id="book-search-results">
-    <div class="search-noresults">
-    
-                                <section class="normal markdown-section">
-                                
-                                <h1 id="&#x76F8;&#x5173;&#x7ED3;&#x6784;&#x4E0E;&#x51FD;&#x6570;">&#x76F8;&#x5173;&#x7ED3;&#x6784;&#x4E0E;&#x51FD;&#x6570;</h1>
-<pre><code class="lang-c"><span class="hljs-keyword">struct</span> in_addr {
-    <span class="hljs-keyword">in_addr_t</span>   s_addr;             <span class="hljs-comment">/* normally uint32_t */</span>
-                                    <span class="hljs-comment">/* network byte ordered */</span>
-};
-
-<span class="hljs-keyword">struct</span> sockaddr_in {
-    <span class="hljs-keyword">uint8_t</span>         sin_len;        <span class="hljs-comment">/* length of structure (16) */</span>
-    <span class="hljs-keyword">sa_family_t</span>     sin_family;     <span class="hljs-comment">/* AF_INET, normally uint8_t */</span>
-    <span class="hljs-keyword">in_port_t</span>       sin_port;       <span class="hljs-comment">/* 16-bit TCP or UDP port number */</span>
-                                    <span class="hljs-comment">/* network byte ordered */</span>
-    <span class="hljs-keyword">struct</span> in_addr  sin_addr;       <span class="hljs-comment">/* 32-bit IPv4 address */</span>
-                                    <span class="hljs-comment">/* network byte ordered */</span>
-    <span class="hljs-keyword">char</span>            sin_zero[<span class="hljs-number">8</span>];    <span class="hljs-comment">/* unused */</span>
+<h2 id="通用套接字地址结构"><a class="header" href="#通用套接字地址结构">通用套接字地址结构</a></h2>
+<pre><code class="language-c">#include &lt;sys/socket.h&gt;
+
+struct sockaddr {
+    uint8_t         sa_len;
+    sa_family_t     sa_family;      /* address family: AF_xxx value */
+    char            sa_data[14];    /* protocol-specific address */
 };
 </code></pre>
-<p>POSIX &#x89C4;&#x8303;&#x8981;&#x6C42;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF1A;</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">&#x6570;&#x636E;&#x7C7B;&#x578B;</th>
-<th style="text-align:left">&#x8BF4;&#x660E;</th>
-<th style="text-align:left">&#x5934;&#x6587;&#x4EF6;</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><code>int8_t</code></td>
-<td style="text-align:left">&#x5E26;&#x7B26;&#x53F7;&#x7684; 8 &#x4F4D;&#x6574;&#x6570;</td>
-<td style="text-align:left"><code>&lt;sys/types.h&gt;</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><code>unit8_t</code></td>
-<td style="text-align:left">&#x65E0;&#x7B26;&#x53F7;&#x7684; 8 &#x4F4D;&#x6574;&#x6570;</td>
-<td style="text-align:left"><code>&lt;sys/types.h&gt;</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><code>int16_t</code></td>
-<td style="text-align:left">&#x5E26;&#x7B26;&#x53F7;&#x7684; 16 &#x4F4D;&#x6574;&#x6570;</td>
-<td style="text-align:left"><code>&lt;sys/types.h&gt;</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><code>uint16_t</code></td>
-<td style="text-align:left">&#x65E0;&#x7B26;&#x53F7;&#x7684; 16 &#x4F4D;&#x6574;&#x6570;</td>
-<td style="text-align:left"><code>&lt;sys/types.h&gt;</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><code>int32_t</code></td>
-<td style="text-align:left">&#x5E26;&#x7B26;&#x53F7;&#x7684; 32 &#x4F4D;&#x6574;&#x6570;</td>
-<td style="text-align:left"><code>&lt;sys/types.h&gt;</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><code>uint32_t</code></td>
-<td style="text-align:left">&#x65E0;&#x7B26;&#x53F7;&#x7684; 32 &#x4F4D;&#x6574;&#x6570;</td>
-<td style="text-align:left"><code>&lt;sys/types.h&gt;</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><code>sa_family_t</code></td>
-<td style="text-align:left">&#x5957;&#x63A5;&#x5B57;&#x5730;&#x5740;&#x7ED3;&#x6784;&#x7684;&#x5730;&#x5740;&#x65CF;</td>
-<td style="text-align:left"><code>&lt;sys/socket.h&gt;</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><code>in_addr_t</code></td>
-<td style="text-align:left">IPv4 &#x5730;&#x5740;&#xFF0C;&#x4E00;&#x822C;&#x4E3A; <code>uint32_t</code></td>
-<td style="text-align:left"><code>&lt;netinet/in.h&gt;</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><code>in_port_t</code></td>
-<td style="text-align:left">TCP &#x6216; UDP &#x7AEF;&#x53E3;&#xFF0C;&#x4E00;&#x822C;&#x4E3A; <code>uint16_t</code></td>
-<td style="text-align:left"><code>&lt;netinet/in.h&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<h2 id="&#x901A;&#x7528;&#x5957;&#x63A5;&#x5B57;&#x5730;&#x5740;&#x7ED3;&#x6784;">&#x901A;&#x7528;&#x5957;&#x63A5;&#x5B57;&#x5730;&#x5740;&#x7ED3;&#x6784;</h2>
-<pre><code class="lang-c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;sys/socket.h&gt;</span></span>
+<p>任何套接字函数必须处理来自所支持的任何协议族的套接字地址结构，
+在 1982 年所采取的办法是定义通用套接字地址结构，具体方法如下：</p>
+<pre><code class="language-c">struct sockaddr_in serv;        /* IPv4 socket address structure */
 
-<span class="hljs-keyword">struct</span> sockaddr {
-    <span class="hljs-keyword">uint8_t</span>         sa_len;
-    <span class="hljs-keyword">sa_family_t</span>     sa_family;      <span class="hljs-comment">/* address family: AF_xxx value */</span>
-    <span class="hljs-keyword">char</span>            sa_data[<span class="hljs-number">14</span>];    <span class="hljs-comment">/* protocol-specific address */</span>
-};
+/* fill in serv{} */
+
+bind(sockfd, (struct sockaddr *)&amp;serv, sizeof(serv));
 </code></pre>
-<p>&#x4EFB;&#x4F55;&#x5957;&#x63A5;&#x5B57;&#x51FD;&#x6570;&#x5FC5;&#x987B;&#x5904;&#x7406;&#x6765;&#x81EA;&#x6240;&#x652F;&#x6301;&#x7684;&#x4EFB;&#x4F55;&#x534F;&#x8BAE;&#x65CF;&#x7684;&#x5957;&#x63A5;&#x5B57;&#x5730;&#x5740;&#x7ED3;&#x6784;&#xFF0C;
-&#x5728; 1982 &#x5E74;&#x6240;&#x91C7;&#x53D6;&#x7684;&#x529E;&#x6CD5;&#x662F;&#x5B9A;&#x4E49;&#x901A;&#x7528;&#x5957;&#x63A5;&#x5B57;&#x5730;&#x5740;&#x7ED3;&#x6784;&#xFF0C;&#x5177;&#x4F53;&#x65B9;&#x6CD5;&#x5982;&#x4E0B;&#xFF1A;</p>
-<pre><code class="lang-c"><span class="hljs-keyword">struct</span> sockaddr_in serv;        <span class="hljs-comment">/* IPv4 socket address structure */</span>
+<p>其实还可以使用通用的指针类型 <code>void *</code> 来解决这个问题，
+但是套接字函数是在这个方法之前定义的</p>
+<h2 id="ipv6-套接字地址结构"><a class="header" href="#ipv6-套接字地址结构">IPv6 套接字地址结构</a></h2>
+<pre><code class="language-c">#include &lt;netinet/in.h&gt;
 
-<span class="hljs-comment">/* fill in serv{} */</span>
-
-bind(sockfd, (<span class="hljs-keyword">struct</span> sockaddr *)&amp;serv, <span class="hljs-keyword">sizeof</span>(serv));
-</code></pre>
-<p>&#x5176;&#x5B9E;&#x8FD8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x901A;&#x7528;&#x7684;&#x6307;&#x9488;&#x7C7B;&#x578B; <code>void *</code> &#x6765;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;
-&#x4F46;&#x662F;&#x5957;&#x63A5;&#x5B57;&#x51FD;&#x6570;&#x662F;&#x5728;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x4E4B;&#x524D;&#x5B9A;&#x4E49;&#x7684;</p>
-<h2 id="ipv6-&#x5957;&#x63A5;&#x5B57;&#x5730;&#x5740;&#x7ED3;&#x6784;">IPv6 &#x5957;&#x63A5;&#x5B57;&#x5730;&#x5740;&#x7ED3;&#x6784;</h2>
-<pre><code class="lang-c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;netinet/in.h&gt;</span></span>
-
-<span class="hljs-keyword">struct</span> in6_addr {
-    <span class="hljs-keyword">unit8_t</span>     s6_addr[<span class="hljs-number">16</span>]             <span class="hljs-comment">/* 128-bit IPv6 address */</span>
-                                        <span class="hljs-comment">/* network byte ordered */</span>
+struct in6_addr {
+    unit8_t     s6_addr[16]             /* 128-bit IPv6 address */
+                                        /* network byte ordered */
 };
 
-<span class="hljs-comment">/* required for compile-time tests */</span>
-<span class="hljs-meta">#deffine SIN6_LEN</span>
+/* required for compile-time tests */
+#deffine SIN6_LEN
 
-<span class="hljs-keyword">struct</span> sockaddr_in6 {
-    <span class="hljs-keyword">uint8_t</span>             sin6_len;       <span class="hljs-comment">/* length of this struct (28) */</span>
-    <span class="hljs-keyword">as_family_t</span>         sin6_family;    <span class="hljs-comment">/* AF_INET6 */</span>
-    <span class="hljs-keyword">in_port_t</span>           sin6_port;      <span class="hljs-comment">/* transport layer port */</span>
-    <span class="hljs-keyword">uint32_t</span>            sin6_flowinfo;  <span class="hljs-comment">/* flow information, undefined */</span>
-    <span class="hljs-keyword">struct</span> in6_addr     sin6_addr;      <span class="hljs-comment">/* IPv6 address */</span>
-                                        <span class="hljs-comment">/* network byte ordered */</span>
-    <span class="hljs-keyword">uint32_t</span>            sin6_scope_id   <span class="hljs-comment">/* set of interfaces for a scope */</span>
+struct sockaddr_in6 {
+    uint8_t             sin6_len;       /* length of this struct (28) */
+    as_family_t         sin6_family;    /* AF_INET6 */
+    in_port_t           sin6_port;      /* transport layer port */
+    uint32_t            sin6_flowinfo;  /* flow information, undefined */
+    struct in6_addr     sin6_addr;      /* IPv6 address */
+                                        /* network byte ordered */
+    uint32_t            sin6_scope_id   /* set of interfaces for a scope */
 };
 </code></pre>
-<p>&#x6211;&#x4EEC;&#x8981;&#x6CE8;&#x610F;&#x4EE5;&#x4E0B;&#x51E0;&#x70B9;&#xFF1A;</p>
+<p>我们要注意以下几点：</p>
 <ul>
-<li>&#x5982;&#x679C;&#x7CFB;&#x7EDF;&#x652F;&#x6301;&#x5957;&#x63A5;&#x5B57;&#x5730;&#x5740;&#x7ED3;&#x6784;&#x4E2D;&#x7684;&#x957F;&#x5EA6;&#x5B57;&#x6BB5;&#xFF0C;&#x90A3;&#x4E48; SIN6_LEN &#x5FC5;&#x987B;&#x5B9A;&#x4E49;</li>
-<li>IPv6 &#x7684;&#x5730;&#x5740;&#x65CF;&#x662F; AF_INET6, &#x800C; IPv4 &#x7684;&#x5730;&#x5740;&#x65CF;&#x662F; AD_INET</li>
-<li>&#x7ED3;&#x6784;&#x4F53;&#x4E2D;&#x5B57;&#x6BB5;&#x7684;&#x5148;&#x540E;&#x987A;&#x5E8F;&#x505A;&#x8FC7;&#x7F16;&#x6392;&#xFF0C;&#x4F7F;&#x5F97;&#x5982;&#x679C; sockaddr_in6 &#x7ED3;&#x6784;&#x672C;&#x8EAB;&#x662F; 64 &#x4F4D;&#x5BF9;&#x5176;&#x7684;&#xFF0C;
-&#x90A3;&#x4E48; 128 &#x4F4D;&#x7684; sin6_addr &#x5B57;&#x6BB5;&#x4E5F;&#x662F;64 &#x4F4D;&#x5BF9;&#x9F50;&#x7684;</li>
-<li>sin6_flowinfo &#x5B57;&#x6BB5;&#x5206;&#x6210;&#x4E24;&#x4E2A;&#x5B57;&#x6BB5;&#xFF1A;</li>
-<li>&#x4F4E;&#x5E8F; 20 &#x4F4D;&#x662F;&#x6D41;&#x6807; (flow label)</li>
-<li>&#x9AD8;&#x5E8F; 12 &#x4F4D;&#x4FDD;&#x7559;</li>
-<li>&#x5BF9;&#x4E8E;&#x5C40;&#x90E8;&#x8303;&#x56F4;&#x7684;&#x5730;&#x5740; (scoped address), sin6_scpot_id &#x5B57;&#x6BB5;&#x6807;&#x8BC6;&#x5176;&#x8303;&#x56F4; (scpoe),
-&#x6700;&#x5E38;&#x89C1;&#x7684;&#x94FE;&#x8DEF;&#x5C40;&#x90E8;&#x5730;&#x5740; (link-local address) &#x7684;&#x63A5;&#x53E3;&#x7D22;&#x5F15; (interface index)</li>
+<li>如果系统支持套接字地址结构中的长度字段，那么 SIN6_LEN 必须定义</li>
+<li>IPv6 的地址族是 AF_INET6, 而 IPv4 的地址族是 AD_INET</li>
+<li>结构体中字段的先后顺序做过编排，使得如果 sockaddr_in6 结构本身是 64 位对其的，
+那么 128 位的 sin6_addr 字段也是64 位对齐的</li>
+<li>sin6_flowinfo 字段分成两个字段：</li>
+<li>低序 20 位是流标 (flow label)</li>
+<li>高序 12 位保留</li>
+<li>对于局部范围的地址 (scoped address), sin6_scpot_id 字段标识其范围 (scpoe),
+最常见的链路局部地址 (link-local address) 的接口索引 (interface index)</li>
 </ul>
-<h2 id="&#x65B0;&#x7684;&#x901A;&#x7528;&#x5957;&#x63A5;&#x5B57;&#x5730;&#x5740;&#x7ED3;&#x6784;">&#x65B0;&#x7684;&#x901A;&#x7528;&#x5957;&#x63A5;&#x5B57;&#x5730;&#x5740;&#x7ED3;&#x6784;</h2>
-<pre><code class="lang-c"><span class="hljs-keyword">struct</span> sockaddr_storage {
-    <span class="hljs-keyword">uint8_t</span>         ss_len;         <span class="hljs-comment">/* length of this struct (implementation dependent) */</span>
-    <span class="hljs-keyword">sa_family_t</span>     ss_family;      <span class="hljs-comment">/* address family: AF_xxx value */</span>
-    <span class="hljs-comment">/* implementation-dependent elements to provide:
+<h2 id="新的通用套接字地址结构"><a class="header" href="#新的通用套接字地址结构">新的通用套接字地址结构</a></h2>
+<pre><code class="language-c">struct sockaddr_storage {
+    uint8_t         ss_len;         /* length of this struct (implementation dependent) */
+    sa_family_t     ss_family;      /* address family: AF_xxx value */
+    /* implementation-dependent elements to provide:
      * a) alignment sufficient to fulfill the alignment requirements of
      *    all socket address types that the system supports.
      * b) enough storage to hold any type of socket address that the
      *    system supports.
-     */</span>
+     */
 };
 </code></pre>
-<p>sockaddr_storage &#x7C7B;&#x578B;&#x63D0;&#x4F9B;&#x7684;&#x901A;&#x7528;&#x5957;&#x63A5;&#x5B57;&#x5730;&#x5740;&#x7ED3;&#x6784;&#x76F8;&#x6BD4; sockaddr &#x5B58;&#x5728;&#x4EE5;&#x4E0B;&#x4E24;&#x70B9;&#x5DEE;&#x522B;</p>
+<p>sockaddr_storage 类型提供的通用套接字地址结构相比 sockaddr 存在以下两点差别</p>
 <ul>
-<li>&#x5982;&#x679C;&#x7CFB;&#x7EDF;&#x652F;&#x6301;&#x7684;&#x4EFB;&#x4F55;&#x5957;&#x63A5;&#x5B57;&#x5730;&#x5740;&#x7ED3;&#x6784;&#x6709;&#x5BF9;&#x9F50;&#x9700;&#x8981;&#xFF0C;&#x90A3;&#x4E48; sockaddr_storage &#x80FD;&#x591F;&#x6EE1;&#x8DB3;&#x6700;&#x82DB;&#x523B;&#x7684;&#x5BF9;&#x9F50;&#x8981;&#x6C42;</li>
-<li>sockaddr_storage &#x8DB3;&#x591F;&#x5927;&#xFF0C;&#x80FD;&#x591F;&#x5BB9;&#x7EB3;&#x7CFB;&#x7EDF;&#x652F;&#x6301;&#x7684;&#x4EFB;&#x4F55;&#x5957;&#x63A5;&#x5B57;&#x5730;&#x5740;&#x7ED3;&#x6784;</li>
+<li>如果系统支持的任何套接字地址结构有对齐需要，那么 sockaddr_storage 能够满足最苛刻的对齐要求</li>
+<li>sockaddr_storage 足够大，能够容纳系统支持的任何套接字地址结构</li>
 </ul>
-<h2 id="&#x5957;&#x63A5;&#x5B57;&#x5730;&#x5740;&#x7ED3;&#x6784;&#x7684;&#x6BD4;&#x8F83;">&#x5957;&#x63A5;&#x5B57;&#x5730;&#x5740;&#x7ED3;&#x6784;&#x7684;&#x6BD4;&#x8F83;</h2>
-<p>4.4 BSD &#x4E2D;&#x7684;&#x5B9E;&#x73B0;&#x5982;&#x4E0B;&#x56FE;&#xFF1A;</p>
-<p><img src="images/2014-11-15_163155.svg" alt="&#x4E0D;&#x540C;&#x5957;&#x63A5;&#x5B57;&#x5730;&#x5740;&#x7ED3;&#x6784;&#x6BD4;&#x8F83;"></p>
-<h2 id="&#x5B57;&#x8282;&#x6392;&#x5E8F;&#x51FD;&#x6570;">&#x5B57;&#x8282;&#x6392;&#x5E8F;&#x51FD;&#x6570;</h2>
-<p>&#x7F51;&#x7EDC;&#x534F;&#x8BAE;&#x4F7F;&#x7528;&#x5927;&#x7AEF;&#x5B57;&#x8282;&#x5E8F;</p>
-<p>&#x4E0B;&#x9762;&#x4EE3;&#x7801;&#x53EF;&#x4EE5;&#x68C0;&#x6D4B;&#x4E3B;&#x673A;&#x5B57;&#x8282;&#x5E8F;&#xFF1A;</p>
-<pre><code class="lang-c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdint.h&gt;</span></span>
+<h2 id="套接字地址结构的比较"><a class="header" href="#套接字地址结构的比较">套接字地址结构的比较</a></h2>
+<p>4.4 BSD 中的实现如下图：</p>
+<p><img src="images/2014-11-15_163155.svg" alt="不同套接字地址结构比较" /></p>
+<h2 id="字节排序函数"><a class="header" href="#字节排序函数">字节排序函数</a></h2>
+<p>网络协议使用大端字节序</p>
+<p>下面代码可以检测主机字节序：</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdint.h&gt;
 
-<span class="hljs-keyword">union</span> endian_test {
-    <span class="hljs-keyword">char</span> c[<span class="hljs-number">4</span>];
-    <span class="hljs-keyword">int32_t</span> l;
+union endian_test {
+    char c[4];
+    int32_t l;
 };
-<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> ENDIANNESS ((char)endian_test.l)</span>
+#define ENDIANNESS ((char)endian_test.l)
 
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])</span>
-</span>{
-    <span class="hljs-keyword">union</span> endian_test endian_test = { {<span class="hljs-string">&apos;l&apos;</span>,<span class="hljs-string">&apos;?&apos;</span>,<span class="hljs-string">&apos;?&apos;</span>,<span class="hljs-string">&apos;b&apos;</span>} };
+int main(int argc, char *argv[])
+{
+    union endian_test endian_test = { {'l','?','?','b'} };
 
-    <span class="hljs-keyword">if</span> (ENDIANNESS == <span class="hljs-string">&apos;b&apos;</span>) {
-    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;big-endian\n&quot;</span>);
-    } <span class="hljs-keyword">else</span> {
-    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;little-endian\n&quot;</span>);
+    if (ENDIANNESS == 'b') {
+    printf("big-endian\n");
+    } else {
+    printf("little-endian\n");
     }
 
-    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    return 0;
 }
 </code></pre>
-<p>&#x7531;&#x4E8E;&#x5386;&#x53F2;&#x7684;&#x539F;&#x56E0;&#x548C; POSIX &#x89C4;&#x8303;&#x7684;&#x89C4;&#x5B9A;&#xFF0C;&#x5957;&#x63A5;&#x5B57;&#x5730;&#x5740;&#x7ED3;&#x6784;&#x4E2D;&#x7684;&#x67D0;&#x4E9B;&#x5B57;&#x6BB5;&#x5FC5;&#x987B;&#x6309;&#x7167;&#x5FC5;&#x987B;&#x6309;&#x7167;&#x7F51;&#x7EDC;&#x5B57;&#x8282;&#x5E8F;&#x8FDB;&#x884C;&#x7EF4;&#x62A4;&#x3002;
-&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x8981;&#x5173;&#x6CE8;&#x5982;&#x4F55;&#x5728;&#x4E3B;&#x673A;&#x5B57;&#x8282;&#x5E8F;&#x548C;&#x7F51;&#x7EDC;&#x5B57;&#x8282;&#x5E8F;&#x76F4;&#x63A5;&#x76F8;&#x4E92;&#x8F6C;&#x6362;&#x3002;
-&#x6709;&#x5982;&#x4E0B; 4 &#x4E2A;&#x51FD;&#x6570;&#xFF1A;</p>
-<pre><code class="lang-c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;netinet/in.h&gt;</span></span>
+<p>由于历史的原因和 POSIX 规范的规定，套接字地址结构中的某些字段必须按照必须按照网络字节序进行维护。
+因此我们要关注如何在主机字节序和网络字节序直接相互转换。
+有如下 4 个函数：</p>
+<pre><code class="language-c">#include &lt;netinet/in.h&gt;
 
-<span class="hljs-comment">/* Both return: value in network byte order */</span>
-<span class="hljs-keyword">uint16_t</span> htons(<span class="hljs-keyword">uint16_t</span> host<span class="hljs-number">-16</span>bit-value);
-<span class="hljs-keyword">uint32_t</span> htonl(<span class="hljs-keyword">uint32_t</span> host<span class="hljs-number">-32</span>bit-value);
+/* Both return: value in network byte order */
+uint16_t htons(uint16_t host-16bit-value);
+uint32_t htonl(uint32_t host-32bit-value);
 
-<span class="hljs-comment">/* Both return: value in host byte order */</span>
-<span class="hljs-keyword">uint16_t</span> ntohs(<span class="hljs-keyword">uint16_t</span> net<span class="hljs-number">-16</span>bit-value);
-<span class="hljs-keyword">uint32_t</span> ntohl(<span class="hljs-keyword">uint32_t</span> net<span class="hljs-number">-32</span>bit-value);
+/* Both return: value in host byte order */
+uint16_t ntohs(uint16_t net-16bit-value);
+uint32_t ntohl(uint32_t net-32bit-value);
 </code></pre>
-<p>h &#x4EE3;&#x8868; host, n &#x4EE3;&#x8868; network, s &#x4EE3;&#x8868; short, l &#x4EE3;&#x8868; long</p>
-<h2 id="&#x5B57;&#x8282;&#x64CD;&#x7EB5;&#x51FD;&#x6570;">&#x5B57;&#x8282;&#x64CD;&#x7EB5;&#x51FD;&#x6570;</h2>
-<pre><code class="lang-c"><span class="hljs-comment">/* &#x6E90;&#x81EA; Berkeley */</span>
+<p>h 代表 host, n 代表 network, s 代表 short, l 代表 long</p>
+<h2 id="字节操纵函数"><a class="header" href="#字节操纵函数">字节操纵函数</a></h2>
+<pre><code class="language-c">/* 源自 Berkeley */
 
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;strings.h&gt;</span></span>
+#include &lt;strings.h&gt;
 
-<span class="hljs-comment">/* &#x5C06;&#x76EE;&#x6807;&#x5B57;&#x8282;&#x4E32;&#x4E2D;&#x6307;&#x5B9A;&#x6570;&#x76EE;&#x7684;&#x5B57;&#x8282;&#x7F6E;&#x4E3A; 0 */</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">bzero</span><span class="hljs-params">(<span class="hljs-keyword">void</span> *dest, size_t nbytes)</span></span>;
+/* 将目标字节串中指定数目的字节置为 0 */
+void bzero(void *dest, size_t nbytes);
 
-<span class="hljs-comment">/* &#x5C06;&#x6307;&#x5B9A;&#x6570;&#x76EE;&#x7684;&#x5B57;&#x8282;&#x4ECE;&#x6E90;&#x5B57;&#x8282;&#x4E32;&#x590D;&#x5236;&#x5230;&#x76EE;&#x6807;&#x5B57;&#x8282;&#x4E32; */</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">bcopy</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">void</span> *src, <span class="hljs-keyword">void</span> *dest, size_t nbytes)</span></span>;
+/* 将指定数目的字节从源字节串复制到目标字节串 */
+void bcopy(const void *src, void *dest, size_t nbytes);
 
-<span class="hljs-comment">/* &#x6BD4;&#x8F83;&#x4E24;&#x4E2A;&#x4EFB;&#x610F;&#x7684;&#x5B57;&#x8282;&#x4E32;&#xFF0C;&#x82E5;&#x76F8;&#x540C;&#x5219;&#x8FD4;&#x56DE; 0, &#x5426;&#x5219;&#x4E3A;&#x975E; 0 */</span>
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">bcmp</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">void</span> *ptr1, <span class="hljs-keyword">const</span> <span class="hljs-keyword">void</span> *ptr2, size_t nbytes)</span></span>;
+/* 比较两个任意的字节串，若相同则返回 0, 否则为非 0 */
+int bcmp(const void *ptr1, const void *ptr2, size_t nbytes);
 </code></pre>
-<pre><code class="lang-c"><span class="hljs-comment">/* &#x6E90;&#x81EA; ANSI C */</span>
+<pre><code class="language-c">/* 源自 ANSI C */
 
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string.h&gt;</span></span>
+#include &lt;string.h&gt;
 
-<span class="hljs-comment">/* &#x5C06;&#x76EE;&#x6807;&#x5B57;&#x8282;&#x4E32;&#x4E2D;&#x6307;&#x5B9A;&#x6570;&#x76EE;&#x7684;&#x5B57;&#x8282;&#x7F6E;&#x4E3A; c */</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> *<span class="hljs-title">memset</span><span class="hljs-params">(<span class="hljs-keyword">void</span> *dest, <span class="hljs-keyword">int</span> c, size_t len)</span></span>;
+/* 将目标字节串中指定数目的字节置为 c */
+void *memset(void *dest, int c, size_t len);
 
-<span class="hljs-comment">/*
- * memcpy &#x7C7B;&#x4F3C; bcopy, &#x4E0D;&#x8FC7;&#x4E24;&#x4E2A;&#x6307;&#x9488;&#x53C2;&#x6570;&#x7684;&#x987A;&#x5E8F;&#x662F;&#x76F8;&#x53CD;&#x7684;
- * &#x5F53;&#x6E90;&#x5B57;&#x8282;&#x4E32;&#x4E0E;&#x76EE;&#x6807;&#x5B57;&#x8282;&#x4E32;&#x91CD;&#x53E0;&#x65F6;&#xFF0C;bcopy &#x80FD;&#x591F;&#x6B63;&#x786E;&#x5904;&#x7406;&#xFF0C;
- * &#x4F46;&#x662F; memcpy &#x7684;&#x64CD;&#x4F5C;&#x7ED3;&#x679C;&#x5374;&#x4E0D;&#x53EF;&#x77E5;
- */</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> *<span class="hljs-title">memcpy</span><span class="hljs-params">(<span class="hljs-keyword">void</span> *dest, <span class="hljs-keyword">const</span> <span class="hljs-keyword">void</span> *src, size_t nbytes)</span></span>;
+/*
+ * memcpy 类似 bcopy, 不过两个指针参数的顺序是相反的
+ * 当源字节串与目标字节串重叠时，bcopy 能够正确处理，
+ * 但是 memcpy 的操作结果却不可知
+ */
+void *memcpy(void *dest, const void *src, size_t nbytes);
 
-<span class="hljs-comment">/* &#x4E0E; bcmp &#x7C7B;&#x4F3C; */</span>
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">memcmp</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">void</span> *ptr1, <span class="hljs-keyword">const</span> <span class="hljs-keyword">void</span> *ptr2, size_t nbytes)</span></span>;
+/* 与 bcmp 类似 */
+int memcmp(const void *ptr1, const void *ptr2, size_t nbytes);
 </code></pre>
-<h2 id="&#x5730;&#x5740;&#x8F6C;&#x6362;&#x51FD;&#x6570;">&#x5730;&#x5740;&#x8F6C;&#x6362;&#x51FD;&#x6570;</h2>
-<pre><code class="lang-c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;arpa/inet.h&gt;</span></span>
+<h2 id="地址转换函数"><a class="header" href="#地址转换函数">地址转换函数</a></h2>
+<pre><code class="language-c">#include &lt;arpa/inet.h&gt;
 
-<span class="hljs-comment">/*
- * &#x5C06; strptr &#x6240;&#x6307; C &#x5B57;&#x7B26;&#x4E32;&#x8F6C;&#x6362;&#x6210;&#x4E00;&#x4E2A; 32 &#x4F4D;&#x7684;&#x7F51;&#x7EDC;&#x5B57;&#x8282;&#x5E8F;&#x4E8C;&#x8FDB;&#x5236;&#x503C;&#xFF0C;&#x5E76;&#x901A;&#x8FC7;&#x6307;&#x9488; addrptr &#x6765;&#x5B58;&#x50A8;
- * &#x82E5;&#x6210;&#x529F;&#x8FD4;&#x56DE; 1, &#x5426;&#x5219;&#x8FD4;&#x56DE; 0
- * &#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x8FD8;&#x6709;&#x4E00;&#x4E2A;&#x6CA1;&#x5199;&#x5165;&#x6B63;&#x5F0F;&#x6587;&#x6863;&#x4E2D;&#x7684;&#x7279;&#x6027;&#xFF1A;
- * &#x5982;&#x679C; addrptr &#x6307;&#x9488;&#x4E3A;&#x7A7A;&#xFF0C;&#x90A3;&#x4E48;&#x6539;&#x51FD;&#x6570;&#x4ECD;&#x7136;&#x5BF9;&#x8F93;&#x5165;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x6267;&#x884C;&#x6709;&#x6548;&#x6027;&#x68C0;&#x67E5;&#xFF0C;&#x4F46;&#x662F;&#x4E0D;&#x5B58;&#x50A8;&#x4EFB;&#x4F55;&#x7ED3;&#x679C;
- */</span>
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">inet_aton</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *strptr, <span class="hljs-keyword">struct</span> in_addr *addrptr)</span></span>;
+/*
+ * 将 strptr 所指 C 字符串转换成一个 32 位的网络字节序二进制值，并通过指针 addrptr 来存储
+ * 若成功返回 1, 否则返回 0
+ * 这个函数还有一个没写入正式文档中的特性：
+ * 如果 addrptr 指针为空，那么改函数仍然对输入的字符串执行有效性检查，但是不存储任何结果
+ */
+int inet_aton(const char *strptr, struct in_addr *addrptr);
 
-<span class="hljs-comment">/* &#x5B58;&#x5728;&#x95EE;&#x9898;&#xFF0C;&#x5DF2;&#x88AB;&#x5E9F;&#x5F03; */</span>
-<span class="hljs-keyword">in_addr_t</span> inet_addr(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *strptr);
+/* 存在问题，已被废弃 */
+in_addr_t inet_addr(const char *strptr);
 
-<span class="hljs-comment">/*
- * &#x5C06;&#x4E00;&#x4E2A; 32 &#x4F4D;&#x7684;&#x7F51;&#x7EDC;&#x5B57;&#x8282;&#x5E8F;&#x4E8C;&#x8FDB;&#x5236; IPv4 &#x5730;&#x5740;&#x8F6C;&#x6362;&#x6210;&#x76F8;&#x5E94;&#x7684;&#x70B9;&#x5206;&#x5341;&#x8FDB;&#x5236;&#x6570;&#x4E32;
- * &#x7531;&#x8BE5;&#x51FD;&#x6570;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x6240;&#x6307;&#x5411;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x9A7B;&#x7559;&#x5728;&#x9759;&#x6001;&#x5185;&#x5B58;&#x4E2D;&#xFF0C;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x8BE5;&#x51FD;&#x6570;&#x662F;&#x4E0D;&#x53EF;&#x91CD;&#x5165;&#x7684;
- * &#x6700;&#x540E;&#x9700;&#x8981;&#x7559;&#x610F;&#xFF0C;&#x8BE5;&#x51FD;&#x6570;&#x4EE5;&#x4E00;&#x4E2A;&#x7ED3;&#x6784;&#x4F53;&#x800C;&#x4E0D;&#x662F;&#x4EE5;&#x6307;&#x5411;&#x8BE5;&#x7ED3;&#x6784;&#x4F53;&#x7684;&#x4E00;&#x4E2A;&#x6307;&#x9488;&#x4F5C;&#x4E3A;&#x5176;&#x53C2;&#x6570;
- */</span>
-<span class="hljs-function"><span class="hljs-keyword">char</span> *<span class="hljs-title">inet_ntoa</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> in_addr inaddr)</span></span>;
+/*
+ * 将一个 32 位的网络字节序二进制 IPv4 地址转换成相应的点分十进制数串
+ * 由该函数的返回值所指向的字符串驻留在静态内存中，这意味着该函数是不可重入的
+ * 最后需要留意，该函数以一个结构体而不是以指向该结构体的一个指针作为其参数
+ */
+char *inet_ntoa(struct in_addr inaddr);
 </code></pre>
-<p>&#x4E0B;&#x9762;&#x4E24;&#x4E2A;&#x51FD;&#x6570;&#x662F;&#x968F; IPv6 &#x51FA;&#x73B0;&#x7684;&#x65B0;&#x51FD;&#x6570;&#xFF0C;&#x5BF9;&#x4E8E; IPv4 &#x5730;&#x5740;&#x548C; IPv6 &#x5730;&#x5740;&#x90FD;&#x9002;&#x7528;
-&#x5E94;&#x8BE5;&#x4F7F;&#x7528;&#x8FD9;&#x4E9B;&#x51FD;&#x6570;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x4E0A;&#x9762;&#x90A3;&#x4E9B;</p>
-<pre><code class="lang-c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;arpa/inet.h&gt;</span></span>
+<p>下面两个函数是随 IPv6 出现的新函数，对于 IPv4 地址和 IPv6 地址都适用
+应该使用这些函数，而不是上面那些</p>
+<pre><code class="language-c">#include &lt;arpa/inet.h&gt;
 
-<span class="hljs-comment">/*
- * &#x4EE5;&#x4E0B;&#x4E24;&#x4E2A;&#x51FD;&#x6570;&#x7684; family &#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x662F; AF_INET &#x548C; AD_INET6
- * &#x5982;&#x679C;&#x7528;&#x4E0D;&#x88AB;&#x652F;&#x6301;&#x7684;&#x5730;&#x5740;&#x65CF;&#x4F5C;&#x4E3A; family &#x53C2;&#x6570;&#xFF0C;&#x8FD9;&#x4E24;&#x4E2A;&#x51FD;&#x6570;&#x5C31;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x9519;&#x8BEF;&#xFF0C;&#x5E76;&#x5C06; errno &#x7F6E;&#x4E3A; EAFNOSUPPORT
- */</span>
+/*
+ * 以下两个函数的 family 参数可以是 AF_INET 和 AD_INET6
+ * 如果用不被支持的地址族作为 family 参数，这两个函数就返回一个错误，并将 errno 置为 EAFNOSUPPORT
+ */
 
-<span class="hljs-comment">/*
- * &#x5C06; strptr &#x6240;&#x6307; C &#x5B57;&#x7B26;&#x4E32;&#x8F6C;&#x6362;&#x6210;&#x4E00;&#x4E2A; 32 &#x4F4D;&#x7684;&#x7F51;&#x7EDC;&#x5B57;&#x8282;&#x5E8F;&#x4E8C;&#x8FDB;&#x5236;&#x503C;&#xFF0C;&#x5E76;&#x901A;&#x8FC7;&#x6307;&#x9488; addrptr &#x6765;&#x5B58;&#x50A8;
- * &#x6210;&#x529F;&#x8FD4;&#x56DE; 1, &#x5426;&#x5219;&#x8FD4;&#x56DE; 0
- */</span>
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">inet_pton</span><span class="hljs-params">(<span class="hljs-keyword">int</span> family, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *strptr, <span class="hljs-keyword">void</span> *addrptr)</span></span>;
+/*
+ * 将 strptr 所指 C 字符串转换成一个 32 位的网络字节序二进制值，并通过指针 addrptr 来存储
+ * 成功返回 1, 否则返回 0
+ */
+int inet_pton(int family, const char *strptr, void *addrptr);
 
-<span class="hljs-comment">/*
- * &#x4ECE; addrptr &#x6307;&#x5411;&#x7684;&#x6570;&#x503C;&#x8F6C;&#x6362;&#x5230; strptr &#x6307;&#x5411;&#x7684;&#x5B57;&#x7B26;&#x4E32;
- * len &#x53C2;&#x6570;&#x662F;&#x76EE;&#x6807;&#x5B58;&#x50A8;&#x5355;&#x5143;&#x7684;&#x5927;&#x5C0F;&#xFF0C;&#x4EE5;&#x514D;&#x8BE5;&#x51FD;&#x6570;&#x6EA2;&#x51FA;&#x5176;&#x8C03;&#x7528;&#x8005;&#x7684;&#x7F13;&#x51B2;&#x533A;&#xFF0C;&#x53EF;&#x4F7F;&#x7528;&#x4E0B;&#x9762;&#x7684;&#x5B8F;
- * &#x5982;&#x679C; len &#x592A;&#x5C0F;&#xFF0C;&#x4E0D;&#x8DB3;&#x4EE5;&#x7ED3;&#x679C;&#xFF08;&#x5305;&#x62EC;&#x7ED3;&#x5C3E;&#x7684;&#x7A7A;&#x5B57;&#x7B26;&#xFF09;&#xFF0C;&#x90A3;&#x4E48;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x7A7A;&#x6307;&#x9488;&#xFF0C;&#x5E76;&#x7F6E; errno &#x4E3A; ENOSPC
- */</span>
-<span class="hljs-function"><span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *<span class="hljs-title">inet_ntop</span><span class="hljs-params">(<span class="hljs-keyword">int</span> family, <span class="hljs-keyword">const</span> <span class="hljs-keyword">void</span> *addrptr, <span class="hljs-keyword">char</span> *strptr, size_t len)</span></span>;
+/*
+ * 从 addrptr 指向的数值转换到 strptr 指向的字符串
+ * len 参数是目标存储单元的大小，以免该函数溢出其调用者的缓冲区，可使用下面的宏
+ * 如果 len 太小，不足以结果（包括结尾的空字符），那么返回一个空指针，并置 errno 为 ENOSPC
+ */
+const char *inet_ntop(int family, const void *addrptr, char *strptr, size_t len);
 
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;netinet/in.h&gt;</span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> INET_ADDRESTRLEN    16</span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> INET6_ADDRESTRLEN   46</span>
+#include &lt;netinet/in.h&gt;
+#define INET_ADDRESTRLEN    16
+#define INET6_ADDRESTRLEN   46
 </code></pre>
-<p>p &#x4EE3;&#x8868; presentation, n &#x4EE3;&#x8868; numeric</p>
-<h2 id="&#x81EA;&#x5B9A;&#x4E49;&#x51FD;&#x6570;">&#x81EA;&#x5B9A;&#x4E49;&#x51FD;&#x6570;</h2>
-<p>&#x4F7F;&#x7528; <code>inet_ntop</code> &#x51FD;&#x6570;&#x7684;&#x65F6;&#x5019;&#x6211;&#x4EEC;&#x5FC5;&#x987B;&#x6307;&#x660E;&#x5730;&#x5740;&#x65CF;&#x3002;
-&#x4E3A;&#x4E86;&#x4F7F;&#x6211;&#x4EEC;&#x7684;&#x4EE3;&#x7801;&#x4E0E;&#x5177;&#x4F53;&#x534F;&#x8BAE;&#x65E0;&#x5173;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x81EA;&#x5DF1;&#x7F16;&#x5199;&#x76F8;&#x5173;&#x51FD;&#x6570;</p>
-<pre><code class="lang-c"><span class="hljs-comment">/*
- * &#x5C06;&#x901A;&#x914D;&#x5730;&#x5740;&#x548C;&#x4E00;&#x4E2A;&#x4E34;&#x65F6;&#x7AEF;&#x53E3;&#x7ED1;&#x5B9A;&#x5230;&#x4E00;&#x4E2A;&#x5957;&#x63A5;&#x5B57;
- * &#x6210;&#x529F;&#x8FD4;&#x56DE; 0, &#x51FA;&#x9519;&#x8FD4;&#x56DE; -1
- */</span>
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">sock_bind_wild</span><span class="hljs-params">(<span class="hljs-keyword">int</span> sockfd, <span class="hljs-keyword">int</span> family)</span></span>;
+<p>p 代表 presentation, n 代表 numeric</p>
+<h2 id="自定义函数"><a class="header" href="#自定义函数">自定义函数</a></h2>
+<p>使用 <code>inet_ntop</code> 函数的时候我们必须指明地址族。
+为了使我们的代码与具体协议无关，我们需要自己编写相关函数</p>
+<pre><code class="language-c">/*
+ * 将通配地址和一个临时端口绑定到一个套接字
+ * 成功返回 0, 出错返回 -1
+ */
+int sock_bind_wild(int sockfd, int family);
 
-<span class="hljs-comment">/*
- * &#x6BD4;&#x8F83;&#x4E24;&#x4E2A;&#x5957;&#x63A5;&#x5B57;&#x5730;&#x5740;&#x7ED3;&#x6784;&#x7684;&#x5730;&#x5740;&#x90E8;&#x5206;
- * &#x82E5;&#x5730;&#x5740;&#x4E3A;&#x540C;&#x4E00;&#x534F;&#x8BAE;&#x65CF;&#x4E14;&#x7AEF;&#x53E3;&#x76F8;&#x540C;&#x8FD4;&#x56DE; 0, &#x5426;&#x5219;&#x8FD4;&#x56DE;&#x975E; 0
- */</span>
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">sock_cmp_addr</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">struct</span> sockaddr *sockaddr1,
-                  <span class="hljs-keyword">const</span> <span class="hljs-keyword">struct</span> sockaddr *sockaddr2, socklen_t addrlen)</span></span>;
+/*
+ * 比较两个套接字地址结构的地址部分
+ * 若地址为同一协议族且端口相同返回 0, 否则返回非 0
+ */
+int sock_cmp_addr(const struct sockaddr *sockaddr1,
+                  const struct sockaddr *sockaddr2, socklen_t addrlen);
 
-<span class="hljs-comment">/*
- * &#x6BD4;&#x8F83;&#x4E24;&#x4E2A;&#x5957;&#x63A5;&#x5B57;&#x5730;&#x5740;&#x7ED3;&#x6784;&#x7684;&#x7AEF;&#x53E3;&#x90E8;&#x5206;
- * &#x82E5;&#x5730;&#x5740;&#x4E3A;&#x540C;&#x4E00;&#x534F;&#x8BAE;&#x65CF;&#x4E14;&#x7AEF;&#x53E3;&#x76F8;&#x540C;&#x8FD4;&#x56DE; 0, &#x5426;&#x5219;&#x8FD4;&#x56DE;&#x975E; 0
- */</span>
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">sock_cmp_port</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">struct</span> sockaddr *sockaddr, socklen_t addrlen)</span></span>;
+/*
+ * 比较两个套接字地址结构的端口部分
+ * 若地址为同一协议族且端口相同返回 0, 否则返回非 0
+ */
+int sock_cmp_port(const struct sockaddr *sockaddr, socklen_t addrlen);
 
-<span class="hljs-comment">/*
- * &#x83B7;&#x53D6;&#x7AEF;&#x53E3;&#x53F7;
- * &#x82E5;&#x4E3A; IPv4 &#x6216; IPv6 &#x5730;&#x5740;&#x8FD4;&#x56DE;&#x975E;&#x8D1F;&#x7AEF;&#x53E3;&#x53F7;&#xFF0C;&#x5426;&#x5219;&#x8FD4;&#x56DE; -1
- */</span>
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">sock_get_port</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">struct</span> sockaddr *sockaddr, socklen_t addrlen)</span></span>;
+/*
+ * 获取端口号
+ * 若为 IPv4 或 IPv6 地址返回非负端口号，否则返回 -1
+ */
+int sock_get_port(const struct sockaddr *sockaddr, socklen_t addrlen);
 
-<span class="hljs-comment">/*
- * &#x628A;&#x4E00;&#x4E2A;&#x5957;&#x63A5;&#x5B57;&#x5730;&#x5740;&#x7ED3;&#x6784;&#x4E2D;&#x7684;&#x5730;&#x5740;&#x8F6C;&#x6362;&#x6210;&#x5B57;&#x7B26;&#x4E32;&#x683C;&#x5F0F;&#xFF08;&#x4E0D;&#x5305;&#x62EC;&#x7AEF;&#x53E3;&#x53F7;&#xFF09;
- * &#x6210;&#x529F;&#x8FD4;&#x56DE;&#x975E;&#x7A7A;&#x6307;&#x9488;&#xFF0C;&#x51FA;&#x9519;&#x8FD4;&#x56DE; NULL
- */</span>
-<span class="hljs-function"><span class="hljs-keyword">char</span> *<span class="hljs-title">sock_ntop_host</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">struct</span> sockaddr *sockaddr, socklen_t addrlen)</span></span>;
+/*
+ * 把一个套接字地址结构中的地址转换成字符串格式（不包括端口号）
+ * 成功返回非空指针，出错返回 NULL
+ */
+char *sock_ntop_host(const struct sockaddr *sockaddr, socklen_t addrlen);
 
-<span class="hljs-comment">/*
- * &#x628A;&#x5957;&#x63A5;&#x5B57;&#x4E2D;&#x7684;&#x5730;&#x5740;&#x7F6E;&#x4E3A; ptr &#x6307;&#x9488;&#x6240;&#x6307;&#x5411;&#x7684;&#x503C;
- */</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">sock_set_addr</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">struct</span> sockaddr *sockaddr, socklen_t addrlen, <span class="hljs-keyword">void</span> *ptr)</span></span>;
+/*
+ * 把套接字中的地址置为 ptr 指针所指向的值
+ */
+void sock_set_addr(const struct sockaddr *sockaddr, socklen_t addrlen, void *ptr);
 
-<span class="hljs-comment">/*
- * &#x8BBE;&#x7F6E;&#x5957;&#x63A5;&#x5B57;&#x4E2D;&#x7684;&#x7AEF;&#x53E3;&#x53F7;
- */</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">sock_set_port</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">struct</span> sockaddr *sockaddr, socklen_t addrlen, <span class="hljs-keyword">int</span> port)</span></span>;
+/*
+ * 设置套接字中的端口号
+ */
+void sock_set_port(const struct sockaddr *sockaddr, socklen_t addrlen, int port);
 
-<span class="hljs-comment">/*
- * &#x5C06;&#x5957;&#x63A5;&#x5B57;&#x4E2D;&#x7684;&#x5730;&#x5740;&#x8BBE;&#x7F6E;&#x4E3A;&#x901A;&#x914D;&#x5730;&#x5740;
- */</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">sock_set_wild</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> sockaddr *sockaddr, socklen_t addrlen)</span></span>;
+/*
+ * 将套接字中的地址设置为通配地址
+ */
+void sock_set_wild(struct sockaddr *sockaddr, socklen_t addrlen);
 </code></pre>
-<pre><code class="lang-c"><span class="hljs-keyword">ssize_t</span> readn(<span class="hljs-keyword">int</span> fd, <span class="hljs-keyword">void</span> *vptr, <span class="hljs-keyword">size_t</span> n)
+<pre><code class="language-c">ssize_t readn(int fd, void *vptr, size_t n)
 {
-    <span class="hljs-keyword">size_t</span>      nleft;
-    <span class="hljs-keyword">ssize_t</span>     nread;
-    <span class="hljs-keyword">char</span>        *ptr;
+    size_t      nleft;
+    ssize_t     nread;
+    char        *ptr;
 
     ptr = vptr;
     nleft = n;
-    <span class="hljs-keyword">while</span> (nleft &gt; <span class="hljs-number">0</span>) {
-        <span class="hljs-keyword">if</span> ((nread = read(fd, ptr, nleft)) &lt; <span class="hljs-number">0</span>) {
-            <span class="hljs-keyword">if</span> (errno == EINTR) {
-                nread = <span class="hljs-number">0</span>;      <span class="hljs-comment">/* and call read() again */</span>
-            } <span class="hljs-keyword">else</span> {
-                <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
+    while (nleft &gt; 0) {
+        if ((nread = read(fd, ptr, nleft)) &lt; 0) {
+            if (errno == EINTR) {
+                nread = 0;      /* and call read() again */
+            } else {
+                return -1;
             }
-        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (nread == <span class="hljs-number">0</span>) {
-            <span class="hljs-keyword">break</span>;              <span class="hljs-comment">/* EOF */</span>
+        } else if (nread == 0) {
+            break;              /* EOF */
         }
 
         nleft -= nread;
         ptr   += nread;
     }
-    <span class="hljs-keyword">return</span> n - nleft            <span class="hljs-comment">/* return &gt;= 0 */</span>
+    return n - nleft            /* return &gt;= 0 */
 }
 </code></pre>
 
-                                
-                                </section>
-                            
-    </div>
-    <div class="search-results">
-        <div class="has-results">
-            
-            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
-            <ul class="search-results-list"></ul>
-            
-        </div>
-        <div class="no-results">
-            
-            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
-            
-        </div>
-    </div>
-</div>
 
-                        </div>
-                    </div>
-                
+                        <br>
+                        <div id="remark42"></div>
+                        <script>
+                            var localAddrs = ["localhost", "127.0.0.1", ""];
+                            if (localAddrs.indexOf(document.location.hostname) === -1) {
+                                var remark_config = {
+                                    host: 'https://comments.mwum.com',
+                                    site_id: 'mwum',
+                                    locale: 'zh',
+                                    no_footer: true,
+                                }
+                                !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+                            }
+                        </script>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../socket/tcp-connection-establishment-and-termination.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../manage/make.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
             </div>
 
-            
-                
-                <a href="tcp-connection-establishment-and-termination.html" class="navigation navigation-prev " aria-label="Previous page: TCP 连接的建立和终止">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                
-                
-                <a href="../manage/" class="navigation navigation-next " aria-label="Next page: 管理">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-                
-            
-        
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../socket/tcp-connection-establishment-and-termination.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../manage/make.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
     </div>
-
-    <script>
-        var gitbook = gitbook || [];
-        gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"相关结构与函数","level":"1.7.3","depth":2,"next":{"title":"管理","level":"1.8","depth":1,"path":"manage/README.md","ref":"manage/README.md","articles":[{"title":"Make","level":"1.8.1","depth":2,"path":"manage/make.md","ref":"manage/make.md","articles":[]},{"title":"CMake","level":"1.8.2","depth":2,"path":"manage/cmake.md","ref":"manage/cmake.md","articles":[]}]},"previous":{"title":"TCP 连接的建立和终止","level":"1.7.2","depth":2,"path":"socket/tcp-connection-establishment-and-termination.md","ref":"socket/tcp-connection-establishment-and-termination.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"mwum"},"ga":{"configuration":"auto","token":"UA-39279084-1"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sidebar":{"明无梦的博客":"https://www.dreamxu.com/"},"sharing":{"google":false,"facebook":false,"twitter":false,"weibo":false,"all":true}},"gitbook":"*"},"file":{"path":"socket/structures-and-functions.md","mtime":"2014-11-20T09:28:28.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-04T17:53:33.891Z"},"basePath":"..","book":{"language":""}});
-        });
-    </script>
-</div>
-
-        
-    <script src="../gitbook/gitbook.js"></script>
-    <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
-        
-    
-
     </body>
 </html>
-

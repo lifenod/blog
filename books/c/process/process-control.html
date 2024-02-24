@@ -1,708 +1,203 @@
-
 <!DOCTYPE HTML>
-<html lang="" >
+<html lang="zh-CN" class="light" dir="ltr">
     <head>
+        <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>进程控制 · GitBook</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>进程控制 - 明无梦的 C 语言记录与心得</title>
+
+
+        <!-- Custom HTML head -->
+        
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.3">
-        
-        
-        
-    
-    <link rel="stylesheet" href="../gitbook/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
 
-    
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
-                
-            
-        
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
 
-    
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
 
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
 
-        
-    
-    
-    <meta name="HandheldFriendly" content="true"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
-    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/custom.css">
 
-    
-    <link rel="next" href="../socket/" />
-    
-    
-    <link rel="prev" href="process-termination.html" />
-    
 
+        <script>
+            var localAddrs = ["localhost", "127.0.0.1", ""];
+            if (localAddrs.indexOf(document.location.hostname) === -1) {
+                  var script = document.createElement('script');
+                  script.async = true;
+                  script.src = 'https://www.googletagmanager.com/gtag/js?id=G-XNJSCC1KSF';
+                  document.head.appendChild(script);
+
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+
+                  gtag('config', 'G-XNJSCC1KSF');
+            }
+        </script>
     </head>
-    <body>
-        
-<div class="book">
-    <div class="book-summary">
-        
-            
-<div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search" />
-</div>
-
-            
-                <nav role="navigation">
-                
-
-
-<ul class="summary">
-    
-    
-    
-        
-        <li>
-            <a href="https://www.dreamxu.com/" target="_blank" class="custom-link">明无梦的博客</a>
-        </li>
-    
-    
-
-    
-    <li class="divider"></li>
-    
-
-    
-        
-        
-    
-        <li class="chapter " data-level="1.1" data-path="../">
-            
-                <a href="../">
-            
-                    
-                    简介
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2" data-path="../language/">
-            
-                <a href="../language/">
-            
-                    
-                    语言
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.2.1" data-path="../language/others.html">
-            
-                <a href="../language/others.html">
-            
-                    
-                    其它
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.2" data-path="../language/extern.html">
-            
-                <a href="../language/extern.html">
-            
-                    
-                    extern
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.3" data-path="../language/static.html">
-            
-                <a href="../language/static.html">
-            
-                    
-                    static
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.4" data-path="../language/header-file.html">
-            
-                <a href="../language/header-file.html">
-            
-                    
-                    头文件 (header file)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.5" data-path="../language/basic-types.html">
-            
-                <a href="../language/basic-types.html">
-            
-                    
-                    基本类型
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3" data-path="../lib/">
-            
-                <a href="../lib/">
-            
-                    
-                    库 (Library)
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.3.1" data-path="../lib/general.html">
-            
-                <a href="../lib/general.html">
-            
-                    
-                    General
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.2" data-path="../lib/c-standard-library.html">
-            
-                <a href="../lib/c-standard-library.html">
-            
-                    
-                    C 标准库 (C standard library)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.3" data-path="../lib/static-library.html">
-            
-                <a href="../lib/static-library.html">
-            
-                    
-                    静态库 (Static library)
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4" data-path="../tips/">
-            
-                <a href="../tips/">
-            
-                    
-                    Tips
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.4.1" data-path="../tips/code-snippet.html">
-            
-                <a href="../tips/code-snippet.html">
-            
-                    
-                    代码片段
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.2" data-path="../tips/macro-definition.html">
-            
-                <a href="../tips/macro-definition.html">
-            
-                    
-                    宏定义
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5" data-path="../file/">
-            
-                <a href="../file/">
-            
-                    
-                    文件 I/O
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.5.1" data-path="../file/reading-and-writing.html">
-            
-                <a href="../file/reading-and-writing.html">
-            
-                    
-                    读写方式
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.2" data-path="../file/read-numerical-data.html">
-            
-                <a href="../file/read-numerical-data.html">
-            
-                    
-                    读取数值型数据
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6" data-path="./">
-            
-                <a href="./">
-            
-                    
-                    进程
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.6.1" data-path="command-line-arguments.html">
-            
-                <a href="command-line-arguments.html">
-            
-                    
-                    命令行参数
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.2" data-path="process-termination.html">
-            
-                <a href="process-termination.html">
-            
-                    
-                    进程终止
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter active" data-level="1.6.3" data-path="process-control.html">
-            
-                <a href="process-control.html">
-            
-                    
-                    进程控制
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7" data-path="../socket/">
-            
-                <a href="../socket/">
-            
-                    
-                    套接字
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.7.1" data-path="../socket/osi.html">
-            
-                <a href="../socket/osi.html">
-            
-                    
-                    OSI 模型
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.2" data-path="../socket/tcp-connection-establishment-and-termination.html">
-            
-                <a href="../socket/tcp-connection-establishment-and-termination.html">
-            
-                    
-                    TCP 连接的建立和终止
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.3" data-path="../socket/structures-and-functions.html">
-            
-                <a href="../socket/structures-and-functions.html">
-            
-                    
-                    相关结构与函数
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8" data-path="../manage/">
-            
-                <a href="../manage/">
-            
-                    
-                    管理
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.8.1" data-path="../manage/make.html">
-            
-                <a href="../manage/make.html">
-            
-                    
-                    Make
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.2" data-path="../manage/cmake.html">
-            
-                <a href="../manage/cmake.html">
-            
-                    
-                    CMake
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.9" data-path="../test/">
-            
-                <a href="../test/">
-            
-                    
-                    测试
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.9.1" data-path="../test/minunit.html">
-            
-                <a href="../test/minunit.html">
-            
-                    
-                    MinUnit
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.9.2" data-path="../test/cmockery.html">
-            
-                <a href="../test/cmockery.html">
-            
-                    
-                    Cmockery
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10" data-path="../compile/">
-            
-                <a href="../compile/">
-            
-                    
-                    编译
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.10.1" data-path="../compile/clang.html">
-            
-                <a href="../compile/clang.html">
-            
-                    
-                    clang
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11" data-path="../library/">
-            
-                <a href="../library/">
-            
-                    
-                    库
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.11.1" data-path="../library/gmp.html">
-            
-                <a href="../library/gmp.html">
-            
-                    
-                    GMP
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.12" data-path="../linux/">
-            
-                <a href="../linux/">
-            
-                    
-                    Linux
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.12.1" data-path="../linux/kernel-modules.html">
-            
-                <a href="../linux/kernel-modules.html">
-            
-                    
-                    简单内核模块编写
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-
-    <li class="divider"></li>
-
-    <li>
-        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Published with GitBook
-        </a>
-    </li>
-</ul>
-
-
-                </nav>
-            
-        
-    </div>
-
-    <div class="book-body">
-        
-            <div class="body-inner">
-                
-                    
-
-<div class="book-header" role="navigation">
-    
-
-    <!-- Title -->
-    <h1>
-        <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >进程控制</a>
-    </h1>
-</div>
-
-
-
-
-                    <div class="page-wrapper" tabindex="-1" role="main">
-                        <div class="page-inner">
-                            
-<div id="book-search-results">
-    <div class="search-noresults">
-    
-                                <section class="normal markdown-section">
-                                
-                                <h1 id="&#x8FDB;&#x7A0B;&#x63A7;&#x5236;">&#x8FDB;&#x7A0B;&#x63A7;&#x5236;</h1>
-<h2 id="fork-&#x51FD;&#x6570;">fork &#x51FD;&#x6570;</h2>
-<p>&#x4E0B;&#x56FE;&#x4E3A;&#xFF0C;C &#x7A0B;&#x5E8F;&#x7684;&#x5B58;&#x50A8;&#x7A7A;&#x95F4;&#x5E03;&#x5C40;&#xFF08;&#x5178;&#x578B;&#xFF09;</p>
-<p><img src="images/2014-11-13_220215.svg" alt="&#x5178;&#x578B;&#x7684;&#x5B58;&#x50A8;&#x5668;&#x5B89;&#x6392;"></p>
-<p>&#x4E00;&#x4E2A;&#x73B0;&#x6709;&#x8FDB;&#x7A0B;&#x53EF;&#x4EE5;&#x8C03;&#x7528; fork &#x51FD;&#x6570;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x8FDB;&#x7A0B;<br>fork &#x51FD;&#x6570;&#x88AB;&#x8C03;&#x7528;&#x4E00;&#x6B21;&#xFF0C;&#x4F46;&#x8FD4;&#x56DE;&#x4E24;&#x6B21;&#xFF0C;
-&#x4E24;&#x6B21;&#x8FD4;&#x56DE;&#x7684;&#x552F;&#x4E00;&#x533A;&#x522B;&#x662F;&#x5B50;&#x8FDB;&#x7A0B;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x662F; 0, &#x800C;&#x7236;&#x8FDB;&#x7A0B;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x662F;&#x65B0;&#x5B50;&#x8FDB;&#x7A0B;&#x7684; PID<br>&#x5B50;&#x8FDB;&#x7A0B;&#x548C;&#x7236;&#x8FDB;&#x7A0B;&#x7EE7;&#x7EED;&#x6267;&#x884C; fork &#x8C03;&#x7528;&#x4E4B;&#x540E;&#x7684;&#x6307;&#x4EE4;</p>
-<p>&#x5728;&#x4E0A;&#x56FE;&#x7684;&#x5B58;&#x50A8;&#x7A7A;&#x95F4;&#x5E03;&#x5C40;&#x4E2D;&#xFF0C;&#x7236;&#x5B50;&#x8FDB;&#x7A0B;&#x53EA;&#x5171;&#x4EAB;&#x6B63;&#x6587;&#x6BB5;&#xFF0C;&#x5176;&#x4F59;&#x7684;&#x90FD;&#x5404;&#x81EA;&#x6709;&#x72EC;&#x7ACB;&#x7684;&#x526F;&#x672C;
-&#xFF08;&#x901A;&#x5E38;&#x4F7F;&#x7528; copy-on-write &#x7684;&#x7B56;&#x7565;&#xFF0C;&#x901F;&#x5EA6;&#x6BD4;&#x8F83;&#x5FEB;&#xFF09;</p>
-<p>&#x7236;&#x8FDB;&#x7A0B;&#x7684;&#x5982;&#x4E0B;&#x5C5E;&#x6027;&#x7531;&#x5B50;&#x8FDB;&#x7A0B;&#x7EE7;&#x627F;&#xFF1A;</p>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">简介</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> 语言</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../language/others.html"><strong aria-hidden="true">1.1.</strong> 其它</a></li><li class="chapter-item expanded "><a href="../language/extern.html"><strong aria-hidden="true">1.2.</strong> extern</a></li><li class="chapter-item expanded "><a href="../language/static.html"><strong aria-hidden="true">1.3.</strong> static</a></li><li class="chapter-item expanded "><a href="../language/header-file.html"><strong aria-hidden="true">1.4.</strong> 头文件 (header file)</a></li><li class="chapter-item expanded "><a href="../language/basic-types.html"><strong aria-hidden="true">1.5.</strong> 基本类型</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 库 (Library)</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../lib/general.html"><strong aria-hidden="true">2.1.</strong> General</a></li><li class="chapter-item expanded "><a href="../lib/c-standard-library.html"><strong aria-hidden="true">2.2.</strong> C 标准库 (C standard library)</a></li><li class="chapter-item expanded "><a href="../lib/static-library.html"><strong aria-hidden="true">2.3.</strong> 静态库 (Static library)</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Tips</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tips/code-snippet.html"><strong aria-hidden="true">3.1.</strong> 代码片段</a></li><li class="chapter-item expanded "><a href="../tips/macro-definition.html"><strong aria-hidden="true">3.2.</strong> 宏定义</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> 文件 I/O</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../file/reading-and-writing.html"><strong aria-hidden="true">4.1.</strong> 读写方式</a></li><li class="chapter-item expanded "><a href="../file/read-numerical-data.html"><strong aria-hidden="true">4.2.</strong> 读取数值型数据</a></li></ol></li><li class="chapter-item expanded "><a href="../process/index.html"><strong aria-hidden="true">5.</strong> 进程</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../process/command-line-arguments.html"><strong aria-hidden="true">5.1.</strong> 命令行参数</a></li><li class="chapter-item expanded "><a href="../process/process-termination.html"><strong aria-hidden="true">5.2.</strong> 进程终止</a></li><li class="chapter-item expanded "><a href="../process/process-control.html" class="active"><strong aria-hidden="true">5.3.</strong> 进程控制</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> 套接字</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../socket/osi.html"><strong aria-hidden="true">6.1.</strong> OSI 模型</a></li><li class="chapter-item expanded "><a href="../socket/tcp-connection-establishment-and-termination.html"><strong aria-hidden="true">6.2.</strong> TCP 连接的建立和终止</a></li><li class="chapter-item expanded "><a href="../socket/structures-and-functions.html"><strong aria-hidden="true">6.3.</strong> 相关结构与函数</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.</strong> 管理</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../manage/make.html"><strong aria-hidden="true">7.1.</strong> Make</a></li><li class="chapter-item expanded "><a href="../manage/cmake.html"><strong aria-hidden="true">7.2.</strong> CMake</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.</strong> 测试</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../test/minunit.html"><strong aria-hidden="true">8.1.</strong> MinUnit</a></li><li class="chapter-item expanded "><a href="../test/cmockery.html"><strong aria-hidden="true">8.2.</strong> Cmockery</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">9.</strong> 编译</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../compile/clang.html"><strong aria-hidden="true">9.1.</strong> clang</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">10.</strong> 库</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../library/gmp.html"><strong aria-hidden="true">10.1.</strong> GMP</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">11.</strong> Linux</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../linux/kernel-modules.html"><strong aria-hidden="true">11.1.</strong> 简单内核模块编写</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">明无梦的 C 语言记录与心得</h1>
+
+                    <div class="right-buttons">
+
+                        <a href="https://www.mwum.com" target="_blank" rel="noopener noreferrer"><i id="home-button" class="fa fa-home"></i></a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="进程控制"><a class="header" href="#进程控制">进程控制</a></h1>
+<h2 id="fork-函数"><a class="header" href="#fork-函数">fork 函数</a></h2>
+<p>下图为，C 程序的存储空间布局（典型）</p>
+<p><img src="images/2014-11-13_220215.svg" alt="典型的存储器安排" /></p>
+<p>一个现有进程可以调用 fork 函数创建一个新进程<br />
+fork 函数被调用一次，但返回两次，
+两次返回的唯一区别是子进程的返回值是 0, 而父进程的返回值是新子进程的 PID<br />
+子进程和父进程继续执行 fork 调用之后的指令</p>
+<p>在上图的存储空间布局中，父子进程只共享正文段，其余的都各自有独立的副本
+（通常使用 copy-on-write 的策略，速度比较快）</p>
+<p>父进程的如下属性由子进程继承：</p>
 <ul>
 <li>Real user ID, real group ID, effective user ID, and effective group ID</li>
 <li>Supplementary group IDs</li>
@@ -720,153 +215,89 @@
 <li>Memory mappings</li>
 <li>Resource limits</li>
 </ul>
-<p>&#x7236;&#x5B50;&#x8FDB;&#x7A0B;&#x7684;&#x533A;&#x522B;&#xFF1A;</p>
+<p>父子进程的区别：</p>
 <ul>
 <li>The return values from fork are different.</li>
 <li>The process IDs are different.</li>
 <li>The two processes have different parent process IDs: the parent process ID of the
-child is the parent; the parent process ID of the parent doesn&apos;t change.</li>
-<li>The child&apos;s tms_utime, tms_stime, tms_cutime, and tms_cstime values
+child is the parent; the parent process ID of the parent doesn't change.</li>
+<li>The child's tms_utime, tms_stime, tms_cutime, and tms_cstime values
 are set to 0 (these times are discussed in Section 8.17).</li>
 <li>File locks set by the parent are not inherited by the child.</li>
 <li>Pending alarms are cleared for the child.</li>
 <li>The set of pending signals for the child is set to the empty set.</li>
 </ul>
-<h3 id="fork-&#x7684;&#x4E24;&#x79CD;&#x7528;&#x6CD5;">fork &#x7684;&#x4E24;&#x79CD;&#x7528;&#x6CD5;</h3>
-<h4 id="&#x7236;&#x5B50;&#x8FDB;&#x7A0B;&#x540C;&#x65F6;&#x6267;&#x884C;&#x4E0D;&#x540C;&#x7684;&#x4EE3;&#x7801;&#x6BB5;">&#x7236;&#x5B50;&#x8FDB;&#x7A0B;&#x540C;&#x65F6;&#x6267;&#x884C;&#x4E0D;&#x540C;&#x7684;&#x4EE3;&#x7801;&#x6BB5;</h4>
-<p>&#x5178;&#x578B;&#x5E94;&#x7528;&#xFF1A;Web &#x670D;&#x52A1;&#x5668;</p>
-<p>&#x4EE5;&#x4E0B;&#x4EE3;&#x7801;&#x662F;&#x7B80;&#x5355;&#x7684; fork &#x7236;&#x5B50;&#x8FDB;&#x7A0B;&#x5206;&#x522B;&#x6267;&#x884C;&#x4E0D;&#x540C;&#x7684;&#x4EE3;&#x7801;</p>
-<pre><code class="lang-c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;unistd.h&gt;</span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdlib.h&gt;</span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<h3 id="fork-的两种用法"><a class="header" href="#fork-的两种用法">fork 的两种用法</a></h3>
+<h4 id="父子进程同时执行不同的代码段"><a class="header" href="#父子进程同时执行不同的代码段">父子进程同时执行不同的代码段</a></h4>
+<p>典型应用：Web 服务器</p>
+<p>以下代码是简单的 fork 父子进程分别执行不同的代码</p>
+<pre><code class="language-c">#include &lt;unistd.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
 
-<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> err_sys(x) do { perror(x); exit(1); } while (0)</span>
+#define err_sys(x) do { perror(x); exit(1); } while (0)
 
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">invoke_child</span><span class="hljs-params">(<span class="hljs-keyword">char</span> ch)</span>
-</span>{
-    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%c\n&quot;</span>, ch);
+void invoke_child(char ch)
+{
+    printf("%c\n", ch);
 }
 
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])</span>
-</span>{
-    <span class="hljs-keyword">pid_t</span>   pid;
+int main(int argc, char *argv[])
+{
+    pid_t   pid;
 
-    <span class="hljs-keyword">int</span>     cnt = <span class="hljs-number">3</span>;
-    <span class="hljs-keyword">char</span>    arg[] = <span class="hljs-string">&quot;abc&quot;</span>;
-    <span class="hljs-keyword">while</span>(cnt--) {
-        <span class="hljs-keyword">if</span> ((pid = fork()) &lt; <span class="hljs-number">0</span>) {
-            err_sys(<span class="hljs-string">&quot;Fork error&quot;</span>);
-        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (pid == <span class="hljs-number">0</span>) {
+    int     cnt = 3;
+    char    arg[] = "abc";
+    while(cnt--) {
+        if ((pid = fork()) &lt; 0) {
+            err_sys("Fork error");
+        } else if (pid == 0) {
             invoke_child(arg[cnt]);
-            <span class="hljs-built_in">exit</span>(<span class="hljs-number">0</span>);
+            exit(0);
         }
     }
 
-    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    return 0;
 }
 </code></pre>
-<h4 id="&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x8981;&#x6267;&#x884C;&#x4E00;&#x4E2A;&#x4E0D;&#x540C;&#x7684;&#x7A0B;&#x5E8F;">&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x8981;&#x6267;&#x884C;&#x4E00;&#x4E2A;&#x4E0D;&#x540C;&#x7684;&#x7A0B;&#x5E8F;</h4>
-<p>&#x5178;&#x578B;&#x5E94;&#x7528;&#xFF1A;Shell</p>
-<h4 id="exec-&#x7CFB;&#x5217;&#x51FD;&#x6570;">exec &#x7CFB;&#x5217;&#x51FD;&#x6570;</h4>
-<table>
-<thead>
-<tr>
-<th>Function</th>
-<th>pathname</th>
-<th>filename</th>
-<th>arg list</th>
-<th>argv[]</th>
-<th>environ</th>
-<th>envp[]</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>execl</td>
-<td>*</td>
-<td></td>
-<td>*</td>
-<td></td>
-<td>*</td>
-<td></td>
-</tr>
-<tr>
-<td>execlp</td>
-<td></td>
-<td>*</td>
-<td>*</td>
-<td></td>
-<td>*</td>
-<td></td>
-</tr>
-<tr>
-<td>execle</td>
-<td>*</td>
-<td></td>
-<td>*</td>
-<td></td>
-<td></td>
-<td>*</td>
-</tr>
-<tr>
-<td>execv</td>
-<td>*</td>
-<td></td>
-<td></td>
-<td>*</td>
-<td>*</td>
-<td></td>
-</tr>
-<tr>
-<td>execvp</td>
-<td></td>
-<td>*</td>
-<td></td>
-<td>*</td>
-<td>*</td>
-<td></td>
-</tr>
-<tr>
-<td>execve</td>
-<td>*</td>
-<td></td>
-<td></td>
-<td>*</td>
-<td></td>
-<td>*</td>
-</tr>
-<tr>
-<td>(letter in name)</td>
-<td></td>
-<td>p</td>
-<td>l</td>
-<td>v</td>
-<td></td>
-<td>e</td>
-</tr>
-</tbody>
-</table>
-<p>&#x8FD9;&#x4E9B;&#x51FD;&#x6570;&#x4E3B;&#x8981;&#x533A;&#x522B;&#x5982;&#x4E0B;&#xFF1A;</p>
+<h4 id="一个进程要执行一个不同的程序"><a class="header" href="#一个进程要执行一个不同的程序">一个进程要执行一个不同的程序</a></h4>
+<p>典型应用：Shell</p>
+<h4 id="exec-系列函数"><a class="header" href="#exec-系列函数">exec 系列函数</a></h4>
+<div class="table-wrapper"><table><thead><tr><th>Function</th><th>pathname</th><th>filename</th><th>arg list</th><th>argv[]</th><th>environ</th><th>envp[]</th></tr></thead><tbody>
+<tr><td>execl</td><td>*</td><td></td><td>*</td><td></td><td>*</td><td></td></tr>
+<tr><td>execlp</td><td></td><td>*</td><td>*</td><td></td><td>*</td><td></td></tr>
+<tr><td>execle</td><td>*</td><td></td><td>*</td><td></td><td></td><td>*</td></tr>
+<tr><td>execv</td><td>*</td><td></td><td></td><td>*</td><td>*</td><td></td></tr>
+<tr><td>execvp</td><td></td><td>*</td><td></td><td>*</td><td>*</td><td></td></tr>
+<tr><td>execve</td><td>*</td><td></td><td></td><td>*</td><td></td><td>*</td></tr>
+<tr><td>(letter in name)</td><td></td><td>p</td><td>l</td><td>v</td><td></td><td>e</td></tr>
+</tbody></table>
+</div>
+<p>这些函数主要区别如下：</p>
 <ul>
-<li><p>pathname &#x548C; filename</p>
-<p>filename &#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x65F6;&#xFF1A;</p>
+<li>
+<p>pathname 和 filename</p>
+<p>filename 作为参数时：</p>
 <ul>
-<li>&#x5982;&#x679C; filename &#x4E2D;&#x5305;&#x542B; /, &#x5219;&#x5C06;&#x5176;&#x89C6;&#x4E3A;&#x8DEF;&#x5F84;&#x540D;</li>
-<li>&#x5426;&#x5219;&#x5C31;&#x6309; PATH &#x73AF;&#x5883;&#x53D8;&#x91CF;&#xFF0C;&#x5728;&#x5B83;&#x6240;&#x6307;&#x5B9A;&#x7684;&#x5404;&#x76EE;&#x5F55;&#x4E2D;&#x641C;&#x5BFB;&#x53EF;&#x6267;&#x884C;&#x6587;&#x4EF6;</li>
+<li>如果 filename 中包含 /, 则将其视为路径名</li>
+<li>否则就按 PATH 环境变量，在它所指定的各目录中搜寻可执行文件</li>
 </ul>
-<p>&#x5982;&#x679C;&#x627E;&#x5230;&#x4E86;&#x4E00;&#x4E2A;&#x53EF;&#x6267;&#x884C;&#x6587;&#x4EF6;&#xFF0C;&#x4F46;&#x662F;&#x8BE5;&#x6587;&#x4EF6;&#x4E0D;&#x662F;&#x673A;&#x5668;&#x7801;&#x53EF;&#x6267;&#x884C;&#x6587;&#x4EF6;&#xFF0C;
-&#x5219;&#x8BA4;&#x4E3A;&#x8BE5;&#x6587;&#x4EF6;&#x662F;&#x4E00;&#x4E2A; shell &#x811A;&#x672C;&#xFF0C;&#x4E8E;&#x662F;&#x8BD5;&#x7740;&#x8C03;&#x7528; /bin/sh &#x5E76;&#x4EE5;&#x8BE5; filename &#x4F5C;&#x4E3A; shell &#x7684;&#x8F93;&#x5165;</p>
+<p>如果找到了一个可执行文件，但是该文件不是机器码可执行文件，
+则认为该文件是一个 shell 脚本，于是试着调用 /bin/sh 并以该 filename 作为 shell 的输入</p>
 </li>
-<li><p>arg list &#x548C; argv[]</p>
-<p>&#x5F53;&#x4F7F;&#x7528; arg list &#x65F6;&#xFF0C;&#x5728;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x547D;&#x4EE4;&#x884C;&#x53C2;&#x6570;&#x9700;&#x8981;&#x8DDF;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x578B;&#x7A7A;&#x6307;&#x9488;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
-<pre><code class="lang-c"><span class="hljs-keyword">char</span> *arg0, <span class="hljs-keyword">char</span> *arg1, ..., <span class="hljs-keyword">char</span> *argn, (<span class="hljs-keyword">char</span> *)<span class="hljs-number">0</span>
+<li>
+<p>arg list 和 argv[]</p>
+<p>当使用 arg list 时，在最后一个命令行参数需要跟一个字符型空指针，例如：</p>
+<pre><code class="language-c">char *arg0, char *arg1, ..., char *argn, (char *)0
 </code></pre>
 </li>
-<li><p>environ &#x548C; envp[]</p>
-<p>&#x5E26;&#x6709; envp[] &#x53C2;&#x6570;&#x7684;&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x4F20;&#x9012;&#x4E00;&#x4E2A;&#x6307;&#x5411;&#x73AF;&#x5883;&#x5B57;&#x7B26;&#x4E32;&#x6307;&#x9488;&#x6570;&#x7EC4;&#x7684;&#x6307;&#x9488;<br>&#x5176;&#x5B83;&#x51FD;&#x6570;&#x5219;&#x8C03;&#x7528;&#x8FDB;&#x7A0B;&#x4E2D;&#x7684; environ &#x53D8;&#x91CF;&#x4E3A;&#x65B0;&#x7A0B;&#x5E8F;&#x590D;&#x5236;&#x73B0;&#x6709;&#x7684;&#x73AF;&#x5883;</p>
+<li>
+<p>environ 和 envp[]</p>
+<p>带有 envp[] 参数的函数可以传递一个指向环境字符串指针数组的指针<br />
+其它函数则调用进程中的 environ 变量为新程序复制现有的环境</p>
 </li>
 </ul>
-<p>&#x6267;&#x884C;&#x65B0;&#x7A0B;&#x5E8F;&#x7684;&#x8FDB;&#x7A0B;&#x4FDD;&#x7559;&#x5982;&#x4E0B;&#x539F;&#x8FDB;&#x7A0B;&#x7684;&#x7279;&#x5F81;&#xFF1A;</p>
+<p>执行新程序的进程保留如下原进程的特征：</p>
 <ul>
 <li>Process ID and parent process ID</li>
 <li>Real user ID and real group ID</li>
@@ -885,65 +316,65 @@ are set to 0 (these times are discussed in Section 8.17).</li>
 <li>Nice value (on XSI-conformant systems; see Section 8.16)</li>
 <li>Values for <code>tms_utime</code>, <code>tms_stime</code>, <code>tms_cutime</code>, and <code>tms_cstime</code></li>
 </ul>
-<p>&#x8FD9;&#x51E0;&#x4E2A;&#x51FD;&#x6570;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;&#x5982;&#x4E0B;&#x56FE;&#xFF1A;</p>
-<p><img src="images/2014-11-20_224617.svg" alt="exec &#x51FD;&#x6570;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;"></p>
-<h5 id="exec-&#x51FD;&#x6570;&#x5B9E;&#x4F8B;">exec &#x51FD;&#x6570;&#x5B9E;&#x4F8B;</h5>
-<pre><code class="lang-c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<p>这几个函数之间的关系如下图：</p>
+<p><img src="images/2014-11-20_224617.svg" alt="exec 函数之间的关系" /></p>
+<h5 id="exec-函数实例"><a class="header" href="#exec-函数实例">exec 函数实例</a></h5>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
 
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])</span>
-</span>{
-    <span class="hljs-keyword">extern</span> <span class="hljs-keyword">char</span>     **environ;
+int main(int argc, char *argv[])
+{
+    extern char     **environ;
 
-    <span class="hljs-comment">/* echo all command-line args */</span>
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; argc; i++) {
-        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;argv[%d]: %s\n&quot;</span>, i, argv[i]);
+    /* echo all command-line args */
+    for (int i = 0; i &lt; argc; i++) {
+        printf("argv[%d]: %s\n", i, argv[i]);
     }
 
-    <span class="hljs-comment">/* and all env strings */</span>
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">char</span> **ptr = environ; *ptr != <span class="hljs-number">0</span>; ptr++) {
-        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%s\n&quot;</span>, *ptr);
+    /* and all env strings */
+    for (char **ptr = environ; *ptr != 0; ptr++) {
+        printf("%s\n", *ptr);
     }
 
-    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    return 0;
 }
 </code></pre>
-<p>&#x5C06;&#x4E0A;&#x9762;&#x8FD9;&#x4E2A;&#x7A0B;&#x5E8F;&#x7F16;&#x8BD1;&#x4E3A; echoall, &#x653E;&#x5728; <code>/Users/mwum/bin</code> &#x4E2D;</p>
-<pre><code class="lang-c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;unistd.h&gt;</span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdlib.h&gt;</span></span>
+<p>将上面这个程序编译为 echoall, 放在 <code>/Users/mwum/bin</code> 中</p>
+<pre><code class="language-c">#include &lt;unistd.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
 
-<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> err_sys(x) do { perror(x); exit(1); } while (0)</span>
+#define err_sys(x) do { perror(x); exit(1); } while (0)
 
-<span class="hljs-keyword">char</span>    *env_init[] = { <span class="hljs-string">&quot;USER=unknown&quot;</span>, <span class="hljs-string">&quot;PATH=/tmp&quot;</span>, <span class="hljs-literal">NULL</span> };
+char    *env_init[] = { "USER=unknown", "PATH=/tmp", NULL };
 
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])</span>
-</span>{
-    <span class="hljs-keyword">pid_t</span>   pid;
+int main(int argc, char *argv[])
+{
+    pid_t   pid;
 
-    <span class="hljs-keyword">if</span> ((pid = fork()) &lt; <span class="hljs-number">0</span>) {
-        err_sys(<span class="hljs-string">&quot;fork error&quot;</span>);
-    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (pid == <span class="hljs-number">0</span>) {
-        <span class="hljs-keyword">if</span> (execle(<span class="hljs-string">&quot;/Users/mwum/bin/echoall&quot;</span>,
-                   <span class="hljs-string">&quot;echoall&quot;</span>, <span class="hljs-string">&quot;myarg1&quot;</span>, <span class="hljs-string">&quot;myarg2&quot;</span>, (<span class="hljs-keyword">char</span> *)<span class="hljs-number">0</span>, env_init) &lt; <span class="hljs-number">0</span>)
-            err_sys(<span class="hljs-string">&quot;execle error&quot;</span>);
+    if ((pid = fork()) &lt; 0) {
+        err_sys("fork error");
+    } else if (pid == 0) {
+        if (execle("/Users/mwum/bin/echoall",
+                   "echoall", "myarg1", "myarg2", (char *)0, env_init) &lt; 0)
+            err_sys("execle error");
     }
 
-    <span class="hljs-keyword">if</span> (waitpid(pid, <span class="hljs-literal">NULL</span>, <span class="hljs-number">0</span>) &lt; <span class="hljs-number">0</span>) {
-        err_sys(<span class="hljs-string">&quot;wait error&quot;</span>);
+    if (waitpid(pid, NULL, 0) &lt; 0) {
+        err_sys("wait error");
     }
 
-    <span class="hljs-keyword">if</span> ((pid = fork()) &lt; <span class="hljs-number">0</span>) {
-        err_sys(<span class="hljs-string">&quot;fork error&quot;</span>);
-    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (pid == <span class="hljs-number">0</span> ) {
-        <span class="hljs-keyword">if</span> (execlp(<span class="hljs-string">&quot;echoall&quot;</span>,
-                   <span class="hljs-string">&quot;echoall&quot;</span>, <span class="hljs-string">&quot;only 1 arg&quot;</span>, (<span class="hljs-keyword">char</span> *)<span class="hljs-number">0</span>) &lt; <span class="hljs-number">0</span>)
-            err_sys(<span class="hljs-string">&quot;execlp error&quot;</span>);
+    if ((pid = fork()) &lt; 0) {
+        err_sys("fork error");
+    } else if (pid == 0 ) {
+        if (execlp("echoall",
+                   "echoall", "only 1 arg", (char *)0) &lt; 0)
+            err_sys("execlp error");
     }
 
-    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    return 0;
 }
 </code></pre>
-<p>&#x7F16;&#x8BD1;&#x4EE5;&#x4E0A;&#x7A0B;&#x5E8F;&#xFF0C;&#x6267;&#x884C;&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p>编译以上程序，执行结果如下：</p>
 <pre><code>$ ./a.out
 argv[0]: echoall
 argv[1]: myarg1
@@ -953,101 +384,79 @@ PATH=/tmp
 argv[0]: echoall
 argv[1]: only 1 arg
 ...
-</code></pre><h2 id="&#x5B64;&#x513F;&#x8FDB;&#x7A0B;&#xFF0C;&#x5B88;&#x62A4;&#x8FDB;&#x7A0B;&#xFF0C;&#x50F5;&#x5C38;&#x8FDB;&#x7A0B;">&#x5B64;&#x513F;&#x8FDB;&#x7A0B;&#xFF0C;&#x5B88;&#x62A4;&#x8FDB;&#x7A0B;&#xFF0C;&#x50F5;&#x5C38;&#x8FDB;&#x7A0B;</h2>
-<p>&#x7236;&#x8FDB;&#x7A0B;&#x5148;&#x4E8E;&#x5B50;&#x8FDB;&#x7A0B;&#x7ED3;&#x675F;&#xFF0C;&#x8FD9;&#x65F6;&#x5B50;&#x8FDB;&#x7A0B;&#x79F0;&#x4E3A;<strong>&#x5B64;&#x513F;&#x8FDB;&#x7A0B;</strong><br>&#x4E3A;&#x907F;&#x514D;&#x5B64;&#x513F;&#x8FDB;&#x7A0B;&#x9000;&#x51FA;&#x65F6;&#x65E0;&#x6CD5;&#x91CA;&#x653E;&#x6240;&#x5360;&#x7528;&#x7684;&#x8D44;&#x6E90;&#x800C;&#x50F5;&#x6B7B;&#xFF0C;&#x4EFB;&#x4F55;&#x5B64;&#x513F;&#x8FDB;&#x7A0B;&#x4EA7;&#x751F;&#x65F6;&#x90FD;&#x4F1A;&#x7ACB;&#x5373;&#x4E3A;&#x7CFB;&#x7EDF;&#x8FDB;&#x7A0B; init &#x81EA;&#x52A8;&#x63A5;&#x6536;&#x4E3A;&#x5B50;&#x8FDB;&#x7A0B;</p>
-<p>&#x7528;&#x6237;&#x4E5F;&#x53EF;&#x80FD;&#x4F1A;&#x523B;&#x610F;&#x4F7F;&#x8FDB;&#x7A0B;&#x6210;&#x4E3A;&#x5B64;&#x513F;&#x8FDB;&#x7A0B;&#xFF0C;&#x4EE5;&#x4F7F;&#x4E4B;&#x4E0E;&#x7528;&#x6237;&#x4F1A;&#x8BDD;&#x8131;&#x94A9;&#xFF0C;&#x5E76;&#x8F6C;&#x81F3;&#x540E;&#x53F0;&#x8FD0;&#x884C;&#x3002;
-&#x8FD9;&#x4E00;&#x505A;&#x6CD5;&#x5E38;&#x5E94;&#x7528;&#x4E8E;&#x542F;&#x52A8;&#x9700;&#x8981;&#x957F;&#x65F6;&#x95F4;&#x8FD0;&#x884C;&#x7684;&#x8FDB;&#x7A0B;&#xFF0C;&#x4E5F;&#x5373;<strong>&#x5B88;&#x62A4;&#x8FDB;&#x7A0B;</strong></p>
-<p>&#x4E00;&#x4E2A;&#x5DF2;&#x7ECF;&#x7EC8;&#x6B62;&#xFF0C;&#x4F46;&#x662F;&#x5176;&#x7236;&#x8FDB;&#x7A0B;&#x5C1A;&#x672A;&#x5BF9;&#x5176;&#x8FDB;&#x884C;&#x5584;&#x540E;&#x5904;&#x7406;&#x7684;&#x8FDB;&#x7A0B;&#x88AB;&#x79F0;&#x4E3A;<strong>&#x50F5;&#x5C38;&#x8FDB;&#x7A0B;</strong><br><code>ps</code> &#x547D;&#x4EE4;&#x5C06;&#x50F5;&#x6B7B;&#x8FDB;&#x7A0B;&#x7684;&#x72B6;&#x6001;&#x6253;&#x5370;&#x4E3A; Z</p>
-<h2 id="wait-&#x548C;-waitpid-&#x51FD;&#x6570;">wait &#x548C; waitpid &#x51FD;&#x6570;</h2>
+</code></pre>
+<h2 id="孤儿进程守护进程僵尸进程"><a class="header" href="#孤儿进程守护进程僵尸进程">孤儿进程，守护进程，僵尸进程</a></h2>
+<p>父进程先于子进程结束，这时子进程称为<strong>孤儿进程</strong><br />
+为避免孤儿进程退出时无法释放所占用的资源而僵死，任何孤儿进程产生时都会立即为系统进程 init 自动接收为子进程</p>
+<p>用户也可能会刻意使进程成为孤儿进程，以使之与用户会话脱钩，并转至后台运行。
+这一做法常应用于启动需要长时间运行的进程，也即<strong>守护进程</strong></p>
+<p>一个已经终止，但是其父进程尚未对其进行善后处理的进程被称为<strong>僵尸进程</strong><br />
+<code>ps</code> 命令将僵死进程的状态打印为 Z</p>
+<h2 id="wait-和-waitpid-函数"><a class="header" href="#wait-和-waitpid-函数">wait 和 waitpid 函数</a></h2>
 
-                                
-                                </section>
-                            
-    </div>
-    <div class="search-results">
-        <div class="has-results">
-            
-            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
-            <ul class="search-results-list"></ul>
-            
-        </div>
-        <div class="no-results">
-            
-            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
-            
-        </div>
-    </div>
-</div>
 
-                        </div>
-                    </div>
-                
+                        <br>
+                        <div id="remark42"></div>
+                        <script>
+                            var localAddrs = ["localhost", "127.0.0.1", ""];
+                            if (localAddrs.indexOf(document.location.hostname) === -1) {
+                                var remark_config = {
+                                    host: 'https://comments.mwum.com',
+                                    site_id: 'mwum',
+                                    locale: 'zh',
+                                    no_footer: true,
+                                }
+                                !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+                            }
+                        </script>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../process/process-termination.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../socket/osi.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
             </div>
 
-            
-                
-                <a href="process-termination.html" class="navigation navigation-prev " aria-label="Previous page: 进程终止">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                
-                
-                <a href="../socket/" class="navigation navigation-next " aria-label="Next page: 套接字">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-                
-            
-        
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../process/process-termination.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../socket/osi.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
     </div>
-
-    <script>
-        var gitbook = gitbook || [];
-        gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"进程控制","level":"1.6.3","depth":2,"next":{"title":"套接字","level":"1.7","depth":1,"path":"socket/README.md","ref":"socket/README.md","articles":[{"title":"OSI 模型","level":"1.7.1","depth":2,"path":"socket/osi.md","ref":"socket/osi.md","articles":[]},{"title":"TCP 连接的建立和终止","level":"1.7.2","depth":2,"path":"socket/tcp-connection-establishment-and-termination.md","ref":"socket/tcp-connection-establishment-and-termination.md","articles":[]},{"title":"相关结构与函数","level":"1.7.3","depth":2,"path":"socket/structures-and-functions.md","ref":"socket/structures-and-functions.md","articles":[]}]},"previous":{"title":"进程终止","level":"1.6.2","depth":2,"path":"process/process-termination.md","ref":"process/process-termination.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"mwum"},"ga":{"configuration":"auto","token":"UA-39279084-1"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sidebar":{"明无梦的博客":"https://www.dreamxu.com/"},"sharing":{"google":false,"facebook":false,"twitter":false,"weibo":false,"all":true}},"gitbook":"*"},"file":{"path":"process/process-control.md","mtime":"2014-11-20T15:53:03.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-04T17:53:33.891Z"},"basePath":"..","book":{"language":""}});
-        });
-    </script>
-</div>
-
-        
-    <script src="../gitbook/gitbook.js"></script>
-    <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
-        
-    
-
     </body>
 </html>
-

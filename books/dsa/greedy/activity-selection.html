@@ -1,710 +1,298 @@
-
 <!DOCTYPE HTML>
-<html lang="" >
+<html lang="zh-CN" class="light" dir="ltr">
     <head>
+        <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>活动选择问题 (Activity-selection problem · GitBook</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>活动选择问题 (Activity-selection problem - 明无梦的数据结构与算法学习之路</title>
+
+
+        <!-- Custom HTML head -->
+        
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.3">
-        
-        
-        
-    
-    <link rel="stylesheet" href="../gitbook/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
 
-    
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
-                
-            
-        
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
 
-    
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
 
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
 
-        
-    
-    
-    <meta name="HandheldFriendly" content="true"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
-    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/custom.css">
 
-    
-    <link rel="next" href="optimal-decomposition.html" />
-    
-    
-    <link rel="prev" href="./" />
-    
 
+        <script>
+            var localAddrs = ["localhost", "127.0.0.1", ""];
+            if (localAddrs.indexOf(document.location.hostname) === -1) {
+                  var script = document.createElement('script');
+                  script.async = true;
+                  script.src = 'https://www.googletagmanager.com/gtag/js?id=G-XNJSCC1KSF';
+                  document.head.appendChild(script);
+
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+
+                  gtag('config', 'G-XNJSCC1KSF');
+            }
+        </script>
     </head>
-    <body>
-        
-<div class="book">
-    <div class="book-summary">
-        
-            
-<div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search" />
-</div>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
 
-            
-                <nav role="navigation">
-                
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
 
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
 
-<ul class="summary">
-    
-    
-    
-        
-        <li>
-            <a href="https://www.dreamxu.com/" target="_blank" class="custom-link">明无梦的博客</a>
-        </li>
-    
-    
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
 
-    
-    <li class="divider"></li>
-    
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
 
-    
-        
-        
-    
-        <li class="chapter " data-level="1.1" data-path="../">
-            
-                <a href="../">
-            
-                    
-                    简介
-            
-                </a>
-            
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2" data-path="../data-structure/">
-            
-                <a href="../data-structure/">
-            
-                    
-                    基本数据结构 (Elementary Data Structures
-            
-                </a>
-            
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
 
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.2.1" data-path="../data-structure/slist/">
-            
-                <a href="../data-structure/slist/">
-            
-                    
-                    单链表 (Linked list)
-            
-                </a>
-            
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">简介</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> 基本数据结构 (Basic Data Structures</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">1.1.</strong> 单链表 (Linked list)</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../data-structure/slist/src.html"><strong aria-hidden="true">1.1.1.</strong> 实现</a></li><li class="chapter-item expanded "><a href="../data-structure/slist/doc.html"><strong aria-hidden="true">1.1.2.</strong> 文档</a></li></ol></li><li class="chapter-item expanded "><a href="../data-structure/queue/queue.html"><strong aria-hidden="true">1.2.</strong> 队列 (Queue)</a></li><li class="chapter-item expanded "><a href="../data-structure/binary-tree.html"><strong aria-hidden="true">1.3.</strong> 二叉树 (Binary Tree)</a></li><li class="chapter-item expanded "><a href="../data-structure/binary-heap.html"><strong aria-hidden="true">1.4.</strong> 二叉堆 (Binary heap)</a></li></ol></li><li class="chapter-item expanded "><a href="../dc/index.html"><strong aria-hidden="true">2.</strong> 分治算法 (Divide and conquer algorithms)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../dc/rmq.html"><strong aria-hidden="true">2.1.</strong> 范围最值查询 (Range Minimum Query)</a></li><li class="chapter-item expanded "><a href="../dc/change-coin.html"><strong aria-hidden="true">2.2.</strong> 换硬币问题</a></li><li class="chapter-item expanded "><a href="../dc/subset.html"><strong aria-hidden="true">2.3.</strong> 子集问题</a></li><li class="chapter-item expanded "><a href="../dc/hanio.html"><strong aria-hidden="true">2.4.</strong> 汉诺塔 (Tower of Hanoi)</a></li><li class="chapter-item expanded "><a href="../dc/binary-search.html"><strong aria-hidden="true">2.5.</strong> 二分搜索 (Binary search)</a></li><li class="chapter-item expanded "><a href="../dc/quicksort.html"><strong aria-hidden="true">2.6.</strong> 快速排序 (Quicksort)</a></li><li class="chapter-item expanded "><a href="../dc/gray-code.html"><strong aria-hidden="true">2.7.</strong> 格雷码 (Gray code)</a></li></ol></li><li class="chapter-item expanded "><a href="../dp/index.html"><strong aria-hidden="true">3.</strong> 动态规划 (Dynamic programming)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../dp/edit-distance.html"><strong aria-hidden="true">3.1.</strong> 编辑距离 (Edit distance)</a></li><li class="chapter-item expanded "><a href="../dp/digital-triangle.html"><strong aria-hidden="true">3.2.</strong> 数字三角形</a></li><li class="chapter-item expanded "><a href="../dp/max-k-product.html"><strong aria-hidden="true">3.3.</strong> 最大 K 乘积</a></li><li class="chapter-item expanded "><a href="../dp/01-knapsack.html"><strong aria-hidden="true">3.4.</strong> 0/1 背包问题 (0/1 knapsack problem)</a></li></ol></li><li class="chapter-item expanded "><a href="../greedy/index.html"><strong aria-hidden="true">4.</strong> 贪心算法 (Greedy algorithm)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../greedy/activity-selection.html" class="active"><strong aria-hidden="true">4.1.</strong> 活动选择问题 (Activity-selection problem</a></li><li class="chapter-item expanded "><a href="../greedy/optimal-decomposition.html"><strong aria-hidden="true">4.2.</strong> 最优分解问题</a></li></ol></li><li class="chapter-item expanded "><a href="../backtracking/index.html"><strong aria-hidden="true">5.</strong> 回溯算法 (Backtracking)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../backtracking/eight-queens-puzzle.html"><strong aria-hidden="true">5.1.</strong> 八皇后问题 (Eight queens puzzle)</a></li><li class="chapter-item expanded "><a href="../backtracking/minimum-weight-of-the-machine.html"><strong aria-hidden="true">5.2.</strong> 最小重量机器设计问题</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
 
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.2.1.1" data-path="../data-structure/slist/src.html">
-            
-                <a href="../data-structure/slist/src.html">
-            
-                    
-                    实现
-            
-                </a>
-            
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
 
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.1.2" data-path="../data-structure/slist/doc.html">
-            
-                <a href="../data-structure/slist/doc.html">
-            
-                    
-                    文档
-            
-                </a>
-            
+        <div id="page-wrapper" class="page-wrapper">
 
-            
-        </li>
-    
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
 
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.2" data-path="../data-structure/queue/queue.html">
-            
-                <a href="../data-structure/queue/queue.html">
-            
-                    
-                    队列 (Queue)
-            
-                </a>
-            
+                    <h1 class="menu-title">明无梦的数据结构与算法学习之路</h1>
 
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.3" data-path="../data-structure/binary-tree.html">
-            
-                <a href="../data-structure/binary-tree.html">
-            
-                    
-                    二叉树 (Binary Tree)
-            
-                </a>
-            
+                    <div class="right-buttons">
 
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.4" data-path="../data-structure/binary-heap.html">
-            
-                <a href="../data-structure/binary-heap.html">
-            
-                    
-                    二叉堆 (Binary heap)
-            
-                </a>
-            
+                        <a href="https://www.mwum.com" target="_blank" rel="noopener noreferrer"><i id="home-button" class="fa fa-home"></i></a>
+                    </div>
+                </div>
 
-            
-        </li>
-    
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
 
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3" data-path="../dc/">
-            
-                <a href="../dc/">
-            
-                    
-                    分治算法 (Divide and conquer algorithms)
-            
-                </a>
-            
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
 
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.3.1" data-path="../dc/rmq.html">
-            
-                <a href="../dc/rmq.html">
-            
-                    
-                    范围最值查询 (Range Minimum Query)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.2" data-path="../dc/change-coin.html">
-            
-                <a href="../dc/change-coin.html">
-            
-                    
-                    换硬币问题
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.3" data-path="../dc/subset.html">
-            
-                <a href="../dc/subset.html">
-            
-                    
-                    子集问题
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.4" data-path="../dc/hanio.html">
-            
-                <a href="../dc/hanio.html">
-            
-                    
-                    汉诺塔 (Tower of Hanoi)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.5" data-path="../dc/binary-search.html">
-            
-                <a href="../dc/binary-search.html">
-            
-                    
-                    二分搜索 (Binary search)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.6" data-path="../dc/quicksort.html">
-            
-                <a href="../dc/quicksort.html">
-            
-                    
-                    快速排序 (Quicksort)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.7" data-path="../dc/gray-code.html">
-            
-                <a href="../dc/gray-code.html">
-            
-                    
-                    格雷码 (Gray code)
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4" data-path="../dp/">
-            
-                <a href="../dp/">
-            
-                    
-                    动态规划 (Dynamic programming)
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.4.1" data-path="../dp/edit-distance.html">
-            
-                <a href="../dp/edit-distance.html">
-            
-                    
-                    编辑距离 (Edit distance)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.2" data-path="../dp/digital-triangle.html">
-            
-                <a href="../dp/digital-triangle.html">
-            
-                    
-                    数字三角形
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.3" data-path="../dp/max-k-product.html">
-            
-                <a href="../dp/max-k-product.html">
-            
-                    
-                    最大 K 乘积
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.4" data-path="../dp/01-knapsack.html">
-            
-                <a href="../dp/01-knapsack.html">
-            
-                    
-                    0/1 背包问题 (0/1 knapsack problem)
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5" data-path="./">
-            
-                <a href="./">
-            
-                    
-                    贪心算法 (Greedy algorithm)
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter active" data-level="1.5.1" data-path="activity-selection.html">
-            
-                <a href="activity-selection.html">
-            
-                    
-                    活动选择问题 (Activity-selection problem
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.2" data-path="optimal-decomposition.html">
-            
-                <a href="optimal-decomposition.html">
-            
-                    
-                    最优分解问题
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6" data-path="../backtracking/">
-            
-                <a href="../backtracking/">
-            
-                    
-                    回溯算法 (Backtracking)
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.6.1" data-path="../backtracking/eight-queens-puzzle.html">
-            
-                <a href="../backtracking/eight-queens-puzzle.html">
-            
-                    
-                    八皇后问题 (Eight queens puzzle)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.2" data-path="../backtracking/minimum-weight-of-the-machine.html">
-            
-                <a href="../backtracking/minimum-weight-of-the-machine.html">
-            
-                    
-                    最小重量机器设计问题
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-
-    <li class="divider"></li>
-
-    <li>
-        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Published with GitBook
-        </a>
-    </li>
-</ul>
-
-
-                </nav>
-            
-        
-    </div>
-
-    <div class="book-body">
-        
-            <div class="body-inner">
-                
-                    
-
-<div class="book-header" role="navigation">
-    
-
-    <!-- Title -->
-    <h1>
-        <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >活动选择问题 (Activity-selection problem</a>
-    </h1>
-</div>
-
-
-
-
-                    <div class="page-wrapper" tabindex="-1" role="main">
-                        <div class="page-inner">
-                            
-<div id="book-search-results">
-    <div class="search-noresults">
-    
-                                <section class="normal markdown-section">
-                                
-                                <h1 id="&#x6D3B;&#x52A8;&#x9009;&#x62E9;&#x95EE;&#x9898;-activity-selection-problem">&#x6D3B;&#x52A8;&#x9009;&#x62E9;&#x95EE;&#x9898; (Activity-selection problem)</h1>
-<h2 id="&#x95EE;&#x9898;">&#x95EE;&#x9898;</h2>
-<p>&#x5C06;&#x5B9A;&#x6709;&#x4E00;&#x4E2A; n &#x4E2A;&#x6D3B;&#x52A8;&#x7684;&#x96C6;&#x5408; S = {a[1], a[2], ..., a[n]}, &#x8FD9;&#x4E9B;&#x6D3B;&#x52A8;&#x4F7F;&#x7528;&#x540C;&#x4E00;&#x4E2A;&#x8D44;&#x6E90;&#xFF0C;
-&#x800C;&#x8FD9;&#x4E2A;&#x8D44;&#x6E90;&#x5728;&#x67D0;&#x4E2A;&#x65F6;&#x523B;&#x53EA;&#x80FD;&#x4F9B;&#x4E00;&#x4E2A;&#x6D3B;&#x52A8;&#x4F7F;&#x7528;&#x3002;
-&#x6BCF;&#x4E2A;&#x6D3B;&#x52A8;&#x90FD;&#x6709;&#x4E00;&#x4E2A;&#x5F00;&#x59CB;&#x65F6;&#x95F4; s[i] &#x548C;&#x4E00;&#x4E2A;&#x7ED3;&#x675F;&#x65F6;&#x95F4; f[i], &#x5176;&#x4E2D; 0 &lt;= s[i] &lt; f[i] &lt; $$\infty$$. 
-&#x82E5; s[i] &gt;= f[j] &#x6216; s[j] &gt;= f[i] &#x5219; a[i] &#x548C; z[j] &#x662F;&#x517C;&#x5BB9;&#x7684;<br>&#x95EE;&#x9898;&#xFF1A;&#x9009;&#x51FA;&#x4E00;&#x4E2A;&#x6700;&#x5927;&#x517C;&#x5BB9;&#x6D3B;&#x52A8;&#x96C6;&#xFF0C;&#x5047;&#x5B9A;&#x6D3B;&#x52A8;&#x5DF2;&#x6309;&#x7ED3;&#x675F;&#x65F6;&#x95F4;&#x5355;&#x8C03;&#x9012;&#x589E;&#x987A;&#x5E8F;&#x6392;&#x5E8F;&#xFF1A;</p>
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="活动选择问题-activity-selection-problem"><a class="header" href="#活动选择问题-activity-selection-problem">活动选择问题 (Activity-selection problem)</a></h1>
+<h2 id="问题"><a class="header" href="#问题">问题</a></h2>
+<p>将定有一个 n 个活动的集合 S = {a[1], a[2], ..., a[n]}, 这些活动使用同一个资源，
+而这个资源在某个时刻只能供一个活动使用。
+每个活动都有一个开始时间 s[i] 和一个结束时间 f[i], 其中 0 &lt;= s[i] &lt; f[i] &lt; $$\infty$$.
+若 s[i] &gt;= f[j] 或 s[j] &gt;= f[i] 则 a[i] 和 z[j] 是兼容的<br />
+问题：选出一个最大兼容活动集，假定活动已按结束时间单调递增顺序排序：</p>
 <p>f[1] &lt;= f[2] &lt;= f[3] &lt;= ... &lt;= f[n-1] &lt;= f[n]</p>
-<p>&#x4F8B;&#x5982;&#x4E0B;&#x9762;&#x7684;&#x6D3B;&#x52A8;&#x96C6;&#x5408;&#xFF1A;</p>
-<table>
-<thead>
-<tr>
-<th>i</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th>10</th>
-<th>11</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>s[i]</td>
-<td>1</td>
-<td>3</td>
-<td>0</td>
-<td>5</td>
-<td>3</td>
-<td>5</td>
-<td>6</td>
-<td>8</td>
-<td>8</td>
-<td>2</td>
-<td>12</td>
-</tr>
-<tr>
-<td>f[i]</td>
-<td>4</td>
-<td>5</td>
-<td>6</td>
-<td>7</td>
-<td>9</td>
-<td>9</td>
-<td>10</td>
-<td>11</td>
-<td>12</td>
-<td>14</td>
-<td>16</td>
-</tr>
-</tbody>
-</table>
-<p>&#x90A3;&#x4E48; {a[1], a[4], a[8], a[11]} &#x662F;&#x4E00;&#x4E2A;&#x6700;&#x5927;&#x517C;&#x5BB9;&#x6D3B;&#x52A8;&#x5B50;&#x96C6;&#xFF0C;&#x53E6;&#x4E00;&#x4E2A;&#x662F; {a[2], a[4], a[9], a[11]}</p>
-<h2 id="&#x601D;&#x8DEF;">&#x601D;&#x8DEF;</h2>
-<p>&#x76F4;&#x89C9;&#x544A;&#x8BC9;&#x6211;&#x4EEC;&#xFF0C;&#x5E94;&#x8BE5;&#x9009;&#x62E9; S &#x4E2D;&#x6700;&#x65E9;&#x7ED3;&#x675F;&#x7684;&#x6D3B;&#x52A8;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x5269;&#x4E0B;&#x7684;&#x8D44;&#x6E90;&#x53EF;&#x4F9B;&#x5B83;&#x4E4B;&#x540E;&#x5C3D;&#x91CF;&#x591A;&#x7684;&#x6D3B;&#x52A8;&#x6765;&#x4F7F;&#x7528;<br>&#x5F53;&#x4F5C;&#x51FA;&#x8D2A;&#x5FC3;&#x9009;&#x62E9;&#x4E4B;&#x540E;&#xFF0C;&#x53EA;&#x5269;&#x4E0B;&#x4E00;&#x4E2A;&#x5B50;&#x95EE;&#x9898;&#x9700;&#x8981;&#x6211;&#x4EEC;&#x6C42;&#x89E3;&#xFF1A;&#x5BFB;&#x627E;&#x5728; a[1] &#x7ED3;&#x675F;&#x4E4B;&#x540E;&#x5F00;&#x59CB;&#x7684;&#x6D3B;&#x52A8;</p>
-<p>&#x4E00;&#x4E0B;&#x5B9A;&#x7406;&#x53EF;&#x88AB;&#x8BC1;&#x660E;&#xFF1A;<br>&#x8003;&#x8651;&#x4EFB;&#x610F;&#x975E;&#x7A7A;&#x5B50;&#x95EE;&#x9898; S[k], &#x4EE4; a[m] &#x662F; S[k] &#x4E2D;&#x7ED3;&#x675F;&#x65F6;&#x95F4;&#x6700;&#x65E9;&#x7684;&#x6D3B;&#x52A8;&#xFF0C;
-&#x5219; a[m] &#x5728; S[k] &#x7684;&#x67D0;&#x4E2A;&#x6700;&#x5927;&#x517C;&#x5BB9;&#x6D3B;&#x52A8;&#x5B50;&#x96C6;&#x4E2D;</p>
-<p>&#x6C42;&#x89E3;&#x6D3B;&#x52A8;&#x9009;&#x62E9;&#x95EE;&#x9898;&#x7684;&#x7B97;&#x6CD5;&#x4E0D;&#x5FC5;&#x50CF;&#x57FA;&#x4E8E;&#x8868;&#x683C;&#x7684;&#x52A8;&#x6001;&#x89C4;&#x5212;&#x7B97;&#x6CD5;&#x90A3;&#x6837;&#x81EA;&#x5E95;&#x5411;&#x4E0A;&#x8FDB;&#x884C;&#x8BA1;&#x7B97;&#x3002;
-&#x76F8;&#x53CD;&#xFF0C;&#x53EF;&#x4EE5;&#x81EA;&#x9876;&#x5411;&#x4E0B;&#x8FDB;&#x884C;&#x8BA1;&#x7B97;&#xFF0C;&#x9009;&#x62E9;&#x4E00;&#x4E2A;&#x6D3B;&#x52A8;&#x653E;&#x5165;&#x6700;&#x4F18;&#x89E3;&#xFF0C;&#x7136;&#x540E;&#x5BF9;&#x5269;&#x4E0B;&#x7684;&#x5B50;&#x95EE;&#x9898;&#x8FDB;&#x884C;&#x6C42;&#x89E3;&#x3002;
-&#x8D2A;&#x5FC3;&#x7B97;&#x6CD5;&#x901A;&#x5E38;&#x90FD;&#x662F;&#x8FD9;&#x79CD;&#x81EA;&#x9876;&#x5411;&#x4E0B;&#x7684;&#x8BBE;&#x8BA1;&#xFF1A;&#x4F5C;&#x51FA;&#x4E00;&#x4E2A;&#x9009;&#x62E9;&#xFF0C;&#x7136;&#x540E;&#x6C42;&#x89E3;&#x5269;&#x4E0B;&#x7684;&#x90A3;&#x4E2A;&#x5B50;&#x95EE;&#x9898;&#xFF0C;
-&#x800C;&#x4E0D;&#x662F;&#x81EA;&#x5E95;&#x5411;&#x4E0A;&#x5730;&#x6C42;&#x89E3;&#x51FA;&#x5F88;&#x591A;&#x5B50;&#x95EE;&#x9898;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x4F5C;&#x51FA;&#x9009;&#x62E9;</p>
-<h2 id="&#x4EE3;&#x7801;">&#x4EE3;&#x7801;</h2>
-<pre><code class="lang-scheme">(<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> (<span class="hljs-name">activity-selector</span> act)
-  (<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> (<span class="hljs-name">iter</span> act end)
-    (<span class="hljs-name"><span class="hljs-builtin-name">cond</span></span> [(<span class="hljs-name">empty?</span> act)
-           &apos;()]
-          [(<span class="hljs-name"><span class="hljs-builtin-name">&gt;</span></span> (<span class="hljs-name"><span class="hljs-builtin-name">caar</span></span> act) end)
-           (<span class="hljs-name"><span class="hljs-builtin-name">cons</span></span> (<span class="hljs-name"><span class="hljs-builtin-name">car</span></span> act)
-                 (<span class="hljs-name">iter</span> (<span class="hljs-name"><span class="hljs-builtin-name">cdr</span></span> act) (<span class="hljs-name">cadar</span> act)))]
-          [<span class="hljs-name"><span class="hljs-builtin-name">else</span></span>
-           (<span class="hljs-name">iter</span> (<span class="hljs-name"><span class="hljs-builtin-name">cdr</span></span> act) end)]))
-  (<span class="hljs-name">iter</span> act <span class="hljs-number">-1</span>))
+<p>例如下面的活动集合：</p>
+<div class="table-wrapper"><table><thead><tr><th>i</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th></tr></thead><tbody>
+<tr><td>s[i]</td><td>1</td><td>3</td><td>0</td><td>5</td><td>3</td><td>5</td><td>6</td><td>8</td><td>8</td><td>2</td><td>12</td></tr>
+<tr><td>f[i]</td><td>4</td><td>5</td><td>6</td><td>7</td><td>9</td><td>9</td><td>10</td><td>11</td><td>12</td><td>14</td><td>16</td></tr>
+</tbody></table>
+</div>
+<p>那么 {a[1], a[4], a[8], a[11]} 是一个最大兼容活动子集，另一个是 {a[2], a[4], a[9], a[11]}</p>
+<h2 id="思路"><a class="header" href="#思路">思路</a></h2>
+<p>直觉告诉我们，应该选择 S 中最早结束的活动，因为它剩下的资源可供它之后尽量多的活动来使用<br />
+当作出贪心选择之后，只剩下一个子问题需要我们求解：寻找在 a[1] 结束之后开始的活动</p>
+<p>一下定理可被证明：<br />
+考虑任意非空子问题 S[k], 令 a[m] 是 S[k] 中结束时间最早的活动，
+则 a[m] 在 S[k] 的某个最大兼容活动子集中</p>
+<p>求解活动选择问题的算法不必像基于表格的动态规划算法那样自底向上进行计算。
+相反，可以自顶向下进行计算，选择一个活动放入最优解，然后对剩下的子问题进行求解。
+贪心算法通常都是这种自顶向下的设计：作出一个选择，然后求解剩下的那个子问题，
+而不是自底向上地求解出很多子问题，然后再作出选择</p>
+<h2 id="代码"><a class="header" href="#代码">代码</a></h2>
+<pre><code class="language-scheme">(define (activity-selector act)
+  (define (iter act end)
+    (cond [(empty? act)
+           '()]
+          [(&gt; (caar act) end)
+           (cons (car act)
+                 (iter (cdr act) (cadar act)))]
+          [else
+           (iter (cdr act) end)]))
+  (iter act -1))
 
-(<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> act &apos;((<span class="hljs-number">1</span> <span class="hljs-number">4</span>) (<span class="hljs-number">3</span> <span class="hljs-number">5</span>) (<span class="hljs-number">0</span> <span class="hljs-number">6</span>) (<span class="hljs-number">5</span> <span class="hljs-number">7</span>) (<span class="hljs-number">3</span> <span class="hljs-number">9</span>) (<span class="hljs-number">5</span> <span class="hljs-number">9</span>) (<span class="hljs-number">6</span> <span class="hljs-number">10</span>)
-                    (<span class="hljs-number">8</span> <span class="hljs-number">11</span>) (<span class="hljs-number">8</span> <span class="hljs-number">12</span>) (<span class="hljs-number">2</span> <span class="hljs-number">14</span>) (<span class="hljs-number">12</span> <span class="hljs-number">16</span>)))
+(define act '((1 4) (3 5) (0 6) (5 7) (3 9) (5 9) (6 10)
+                    (8 11) (8 12) (2 14) (12 16)))
 
-(<span class="hljs-name">activity-selector</span> act)
+(activity-selector act)
 </code></pre>
 
-                                
-                                </section>
-                            
-    </div>
-    <div class="search-results">
-        <div class="has-results">
-            
-            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
-            <ul class="search-results-list"></ul>
-            
-        </div>
-        <div class="no-results">
-            
-            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
-            
-        </div>
-    </div>
-</div>
 
-                        </div>
-                    </div>
-                
+                        <br>
+                        <div id="remark42"></div>
+                        <script>
+                            var localAddrs = ["localhost", "127.0.0.1", ""];
+                            if (localAddrs.indexOf(document.location.hostname) === -1) {
+                                var remark_config = {
+                                    host: 'https://comments.mwum.com',
+                                    site_id: 'mwum',
+                                    locale: 'zh',
+                                    no_footer: true,
+                                }
+                                !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+                            }
+                        </script>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../greedy/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../greedy/optimal-decomposition.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
             </div>
 
-            
-                
-                <a href="./" class="navigation navigation-prev " aria-label="Previous page: 贪心算法 (Greedy algorithm)">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                
-                
-                <a href="optimal-decomposition.html" class="navigation navigation-next " aria-label="Next page: 最优分解问题">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-                
-            
-        
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../greedy/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../greedy/optimal-decomposition.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
     </div>
-
-    <script>
-        var gitbook = gitbook || [];
-        gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"活动选择问题 (Activity-selection problem","level":"1.5.1","depth":2,"next":{"title":"最优分解问题","level":"1.5.2","depth":2,"path":"greedy/optimal-decomposition.md","ref":"greedy/optimal-decomposition.md","articles":[]},"previous":{"title":"贪心算法 (Greedy algorithm)","level":"1.5","depth":1,"path":"greedy/README.md","ref":"greedy/README.md","articles":[{"title":"活动选择问题 (Activity-selection problem","level":"1.5.1","depth":2,"path":"greedy/activity-selection.md","ref":"greedy/activity-selection.md","articles":[]},{"title":"最优分解问题","level":"1.5.2","depth":2,"path":"greedy/optimal-decomposition.md","ref":"greedy/optimal-decomposition.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["disqus","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"mwum"},"ga":{"configuration":"auto","token":"UA-39279084-1"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sidebar":{"明无梦的博客":"https://www.dreamxu.com/"},"sharing":{"google":false,"facebook":false,"twitter":false,"weibo":false,"all":true}},"gitbook":"*"},"file":{"path":"greedy/activity-selection.md","mtime":"2014-11-28T02:52:40.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-17T02:07:28.161Z"},"basePath":"..","book":{"language":""}});
-        });
-    </script>
-</div>
-
-        
-    <script src="../gitbook/gitbook.js"></script>
-    <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
-        
-    
-
     </body>
 </html>
-

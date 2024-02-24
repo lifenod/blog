@@ -1,968 +1,453 @@
-
 <!DOCTYPE HTML>
-<html lang="" >
+<html lang="zh-CN" class="light" dir="ltr">
     <head>
+        <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>CMake · GitBook</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>CMake - 明无梦的 C 语言记录与心得</title>
+
+
+        <!-- Custom HTML head -->
+        
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.3">
-        
-        
-        
-    
-    <link rel="stylesheet" href="../gitbook/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
 
-    
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
-                
-            
-        
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
 
-    
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
 
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
 
-        
-    
-    
-    <meta name="HandheldFriendly" content="true"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
-    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/custom.css">
 
-    
-    <link rel="next" href="../test/" />
-    
-    
-    <link rel="prev" href="make.html" />
-    
 
+        <script>
+            var localAddrs = ["localhost", "127.0.0.1", ""];
+            if (localAddrs.indexOf(document.location.hostname) === -1) {
+                  var script = document.createElement('script');
+                  script.async = true;
+                  script.src = 'https://www.googletagmanager.com/gtag/js?id=G-XNJSCC1KSF';
+                  document.head.appendChild(script);
+
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+
+                  gtag('config', 'G-XNJSCC1KSF');
+            }
+        </script>
     </head>
-    <body>
-        
-<div class="book">
-    <div class="book-summary">
-        
-            
-<div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search" />
-</div>
-
-            
-                <nav role="navigation">
-                
-
-
-<ul class="summary">
-    
-    
-    
-        
-        <li>
-            <a href="https://www.dreamxu.com/" target="_blank" class="custom-link">明无梦的博客</a>
-        </li>
-    
-    
-
-    
-    <li class="divider"></li>
-    
-
-    
-        
-        
-    
-        <li class="chapter " data-level="1.1" data-path="../">
-            
-                <a href="../">
-            
-                    
-                    简介
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2" data-path="../language/">
-            
-                <a href="../language/">
-            
-                    
-                    语言
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.2.1" data-path="../language/others.html">
-            
-                <a href="../language/others.html">
-            
-                    
-                    其它
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.2" data-path="../language/extern.html">
-            
-                <a href="../language/extern.html">
-            
-                    
-                    extern
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.3" data-path="../language/static.html">
-            
-                <a href="../language/static.html">
-            
-                    
-                    static
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.4" data-path="../language/header-file.html">
-            
-                <a href="../language/header-file.html">
-            
-                    
-                    头文件 (header file)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.5" data-path="../language/basic-types.html">
-            
-                <a href="../language/basic-types.html">
-            
-                    
-                    基本类型
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3" data-path="../lib/">
-            
-                <a href="../lib/">
-            
-                    
-                    库 (Library)
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.3.1" data-path="../lib/general.html">
-            
-                <a href="../lib/general.html">
-            
-                    
-                    General
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.2" data-path="../lib/c-standard-library.html">
-            
-                <a href="../lib/c-standard-library.html">
-            
-                    
-                    C 标准库 (C standard library)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.3" data-path="../lib/static-library.html">
-            
-                <a href="../lib/static-library.html">
-            
-                    
-                    静态库 (Static library)
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4" data-path="../tips/">
-            
-                <a href="../tips/">
-            
-                    
-                    Tips
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.4.1" data-path="../tips/code-snippet.html">
-            
-                <a href="../tips/code-snippet.html">
-            
-                    
-                    代码片段
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.2" data-path="../tips/macro-definition.html">
-            
-                <a href="../tips/macro-definition.html">
-            
-                    
-                    宏定义
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5" data-path="../file/">
-            
-                <a href="../file/">
-            
-                    
-                    文件 I/O
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.5.1" data-path="../file/reading-and-writing.html">
-            
-                <a href="../file/reading-and-writing.html">
-            
-                    
-                    读写方式
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.2" data-path="../file/read-numerical-data.html">
-            
-                <a href="../file/read-numerical-data.html">
-            
-                    
-                    读取数值型数据
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6" data-path="../process/">
-            
-                <a href="../process/">
-            
-                    
-                    进程
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.6.1" data-path="../process/command-line-arguments.html">
-            
-                <a href="../process/command-line-arguments.html">
-            
-                    
-                    命令行参数
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.2" data-path="../process/process-termination.html">
-            
-                <a href="../process/process-termination.html">
-            
-                    
-                    进程终止
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.3" data-path="../process/process-control.html">
-            
-                <a href="../process/process-control.html">
-            
-                    
-                    进程控制
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7" data-path="../socket/">
-            
-                <a href="../socket/">
-            
-                    
-                    套接字
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.7.1" data-path="../socket/osi.html">
-            
-                <a href="../socket/osi.html">
-            
-                    
-                    OSI 模型
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.2" data-path="../socket/tcp-connection-establishment-and-termination.html">
-            
-                <a href="../socket/tcp-connection-establishment-and-termination.html">
-            
-                    
-                    TCP 连接的建立和终止
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.3" data-path="../socket/structures-and-functions.html">
-            
-                <a href="../socket/structures-and-functions.html">
-            
-                    
-                    相关结构与函数
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8" data-path="./">
-            
-                <a href="./">
-            
-                    
-                    管理
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.8.1" data-path="make.html">
-            
-                <a href="make.html">
-            
-                    
-                    Make
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter active" data-level="1.8.2" data-path="cmake.html">
-            
-                <a href="cmake.html">
-            
-                    
-                    CMake
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.9" data-path="../test/">
-            
-                <a href="../test/">
-            
-                    
-                    测试
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.9.1" data-path="../test/minunit.html">
-            
-                <a href="../test/minunit.html">
-            
-                    
-                    MinUnit
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.9.2" data-path="../test/cmockery.html">
-            
-                <a href="../test/cmockery.html">
-            
-                    
-                    Cmockery
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10" data-path="../compile/">
-            
-                <a href="../compile/">
-            
-                    
-                    编译
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.10.1" data-path="../compile/clang.html">
-            
-                <a href="../compile/clang.html">
-            
-                    
-                    clang
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11" data-path="../library/">
-            
-                <a href="../library/">
-            
-                    
-                    库
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.11.1" data-path="../library/gmp.html">
-            
-                <a href="../library/gmp.html">
-            
-                    
-                    GMP
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.12" data-path="../linux/">
-            
-                <a href="../linux/">
-            
-                    
-                    Linux
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.12.1" data-path="../linux/kernel-modules.html">
-            
-                <a href="../linux/kernel-modules.html">
-            
-                    
-                    简单内核模块编写
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-
-    <li class="divider"></li>
-
-    <li>
-        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Published with GitBook
-        </a>
-    </li>
-</ul>
-
-
-                </nav>
-            
-        
-    </div>
-
-    <div class="book-body">
-        
-            <div class="body-inner">
-                
-                    
-
-<div class="book-header" role="navigation">
-    
-
-    <!-- Title -->
-    <h1>
-        <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >CMake</a>
-    </h1>
-</div>
-
-
-
-
-                    <div class="page-wrapper" tabindex="-1" role="main">
-                        <div class="page-inner">
-                            
-<div id="book-search-results">
-    <div class="search-noresults">
-    
-                                <section class="normal markdown-section">
-                                
-                                <h1 id="cmake">CMake</h1>
-<p>&#x6587;&#x6863;&#xFF1A;<a href="http://www.cmake.org/Wiki/CMake" target="_blank">http://www.cmake.org/Wiki/CMake</a></p>
-<p>&#x7B80;&#x5355;&#x597D;&#x7528;&#x7684;&#x6784;&#x5EFA;&#x5DE5;&#x5177;&#xFF0C;&#x4E3B;&#x9875;&#xFF1A;<a href="http://www.cmake.org" target="_blank">http://www.cmake.org</a></p>
-<p>&#x6B65;&#x9AA4;&#x5982;&#x4E0B;&#xFF1A;</p>
-<h2 id="&#x7B2C;&#x4E00;&#x6B65;&#xFF0C;&#x7F16;&#x5199;-cmakeliststxt-&#x6587;&#x4EF6;">&#x7B2C;&#x4E00;&#x6B65;&#xFF0C;&#x7F16;&#x5199; CMakeLists.txt &#x6587;&#x4EF6;</h2>
-<pre><code class="lang-cmake"><span class="hljs-keyword">PROJECT</span>(main)
-<span class="hljs-keyword">SET</span>(SRC_LIST main.cpp)
-<span class="hljs-keyword">SET</span>(CMAKE_CXX_COMPILER <span class="hljs-string">&quot;clang++&quot;</span>)
-<span class="hljs-keyword">SET</span>(CMAKE_CXX_FLAGS <span class="hljs-string">&quot;-std=c++11 -stdlib=libc++ -Werror -Weverything -Wno-deprecated-declarations -Wno-disabled-macro-expansion -Wno-float-equal -Wno-c++98-compat -Wno-c++98-compat-pedantic -Wno-global-constructors -Wno-exit-time-destructors -Wno-missing-prototypes -Wno-padded -Wno-old-style-cast&quot;</span>)
-<span class="hljs-keyword">SET</span>(CMAKE_EXE_LINKER_FLAGS <span class="hljs-string">&quot;-lc++ -lc++abi&quot;</span>)
-<span class="hljs-keyword">SET</span>(CMAKE_BUILD_TYPE Debug)
-<span class="hljs-keyword">ADD_EXECUTABLE</span>(main <span class="hljs-variable">${SRC_LIST}</span>)
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">简介</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> 语言</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../language/others.html"><strong aria-hidden="true">1.1.</strong> 其它</a></li><li class="chapter-item expanded "><a href="../language/extern.html"><strong aria-hidden="true">1.2.</strong> extern</a></li><li class="chapter-item expanded "><a href="../language/static.html"><strong aria-hidden="true">1.3.</strong> static</a></li><li class="chapter-item expanded "><a href="../language/header-file.html"><strong aria-hidden="true">1.4.</strong> 头文件 (header file)</a></li><li class="chapter-item expanded "><a href="../language/basic-types.html"><strong aria-hidden="true">1.5.</strong> 基本类型</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 库 (Library)</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../lib/general.html"><strong aria-hidden="true">2.1.</strong> General</a></li><li class="chapter-item expanded "><a href="../lib/c-standard-library.html"><strong aria-hidden="true">2.2.</strong> C 标准库 (C standard library)</a></li><li class="chapter-item expanded "><a href="../lib/static-library.html"><strong aria-hidden="true">2.3.</strong> 静态库 (Static library)</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Tips</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tips/code-snippet.html"><strong aria-hidden="true">3.1.</strong> 代码片段</a></li><li class="chapter-item expanded "><a href="../tips/macro-definition.html"><strong aria-hidden="true">3.2.</strong> 宏定义</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> 文件 I/O</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../file/reading-and-writing.html"><strong aria-hidden="true">4.1.</strong> 读写方式</a></li><li class="chapter-item expanded "><a href="../file/read-numerical-data.html"><strong aria-hidden="true">4.2.</strong> 读取数值型数据</a></li></ol></li><li class="chapter-item expanded "><a href="../process/index.html"><strong aria-hidden="true">5.</strong> 进程</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../process/command-line-arguments.html"><strong aria-hidden="true">5.1.</strong> 命令行参数</a></li><li class="chapter-item expanded "><a href="../process/process-termination.html"><strong aria-hidden="true">5.2.</strong> 进程终止</a></li><li class="chapter-item expanded "><a href="../process/process-control.html"><strong aria-hidden="true">5.3.</strong> 进程控制</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> 套接字</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../socket/osi.html"><strong aria-hidden="true">6.1.</strong> OSI 模型</a></li><li class="chapter-item expanded "><a href="../socket/tcp-connection-establishment-and-termination.html"><strong aria-hidden="true">6.2.</strong> TCP 连接的建立和终止</a></li><li class="chapter-item expanded "><a href="../socket/structures-and-functions.html"><strong aria-hidden="true">6.3.</strong> 相关结构与函数</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.</strong> 管理</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../manage/make.html"><strong aria-hidden="true">7.1.</strong> Make</a></li><li class="chapter-item expanded "><a href="../manage/cmake.html" class="active"><strong aria-hidden="true">7.2.</strong> CMake</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.</strong> 测试</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../test/minunit.html"><strong aria-hidden="true">8.1.</strong> MinUnit</a></li><li class="chapter-item expanded "><a href="../test/cmockery.html"><strong aria-hidden="true">8.2.</strong> Cmockery</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">9.</strong> 编译</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../compile/clang.html"><strong aria-hidden="true">9.1.</strong> clang</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">10.</strong> 库</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../library/gmp.html"><strong aria-hidden="true">10.1.</strong> GMP</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">11.</strong> Linux</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../linux/kernel-modules.html"><strong aria-hidden="true">11.1.</strong> 简单内核模块编写</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">明无梦的 C 语言记录与心得</h1>
+
+                    <div class="right-buttons">
+
+                        <a href="https://www.mwum.com" target="_blank" rel="noopener noreferrer"><i id="home-button" class="fa fa-home"></i></a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="cmake"><a class="header" href="#cmake">CMake</a></h1>
+<p>文档：<a href="http://www.cmake.org/Wiki/CMake">http://www.cmake.org/Wiki/CMake</a></p>
+<p>简单好用的构建工具，主页：<a href="http://www.cmake.org">http://www.cmake.org</a></p>
+<p>步骤如下：</p>
+<h2 id="第一步编写-cmakeliststxt-文件"><a class="header" href="#第一步编写-cmakeliststxt-文件">第一步，编写 CMakeLists.txt 文件</a></h2>
+<pre><code class="language-cmake">PROJECT(main)
+SET(SRC_LIST main.cpp)
+SET(CMAKE_CXX_COMPILER "clang++")
+SET(CMAKE_CXX_FLAGS "-std=c++11 -stdlib=libc++ -Werror -Weverything -Wno-deprecated-declarations -Wno-disabled-macro-expansion -Wno-float-equal -Wno-c++98-compat -Wno-c++98-compat-pedantic -Wno-global-constructors -Wno-exit-time-destructors -Wno-missing-prototypes -Wno-padded -Wno-old-style-cast")
+SET(CMAKE_EXE_LINKER_FLAGS "-lc++ -lc++abi")
+SET(CMAKE_BUILD_TYPE Debug)
+ADD_EXECUTABLE(main ${SRC_LIST})
 </code></pre>
-<p>&#x5176;&#x4E2D;&#xFF0C;<code>PROJECT</code> &#x6307;&#x5B9A;&#x5DE5;&#x7A0B;&#x540D;&#x3001;
-<code>SET</code> &#x662F; cmake &#x53D8;&#x91CF;&#x8D4B;&#x503C;&#x547D;&#x4EE4;&#x3001;
-<code>ADD_EXECUTABLE</code> &#x6307;&#x5B9A;&#x751F;&#x6210;&#x53EF;&#x6267;&#x884C;&#x7A0B;&#x5E8F;&#x7684;&#x540D;&#x5B57;&#x3002;
-&#x62EC;&#x53F7;&#x5185;&#x7684;&#x5927;&#x5199;&#x5B57;&#x7B26;&#x4E32;&#x662F; cmake &#x5185;&#x90E8;&#x9884;&#x5B9A;&#x4E49;&#x53D8;&#x91CF;&#xFF0C;&#x8FD9;&#x662F; <code>CMakeLists.txt</code> &#x811A;&#x672C;&#x7684;&#x91CD;&#x70B9;&#xFF0C;&#x4E0B;&#x9762;&#x8BE6;&#x7EC6;&#x8BB2;&#x8FF0;&#xFF1A;</p>
+<p>其中，<code>PROJECT</code> 指定工程名、
+<code>SET</code> 是 cmake 变量赋值命令、
+<code>ADD_EXECUTABLE</code> 指定生成可执行程序的名字。
+括号内的大写字符串是 cmake 内部预定义变量，这是 <code>CMakeLists.txt</code> 脚本的重点，下面详细讲述：</p>
 <ul>
-<li><code>SRC_LIST</code> &#x6307;&#x5B9A;&#x53C2;&#x4E0E;&#x7F16;&#x8BD1;&#x7684;&#x6E90;&#x7801;&#x6587;&#x4EF6;&#x5217;&#x8868;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x591A;&#x4E2A;&#x6587;&#x4EF6;&#x8BF7;&#x7528;&#x7A7A;&#x683C;&#x9694;&#x5F00;&#xFF0C;
-&#x5982;&#xFF0C;&#x4F60;&#x5DE5;&#x7A0B;&#x6709; <code>main.cpp</code>, <code>lib/MyClass.cpp</code>, <code>lib/MyClass.h</code> &#x4E09;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;
-&#x90A3;&#x4E48;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x4E3A; <code>SET(SRC_LIST main.cpp lib/MyClass.cpp)</code></li>
-<li><code>CMAKE_CXX_COMPILER</code> &#x6307;&#x5B9A;&#x9009;&#x7528;&#x4F55;&#x79CD;&#x7F16;&#x8BD1;&#x5668;</li>
-<li><code>CMAKE_CXX_FLAGS</code> &#x8BBE;&#x5B9A;&#x7F16;&#x8BD1;&#x9009;&#x9879;</li>
-<li><code>CMAKE_EXE_LINKER_FLAGS</code> &#x8BBE;&#x5B9A;&#x94FE;&#x63A5;&#x9009;&#x9879;<br>&#x4E00;&#x5B9A;&#x8981;&#x5C06; -lc++ &#x548C; -lc++abi &#x72EC;&#x7ACB;&#x8BBE;&#x5B9A;&#x5230; <code>CMAKE_EXE_LINKER_FLAGS</code> &#x53D8;&#x91CF;&#x4E2D;&#x800C;&#x4E0D;&#x80FD;&#x653E;&#x5728; <code>CMAKE_CXX_FLAGS</code>, &#x5426;&#x5219;&#x65E0;&#x6CD5;&#x901A;&#x8FC7;&#x94FE;&#x63A5;</li>
-<li><code>CMAKE_BUILD_TYPE</code> &#x8BBE;&#x5B9A;&#x751F;&#x6210;&#x7684;&#x53EF;&#x6267;&#x884C;&#x7A0B;&#x5E8F;&#x4E2D;&#x662F;&#x5426;&#x5305;&#x542B;&#x8C03;&#x8BD5;&#x4FE1;&#x606F;</li>
+<li><code>SRC_LIST</code> 指定参与编译的源码文件列表，如果有多个文件请用空格隔开，
+如，你工程有 <code>main.cpp</code>, <code>lib/MyClass.cpp</code>, <code>lib/MyClass.h</code> 三个文件，
+那么可以指定为 <code>SET(SRC_LIST main.cpp lib/MyClass.cpp)</code></li>
+<li><code>CMAKE_CXX_COMPILER</code> 指定选用何种编译器</li>
+<li><code>CMAKE_CXX_FLAGS</code> 设定编译选项</li>
+<li><code>CMAKE_EXE_LINKER_FLAGS</code> 设定链接选项<br />
+一定要将 -lc++ 和 -lc++abi 独立设定到 <code>CMAKE_EXE_LINKER_FLAGS</code> 变量中而不能放在 <code>CMAKE_CXX_FLAGS</code>, 否则无法通过链接</li>
+<li><code>CMAKE_BUILD_TYPE</code> 设定生成的可执行程序中是否包含调试信息</li>
 </ul>
-<p>&#x53E6;&#x5916;&#xFF0C;&#x5BF9;&#x4E8E;&#x7F16;&#x8BD1;&#x9009;&#x9879;&#xFF0C;&#x6211;&#x7684;&#x539F;&#x5219;&#x662F;&#x4E25;&#x5DF1;&#x5BBD;&#x4EBA;&#x3002;
-&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x5728;&#x6211;&#x672C;&#x673A;&#x4E0A;&#x4F7F;&#x7528;&#x6700;&#x4E25;&#x683C;&#x7684;&#x7F16;&#x8BD1;&#x9009;&#x9879;&#x4EE5;&#x53D1;&#x73B0;&#x5C3D;&#x91CF;&#x591A; bug, 
-&#x53D1;&#x5E03;&#x7ED9;&#x5176;&#x4ED6;&#x4EBA;&#x7684;&#x6E90;&#x7801;&#x5305;&#x4F7F;&#x7528;&#x6700;&#x5BBD;&#x677E;&#x7684;&#x7F16;&#x8BD1;&#x9009;&#x9879;&#x4EE5;&#x51CF;&#x5C11;&#x73AF;&#x5883;&#x5DEE;&#x5F02;&#x5BFC;&#x81F4;&#x7F16;&#x8BD1;&#x5931;&#x8D25;&#x7684;&#x53EF;&#x80FD;&#x3002;
-&#x524D;&#x9762;&#x7F57;&#x5217;&#x51FA;&#x6765;&#x7684;&#x5C31;&#x662F;&#x4E25;&#x683C;&#x7248;&#x7684; <code>CMakeLists.txt</code>, &#x5BBD;&#x677E;&#x7248;&#x6211;&#x4F1A;&#x8003;&#x8651;&#xFF1A;
-&#x7F16;&#x8BD1;&#x5668;&#x6539;&#x7528; GCC&#xFF08;&#x5F88;&#x591A;&#x4EBA;&#x6CA1;&#x88C5; clang&#xFF09;&#xFF0C;&#x5FFD;&#x7565;&#x6240;&#x6709;&#x7F16;&#x8BD1;&#x8B66;&#x544A;&#xFF0C;&#x8BA9;&#x7F16;&#x8BD1;&#x5668;&#x8FDB;&#x884C;&#x4EE3;&#x7801;&#x4F18;&#x5316;&#xFF0C;&#x53BB;&#x6389;&#x8C03;&#x8BD5;&#x4FE1;&#x606F;&#xFF0C;&#x6DFB;&#x52A0;&#x5B89;&#x88C5;&#x8DEF;&#x5F84;&#x7B49;&#x8981;&#x7D20;&#xFF0C;&#x5177;&#x4F53;&#x5982;&#x4E0B;&#xFF1A;</p>
-<pre><code class="lang-cmake"><span class="hljs-keyword">PROJECT</span>(main)
-<span class="hljs-keyword">SET</span>(SRC_LIST main.cpp)
-<span class="hljs-keyword">SET</span>(CMAKE_CXX_COMPILER <span class="hljs-string">&quot;g++&quot;</span>)
-<span class="hljs-keyword">SET</span>(CMAKE_CXX_FLAGS <span class="hljs-string">&quot;-std=c++11 -O3&quot;</span>)
-<span class="hljs-keyword">SET</span>(CMAKE_BUILD_TYPE Release)
-<span class="hljs-keyword">ADD_EXECUTABLE</span>(porgram_name <span class="hljs-variable">${SRC_LIST}</span>)
-<span class="hljs-keyword">INSTALL</span>(PROGRAMS porgram_name DESTINATION /usr/bin/)
+<p>另外，对于编译选项，我的原则是严己宽人。
+也就是说，在我本机上使用最严格的编译选项以发现尽量多 bug,
+发布给其他人的源码包使用最宽松的编译选项以减少环境差异导致编译失败的可能。
+前面罗列出来的就是严格版的 <code>CMakeLists.txt</code>, 宽松版我会考虑：
+编译器改用 GCC（很多人没装 clang），忽略所有编译警告，让编译器进行代码优化，去掉调试信息，添加安装路径等要素，具体如下：</p>
+<pre><code class="language-cmake">PROJECT(main)
+SET(SRC_LIST main.cpp)
+SET(CMAKE_CXX_COMPILER "g++")
+SET(CMAKE_CXX_FLAGS "-std=c++11 -O3")
+SET(CMAKE_BUILD_TYPE Release)
+ADD_EXECUTABLE(porgram_name ${SRC_LIST})
+INSTALL(PROGRAMS porgram_name DESTINATION /usr/bin/)
 </code></pre>
-<h2 id="&#x7B2C;&#x4E8C;&#x6B65;&#xFF0C;&#x57FA;&#x4E8E;-cmakeliststxt-&#x751F;&#x6210;-makefile">&#x7B2C;&#x4E8C;&#x6B65;&#xFF0C;&#x57FA;&#x4E8E; CMakeLists.txt &#x751F;&#x6210; Makefile</h2>
-<p>&#x5728; CMakeLists.txt &#x6240;&#x5728;&#x76EE;&#x5F55;&#x6267;&#x884C;</p>
+<h2 id="第二步基于-cmakeliststxt-生成-makefile"><a class="header" href="#第二步基于-cmakeliststxt-生成-makefile">第二步，基于 CMakeLists.txt 生成 Makefile</a></h2>
+<p>在 CMakeLists.txt 所在目录执行</p>
 <pre><code>cmake CMakeLists.txt
-</code></pre><p>&#x6267;&#x884C;&#x6210;&#x529F;&#x7684;&#x8BDD;&#xFF0C;&#x4F60;&#x5C06;&#x5728;&#x8BE5;&#x76EE;&#x5F55;&#x4E0B;&#x770B;&#x5230; <code>Makefile</code> &#x6587;&#x4EF6;</p>
-<h2 id="&#x7B2C;&#x4E09;&#x6B65;&#xFF0C;&#x57FA;&#x4E8E;-makefile-&#x751F;&#x6210;&#x53EF;&#x6267;&#x884C;&#x7A0B;&#x5E8F;">&#x7B2C;&#x4E09;&#x6B65;&#xFF0C;&#x57FA;&#x4E8E; Makefile &#x751F;&#x6210;&#x53EF;&#x6267;&#x884C;&#x7A0B;&#x5E8F;</h2>
-<p>&#x76F8;&#x540C;&#x76EE;&#x5F55;&#x4E0B;&#x6267;&#x884C;</p>
+</code></pre>
+<p>执行成功的话，你将在该目录下看到 <code>Makefile</code> 文件</p>
+<h2 id="第三步基于-makefile-生成可执行程序"><a class="header" href="#第三步基于-makefile-生成可执行程序">第三步，基于 Makefile 生成可执行程序</a></h2>
+<p>相同目录下执行</p>
 <pre><code>make
-</code></pre><p>&#x8FD9;&#x4E00;&#x6B65;&#xFF0C;&#x5C31;&#x662F;&#x5728;&#x8C03;&#x7528;&#x7F16;&#x8BD1;&#x5668;&#x8FDB;&#x884C;&#x7F16;&#x8BD1;&#xFF0C;&#x5982;&#x679C;&#x5B58;&#x5728;&#x4EE3;&#x7801;&#x95EE;&#x9898;&#xFF0C;&#x4FEE;&#x6B63;&#x9519;&#x8BEF;&#x540E;&#x91CD;&#x65B0;&#x6267;&#x884C;&#x8FD9;&#x4E00;&#x6B65;&#x5373;&#x53EF;&#xFF0C;&#x4E0D;&#x7528;&#x518D;&#x6B21;&#x6267;&#x884C;&#x7B2C;&#x4E00;&#x3001;&#x4E8C;&#x6B65;</p>
-<p>&#x57FA;&#x672C;&#x4E0A;&#xFF0C;&#x4F60;&#x7684;&#x65B0;&#x5DE5;&#x7A0B;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x57FA;&#x4E8E;&#x4E0A;&#x9762;&#x7684; <code>CMakeLists.txt</code> &#x8FDB;&#x884C;&#x4FEE;&#x6539;&#xFF0C;&#x6267;&#x884C;&#x4E00;&#x6B21;&#x7B2C;&#x4E8C;&#x6B65;&#x540E;&#xFF0C;&#x6BCF;&#x6B21;&#x4EE3;&#x7801;&#x8C03;&#x6574;&#x53EA;&#x9700;&#x6267;&#x884C;&#x7B2C;&#x4E09;&#x6B65;&#x5373;&#x53EF;</p>
-<h2 id="&#x4F7F;&#x5176;&#x66F4;&#x50CF;&#x4E00;&#x4E2A;&#x5DE5;&#x7A0B;">&#x4F7F;&#x5176;&#x66F4;&#x50CF;&#x4E00;&#x4E2A;&#x5DE5;&#x7A0B;</h2>
-<p>&#x91C7;&#x7528;&#x5916;&#x90E8;&#x6784;&#x5EFA; (out-of-source), &#x6784;&#x5EFA;&#x76EE;&#x5F55;&#x662F;&#x5DE5;&#x7A0B;&#x76EE;&#x5F55;&#x4E0B;&#x7684; build &#x81EA;&#x5F55;</p>
+</code></pre>
+<p>这一步，就是在调用编译器进行编译，如果存在代码问题，修正错误后重新执行这一步即可，不用再次执行第一、二步</p>
+<p>基本上，你的新工程，可以在基于上面的 <code>CMakeLists.txt</code> 进行修改，执行一次第二步后，每次代码调整只需执行第三步即可</p>
+<h2 id="使其更像一个工程"><a class="header" href="#使其更像一个工程">使其更像一个工程</a></h2>
+<p>采用外部构建 (out-of-source), 构建目录是工程目录下的 build 自录</p>
 <ol>
-<li><p>&#x6DFB;&#x52A0;&#x5B50;&#x76EE;&#x5F55; <code>src</code>, <code>build</code></p>
+<li>
+<p>添加子目录 <code>src</code>, <code>build</code></p>
 </li>
-<li><p>&#x4E3A; <code>src</code> &#x5B50;&#x76EE;&#x5F55;&#x5EFA;&#x7ACB; <code>CMakeLists.txt</code>, &#x5185;&#x5BB9;&#x5982;&#x4E0B;&#xFF1A;</p>
-<pre><code class="lang-cmake"><span class="hljs-keyword">SET</span>(CMAKE_CXX_COMPILER <span class="hljs-string">&quot;clang&quot;</span>)
-<span class="hljs-keyword">SET</span>(CMAKE_CXX_FLAGS <span class="hljs-string">&quot;-Wall -Werror -Wno-long-long -Wno-variadic-macros -fexceptions -DNDEBUG -std=c99&quot;</span>)
-<span class="hljs-keyword">SET</span>(CMAKE_BUILD_TYPE Debug)
-<span class="hljs-keyword">SET</span>(EXECUTABLE_OUTPUT_PATH <span class="hljs-variable">${PROJECT_BINARY_DIR}</span>/bin)
-<span class="hljs-keyword">ADD_EXECUTABLE</span>(gdt generate_dt.c)
-<span class="hljs-keyword">ADD_EXECUTABLE</span>(dt digital_triangle.c)
+<li>
+<p>为 <code>src</code> 子目录建立 <code>CMakeLists.txt</code>, 内容如下：</p>
+<pre><code class="language-cmake">SET(CMAKE_CXX_COMPILER "clang")
+SET(CMAKE_CXX_FLAGS "-Wall -Werror -Wno-long-long -Wno-variadic-macros -fexceptions -DNDEBUG -std=c99")
+SET(CMAKE_BUILD_TYPE Debug)
+SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
+ADD_EXECUTABLE(gdt generate_dt.c)
+ADD_EXECUTABLE(dt digital_triangle.c)
 </code></pre>
-<p><code>PROJECT_BINARY_DIR</code> &#x53D8;&#x91CF;&#x6307;&#x7684;&#x7F16;&#x8BD1;&#x53D1;&#x751F;&#x7684;&#x5F53;&#x524D;&#x76EE;&#x5F55;</p>
+<p><code>PROJECT_BINARY_DIR</code> 变量指的编译发生的当前目录</p>
 </li>
-<li><p>&#x4FEE;&#x6539;&#x6839;&#x76EE;&#x5F55;&#x4E2D;&#x7684; <code>CMakeLists.txt</code> &#x4FEE;&#x6539;&#x4E3A;&#x5982;&#x4E0B;&#x5185;&#x5BB9;&#xFF1A;</p>
-<pre><code class="lang-cmake"><span class="hljs-keyword">PROJECT</span>(dt)
+<li>
+<p>修改根目录中的 <code>CMakeLists.txt</code> 修改为如下内容：</p>
+<pre><code class="language-cmake">PROJECT(dt)
 
-<span class="hljs-keyword">CMAKE_MINIMUM_REQUIRED</span>(VERSION <span class="hljs-number">3.0</span>)
-<span class="hljs-keyword">ADD_SUBDIRECTORY</span>(src bin)
+CMAKE_MINIMUM_REQUIRED(VERSION 3.0)
+ADD_SUBDIRECTORY(src bin)
 </code></pre>
-<p><code>ADD_SUBDIRECTORY(source_dir [binary_dir] [EXCLUDE_FROM_ALL])</code><br>&#x8FD9;&#x4E2A;&#x6307;&#x4EE4;&#x7528;&#x4E8E;&#x5411;&#x5F53;&#x524D;&#x5DE5;&#x7A0B;&#x6DFB;&#x52A0;&#x5B58;&#x653E;&#x6E90;&#x6587;&#x4EF6;&#x7684;&#x5B50;&#x76EE;&#x5F55;&#xFF0C;&#x5E76;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x4E2D;&#x95F4;&#x4E8C;&#x8FDB;&#x5236;&#x548C;&#x76EE;&#x6807;&#x4E8C;&#x8FDB;&#x5236;&#x5B58;&#x653E;&#x7684;&#x4F4D;&#x7F6E;&#x3002;
-<code>EXCLUDE_FROM_ALL</code> &#x53C2;&#x6570;&#x7684;&#x542B;&#x4E49;&#x662F;&#x5C06;&#x8FD9;&#x4E2A;&#x76EE;&#x5F55;&#x4ECE;&#x7F16;&#x8BD1;&#x8FC7;&#x7A0B;&#x4E2D;&#x6392;&#x9664;</p>
+<p><code>ADD_SUBDIRECTORY(source_dir [binary_dir] [EXCLUDE_FROM_ALL])</code><br />
+这个指令用于向当前工程添加存放源文件的子目录，并可以指定中间二进制和目标二进制存放的位置。
+<code>EXCLUDE_FROM_ALL</code> 参数的含义是将这个目录从编译过程中排除</p>
 </li>
-<li><p>&#x8FDB;&#x5165; <code>build</code> &#x76EE;&#x5F55;&#xFF0C;&#x6267;&#x884C;&#x5982;&#x4E0B;&#x547D;&#x4EE4;</p>
+<li>
+<p>进入 <code>build</code> 目录，执行如下命令</p>
 <pre><code>cmake ..
 make
-</code></pre><p>&#x53EF;&#x6267;&#x884C;&#x6587;&#x4EF6;&#x5C31;&#x751F;&#x6210;&#x5728; <code>build/bin</code> &#x76EE;&#x5F55;</p>
+</code></pre>
+<p>可执行文件就生成在 <code>build/bin</code> 目录</p>
 </li>
 </ol>
-<h2 id="&#x4E00;&#x4E9B;&#x53D8;&#x91CF;">&#x4E00;&#x4E9B;&#x53D8;&#x91CF;</h2>
+<h2 id="一些变量"><a class="header" href="#一些变量">一些变量</a></h2>
 <ul>
-<li><code>LINK_LIBRARIES</code> &#x8BBE;&#x7F6E;&#x94FE;&#x63A5;&#x5E93;</li>
+<li><code>LINK_LIBRARIES</code> 设置链接库</li>
 </ul>
-<h2 id="&#x9759;&#x6001;&#x4E0E;&#x52A8;&#x6001;&#x5E93;&#x7684;&#x6784;&#x5EFA;">&#x9759;&#x6001;&#x4E0E;&#x52A8;&#x6001;&#x5E93;&#x7684;&#x6784;&#x5EFA;</h2>
-<h3 id="&#x7B80;&#x5355;&#x7684;&#x9759;&#x6001;&#x5E93;&#x7684;&#x6784;&#x5EFA;">&#x7B80;&#x5355;&#x7684;&#x9759;&#x6001;&#x5E93;&#x7684;&#x6784;&#x5EFA;</h3>
-<p>&#x4F8B;&#x5982;&#x6E90;&#x6587;&#x4EF6;&#x7684;&#x76EE;&#x5F55;&#x7ED3;&#x6784;&#x5982;&#x4E0B;&#xFF1A;</p>
+<h2 id="静态与动态库的构建"><a class="header" href="#静态与动态库的构建">静态与动态库的构建</a></h2>
+<h3 id="简单的静态库的构建"><a class="header" href="#简单的静态库的构建">简单的静态库的构建</a></h3>
+<p>例如源文件的目录结构如下：</p>
 <pre><code>slist
-&#x251C;&#x2500;&#x2500; build
-&#x2514;&#x2500;&#x2500; src
-    &#x251C;&#x2500;&#x2500; slist.c
-    &#x2514;&#x2500;&#x2500; slist.h
-</code></pre><p>&#x9996;&#x5148;&#x65B0;&#x5EFA;&#x6587;&#x4EF6; <code>slist/CMakeLists.txt</code>, &#x5185;&#x5BB9;&#x5982;&#x4E0B;&#xFF1A;</p>
-<pre><code class="lang-cmake"><span class="hljs-keyword">PROJECT</span>(slist)
-
-<span class="hljs-keyword">CMAKE_MINIMUM_REQUIRED</span>(VERSION <span class="hljs-number">3.0</span>)
-<span class="hljs-keyword">ADD_SUBDIRECTORY</span>(src lib)
+├── build
+└── src
+    ├── slist.c
+    └── slist.h
 </code></pre>
-<p>&#x7136;&#x540E;&#x65B0;&#x5EFA;&#x6587;&#x4EF6; <code>slist/src/CMakeLists.txt</code>, &#x5185;&#x5BB9;&#x5982;&#x4E0B;&#xFF1A;</p>
-<pre><code class="lang-cmake"><span class="hljs-keyword">SET</span>(SRC_LIST slist.c)
-<span class="hljs-keyword">SET</span>(INSTALL_PREFIX /Users/mwum/code)
-<span class="hljs-keyword">SET</span>(CMAKE_CXX_COMPILER <span class="hljs-string">&quot;clang&quot;</span>)
-<span class="hljs-keyword">SET</span>(CMAKE_CXX_FLAGS <span class="hljs-string">&quot;-std=c11&quot;</span>)
-<span class="hljs-keyword">SET</span>(CMAKE_BUILD_TYPE Release)
+<p>首先新建文件 <code>slist/CMakeLists.txt</code>, 内容如下：</p>
+<pre><code class="language-cmake">PROJECT(slist)
 
-<span class="hljs-keyword">ADD_LIBRARY</span>(slist STATIC <span class="hljs-variable">${SRC_LIST}</span>)
-
-<span class="hljs-keyword">INSTALL</span>(TARGETS slist ARCHIVE DESTINATION <span class="hljs-variable">${INSTALL_PREFIX}</span>/lib)
-<span class="hljs-keyword">INSTALL</span>(FILES slist.h DESTINATION <span class="hljs-variable">${INSTALL_PREFIX}</span>/<span class="hljs-keyword">include</span>)
+CMAKE_MINIMUM_REQUIRED(VERSION 3.0)
+ADD_SUBDIRECTORY(src lib)
 </code></pre>
-<p>&#x5176;&#x4E2D;&#x7684;&#x4E00;&#x4E9B;&#x53D8;&#x91CF;&#x89E3;&#x91CA;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p>然后新建文件 <code>slist/src/CMakeLists.txt</code>, 内容如下：</p>
+<pre><code class="language-cmake">SET(SRC_LIST slist.c)
+SET(INSTALL_PREFIX /Users/mwum/code)
+SET(CMAKE_CXX_COMPILER "clang")
+SET(CMAKE_CXX_FLAGS "-std=c11")
+SET(CMAKE_BUILD_TYPE Release)
+
+ADD_LIBRARY(slist STATIC ${SRC_LIST})
+
+INSTALL(TARGETS slist ARCHIVE DESTINATION ${INSTALL_PREFIX}/lib)
+INSTALL(FILES slist.h DESTINATION ${INSTALL_PREFIX}/include)
+</code></pre>
+<p>其中的一些变量解释如下：</p>
 <ul>
-<li><p><code>ADD_LIBRARY(libname [SHARED|STATIC|MODULE] [EXCLUDE_FROM_ALL] source1 source2 ... sourceN)</code></p>
+<li>
+<p><code>ADD_LIBRARY(libname [SHARED|STATIC|MODULE] [EXCLUDE_FROM_ALL] source1 source2 ... sourceN)</code></p>
 <ul>
-<li><code>SHARED</code> &#x52A8;&#x6001;&#x5E93;</li>
-<li><code>STATIC</code> &#x9759;&#x6001;&#x5E93;</li>
-<li><code>MODULE</code> &#x5728;&#x4F7F;&#x7528; dyld &#x7684;&#x7CFB;&#x7EDF;&#x6709;&#x6548;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x652F;&#x6301; dyld, &#x5219;&#x88AB;&#x5F53;&#x4F5C; <code>SHARED</code> &#x5BF9;&#x5F85;</li>
-<li><code>EXCLUDE_FROM_ALL</code> &#x8FD9;&#x4E2A;&#x5E93;&#x4E0D;&#x4F1A;&#x88AB;&#x9ED8;&#x8BA4;&#x6784;&#x5EFA;&#xFF0C;&#x9664;&#x975E;&#x6709;&#x5176;&#x4ED6;&#x7684;&#x7EC4;&#x4EF6;&#x4F9D;&#x8D56;&#x6216;&#x8005;&#x624B;&#x5DE5;&#x6784;&#x5EFA;</li>
+<li><code>SHARED</code> 动态库</li>
+<li><code>STATIC</code> 静态库</li>
+<li><code>MODULE</code> 在使用 dyld 的系统有效，如果不支持 dyld, 则被当作 <code>SHARED</code> 对待</li>
+<li><code>EXCLUDE_FROM_ALL</code> 这个库不会被默认构建，除非有其他的组件依赖或者手工构建</li>
 </ul>
 </li>
 </ul>
-<p>&#x5B89;&#x88C5;&#x65B9;&#x6CD5;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p>安装方法如下：</p>
 <pre><code>cd build
 cmake ..
 make
 make install
-</code></pre><p>&#x6267;&#x884C;&#x5B8C;&#x4E0A;&#x9762;&#x7684;&#x547D;&#x4EE4;&#x4E4B;&#x540E;&#xFF0C;&#x751F;&#x6210;&#x7684;&#x9759;&#x6001;&#x5E93;&#x6587;&#x4EF6; <code>libslist.a</code> &#x88AB;&#x5B89;&#x88C5;&#x5230; <code>/Users/mwum/code/lib</code> &#x76EE;&#x5F55;&#xFF0C;
-<code>src/slist.h</code> &#x6587;&#x4EF6;&#x88AB;&#x5B89;&#x88C5;&#x5230; <code>/Users/mwum/code/include</code> &#x76EE;&#x5F55;</p>
-<p>&#x6216;&#x8005;&#x5C06; <code>slist/src/CMakeLists.txt</code> &#x6587;&#x4EF6;&#x4E2D;&#x5173;&#x4E8E; <code>INSTALL_PREFIX</code> &#x8FD9;&#x4E2A;&#x53D8;&#x91CF;&#x7684;&#x4FE1;&#x606F;&#x5220;&#x9664;&#xFF0C;&#x5982;&#x4E0B;&#xFF1A;</p>
-<pre><code class="lang-cmake"><span class="hljs-keyword">SET</span>(SRC_LIST slist.c)
-<span class="hljs-keyword">SET</span>(CMAKE_CXX_COMPILER <span class="hljs-string">&quot;clang&quot;</span>)
-<span class="hljs-keyword">SET</span>(CMAKE_CXX_FLAGS <span class="hljs-string">&quot;-std=c11&quot;</span>)
-<span class="hljs-keyword">SET</span>(CMAKE_BUILD_TYPE Release)
-
-<span class="hljs-keyword">ADD_LIBRARY</span>(slist STATIC <span class="hljs-variable">${SRC_LIST}</span>)
-
-<span class="hljs-keyword">INSTALL</span>(FILES slist.h DESTINATION <span class="hljs-keyword">include</span>)
-<span class="hljs-keyword">INSTALL</span>(TARGETS slist ARCHIVE DESTINATION lib)
 </code></pre>
-<p>&#x5B89;&#x88C5;&#x7684;&#x65F6;&#x5019;&#x6267;&#x884C;&#x5982;&#x4E0B;&#x547D;&#x4EE4;&#x6765;&#x624B;&#x52A8;&#x6307;&#x5B9A;&#x8981;&#x5B89;&#x88C5;&#x5230;&#x7684;&#x76EE;&#x5F55;</p>
+<p>执行完上面的命令之后，生成的静态库文件 <code>libslist.a</code> 被安装到 <code>/Users/mwum/code/lib</code> 目录，
+<code>src/slist.h</code> 文件被安装到 <code>/Users/mwum/code/include</code> 目录</p>
+<p>或者将 <code>slist/src/CMakeLists.txt</code> 文件中关于 <code>INSTALL_PREFIX</code> 这个变量的信息删除，如下：</p>
+<pre><code class="language-cmake">SET(SRC_LIST slist.c)
+SET(CMAKE_CXX_COMPILER "clang")
+SET(CMAKE_CXX_FLAGS "-std=c11")
+SET(CMAKE_BUILD_TYPE Release)
+
+ADD_LIBRARY(slist STATIC ${SRC_LIST})
+
+INSTALL(FILES slist.h DESTINATION include)
+INSTALL(TARGETS slist ARCHIVE DESTINATION lib)
+</code></pre>
+<p>安装的时候执行如下命令来手动指定要安装到的目录</p>
 <pre><code>cd build
 cmake .. -DCMAKE_INSTALL_PREFIX=/Users/mwum/code
 make
 make install
-</code></pre><p>&#x5982;&#x679C;&#x8981;&#x5220;&#x9664;&#x88AB;&#x5B89;&#x88C5;&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x53EF;&#x6267;&#x884C;&#x547D;&#x4EE4;</p>
+</code></pre>
+<p>如果要删除被安装的文件，可执行命令</p>
 <pre><code>cat install_manifest.txt | sudo xargs rm
-</code></pre><p>install_manifest.txt &#x6587;&#x4EF6;&#x8BB0;&#x5F55;&#x4E86;&#x5B89;&#x88C5;&#x7684;&#x6240;&#x6709;&#x4E1C;&#x897F;&#x7684;&#x8DEF;&#x5F84;</p>
-<h3 id="&#x540C;&#x65F6;&#x6784;&#x5EFA;&#x9759;&#x6001;&#x5E93;&#x548C;&#x52A8;&#x6001;&#x5E93;">&#x540C;&#x65F6;&#x6784;&#x5EFA;&#x9759;&#x6001;&#x5E93;&#x548C;&#x52A8;&#x6001;&#x5E93;</h3>
-<p><code>slist/CMakeLists.txt</code>, &#x5185;&#x5BB9;&#x5982;&#x4E0B;&#xFF1A;</p>
-<pre><code class="lang-cmake"><span class="hljs-keyword">PROJECT</span>(slist)
-
-<span class="hljs-keyword">CMAKE_MINIMUM_REQUIRED</span>(VERSION <span class="hljs-number">3.0</span>)
-<span class="hljs-keyword">ADD_SUBDIRECTORY</span>(src lib)
 </code></pre>
-<p><code>slist/src/CMakeLists.txt</code>, &#x5185;&#x5BB9;&#x5982;&#x4E0B;&#xFF1A;</p>
-<pre><code class="lang-cmake"><span class="hljs-keyword">SET</span>(SRC_LIST slist.c)
-<span class="hljs-keyword">SET</span>(INSTALL_PREFIX /Users/mwum/code)
-<span class="hljs-keyword">SET</span>(CMAKE_CXX_COMPILER <span class="hljs-string">&quot;clang&quot;</span>)
-<span class="hljs-keyword">SET</span>(CMAKE_CXX_FLAGS <span class="hljs-string">&quot;-std=c11&quot;</span>)
-<span class="hljs-keyword">SET</span>(CMAKE_BUILD_TYPE Release)
+<p>install_manifest.txt 文件记录了安装的所有东西的路径</p>
+<h3 id="同时构建静态库和动态库"><a class="header" href="#同时构建静态库和动态库">同时构建静态库和动态库</a></h3>
+<p><code>slist/CMakeLists.txt</code>, 内容如下：</p>
+<pre><code class="language-cmake">PROJECT(slist)
 
-<span class="hljs-keyword">ADD_LIBRARY</span>(slist_static STATIC <span class="hljs-variable">${SRC_LIST}</span>)
-<span class="hljs-keyword">SET_TARGET_PROPERTIES</span>(slist_static PROPERTIES OUTPUT_NAME <span class="hljs-string">&quot;slist&quot;</span>)
-
-<span class="hljs-keyword">ADD_LIBRARY</span>(slist_shared SHARED <span class="hljs-variable">${SRC_LIST}</span>)
-<span class="hljs-keyword">SET_TARGET_PROPERTIES</span>(slist_shared PROPERTIES OUTPUT_NAME <span class="hljs-string">&quot;slist&quot;</span>)
-<span class="hljs-keyword">SET_TARGET_PROPERTIES</span>(slist_shared PROPERTIES VERSION <span class="hljs-number">1.0</span> SOVERSION <span class="hljs-number">1</span>)
-
-<span class="hljs-keyword">INSTALL</span>(FILES slist.h DESTINATION <span class="hljs-variable">${INSTALL_PREFIX}</span>/<span class="hljs-keyword">include</span>)
-<span class="hljs-keyword">INSTALL</span>(TARGETS slist_static ARCHIVE DESTINATION <span class="hljs-variable">${INSTALL_PREFIX}</span>/lib)
-<span class="hljs-keyword">INSTALL</span>(TARGETS slist_shared LIBRARY DESTINATION <span class="hljs-variable">${INSTALL_PREFIX}</span>/lib)
+CMAKE_MINIMUM_REQUIRED(VERSION 3.0)
+ADD_SUBDIRECTORY(src lib)
 </code></pre>
-<p>&#x5176;&#x4E2D;&#x7684;&#x4E00;&#x4E9B;&#x53D8;&#x91CF;&#x89E3;&#x91CA;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><code>slist/src/CMakeLists.txt</code>, 内容如下：</p>
+<pre><code class="language-cmake">SET(SRC_LIST slist.c)
+SET(INSTALL_PREFIX /Users/mwum/code)
+SET(CMAKE_CXX_COMPILER "clang")
+SET(CMAKE_CXX_FLAGS "-std=c11")
+SET(CMAKE_BUILD_TYPE Release)
+
+ADD_LIBRARY(slist_static STATIC ${SRC_LIST})
+SET_TARGET_PROPERTIES(slist_static PROPERTIES OUTPUT_NAME "slist")
+
+ADD_LIBRARY(slist_shared SHARED ${SRC_LIST})
+SET_TARGET_PROPERTIES(slist_shared PROPERTIES OUTPUT_NAME "slist")
+SET_TARGET_PROPERTIES(slist_shared PROPERTIES VERSION 1.0 SOVERSION 1)
+
+INSTALL(FILES slist.h DESTINATION ${INSTALL_PREFIX}/include)
+INSTALL(TARGETS slist_static ARCHIVE DESTINATION ${INSTALL_PREFIX}/lib)
+INSTALL(TARGETS slist_shared LIBRARY DESTINATION ${INSTALL_PREFIX}/lib)
+</code></pre>
+<p>其中的一些变量解释如下：</p>
 <ul>
-<li><p>&#x8FD9;&#x6761;&#x6307;&#x4EE4;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x8BBE;&#x7F6E;&#x8F93;&#x51FA;&#x7684;&#x540D;&#x79F0;&#xFF0C;&#x5BF9;&#x4E8E;&#x52A8;&#x6001;&#x5E93;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x6307;&#x5B9A;&#x52A8;&#x6001;&#x5E93;&#x7248;&#x672C;&#x548C; API &#x7248;&#x672C;</p>
+<li>
+<p>这条指令可以用来设置输出的名称，对于动态库，还可以用来指定动态库版本和 API 版本</p>
 <pre><code>SET_TARGET_PROPERTIES(target1 target2 ...
                       PROPERTIES prop1 value1
                       prop2 value2 ...)
-</code></pre></li>
-<li><p><code>VERSION</code> &#x8868;&#x793A;&#x52A8;&#x6001;&#x5E93;&#x7684;&#x7248;&#x672C;&#xFF0C;<code>SOVERSION</code> &#x8868;&#x793A; API &#x7684;&#x7248;&#x672C;</p>
+</code></pre>
+</li>
+<li>
+<p><code>VERSION</code> 表示动态库的版本，<code>SOVERSION</code> 表示 API 的版本</p>
 </li>
 </ul>
 
-                                
-                                </section>
-                            
-    </div>
-    <div class="search-results">
-        <div class="has-results">
-            
-            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
-            <ul class="search-results-list"></ul>
-            
-        </div>
-        <div class="no-results">
-            
-            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
-            
-        </div>
-    </div>
-</div>
 
-                        </div>
-                    </div>
-                
+                        <br>
+                        <div id="remark42"></div>
+                        <script>
+                            var localAddrs = ["localhost", "127.0.0.1", ""];
+                            if (localAddrs.indexOf(document.location.hostname) === -1) {
+                                var remark_config = {
+                                    host: 'https://comments.mwum.com',
+                                    site_id: 'mwum',
+                                    locale: 'zh',
+                                    no_footer: true,
+                                }
+                                !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+                            }
+                        </script>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../manage/make.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../test/minunit.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
             </div>
 
-            
-                
-                <a href="make.html" class="navigation navigation-prev " aria-label="Previous page: Make">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                
-                
-                <a href="../test/" class="navigation navigation-next " aria-label="Next page: 测试">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-                
-            
-        
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../manage/make.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../test/minunit.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
     </div>
-
-    <script>
-        var gitbook = gitbook || [];
-        gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"CMake","level":"1.8.2","depth":2,"next":{"title":"测试","level":"1.9","depth":1,"path":"test/README.md","ref":"test/README.md","articles":[{"title":"MinUnit","level":"1.9.1","depth":2,"path":"test/minunit.md","ref":"test/minunit.md","articles":[]},{"title":"Cmockery","level":"1.9.2","depth":2,"path":"test/cmockery.md","ref":"test/cmockery.md","articles":[]}]},"previous":{"title":"Make","level":"1.8.1","depth":2,"path":"manage/make.md","ref":"manage/make.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"mwum"},"ga":{"configuration":"auto","token":"UA-39279084-1"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sidebar":{"明无梦的博客":"https://www.dreamxu.com/"},"sharing":{"google":false,"facebook":false,"twitter":false,"weibo":false,"all":true}},"gitbook":"*"},"file":{"path":"manage/cmake.md","mtime":"2015-04-20T05:12:40.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-04T17:53:33.891Z"},"basePath":"..","book":{"language":""}});
-        });
-    </script>
-</div>
-
-        
-    <script src="../gitbook/gitbook.js"></script>
-    <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
-        
-    
-
     </body>
 </html>
-

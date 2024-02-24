@@ -1,0 +1,14 @@
+.fa-home {
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+.fa-home:after{
+    content: "明无梦的博客";
+    margin-left: 3px;
+}
+
+hr {
+    border: none;
+    height: 2px;
+    background-color: #e7e7e7;
+}

@@ -1,893 +1,386 @@
-
 <!DOCTYPE HTML>
-<html lang="" >
+<html lang="zh-CN" class="light" dir="ltr">
     <head>
+        <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>代码片段 · GitBook</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>代码片段 - 明无梦的 C 语言记录与心得</title>
+
+
+        <!-- Custom HTML head -->
+        
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.3">
-        
-        
-        
-    
-    <link rel="stylesheet" href="../gitbook/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
 
-    
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
-                
-            
-        
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
 
-    
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
 
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
 
-        
-    
-    
-    <meta name="HandheldFriendly" content="true"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
-    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/custom.css">
 
-    
-    <link rel="next" href="macro-definition.html" />
-    
-    
-    <link rel="prev" href="./" />
-    
 
+        <script>
+            var localAddrs = ["localhost", "127.0.0.1", ""];
+            if (localAddrs.indexOf(document.location.hostname) === -1) {
+                  var script = document.createElement('script');
+                  script.async = true;
+                  script.src = 'https://www.googletagmanager.com/gtag/js?id=G-XNJSCC1KSF';
+                  document.head.appendChild(script);
+
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+
+                  gtag('config', 'G-XNJSCC1KSF');
+            }
+        </script>
     </head>
-    <body>
-        
-<div class="book">
-    <div class="book-summary">
-        
-            
-<div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search" />
-</div>
-
-            
-                <nav role="navigation">
-                
-
-
-<ul class="summary">
-    
-    
-    
-        
-        <li>
-            <a href="https://www.dreamxu.com/" target="_blank" class="custom-link">明无梦的博客</a>
-        </li>
-    
-    
-
-    
-    <li class="divider"></li>
-    
-
-    
-        
-        
-    
-        <li class="chapter " data-level="1.1" data-path="../">
-            
-                <a href="../">
-            
-                    
-                    简介
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2" data-path="../language/">
-            
-                <a href="../language/">
-            
-                    
-                    语言
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.2.1" data-path="../language/others.html">
-            
-                <a href="../language/others.html">
-            
-                    
-                    其它
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.2" data-path="../language/extern.html">
-            
-                <a href="../language/extern.html">
-            
-                    
-                    extern
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.3" data-path="../language/static.html">
-            
-                <a href="../language/static.html">
-            
-                    
-                    static
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.4" data-path="../language/header-file.html">
-            
-                <a href="../language/header-file.html">
-            
-                    
-                    头文件 (header file)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.5" data-path="../language/basic-types.html">
-            
-                <a href="../language/basic-types.html">
-            
-                    
-                    基本类型
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3" data-path="../lib/">
-            
-                <a href="../lib/">
-            
-                    
-                    库 (Library)
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.3.1" data-path="../lib/general.html">
-            
-                <a href="../lib/general.html">
-            
-                    
-                    General
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.2" data-path="../lib/c-standard-library.html">
-            
-                <a href="../lib/c-standard-library.html">
-            
-                    
-                    C 标准库 (C standard library)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.3" data-path="../lib/static-library.html">
-            
-                <a href="../lib/static-library.html">
-            
-                    
-                    静态库 (Static library)
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4" data-path="./">
-            
-                <a href="./">
-            
-                    
-                    Tips
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter active" data-level="1.4.1" data-path="code-snippet.html">
-            
-                <a href="code-snippet.html">
-            
-                    
-                    代码片段
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.2" data-path="macro-definition.html">
-            
-                <a href="macro-definition.html">
-            
-                    
-                    宏定义
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5" data-path="../file/">
-            
-                <a href="../file/">
-            
-                    
-                    文件 I/O
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.5.1" data-path="../file/reading-and-writing.html">
-            
-                <a href="../file/reading-and-writing.html">
-            
-                    
-                    读写方式
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.2" data-path="../file/read-numerical-data.html">
-            
-                <a href="../file/read-numerical-data.html">
-            
-                    
-                    读取数值型数据
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6" data-path="../process/">
-            
-                <a href="../process/">
-            
-                    
-                    进程
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.6.1" data-path="../process/command-line-arguments.html">
-            
-                <a href="../process/command-line-arguments.html">
-            
-                    
-                    命令行参数
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.2" data-path="../process/process-termination.html">
-            
-                <a href="../process/process-termination.html">
-            
-                    
-                    进程终止
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.3" data-path="../process/process-control.html">
-            
-                <a href="../process/process-control.html">
-            
-                    
-                    进程控制
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7" data-path="../socket/">
-            
-                <a href="../socket/">
-            
-                    
-                    套接字
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.7.1" data-path="../socket/osi.html">
-            
-                <a href="../socket/osi.html">
-            
-                    
-                    OSI 模型
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.2" data-path="../socket/tcp-connection-establishment-and-termination.html">
-            
-                <a href="../socket/tcp-connection-establishment-and-termination.html">
-            
-                    
-                    TCP 连接的建立和终止
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.3" data-path="../socket/structures-and-functions.html">
-            
-                <a href="../socket/structures-and-functions.html">
-            
-                    
-                    相关结构与函数
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8" data-path="../manage/">
-            
-                <a href="../manage/">
-            
-                    
-                    管理
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.8.1" data-path="../manage/make.html">
-            
-                <a href="../manage/make.html">
-            
-                    
-                    Make
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.2" data-path="../manage/cmake.html">
-            
-                <a href="../manage/cmake.html">
-            
-                    
-                    CMake
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.9" data-path="../test/">
-            
-                <a href="../test/">
-            
-                    
-                    测试
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.9.1" data-path="../test/minunit.html">
-            
-                <a href="../test/minunit.html">
-            
-                    
-                    MinUnit
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.9.2" data-path="../test/cmockery.html">
-            
-                <a href="../test/cmockery.html">
-            
-                    
-                    Cmockery
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10" data-path="../compile/">
-            
-                <a href="../compile/">
-            
-                    
-                    编译
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.10.1" data-path="../compile/clang.html">
-            
-                <a href="../compile/clang.html">
-            
-                    
-                    clang
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11" data-path="../library/">
-            
-                <a href="../library/">
-            
-                    
-                    库
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.11.1" data-path="../library/gmp.html">
-            
-                <a href="../library/gmp.html">
-            
-                    
-                    GMP
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.12" data-path="../linux/">
-            
-                <a href="../linux/">
-            
-                    
-                    Linux
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.12.1" data-path="../linux/kernel-modules.html">
-            
-                <a href="../linux/kernel-modules.html">
-            
-                    
-                    简单内核模块编写
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-
-    <li class="divider"></li>
-
-    <li>
-        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Published with GitBook
-        </a>
-    </li>
-</ul>
-
-
-                </nav>
-            
-        
-    </div>
-
-    <div class="book-body">
-        
-            <div class="body-inner">
-                
-                    
-
-<div class="book-header" role="navigation">
-    
-
-    <!-- Title -->
-    <h1>
-        <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >代码片段</a>
-    </h1>
-</div>
-
-
-
-
-                    <div class="page-wrapper" tabindex="-1" role="main">
-                        <div class="page-inner">
-                            
-<div id="book-search-results">
-    <div class="search-noresults">
-    
-                                <section class="normal markdown-section">
-                                
-                                <h1 id="&#x4EE3;&#x7801;&#x7247;&#x6BB5;">&#x4EE3;&#x7801;&#x7247;&#x6BB5;</h1>
-<h2 id="&#x8F93;&#x51FA;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#x5E76;&#x9000;&#x51FA;">&#x8F93;&#x51FA;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#x5E76;&#x9000;&#x51FA;</h2>
-<pre><code class="lang-c"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> err_exit(x) do { printf(<span class="hljs-string">&quot;%s\n&quot;</span>, x); exit(1); } while (0)</span>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">简介</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> 语言</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../language/others.html"><strong aria-hidden="true">1.1.</strong> 其它</a></li><li class="chapter-item expanded "><a href="../language/extern.html"><strong aria-hidden="true">1.2.</strong> extern</a></li><li class="chapter-item expanded "><a href="../language/static.html"><strong aria-hidden="true">1.3.</strong> static</a></li><li class="chapter-item expanded "><a href="../language/header-file.html"><strong aria-hidden="true">1.4.</strong> 头文件 (header file)</a></li><li class="chapter-item expanded "><a href="../language/basic-types.html"><strong aria-hidden="true">1.5.</strong> 基本类型</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 库 (Library)</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../lib/general.html"><strong aria-hidden="true">2.1.</strong> General</a></li><li class="chapter-item expanded "><a href="../lib/c-standard-library.html"><strong aria-hidden="true">2.2.</strong> C 标准库 (C standard library)</a></li><li class="chapter-item expanded "><a href="../lib/static-library.html"><strong aria-hidden="true">2.3.</strong> 静态库 (Static library)</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Tips</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tips/code-snippet.html" class="active"><strong aria-hidden="true">3.1.</strong> 代码片段</a></li><li class="chapter-item expanded "><a href="../tips/macro-definition.html"><strong aria-hidden="true">3.2.</strong> 宏定义</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> 文件 I/O</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../file/reading-and-writing.html"><strong aria-hidden="true">4.1.</strong> 读写方式</a></li><li class="chapter-item expanded "><a href="../file/read-numerical-data.html"><strong aria-hidden="true">4.2.</strong> 读取数值型数据</a></li></ol></li><li class="chapter-item expanded "><a href="../process/index.html"><strong aria-hidden="true">5.</strong> 进程</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../process/command-line-arguments.html"><strong aria-hidden="true">5.1.</strong> 命令行参数</a></li><li class="chapter-item expanded "><a href="../process/process-termination.html"><strong aria-hidden="true">5.2.</strong> 进程终止</a></li><li class="chapter-item expanded "><a href="../process/process-control.html"><strong aria-hidden="true">5.3.</strong> 进程控制</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> 套接字</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../socket/osi.html"><strong aria-hidden="true">6.1.</strong> OSI 模型</a></li><li class="chapter-item expanded "><a href="../socket/tcp-connection-establishment-and-termination.html"><strong aria-hidden="true">6.2.</strong> TCP 连接的建立和终止</a></li><li class="chapter-item expanded "><a href="../socket/structures-and-functions.html"><strong aria-hidden="true">6.3.</strong> 相关结构与函数</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.</strong> 管理</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../manage/make.html"><strong aria-hidden="true">7.1.</strong> Make</a></li><li class="chapter-item expanded "><a href="../manage/cmake.html"><strong aria-hidden="true">7.2.</strong> CMake</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.</strong> 测试</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../test/minunit.html"><strong aria-hidden="true">8.1.</strong> MinUnit</a></li><li class="chapter-item expanded "><a href="../test/cmockery.html"><strong aria-hidden="true">8.2.</strong> Cmockery</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">9.</strong> 编译</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../compile/clang.html"><strong aria-hidden="true">9.1.</strong> clang</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">10.</strong> 库</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../library/gmp.html"><strong aria-hidden="true">10.1.</strong> GMP</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">11.</strong> Linux</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../linux/kernel-modules.html"><strong aria-hidden="true">11.1.</strong> 简单内核模块编写</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">明无梦的 C 语言记录与心得</h1>
+
+                    <div class="right-buttons">
+
+                        <a href="https://www.mwum.com" target="_blank" rel="noopener noreferrer"><i id="home-button" class="fa fa-home"></i></a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="代码片段"><a class="header" href="#代码片段">代码片段</a></h1>
+<h2 id="输出错误信息并退出"><a class="header" href="#输出错误信息并退出">输出错误信息并退出</a></h2>
+<pre><code class="language-c">#define err_exit(x) do { printf("%s\n", x); exit(1); } while (0)
 </code></pre>
-<h2 id="&#x8F93;&#x51FA;&#x7CFB;&#x7EDF;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#x5E76;&#x9000;&#x51FA;">&#x8F93;&#x51FA;&#x7CFB;&#x7EDF;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#x5E76;&#x9000;&#x51FA;</h2>
-<pre><code class="lang-c"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> err_sys(x) do { perror(x); exit(1); } while (0)</span>
+<h2 id="输出系统错误信息并退出"><a class="header" href="#输出系统错误信息并退出">输出系统错误信息并退出</a></h2>
+<pre><code class="language-c">#define err_sys(x) do { perror(x); exit(1); } while (0)
 </code></pre>
-<h2 id="&#x6E05;&#x7A7A;&#x8F93;&#x5165;&#x7F13;&#x5B58;">&#x6E05;&#x7A7A;&#x8F93;&#x5165;&#x7F13;&#x5B58;</h2>
-<pre><code class="lang-c"><span class="hljs-keyword">while</span> ((c = getchar()) != <span class="hljs-string">&apos;\n&apos;</span> &amp;&amp; c != EOF)
+<h2 id="清空输入缓存"><a class="header" href="#清空输入缓存">清空输入缓存</a></h2>
+<pre><code class="language-c">while ((c = getchar()) != '\n' &amp;&amp; c != EOF)
     ;
 </code></pre>
-<pre><code class="lang-c"><span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%*[^\n]&quot;</span>);
+<pre><code class="language-c">scanf("%*[^\n]");
 </code></pre>
-<pre><code class="lang-c">setbuf(<span class="hljs-built_in">stdin</span>, <span class="hljs-literal">NULL</span>);
+<pre><code class="language-c">setbuf(stdin, NULL);
 </code></pre>
-<h2 id="&#x7EC8;&#x7AEF;&#x5C4F;&#x853D;&#x663E;&#x793A;">&#x7EC8;&#x7AEF;&#x5C4F;&#x853D;&#x663E;&#x793A;</h2>
-<pre><code class="lang-c">system(<span class="hljs-string">&quot;stty -echo&quot;</span>);
-system(<span class="hljs-string">&quot;stty echo&quot;</span>);
+<h2 id="终端屏蔽显示"><a class="header" href="#终端屏蔽显示">终端屏蔽显示</a></h2>
+<pre><code class="language-c">system("stty -echo");
+system("stty echo");
 </code></pre>
-<h2 id="&#x6309;&#x4EFB;&#x610F;&#x952E;&#x7EE7;&#x7EED;">&#x6309;&#x4EFB;&#x610F;&#x952E;&#x7EE7;&#x7EED;</h2>
-<pre><code class="lang-c">system(<span class="hljs-string">&quot;stty raw -echo&quot;</span>);
-<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Press any key to continue ...&quot;</span>);
+<h2 id="按任意键继续"><a class="header" href="#按任意键继续">按任意键继续</a></h2>
+<pre><code class="language-c">system("stty raw -echo");
+printf("Press any key to continue ...");
 getchar();
-system(<span class="hljs-string">&quot;stty -raw echo&quot;</span>);
+system("stty -raw echo");
 </code></pre>
-<h2 id="&#x83B7;&#x53D6;&#x6587;&#x4EF6;&#x5927;&#x5C0F;">&#x83B7;&#x53D6;&#x6587;&#x4EF6;&#x5927;&#x5C0F;</h2>
-<pre><code class="lang-c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;sys/stat.h&gt;</span></span>
+<h2 id="获取文件大小"><a class="header" href="#获取文件大小">获取文件大小</a></h2>
+<pre><code class="language-c">#include &lt;sys/stat.h&gt;
 
-<span class="hljs-keyword">off_t</span> get_file_size(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *path)
+off_t get_file_size(const char *path)
 {
-    <span class="hljs-keyword">struct</span> stat sb;
+    struct stat sb;
 
-    <span class="hljs-keyword">if</span> (stat(path, &amp;sb) &lt; <span class="hljs-number">0</span>)
-        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
-    <span class="hljs-keyword">return</span> sb.st_size;
+    if (stat(path, &amp;sb) &lt; 0)
+        return -1;
+    return sb.st_size;
 }
 </code></pre>
-<h2 id="&#x6307;&#x5B9A;&#x6570;&#x7EC4;&#x7684;&#x5143;&#x7D20;&#x4F86;&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;">&#x6307;&#x5B9A;&#x6570;&#x7EC4;&#x7684;&#x5143;&#x7D20;&#x4F86;&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;</h2>
-<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x6570;&#x7EC4;&#x7684;&#x5143;&#x7D20;&#x4F86;&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;&#x3002;
-&#x8FD9;&#x975E;&#x5E38;&#x6709;&#x7528;&#xFF0C;&#x7279;&#x522B;&#x662F;&#x5F53;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x6839;&#x636E;&#x4E00;&#x7EC4; #define &#x4F86;&#x4FDD;&#x6301;&#x67D0;&#x79CD;&#x6620;&#x5C04;&#x5173;&#x7CFB;&#x7684;&#x540C;&#x6B65;&#x66F4;&#x65B0;&#x65F6;</p>
-<p>&#x5982;&#x4E0B;&#xFF0C;&#x5047;&#x8BBE;&#x6211;&#x4EEC;&#x60F3;&#x4E3A;&#x6BCF;&#x4E2A;&#x9519;&#x8BEF;&#x7801;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x9519;&#x8BEF;&#x63CF;&#x8FF0;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x3002;
-&#x4E3A;&#x4E86;&#x786E;&#x4FDD;&#x6570;&#x7EC4;&#x4FDD;&#x6301;&#x4E86;&#x6700;&#x65B0;&#x7684;&#x5B9A;&#x4E49;&#xFF0C;&#x65E0;&#x8BBA;&#x5934;&#x6587;&#x4EF6;&#x505A;&#x4E86;&#x4EFB;&#x4F55;&#x4FEE;&#x6539;&#x6216;&#x589E;&#x8865;&#xFF0C;&#x6211;&#x4EEC;&#x90FD;&#x53EF;&#x4EE5;&#x7528;&#x8FD9;&#x4E2A;&#x6570;&#x7EC4;&#x6307;&#x5B9A;&#x7684;&#x8BED;&#x6CD5;</p>
-<p>&#x8FD9;&#x6837;&#x5C31;&#x53EF;&#x4EE5;&#x9759;&#x6001;&#x5206;&#x914D;&#x8DB3;&#x591F;&#x7684;&#x7A7A;&#x95F4;&#xFF0C;&#x4E14;&#x4FDD;&#x8BC1;&#x6700;&#x5927;&#x7684;&#x7D22;&#x5F15;&#x662F;&#x5408;&#x6CD5;&#x7684;&#xFF0C;
-&#x540C;&#x65F6;&#x5C06;&#x7279;&#x6B8A;&#x7684;&#x7D22;&#x5F15;&#x521D;&#x59CB;&#x5316;&#x4E3A;&#x6307;&#x5B9A;&#x7684;&#x503C;&#xFF0C;&#x5E76;&#x5C06;&#x5269;&#x4E0B;&#x7684;&#x7D22;&#x5F15;&#x521D;&#x59CB;&#x5316;&#x4E3A; 0</p>
-<pre><code class="lang-c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<h2 id="指定数组的元素來进行初始化"><a class="header" href="#指定数组的元素來进行初始化">指定数组的元素來进行初始化</a></h2>
+<p>我们可以指定数组的元素來进行初始化。
+这非常有用，特别是当我们需要根据一组 #define 來保持某种映射关系的同步更新时</p>
+<p>如下，假设我们想为每个错误码提供一个错误描述的字符串。
+为了确保数组保持了最新的定义，无论头文件做了任何修改或增补，我们都可以用这个数组指定的语法</p>
+<p>这样就可以静态分配足够的空间，且保证最大的索引是合法的，
+同时将特殊的索引初始化为指定的值，并将剩下的索引初始化为 0</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
 
-<span class="hljs-comment">/* Entries may not correspond to actual numbers. Some entries omitted. */</span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> EINVAL 1</span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> ENOMEM 2</span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> EFAULT 3</span>
-<span class="hljs-comment">/* ... */</span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> E2BIG  7</span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> EBUSY  8</span>
-<span class="hljs-comment">/* ... */</span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> ECHILD 12</span>
+/* Entries may not correspond to actual numbers. Some entries omitted. */
+#define EINVAL 1
+#define ENOMEM 2
+#define EFAULT 3
+/* ... */
+#define E2BIG  7
+#define EBUSY  8
+/* ... */
+#define ECHILD 12
 
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
-</span>{
-    <span class="hljs-keyword">char</span> *err_strings[] = {
-        [<span class="hljs-number">0</span>     ] = <span class="hljs-string">&quot;Success&quot;</span>,
-        [EINVAL] = <span class="hljs-string">&quot;Invalid argument&quot;</span>,
-        [ENOMEM] = <span class="hljs-string">&quot;Not enough memory&quot;</span>,
-        <span class="hljs-comment">/* ... */</span>
-        [E2BIG ] = <span class="hljs-string">&quot;Argument list to long&quot;</span>,
-        [EBUSY ] = <span class="hljs-string">&quot;Device or resource busy&quot;</span>,
-        <span class="hljs-comment">/* ... */</span>
-        [ECHILD] = <span class="hljs-string">&quot;No child processe&quot;</span>,
+int main()
+{
+    char *err_strings[] = {
+        [0     ] = "Success",
+        [EINVAL] = "Invalid argument",
+        [ENOMEM] = "Not enough memory",
+        /* ... */
+        [E2BIG ] = "Argument list to long",
+        [EBUSY ] = "Device or resource busy",
+        /* ... */
+        [ECHILD] = "No child processe",
     };
 
-    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%s\n&quot;</span>, err_strings[<span class="hljs-number">0</span>]);
+    printf("%s\n", err_strings[0]);
 
-    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    return 0;
 }
 </code></pre>
-<h2 id="&#x7528;&#x7ED3;&#x6784;&#x4F53;&#x4E0E;&#x8054;&#x5408;&#x4F53;&#x7684;&#x5B57;&#x6BB5;&#x540D;&#x79F0;&#x4F86;&#x521D;&#x59CB;&#x5316;&#x6570;&#x636E;">&#x7528;&#x7ED3;&#x6784;&#x4F53;&#x4E0E;&#x8054;&#x5408;&#x4F53;&#x7684;&#x5B57;&#x6BB5;&#x540D;&#x79F0;&#x4F86;&#x521D;&#x59CB;&#x5316;&#x6570;&#x636E;</h2>
-<p>&#x5F53;&#x6211;&#x4EEC;&#x4E0D;&#x60F3;&#x5C06;&#x6240;&#x6709;&#x5B57;&#x6BB5;&#x521D;&#x59CB;&#x5316;&#x4E3A; 0 &#x65F6;&#x5019;&#xFF0C;&#x8FD9;&#x79CD;&#x505A;&#x6CD5;&#x53EF;&#x4EE5;&#x5F88;&#x5BB9;&#x6613;&#x7684;&#x5728;&#x7F16;&#x8BD1;&#x65F6;&#x5C31;&#x751F;&#x6210;&#x7ED3;&#x6784;&#x4F53;&#xFF0C;
-&#x800C;&#x4E0D;&#x9700;&#x8981;&#x4E13;&#x95E8;&#x8C03;&#x7528;&#x4E00;&#x4E2A;&#x521D;&#x59CB;&#x5316;&#x51FD;&#x6570;</p>
-<pre><code class="lang-c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<h2 id="用结构体与联合体的字段名称來初始化数据"><a class="header" href="#用结构体与联合体的字段名称來初始化数据">用结构体与联合体的字段名称來初始化数据</a></h2>
+<p>当我们不想将所有字段初始化为 0 时候，这种做法可以很容易的在编译时就生成结构体，
+而不需要专门调用一个初始化函数</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
 
-<span class="hljs-keyword">struct</span> point {
-    <span class="hljs-keyword">int</span> x;
-    <span class="hljs-keyword">int</span> y;
-    <span class="hljs-keyword">int</span> z;
+struct point {
+    int x;
+    int y;
+    int z;
 };
 
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
-</span>{
-    <span class="hljs-keyword">struct</span> point p = {.x = <span class="hljs-number">3</span>, .y = <span class="hljs-number">4</span>, .z = <span class="hljs-number">5</span>};
+int main()
+{
+    struct point p = {.x = 3, .y = 4, .z = 5};
 
-    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n%d\n%d\n&quot;</span>, p.x, p.y, p.z);
+    printf("%d\n%d\n%d\n", p.x, p.y, p.z);
 
-    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    return 0;
 }
 </code></pre>
-<h2 id="md5-&#x52A0;&#x5BC6;">md5 &#x52A0;&#x5BC6;</h2>
-<p>&#x7F16;&#x8BD1;&#x65F6;&#x52A0;&#x4E0A; -lcrypt</p>
-<pre><code class="lang-c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string.h&gt;</span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;crypt.h&gt;</span></span>
+<h2 id="md5-加密"><a class="header" href="#md5-加密">md5 加密</a></h2>
+<p>编译时加上 -lcrypt</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;crypt.h&gt;
 
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
-</span>{
-    <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> salt[] = <span class="hljs-string">&quot;$1$mwumsmsp$&quot;</span>;
-    <span class="hljs-keyword">char</span> *cp;
-    <span class="hljs-keyword">char</span> s[<span class="hljs-number">69</span>];
+int main()
+{
+    const char salt[] = "$1$mwumsmsp$";
+    char *cp;
+    char s[69];
 
-    <span class="hljs-keyword">while</span> (<span class="hljs-number">1</span>) {
-        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%69s&quot;</span>, s);
+    while (1) {
+        scanf("%69s", s);
 
         cp = crypt(s, salt);
-        cp += <span class="hljs-built_in">strlen</span>(salt);
+        cp += strlen(salt);
 
-        <span class="hljs-built_in">puts</span>(cp);
+        puts(cp);
     }
 
-    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    return 0;
 }
 </code></pre>
-<h2 id="&#x5B57;&#x7B26;&#x4E32;&#x4F4D;&#x64CD;&#x4F5C;">&#x5B57;&#x7B26;&#x4E32;&#x4F4D;&#x64CD;&#x4F5C;</h2>
-<pre><code class="lang-c"><span class="hljs-comment">/* &#x5C06;&#x6307;&#x5B9A;&#x4F4D;&#x7684;&#x6BD4;&#x7279;&#x4F4D;&#x8BBE;&#x4E3A;set */</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">set_num_bit</span><span class="hljs-params">(<span class="hljs-keyword">char</span> *s, <span class="hljs-keyword">int</span> n, <span class="hljs-keyword">int</span> <span class="hljs-built_in">set</span>)</span>
-</span>{
-    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">set</span>) {
-        *(s + n/<span class="hljs-number">8</span>) |= (<span class="hljs-number">0x80</span> &gt;&gt; n%<span class="hljs-number">8</span>);
-    } <span class="hljs-keyword">else</span> {
-        *(s + n/<span class="hljs-number">8</span>) &amp;= ~(<span class="hljs-number">0x80</span> &gt;&gt; n%<span class="hljs-number">8</span>);
+<h2 id="字符串位操作"><a class="header" href="#字符串位操作">字符串位操作</a></h2>
+<pre><code class="language-c">/* 将指定位的比特位设为set */
+void set_num_bit(char *s, int n, int set)
+{
+    if (set) {
+        *(s + n/8) |= (0x80 &gt;&gt; n%8);
+    } else {
+        *(s + n/8) &amp;= ~(0x80 &gt;&gt; n%8);
     }
 }
 </code></pre>
-<pre><code class="lang-c"><span class="hljs-comment">/* &#x53D6;&#x5F97;&#x6307;&#x5B9A;&#x4F4D;&#x7684;&#x6BD4;&#x7279;&#x4F4D; */</span>
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">get_num_bit</span><span class="hljs-params">(<span class="hljs-keyword">char</span> *s, <span class="hljs-keyword">int</span> n)</span>
-</span>{
-    <span class="hljs-keyword">return</span> ((*(s + n/<span class="hljs-number">8</span>) &lt;&lt; n%<span class="hljs-number">8</span>) &amp; <span class="hljs-number">0x80</span>) == <span class="hljs-number">0x80</span> ? <span class="hljs-number">1</span> : <span class="hljs-number">0</span>;
+<pre><code class="language-c">/* 取得指定位的比特位 */
+int get_num_bit(char *s, int n)
+{
+    return ((*(s + n/8) &lt;&lt; n%8) &amp; 0x80) == 0x80 ? 1 : 0;
 }
 </code></pre>
-<h2 id="&#x5B57;&#x7B26;&#x4E32;--&#x6570;&#x5B57;">&#x5B57;&#x7B26;&#x4E32; + &#x6570;&#x5B57;</h2>
-<pre><code class="lang-c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string.h&gt;</span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<h2 id="字符串--数字"><a class="header" href="#字符串--数字">字符串 + 数字</a></h2>
+<pre><code class="language-c">#include &lt;string.h&gt;
+#include &lt;stdio.h&gt;
 
-<span class="hljs-comment">/* max 999 */</span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> TIMES   6</span>
+/* max 999 */
+#define TIMES   6
 
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])</span>
-</span>{
-    <span class="hljs-comment">/* strlen(&quot;input-999&quot;) = 9 */</span>
-    <span class="hljs-keyword">char</span> path[<span class="hljs-number">10</span>] = <span class="hljs-string">&quot;input-&quot;</span>;
-    <span class="hljs-comment">/* strlen(&quot;999&quot;) = 3 */</span>
-    <span class="hljs-keyword">char</span> number[<span class="hljs-number">4</span>];
+int main(int argc, char *argv[])
+{
+    /* strlen("input-999") = 9 */
+    char path[10] = "input-";
+    /* strlen("999") = 3 */
+    char number[4];
 
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= TIMES; i++) {
-        path[<span class="hljs-number">6</span>] = <span class="hljs-string">&apos;\0&apos;</span>;
-        <span class="hljs-built_in">sprintf</span>(number, <span class="hljs-string">&quot;%d&quot;</span>, i);
-        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%s\n&quot;</span>, <span class="hljs-built_in">strncat</span>(path, number, <span class="hljs-number">3</span>));
+    for (int i = 1; i &lt;= TIMES; i++) {
+        path[6] = '\0';
+        sprintf(number, "%d", i);
+        printf("%s\n", strncat(path, number, 3));
     }
 
-    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    return 0;
 }
 </code></pre>
-<h2 id="&#x8BC4;&#x65AD;&#x5B57;&#x7B26;&#x4E32;&#x662F;&#x5426;&#x4E3A;&#x6570;&#x5B57;">&#x8BC4;&#x65AD;&#x5B57;&#x7B26;&#x4E32;&#x662F;&#x5426;&#x4E3A;&#x6570;&#x5B57;</h2>
-<pre><code class="lang-c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string.h&gt;</span></span>
+<h2 id="评断字符串是否为数字"><a class="header" href="#评断字符串是否为数字">评断字符串是否为数字</a></h2>
+<pre><code class="language-c">#include &lt;string.h&gt;
 
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">is_digit</span><span class="hljs-params">(<span class="hljs-keyword">char</span> *s)</span>
-</span>{
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-built_in">strlen</span>(s); i++) {
-        <span class="hljs-keyword">if</span> (s[i] &lt; <span class="hljs-string">&apos;0&apos;</span> || s[i] &gt; <span class="hljs-string">&apos;9&apos;</span>)
-            <span class="hljs-keyword">return</span> FALSE;
+int is_digit(char *s)
+{
+    for (int i = 0; i &lt; strlen(s); i++) {
+        if (s[i] &lt; '0' || s[i] &gt; '9')
+            return FALSE;
     }
-    <span class="hljs-keyword">return</span> TRUE;
+    return TRUE;
 }
 </code></pre>
-<h2 id="&#x4F7F;&#x7528;&#x4E8C;&#x7EA7;&#x6307;&#x9488;&#x4F5C;&#x4E3A;&#x77E9;&#x9635;">&#x4F7F;&#x7528;&#x4E8C;&#x7EA7;&#x6307;&#x9488;&#x4F5C;&#x4E3A;&#x77E9;&#x9635;</h2>
-<pre><code class="lang-c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdlib.h&gt;</span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<h2 id="使用二级指针作为矩阵"><a class="header" href="#使用二级指针作为矩阵">使用二级指针作为矩阵</a></h2>
+<pre><code class="language-c">#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
 
-<span class="hljs-keyword">struct</span> matrix {
-    <span class="hljs-keyword">int</span> row;
-    <span class="hljs-keyword">int</span> col;
-    <span class="hljs-keyword">int</span> **matrix;
+struct matrix {
+    int row;
+    int col;
+    int **matrix;
 };
 
-<span class="hljs-comment">/*
- * &#x521D;&#x59CB;&#x5316;
- */</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">init_matrix</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> matrix *matrix, <span class="hljs-keyword">int</span> row, <span class="hljs-keyword">int</span> col)</span>
-</span>{
+/*
+ * 初始化
+ */
+void init_matrix(struct matrix *matrix, int row, int col)
+{
     matrix-&gt;row = row;
     matrix-&gt;col = col;
 
-    matrix-&gt;matrix = (<span class="hljs-keyword">int</span> **)<span class="hljs-built_in">malloc</span>(<span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">int</span> *) * row);
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; row; i++) {
-        matrix-&gt;matrix[i] = (<span class="hljs-keyword">int</span> *)<span class="hljs-built_in">malloc</span>(<span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">int</span>) * col);
+    matrix-&gt;matrix = (int **)malloc(sizeof(int *) * row);
+    for (int i = 0; i &lt; row; i++) {
+        matrix-&gt;matrix[i] = (int *)malloc(sizeof(int) * col);
     }
 }
-<span class="hljs-comment">/*
+/*
  * void init_matrix(int ***p, int row, int col)
  * {
  *     *p = (int **)malloc(sizeof(int *) * row);
@@ -898,180 +391,155 @@ system(<span class="hljs-string">&quot;stty -raw echo&quot;</span>);
  *
  * use:
  *     init_matrix(&amp;matrix-&gt;matrix, matrix-&gt;row, matrix-&gt;col);
- */</span>
+ */
 
-<span class="hljs-comment">/*
- * &#x6E05;&#x7406;&#x5DE5;&#x4F5C;
- */</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">clear_matrix</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> matrix *matrix)</span>
-</span>{
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; matrix-&gt;row; i++) {
-        <span class="hljs-built_in">free</span>(matrix-&gt;matrix[i]);
+/*
+ * 清理工作
+ */
+void clear_matrix(struct matrix *matrix)
+{
+    for (int i = 0; i &lt; matrix-&gt;row; i++) {
+        free(matrix-&gt;matrix[i]);
     }
-    <span class="hljs-built_in">free</span>(matrix-&gt;matrix);
+    free(matrix-&gt;matrix);
 }
 
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">init_matrix_data</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> matrix *matrix)</span>
-</span>{
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; matrix-&gt;row; i++) {
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; matrix-&gt;col; j++) {
+void init_matrix_data(struct matrix *matrix)
+{
+    for (int i = 0; i &lt; matrix-&gt;row; i++) {
+        for (int j = 0; j &lt; matrix-&gt;col; j++) {
             matrix-&gt;matrix[i][j] = i*j;
         }
     }
 }
 
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">print_matrix</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> matrix *matrix)</span>
-</span>{
-    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;row = %d, col = %d\n&quot;</span>, matrix-&gt;row, matrix-&gt;col);
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; matrix-&gt;row; i++) {
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; matrix-&gt;col; j++) {
-            <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d &quot;</span>, matrix-&gt;matrix[i][j]);
+void print_matrix(struct matrix *matrix)
+{
+    printf("row = %d, col = %d\n", matrix-&gt;row, matrix-&gt;col);
+    for (int i = 0; i &lt; matrix-&gt;row; i++) {
+        for (int j = 0; j &lt; matrix-&gt;col; j++) {
+            printf("%d ", matrix-&gt;matrix[i][j]);
         }
-        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n&quot;</span>);
+        printf("\n");
     }
 }
 
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])</span>
-</span>{
-    <span class="hljs-keyword">struct</span> matrix *matrix = (<span class="hljs-keyword">struct</span> matrix *)<span class="hljs-built_in">malloc</span>(<span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">struct</span> matrix));
+int main(int argc, char *argv[])
+{
+    struct matrix *matrix = (struct matrix *)malloc(sizeof(struct matrix));
 
-    init_matrix(matrix, <span class="hljs-number">5</span>, <span class="hljs-number">2</span>);
+    init_matrix(matrix, 5, 2);
 
     init_matrix_data(matrix);
 
     print_matrix(matrix);
 
     clear_matrix(matrix);
-    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    return 0;
 }
 </code></pre>
-<h2 id="&#x6700;&#x5927;&#x6700;&#x5C0F;">&#x6700;&#x5927;&#x6700;&#x5C0F;</h2>
+<h2 id="最大最小"><a class="header" href="#最大最小">最大最小</a></h2>
 <p><code>linux-3.17.3/include/linux/kernel.h:</code></p>
-<pre><code class="lang-c"><span class="hljs-comment">/*
+<pre><code class="language-c">/*
  * min()/max()/clamp() macros that also do
  * strict type-checking.. See the
- * &quot;unnecessary&quot; pointer comparison.
- */</span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> min(x, y) ({                \
+ * "unnecessary" pointer comparison.
+ */
+#define min(x, y) ({                \
     typeof(x) _min1 = (x);          \
     typeof(y) _min2 = (y);          \
     (void) (&amp;_min1 == &amp;_min2);      \
-    _min1 &lt; _min2 ? _min1 : _min2; })</span>
+    _min1 &lt; _min2 ? _min1 : _min2; })
 
-<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> max(x, y) ({                \
+#define max(x, y) ({                \
     typeof(x) _max1 = (x);          \
     typeof(y) _max2 = (y);          \
     (void) (&amp;_max1 == &amp;_max2);      \
-    _max1 &gt; _max2 ? _max1 : _max2; })</span>
+    _max1 &gt; _max2 ? _max1 : _max2; })
 
-<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> min3(x, y, z) ({            \
+#define min3(x, y, z) ({            \
     typeof(x) _min1 = (x);          \
     typeof(y) _min2 = (y);          \
     typeof(z) _min3 = (z);          \
     (void) (&amp;_min1 == &amp;_min2);      \
     (void) (&amp;_min1 == &amp;_min3);      \
     _min1 &lt; _min2 ? (_min1 &lt; _min3 ? _min1 : _min3) : \
-        (_min2 &lt; _min3 ? _min2 : _min3); })</span>
+        (_min2 &lt; _min3 ? _min2 : _min3); })
 
-<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> max3(x, y, z) ({            \
+#define max3(x, y, z) ({            \
     typeof(x) _max1 = (x);          \
     typeof(y) _max2 = (y);          \
     typeof(z) _max3 = (z);          \
     (void) (&amp;_max1 == &amp;_max2);      \
     (void) (&amp;_max1 == &amp;_max3);      \
     _max1 &gt; _max2 ? (_max1 &gt; _max3 ? _max1 : _max3) : \
-        (_max2 &gt; _max3 ? _max2 : _max3); })</span>
+        (_max2 &gt; _max3 ? _max2 : _max3); })
 </code></pre>
-<p>&#x82E5; <code>typeof</code> &#x5173;&#x952E;&#x8BCD;&#x4E0D;&#x53EF;&#x7528;&#xFF0C;&#x53EF;&#x8BD5;&#x8BD5; <code>__typeof__</code></p>
+<p>若 <code>typeof</code> 关键词不可用，可试试 <code>__typeof__</code></p>
 
-                                
-                                </section>
-                            
-    </div>
-    <div class="search-results">
-        <div class="has-results">
-            
-            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
-            <ul class="search-results-list"></ul>
-            
-        </div>
-        <div class="no-results">
-            
-            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
-            
-        </div>
-    </div>
-</div>
 
-                        </div>
-                    </div>
-                
+                        <br>
+                        <div id="remark42"></div>
+                        <script>
+                            var localAddrs = ["localhost", "127.0.0.1", ""];
+                            if (localAddrs.indexOf(document.location.hostname) === -1) {
+                                var remark_config = {
+                                    host: 'https://comments.mwum.com',
+                                    site_id: 'mwum',
+                                    locale: 'zh',
+                                    no_footer: true,
+                                }
+                                !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+                            }
+                        </script>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../lib/static-library.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../tips/macro-definition.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
             </div>
 
-            
-                
-                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Tips">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                
-                
-                <a href="macro-definition.html" class="navigation navigation-next " aria-label="Next page: 宏定义">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-                
-            
-        
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../lib/static-library.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../tips/macro-definition.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
     </div>
-
-    <script>
-        var gitbook = gitbook || [];
-        gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"代码片段","level":"1.4.1","depth":2,"next":{"title":"宏定义","level":"1.4.2","depth":2,"path":"tips/macro-definition.md","ref":"tips/macro-definition.md","articles":[]},"previous":{"title":"Tips","level":"1.4","depth":1,"path":"tips/README.md","ref":"tips/README.md","articles":[{"title":"代码片段","level":"1.4.1","depth":2,"path":"tips/code-snippet.md","ref":"tips/code-snippet.md","articles":[]},{"title":"宏定义","level":"1.4.2","depth":2,"path":"tips/macro-definition.md","ref":"tips/macro-definition.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["disqus","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"mwum"},"ga":{"configuration":"auto","token":"UA-39279084-1"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sidebar":{"明无梦的博客":"https://www.dreamxu.com/"},"sharing":{"google":false,"facebook":false,"twitter":false,"weibo":false,"all":true}},"gitbook":"*"},"file":{"path":"tips/code-snippet.md","mtime":"2014-12-04T03:34:18.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-04T17:53:33.891Z"},"basePath":"..","book":{"language":""}});
-        });
-    </script>
-</div>
-
-        
-    <script src="../gitbook/gitbook.js"></script>
-    <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
-        
-    
-
     </body>
 </html>
-
