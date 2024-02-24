@@ -124,10 +124,16 @@ if (!doNotTrack) {
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">dir_commands</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">dir</span><span class="p">,</span> <span class="n">command</span><span class="o">|</span>
 </span></span><span class="line"><span class="cl">  <span class="k">case</span> <span class="n">dir</span>
-</span></span><span class="line"><span class="cl">  <span class="k">when</span> <span class="no">Regexp</span>
-</span></span><span class="line"><span class="cl">    <span class="nb">exec</span> <span class="n">command</span> <span class="k">if</span> <span class="no">Dir</span><span class="o">.</span><span class="n">pwd</span> <span class="o">=~</span> <span class="n">dir</span>
 </span></span><span class="line"><span class="cl">  <span class="k">when</span> <span class="nb">String</span>
-</span></span><span class="line"><span class="cl">    <span class="nb">exec</span> <span class="n">command</span> <span class="k">if</span> <span class="no">Dir</span><span class="o">.</span><span class="n">pwd</span> <span class="o">==</span> <span class="n">dir</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="no">Dir</span><span class="o">.</span><span class="n">pwd</span> <span class="o">==</span> <span class="n">dir</span>
+</span></span><span class="line"><span class="cl">      <span class="nb">puts</span> <span class="s2">&#34;Execute command: </span><span class="si">#{</span><span class="n">command</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="nb">exec</span> <span class="n">command</span>
+</span></span><span class="line"><span class="cl">    <span class="k">end</span>
+</span></span><span class="line"><span class="cl">  <span class="k">when</span> <span class="no">Regexp</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="no">Dir</span><span class="o">.</span><span class="n">pwd</span> <span class="o">=~</span> <span class="n">dir</span>
+</span></span><span class="line"><span class="cl">      <span class="nb">puts</span> <span class="s2">&#34;Execute command: </span><span class="si">#{</span><span class="n">command</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="nb">exec</span> <span class="n">command</span>
+</span></span><span class="line"><span class="cl">    <span class="k">end</span>
 </span></span><span class="line"><span class="cl">  <span class="k">else</span>
 </span></span><span class="line"><span class="cl">    <span class="nb">puts</span> <span class="s2">&#34;This dir class is not supported: </span><span class="si">#{</span><span class="n">dir</span><span class="o">.</span><span class="n">class</span><span class="si">}</span><span class="s2">&#34;</span>
 </span></span><span class="line"><span class="cl">    <span class="nb">exit</span>
