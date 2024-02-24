@@ -125,7 +125,7 @@ if (!doNotTrack) {
 <pre><code>sudo apt-get upgrade
 </code></pre>
 <h2 id="准备硬盘"><a class="anchor" href="#%e5%87%86%e5%a4%87%e7%a1%ac%e7%9b%98">准备硬盘</a></h2>
-<p>若需要组建 raid1, 可看我写的另一篇文章《<a href="http://www.dreamxu.com/debian-create-software-raid-one-arrays/">Debian 组建软 RAID 1 磁盘阵列</a>》</p>
+<p>若需要组建 raid1, 可看我写的另一篇文章《<a href="/debian-create-software-raid-one-arrays/">Debian 组建软 RAID 1 磁盘阵列</a>》</p>
 <p>最好使用隔离式带电源的 USB HUB, 保护硬盘也保护树莓派</p>
 <p>如果硬盘是 NTFS 格式的，那么需要安装 ntfs-3g 模块或者将硬盘格式化为 ext4 格式。</p>
 <ul>
@@ -580,7 +580,7 @@ sudo apt-get install aria2
 <p>最好还要加上版本控制功能<br>
 当然你还得注意硬盘的健康状况，真的是比人还要脆弱<br>
 btrfs 文件系统的一些特性非常不错，快照，克隆，字卷，校验等，不知道现在稳定到什么程度了，听说上个月在最新的 Linux 稳定版内核 3.12 中被修改成了 stable, 有时间去试一试</p>
-<p>这篇文章比较长，关于如何在树莓派上组建磁盘阵列 raid1, 我另外写了一篇文章《<a href="http://www.dreamxu.com/debian-create-software-raid-one-arrays/">Debian 组建软 RAID 1 磁盘阵列</a>》</p>
+<p>这篇文章比较长，关于如何在树莓派上组建磁盘阵列 raid1, 我另外写了一篇文章《<a href="/debian-create-software-raid-one-arrays/">Debian 组建软 RAID 1 磁盘阵列</a>》</p>
 <hr>
 <p>下面就来说说怎么异地备份吧，使用 rsync 工具, 且通过 ssh 传输，比较安全<br>
 在本地主机上（将树莓派中的数据备份到这个机子）操作</p>
