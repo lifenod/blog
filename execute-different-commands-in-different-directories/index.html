@@ -8,10 +8,7 @@
 
   <title>在不同目录下执行不同的命令 | 明无梦</title>
   <meta name="description" content="我经常遇到这种情况：
-GitBook 有 &amp;ldquo;server&amp;rdquo; 命令，例如 gitbook serve
-Jekyll 有 &amp;ldquo;server&amp;rdquo; 命令，例如 jekyll serve
-Rails 有 &amp;ldquo;server&amp;rdquo; 命令，例如 rails server
-以 …">
+GitBook 有 &amp;ldquo;server&amp;rdquo; 命令，例如 gitbook serve Jekyll 有 &amp;ldquo;server&amp;rdquo; 命令，例如 jekyll serve Rails 有 &amp;ldquo;server&amp;rdquo; 命令，例如 rails server 以 …">
   <link rel="canonical" href="https://www.dreamxu.com/execute-different-commands-in-different-directories/">
     <link rel="stylesheet" href="/css/style.min.9e0dafd10f313053fd678f17ed88ad1303e0f632bf1daa74848a134a97a8e520.css" integrity="sha256-ng2v0Q8xMFP9Z48X7YitEwPg9jK/Hap0hIoTSpeo5SA=" crossorigin="anonymous">
   <script src="/js/bundle.min.441c485d1d9104b8017416429af24d2115fb80b39ccd1f1cb4907dc6c9d0e84d.js" integrity="sha256-RBxIXR2RBLgBdBZCmvJNIRX7gLOczR8ctJB9xsnQ6E0=" defer></script>
@@ -81,6 +78,7 @@ if (!doNotTrack) {
     <h1 class="post-title"><a href="/execute-different-commands-in-different-directories/">在不同目录下执行不同的命令</a></h1>
     <ul class="post-meta">
       <li class="published-date">2016-01-31</li>
+        <li class="updated-date"> | 更新: 2024-02-24</li>
         <li> | 标签: </li>
           <li class="post-tag"><a href="/tags/?names=%e6%8a%80%e6%9c%af#tag-list-display">技术</a></li>
           <li class="post-tag"><a href="/tags/?names=Ruby#tag-list-display">Ruby</a></li>
@@ -90,14 +88,14 @@ if (!doNotTrack) {
 
   <div itemscope itemtype="http://schema.org/Article">
     <div class="post-content" itemprop="articleBody">
-      <p>我经常遇到这种情况：<br>
-GitBook 有 &ldquo;server&rdquo; 命令，例如 <code>gitbook serve</code><br>
-Jekyll 有 &ldquo;server&rdquo; 命令，例如 <code>jekyll serve</code><br>
-Rails 有 &ldquo;server&rdquo; 命令，例如 <code>rails server</code></p>
-<p>以上命令都不尽相同，每次打 &ldquo;server&rdquo; 命令之前都得想一会儿到底该使用哪个命令，好烦<br>
-假如有一个 <code>server</code> 命令，可以自动选择合适的命令去执行就好了</p>
-<p>心动不如行动，下面是我用 Ruby 写的解决方案<br>
-若不喜欢用 Ruby, 可用 Python, shell script 等改写一下即可</p>
+      <p>我经常遇到这种情况：</p>
+<ul>
+<li>GitBook 有 &ldquo;server&rdquo; 命令，例如 <code>gitbook serve</code></li>
+<li>Jekyll 有 &ldquo;server&rdquo; 命令，例如 <code>jekyll serve</code></li>
+<li>Rails 有 &ldquo;server&rdquo; 命令，例如 <code>rails server</code></li>
+</ul>
+<p>以上命令都不尽相同，每次打 &ldquo;server&rdquo; 命令之前都得想一会儿到底该使用哪个命令，少一点还好，但是一旦类似的命令多了容易搞错也不容易想起来，假如有一个 <code>server</code> 命令，可以自动选择合适的命令去执行就好了。</p>
+<p>心动不如行动，下面是我用 Ruby 写的解决方案，若不喜欢用 Ruby，可用其它语言改写一下即可，思路是类似的。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="ch">#!/usr/bin/env ruby</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">dir_commands</span> <span class="o">=</span> <span class="p">{</span>
@@ -112,39 +110,31 @@ Rails 有 &ldquo;server&rdquo; 命令，例如 <code>rails server</code></p>
 </span></span><span class="line"><span class="cl">  <span class="k">end</span>
 </span></span><span class="line"><span class="cl"><span class="k">end</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nb">puts</span> <span class="s2">&#34;Command not found: </span><span class="si">#{</span><span class="no">File</span><span class="o">.</span><span class="n">basename</span> <span class="bp">__FILE__</span><span class="si">}</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="nb">puts</span> <span class="s2">&#34;In this directory: </span><span class="si">#{</span><span class="no">Dir</span><span class="o">.</span><span class="n">pwd</span><span class="si">}</span><span class="s2">&#34;</span>
-</span></span></code></pre></div><p>将以上文件命名为 server, 并放到 bin 目录下，在给它加上可执行权限 <code>chmod +x ./server</code>, 即可愉快使用了</p>
-<p>有一点需要注意的：<br>
-使用 <code>exec</code> 比较合适，不要使用 <code>system</code> 等<br>
-如果使用 <code>system</code>, Ruby 进程并不会退出而是会等待 <code>system</code> 返回，而 server 命令不是立即返回的，所以用 <code>system</code> 不合适，Ruby 进程会一直等待。但是 <code>exec</code> 是完全替换进程的，所以不存在这个问题</p>
-<p>以上程序还是不够智能，如果我想使某个目录下的所有子目录都执行相同的命令，岂不是要一个个子目录去设置，这显然是不合适的<br>
-所以继续给上面的程序加入正则匹配功能</p>
+</span></span><span class="line"><span class="cl"><span class="nb">puts</span> <span class="s2">&#34;</span><span class="si">#{</span><span class="no">File</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="bp">__FILE__</span><span class="p">)</span><span class="si">}</span><span class="s2">: no command defined for current directory: </span><span class="si">#{</span><span class="no">Dir</span><span class="o">.</span><span class="n">pwd</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span></code></pre></div><p>将以上文件命名为 server，并放到 bin 目录下，在给它加上可执行权限 <code>chmod +x ./server</code>，即可愉快使用了。</p>
+<p>有一点需要注意的：执行命令使用 <code>exec</code> 比较合适，不要使用 <code>system</code> 等，如果使用 <code>system</code>，Ruby 进程并不会退出而是会等待 <code>system</code> 返回，而 server 命令不是立即返回的，所以用 <code>system</code> 不合适，Ruby 进程会一直等待，而 <code>exec</code> 是完全替换进程的，所以不存在这个问题。</p>
+<p>以上程序还是不够智能，如果我想使某个目录下的所有子目录都执行相同的命令，岂不是要一个个子目录去设置，这显然是不合适的，所以继续给上面的程序加入正则匹配功能。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="ch">#!/usr/bin/env ruby</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">dir_commands</span> <span class="o">=</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="sr">/\/Users\/mwum\/Gitbook\/*/</span>       <span class="o">=&gt;</span> <span class="s2">&#34;gitbook serve --port 4006&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="sr">%r{/Users/mwum/Gitbook/*}</span>         <span class="o">=&gt;</span> <span class="s2">&#34;gitbook serve --port 4006&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="s2">&#34;/Users/mwum/dx&#34;</span>                  <span class="o">=&gt;</span> <span class="s2">&#34;jekyll serve -w&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="sr">/\/Users\/mwum\/Code\/Rails\/*/</span>   <span class="o">=&gt;</span> <span class="s2">&#34;bundle exec rails server&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="sr">%r{/Users/mwum/Code/Rails/*}</span>      <span class="o">=&gt;</span> <span class="s2">&#34;bundle exec rails server&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">dir_commands</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">dir</span><span class="p">,</span> <span class="n">command</span><span class="o">|</span>
-</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="n">dir</span><span class="o">.</span><span class="n">class</span> <span class="o">==</span> <span class="no">Regexp</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="no">Dir</span><span class="o">.</span><span class="n">pwd</span> <span class="o">=~</span> <span class="n">dir</span>
-</span></span><span class="line"><span class="cl">      <span class="nb">exec</span> <span class="n">command</span>
-</span></span><span class="line"><span class="cl">    <span class="k">end</span>
-</span></span><span class="line"><span class="cl">  <span class="k">elsif</span> <span class="n">dir</span><span class="o">.</span><span class="n">class</span> <span class="o">==</span> <span class="nb">String</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="no">Dir</span><span class="o">.</span><span class="n">pwd</span> <span class="o">==</span> <span class="n">dir</span>
-</span></span><span class="line"><span class="cl">      <span class="nb">exec</span> <span class="n">command</span>
-</span></span><span class="line"><span class="cl">    <span class="k">end</span>
+</span></span><span class="line"><span class="cl">  <span class="k">case</span> <span class="n">dir</span>
+</span></span><span class="line"><span class="cl">  <span class="k">when</span> <span class="no">Regexp</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">exec</span> <span class="n">command</span> <span class="k">if</span> <span class="no">Dir</span><span class="o">.</span><span class="n">pwd</span> <span class="o">=~</span> <span class="n">dir</span>
+</span></span><span class="line"><span class="cl">  <span class="k">when</span> <span class="nb">String</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">exec</span> <span class="n">command</span> <span class="k">if</span> <span class="no">Dir</span><span class="o">.</span><span class="n">pwd</span> <span class="o">==</span> <span class="n">dir</span>
 </span></span><span class="line"><span class="cl">  <span class="k">else</span>
-</span></span><span class="line"><span class="cl">    <span class="nb">puts</span> <span class="s2">&#34;This class is not supported: </span><span class="si">#{</span><span class="n">dir</span><span class="o">.</span><span class="n">class</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">puts</span> <span class="s2">&#34;This dir class is not supported: </span><span class="si">#{</span><span class="n">dir</span><span class="o">.</span><span class="n">class</span><span class="si">}</span><span class="s2">&#34;</span>
 </span></span><span class="line"><span class="cl">    <span class="nb">exit</span>
 </span></span><span class="line"><span class="cl">  <span class="k">end</span>
 </span></span><span class="line"><span class="cl"><span class="k">end</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nb">puts</span> <span class="s2">&#34;Command not found: </span><span class="si">#{</span><span class="no">File</span><span class="o">.</span><span class="n">basename</span> <span class="bp">__FILE__</span><span class="si">}</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="nb">puts</span> <span class="s2">&#34;In this directory: </span><span class="si">#{</span><span class="no">Dir</span><span class="o">.</span><span class="n">pwd</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">puts</span> <span class="s2">&#34;</span><span class="si">#{</span><span class="no">File</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="bp">__FILE__</span><span class="p">)</span><span class="si">}</span><span class="s2">: no command defined for current directory: </span><span class="si">#{</span><span class="no">Dir</span><span class="o">.</span><span class="n">pwd</span><span class="si">}</span><span class="s2">&#34;</span>
 </span></span></code></pre></div>
     </div>
   </div>
@@ -156,20 +146,17 @@ Rails 有 &ldquo;server&rdquo; 命令，例如 <code>rails server</code></p>
 
 </article>
 
-<hr>
-
-<div id="disqus_thread"></div>
-<script>
-    var disqus_shortname = 'mwum'; 
-     
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+<br>
+  <div id="remark42"></div>
+  <script>
+    var remark_config = {
+      host: 'https:\/\/comments.mwum.com',
+      site_id: 'mwum',
+      locale: 'zh',
+      no_footer: true,
+    }
+  </script>
+  <script>!function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);</script>
 
 
   </div>
