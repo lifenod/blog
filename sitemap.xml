@@ -4,6 +4,16 @@
   <url>
     <loc>https://www.mwum.com/installing-mods-for-palworld/</loc>
     <lastmod>2024-02-18T03:15:28+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://www.mwum.com/en/installing-mods-for-palworld/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://www.mwum.com/installing-mods-for-palworld/"
+                />
   </url>
   <url>
     <loc>https://www.mwum.com/hack-markdown-converter-kramdown/</loc>
@@ -16,6 +26,16 @@
   <url>
     <loc>https://www.mwum.com/execute-different-commands-in-different-directories/</loc>
     <lastmod>2024-02-24T01:52:53+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://www.mwum.com/en/execute-different-commands-in-different-directories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://www.mwum.com/execute-different-commands-in-different-directories/"
+                />
   </url>
   <url>
     <loc>https://www.mwum.com/compile-your-own-openwrt/</loc>
@@ -198,18 +218,68 @@
     <lastmod>2012-03-29T00:00:00+08:00</lastmod>
   </url>
   <url>
-    <loc>https://www.mwum.com/tags/</loc>
-  </url>
-  <url>
-    <loc>https://www.mwum.com/</loc>
-  </url>
-  <url>
     <loc>https://www.mwum.com/archive/</loc>
-  </url>
-  <url>
-    <loc>https://www.mwum.com/about/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://www.mwum.com/en/archive/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://www.mwum.com/archive/"
+                />
   </url>
   <url>
     <loc>https://www.mwum.com/books/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://www.mwum.com/en/books/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://www.mwum.com/books/"
+                />
+  </url>
+  <url>
+    <loc>https://www.mwum.com/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://www.mwum.com/en/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://www.mwum.com/"
+                />
+  </url>
+  <url>
+    <loc>https://www.mwum.com/about/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://www.mwum.com/en/about/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://www.mwum.com/about/"
+                />
+  </url>
+  <url>
+    <loc>https://www.mwum.com/tags/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://www.mwum.com/en/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://www.mwum.com/tags/"
+                />
   </url>
 </urlset>

@@ -59,6 +59,7 @@ if (!doNotTrack) {
         <a class="page-link" href="/books/">书籍</a>
         <a class="page-link" href="/about/">关于</a>
         <a class="page-link" href="/rss.xml">订阅</a>
+            <a class="page-link" href="/en/">中/EN</a>
       </div>
     </nav>
 
@@ -256,19 +257,19 @@ linux 主机 &lt;--无线--&gt; 300M 路由器 &lt;--网线--&gt; 树莓派</p>
 <p>路由器附近</p>
 <p>向树莓派写入文件，四次测试分别为 10.0 MB/s, 9.8 MB/s, 10.1 MB/s, 10.0 MB/s<br>
 平均 9.975 MB/s<br>
-<img src="2013-11-29_132334.png" alt="samba-速度测试"></p>
+<img alt="samba-速度测试" src="/raspberrypi-nas/2013-11-29_132334.png"></p>
 <p>从树莓派中读取文件，四次测试分别为 10.2 MB/s, 10.2 MB/s, 10.2 MB/s, 10.2 MB/s<br>
 平均 10.2 MB/s<br>
-<img src="2013-11-29_135644.png" alt="samba-速度测试"></p>
+<img alt="samba-速度测试" src="/raspberrypi-nas/2013-11-29_135644.png"></p>
 </li>
 <li>
 <p>工作地点</p>
 <p>向树莓派写入文件，四次测试分别为 6.8 MB/s, 6.9 MB/s, 6.8 MB/s, 6.9 MB/s<br>
 平均 6.85 MB/s<br>
-<img src="2013-11-29_131225.png" alt="samba-速度测试"></p>
+<img alt="samba-速度测试" src="/raspberrypi-nas/2013-11-29_131225.png"></p>
 <p>从树莓派中读取文件，四次测试分别为 8.7 MB/s, 8.2 MB/s, 8.0 MB/s, 8.7 MB/s<br>
 平均 8.4 MB/s<br>
-<img src="2013-11-29_132126.png" alt="samba-速度测试"></p>
+<img alt="samba-速度测试" src="/raspberrypi-nas/2013-11-29_132126.png"></p>
 </li>
 </ul>
 <p>100 以太网卡能有这样的速度已经相当不错了<br>
@@ -540,7 +541,7 @@ sudo apt-get install aria2
 <li>点击右上角的小扳手，在 JSON-RPC Path 中填入 &ldquo;http://raspberrypi-ip:6800/jsonrpc&rdquo;<br>
 如果设置了 rpc 密码，那么填入 &ldquo;http://user:passwd@raspberrypi-ip:6800/jsonrpc&rdquo;</li>
 </ol>
-<p><img src="2013-12-24_115952.png" alt="yaaw"></p>
+<p><img alt="yaaw" src="/raspberrypi-nas/2013-12-24_115952.png"></p>
 <hr>
 <p>webui-aria2</p>
 <ol>
@@ -548,7 +549,7 @@ sudo apt-get install aria2
 <li>在其中找到这个链接 <a href="http://ziahamza.github.com/webui-aria2/">http://ziahamza.github.com/webui-aria2/</a>, 打开</li>
 <li>点击 &ldquo;Settings&rdquo; - &ldquo;Connection Settings&rdquo;, 一看你就明白了</li>
 </ol>
-<p><img src="2013-12-24_120002.png" alt="webui-aria2"></p>
+<p><img alt="webui-aria2" src="/raspberrypi-nas/2013-12-24_120002.png"></p>
 <p>以上两个工具都是用 HTML/CSS/Javascirpt 写的，你也可以下载下来，扔到网页服务器，本地服务器虚拟主机随你玩</p>
 <p><strong>常见问题</strong></p>
 <p>若无法连接到 web 前端，请手动访问你的 JSON-RPC 地址 http://raspberrypi-ip:6800/jsonrpc?jsoncallback=1, 如果没有返回，请确认 aria2 是否启动以及连通性<br>
@@ -656,13 +657,13 @@ btrfs 文件系统的一些特性非常不错，快照，克隆，字卷，校�
     <div class="footer-content">
       <p>
         <span class="no-palm">本站采用 <a rel="license" href="//creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可<br></span>
-        <span>©2013-2024 <a href="https://www.mwum.com">明无梦</a></span>
+        <span>©2013-2024 <a href="https://www.mwum.com/">明无梦</a></span>
         <span class="no-palm">| </span>
         <span>Powered by <a href="//gohugo.io/">Hugo</a></span>
         <span class="no-palm">| </span>
         <span>Hosted by <a href="//github.com/">GitHub</a></span>
         <span class="no-palm">| </span>
-        <span>Designed by <a href="https://www.mwum.com">明无梦</a></span>
+        <span>Designed by <a href="https://www.mwum.com/">明无梦</a></span>
         <span class="no-laptop"><a rel="license" href="//creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a></span>
       </p>
     </div>

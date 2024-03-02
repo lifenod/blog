@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>在不同目录下执行不同的命令 | 明无梦</title>
-  <meta name="description" content="我经常遇到这种情况：
-GitBook 有 &amp;ldquo;server&amp;rdquo; 命令，例如 gitbook serve Jekyll 有 &amp;ldquo;server&amp;rdquo; 命令，例如 jekyll serve Rails 有 &amp;ldquo;server&amp;rdquo; 命令，例如 rails server 以 …">
-  <link rel="canonical" href="https://www.mwum.com/execute-different-commands-in-different-directories/">
+  <title>Executing Different Commands in Different Directories | mwum</title>
+  <meta name="description" content="I often encounter situations like this:
+GitBook has a &amp;ldquo;server&amp;rdquo; command, for example, gitbook serve. Jekyll has a &amp;ldquo;server&amp;rdquo; command, for …">
+  <link rel="canonical" href="https://www.mwum.com/en/execute-different-commands-in-different-directories/">
       <link rel="alternate" hreflang="zh" href="https://www.mwum.com/execute-different-commands-in-different-directories/">
       <link rel="alternate" hreflang="en" href="https://www.mwum.com/en/execute-different-commands-in-different-directories/">
         <link rel="alternate" hreflang="x-default" href="https://www.mwum.com/en/execute-different-commands-in-different-directories/">
@@ -37,7 +37,7 @@ if (!doNotTrack) {
 <header class="site-header">
 
   <div class="wrapper">
-    <a class="site-title" href="/">明无梦</a>
+    <a class="site-title" href="/en/">mwum</a>
 
     <nav class="site-nav">
       <a class="menu-icon" id="js-nav-menu-icon">
@@ -57,12 +57,11 @@ if (!doNotTrack) {
       </a>
 
       <div class="trigger" id="js-nav-menu-trigger">
-        <a class="page-link" href="/archive/">归档</a>
-        <a class="page-link" href="/tags/">标签</a>
-        <a class="page-link" href="/books/">书籍</a>
-        <a class="page-link" href="/about/">关于</a>
-        <a class="page-link" href="/rss.xml">订阅</a>
-              <a class="page-link" href="/en/execute-different-commands-in-different-directories/">中/EN</a>
+        <a class="page-link" href="/en/archive/">Archives</a>
+        <a class="page-link" href="/en/tags/">Tags</a>
+        <a class="page-link" href="/en/books/">Books</a>
+        <a class="page-link" href="/en/about/">About</a>
+        <a class="page-link" href="/en/rss.xml">RSS</a><a class="page-link" href="/execute-different-commands-in-different-directories/">EN/中</a>
       </div>
     </nav>
 
@@ -78,27 +77,26 @@ if (!doNotTrack) {
 <article class="post">
 
   <header class="post-header">
-    <h1 class="post-title"><a href="/execute-different-commands-in-different-directories/">在不同目录下执行不同的命令</a></h1>
+    <h1 class="post-title"><a href="/en/execute-different-commands-in-different-directories/">Executing Different Commands in Different Directories</a></h1>
     <ul class="post-meta">
       <li class="published-date">2016-01-31</li>
-        <li class="updated-date"> | 更新: 2024-02-24</li>
-        <li> | 标签: </li>
-          <li class="post-tag"><a href="/tags/?names=%e6%8a%80%e6%9c%af#tag-list-display">技术</a></li>
-          <li class="post-tag"><a href="/tags/?names=Ruby#tag-list-display">Ruby</a></li>
-          <li class="post-tag"><a href="/tags/?names=Shell#tag-list-display">Shell</a></li>
+        <li class="updated-date"> | Updated: 2024-02-24</li>
+        <li> | Tags: </li>
+          <li class="post-tag"><a href="/en/tags/?names=Ruby#tag-list-display">Ruby</a></li>
+          <li class="post-tag"><a href="/en/tags/?names=Shell#tag-list-display">Shell</a></li>
     </ul>
   </header>
 
   <div itemscope itemtype="http://schema.org/Article">
     <div class="post-content" itemprop="articleBody">
-      <p>我经常遇到这种情况：</p>
+      <p>I often encounter situations like this:</p>
 <ul>
-<li>GitBook 有 &ldquo;server&rdquo; 命令，例如 <code>gitbook serve</code></li>
-<li>Jekyll 有 &ldquo;server&rdquo; 命令，例如 <code>jekyll serve</code></li>
-<li>Rails 有 &ldquo;server&rdquo; 命令，例如 <code>rails server</code></li>
+<li>GitBook has a &ldquo;server&rdquo; command, for example, <code>gitbook serve</code>.</li>
+<li>Jekyll has a &ldquo;server&rdquo; command, for example, <code>jekyll serve</code>.</li>
+<li>Rails has a &ldquo;server&rdquo; command, for example, <code>rails server</code>.</li>
 </ul>
-<p>以上命令都不尽相同，每次打 &ldquo;server&rdquo; 命令之前都得想一会儿到底该使用哪个命令，少一点还好，但是一旦类似的命令多了容易搞错也不容易想起来，假如有一个 <code>server</code> 命令，可以自动选择合适的命令去执行就好了。</p>
-<p>心动不如行动，下面是我用 Ruby 写的解决方案，若不喜欢用 Ruby，可用其它语言改写一下即可，思路是类似的。</p>
+<p>The commands above are not exactly the same, and every time before I type the &ldquo;server&rdquo; command, I have to think for a while about which command to use. It&rsquo;s okay if there are only a few, but once there are many similar commands, it&rsquo;s easy to get confused and hard to remember. It would be great if there was a <code>server</code> command that could automatically choose the appropriate command to execute.</p>
+<p>Action speaks louder than words. Below is a solution I wrote in Ruby. If you don&rsquo;t like using Ruby, you can rewrite it in another language; the idea is similar.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="ch">#!/usr/bin/env ruby</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">dir_commands</span> <span class="o">=</span> <span class="p">{</span>
@@ -114,9 +112,9 @@ if (!doNotTrack) {
 </span></span><span class="line"><span class="cl"><span class="k">end</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nb">puts</span> <span class="s2">&#34;</span><span class="si">#{</span><span class="no">File</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="bp">__FILE__</span><span class="p">)</span><span class="si">}</span><span class="s2">: no command defined for current directory: </span><span class="si">#{</span><span class="no">Dir</span><span class="o">.</span><span class="n">pwd</span><span class="si">}</span><span class="s2">&#34;</span>
-</span></span></code></pre></div><p>将以上文件命名为 server，并放到 bin 目录下，在给它加上可执行权限 <code>chmod +x ./server</code>，即可愉快使用了。</p>
-<p>有一点需要注意的：执行命令使用 <code>exec</code> 比较合适，不要使用 <code>system</code> 等，如果使用 <code>system</code>，Ruby 进程并不会退出而是会等待 <code>system</code> 返回，而 server 命令不是立即返回的，所以用 <code>system</code> 不合适，Ruby 进程会一直等待，而 <code>exec</code> 是完全替换进程的，所以不存在这个问题。</p>
-<p>以上程序还是不够智能，如果我想使某个目录下的所有子目录都执行相同的命令，岂不是要一个个子目录去设置，这显然是不合适的，所以继续给上面的程序加入正则匹配功能。</p>
+</span></span></code></pre></div><p>Name the file above as &ldquo;server&rdquo; and place it in the bin directory. Make it executable with <code>chmod +x ./server</code>, and you can use it happily.</p>
+<p>One thing to note: It is more appropriate to use <code>exec</code> to execute commands, not <code>system</code> or others. If you use <code>system</code>, the Ruby process does not exit but waits for <code>system</code> to return. Since the &ldquo;server&rdquo; command does not return immediately, using <code>system</code> is not appropriate; the Ruby process will wait indefinitely. However, <code>exec</code> completely replaces the process, so this problem does not occur.</p>
+<p>The program above is still not smart enough. If I want all subdirectories under a certain directory to execute the same command, it&rsquo;s obviously not suitable to set each subdirectory individually. Therefore, continue to add regular expression matching functionality to the program above.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="ch">#!/usr/bin/env ruby</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">dir_commands</span> <span class="o">=</span> <span class="p">{</span>
@@ -149,8 +147,8 @@ if (!doNotTrack) {
   </div>
 
   <div class="quiet-link">
-      <span>上一篇：</span><a href="/compile-your-own-openwrt/">编译自己的 OpenWrt 固件</a><br>
-      <span>下一篇：</span><a href="/monitor-markdown-file-changes-and-convert-it-to-html-file/">监测 Markdown 文件改动并将其转化为 HTML 文件</a>
+      <span>Previous: </span>Here is the starting point, looking forward to meeting you again in the future<br />
+      <span>Next: </span><a href="/en/installing-mods-for-palworld/">Installing Mods for Palworld</a>
   </div>
 
 </article>
@@ -161,7 +159,7 @@ if (!doNotTrack) {
     var remark_config = {
       host: 'https:\/\/comments.mwum.com',
       site_id: 'mwum',
-      locale: 'zh',
+      locale: 'en',
       no_footer: true,
     }
   </script>
@@ -176,15 +174,15 @@ if (!doNotTrack) {
   <div class="wrapper">
     <div class="footer-content">
       <p>
-        <span class="no-palm">本站采用 <a rel="license" href="//creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可<br></span>
-        <span>©2013-2024 <a href="https://www.mwum.com/">明无梦</a></span>
+        <span class="no-palm">This site is licensed under <a rel="license" href="//creativecommons.org/licenses/by-sa/4.0/">Attribution-ShareAlike 4.0 International</a> <br></span>
+        <span>©2013-2024 <a href="https://www.mwum.com/">mwum</a></span>
         <span class="no-palm">| </span>
         <span>Powered by <a href="//gohugo.io/">Hugo</a></span>
         <span class="no-palm">| </span>
         <span>Hosted by <a href="//github.com/">GitHub</a></span>
         <span class="no-palm">| </span>
-        <span>Designed by <a href="https://www.mwum.com/">明无梦</a></span>
-        <span class="no-laptop"><a rel="license" href="//creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a></span>
+        <span>Designed by <a href="https://www.mwum.com/">mwum</a></span>
+        <span class="no-laptop"><a rel="license" href="//creativecommons.org/licenses/by-sa/4.0/">Attribution-ShareAlike 4.0 International</a></span>
       </p>
     </div>
 
