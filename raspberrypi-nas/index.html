@@ -282,7 +282,7 @@ linux 主机 &lt;--无线--&gt; 300M 路由器 &lt;--网线--&gt; 树莓派</p>
 树莓派沉思了一下，不对啊，我明明是被折腾的命<br>
 拼了，外接一个千兆 USB 网卡，那到底有没有用呢？不说别的，CPU 就受不了<br>
 当然树莓派的 IO 性能也是个瓶颈，先来张图吧，树莓派功能模块之间的关系<br>
-<img src="2013-11-29_172321.svg" alt="Raspberrypi block function" style="width: 360px">
+<img src="/raspberrypi-nas/2013-11-29_172321.svg" alt="Raspberrypi block function" style="width: 360px">
 <br>
 其中的 USB hub 和 Ethernet 应该就是 LAN9512 芯片，不管如何，网卡和硬盘是连在一个 USB hub 上的<br>
 那么这个 USB hub 的 IO 性能如何呢，可用 <code>dd if=/dev/sda of=/dev/null bs=32M count=10 iflag=direct</code> 这个命令测试，大概是 31 MB/s<br>

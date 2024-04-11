@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>让 iOS 设备拥有真正的侧载能力：巨魔商店 TrollStore 的详细安装教程和使用指南 | 明无梦</title>
+  <meta name="description" content="侧载简单来说就是绕过官方应用商店，直接从其它来源安装应用程序的行为，这在安卓手机上是司空见惯了，所以我们都说安卓的可玩性高，但我们有没有什么办法让 iOS 也能够侧载呢，提高其可玩性呢？
+答案是可以，比如 AltStore、Sideloadly 等，都可以实现 iOS 侧载，它们是利用开发者账号对应用进行重签名，因为苹 …">
+  <link rel="canonical" href="https://www.mwum.com/ios-trollstore-installation-guide-and-user-manual/">
+      <link rel="alternate" hreflang="zh" href="https://www.mwum.com/ios-trollstore-installation-guide-and-user-manual/">
+      <link rel="alternate" hreflang="en" href="https://www.mwum.com/en/ios-trollstore-installation-guide-and-user-manual/">
+        <link rel="alternate" hreflang="x-default" href="https://www.mwum.com/en/ios-trollstore-installation-guide-and-user-manual/">
+    <link rel="stylesheet" href="/css/style.min.css" crossorigin="anonymous">
+  <script src="/js/bundle.min.js" defer></script>
+
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XNJSCC1KSF"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-XNJSCC1KSF', { 'anonymize_ip': false });
+}
+</script>
+
+</head>
+
+
+<body>
+
+<header class="site-header">
+
+  <div class="wrapper">
+    <a class="site-title" href="/">明无梦</a>
+
+    <nav class="site-nav">
+      <a class="menu-icon" id="js-nav-menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <a class="menu-icon-activate" id="js-nav-menu-icon-activate">
+        <svg viewBox="0 0 36 15">
+          <path fill="#424242" d="m36,1.484c0,0.82 -0.665,1.484 -1.484,1.484l-33.032,0c-0.819,0.001 -1.484,-0.664 -1.484,-1.484l0,0c0,-0.819 0.665,-1.484 1.484,-1.484l33.032,0c0.82,0 1.484,0.665 1.484,1.484l0,0z"/>
+          <path fill="#424242" d="m36,7.516c0,0.819 -0.665,1.484 -1.484,1.484l-33.032,0c-0.819,0 -1.484,-0.665 -1.484,-1.484l0,0c0,-0.82 0.665,-1.484 1.484,-1.484l33.032,0c0.82,-0.001 1.484,0.664 1.484,1.484l0,0z"/>
+          <path fill="#424242" d="m36,13.516c0,0.819 -0.665,1.484 -1.484,1.484l-33.032,0c-0.819,0 -1.484,-0.665 -1.484,-1.484l0,0c0,-0.82 0.665,-1.484 1.484,-1.484l33.032,0c0.82,-0.001 1.484,0.664 1.484,1.484l0,0z"/>
+        </svg>
+      </a>
+
+      <div class="trigger" id="js-nav-menu-trigger">
+        <a class="page-link" href="/archive/">归档</a>
+        <a class="page-link" href="/tags/">标签</a>
+        <a class="page-link" href="/books/">书籍</a>
+        <a class="page-link" href="/about/">关于</a>
+        <a class="page-link" href="/rss.xml">订阅</a>
+              <a class="page-link" href="/en/ios-trollstore-installation-guide-and-user-manual/">中/EN</a>
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+<div class="content">
+  <div class="wrapper">
+    
+
+<article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title"><a href="/ios-trollstore-installation-guide-and-user-manual/">让 iOS 设备拥有真正的侧载能力：巨魔商店 TrollStore 的详细安装教程和使用指南</a></h1>
+    <ul class="post-meta">
+      <li class="published-date">2024-04-12</li>
+        <li> | 标签: </li>
+          <li class="post-tag"><a href="/tags/?names=%e4%be%a7%e8%bd%bd#tag-list-display">侧载</a></li>
+          <li class="post-tag"><a href="/tags/?names=%e5%b7%a8%e9%ad%94%e5%95%86%e5%ba%97#tag-list-display">巨魔商店</a></li>
+          <li class="post-tag"><a href="/tags/?names=iOS#tag-list-display">iOS</a></li>
+          <li class="post-tag"><a href="/tags/?names=TrollStore#tag-list-display">TrollStore</a></li>
+          <li class="post-tag"><a href="/tags/?names=TrollInstallerX#tag-list-display">TrollInstallerX</a></li>
+          <li class="post-tag"><a href="/tags/?names=Sideloadly#tag-list-display">Sideloadly</a></li>
+          <li class="post-tag"><a href="/tags/?names=AltStore#tag-list-display">AltStore</a></li>
+          <li class="post-tag"><a href="/tags/?names=IPA#tag-list-display">IPA</a></li>
+    </ul>
+  </header>
+
+  <div itemscope itemtype="http://schema.org/Article">
+    <div class="post-content" itemprop="articleBody">
+      <p>侧载简单来说就是绕过官方应用商店，直接从其它来源安装应用程序的行为，这在安卓手机上是司空见惯了，所以我们都说安卓的可玩性高，但我们有没有什么办法让 iOS 也能够侧载呢，提高其可玩性呢？</p>
+<p>答案是可以，比如 <a href="https://altstore.io/">AltStore</a>、<a href="https://sideloadly.io/">Sideloadly</a> 等，都可以实现 iOS 侧载，它们是利用开发者账号对应用进行重签名，因为苹果允许开发者安装任意应用到 iOS 设备上，但是这种「官方允许」的侧载方式有一些缺点：比如免费的开发者账号只能允许应用运行 7 天，到期之后需要重新侧载，而且免费的开发者账号只能同时安装 3 个侧载应用；付费的开发者账号可以让应用持续一年，并且没有安装数量的限制，只不过多数使用者是没有付费的开发者账号的，付费的话每年 99 美元也是一笔不小的费用；还有很多缺点和限制就不一一介绍了，有兴趣可以去看以上侧载工具的 FAQ。</p>
+<p>「官方允许」的侧载方式总让人有种遗憾，有各种缺点和限制，这不是真正的自由的侧载。</p>
+<p>是时候让我们的主角 <a href="https://github.com/opa334/TrollStore">TrollStore</a> 登场了，它利用了 iOS 系统的 AMFI/CoreTrust bug，可以实现永久安装任意应用，但是利用的 CoreTrust bug 仅足以安装「系统」应用程序，这可以给用其安装的应用带来更多的权限，虽然比不上越狱拥有的权限多，但是风险也不可小觑，比如 <a href="https://theapplewiki.com/wiki/SeaShell">SeaShell</a>，可以通过 TrollStore 来安装，能够实现远程访问设备、控制设备、提取敏感信息等功能。</p>
+<p>在这里提醒一下使用 TrollStore 来安装应用 (IPA) 是有很大风险的，建议大家使用备用 iOS 设备来安装 TrollStore，并且不要存放敏感信息；还有就是安装了 TrollStore 的 iOS 设备不能更新系统，因为更新到最新系统之后 TrollStore 就失效了，这进一步降低了系统的安全性。</p>
+<h2 id="安装-trollstore-介绍"><a class="anchor" href="#%e5%ae%89%e8%a3%85-trollstore-%e4%bb%8b%e7%bb%8d">安装 TrollStore 介绍</a></h2>
+<p>安装方法参考自：<a href="https://ios.cfw.guide/installing-trollstore/">https://ios.cfw.guide/installing-trollstore/</a>，不同的设备不同的系统版本安装 TrollStore 安装方式不同，比如我的设备是 iPad mini 6 系统版本为 16.4.1，查看下图（来自上面的教程）可以看到可以通过 <a href="https://github.com/alfiecg24/TrollInstallerX">TrollInstallerX</a> 来安装 TrollStore。<br>
+<img alt="installing-trollstore-guide" src="/ios-trollstore-installation-guide-and-user-manual/installing-trollstore-guide.webp"></p>
+<p>TrollInstallerX 安装方法参考自：<a href="https://ios.cfw.guide/installing-trollstore-trollinstallerx/">https://ios.cfw.guide/installing-trollstore-trollinstallerx/</a>，本教程使用 <a href="https://sideloadly.io/">Sideloadly</a> 侧载工具将其安装到 iOS 设备中，你可以使用其它喜欢的侧载工具。</p>
+<h2 id="安装-sideloadly"><a class="anchor" href="#%e5%ae%89%e8%a3%85-sideloadly">安装 Sideloadly</a></h2>
+<p>安装方法参考自：<a href="https://sideloadly.io/">https://sideloadly.io/</a></p>
+<ol>
+<li>
+<p>安装 iTunes 和 iCloud（只在 Windows 系统上需要安装，macOS 系统可以跳过）,<br>
+需要注意的是：必须卸载 Microsoft Store 的 iTunes 和 iCloud（如果他们存在），然后安装非 Microsoft Store 版本的。<br>
+下载链接：<a href="https://www.apple.com/itunes/download/win64">iTunes x64</a> - <a href="https://www.apple.com/itunes/download/win32">iTunes x32</a> 和 <a href="https://updates.cdn-apple.com/2020/windows/001-39935-20200911-1A70AA56-F448-11EA-8CC0-99D41950005E/iCloudSetup.exe">iCloud</a><br>
+<div class="img-row" style="--num-cols: 2;">
+       
+       <img src="/ios-trollstore-installation-guide-and-user-manual/itunes-installing.webp" alt="itunes-installing">
+       
+       <img src="/ios-trollstore-installation-guide-and-user-manual/icloud-installing.webp" alt="icloud-installing">
+   </div>
+</p>
+</li>
+<li>
+<p>安装 Sideloadly，期间会提示需要管理员权限。<br>
+Windows 版下载链接：<a href="https://sideloadly.io/SideloadlySetup64.exe">Sideloadly x64</a> - <a href="https://sideloadly.io/SideloadlySetup32.exe">Sideloadly x32</a>；macOS 版下载链接：<a href="https://sideloadly.io/SideloadlySetup.dmg">Sideloadly</a><br>
+<div class="img-row" style="--num-cols: 2;">
+       
+       <img src="/ios-trollstore-installation-guide-and-user-manual/sideloadly-installing.webp" alt="sideloadly-installing">
+       
+       <img src="/ios-trollstore-installation-guide-and-user-manual/sideloadly-warning-needs-administrator-permission.webp" alt="sideloadly-warning-needs-administrator-permission">
+   </div>
+</p>
+</li>
+</ol>
+<h2 id="安装-trollinstallerx-到-ios-设备"><a class="anchor" href="#%e5%ae%89%e8%a3%85-trollinstallerx-%e5%88%b0-ios-%e8%ae%be%e5%a4%87">安装 TrollInstallerX 到 iOS 设备</a></h2>
+<p>首先下载 TrollInstallerX，到这里下载最新版：<a href="https://github.com/alfiecg24/TrollInstallerX/releases/latest">https://github.com/alfiecg24/TrollInstallerX/releases/latest</a>，下载完成得到一个 TrollInstallerX.ipa 文件。</p>
+<p>小插曲：我在 Windows 系统上下载的时候被 Microsoft Defender 检测为病毒了，即使我选择了「允许在设备上」还是看不到下载文件，不清楚什么原因，于是我就把「实时保护」关了，就能成功下载 TrollInstallerX.ipa 了。<br>
+<img alt="microsoft-defender-turn-off-real-time-protection" src="/ios-trollstore-installation-guide-and-user-manual/microsoft-defender-turn-off-real-time-protection.webp"></p>
+<p>安装 TrollInstallerX 到 iOS 设备上的详细步骤：</p>
+<ol>
+<li>
+<p>启动 Sideloadly，然后将 iOS 设备连接到电脑，iDevice 中就会显示你的设备。并且需要在 iOS 设备弹出的「信任这台电脑」窗口中选择「信任」，如果不信任侧载安装 TrollInstallerX 会失败<br>
+<div class="img-row" style="--num-cols: 2;">
+       
+       <img src="/ios-trollstore-installation-guide-and-user-manual/ipad-trust-this-computer-popup.webp" alt="ipad-trust-this-computer-popup">
+       
+       <img src="/ios-trollstore-installation-guide-and-user-manual/sideloadly-main-interface-with-idevice.webp" alt="sideloadly-main-interface-with-idevice">
+   </div>
+</p>
+</li>
+<li>
+<p>点击「IPA 图标」，选择刚刚下载的 TrollInstallerX.ipa 文件<br>
+<img alt="sideloadly-main-interface-with-ipa" src="/ios-trollstore-installation-guide-and-user-manual/sideloadly-main-interface-with-ipa.webp"></p>
+</li>
+<li>
+<p>填入 Apple ID，Apple ID 和密码只会发送到苹果服务器，如果不放心可以使用小号<br>
+<img alt="sideloadly-main-interface-with-apple-id" src="/ios-trollstore-installation-guide-and-user-manual/sideloadly-main-interface-with-apple-id.webp"></p>
+</li>
+<li>
+<p>点击 &ldquo;Start&rdquo; 按钮<br>
+<img alt="sideloadly-main-interface-with-start-button" src="/ios-trollstore-installation-guide-and-user-manual/sideloadly-main-interface-with-start-button.webp"></p>
+</li>
+<li>
+<p>在弹出来 Apple ID Authentication 窗口中输入 Apple ID 的密码，然后点击 &ldquo;OK&rdquo; 按钮<br>
+<img alt="sideloadly-apple-id-authentication-interface" src="/ios-trollstore-installation-guide-and-user-manual/sideloadly-apple-id-authentication-interface.webp"></p>
+</li>
+<li>
+<p>最后显示 &ldquo;Done.&rdquo; 表示侧载安装已经完成<br>
+<img alt="sideloadly-main-interface-with-done" src="/ios-trollstore-installation-guide-and-user-manual/sideloadly-main-interface-with-done.webp"></p>
+</li>
+</ol>
+<h2 id="在-ios-设备上运行-trollinstallerx"><a class="anchor" href="#%e5%9c%a8-ios-%e8%ae%be%e5%a4%87%e4%b8%8a%e8%bf%90%e8%a1%8c-trollinstallerx">在 iOS 设备上运行 TrollInstallerX</a></h2>
+<ol>
+<li>
+<p>打开 iOS 设备你会发现桌面出现了 TrollInstallerX 应用<br>
+<img alt="ipad-main-screen-trollinstallerx-app-icon" src="/ios-trollstore-installation-guide-and-user-manual/ipad-main-screen-trollinstallerx-app-icon.webp"></p>
+</li>
+<li>
+<p>这时候应用是无法打开的，因为还没有信任开发者，信任开发者的详细步骤：</p>
+<ol>
+<li>
+<p>打开「设置」应用，依次进入：通用 → VPN 与设备管理 → &lt;你的 Apple ID&gt;，<br>
+进入到如下页面，然后点击「信任“&lt;你的 Apple ID&gt;”」<br>
+<img alt="ipad-settings-device-management-apple-id" src="/ios-trollstore-installation-guide-and-user-manual/ipad-settings-device-management-apple-id.webp"></p>
+</li>
+<li>
+<p>在弹出的窗口中点击「信任」<br>
+<img alt="ipad-settings-device-management-apple-id-trust-popup" src="/ios-trollstore-installation-guide-and-user-manual/ipad-settings-device-management-apple-id-trust-popup.webp"></p>
+</li>
+</ol>
+</li>
+<li>
+<p>如果是 iOS 16.0 到 16.6.1 的设备还需要启用「开发者模式」，详细步骤：</p>
+<ol>
+<li>
+<p>打开「设置」应用，依次进入：隐私与安全性 → 开发者模式，<br>
+进入到如下页面，然后点击以启用「开发者模式」<br>
+<img alt="ipad-settings-privacy-security-developer-mode" src="/ios-trollstore-installation-guide-and-user-manual/ipad-settings-privacy-security-developer-mode.webp"></p>
+</li>
+<li>
+<p>在弹出的窗口中点击「重新启动」<br>
+<img alt="ipad-settings-privacy-security-developer-mode-enable-popup" src="/ios-trollstore-installation-guide-and-user-manual/ipad-settings-privacy-security-developer-mode-enable-popup.webp"></p>
+</li>
+<li>
+<p>等待系统重新启动，启动之后弹出一个窗口让我们确认，点击「打开」<br>
+<img alt="ipad-main-screen-developer-mode-enable-popup" src="/ios-trollstore-installation-guide-and-user-manual/ipad-main-screen-developer-mode-enable-popup.webp"></p>
+</li>
+</ol>
+</li>
+<li>
+<p>回到桌面，打开 TrollInstallerX 应用，然后点击 &ldquo;Install TrollStore&rdquo;<br>
+<div class="img-row" style="--num-cols: 2;">
+       
+       <img src="/ios-trollstore-installation-guide-and-user-manual/ipad-trollinstallerx-main-with-install-trollstore-button.webp" alt="ipad-trollinstallerx-main-with-install-trollstore-button">
+       
+       <img src="/ios-trollstore-installation-guide-and-user-manual/ipad-trollinstallerx-installing.webp" alt="ipad-trollinstallerx-installing">
+   </div>
+</p>
+</li>
+<li>
+<p>安装过程中会弹出来 &ldquo;Persistence helper&rdquo; 窗口，选择 &ldquo;Tips&rdquo; 应用，也可以选择你不使用的应用，因为这个系统应用会被注入为 persistence helper。在一些情况下（<a href="https://github.com/opa334/TrollStore#persistence-helper">详情见此</a> ）TrollStore 及所有用其安装的应用会恢复为「用户」状态并且将不能够启动，解决此问题的唯一方法是使用 persistence helper 将 TrollStore 及所有用其安装的应用重新注册为「系统」<br>
+<img alt="ipad-trollinstallerx-installing-persistence-helper-popup-with-tips" src="/ios-trollstore-installation-guide-and-user-manual/ipad-trollinstallerx-installing-persistence-helper-popup-with-tips.webp"></p>
+</li>
+<li>
+<p>安装成功之后，桌面会多出来一个 &ldquo;TrollStore&rdquo; 应用<br>
+<div class="img-row" style="--num-cols: 2;">
+       
+       <img src="/ios-trollstore-installation-guide-and-user-manual/ipad-trollinstallerx-installing-installed-trollstore.webp" alt="ipad-trollinstallerx-installing-installed-trollstore">
+       
+       <img src="/ios-trollstore-installation-guide-and-user-manual/ipad-main-screen-trollstore-app-icon.webp" alt="ipad-main-screen-trollstore-app-icon">
+   </div>
+</p>
+</li>
+<li>
+<p>打开 TrollStore 应用，会自动下载和安装 Idid，至此 TrollStore 就安装成功了<br>
+<div class="img-row" style="--num-cols: 2;">
+       
+       <img src="/ios-trollstore-installation-guide-and-user-manual/ipad-trollstore-installing-idid.webp" alt="ipad-trollstore-installing-idid">
+       
+       <img src="/ios-trollstore-installation-guide-and-user-manual/ipad-trollstore-settings-idid-installed.webp" alt="ipad-trollstore-settings-idid-installed">
+   </div>
+</p>
+</li>
+</ol>
+<h2 id="trollstore-ipa-资源"><a class="anchor" href="#trollstore-ipa-%e8%b5%84%e6%ba%90">TrollStore IPA 资源</a></h2>
+<p><a href="https://github.com/swaggyP36000/TrollStore-IPAs">TrollStore-IPAs</a>: 这个 GitHub 仓库收集了大量可用于 TrollStore 的 IPA 源，是个宝藏。</p>
+<p>再次提醒安装应用有风险。</p>
+<h2 id="trollstore-的使用"><a class="anchor" href="#trollstore-%e7%9a%84%e4%bd%bf%e7%94%a8">TrollStore 的使用</a></h2>
+<h3 id="安装应用-ipa"><a class="anchor" href="#%e5%ae%89%e8%a3%85%e5%ba%94%e7%94%a8-ipa">安装应用 (IPA)</a></h3>
+<p>首先来介绍一下安装应用，这是我们安装 TrollStore 最主要的目的，想要让 TrollStore 来安装只需要让其打开 IPA 文件即可，这里介绍两种方式，一种是直接在浏览器中下载 IPA：</p>
+<ol>
+<li>
+<p>在 Safari 中下载好 IPA 文件之后 → 点击下载的文件 → 点击分享按钮 → 在分享中选择 TrollStore<br>
+<div class="img-row" style="--num-cols: 2;">
+       
+       <img src="/ios-trollstore-installation-guide-and-user-manual/ipad-safari-with-download-button.webp" alt="ipad-safari-with-download-button">
+       
+       <img src="/ios-trollstore-installation-guide-and-user-manual/ipad-safari-with-downloaded-file-share.webp" alt="ipad-safari-with-downloaded-file-share">
+   </div>
+</p>
+</li>
+<li>
+<p>跳转到 TrollStore 之后会弹出来安装窗口，点击 &ldquo;Install&rdquo;，不一会就安装好了<br>
+<div class="img-row" style="--num-cols: 2;">
+       
+       <img src="/ios-trollstore-installation-guide-and-user-manual/ipad-trollstore-install-delta-popup.webp" alt="ipad-trollstore-install-delta-popup">
+       
+       <img src="/ios-trollstore-installation-guide-and-user-manual/ipad-trollstore-apps-list-1.webp" alt="ipad-trollstore-apps-list-1">
+   </div>
+</p>
+</li>
+</ol>
+<p>另一种是通过隔空投送的方式来安装：</p>
+<ol>
+<li>
+<p>在其它苹果设备上选择 IPA 文件并隔空投送到有 TrollStore 的 iOS 设备上，在 iOS 设备上会弹出来隔空投送窗口，在窗口中点击「接受」，文件接受完成之后会出现「打开方式」窗口，在这个窗口中选择 &ldquo;TrollStore&rdquo;<br>
+<div class="img-row" style="--num-cols: 2;">
+       
+       <img src="/ios-trollstore-installation-guide-and-user-manual/ipad-trollstore-airdrop-receiving-popup.webp" alt="ipad-trollstore-airdrop-receiving-popup">
+       
+       <img src="/ios-trollstore-installation-guide-and-user-manual/ipad-trollstore-airdrop-open-method-popup.webp" alt="ipad-trollstore-airdrop-open-method-popup">
+   </div>
+</p>
+</li>
+<li>
+<p>然后和上一种安装方式一样，点击 &ldquo;Install&rdquo; 就好了<br>
+<div class="img-row" style="--num-cols: 2;">
+       
+       <img src="/ios-trollstore-installation-guide-and-user-manual/ipad-trollstore-install-retroarch-popup.webp" alt="ipad-trollstore-install-retroarch-popup">
+       
+       <img src="/ios-trollstore-installation-guide-and-user-manual/ipad-trollstore-apps-list-2.webp" alt="ipad-trollstore-apps-list-2">
+   </div>
+</p>
+</li>
+</ol>
+<h3 id="卸载应用"><a class="anchor" href="#%e5%8d%b8%e8%bd%bd%e5%ba%94%e7%94%a8">卸载应用</a></h3>
+<p>接下去第二常用的就是卸载应用了，官方说通过 TrollStore 来安装的应用必须通过 TrollStore 本身来卸载，以下是<a href="https://github.com/opa334/TrollStore#uninstalling-an-app">原文</a>：</p>
+<blockquote>
+<p>Apps installed from TrollStore can only be uninstalled from TrollStore itself, tap an app or swipe it to the left in the &lsquo;Apps&rsquo; tab to delete it.</p>
+</blockquote>
+<p>不过我尝试了 iOS 设备一般的卸载方法在桌面长按然后点击「移除 App」也可以来删除，在 TrollStore 应用列表中也消失了，虽然这看起来也可以卸载应用，既然官方都这样说了，估计有一些额外的文件只能通过 TrollStore 来删除。</p>
+<p>用 TrollStore 来卸载应用的方法是：在 TrollStore 应用列表通过长按应用，然后点击 &ldquo;Uninstall App&rdquo; 来卸载；也可以在应用列表「左滑」应用然后点击「删除」来卸载，如下图所示两种方式：<br>
+<div class="img-row" style="--num-cols: 2;">
+    
+    <img src="/ios-trollstore-installation-guide-and-user-manual/ipad-trollstore-apps-list-with-long-press-app-popup.webp" alt="ipad-trollstore-apps-list-with-long-press-app-popup">
+    
+    <img src="/ios-trollstore-installation-guide-and-user-manual/ipad-trollstore-apps-list-with-swipe-left-app.webp" alt="ipad-trollstore-apps-list-with-swipe-left-app">
+</div>
+</p>
+<h3 id="jit-相关"><a class="anchor" href="#jit-%e7%9b%b8%e5%85%b3">JIT 相关</a></h3>
+<p>一些游戏模拟器需要 JIT 编译来加快运行速度，甚至有些模拟器需要 JIT 才能正常运行，作者在 TrollStore 2.0.12 更新中添加了 &ldquo;Open with JIT&rdquo; 功能，<a href="https://twitter.com/opa334dev/status/1751051395606671778">详情见此</a>。这个功能可以让应用在沙盒模式下也能开启 JIT，而不是像之前只能在非沙盒模式下开启 JIT。使用这个功能可以在应用列表长按应用然后点击 &ldquo;Open with JIT&rdquo;，如下图所示：<br>
+<img alt="ipad-trollstore-apps-list-with-open-with-jit" src="/ios-trollstore-installation-guide-and-user-manual/ipad-trollstore-apps-list-with-open-with-jit.webp"></p>
+<p>之后可能会不定期更新一些 TrollStore 使用方面的内容。</p>
+
+    </div>
+  </div>
+
+  <div class="quiet-link">
+      <span>上一篇：</span><a href="/palworld-mods-installation-vortex-guide/">幻兽帕鲁 Mods 安装详解：使用 Vortex 手把手教程</a><br>
+      <span>下一篇：</span>未来篇章，等你穿越重逢
+  </div>
+
+</article>
+
+<br>
+  <div id="remark42"></div>
+  <script>
+    var remark_config = {
+      host: 'https:\/\/comments.mwum.com',
+      site_id: 'mwum',
+      locale: 'zh',
+      no_footer: true,
+    }
+  </script>
+  <script>!function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);</script>
+
+
+  </div>
+</div>
+
+<footer class="site-footer">
+
+  <div class="wrapper">
+    <div class="footer-content">
+      <p>
+        <span class="no-palm">本站采用 <a rel="license" href="//creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可<br></span>
+        <span>©2013-2024 <a href="https://www.mwum.com/">明无梦</a></span>
+        <span class="no-palm">| </span>
+        <span>Powered by <a href="//gohugo.io/">Hugo</a></span>
+        <span class="no-palm">| </span>
+        <span>Hosted by <a href="//pages.cloudflare.com/">Cloudflare</a></span>
+        <span class="no-palm">| </span>
+        <span>Designed by <a href="https://www.mwum.com/">明无梦</a></span>
+        <span class="no-laptop"><a rel="license" href="//creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a></span>
+      </p>
+    </div>
+
+  </div>
+
+</footer>
+
+
+</body>
+
+</html>
