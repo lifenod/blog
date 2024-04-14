@@ -7,8 +7,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>树莓派作 NAS (RAID1, SMB/FTP, ARIA2, 迅雷离线, 异地备份) | 明无梦</title>
-  <meta name="description" content="本文比较长，列个目录方便阅读
-前提 准备硬盘 安装并配置 Samba 测试 Samba FTP 服务器安装及配置 aria2 安装及配置 &#43; web 前端 &#43; 迅雷离线 aria2 安装及配置 web 前端的配置 yaaw 和 webui-aria2 迅雷离线下载 aria2 出现问题的解决方法 磁盘阵列 RAID1  …">
+  <meta name="description" content="用树莓派作为 nas 还是不错的，连续运行几十天了没有任何异常
+前提 首先保证树莓派运行 Raspbian 系统正常，并将空间扩展至整张 SD 卡，需要安装各种软件以防空间不够
+操作树莓派直接使用 ssh 就可以了，不需要显示器的
+在进行操作之前，最好先更新一下软件源
+sudo apt-get update 然后再更新 …">
   <link rel="canonical" href="https://www.mwum.com/raspberrypi-nas/">
     <link rel="stylesheet" href="/css/style.min.css" crossorigin="anonymous">
   <script src="/js/bundle.min.js" defer></script>
@@ -92,29 +95,8 @@ if (!doNotTrack) {
 
   <div itemscope itemtype="http://schema.org/Article">
     <div class="post-content" itemprop="articleBody">
-      <p>本文比较长，列个目录方便阅读</p>
-<div class="toc">
-  <nav id="TableOfContents">
-  <ul>
-    <li><a href="#前提">前提</a></li>
-    <li><a href="#准备硬盘">准备硬盘</a></li>
-    <li><a href="#安装并配置-samba">安装并配置 Samba</a></li>
-    <li><a href="#测试-samba">测试 Samba</a></li>
-    <li><a href="#ftp-服务器安装及配置">FTP 服务器安装及配置</a></li>
-    <li><a href="#aria2-安装及配置--web-前端--迅雷离线">aria2 安装及配置 + web 前端 + 迅雷离线</a>
-      <ul>
-        <li><a href="#aria2-安装及配置">aria2 安装及配置</a></li>
-        <li><a href="#web-前端的配置-yaaw-和-webui-aria2">web 前端的配置 yaaw 和 webui-aria2</a></li>
-        <li><a href="#迅雷离线下载">迅雷离线下载</a></li>
-        <li><a href="#aria2-出现问题的解决方法">aria2 出现问题的解决方法</a></li>
-      </ul>
-    </li>
-    <li><a href="#磁盘阵列-raid1-与异地备份">磁盘阵列 RAID1 与异地备份</a></li>
-  </ul>
-</nav>
-</div>
-
-<p>总的来说树莓派作为 nas 还是不错的，连续运行几十天了没有任何异常</p>
+        <div id="post-toc" class="toc"></div>
+      <p>用树莓派作为 nas 还是不错的，连续运行几十天了没有任何异常</p>
 <h2 id="前提"><a class="anchor" href="#%e5%89%8d%e6%8f%90">前提</a></h2>
 <p>首先保证树莓派运行 Raspbian 系统正常，并将空间扩展至整张 SD 卡，需要安装各种软件以防空间不够<br>
 操作树莓派直接使用 ssh 就可以了，不需要显示器的</p>
