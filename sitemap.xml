@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://www.mwum.com/set-retro-game-resolution-correctly/</loc>
+    <lastmod>2024-06-02T05:25:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://www.mwum.com/en/set-retro-game-resolution-correctly/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://www.mwum.com/set-retro-game-resolution-correctly/"
+                />
+  </url>
+  <url>
     <loc>https://www.mwum.com/fix-tenchi-wo-kurau-2-chinese-mod-mapper-issue/</loc>
     <lastmod>2024-06-02T05:09:00+08:00</lastmod>
   </url>
