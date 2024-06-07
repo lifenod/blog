@@ -90,7 +90,7 @@
     <h1 class="post-title"><a href="/rg35xx-plus-open-source-handheld-os-installation-and-usage-guide/">RG35XX Plus 开源游戏掌机不同系统的安装尝试与使用指南</a></h1>
     <ul class="post-meta">
       <li class="published-date">2024-06-03</li>
-        <li class="updated-date"> | 更新: 2024-06-07</li>
+        <li class="updated-date"> | 更新: 2024-06-08</li>
         <li> | 标签: </li>
           <li class="post-tag"><a href="/tags/?names=RG35XX%20Plus#tag-list-display">RG35XX Plus</a></li>
           <li class="post-tag"><a href="/tags/?names=%e5%bc%80%e6%ba%90%e6%b8%b8%e6%88%8f%e6%8e%8c%e6%9c%ba#tag-list-display">开源游戏掌机</a></li>
@@ -269,18 +269,19 @@ ftp&gt; bye
 <p>完全关闭掌机到启动完成并可操作用时 9 秒，启动速度真的是飞快</p>
 </li>
 <li>
-<p>开启 Wi-Fi：Configuration → Wi-Fi Network → 点击 Enabled → 移动到 Identifier 然后按一些 X 键会进入搜索页面 → 选择一个 Wi-Fi 网络 → 移动到 Password 上输入密码 → 移动到 Connect 并点击 → 连接成功之后最下面的 Status 会显示：Connected - &lt;Your IP&gt;，记住你的 IP</p>
+<p><strong>开启 Wi-Fi</strong>：Configuration → Wi-Fi Network → 点击 Enabled → 移动到 Identifier 然后按一些 X 键会进入搜索页面 → 选择一个 Wi-Fi 网络 → 移动到 Password 上输入密码 → 移动到 Connect 并点击 → 连接成功之后最下面的 Status 会显示：Connected - &lt;Your IP&gt;，记住你的 IP</p>
 </li>
 <li>
-<p>开启 SFTP + Filebrowser：Configuration → Web Services → SFTP + Filebrowser → 点击 Enabled，<br>
+<p><strong>开启 SFTP + Filebrowser</strong>：Configuration → Web Services → SFTP + Filebrowser → 点击 Enabled，<br>
 SFTP 端口为 2022，可使用 SFTP 客户端进行连接，账号和密码都是 <code>muos</code>，<br>
-WebUI 端口为 9090，可直接在浏览器中输入 <code>&lt;Your IP&gt;:9090</code> 进入文件管理页面，账号和密码都是 <code>muos</code></p>
+WebUI 端口为 9090，可直接在电脑浏览器中输入 <code>&lt;Your IP&gt;:9090</code> 进入文件管理页面，账号和密码都是 <code>muos</code></p>
 </li>
 <li>
-<p>开启 Syncthing：Configuration → Web Services → Syncthing → 点击 Enabled</p>
+<p><strong>开启 Syncthing</strong>：Configuration → Web Services → Syncthing → 点击 Enabled，<br>
+开启了之后在电脑上浏览器中输入 <code>&lt;Your IP&gt;:7070</code> 可进入 muOS 的 Syncthing 管理页面</p>
 </li>
 <li>
-<p>如何管理游戏 roms：如官网所说唯一严格的规则是，<strong>必须</strong>位于 <strong>ROMS 文件夹</strong>下的<strong>子文件夹</strong>中，下面是官网的例子：</p>
+<p><strong>如何管理游戏 roms</strong>：如官网所说唯一严格的规则是，<strong>必须</strong>位于 <strong>ROMS 文件夹</strong>下的<strong>子文件夹</strong>中，下面是官网的例子：</p>
 <pre tabindex="0"><code>.
 └─ ROMS
    ├── SEGA
@@ -294,7 +295,7 @@ WebUI 端口为 9090，可直接在浏览器中输入 <code>&lt;Your IP&gt;:9090
        └── &lt;game files here&gt;
 </code></pre></li>
 <li>
-<p>快捷键：</p>
+<p><strong>快捷键</strong>：</p>
 <table>
 <thead>
 <tr>
