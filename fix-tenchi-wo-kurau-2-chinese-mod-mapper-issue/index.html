@@ -104,13 +104,21 @@ FCEUmm ((SVN)) 核心：灰屏，无法进入游戏 Mesen (0.9.9) 核心：能�
 <p>后来在吞食天地吧找到了解决方案，参考帖子《<a href="https://tieba.baidu.com/p/2108759247">安卓手机用nes.emu1.4.6.1完美运行吞2中文和中文改版</a>》，将游戏 rom 的 mapper 改成 198 然后用 FCEUmm 核心就能正常游戏了。</p>
 <h2 id="方法一使用-nestopia-修改-mapper"><a class="anchor" href="#%e6%96%b9%e6%b3%95%e4%b8%80%e4%bd%bf%e7%94%a8-nestopia-%e4%bf%ae%e6%94%b9-mapper">方法一：使用 Nestopia 修改 Mapper</a></h2>
 <ol>
-<li>下载 <a href="https://nestopia.sourceforge.net/">Nestopia</a> 软件</li>
-<li>打开 Nestopia, 点击 &ldquo;File&rdquo;, 然后点击 &ldquo;Edit iNES Header&hellip;&rdquo;, 在弹出的窗口中选中 rom 文件<br>
-<img alt="Nestopia 修改 mapper 步骤 1" src="/fix-tenchi-wo-kurau-2-chinese-mod-mapper-issue/nestopia-modify-mapper-step-1.jpg"></li>
-<li>将 Mapper 改为 198<br>
-<img alt="Nestopia 修改 mapper 步骤 2" src="/fix-tenchi-wo-kurau-2-chinese-mod-mapper-issue/nestopia-modify-mapper-step-2.jpg"><br>
-<img alt="Nestopia 修改 mapper 步骤 3" src="/fix-tenchi-wo-kurau-2-chinese-mod-mapper-issue/nestopia-modify-mapper-step-3.jpg"></li>
-<li>改完之后点击 &ldquo;Save As&hellip;&rdquo; 将修改后的 rom 文件保存到指定位置</li>
+<li>
+<p>下载 <a href="https://nestopia.sourceforge.net/">Nestopia</a> 软件</p>
+</li>
+<li>
+<p>打开 Nestopia, 点击 &ldquo;File&rdquo;, 然后点击 &ldquo;Edit iNES Header&hellip;&rdquo;, 在弹出的窗口中选中 rom 文件<br>
+<img alt="Nestopia 修改 mapper 步骤 1" src="/fix-tenchi-wo-kurau-2-chinese-mod-mapper-issue/nestopia-modify-mapper-step-1.jpg"></p>
+</li>
+<li>
+<p>将 Mapper 改为 198<br>
+<img alt="Nestopia 修改 mapper 步骤 2" src="/fix-tenchi-wo-kurau-2-chinese-mod-mapper-issue/nestopia-modify-mapper-step-2.jpg"></p>
+<p><img alt="Nestopia 修改 mapper 步骤 3" src="/fix-tenchi-wo-kurau-2-chinese-mod-mapper-issue/nestopia-modify-mapper-step-3.jpg"></p>
+</li>
+<li>
+<p>改完之后点击 &ldquo;Save As&hellip;&rdquo; 将修改后的 rom 文件保存到指定位置</p>
+</li>
 </ol>
 <h2 id="方法二使用十六进制编辑器修改-mapper"><a class="anchor" href="#%e6%96%b9%e6%b3%95%e4%ba%8c%e4%bd%bf%e7%94%a8%e5%8d%81%e5%85%ad%e8%bf%9b%e5%88%b6%e7%bc%96%e8%be%91%e5%99%a8%e4%bf%ae%e6%94%b9-mapper">方法二：使用十六进制编辑器修改 Mapper</a></h2>
 <p>使用十六进制编辑器将地址 6 和 7 位的值从 <code>4200</code> 改为 <code>62c0</code>.</p>
