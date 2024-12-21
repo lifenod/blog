@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Pandoc | 明无梦的软件使用记录</title>
+        <title>aria2 | 明无梦的软件使用记录</title>
 
 
         <!-- Custom HTML head -->
@@ -104,7 +104,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">软件列表</a></li><li class="chapter-item expanded affix "><a href="../archived-software.html">归档的软件列表</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Software</li><li class="chapter-item expanded "><a href="../docker/index.html"><strong aria-hidden="true">1.</strong> Docker</a></li><li class="chapter-item expanded "><a href="../graphviz/index.html"><strong aria-hidden="true">2.</strong> Graphviz</a></li><li class="chapter-item expanded "><a href="../ncdu/index.html"><strong aria-hidden="true">3.</strong> ncdu</a></li><li class="chapter-item expanded "><a href="../alfred/index.html"><strong aria-hidden="true">4.</strong> Alfred</a></li><li class="chapter-item expanded "><a href="../eudic/index.html"><strong aria-hidden="true">5.</strong> Eudic</a></li><li class="chapter-item expanded "><a href="../pandoc/index.html" class="active"><strong aria-hidden="true">6.</strong> Pandoc</a></li><li class="chapter-item expanded "><a href="../1password/index.html"><strong aria-hidden="true">7.</strong> 1Password</a></li><li class="chapter-item expanded "><a href="../homebrew/index.html"><strong aria-hidden="true">8.</strong> Homebrew</a></li><li class="chapter-item expanded "><a href="../autohotkey/index.html"><strong aria-hidden="true">9.</strong> AutoHotkey</a></li><li class="chapter-item expanded "><a href="../tor/index.html"><strong aria-hidden="true">10.</strong> Tor</a></li><li class="chapter-item expanded affix "><li class="part-title">Archived Software</li><li class="chapter-item expanded "><a href="../firefox/index.html"><strong aria-hidden="true">11.</strong> Firefox</a></li><li class="chapter-item expanded "><a href="../aria2/index.html"><strong aria-hidden="true">12.</strong> aria2</a></li><li class="chapter-item expanded "><a href="../1writer/index.html"><strong aria-hidden="true">13.</strong> 1Writer</a></li><li class="chapter-item expanded "><a href="../dropbox/index.html"><strong aria-hidden="true">14.</strong> Dropbox</a></li><li class="chapter-item expanded "><a href="../parallels/index.html"><strong aria-hidden="true">15.</strong> Parallels</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">软件列表</a></li><li class="chapter-item expanded affix "><a href="../archived-software.html">归档的软件列表</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Software</li><li class="chapter-item expanded "><a href="../docker/index.html"><strong aria-hidden="true">1.</strong> Docker</a></li><li class="chapter-item expanded "><a href="../graphviz/index.html"><strong aria-hidden="true">2.</strong> Graphviz</a></li><li class="chapter-item expanded "><a href="../ncdu/index.html"><strong aria-hidden="true">3.</strong> ncdu</a></li><li class="chapter-item expanded "><a href="../alfred/index.html"><strong aria-hidden="true">4.</strong> Alfred</a></li><li class="chapter-item expanded "><a href="../eudic/index.html"><strong aria-hidden="true">5.</strong> Eudic</a></li><li class="chapter-item expanded "><a href="../pandoc/index.html"><strong aria-hidden="true">6.</strong> Pandoc</a></li><li class="chapter-item expanded "><a href="../1password/index.html"><strong aria-hidden="true">7.</strong> 1Password</a></li><li class="chapter-item expanded "><a href="../homebrew/index.html"><strong aria-hidden="true">8.</strong> Homebrew</a></li><li class="chapter-item expanded "><a href="../autohotkey/index.html"><strong aria-hidden="true">9.</strong> AutoHotkey</a></li><li class="chapter-item expanded "><a href="../tor/index.html"><strong aria-hidden="true">10.</strong> Tor</a></li><li class="chapter-item expanded affix "><li class="part-title">Archived Software</li><li class="chapter-item expanded "><a href="../firefox/index.html"><strong aria-hidden="true">11.</strong> Firefox</a></li><li class="chapter-item expanded "><a href="../aria2/index.html" class="active"><strong aria-hidden="true">12.</strong> aria2</a></li><li class="chapter-item expanded "><a href="../1writer/index.html"><strong aria-hidden="true">13.</strong> 1Writer</a></li><li class="chapter-item expanded "><a href="../dropbox/index.html"><strong aria-hidden="true">14.</strong> Dropbox</a></li><li class="chapter-item expanded "><a href="../parallels/index.html"><strong aria-hidden="true">15.</strong> Parallels</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -187,43 +187,35 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="pandoc"><a class="header" href="#pandoc">Pandoc</a></h1>
-<p>2015-08-24</p>
+                        <h1 id="aria2"><a class="header" href="#aria2">aria2</a></h1>
+<p>2016-12-26</p>
 <hr />
-<blockquote>
-<p>可实现不同标记语言间的格式转换，堪称该领域中的「瑞士军刀」<br />
-——维基百科</p>
-</blockquote>
-<p>官网：<a href="http://pandoc.org/">http://pandoc.org/</a></p>
-<h2 id="mac-下安装"><a class="header" href="#mac-下安装">Mac 下安装</a></h2>
+<p>官方主页：https://aria2.github.io/</p>
+<p>下面介绍一个非常方便的使用方法，用到了 <a href="https://www.docker.com/">Docker</a></p>
+<p>我们使用 webui-aria2 来做界面，这是它的 Github 页面：<a href="https://github.com/ziahamza/webui-aria2">https://github.com/ziahamza/webui-aria2</a></p>
 <ol>
 <li>
-<p>使用 Homebrew 工具安装</p>
-<pre><code>brew install pandoc
+<p>将 webui-aria2 的代码下载下来</p>
+<pre><code>git clone https://github.com/ziahamza/webui-aria2
 </code></pre>
 </li>
 <li>
-<p>如果要转换 PDF 文档，那么需要 LaTeX 支持，可安装 <a href="https://tug.org/mactex/">MacTeX</a>, 如果觉得太大了，也可安装 <a href="http://www.tug.org/mactex/morepackages.html">BasicTeX</a></p>
+<p>打开 webui-aria2 目录</p>
+<pre><code>cd webui-aria2
+</code></pre>
 </li>
 <li>
-<p>如果安装了 BasicTeX, 并且在使用中遇到了字体问题，请运行如下命令</p>
-<pre><code>tlmgr install collection-fontsrecommended
+<p>下载并启动 Docker</p>
+<pre><code>docker-compose -f ./docker-compose.yml up
+</code></pre>
+</li>
+<li>
+<p>然后就可以打开 Web 管理页面来使用了，默认使用 80 端口，默认下载到 $HOME/Download</p>
+<pre><code>localhost:80
 </code></pre>
 </li>
 </ol>
-<h2 id="用法"><a class="header" href="#用法">用法</a></h2>
-<ul>
-<li>
-<p>将 Markdown 转换为 PDF</p>
-<pre><code>pandoc resume.md -o resume.pdf
-</code></pre>
-</li>
-<li>
-<p>将 Markdown 转换为 Word</p>
-<pre><code>pandoc resume.md -o resume.docx -c css/resume.css
-</code></pre>
-</li>
-</ul>
+<p>如果想下载百度网盘里的内容可使用 <a href="https://github.com/acgotaku/BaiduExporter">BaiduExporter</a> 浏览器插件。</p>
 
 
                         <br>
@@ -244,11 +236,11 @@
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../eudic/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../firefox/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="../1password/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../1writer/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -258,11 +250,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../eudic/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../firefox/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="../1password/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../1writer/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

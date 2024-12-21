@@ -12,3 +12,7 @@ hr {
     height: 2px;
     background-color: #e7e7e7;
 }
+
+table {
+    width: 100%;
+}
