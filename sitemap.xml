@@ -268,19 +268,6 @@
     <lastmod>2012-03-29T00:00:00+08:00</lastmod>
   </url>
   <url>
-    <loc>https://www.mwum.com/archive/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://www.mwum.com/en/archive/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://www.mwum.com/archive/"
-                />
-  </url>
-  <url>
     <loc>https://www.mwum.com/books/</loc>
     <xhtml:link
                 rel="alternate"
@@ -291,6 +278,19 @@
                 rel="alternate"
                 hreflang="zh"
                 href="https://www.mwum.com/books/"
+                />
+  </url>
+  <url>
+    <loc>https://www.mwum.com/archive/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://www.mwum.com/en/archive/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://www.mwum.com/archive/"
                 />
   </url>
   <url>
