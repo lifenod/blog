@@ -17,8 +17,6 @@
 
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
     
-  
-    
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-XNJSCC1KSF"></script>
       <script>
         var doNotTrack = false;
@@ -33,10 +31,6 @@
           gtag('config', 'G-XNJSCC1KSF');
         }
       </script>
-    
-  
-
-
 </head>
 
 
@@ -116,7 +110,7 @@
 <p>然后会进入 Win32 应用程序向导<br>
 点击「下一步」，在「应用程序类型」选择「静态库」，在「附加选项」中将「预编译头」去掉<br>
 最后点击「完成」，如下图所示<br>
-<img alt="VS 2015" src="/studio-visual-2015-static-and-dynamic-compilation-of-sqlite3-and-use/2015-09-01_212154.PNG"></p>
+<img src="/studio-visual-2015-static-and-dynamic-compilation-of-sqlite3-and-use/2015-09-01_212154.PNG" alt="VS 2015"></p>
 </li>
 <li>
 <p>将 sqlite3.c 和 sqlite3.h 复制到项目目录下，然后将其添加到项目</p>
@@ -126,7 +120,7 @@
 项目 → 属性，进入项目属性页<br>
 将上面的配置选成 &ldquo;Relase&rdquo;, 然后依次进入，配置属性 → C/C++ → 代码生成 → 运行库，选择「多线程 DLL(MD)」<br>
 需要注意的一点是，同个解决方案内有多个项目，必须选择相同的运行库<br>
-<img alt="VS 2015" src="/studio-visual-2015-static-and-dynamic-compilation-of-sqlite3-and-use/2015-09-01_214951.PNG"></p>
+<img src="/studio-visual-2015-static-and-dynamic-compilation-of-sqlite3-and-use/2015-09-01_214951.PNG" alt="VS 2015"></p>
 </li>
 <li>
 <p>点击，生成 → 配置管理器，将「活动解决方案配置」选为 &ldquo;Relese&rdquo;</p>

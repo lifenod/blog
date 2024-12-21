@@ -20,8 +20,6 @@
 
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
     
-  
-    
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-XNJSCC1KSF"></script>
       <script>
         var doNotTrack = false;
@@ -36,10 +34,6 @@
           gtag('config', 'G-XNJSCC1KSF');
         }
       </script>
-    
-  
-
-
 </head>
 
 
@@ -108,7 +102,7 @@
 <p>经验塔那一部分是用的水电梯，当然也可以使用活塞窒息法等<br>
 选择水电梯的主要原因是无脑操作，你只需等待怪物落下来，然后杀死即可，顺便也容易理解制作起来也简单</p>
 <p>整体外观如下图<br>
-<img alt="僵尸刷怪箱陷阱整体外观" src="/zombie-monster-spawner-trap/2015-09-27_165813.webp"></p>
+<img src="/zombie-monster-spawner-trap/2015-09-27_165813.webp" alt="僵尸刷怪箱陷阱整体外观"></p>
 <p>合着下面的讲解看地图更容易理解<br>
 <a href="https://www.dropbox.com/s/z4u0q7c8h1vexcx/2015-09-26-MonsterSpawnerTrap-www.dreamxu.com%20.zip?dl=0">地图下载</a></p>
 <h2 id="获取刷怪箱"><a class="anchor" href="#%e8%8e%b7%e5%8f%96%e5%88%b7%e6%80%aa%e7%ae%b1">获取刷怪箱</a></h2>
@@ -133,13 +127,13 @@ Z = Spawner.z + random(spawnRange*2)-spawnRange;
 <ul>
 <li>
 <p>垂直方向上的范围，因为僵尸高 2 格，所以实际垂直范围为 4,<br>
-<img alt="僵尸刷怪箱范围横向" src="/zombie-monster-spawner-trap/2015-09-25_140435.svg"></p>
+<img src="/zombie-monster-spawner-trap/2015-09-25_140435.svg" alt="僵尸刷怪箱范围横向"></p>
 </li>
 <li>
 <p>水平方向上的范围，红色为刷怪箱<br>
 你可能会疑惑刷怪箱为何是在中心右上方？<br>
 因为在 Minecraft 中，方块的坐标是方块八个顶点中 x, y, z 坐标最小的点，即图中绿色的点<br>
-<img alt="僵尸刷怪箱范围纵向" src="/zombie-monster-spawner-trap/2015-09-25_211728.svg"></p>
+<img src="/zombie-monster-spawner-trap/2015-09-25_211728.svg" alt="僵尸刷怪箱范围纵向"></p>
 </li>
 </ul>
 <h2 id="刷怪条件"><a class="anchor" href="#%e5%88%b7%e6%80%aa%e6%9d%a1%e4%bb%b6">刷怪条件</a></h2>
@@ -156,25 +150,25 @@ Z = Spawner.z + random(spawnRange*2)-spawnRange;
 虽说僵尸刷怪范围是 <code>8 * 8 * 4</code>, 但是还要考虑到最下面一层放水，旁白一排也要放水，所以干脆挖 <code>9 * 9 * 5</code> 空间好了，正中间是刷怪箱<br>
 并且将这个空间封闭，满足条件二（亮度要求）</p>
 <p>具体如下图所示：<br>
-<img alt="密闭空间" src="/zombie-monster-spawner-trap/2015-09-26_232820.webp"><br>
-<img alt="密闭空间" src="/zombie-monster-spawner-trap/2015-09-26_233020.webp"></p>
+<img src="/zombie-monster-spawner-trap/2015-09-26_232820.webp" alt="密闭空间"><br>
+<img src="/zombie-monster-spawner-trap/2015-09-26_233020.webp" alt="密闭空间"></p>
 <h3 id="水电梯部分"><a class="anchor" href="#%e6%b0%b4%e7%94%b5%e6%a2%af%e9%83%a8%e5%88%86">水电梯部分</a></h3>
 <p>满足<strong>条件四</strong><br>
 我们将水电梯建在刷怪箱周围 <code>17 * 9 * 17</code> 的空间范围之外，为了最大化刷怪。而且也要点亮 <code>9 * 9 * 5</code> 到 <code>17 * 9 * 17</code> 的空间，防止刷怪<br>
 如下图，稍微远离刷怪箱（其实还另有目的，下面我们会讲到，分离僵尸村民）<br>
-<img alt="水电梯与刷怪箱相对位置" src="/zombie-monster-spawner-trap/2015-09-27_001850.webp"></p>
+<img src="/zombie-monster-spawner-trap/2015-09-27_001850.webp" alt="水电梯与刷怪箱相对位置"></p>
 <p>水电梯的起点处可这样设计，不会卡住僵尸，也尝试过其它方式，还是这个最顺畅<br>
 放岩浆的目的是用来杀死小僵尸，因为小僵尸高度是 1, 如果不将其分离的话会卡住水电梯<br>
 当然你也可以制作岩浆陷阱获取掉落物品，甚至可以收集小僵尸<br>
 <strong>注意</strong>：使用的过程中发现如果小僵尸骑着鸡经过这里，小僵尸会瞬移出来，应该是个 Bug, 如果你在这里挂机的时候小僵尸跑出来了，你会被打死的，所以建议挂机的时候把自己围住<br>
-<img alt="水电梯起点处" src="/zombie-monster-spawner-trap/2015-09-27_001546.webp"></p>
+<img src="/zombie-monster-spawner-trap/2015-09-27_001546.webp" alt="水电梯起点处"></p>
 <p>水电梯的摔落系统<br>
 我们先看伤害公式</p>
 <pre><code>跌落伤害值 = 跌落的方块数 - 3
 </code></pre>
 <p>僵尸血量为 20, 所以我们让僵尸摔落 22 格（即摔落坐标相差 22），使其为最少血量</p>
 <p>水电梯摔落处的设计如下图<br>
-<img alt="水电梯摔落处" src="/zombie-monster-spawner-trap/2015-09-27_004500.webp"></p>
+<img src="/zombie-monster-spawner-trap/2015-09-27_004500.webp" alt="水电梯摔落处"></p>
 <h3 id="僵尸与僵尸村民的分离"><a class="anchor" href="#%e5%83%b5%e5%b0%b8%e4%b8%8e%e5%83%b5%e5%b0%b8%e6%9d%91%e6%b0%91%e7%9a%84%e5%88%86%e7%a6%bb">僵尸与僵尸村民的分离</a></h3>
 <p>原理：利用活塞和粘性活塞将水流分流</p>
 <p>具体如下图所示</p>
@@ -182,19 +176,19 @@ Z = Spawner.z + random(spawnRange*2)-spawnRange;
 <li>
 <p>这是拉上拉杆时的状态，普通的经验塔模式<br>
 <strong>注意：如果使用普通活塞会卡住僵尸，请都使用粘性活塞</strong><br>
-<img alt="拉上拉杆" src="/zombie-monster-spawner-trap/2015-09-27_161914.webp"></p>
+<img src="/zombie-monster-spawner-trap/2015-09-27_161914.webp" alt="拉上拉杆"></p>
 </li>
 <li>
 <p>这是不拉拉杆时的状态，用于捕捉僵尸<br>
-<img alt="不拉拉杆" src="/zombie-monster-spawner-trap/2015-09-27_162513.webp"></p>
+<img src="/zombie-monster-spawner-trap/2015-09-27_162513.webp" alt="不拉拉杆"></p>
 </li>
 </ul>
 <h3 id="僵尸村民的捕获"><a class="anchor" href="#%e5%83%b5%e5%b0%b8%e6%9d%91%e6%b0%91%e7%9a%84%e6%8d%95%e8%8e%b7">僵尸村民的捕获</a></h3>
 <p>捕获装置，活板门陷阱<br>
-<img alt="活板门陷阱" src="/zombie-monster-spawner-trap/2015-09-27_163738.webp"></p>
+<img src="/zombie-monster-spawner-trap/2015-09-27_163738.webp" alt="活板门陷阱"></p>
 <p>利用一系列的活板门陷阱，有多少陷阱，就能一次捕获多少僵尸<br>
 为了展示将顶部去掉了，陷阱组是需要封顶的，防止僵尸乱跳<br>
-<img alt="活板门陷阱总体" src="/zombie-monster-spawner-trap/2015-09-27_165329.webp"></p>
+<img src="/zombie-monster-spawner-trap/2015-09-27_165329.webp" alt="活板门陷阱总体"></p>
 <p>本教程到此结束了<br>
 写教程真的挺费时间的，相对来说建造地图所花的时间要少。不过也没啥关系，写也是一件很享受的事情</p>
 

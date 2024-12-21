@@ -32,8 +32,6 @@
 
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
     
-  
-    
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-XNJSCC1KSF"></script>
       <script>
         var doNotTrack = false;
@@ -48,10 +46,6 @@
           gtag('config', 'G-XNJSCC1KSF');
         }
       </script>
-    
-  
-
-
 </head>
 
 
@@ -142,7 +136,7 @@
 </blockquote>
 <p>这首诗应该就是「鼠须管」的出处吧</p>
 <p>奉上一张用「小鹤双拼·语句流」输入的效果，中英混输 + Emoji 表情哦</p>
-<p><img alt="Rime输入法演示" src="/install-config-squirrel/2014-06-12_230341.gif"></p>
+<p><img src="/install-config-squirrel/2014-06-12_230341.gif" alt="Rime输入法演示"></p>
 <h2 id="安装"><a class="anchor" href="#%e5%ae%89%e8%a3%85">安装</a></h2>
 <p>就一条理由就可以使我弃用使用 N 多年的其它输入法<br>
 1. <a href="https://github.com/lotem/squirrel">https://github.com/lotem/squirrel</a></p>
@@ -151,7 +145,7 @@
 <pre><code>brew cask install squirrel
 </code></pre>
 <p>刚安装好，拼音输入是繁体的，按组合键 <code>Ctrl+`</code> 呼出输入法方案选单（如下），切换为「汉字」就可以输入简体了</p>
-<p><img alt="输入法方案选单" src="/install-config-squirrel/2014-06-09_212556.png"></p>
+<p><img src="/install-config-squirrel/2014-06-09_212556.png" alt="输入法方案选单"></p>
 <h2 id="配置"><a class="anchor" href="#%e9%85%8d%e7%bd%ae">配置</a></h2>
 <p>自行查看《<a href="https://github.com/rime/home/wiki/CustomizationGuide">Rime 定製指南 | GitHub</a>》</p>
 <p>以下是我对官网说明书的一些摘录，加上我的一些修改，只限于对拼音输入的理解<br>
@@ -330,7 +324,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">patch</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">menu/page_size</span><span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">
 </span></span></span></code></pre></div><p>来张 15 个候选的靓照</p>
-<p><img alt="输入法15个候选词" src="/install-config-squirrel/2014-06-12_221853.png"></p>
+<p><img src="/install-config-squirrel/2014-06-12_221853.png" alt="输入法15个候选词"></p>
 <h3 id="关闭用户词典和字频调整"><a class="anchor" href="#%e5%85%b3%e9%97%ad%e7%94%a8%e6%88%b7%e8%af%8d%e5%85%b8%e5%92%8c%e5%ad%97%e9%a2%91%e8%b0%83%e6%95%b4">关闭用户词典和字频调整</a></h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># double_pinyin_flypy.custom.yaml</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">patch</span><span class="p">:</span><span class="w">
@@ -641,7 +635,7 @@ luna_pinyin.poetry.dict.yaml<br>
 </span></span></span><span class="line"><span class="cl"><span class="sd">    以空格分詞、標點或回車上屏。</span><span class="w">    
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">dependencies</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">stroke                       </span><span class="w"> </span><span class="c"># 带别名的 translator 所引用的字典部署时不会自动编译</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">chinese_contain_english       # 只有 translator/dictionary</span><span class="p">:</span><span class="w"> </span><span class="l">指定的字典会被编译</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">chinese_contain_english      </span><span class="w"> </span><span class="c"># 只有 translator/dictionary 指定的字典会被编译</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">emoji                        </span><span class="w"> </span><span class="c"># 因此需要设置输入方案的依赖关系，保证词典可用</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">switches</span><span class="p">:</span><span class="w">
