@@ -106,7 +106,7 @@
 <p>如上面提到的，我们采用共享网络的方式来使用 Traefik。运行如下命令来创建：</p>
 <pre tabindex="0"><code>docker network create traefik-proxy
 </code></pre><h2 id="配置和运行-traefik-服务"><a class="anchor" href="#%e9%85%8d%e7%bd%ae%e5%92%8c%e8%bf%90%e8%a1%8c-traefik-%e6%9c%8d%e5%8a%a1">配置和运行 Traefik 服务</a></h2>
-<p>创建 <code>docker-compose.yml</code> 文件：</p>
+<p>创建 <code>docker-compose.yaml</code> 文件：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">services</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">traefik</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;traefik:v3.4&#34;</span><span class="w">
@@ -148,13 +148,13 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">traefik-proxy</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">external</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;true&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;traefik-proxy&#34;</span><span class="w">
-</span></span></span></code></pre></div><p>创建 <code>.env</code> 文件，因为我们使用到了 <code>CF_DNS_API_TOKEN</code> 环境变量，所以需要在 <code>docker-compose.yml</code> 同一文件夹内创建此文件：</p>
+</span></span></span></code></pre></div><p>创建 <code>.env</code> 文件，因为我们使用到了 <code>CF_DNS_API_TOKEN</code> 环境变量，所以需要在 <code>docker-compose.yaml</code> 同一文件夹内创建此文件：</p>
 <pre tabindex="0"><code>CF_DNS_API_TOKEN=your_token
 </code></pre><p>最后使用如下命令来运行 Traefik 服务：</p>
 <pre tabindex="0"><code>docker compose up -d
 </code></pre><h2 id="配置和运行-whoami"><a class="anchor" href="#%e9%85%8d%e7%bd%ae%e5%92%8c%e8%bf%90%e8%a1%8c-whoami">配置和运行 whoami</a></h2>
 <p>whoami 是上文提到的后端服务，是一个简单的 HTTP server。</p>
-<p>创建 <code>docker-compose.yml</code> 文件：</p>
+<p>创建 <code>docker-compose.yaml</code> 文件：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">services</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">whoami</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;traefik/whoami&#34;</span><span class="w">

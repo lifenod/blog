@@ -103,7 +103,7 @@ The reference is the official documentation: <a href="https://doc.traefik.io/tra
 <p>As mentioned above, we use a shared network to use Traefik. Run the following command to create it:</p>
 <pre tabindex="0"><code>docker network create traefik-proxy
 </code></pre><h2 id="configure-and-run-traefik-service"><a class="anchor" href="#configure-and-run-traefik-service">Configure and Run Traefik Service</a></h2>
-<p>Create a <code>docker-compose.yml</code> file:</p>
+<p>Create a <code>docker-compose.yaml</code> file:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">services</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">traefik</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;traefik:v3.4&#34;</span><span class="w">
@@ -151,13 +151,13 @@ The reference is the official documentation: <a href="https://doc.traefik.io/tra
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">traefik-proxy</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">external</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;true&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;traefik-proxy&#34;</span><span class="w">
-</span></span></span></code></pre></div><p>Create a <code>.env</code> file. Because we use the <code>CF_DNS_API_TOKEN</code> environment variable, we need to create this file in the same folder as <code>docker-compose.yml</code>:</p>
+</span></span></span></code></pre></div><p>Create a <code>.env</code> file. Because we use the <code>CF_DNS_API_TOKEN</code> environment variable, we need to create this file in the same folder as <code>docker-compose.yaml</code>:</p>
 <pre tabindex="0"><code>CF_DNS_API_TOKEN=your_token
 </code></pre><p>Finally, run the Traefik service with the following command:</p>
 <pre tabindex="0"><code>docker compose up -d
 </code></pre><h2 id="configure-and-run-whoami"><a class="anchor" href="#configure-and-run-whoami">Configure and Run whoami</a></h2>
 <p>whoami is the backend service mentioned above, it is a simple HTTP server.</p>
-<p>Create a <code>docker-compose.yml</code> file:</p>
+<p>Create a <code>docker-compose.yaml</code> file:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">services</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">whoami</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;traefik/whoami&#34;</span><span class="w">
