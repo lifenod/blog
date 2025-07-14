@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Traefik in Practice: Automatically Provision HTTPS Certificates and Proxy Docker Services | mwum</title>
+  <meta name="description" content="Traefik is a reverse proxy software that has stronger automation capabilities compared to traditional tools. For example, it can automatically detect changes in …">
+  <link rel="canonical" href="https://www.mwum.com/en/traefik-auto-https-docker/">
+      <link rel="alternate" hreflang="zh" href="https://www.mwum.com/traefik-auto-https-docker/">
+      <link rel="alternate" hreflang="en" href="https://www.mwum.com/en/traefik-auto-https-docker/">
+        <link rel="alternate" hreflang="x-default" href="https://www.mwum.com/en/traefik-auto-https-docker/">
+    <link rel="stylesheet" href="/css/style.min.css" crossorigin="anonymous">
+  <script src="/js/bundle.min.js" defer></script>
+
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-XNJSCC1KSF"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-XNJSCC1KSF');
+        }
+      </script>
+</head>
+
+
+<body>
+
+<header class="site-header">
+
+  <div class="wrapper">
+    <a class="site-title" href="/en/">mwum</a>
+
+    <nav class="site-nav">
+      <a class="menu-icon" id="js-nav-menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <a class="menu-icon-activate" id="js-nav-menu-icon-activate">
+        <svg viewBox="0 0 36 15">
+          <path fill="#424242" d="m36,1.484c0,0.82 -0.665,1.484 -1.484,1.484l-33.032,0c-0.819,0.001 -1.484,-0.664 -1.484,-1.484l0,0c0,-0.819 0.665,-1.484 1.484,-1.484l33.032,0c0.82,0 1.484,0.665 1.484,1.484l0,0z"/>
+          <path fill="#424242" d="m36,7.516c0,0.819 -0.665,1.484 -1.484,1.484l-33.032,0c-0.819,0 -1.484,-0.665 -1.484,-1.484l0,0c0,-0.82 0.665,-1.484 1.484,-1.484l33.032,0c0.82,-0.001 1.484,0.664 1.484,1.484l0,0z"/>
+          <path fill="#424242" d="m36,13.516c0,0.819 -0.665,1.484 -1.484,1.484l-33.032,0c-0.819,0 -1.484,-0.665 -1.484,-1.484l0,0c0,-0.82 0.665,-1.484 1.484,-1.484l33.032,0c0.82,-0.001 1.484,0.664 1.484,1.484l0,0z"/>
+        </svg>
+      </a>
+
+      <div class="trigger" id="js-nav-menu-trigger">
+        <a class="page-link" href="/en/archive/">Archives</a>
+        <a class="page-link" href="/en/tags/">Tags</a>
+        <a class="page-link" href="/en/books/">Books</a>
+        <a class="page-link" href="/en/about/">About</a>
+        <a class="page-link" href="/en/rss.xml">RSS</a><a class="page-link" href="/traefik-auto-https-docker/">EN/中</a>
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+<div class="content">
+  <div class="wrapper">
+    
+
+<article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title"><a href="/en/traefik-auto-https-docker/">Traefik in Practice: Automatically Provision HTTPS Certificates and Proxy Docker Services</a></h1>
+    <ul class="post-meta">
+      <li class="published-date">2025-07-14</li>
+        <li> | Tags: </li>
+          <li class="post-tag"><a href="/en/tags/?names=Traefik#tag-list-display">Traefik</a></li>
+          <li class="post-tag"><a href="/en/tags/?names=Docker#tag-list-display">Docker</a></li>
+          <li class="post-tag"><a href="/en/tags/?names=HTTPS#tag-list-display">HTTPS</a></li>
+          <li class="post-tag"><a href="/en/tags/?names=ACME#tag-list-display">ACME</a></li>
+          <li class="post-tag"><a href="/en/tags/?names=Cloudflare#tag-list-display">Cloudflare</a></li>
+          <li class="post-tag"><a href="/en/tags/?names=Reverse%20Proxy#tag-list-display">Reverse Proxy</a></li>
+    </ul>
+  </header>
+
+  <div itemscope itemtype="http://schema.org/Article">
+    <div class="post-content" itemprop="articleBody">
+      <p><img src="/traefik-auto-https-docker/traefik-architecture.webp" alt="traefik-architecture"></p>
+<p>Traefik is a reverse proxy software that has stronger automation capabilities compared to traditional tools. For example, it can automatically detect changes in backend services, update routing configurations in real-time without restarting; it also has built-in support for ACME, which can automatically request and renew HTTPS certificates.</p>
+<p>This article focuses on the integration of Traefik and Docker and implements automatic HTTPS configuration, other functions are not involved.<br>
+The reference is the official documentation: <a href="https://doc.traefik.io/traefik/v3.4/user-guides/docker-compose/acme-dns/">https://doc.traefik.io/traefik/v3.4/user-guides/docker-compose/acme-dns/</a></p>
+<p>Different from the official documentation, we place Traefik and backend services in different compose files and connect them to a shared network through an external network, which decouples the services more. It also better demonstrates Traefik&rsquo;s ability to automatically detect and create routes. For example, if the Traefik service starts first, it begins listening to Docker container events, if it detects a backend service configured with Traefik labels, it can automatically create routes; conversely, if the backend service starts first and Traefik starts later, Traefik will scan the running containers once, find the matching containers, and automatically create routes.</p>
+<h2 id="create-a-shared-network"><a class="anchor" href="#create-a-shared-network">Create a Shared Network</a></h2>
+<p>As mentioned above, we use a shared network to use Traefik. Run the following command to create it:</p>
+<pre tabindex="0"><code>docker network create traefik-proxy
+</code></pre><h2 id="configure-and-run-traefik-service"><a class="anchor" href="#configure-and-run-traefik-service">Configure and Run Traefik Service</a></h2>
+<p>Create a <code>docker-compose.yml</code> file:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">traefik</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;traefik:v3.4&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;unless-stopped&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;443:443&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># Comment out these two lines, they are only used during development and debugging</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># - &#34;--log.level=DEBUG&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># - &#34;--api.insecure=true&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># Indicates Traefik will listen to Docker container events and</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># automatically discover services</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;--providers.docker=true&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># By default, containers are not exposed,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># only containers explicitly labeled with &#34;traefik.enable=true&#34; will be proxied.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;--providers.docker.exposedbydefault=false&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># Listen on port 443 to receive HTTPS requests</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;--entryPoints.websecure.address=:443&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># Enable the resolver named dnsresolver_cf,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># which automatically requests HTTPS certificates using DNS challenge.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;--certificatesresolvers.dnsresolver_cf.acme.dnschallenge=true&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># Specify which provider dnsresolver_cf uses, here we use Cloudflare,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># so Traefik will use Cloudflare&#39;s API to complete DNS verification and</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># obtain Let&#39;s Encrypt certificates. More providers can be found at:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># https://doc.traefik.io/traefik/v3.4/https/acme/#providers</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;--certificatesresolvers.dnsresolver_cf.acme.dnschallenge.provider=cloudflare&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># Specify the storage location for dnsresolver_cf&#39;s certificates</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;--certificatesresolvers.dnsresolver_cf.acme.storage=/letsencrypt/cf.json&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># Environment variables required by the Cloudflare provider,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># this token is obtained from the Cloudflare dashboard,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># and needs permissions for Zone:Zone:Read, Zone:DNS:Edit.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;CF_DNS_API_TOKEN=${CF_DNS_API_TOKEN}&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># Certificate storage location</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;./letsencrypt:/letsencrypt&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># Must mount this, this is the Unix Socket interface of the Docker daemon,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># Traefik uses it to listen to container events.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;/var/run/docker.sock:/var/run/docker.sock:ro&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;traefik-proxy&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">traefik-proxy</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">external</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;true&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;traefik-proxy&#34;</span><span class="w">
+</span></span></span></code></pre></div><p>Create a <code>.env</code> file. Because we use the <code>CF_DNS_API_TOKEN</code> environment variable, we need to create this file in the same folder as <code>docker-compose.yml</code>:</p>
+<pre tabindex="0"><code>CF_DNS_API_TOKEN=your_token
+</code></pre><p>Finally, run the Traefik service with the following command:</p>
+<pre tabindex="0"><code>docker compose up -d
+</code></pre><h2 id="configure-and-run-whoami"><a class="anchor" href="#configure-and-run-whoami">Configure and Run whoami</a></h2>
+<p>whoami is the backend service mentioned above, it is a simple HTTP server.</p>
+<p>Create a <code>docker-compose.yml</code> file:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">whoami</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;traefik/whoami&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;unless-stopped&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># Because we configured &#34;--providers.docker.exposedbydefault=false&#34;,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># this service needs to be explicitly exposed.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;traefik.enable=true&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># Define the router rule: when the Host in the request is</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># whoami.mwum.com (change to your own domain),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># trigger this router. The router name is whoami, which can be changed,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># but note that the entrypoints / tls configuration below must match.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;traefik.http.routers.whoami.rule=Host(`whoami.mwum.com`)&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># Route the websecure entrypoint configured by</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># &#34;--entryPoints.websecure.address=:443&#34; to the whoami service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;traefik.http.routers.whoami.entrypoints=websecure&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># The certresolver here corresponds to the one enabled by</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># &#34;--certificatesresolvers.dnsresolver_cf.acme.dnschallenge=true&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;traefik.http.routers.whoami.tls.certresolver=dnsresolver_cf&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;traefik-proxy&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">traefik-proxy</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">external</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;true&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;traefik-proxy&#34;</span><span class="w">
+</span></span></span></code></pre></div><p>Run the whoami service with the following command:</p>
+<pre tabindex="0"><code>docker compose up -d
+</code></pre><h2 id="further-explanation-of-traefiks-automatic-discovery"><a class="anchor" href="#further-explanation-of-traefiks-automatic-discovery">Further Explanation of Traefik&rsquo;s Automatic Discovery</a></h2>
+<p>Now we can access the whoami service via HTTPS at https://whoami.mwum.com/.</p>
+<p>Notice that we didn&rsquo;t configure anything related to whoami in the Traefik service definition, this would be unimaginable with a traditional reverse proxy. In Docker, we use labels to declaratively tell Traefik whether to proxy a service, which host to match, how to route traffic, and which certificate resolver to use. And Traefik is able to automatically discover the whoami service.</p>
+<p>You might also wonder: since we didn&rsquo;t expose any ports for whoami, how does Traefik know where to forward the traffic?</p>
+<p>We can run the following command on the whoami service to see:</p>
+<pre tabindex="0"><code>$ docker compose ps
+     Name         Command   State   Ports
+------------------------------------------
+whoami_whoami_1   /whoami   Up      80/tcp
+</code></pre><p>whoami does not expose any ports externally, only exposes port 80 inside the container. We also did not configure Traefik to listen to any port of the whoami service, but Traefik by default automatically reads the <code>EXPOSE</code> port of the whoami service as the backend address for the target service.</p>
+
+    </div>
+  </div>
+
+  <div class="quiet-link">
+      <span>Previous: </span><a href="/en/rg35xx-plus-open-source-handheld-os-installation-and-usage-guide/">Exploring Different OS Installations and Usage Guides on RG35XX Plus Open Source Handheld</a><br>
+      <span>Next: </span>Future chapters, waiting for you to traverse and meet again
+  </div>
+
+</article>
+
+<br>
+  <div id="remark42"></div>
+  <script>
+    var remark_config = {
+      host: 'https:\/\/comments.mwum.com',
+      site_id: 'mwum',
+      locale: 'en',
+      no_footer: true,
+    }
+  </script>
+  <script>!function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);</script>
+
+
+  </div>
+</div>
+
+<footer class="site-footer">
+
+  <div class="wrapper">
+    <div class="footer-content">
+      <p>
+        <span class="no-palm">This site is licensed under <a rel="license" href="//creativecommons.org/licenses/by-sa/4.0/">Attribution-ShareAlike 4.0 International</a> <br></span>
+        <span>©2013-2025 <a href="https://www.mwum.com/en/">mwum</a></span>
+        <span class="no-palm">| </span>
+        <span>Powered by <a href="//gohugo.io/">Hugo</a></span>
+        <span class="no-palm">| </span>
+        <span>Hosted by <a href="//pages.cloudflare.com/">Cloudflare</a></span>
+        <span class="no-palm">| </span>
+        <span>Designed by <a href="https://www.mwum.com/en/">mwum</a></span>
+        <span class="no-laptop"><a rel="license" href="//creativecommons.org/licenses/by-sa/4.0/">Attribution-ShareAlike 4.0 International</a></span>
+      </p>
+    </div>
+
+  </div>
+
+</footer>
+
+
+</body>
+
+</html>

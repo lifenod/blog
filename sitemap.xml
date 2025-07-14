@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://www.mwum.com/traefik-auto-https-docker/</loc>
+    <lastmod>2025-07-14T07:53:09+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://www.mwum.com/en/traefik-auto-https-docker/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://www.mwum.com/traefik-auto-https-docker/"
+                />
+  </url>
+  <url>
     <loc>https://www.mwum.com/pegasus-frontend-android-guide/</loc>
     <lastmod>2024-12-14T06:46:46+09:00</lastmod>
   </url>

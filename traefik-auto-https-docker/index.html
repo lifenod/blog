@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Traefik 实战：自动申请 HTTPS 证书并代理 Docker 服务 | 明无梦</title>
+  <meta name="description" content="Traefik 是一款反向代理软件，相比传统工具，具有更强的自动化能力。例如，它能自动感知后端服务的变化，实时更新路由配置而无需重启；还内置支持 ACME，可自动申请并续签 HTTPS 证书。
+本文切入点是 Traefik 与 Docker 的集成，并实现自动配置 HTTPS，其它功能暂不涉及。
+参考的是官方文 …">
+  <link rel="canonical" href="https://www.mwum.com/traefik-auto-https-docker/">
+      <link rel="alternate" hreflang="zh" href="https://www.mwum.com/traefik-auto-https-docker/">
+      <link rel="alternate" hreflang="en" href="https://www.mwum.com/en/traefik-auto-https-docker/">
+        <link rel="alternate" hreflang="x-default" href="https://www.mwum.com/en/traefik-auto-https-docker/">
+    <link rel="stylesheet" href="/css/style.min.css" crossorigin="anonymous">
+  <script src="/js/bundle.min.js" defer></script>
+
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-XNJSCC1KSF"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-XNJSCC1KSF');
+        }
+      </script>
+</head>
+
+
+<body>
+
+<header class="site-header">
+
+  <div class="wrapper">
+    <a class="site-title" href="/">明无梦</a>
+
+    <nav class="site-nav">
+      <a class="menu-icon" id="js-nav-menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <a class="menu-icon-activate" id="js-nav-menu-icon-activate">
+        <svg viewBox="0 0 36 15">
+          <path fill="#424242" d="m36,1.484c0,0.82 -0.665,1.484 -1.484,1.484l-33.032,0c-0.819,0.001 -1.484,-0.664 -1.484,-1.484l0,0c0,-0.819 0.665,-1.484 1.484,-1.484l33.032,0c0.82,0 1.484,0.665 1.484,1.484l0,0z"/>
+          <path fill="#424242" d="m36,7.516c0,0.819 -0.665,1.484 -1.484,1.484l-33.032,0c-0.819,0 -1.484,-0.665 -1.484,-1.484l0,0c0,-0.82 0.665,-1.484 1.484,-1.484l33.032,0c0.82,-0.001 1.484,0.664 1.484,1.484l0,0z"/>
+          <path fill="#424242" d="m36,13.516c0,0.819 -0.665,1.484 -1.484,1.484l-33.032,0c-0.819,0 -1.484,-0.665 -1.484,-1.484l0,0c0,-0.82 0.665,-1.484 1.484,-1.484l33.032,0c0.82,-0.001 1.484,0.664 1.484,1.484l0,0z"/>
+        </svg>
+      </a>
+
+      <div class="trigger" id="js-nav-menu-trigger">
+        <a class="page-link" href="/archive/">归档</a>
+        <a class="page-link" href="/tags/">标签</a>
+        <a class="page-link" href="/books/">书籍</a>
+        <a class="page-link" href="/about/">关于</a>
+        <a class="page-link" href="/rss.xml">订阅</a>
+              <a class="page-link" href="/en/traefik-auto-https-docker/">中/EN</a>
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+<div class="content">
+  <div class="wrapper">
+    
+
+<article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title"><a href="/traefik-auto-https-docker/">Traefik 实战：自动申请 HTTPS 证书并代理 Docker 服务</a></h1>
+    <ul class="post-meta">
+      <li class="published-date">2025-07-14</li>
+        <li> | 标签: </li>
+          <li class="post-tag"><a href="/tags/?names=Traefik#tag-list-display">Traefik</a></li>
+          <li class="post-tag"><a href="/tags/?names=Docker#tag-list-display">Docker</a></li>
+          <li class="post-tag"><a href="/tags/?names=HTTPS#tag-list-display">HTTPS</a></li>
+          <li class="post-tag"><a href="/tags/?names=ACME#tag-list-display">ACME</a></li>
+          <li class="post-tag"><a href="/tags/?names=Cloudflare#tag-list-display">Cloudflare</a></li>
+          <li class="post-tag"><a href="/tags/?names=Reverse%20Proxy#tag-list-display">Reverse Proxy</a></li>
+    </ul>
+  </header>
+
+  <div itemscope itemtype="http://schema.org/Article">
+    <div class="post-content" itemprop="articleBody">
+      <p><img src="/traefik-auto-https-docker/traefik-architecture.webp" alt="traefik-architecture"></p>
+<p>Traefik 是一款反向代理软件，相比传统工具，具有更强的自动化能力。例如，它能自动感知后端服务的变化，实时更新路由配置而无需重启；还内置支持 ACME，可自动申请并续签 HTTPS 证书。</p>
+<p>本文切入点是 Traefik 与 Docker 的集成，并实现自动配置 HTTPS，其它功能暂不涉及。<br>
+参考的是官方文档：<a href="https://doc.traefik.io/traefik/v3.4/user-guides/docker-compose/acme-dns/">https://doc.traefik.io/traefik/v3.4/user-guides/docker-compose/acme-dns/</a></p>
+<p>和官方文档中不同的是，我们将 Traefik 和后端服务放在不同的 compose 文件中，通过 external network 连接到一个共享网络，这样服务之间更加解藕。而且更加体现 Traefik 自动感知和自动创建路由的能力，比如 Traefik 服务先启动，然后开始监听 Docker 容器事件，如果监听到后端服务配置了带有 Traefik 的 label，能够自动创建路由；反过来，当后端服务先启动，Traefik 后启动之后，会一次性扫描正在运行中的容器，找到符合的容器并自动创建路由。</p>
+<h2 id="创建共享网络"><a class="anchor" href="#%e5%88%9b%e5%bb%ba%e5%85%b1%e4%ba%ab%e7%bd%91%e7%bb%9c">创建共享网络</a></h2>
+<p>如上面提到的，我们采用共享网络的方式来使用 Traefik。运行如下命令来创建：</p>
+<pre tabindex="0"><code>docker network create traefik-proxy
+</code></pre><h2 id="配置和运行-traefik-服务"><a class="anchor" href="#%e9%85%8d%e7%bd%ae%e5%92%8c%e8%bf%90%e8%a1%8c-traefik-%e6%9c%8d%e5%8a%a1">配置和运行 Traefik 服务</a></h2>
+<p>创建 <code>docker-compose.yml</code> 文件：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">traefik</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;traefik:v3.4&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;unless-stopped&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;443:443&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 注释掉这两项，开发调试才会使用</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># - &#34;--log.level=DEBUG&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># - &#34;--api.insecure=true&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 表示 Traefik 会去监听 Docker 的容器事件，自动发现服务</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;--providers.docker=true&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 默认不暴露容器，只有显式加了 &#34;traefik.enable=true&#34; label 的容器才会被代理</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;--providers.docker.exposedbydefault=false&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 监听 443 端口，用于接收 HTTPS 请求</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;--entryPoints.websecure.address=:443&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 启用名为 dnsresolver_cf 的解析器，用 DNS 方式自动申请 HTTPS 证书</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;--certificatesresolvers.dnsresolver_cf.acme.dnschallenge=true&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 指定 dnsresolver_cf 使用哪个提供商，比如这里使用 Cloudflare，</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 那么 Traefik 会使用 Cloudflare 的 API 来完成 DNS 验证，从而申请 Let&#39;s Encrypt 证书。</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 更多 providers 可参考：https://doc.traefik.io/traefik/v3.4/https/acme/#providers</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;--certificatesresolvers.dnsresolver_cf.acme.dnschallenge.provider=cloudflare&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 指定 dnsresolver_cf 的证书存放位置</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;--certificatesresolvers.dnsresolver_cf.acme.storage=/letsencrypt/cf.json&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># Cloudflare provider 需要的环境变量，此 token 在 Cloudflare 后台申请，</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 且需要具有 Zone:Zone:Read, Zone:DNS:Edit 权限。</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;CF_DNS_API_TOKEN=${CF_DNS_API_TOKEN}&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 证书存放位置</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;./letsencrypt:/letsencrypt&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 必须挂载，这是 Docker 守护进程的 Unix Socket 接口，Traefik 通过它才能实现监听容器事件</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;/var/run/docker.sock:/var/run/docker.sock:ro&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;traefik-proxy&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">traefik-proxy</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">external</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;true&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;traefik-proxy&#34;</span><span class="w">
+</span></span></span></code></pre></div><p>创建 <code>.env</code> 文件，因为我们使用到了 <code>CF_DNS_API_TOKEN</code> 环境变量，所以需要在 <code>docker-compose.yml</code> 同一文件夹内创建此文件：</p>
+<pre tabindex="0"><code>CF_DNS_API_TOKEN=your_token
+</code></pre><p>最后使用如下命令来运行 Traefik 服务：</p>
+<pre tabindex="0"><code>docker compose up -d
+</code></pre><h2 id="配置和运行-whoami"><a class="anchor" href="#%e9%85%8d%e7%bd%ae%e5%92%8c%e8%bf%90%e8%a1%8c-whoami">配置和运行 whoami</a></h2>
+<p>whoami 是上文提到的后端服务，是一个简单的 HTTP server。</p>
+<p>创建 <code>docker-compose.yml</code> 文件：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">whoami</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;traefik/whoami&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;unless-stopped&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 因为我们配置了 &#34;--providers.docker.exposedbydefault=false&#34;, 所以需要显式启用该服务的暴露</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;traefik.enable=true&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 定义路由器的规则：当请求的 Host 是 whoami.mwum.com（改成你自己的域名）时，触发该路由器，</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 路由名称是 whoami，可以改成其它的，注意下方的 entrypoints / tls 配置名称也要一致</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;traefik.http.routers.whoami.rule=Host(`whoami.mwum.com`)&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 通过 &#34;--entryPoints.websecure.address=:443&#34; 这里配置的 websecure 路由到 whoami 服务</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;traefik.http.routers.whoami.entrypoints=websecure&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 这里的 certresolver 填成 &#34;--certificatesresolvers.dnsresolver_cf.acme.dnschallenge=true&#34; 这里所启用的</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;traefik.http.routers.whoami.tls.certresolver=dnsresolver_cf&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;traefik-proxy&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">traefik-proxy</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">external</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;true&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;traefik-proxy&#34;</span><span class="w">
+</span></span></span></code></pre></div><p>使用如下命令来运行 whoami 服务：</p>
+<pre tabindex="0"><code>docker compose up -d
+</code></pre><h2 id="进一步解释-traefik-的自动发现"><a class="anchor" href="#%e8%bf%9b%e4%b8%80%e6%ad%a5%e8%a7%a3%e9%87%8a-traefik-%e7%9a%84%e8%87%aa%e5%8a%a8%e5%8f%91%e7%8e%b0">进一步解释 Traefik 的自动发现</a></h2>
+<p>现在我们能够通过 https://whoami.mwum.com/ 使用 HTTPS 方式访问到 whoami 服务了。</p>
+<p>可以看到我们在 Traefik 的配置中并没有任何和 whoami 相关的内容，这在传统的反向代理工具中是不可思议的。在 Docker 中我们是通过 label 的方式去实现的，通过给 whoami 服务添加 label 来告诉 Traefik 是否代理服务，host 是什么，如何路由，使用哪个证书解析器等，且 Traefik 能够自动发现 whoami 服务。</p>
+<p>另外你可能会好奇我们没有在 whoami 中配置暴露什么端口，Traefik 是如何知道的呢？</p>
+<p>我们对 whoami 服务运行如下命令可以看到：</p>
+<pre tabindex="0"><code>$ docker compose ps
+     Name         Command   State   Ports
+------------------------------------------
+whoami_whoami_1   /whoami   Up      80/tcp
+</code></pre><p>whoami 没有对外暴露任何端口，只是在容器内暴露了 80 端口，我们在 Traefik 中也没有配置要监听 whoami 服务的什么端口，但是 Traefik 默认会自动读取 whoami 服务的 <code>EXPOSE</code> 端口，作为目标服务的后端地址。</p>
+
+    </div>
+  </div>
+
+  <div class="quiet-link">
+      <span>上一篇：</span><a href="/pegasus-frontend-android-guide/">Pegasus Frontend 配置教程：Android 平台从下载到游戏管理的完整指南</a><br>
+      <span>下一篇：</span>未来篇章，等你穿越重逢
+  </div>
+
+</article>
+
+<br>
+  <div id="remark42"></div>
+  <script>
+    var remark_config = {
+      host: 'https:\/\/comments.mwum.com',
+      site_id: 'mwum',
+      locale: 'zh',
+      no_footer: true,
+    }
+  </script>
+  <script>!function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);</script>
+
+
+  </div>
+</div>
+
+<footer class="site-footer">
+
+  <div class="wrapper">
+    <div class="footer-content">
+      <p>
+        <span class="no-palm">本站采用 <a rel="license" href="//creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可<br></span>
+        <span>©2013-2025 <a href="https://www.mwum.com/">明无梦</a></span>
+        <span class="no-palm">| </span>
+        <span>Powered by <a href="//gohugo.io/">Hugo</a></span>
+        <span class="no-palm">| </span>
+        <span>Hosted by <a href="//pages.cloudflare.com/">Cloudflare</a></span>
+        <span class="no-palm">| </span>
+        <span>Designed by <a href="https://www.mwum.com/">明无梦</a></span>
+        <span class="no-laptop"><a rel="license" href="//creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a></span>
+      </p>
+    </div>
+
+  </div>
+
+</footer>
+
+
+</body>
+
+</html>
