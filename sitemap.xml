@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://www.mwum.com/rg40xx-v-rocknix-installation-and-usage-notes/</loc>
+    <lastmod>2025-08-17T17:37:06+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://www.mwum.com/en/rg40xx-v-rocknix-installation-and-usage-notes/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://www.mwum.com/rg40xx-v-rocknix-installation-and-usage-notes/"
+                />
+  </url>
+  <url>
     <loc>https://www.mwum.com/traefik-auto-https-docker/</loc>
     <lastmod>2025-07-14T07:53:09+08:00</lastmod>
     <xhtml:link

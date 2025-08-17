@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>RG40XX V: Full ROCKNIX Installation and Usage Notes | mwum</title>
+  <meta name="description" content="I previously wrote about installing different systems on the RG35XX Plus in RG35XX Plus Open-Source Handheld OS Installation Attempts and Usage Guide. At that …">
+  <link rel="canonical" href="https://www.mwum.com/en/rg40xx-v-rocknix-installation-and-usage-notes/">
+      <link rel="alternate" hreflang="zh" href="https://www.mwum.com/rg40xx-v-rocknix-installation-and-usage-notes/">
+      <link rel="alternate" hreflang="en" href="https://www.mwum.com/en/rg40xx-v-rocknix-installation-and-usage-notes/">
+        <link rel="alternate" hreflang="x-default" href="https://www.mwum.com/en/rg40xx-v-rocknix-installation-and-usage-notes/">
+    <link rel="stylesheet" href="/css/style.min.css" crossorigin="anonymous">
+  <script src="/js/bundle.min.js" defer></script>
+
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-XNJSCC1KSF"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-XNJSCC1KSF');
+        }
+      </script>
+</head>
+
+
+<body>
+
+<header class="site-header">
+
+  <div class="wrapper">
+    <a class="site-title" href="/en/">mwum</a>
+
+    <nav class="site-nav">
+      <a class="menu-icon" id="js-nav-menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <a class="menu-icon-activate" id="js-nav-menu-icon-activate">
+        <svg viewBox="0 0 36 15">
+          <path fill="#424242" d="m36,1.484c0,0.82 -0.665,1.484 -1.484,1.484l-33.032,0c-0.819,0.001 -1.484,-0.664 -1.484,-1.484l0,0c0,-0.819 0.665,-1.484 1.484,-1.484l33.032,0c0.82,0 1.484,0.665 1.484,1.484l0,0z"/>
+          <path fill="#424242" d="m36,7.516c0,0.819 -0.665,1.484 -1.484,1.484l-33.032,0c-0.819,0 -1.484,-0.665 -1.484,-1.484l0,0c0,-0.82 0.665,-1.484 1.484,-1.484l33.032,0c0.82,-0.001 1.484,0.664 1.484,1.484l0,0z"/>
+          <path fill="#424242" d="m36,13.516c0,0.819 -0.665,1.484 -1.484,1.484l-33.032,0c-0.819,0 -1.484,-0.665 -1.484,-1.484l0,0c0,-0.82 0.665,-1.484 1.484,-1.484l33.032,0c0.82,-0.001 1.484,0.664 1.484,1.484l0,0z"/>
+        </svg>
+      </a>
+
+      <div class="trigger" id="js-nav-menu-trigger">
+        <a class="page-link" href="/en/archive/">Archives</a>
+        <a class="page-link" href="/en/tags/">Tags</a>
+        <a class="page-link" href="/en/books/">Books</a>
+        <a class="page-link" href="/en/about/">About</a>
+        <a class="page-link" href="/en/rss.xml">RSS</a><a class="page-link" href="/rg40xx-v-rocknix-installation-and-usage-notes/">EN/中</a>
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+<div class="content">
+  <div class="wrapper">
+    
+
+<article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title"><a href="/en/rg40xx-v-rocknix-installation-and-usage-notes/">RG40XX V: Full ROCKNIX Installation and Usage Notes</a></h1>
+    <ul class="post-meta">
+      <li class="published-date">2025-08-17</li>
+        <li> | Tags: </li>
+          <li class="post-tag"><a href="/en/tags/?names=RG40XX%20V#tag-list-display">RG40XX V</a></li>
+          <li class="post-tag"><a href="/en/tags/?names=Open-Source%20Handheld%20Game%20Console#tag-list-display">Open-Source Handheld Game Console</a></li>
+          <li class="post-tag"><a href="/en/tags/?names=ROCKNIX#tag-list-display">ROCKNIX</a></li>
+          <li class="post-tag"><a href="/en/tags/?names=EmulationStation#tag-list-display">EmulationStation</a></li>
+    </ul>
+  </header>
+
+  <div itemscope itemtype="http://schema.org/Article">
+    <div class="post-content" itemprop="articleBody">
+        <div id="post-toc" class="toc"></div>
+      <p>I previously wrote about installing different systems on the RG35XX Plus in <a href="
+
+
+
+
+
+
+  
+  
+    
+      /en/rg35xx-plus-open-source-handheld-os-installation-and-usage-guide/
+    
+  
+
+">RG35XX Plus Open-Source Handheld OS Installation Attempts and Usage Guide</a>. At that time, <a href="https://rocknix.org/">ROCKNIX</a> didn&rsquo;t support the RG35XX Plus. I&rsquo;ve now bought a new device, the RG40XX V, so let&rsquo;s install ROCKNIX and have some fun.</p>
+<h2 id="installing-rocknix"><a class="anchor" href="#installing-rocknix">Installing ROCKNIX</a></h2>
+<ol>
+<li>
+<p>Download the system image: <a href="https://github.com/ROCKNIX/distribution/releases/tag/20250517">https://github.com/ROCKNIX/distribution/releases/tag/20250517</a>.<br>
+Since this is an RG40XX V device, download <code>ROCKNIX-H700.aarch64-20250517.img.gz</code> (images differ by device)</p>
+</li>
+<li>
+<p>Flash the image to an SD card. I&rsquo;ll use <a href="https://etcher.balena.io/">Etcher</a> (other tools like <a href="https://rufus.ie/">Rufus</a> or the <code>dd</code> command work too)<br>
+<div class="img-row" style="--num-cols: 2;">
+       
+       <img src="/rg40xx-v-rocknix-installation-and-usage-notes/etcher-select.webp" alt="etcher-select">
+       
+       <img src="/rg40xx-v-rocknix-installation-and-usage-notes/etcher-flashing.webp" alt="etcher-flashing">
+   </div>
+</p>
+</li>
+<li>
+<p>If your device is from the H700 series (my RG40XX V is), there is one extra step. Because hardware differs between models in this series, you must manually select the correct device tree file:</p>
+<ol>
+<li>In the SD card&rsquo;s root directory, open the <code>device_trees</code> folder and find the device tree file for your device. For the RG40XX V, use <code>sun50i-h700-anbernic-rg40xx-v.dtb</code></li>
+<li>Copy this file to the SD card&rsquo;s root directory and rename it to <code>dtb.img</code> (all lowercase)</li>
+</ol>
+</li>
+<li>
+<p>Eject the SD card, insert it into the powered-off device, then power it on</p>
+</li>
+<li>
+<p>The installation is quick — a bit over two minutes in my case<br>
+<img src="/rg40xx-v-rocknix-installation-and-usage-notes/rocknix-homepage-nintendo.webp" alt="rocknix-homepage-nintendo"></p>
+</li>
+</ol>
+<h2 id="usage-notes"><a class="anchor" href="#usage-notes">Usage Notes</a></h2>
+<p>These notes are based on the <a href="https://github.com/ROCKNIX/distribution-nightly/releases/tag/nightly-20250815">nightly-20250815</a> testing build rather than the 20250517 stable release. The stable image has a few issues on the RG40XX V (for example, it doesn&rsquo;t support HDMI output), while the nightly does. I need HDMI for some screenshots, so the nightly was more convenient.</p>
+<p>The official docs are already very thorough — for example, <a href="https://rocknix.org/play/add-games/">how to add games</a>, <a href="https://rocknix.org/configure/networking/">networking</a>, <a href="https://rocknix.org/configure/cloud-sync/">cloud sync</a>, <a href="https://rocknix.org/devices/anbernic/rg40xx-v/">RG40XX V specifics (like hotkeys)</a>, etc. This post just jots down a few items I might forget, things that aren&rsquo;t super obvious, or special cases.</p>
+<h3 id="ssh--samba"><a class="anchor" href="#ssh--samba">SSH &amp; Samba</a></h3>
+<p>SSH is enabled by default. You can log in with <code>ssh root@&lt;device_ip_address&gt;</code> and the password is <code>rocknix</code>.</p>
+<p>Samba is also enabled by default. Connect via <code>smb://&lt;device_ip_address&gt;</code>; no username or password is required — anonymous login works.</p>
+<h3 id="hdmi"><a class="anchor" href="#hdmi">HDMI</a></h3>
+<p>The official docs note that some devices behave better if you plug in the display before powering on, rather than after.</p>
+<p>There is no HDMI section in the system settings UI, but if you want to configure things like output resolution, the official docs provide a <a href="https://rocknix.org/configure/hdmi/">method</a>:</p>
+<ul>
+<li>Create an autostart script:
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">mkdir /storage/.config/autostart
+</span></span><span class="line"><span class="cl">vim /storage/.config/autostart/090-sway-hdmi-resolution
+</span></span></code></pre></div></li>
+<li>File contents:
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="nb">echo</span> <span class="s2">&#34;output HDMI-A-1 resolution 1280x720&#34;</span> &gt;&gt; /storage/.config/sway/config
+</span></span></code></pre></div></li>
+<li>Make it executable:
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">chmod +x /storage/.config/autostart/090-sway-hdmi-resolution
+</span></span></code></pre></div></li>
+</ul>
+<h3 id="emulationstation"><a class="anchor" href="#emulationstation">EmulationStation</a></h3>
+<p>The ROCKNIX front-end UI is based on the Batocera EmulationStation fork <a href="https://github.com/ROCKNIX/emulationstation-next">EmulationStation NEXT</a>, customized and maintained by ROCKNIX.</p>
+<h3 id="why-isnt-the-platform-i-want-visible-on-the-home-screen"><a class="anchor" href="#why-isnt-the-platform-i-want-visible-on-the-home-screen">Why Isn’t the Platform I Want Visible on the Home Screen?</a></h3>
+<p>Right after first boot, only PICO-8 and ScummVM are visible.<br>
+<img src="/rg40xx-v-rocknix-installation-and-usage-notes/rocknix-navigation-bar.webp" alt="rocknix-navigation-bar"></p>
+<p>EmulationStation scans the paths defined in <code>/storage/.emulationstation/es_systems.cfg</code>. If a platform&rsquo;s scan results are empty, that system won&rsquo;t appear on the home list. For example, here&rsquo;s a snippet from the config for NES:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;system&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;name&gt;</span>nes<span class="nt">&lt;/name&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;fullname&gt;</span>Nintendo Entertainment System<span class="nt">&lt;/fullname&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;manufacturer&gt;</span>Nintendo<span class="nt">&lt;/manufacturer&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;release&gt;</span>1985<span class="nt">&lt;/release&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;hardware&gt;</span>console<span class="nt">&lt;/hardware&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;path&gt;</span>/storage/roms/nes<span class="nt">&lt;/path&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;extension&gt;</span>.nes .unif .unf .zip .7z<span class="nt">&lt;/extension&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;command&gt;</span>/usr/bin/runemu.sh %ROM% -P%SYSTEM% --core=%CORE% --emulator=%EMULATOR% --controllers=&#34;%CONTROLLERSCONFIG%&#34;<span class="nt">&lt;/command&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;platform&gt;</span>nes<span class="nt">&lt;/platform&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;theme&gt;</span>nes<span class="nt">&lt;/theme&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;emulators&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;emulator</span> <span class="na">name=</span><span class="s">&#34;retroarch&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;cores&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;core</span> <span class="na">default=</span><span class="s">&#34;true&#34;</span><span class="nt">&gt;</span>nestopia<span class="nt">&lt;/core&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;core&gt;</span>fceumm<span class="nt">&lt;/core&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;core&gt;</span>quicknes<span class="nt">&lt;/core&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;core&gt;</span>mesen<span class="nt">&lt;/core&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;/cores&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/emulator&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;emulator</span> <span class="na">name=</span><span class="s">&#34;mednafen&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;cores&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;core&gt;</span>nes<span class="nt">&lt;/core&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;/cores&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/emulator&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/emulators&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/system&gt;</span>
+</span></span></code></pre></div><p>If you place valid ROMs under <code>/storage/roms/nes</code>, the NES platform will appear on the home screen.</p>
+<div class="img-row-gap" style="--num-cols: 2;">
+    
+    <img src="/rg40xx-v-rocknix-installation-and-usage-notes/rocknix-homepage-nintendo.webp" alt="rocknix-homepage-nintendo">
+    
+    <img src="/rg40xx-v-rocknix-installation-and-usage-notes/rocknix-navigation-bar-with-nintendo.webp" alt="rocknix-navigation-bar-with-nintendo">
+</div>
+
+<h3 id="manually-adding-game-metadata"><a class="anchor" href="#manually-adding-game-metadata">Manually Adding Game Metadata</a></h3>
+<p>ROCKNIX can pull game metadata from <a href="https://screenscraper.fr/">ScreenScraper</a> — things like cover art and release dates. If scraping fails, you can add metadata manually.</p>
+<p>As an example, let&rsquo;s add a NES game called &ldquo;爆笑三国&rdquo; (this is a Chinese game title). Put the ROM <code>爆笑三国.zip</code> under <code>/storage/roms/nes</code>, then add two asset files <code>boxfront.jpg</code> and <code>logo.png</code>. Your folder structure should look like this:</p>
+<pre tabindex="0"><code>/storage/roms/nes
+|-- assets
+|   `-- 爆笑三国
+|       |-- boxfront.jpg
+|       `-- logo.png
+|-- gamelist.xml
+`-- 爆笑三国.zip
+</code></pre><p><code>gamelist.xml</code> is the metadata file used by EmulationStation. Here&rsquo;s an example (you can add more fields like rating, players, etc.):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34;?&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;gameList&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;game&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;path&gt;</span>./爆笑三国.zip<span class="nt">&lt;/path&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;name&gt;</span>爆笑三国<span class="nt">&lt;/name&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;developer&gt;</span>外星科技<span class="nt">&lt;/developer&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;releasedate&gt;</span>19830701T000000<span class="nt">&lt;/releasedate&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;desc&gt;</span>《爆笑三国》是由外星科技开发的一款以三国历史为背景的战棋类游戏，发行于 FC（红白机）平台。游戏采用幽默诙谐的风格，重新演绎三国历史，增添了许多搞笑元素。玩家将扮演刘备、关羽、张飞等知名武将，体验丰富多样的职业系统和转职机制。游戏中包含多种职业，如步兵、骑兵、弓兵和文官等，每个职业都有独特的技能和转职路线，增加了游戏的策略深度和可玩性。此外，游戏还原了诸多经典的三国战役，并通过搞笑的剧情对白，为玩家带来轻松愉快的游戏体验。凭借其独特的风格和丰富的玩法，《爆笑三国》在众多 FC 游戏中脱颖而出，成为玩家们津津乐道的经典之作。<span class="nt">&lt;/desc&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;image&gt;</span>./assets/爆笑三国/boxfront.jpg<span class="nt">&lt;/image&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;marquee&gt;</span>./assets/爆笑三国/logo.png<span class="nt">&lt;/marquee&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/game&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/gameList&gt;</span>
+</span></span></code></pre></div><p>Below: left is before adding metadata; right is after.</p>
+<div class="img-row-gap" style="--num-cols: 2;">
+    
+    <img src="/rg40xx-v-rocknix-installation-and-usage-notes/rocknix-nintendo.webp" alt="rocknix-nintendo">
+    
+    <img src="/rg40xx-v-rocknix-installation-and-usage-notes/rocknix-nintendo-meta-ok.webp" alt="rocknix-nintendo-meta-ok">
+</div>
+
+
+    </div>
+  </div>
+
+  <div class="quiet-link">
+      <span>Previous: </span><a href="/en/traefik-auto-https-docker/">Traefik in Practice: Automatically Provision HTTPS Certificates and Proxy Docker Services</a><br>
+      <span>Next: </span>Future chapters, waiting for you to traverse and meet again
+  </div>
+
+</article>
+
+<br>
+  <div id="remark42"></div>
+  <script>
+    var remark_config = {
+      host: 'https:\/\/comments.mwum.com',
+      site_id: 'mwum',
+      locale: 'en',
+      no_footer: true,
+    }
+  </script>
+  <script>!function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);</script>
+
+
+  </div>
+</div>
+
+<footer class="site-footer">
+
+  <div class="wrapper">
+    <div class="footer-content">
+      <p>
+        <span class="no-palm">This site is licensed under <a rel="license" href="//creativecommons.org/licenses/by-sa/4.0/">Attribution-ShareAlike 4.0 International</a> <br></span>
+        <span>©2013-2025 <a href="https://www.mwum.com/en/">mwum</a></span>
+        <span class="no-palm">| </span>
+        <span>Powered by <a href="//gohugo.io/">Hugo</a></span>
+        <span class="no-palm">| </span>
+        <span>Hosted by <a href="//pages.cloudflare.com/">Cloudflare</a></span>
+        <span class="no-palm">| </span>
+        <span>Designed by <a href="https://www.mwum.com/en/">mwum</a></span>
+        <span class="no-laptop"><a rel="license" href="//creativecommons.org/licenses/by-sa/4.0/">Attribution-ShareAlike 4.0 International</a></span>
+      </p>
+    </div>
+
+  </div>
+
+</footer>
+
+
+</body>
+
+</html>
